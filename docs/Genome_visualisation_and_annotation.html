@@ -311,6 +311,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">Transcritomics An Introduction</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./RNAseq_processing.html" class="sidebar-item-text sidebar-link">RNAseq Processing</a>
   </div>
 </li>
@@ -367,6 +372,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#workshop-3" id="toc-workshop-3" class="nav-link" data-scroll-target="#workshop-3">Workshop</a>
   <ul class="collapse">
   <li><a href="#prokka-1" id="toc-prokka-1" class="nav-link" data-scroll-target="#prokka-1">Prokka</a></li>
+  </ul></li>
+  <li><a href="#prokka-loop" id="toc-prokka-loop" class="nav-link" data-scroll-target="#prokka-loop">Prokka Loop</a>
+  <ul class="collapse">
   <li><a href="#barrnap---basic-rapid-ribosomal-rna-predictor" id="toc-barrnap---basic-rapid-ribosomal-rna-predictor" class="nav-link" data-scroll-target="#barrnap---basic-rapid-ribosomal-rna-predictor">BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR</a></li>
   </ul></li>
   </ul></li>
@@ -378,6 +386,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#extract-largest-contig" id="toc-extract-largest-contig" class="nav-link" data-scroll-target="#extract-largest-contig">Extract largest contig</a></li>
   <li><a href="#annotate-with-mitos2" id="toc-annotate-with-mitos2" class="nav-link" data-scroll-target="#annotate-with-mitos2">Annotate with MITOS2</a></li>
+  </ul></li>
+  <li><a href="#worked-mitoss-loop-example" id="toc-worked-mitoss-loop-example" class="nav-link" data-scroll-target="#worked-mitoss-loop-example">Worked Mitoss Loop example</a>
+  <ul class="collapse">
   <li><a href="#extract-fasta-sequence-for-genes-in-bed-file" id="toc-extract-fasta-sequence-for-genes-in-bed-file" class="nav-link" data-scroll-target="#extract-fasta-sequence-for-genes-in-bed-file">Extract Fasta sequence for genes in Bed file</a></li>
   </ul></li>
   </ul></li>
@@ -399,6 +410,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=35fe879e-58e9-4141-a49a-af630098dee1&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+<p><a href="https://tinyurl.com/5d4kdk49">Genome Visualisation Powerpoint</a></p>
 <section id="requirements" class="level1">
 <h1>Requirements</h1>
 <section id="data" class="level2">
@@ -439,6 +453,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://www.sanger.ac.uk/tool/artemis/">Artemis</a></p>
 <p><strong><em>This can be installed locally <a href="http://sanger-pathogens.github.io/Artemis/">local install instructions</a> Warning this can take time please do not do it during teaching session.</em></strong></p>
 <p>If you are installing Artemis on a Mac you will need to first install Java Java SE 15.0.2 which can be downloaded from <a href="https://www.techspot.com/downloads/5552-java-15-jdk.html">TechSpot</a>. Then you can Install <a href="http://sanger-pathogens.github.io/Artemis/Artemis/">Artemis Software dm</a>.</p>
+<p>Additional sanger center traning material can be downloaded using the following link - <a href="https://tinyurl.com/4dzbj9nk">Sanger center traning</a></p>
 <p>We are going to use Artemis using the VNC access to your Linux desktop - go to https://sponsa.bios.cf.ac.uk/guacamole/ and login using your university credentials.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -598,7 +613,7 @@ Excersise Minimap
 </section>
 <section id="software-4" class="level2">
 <h2 class="anchored" data-anchor-id="software-4">Software</h2>
-<p>[PROKKA git hub site](https://github.com/tseemann/prokka)</p>
+<p><a href="https://github.com/tseemann/prokka">PROKKA git hub site</a></p>
 <pre><code>module load prooka</code></pre>
 <p><strong><em>check installed version with <code>module avail</code></em></strong></p>
 </section>
@@ -625,6 +640,11 @@ prokka --outdir mydir --prefix mygenome contigs.fa</code></pre>
 
 prokka --outdir prokka --kingdom Mitochondria --gcode 2 assembly/contigs.fasta</code></pre>
 </section>
+</section>
+<section id="prokka-loop" class="level2">
+<h2 class="anchored" data-anchor-id="prokka-loop">Prokka Loop</h2>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=4fb71dc3-818c-4317-ab92-af6a0141efbd&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
 <section id="barrnap---basic-rapid-ribosomal-rna-predictor" class="level3">
 <h3 class="anchored" data-anchor-id="barrnap---basic-rapid-ribosomal-rna-predictor">BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR</h3>
 <p>[BARNAP Github](https://github.com/tseemann/barrnap)</p>
@@ -741,6 +761,11 @@ Barnap exercises
 <span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload mitos/2.0.4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+</section>
+<section id="worked-mitoss-loop-example" class="level2">
+<h2 class="anchored" data-anchor-id="worked-mitoss-loop-example">Worked Mitoss Loop example</h2>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=257ce45d-7a81-4c25-91b8-af6a01422c39&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
 <section id="extract-fasta-sequence-for-genes-in-bed-file" class="level3">
 <h3 class="anchored" data-anchor-id="extract-fasta-sequence-for-genes-in-bed-file">Extract Fasta sequence for genes in Bed file</h3>
 <p>You can extract the fasta sequence for the genes in the bed file using bedtools getfasta:</p>

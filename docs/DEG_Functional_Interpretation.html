@@ -249,6 +249,11 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">Transcritomics An Introduction</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./RNAseq_processing.html" class="sidebar-item-text sidebar-link">RNAseq Processing</a>
   </div>
 </li>
@@ -334,6 +339,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<p>Workshop Recording to come</p>
 <section id="workshop-overview" class="level1">
 <h1>Workshop Overview</h1>
 <section id="processing-rnaseq-data" class="level2">
@@ -385,7 +391,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>Go to Geo DataSets: (https://www.ncbi.nlm.nih.gov/gds/)[https://www.ncbi.nlm.nih.gov/gds/]</p>
 <p><img src="images/GEO_DataSets.png" class="img-fluid" alt="GEO_DataSet Search"> <strong><em>GEO_DataSet Search</em></strong></p>
-<p>now select <strong><em><search></search></em></strong></p>
+<p>now select <search></search></p>
 <ol start="2" type="1">
 <li>Refine search to only show ‘DataSets’ and ‘Series’</li>
 </ol>
@@ -398,7 +404,7 @@ ul.task-list li input[type="checkbox"] {
 <p>4A. Compare experiment samples</p>
 <p>Click <strong><em>&lt;Compare 2 sets of sample&gt;</em></strong></p>
 <p>Choose <strong><em>&lt;test e.g.&nbsp;One-tailed t-test (A &gt; B)&gt;</em></strong></p>
-<p>Choose <strong><em><significance level=""></significance></em></strong>_ e.g.&nbsp;0.001</p>
+<p>Choose <significance level="">_ e.g.&nbsp;0.001</significance></p>
 <p>Click on: Step 2: Select which Samples to put in Group A and Group B</p>
 <p><img src="images/group_compare.png" class="img-fluid" alt="Select Groups to Comnpare"> <strong><em>Select Groups to compare</em></strong></p>
 <p>Choose <strong><em>&lt; Query Group A vs B &gt;</em></strong></p>
@@ -488,7 +494,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="review-gene-ontology-enrichment" class="level2">
 <h2 class="anchored" data-anchor-id="review-gene-ontology-enrichment">3. Review Gene Ontology Enrichment</h2>
-<p>Let us consider the functional enrichment using (Gene Ontology)[http://geneontology.org/]. Gene Ontology categorizes gene products using three distinct characteristics - Molecular Function (biochemistry of the product), Cellular Component (where it appears in the cell), and the Biological Processes - see more about these classification by reviewing the (Gene Ontology Overview documentation)[http://geneontology.org/docs/ontology-documentation/]. Although ontologies are hierarchical, they are not a simple classification system, they not only allow for gene products to be involved with multiple processes the relationship between elements in the hierarchy are closely defined. The ontology also allows for classification to be as specific or detailed as knowledge allows ie if a protein is a transporter but what it transports is not known it will be defined by a mid-level term ‘transporter’ but if it is known to transport Zn it will be classified at a ‘Zinc transport’ as well as a ‘transporter’. Enrichment analysis uses fisher exact test (see about) to calculate the enrichment at each of these ‘levels’ - although I usually choose to look at the integrated data summarized under the ’GOTERM_[BP/CC/MF]_DIRECT’.</p>
+<p>Let us consider the functional enrichment using (Gene Ontology)[http://geneontology.org/]. Gene Ontology categorizes gene products using three distinct characteristics - Molecular Function (biochemistry of the product), Cellular Component (where it appears in the cell), and the Biological Processes - see more about these classification by reviewing the (Gene Ontology Overview documentation)[http://geneontology.org/docs/ontology-documentation/]. Although ontologies are hierarchical, they are not a simple classification system, they not only allow for gene products to be involved with multiple processes the relationship between elements in the hierarchy are closely defined. The ontology also allows for classification to be as specific or detailed as knowledge allows ie if a protein is a transporter but what it transports is not known it will be defined by a mid-level term ‘transporter’ but if it is known to transport Zn it will be classified at a ‘Zinc transport’ as well as a ‘transporter’. Enrichment analysis uses fisher exact test (see about) to calculate the enrichment at each of these ‘levels’ - although I usually choose to look at the integrated data summarized under the ‘GOTERM_[BP/CC/MF]_DIRECT’.</p>
 <p>click on the + next too the <strong><em>&lt; Gene_Ontology &gt;</em></strong> category</p>
 <p>Select <strong><em>&lt; Chart &gt;</em></strong> right of the GOTERM_BP_DIRECT</p>
 <p><img src="images/David_BP_enrichment.png" class="img-fluid" alt="BP Enrichment"> <strong><em>BP Enrichment</em></strong></p>
@@ -589,7 +595,7 @@ GO:0006694  3.29E-04</code></pre>
 </section>
 <section id="review-revigo-results" class="level2">
 <h2 class="anchored" data-anchor-id="review-revigo-results">3. Review Revigo Results</h2>
-<p>For each GO term category Revigo will generate a Scatterplot, Table, 3D scatter plot, interactive Graph and Tree Map. <strong><em>Note: at the bottom of each plot there are export options for R and other formats </em></strong>_.</p>
+<p>For each GO term category Revigo will generate a Scatterplot, Table, 3D scatter plot, interactive Graph and Tree Map. <strong><em>Note: at the bottom of each plot there are export options for R and other formats</em></strong> _.</p>
 <p>The most intuitive format is are the Tree Maps (see below) whilst the Scatterplot output table, which include terms like ‘Frequency and Uniqueness’ can be used to create networks in Cytoscape.</p>
 <p><img src="images/Revigo_BP_TreeMap.png" class="img-fluid" alt="Revigo BP TreeMap"> <strong><em>Revigo BP TreeMap</em></strong></p>
 </section>

@@ -12,6 +12,10 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2a1422b-b0e3-4a42-ac71-af630098d97d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+[DEG Analysis Powerpoint](https://tinyurl.com/2xuhh5t4)
+
 # Introduction to Process
 
 RNAseq or transcriptomics is a method for quantifying the expression rate for all genes simultaneously. Analogous to a quantitative PCR of one gene, it comes with its advantages and drawbacks, with special statistical measures developed over years to make the results as accurate as possible.
@@ -35,6 +39,7 @@ Following these three steps, there are an almost infinite number of tools and pa
 # Data
 
 An R script template, and a folder of pre-computed FeatureCounts outputs are at:
+
 ```{bash}
     ~/classdata/Bioinformatics/Day4/RNAseq-Analysis
 ```
@@ -48,7 +53,7 @@ Deletions and alterations to this region has a range of impacts on neuropsychiat
 ::: callout-important
 ## Excercises - Differnetial Gene Analysis
 
-We will be using the script ```'template_script_DESeq2.r'``` provided on the server and github pages.
+We will be using the script `'template_script_DESeq2.r'` provided on the server and github pages.
 
 We will use the server Rstudio to do the analysis.
 

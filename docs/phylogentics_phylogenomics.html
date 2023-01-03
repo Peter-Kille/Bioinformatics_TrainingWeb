@@ -248,6 +248,11 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">Transcritomics An Introduction</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./RNAseq_processing.html" class="sidebar-item-text sidebar-link">RNAseq Processing</a>
   </div>
 </li>
@@ -303,6 +308,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#figtree" id="toc-figtree" class="nav-link" data-scroll-target="#figtree">Figtree</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#walk-throughs" id="toc-walk-throughs" class="nav-link" data-scroll-target="#walk-throughs">Walk throughs</a>
+  <ul class="collapse">
+  <li><a href="#single-gene" id="toc-single-gene" class="nav-link" data-scroll-target="#single-gene">Single Gene</a></li>
+  <li><a href="#whole-genome-snp" id="toc-whole-genome-snp" class="nav-link" data-scroll-target="#whole-genome-snp">Whole Genome SNP</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -312,6 +322,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7996f42d-c454-4329-8235-af630098de06&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+<p><a href="https://tinyurl.com/2jv8jphr">Phylogenetics to phylogenomics Powerpoint</a></p>
+<p><a href="https://goo.gl/BMzU8p">Online Phylogenetic Lecture</a></p>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <section id="exercises-on-constructing-and-interpreting-phylogenies" class="level2">
@@ -437,15 +451,18 @@ module load hmmer/3.3.2</code></pre>
 <li>Navigate to either the <strong>Prokka</strong> annotation output directory or the <strong>Barrnap</strong> output file</li>
 <li>Create a sub-gff file that contains the annotation information of only the 16S rRNA gene</li>
 </ol>
+<!-- -->
 <pre><code>grep "16S" [gff annotation file]  &gt; [subset_16S.gff]</code></pre>
 <ol start="3" type="1">
 <li>Extract the 16S rRNA gene from the mitochondrial genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the <em>-s</em> option.</li>
 </ol>
+<!-- -->
 <pre><code>bedtools getfasta -fi [input fasta file] -bed [subset_gff file] -s &gt; [output 16S file.fasta]</code></pre>
 <ol start="4" type="1">
 <li>Move your extracted 16S rRNA gene sequence into the directory of 16S rRNA reference genes provided.</li>
 <li>Combine all the 16S rRNA gene fasta files into a single multifasta file</li>
 </ol>
+<!-- -->
 <pre><code>cat [*.fasta] &gt; [output multifasta file]</code></pre>
 <p><br></p>
 </section>
@@ -503,9 +520,22 @@ Use prokka to annotate the <em>Bacillus velezensis</em> genomes supplied, and re
 <p>FigTree is designed as a graphical viewer of phylogenetic trees and as a program for producing publication-ready figures.</p>
 <p>Download locally to your laptop: https://github.com/rambaut/figtree/releases / or access through Guacamole graphical user interface</p>
 <p><br></p>
-
-
 </section>
+</section>
+</section>
+<section id="walk-throughs" class="level1">
+<h1>Walk throughs</h1>
+<section id="single-gene" class="level2">
+<h2 class="anchored" data-anchor-id="single-gene">Single Gene</h2>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=f3046618-4e2d-4abc-ba0c-af630098dd8c&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+</section>
+<section id="whole-genome-snp" class="level2">
+<h2 class="anchored" data-anchor-id="whole-genome-snp">Whole Genome SNP</h2>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2cf9c78-0062-496f-bfe0-af630098da10&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+
+
 </section>
 </section>
 

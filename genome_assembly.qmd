@@ -8,93 +8,98 @@ date: today
 affiliation: "Cardiff University"
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3d87d25f-bc34-448a-a65e-af630098e01b&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+[NGS Assembly Powerpoint](https://tinyurl.com/2p88c3er)
 
 # Introduction
-## __Bioinformatic process to assemble a genome__
 
-Below is a walkthrough on the steps necessary to assemble a mitochondrial or bacterial genome. Don’t get lost in the terminal with typing commands meaninglessly, step back and think about the bioinformatic process to get to the end goal.
+## **Bioinformatic process to assemble a genome**
+
+Below is a walkthrough on the steps necessary to assemble a mitochondrial or bacterial genome. Don't get lost in the terminal with typing commands meaninglessly, step back and think about the bioinformatic process to get to the end goal.
 
 <br>
 
-
 ## Quality checking data
-You will often start with __raw sequence__ data in fastq format. You first need to check the quality of the data before proceeding with the assembly, this can be achieved using __Fastqc__.
+
+You will often start with **raw sequence** data in fastq format. You first need to check the quality of the data before proceeding with the assembly, this can be achieved using **Fastqc**.
 
 <br>
 
 ## Triming and adapter removal
-Raw sequence data may still contain fragments of the adapter sequences from the sequencing process; these artificial sequences need to be removed. Low quality bases that may occur toward the end of reads can also be trimmed to improve the overall sequence quality. These steps will be carried out using __Fastp__. After this step you will have __processed reads__.
+
+Raw sequence data may still contain fragments of the adapter sequences from the sequencing process; these artificial sequences need to be removed. Low quality bases that may occur toward the end of reads can also be trimmed to improve the overall sequence quality. These steps will be carried out using **Fastp**. After this step you will have **processed reads**.
 
 <br>
 
 ## Re-assess data quality
-Following adaptor removal and trimming, We need to repeat the quality checking with __Fastqc__, but this time we will use the __processed reads__.
+
+Following adaptor removal and trimming, We need to repeat the quality checking with **Fastqc**, but this time we will use the **processed reads**.
 
 <br>
 
 ## Genome assembly
-We will assembly the processed reads into an assembly using the assembler __Unicycler__.
+
+We will assembly the processed reads into an assembly using the assembler **Unicycler**.
 
 <br>
 
 ## Rename assembly files and copy to new directory
-A big part of bioinformatics is maintaining directory and file organisation. Each mitochondrial genome assembly output by __Unicycler__ will be located in a different folder __but__ have the same generic name: _assembly.fasta_. We need to rename these files to reflect the input data. Compose a loop to __copy and rename__ these files to a new directory.
+
+A big part of bioinformatics is maintaining directory and file organisation. Each mitochondrial genome assembly output by **Unicycler** will be located in a different folder **but** have the same generic name: *assembly.fasta*. We need to rename these files to reflect the input data. Compose a loop to **copy and rename** these files to a new directory.
 
 <br>
- 
+
 ## Assembly statistics
-Once our assembly files have been renamed and copied to a single location, we can analyse them for quality statistics. Use __Quast__ to report useful metrics such as assembly length, GC content, contig number, and N50 value. As the mitochondrial genomes are small and assembly well, there is a bacterial genome assembly __Quast__ output to view in the data directory for this session.
+
+Once our assembly files have been renamed and copied to a single location, we can analyse them for quality statistics. Use **Quast** to report useful metrics such as assembly length, GC content, contig number, and N50 value. As the mitochondrial genomes are small and assembly well, there is a bacterial genome assembly **Quast** output to view in the data directory for this session.
 
 <br>
 
 ## Assembly graph
-One of the files produced by __Unicycler__ is an assembly graph (gfa file extension). This file details the links between contigs that were produced during the assembly and can provide valuable information on the difficult-to-assemble regions of the genome. As the mitochondrial genomes are small and assembly well, there is a bacterial genome assembly graph to visualise with __Bandage__.
 
-
+One of the files produced by **Unicycler** is an assembly graph (gfa file extension). This file details the links between contigs that were produced during the assembly and can provide valuable information on the difficult-to-assemble regions of the genome. As the mitochondrial genomes are small and assembly well, there is a bacterial genome assembly graph to visualise with **Bandage**.
 
 # Data
-## __Sequence data and files available for mitochondrial assembly__
+
+## **Sequence data and files available for mitochondrial assembly**
 
 <br>
 
-+ Each group will have access to a set of __paired fastq reads: R1 and R2 files.__
+-   Each group will have access to a set of **paired fastq reads: R1 and R2 files.**
 
-+ There is also a representative bacterial genome assembly with a graphical assembly file and __quast__ output as an example of a more complicated assembly.
-
-
+-   There is also a representative bacterial genome assembly with a graphical assembly file and **quast** output as an example of a more complicated assembly.
 
 # Tools and Usage
-## __Bioinformatic software and tools__
+
+## **Bioinformatic software and tools**
 
 We will use multiple bioinformatic packages to assemble a genome and provide assembly statistics
 
-tmux – terminal multiplexer\
-Fastqc – Quality control of reads \
-Fastp – adapter removal and trimming tool \
-Unicycler – genome assembler \
-Quast – genome assembly statistics \
+tmux -- terminal multiplexer\
+Fastqc -- Quality control of reads\
+Fastp -- adapter removal and trimming tool\
+Unicycler -- genome assembler\
+Quast -- genome assembly statistics\
 Bandage- view graphical fragment assembly (gfa) files
-
 
 <br>
 
-__Remember that you can access the "help" option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or --help. After using a program, dont forget to unload the module.__
+**Remember that you can access the "help" option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or --help. After using a program, dont forget to unload the module.**
 
 <br>
 
 ## Software usage
 
 ### tmux
+
 tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. If you run a script in the terminal and then close the session/turn off the laptop, the script will be cancelled. To avoid this, we use tmux. This will allow you to run scripts and programs in the terminal, close the terminal/turn off your laptop, and the script will continue to run.
 
-```
-module load tmux/3.2a
-```
+    module load tmux/3.2a
 
 <br>
 
@@ -102,107 +107,97 @@ Basic usage cheatsheet: https://tmuxcheatsheet.com/
 
 Start a new session:
 
-```
-tmux new -s [session name]
-```
+    tmux new -s [session name]
 
 Close a session:
-```
-Ctrl + b, then d
-```
+
+    Ctrl + b, then d
 
 List available sessions:
-```
-tmux list
-```
+
+    tmux list
 
 Re-join an existing session:
-```
-tmux a -t [session name]
-```
+
+    tmux a -t [session name]
 
 Delete a session:
-```
-tmux kill-session -t [session name]
-```
+
+    tmux kill-session -t [session name]
 
 <br>
-
 
 ### Fastqc
+
 A quality control tool for high throughput sequence data.
 
-```
-module load fastqc/0.11.9
-```
+    module load fastqc/0.11.9
 
-<br>
-Basic usage:
+<br> Basic usage:
 
 Create the output directory before running the command.
-```
-fastqc --threads [thread number] [input fastq file] --outdir [output directory]
-```
+
+    fastqc --threads [thread number] [input fastq file] --outdir [output directory]
+
 Check out the html files created for a report of the fastq file read quality
 
 <br>
 
 ### Fastp
+
 A tool designed to provide fast all-in-one preprocessing for FastQ files. This tool is developed in C++ with multithreading supported to afford high performance.
 
-```
-module load fastp/0.20.0
-```
+    module load fastp/0.20.0
 
 <br>
 
-Basic usage:
-Create the output directory before running the command.
-```
-fastp -w [thread number] -i [input fastq R1] -I [input fastq R2] -o [output fastq R1] -O [output fastq R2] -h [trimming_report.html]
-```
-Check out the html report for a summary of the trimming process – the adaptors have already been removed, and reads are high quality so no trimming should have been performed.
+Basic usage: Create the output directory before running the command.
+
+    fastp -w [thread number] -i [input fastq R1] -I [input fastq R2] -o [output fastq R1] -O [output fastq R2] -h [trimming_report.html]
+
+Check out the html report for a summary of the trimming process -- the adaptors have already been removed, and reads are high quality so no trimming should have been performed.
 
 <br>
 
 ### Unicycler
+
 Unicycler is an assembly pipeline for bacterial genomes. It can assemble Illumina-only read sets where it functions as a SPAdes-optimiser.
 
-```
-module load unicycler/v0.5.0
-```
+    module load unicycler/v0.5.0
 
 <br>
 
 Basic usage:
-```
-unicycler -t [thread number] -1 [processed fastq R1] -2 [processed fastq R2] \
--o [output directory]
-```
-Each assembly will be located in a different directory within the parent directory indicated by the _-o_ option
+
+    unicycler -t [thread number] -1 [processed fastq R1] -2 [processed fastq R2] \
+    -o [output directory]
+
+Each assembly will be located in a different directory within the parent directory indicated by the *-o* option
 
 <br>
 
 ### Quast
+
 QUAST stands for QUality ASsessment Tool. It evaluates genome/metagenome assemblies by computing various metrics.
 
-```
-module load quast/5.2.0
-```
+    module load quast/5.2.0
 
 <br>
 
 Basic usage:
-```
-quast.py -t [thread number] -o [output directory] [input fasta file]
-```
-Output directory contains the report in multiple formats. To view the report on the terminal use the __cat__ command which prints the contents of a file to the terminal (don’t forget to navigate to the file first as it’s in a different directory!):
-```
-cat [report.txt]
-```
+
+    quast.py -t [thread number] -o [output directory] [input fasta file]
+
+Output directory contains the report in multiple formats. To view the report on the terminal use the **cat** command which prints the contents of a file to the terminal (don't forget to navigate to the file first as it's in a different directory!):
+
+    cat [report.txt]
 
 <br>
 
 ### Bandage
+
 Bandage is a program for visualising de novo assembly graphs. By displaying connections which are not present in the contigs file, Bandage opens up new possibilities for analysing de novo assemblies. Download to your local laptop from the link: https://rrwick.github.io/Bandage/ or access through Guacamole.
 
+# Worked Example of assembly
+
+<iframe  data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=b0cf9560-8b81-4002-9be1-af6a01361454&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>

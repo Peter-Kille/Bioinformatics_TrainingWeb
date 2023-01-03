@@ -12,6 +12,10 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=35fe879e-58e9-4141-a49a-af630098dee1&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+[Genome Visualisation Powerpoint](https://tinyurl.com/5d4kdk49)
+
 # Requirements
 
 ## Data
@@ -49,6 +53,8 @@ Server command line modules (use command `module avail` to check versions):
 ***This can be installed locally [local install instructions](http://sanger-pathogens.github.io/Artemis/) Warning this can take time please do not do it during teaching session.***
 
 If you are installing Artemis on a Mac you will need to first install Java Java SE 15.0.2 which can be downloaded from [TechSpot](https://www.techspot.com/downloads/5552-java-15-jdk.html). Then you can Install [Artemis Software dm](http://sanger-pathogens.github.io/Artemis/Artemis/).
+
+Additional sanger center traning material can be downloaded using the following link - [Sanger center traning](https://tinyurl.com/4dzbj9nk)
 
 We are going to use Artemis using the VNC access to your Linux desktop - go to https://sponsa.bios.cf.ac.uk/guacamole/ and login using your university credentials.
 
@@ -184,7 +190,7 @@ Overlay the bam file you have generated into your assembly contig using Artemis 
 
 ## Software
 
-\[PROKKA git hub site\](https://github.com/tseemann/prokka)
+[PROKKA git hub site](https://github.com/tseemann/prokka)
 
     module load prooka
 
@@ -221,6 +227,10 @@ A full command for mitochondrial annotation would look like this:
     module load prokka_mambaforge/1.14.6p
 
     prokka --outdir prokka --kingdom Mitochondria --gcode 2 assembly/contigs.fasta
+    
+## Prokka Loop
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=4fb71dc3-818c-4317-ab92-af6a0141efbd&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
 ### BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR
 
@@ -346,6 +356,10 @@ done
 
 module unload mitos/2.0.4
 ```
+
+## Worked Mitoss  Loop example
+
+<iframe  data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=257ce45d-7a81-4c25-91b8-af6a01422c39&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
 ### Extract Fasta sequence for genes in Bed file
 
@@ -495,3 +509,4 @@ You can now open the fasta sequence you have used in the blast with Artemis and 
 
 6.  \[Extension\] You can try repeating this exercise with swisprot and note the differences
 :::
+

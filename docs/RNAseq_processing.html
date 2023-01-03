@@ -248,6 +248,11 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">Transcritomics An Introduction</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./RNAseq_processing.html" class="sidebar-item-text sidebar-link active">RNAseq Processing</a>
   </div>
 </li>
@@ -298,6 +303,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=33753314-378f-47fe-9c2e-af630098dbaf&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+<p><a href="https://cf.sharepoint.com/:p:/t/BigDataTeaching/ERuWEMFBHFxBhmhas2ISPEgB_suG7fDzPfcL7s_wed8WVQ?e=BKZElX">RNAseq Processing Powerpoint</a></p>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>Three main steps are taken to analyse a series of RNAseq fastq sample files (following quality filtering):</p>
@@ -321,8 +329,9 @@ ul.task-list li input[type="checkbox"] {
 <pre><code>~/classdata/Bioinformatics/Day4/ RNAseq-Processing/fastq
 SRR5222797_1.fastq    SRR5222797_2.fastq
 SRR5222798_1.fastq    SRR5222798_2.fastq
-SRR5222799_1.fastq    SRR5222799_2.fastq</code></pre>
-<pre><code>~/classdata/Bioinformatics/STAR/REFS
+SRR5222799_1.fastq    SRR5222799_2.fastq
+
+~/classdata/Bioinformatics/STAR/REFS
 Arabidopsis_thaliana.TAIR10.47.gtf
 Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa</code></pre>
 <p><strong>This folder contains lots of other index files for star to function that you don’t need to touch!</strong> Note: most programs will accept fastq or fastq.gz without any changes however star requires you to include the <code>--readFilesCommand zcat</code> parameter.</p>

@@ -8,7 +8,7 @@ date: today
 affiliation: "Cardiff University"
 ---
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=257ce45d-7a81-4c25-91b8-af6a01422c39&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+[Why Bioinformatics - Powerpoint](https://tinyurl.com/6h79uh7f)
 
 # Bioinformatics Teaching Material
 

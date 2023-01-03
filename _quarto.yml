@@ -32,6 +32,7 @@ website:
           - metabarcoding.qmd
       - section: "Transcriptomics"
         contents:
+          - Transcriptomics_Introduction.qmd
           - RNAseq_processing.qmd
           - DEG_analysis.qmd
           - DEG_Functional_Interpretation.qmd

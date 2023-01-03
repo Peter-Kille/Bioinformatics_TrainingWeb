@@ -12,6 +12,10 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+<iframe  data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d5588ea5-1979-418e-a2fc-af6d00afb225&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+[Metabarcoding Powerpoint](https://tinyurl.com/4bm3fvjm)
+
 This workshop is based heavily on QIIME's own tutorial, [Moving Pictures of the Human Microbiome](https://docs.qiime2.org/2022.8/tutorials/moving-pictures/). I have just modified this tutorial slightly to tailor it to our context and computer system.
 
 # Accessing the data
@@ -191,3 +195,7 @@ Caporaso JG, Lauber CL, Costello EK, Berg-Lyons D, Gonzalez A, Stombaugh J, Knig
 Caporaso, J. G., Lauber, C. L., Walters, W. A., Berg-Lyons, D., Lozupone, C. A., Turnbaugh, P. J., Noah Fierer, N., & Knight, R. (2011). Global patterns of 16S rRNA diversity at a depth of millions of sequences per sample. *Proceedings of the Natural Academy of Sciences* USA 108, 4516--4522. http://doi.org/10.1073/pnas.1000080107
 
 Caporaso, J. G., Lauber, C. L., Walters, W. A., Berg-Lyons, D., Huntley, J., Fierer, N., Owens, S. M., Betley, J., Fraser, L., Bauer, M., Gormley, N., Gilbert, J. A., Smith, G., & Knight, R. (2012). Ultra-high-throughput microbial community analysis on the Illumina HiSeq and MiSeq platforms. *ISME Journal* 6, 1621--1624. http://doi.org/10.1038/ismej.2012.8
+
+## Workshop Run-Through
+
+<iframe  data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e02310ee-3ab6-4f5c-93c4-af6d00cd7cb8&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>

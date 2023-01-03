@@ -14,6 +14,12 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=521336b3-8b52-4fe9-ac21-af630098e103&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
+
+[Introduction to Linux - Powerpoint](https://tinyurl.com/7b8hmhsk)
+
 # Part 1: Introduction to Linux
 
 ## Useful information!

@@ -8,45 +8,52 @@ date: today
 affiliation: "Cardiff University"
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Introduction
-## __Exercises on constructing and interpreting phylogenies__
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7996f42d-c454-4329-8235-af630098de06&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
-Below are three scenarios that require you to process sequence data to produce single gene, core gene, and SNP phylogenies. Remember that we are processing the sequence data to obtain __biological interpretations__. Don't get lost in the terminal with typing commands meaninglessly, step back and think about the bioinformatic process to get to the end goal.
+[Phylogenetics to phylogenomics Powerpoint](https://tinyurl.com/2jv8jphr)
+
+[Online Phylogenetic Lecture](https://goo.gl/BMzU8p)
+
+# Introduction
+
+## **Exercises on constructing and interpreting phylogenies**
+
+Below are three scenarios that require you to process sequence data to produce single gene, core gene, and SNP phylogenies. Remember that we are processing the sequence data to obtain **biological interpretations**. Don't get lost in the terminal with typing commands meaninglessly, step back and think about the bioinformatic process to get to the end goal.
 
 <br>
 
-
 ## Single gene phylogeny: Identify the unknown cetacean
+
 For conservation purposes, you will identify the unknown species of cetacean spotted off the coast of Madagascar. To identify the unknown cetacean and understand its relationship to other cetaceans, you will construct a 16S rRNA gene phylogeny with known representatives.
 
 <br>
 
-1) Use NCBI Genbank or the European Nucleotide Archive online to download the platypus mitochondrial genome and upload to your virtual machine. The platypus genome will function as an outgroup.
-2) Use __Prokka__ or __Barrnap__ to annotate both your assembled mitochondrial genome and the platypus mitochondrial genome, and extract the 16S rRNA gene using __bedtools__
-3) Use __MAFFT__ to create an alignment of 16S rRNA genes that includes 16S rRNA genes from your assembled mitochondrial genome, platypus mitochondrial genome, and the provided reverence 16S rRNA sequences.
-4) Construct a phylogeny with __RAxML-NG__
+1)  Use NCBI Genbank or the European Nucleotide Archive online to download the platypus mitochondrial genome and upload to your virtual machine. The platypus genome will function as an outgroup.
+2)  Use **Prokka** or **Barrnap** to annotate both your assembled mitochondrial genome and the platypus mitochondrial genome, and extract the 16S rRNA gene using **bedtools**
+3)  Use **MAFFT** to create an alignment of 16S rRNA genes that includes 16S rRNA genes from your assembled mitochondrial genome, platypus mitochondrial genome, and the provided reverence 16S rRNA sequences.
+4)  Construct a phylogeny with **RAxML-NG**
 
 <br>
 
-What species is the unknown cetacean? \
+What species is the unknown cetacean?\
 Do you notice any unexpected evolutionary relationships? Elephant, hippopotamus, narwhal?
 
 <br>
 
 ## Core gene phylogeny: Understand the diversity of a bacterial species
-_Bacillus velezensis_ is a known plant growth promoting and biopesticidal bacterium that benefits crops. A collaborator has sequenced multiple strains of this bacterium and asked you to analyse the genomes. You will construct a core gene phylogeny of the genome collection provided to understand the diversity of the species.
+
+*Bacillus velezensis* is a known plant growth promoting and biopesticidal bacterium that benefits crops. A collaborator has sequenced multiple strains of this bacterium and asked you to analyse the genomes. You will construct a core gene phylogeny of the genome collection provided to understand the diversity of the species.
 
 <br>
 
-1) Identify a suitable outgroup for this phylogeny (closely related species) – look back at the lecture to understand outgrouping in core genome phylogenies. Download a suitable genome from NCBI Genbank or the European Nucleotide Archive and upload to your virtual machine.
-2) Annotate the _B. velezensis_ genomes using __Prokka__.
-3) Predict the pangenome and construct a core gene alignment by processing the gff annotation files with __panaroo__.
-4) Construct a phylogeny with __RAxML-NG__.
+1)  Identify a suitable outgroup for this phylogeny (closely related species) -- look back at the lecture to understand outgrouping in core genome phylogenies. Download a suitable genome from NCBI Genbank or the European Nucleotide Archive and upload to your virtual machine.
+2)  Annotate the *B. velezensis* genomes using **Prokka**.
+3)  Predict the pangenome and construct a core gene alignment by processing the gff annotation files with **panaroo**.
+4)  Construct a phylogeny with **RAxML-NG**.
 
 <br>
 
@@ -54,161 +61,149 @@ If you were to repeat this analysis without the designated outgroup, which strai
 
 <br>
 
-## SNP phylogeny: Determine the epidemiological implications of the _Brucella_ infections
-_Brucella_ are bacteria of clinical importance as they have bioterrosism potential due to their low infectious dose and possibility of aerosolisation allowing rapid and wide dispersion. Two cases of brucellosis (disease caused by _Brucella_) have been identified in the USA, and the bacterial isolates sequenced. Construct a SNP-based phylogeny to identify the _Brucella_ species, determine the possible geographical origin of the isolates, and implications for epidemiology.
+## SNP phylogeny: Determine the epidemiological implications of the *Brucella* infections
+
+*Brucella* are bacteria of clinical importance as they have bioterrosism potential due to their low infectious dose and possibility of aerosolisation allowing rapid and wide dispersion. Two cases of brucellosis (disease caused by *Brucella*) have been identified in the USA, and the bacterial isolates sequenced. Construct a SNP-based phylogeny to identify the *Brucella* species, determine the possible geographical origin of the isolates, and implications for epidemiology.
 
 <br>
 
-1) Look at the __characterised__ _Brucella_ sequence data provided. Based on the species present (e.g. _canis_), choose a __different__ closely related species to act as an outgroup and reference. Use NCBI Genbank or the European Nucleotide Archive online to download a suitable outgroup/reference genome and upload to your virtual machine.
-3) Recall from Session2 how we need to process raw sequence data prior to use. Use __Fastqc__ and __Fastp__ to quality check and remove adaptors/trim poor quality bases, respectively.
-2) Use __snippy__ to identify SNPs between the reference/outgroup genome and __both__ your processed unknown samples and processed characterised sequence data - you need to analyse both datasets (characterised and unknown) otherwise your phylogeny will look pretty sparse!
-3) Use __snippy-core__ to create an alignment of SNPs.
-4) Construct a phylogeny with __RAxML-NG__.
+1)  Look at the **characterised** *Brucella* sequence data provided. Based on the species present (e.g. *canis*), choose a **different** closely related species to act as an outgroup and reference. Use NCBI Genbank or the European Nucleotide Archive online to download a suitable outgroup/reference genome and upload to your virtual machine.
+2)  Recall from Session2 how we need to process raw sequence data prior to use. Use **Fastqc** and **Fastp** to quality check and remove adaptors/trim poor quality bases, respectively.
+3)  Use **snippy** to identify SNPs between the reference/outgroup genome and **both** your processed unknown samples and processed characterised sequence data - you need to analyse both datasets (characterised and unknown) otherwise your phylogeny will look pretty sparse!
+4)  Use **snippy-core** to create an alignment of SNPs.
+5)  Construct a phylogeny with **RAxML-NG**.
 
 <br>
 
 What can you infer from the phylogeny? Are the two isolates related? Are they the same species? Do they share a geographical origin? What are the implications for disease control? - check US Centre for Disease Control (CDC) website for guidance: https://www.cdc.gov/brucellosis/pdf/brucellosi-reference-guide.pdf
 
 # Data
-## __Sequence data available for the phylogeny exercises__
 
+## **Sequence data available for the phylogeny exercises**
 
 ### Single Gene Phylogeny
 
-
-+ Your assembled mitochondrial genome from Session2
-+ 16S_rRNA_genes - Directory containing a collection of 16S rRNA genes
+-   Your assembled mitochondrial genome from Session2
+-   16S_rRNA_genes - Directory containing a collection of 16S rRNA genes
 
 <br>
 
 ### Core Gene Phylogeny
 
-
-+ bacillus_genomes - Directory containing assembled genomes of _Bacillus velezensis_ strains
+-   bacillus_genomes - Directory containing assembled genomes of *Bacillus velezensis* strains
 
 <br>
 
 ### SNP Phylogeny
 
-
-+ brucella_sequence_data - Containts a directory of fastq files of characterised _Brucella_ isolates, and group-specific directories of unknown infection isolates
-
-
+-   brucella_sequence_data - Containts a directory of fastq files of characterised *Brucella* isolates, and group-specific directories of unknown infection isolates
 
 # Tools and Usage
-## __Bioinformatic software and tools__
+
+## **Bioinformatic software and tools**
 
 We will use multiple bioinformatic packages to extract and process the sequence data to construct phylogenies
 
-Prokka – genome annotation \
-bedtools – manipulate and extract sequences from fasta files \
-MAFFT – sequence alignment \
-RAxML-NG – construct phylogenies \
-panaroo – pangenome pipeline \
-snippy – identify sequence variants
+Prokka -- genome annotation\
+bedtools -- manipulate and extract sequences from fasta files\
+MAFFT -- sequence alignment\
+RAxML-NG -- construct phylogenies\
+panaroo -- pangenome pipeline\
+snippy -- identify sequence variants
 
 <br>
 
-__Remember that you can access the "help" option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or --help. After using a program, dont forget to unload the module.__
+**Remember that you can access the "help" option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or --help. After using a program, dont forget to unload the module.**
 
 <br>
 
 ## Software usage
 
 ### Prokka
+
 Whole genome annotation is the process of identifying features of interest in a set of genomic DNA sequences, and labelling them with useful information. Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce standards-compliant output files.
 
-```
-module load prokka_mambaforge/1.14.6
-```
+    module load prokka_mambaforge/1.14.6
 
 <br>
 
 Basic usage:
 
-```
-prokka --prefix [output file prefix] --outdir [output directory] --cpus [cpu number] --kingdom Mitochondria [fasta file]
-```
+    prokka --prefix [output file prefix] --outdir [output directory] --cpus [cpu number] --kingdom Mitochondria [fasta file]
 
 Prokka outputs the annotation in multiple formats. Open the gbk and gff files to see their structure. Both are annotation files that indicate the location of genes/proteins, their sequence, and their putative function based on sequence comparisons to databases
 
 <br>
 
 ### Barrnap
+
 BAsic Rapid Ribosomal RNA Predictor. Can be used to annotate rRNA genes in genomes.
 
-```
-module load barrnap/0.8
-module load hmmer/3.3.2
-```
+    module load barrnap/0.8
+    module load hmmer/3.3.2
 
 <br>
 
 Basic usage:
 
-```
-barrnap --kingdom mito --threads [number of cpus] [fasta file] > [output gff annotation file]
-```
+    barrnap --kingdom mito --threads [number of cpus] [fasta file] > [output gff annotation file]
 
 <br>
 
 ### Bedtools
+
 Collectively, the bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF. While each individual tool is designed to do a relatively simple task (e.g., intersect two interval files), quite sophisticated analyses can be conducted by combining multiple bedtools operations on the UNIX command line.
 
-```
-module load bedtools2/2.30.0
-```
+    module load bedtools2/2.30.0
 
 <br>
 
 We can use bedtools to extract gene/protein sequences from annotation files:
 
-1) Navigate to either the __Prokka__ annotation output directory or the __Barrnap__ output file
-2) Create a sub-gff file that contains the annotation information of only the 16S rRNA gene
+1)  Navigate to either the **Prokka** annotation output directory or the **Barrnap** output file
+2)  Create a sub-gff file that contains the annotation information of only the 16S rRNA gene
 
+```{=html}
+<!-- -->
 ```
-grep "16S" [gff annotation file]  > [subset_16S.gff]
-```
+    grep "16S" [gff annotation file]  > [subset_16S.gff]
 
-3) Extract the 16S rRNA gene from the mitochondrial genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the _-s_ option.
+3)  Extract the 16S rRNA gene from the mitochondrial genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the *-s* option.
 
+```{=html}
+<!-- -->
 ```
-bedtools getfasta -fi [input fasta file] -bed [subset_gff file] -s > [output 16S file.fasta]
-```
+    bedtools getfasta -fi [input fasta file] -bed [subset_gff file] -s > [output 16S file.fasta]
 
-4) Move your extracted 16S rRNA gene sequence into the directory of 16S rRNA reference genes provided.
-5) Combine all the 16S rRNA gene fasta files into a single multifasta file
+4)  Move your extracted 16S rRNA gene sequence into the directory of 16S rRNA reference genes provided.
+5)  Combine all the 16S rRNA gene fasta files into a single multifasta file
 
+```{=html}
+<!-- -->
 ```
-cat [*.fasta] > [output multifasta file]
-```
+    cat [*.fasta] > [output multifasta file]
 
 <br>
 
 ### MAFFT
+
 MAFFT is a multiple sequence alignment program for unix-like operating systems.
 
-
-```
-module load mafft/7.481
-```
+    module load mafft/7.481
 
 <br>
 
 Basic usage:
 
-```
-mafft [input multifasta] > [output alignment multifasta]
-```
+    mafft [input multifasta] > [output alignment multifasta]
 
 <br>
 
 ### RAxML-NG
+
 RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.
 
-```
-module load raxml-ng/1.0.2
-```
+    module load raxml-ng/1.0.2
 
 <br>
 
@@ -216,47 +211,39 @@ RAxML-NG outputs files to your current location. Create a directory and run RAxM
 
 Basic usage for nucleotide alignment with GTR model:
 
-```
-raxml-ng-mpi --all --msa [input alignment] --model GTR --bs-tree [bootstrap replicate number e.g. 100] --prefix [prefix for output files] --threads [number of threads/cpus]
-```
+    raxml-ng-mpi --all --msa [input alignment] --model GTR --bs-tree [bootstrap replicate number e.g. 100] --prefix [prefix for output files] --threads [number of threads/cpus]
 
-RAxML-NG produces multiple output files. The file we are interested in has the extension __.support__ \
-Add the extension __.nwk__ to this file to indicate it is a phylogeny.
-
+RAxML-NG produces multiple output files. The file we are interested in has the extension **.support**\
+Add the extension **.nwk** to this file to indicate it is a phylogeny.
 
 <br>
 
 ### panaroo
+
 A Bacterial Pangenome Analysis Pipeline. Predicts core, accessory, and pangenomes. Produces core gene alignments.
 
-```
-module load panaroo/1.3.0
-```
+    module load panaroo/1.3.0
 
 <br>
 
-Panaroo takes annotation files in __.gff__ format to predict pangenomes.\
-Use prokka to annotate the _Bacillus velezensis_ genomes supplied, and remember to change the kingdom flag to bacteria
+Panaroo takes annotation files in **.gff** format to predict pangenomes.\
+Use prokka to annotate the *Bacillus velezensis* genomes supplied, and remember to change the kingdom flag to bacteria
 
 Basic usage:
 
-```
-panaroo -i *gff -o [output directory] -t [number of cpus] --clean-mode sensitive -a core --aligner mafft
-```
+    panaroo -i *gff -o [output directory] -t [number of cpus] --clean-mode sensitive -a core --aligner mafft
 
-Output files of interest include the __summary_statistics.txt__ and __core_gene.aln__ \
+Output files of interest include the **summary_statistics.txt** and **core_gene.aln**\
 
 Check the website for details of all the files produced: https://gtonkinhill.github.io/panaroo/#/gettingstarted/output
 
 <br>
 
-
 ### snippy
+
 A tool to identify variations between a reference genome in fasta format and genome sequence data in read format (fastq)
 
-```
-module load snippy/v4.6.0
-```
+    module load snippy/v4.6.0
 
 <br>
 
@@ -264,27 +251,33 @@ Basic usage:
 
 To identify SNPs for one genome
 
-```
-snippy –outdir [output directory] -ref [reference sequence fasta] -R1 [read 1 fastq file] -R2 [read 2 fastq file] –prefix [prefix for output]
-```
-You will need a loop to call SNPs for multiple genomes
+    snippy –outdir [output directory] -ref [reference sequence fasta] -R1 [read 1 fastq file] -R2 [read 2 fastq file] –prefix [prefix for output]
 
+You will need a loop to call SNPs for multiple genomes
 
 <br>
 
-To produce an alignment from SNPs, navigate to the snippy output directory and run __snippy-core__. The wildcard will extract the necessary SNP data from all the genomes analysed by snippy (directory for each genome in output directory).
+To produce an alignment from SNPs, navigate to the snippy output directory and run **snippy-core**. The wildcard will extract the necessary SNP data from all the genomes analysed by snippy (directory for each genome in output directory).
 
-```
-snippy-core –ref [same reference sequence] –prefix [prefix for output] *
-```
+    snippy-core –ref [same reference sequence] –prefix [prefix for output] *
 
 <br>
 
 ### Figtree
+
 FigTree is designed as a graphical viewer of phylogenetic trees and as a program for producing publication-ready figures.
 
-Download locally to your laptop: https://github.com/rambaut/figtree/releases /
-or access through Guacamole graphical user interface
+Download locally to your laptop: https://github.com/rambaut/figtree/releases / or access through Guacamole graphical user interface
 
 <br>
+
+# Walk throughs
+
+## Single Gene
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=f3046618-4e2d-4abc-ba0c-af630098dd8c&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+## Whole Genome SNP
+
+<iframe  data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2cf9c78-0062-496f-bfe0-af630098da10&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
