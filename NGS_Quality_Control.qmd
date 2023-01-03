@@ -1,0 +1,275 @@
+---
+title-block-style: default
+title-block-banner: darkred
+title: "Session 1 - NGS Quality Control"
+subtitle: "First Steps - making sure your data is good"
+author: "Dr. Sarah Christofides"
+date: today
+affiliation: "Cardiff University"
+---
+
+<body style="background-color:gray99;">
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+
+# Part 2: Working with Quality Control
+
+## FASTA and FASTQ
+
+The two commonest file types for sequencing data are FASTA and FASTQ. (To make life a little more complicated, both have more than one file extension. FASTAs can be .fasta, .fa or .fna; FASTQs can be .fastq or .fq)
+
+A FASTA is a 2-line file format. Each sequence has a header line, which always starts with > and contains an identifier for the sequence. The next line contains the sequence itself. For example, a FASTA file with two sequences in it could look like this:
+
+```
+>Sequence 1 
+
+ACGTGCTTCCGGTTTCAGGGTCA
+
+>Sequence 2
+
+GTACTTAACCTAAACTGGACTAA
+```
+
+A FASTQ is an extension of a FASTA that includes quality scores for each base of the sequence.
+It is a 4-line file format. The first line is still a header, but now begins with @, and the second line is the sequence. The third line is always a single + that separates the sequence from the quality scores on the fourth line. A FASTQ of those same two sequences could look like this:
+
+```
+@Sequence 1 
+ACGTGCTTCCGGTTTCAGGGTCA
++
+R%!JSQA(AD\@ASDIA&ASD&!N
+@Sequence 2
+GTACTTAACCTAAACTGGACTAA
++
+&DJSA)ADFLA9DF5*J34AQBS
+```
+
+## Visualising text files 
+
+There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but do not edit them. Among the most common of these commands are *cat*, *less*, *head* and *tail*.
+
+*less* will show the contents of a file one page at a time and is the default way to read a file. You can use the arrow keys to scroll up and down the page, and typing the letter q causes the program to quit – returning you to your command line prompt. 
+
+*cat* streams the entire contents of a file to your terminal and is thus not that useful for reading long files as the text streams past too quickly to read. It is a very useful facility  for reading files into other programs.
+
+*head* and *tail* show the beginning and end 10 lines of a document, respectively. *head* in particular is useful for taking a quick peek inside a file. You can use the argument -n [number] to change the number of lines displayed. For example, to see the first 20 lines of a file:
+
+```{bash}
+head -n 20 file.txt
+```
+
+Remember these are just for reading the files. If you want to edit them you’ll need a text editor like nano or vi (see below). 
+
+There are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages.
+
+::: callout-important
+## Exercise: looking at text files
+
+1.	Make sure you’re in the Session1 folder that you copied into your local mydata folder
+
+2.	Read the file subsample_Ill1.fasta using the commands cat, less, head and tail.
+
+3.  Using your method of choice, look at Illumina_1.fastq. Can you see the difference?
+
+
+Don’t forget to use tab completion!
+:::
+
+## Pipes
+
+Very often in Linux you want to use the output of one command as the input to the next. This can easily be done using the pipe (|) character. For example, suppose I want to count the number of sequences in a FASTA file. I can do this easily using a combination of the search command *grep* and the word count command *wc*.
+
+```{bash}
+cat myFile.fasta | grep ">" | wc -l
+```
+
+Let's break down what this command is doing. First of all, I access the whole content of myFile.fasta using *cat*. However, rather than dumping it onto the screen I redirect that to become the input to *grep*. I tell *grep* to search for the symbol \> and sift out only the lines which contain that symbol. Because this is a FASTA, I know that can only be the header lines. I then feed this output into the *wc* command, with the option *-l* to count lines rather than words.
+
+### Exercise: using the pipe
+
+1.  Try using the command above to count the number of sequences in subsample_Ill1.fasta.
+
+2.  What happens if you remove *| wc -l* from the end? Do you understand why?
+
+
+Pipes are particularly useful as they allow you to run.... LOOPS!
+
+## Loops
+
+Loops are one of the best things about working on a Linux system. They allow you to write a command once and then run it on any number of files. There are several kinds of loops which all work on the same principles, so we will focus on the *while* loop. Let's look at a simple loop and break it down.
+
+```{bash}
+ls *.fasta | while read file; do wc -l ${file}; done
+```
+
+This starts by listing all the FASTA files in the directory Session1 (remember that \* stands in for anything). Try running 
+
+```{bash}
+ls *.fasta 
+```
+
+just to check you're happy with that.
+
+The next step is to use a pipe. Instead of just listing the FASTA files on the screen, we are going to use that as input for our loop. The loop starts *while read file*. This means that one at a time, every line of that input will take a turn at being substituted for the word 'file' in the command that will follow. You don't have to call it 'file' - it could be banana or profiterole or socks; the only thing that matters is that you use the same word throughout the loop. Whatever word you choose, it becomes something known as a variable: literally, a value that can vary as it stands in for something else. *while read* sets the value of file, and then whenever we want to access its contents we can do so using ${file}.
+
+Having set the loop in progress, a semicolon indicates that next comes the command we want to run for each value of our variable. In this case, I am using *wc -l* to count the total number of lines in the file. Another semicolon followed by 'done' is needed to finish the loop and tell it to go away and run.
+
+::: callout-important
+## Exercise: using loops
+
+1. Try running the loop above in the Session1 directory.
+
+2. Try changing 'file' to something else. Does it work?
+
+3. [Extension] Using what you've learned so far, can you make a loop that will only count the sequence header lines?
+:::
+
+## FastQC
+
+In the pantheon of great bioinformatics software, FastQC has a special place. It's free, simple to use and has been around for ages, and everyone uses it because it's *just so good*. FastQC will take your FASTQ file and produce a nice easy-to-read report about it with loads of information.
+
+To use FastQC on the server, we will first need to load the module. This is the equivalent of starting up a programme on your desktop computer. You can find out what modules are available on the server by typing the command 
+
+```{bash}
+module avail
+```
+
+You should see that the list includes fastqc/0.11.9. To load this module, simply type 
+
+```{bash}
+module load fastqc/0.11.9
+```
+
+Try this out now!
+
+
+As mentioned before, FastQC is very easy to run. At its most basic (without any extra options), you simply type
+
+```{bash}
+fastqc file.fastq
+```
+
+There is one extra option that is useful to include, and that is the -o flag. This stands for 'output' and tells FastQC what directory to put its output files in.
+
+```{bash}
+fastqc -o output_dir file.fastq
+```
+
+::: callout-important
+## Exercise: using FastQC
+
+1. Make a directory called fastqc inside your Session1 folder.
+
+2. Try running FastQC on Illumina_1.fastq, using your fastqc directory for the output.
+
+3. Use *ls* to see what output it has created.
+
+4. Using the MobaX file transfer window or FileZilla, transfer the html file to your desktop and open it.
+
+Reminder: if using FileZilla, the details are:
+
+*	Host: hawker.bios.cf.ac.uk
+* Username: your username
+*	Password: your three word password
+*	Port: Your assigned port number
+
+5. [Extension] Look up the help page using fastqc -h. What other options are available?
+:::
+
+## Running and Reusing Scripts 
+
+So far you have just been typing commands directly into the command line. This is great for exploring directories etc., but now you are starting to do some proper analysis you'll soon find yourself asking questions like
+
+*	what if I want to run this again?
+*	what if I want to check exactly what I did?
+*	what if I want to show someone else what I did?
+
+
+These are excellent questions, and they can all be answered by writing SCRIPTS! If that sounds a bit daunting, a script is simply a text file that you write your commands into. By adding a special line of code called a shebang, the computer can run the commands in this text file as though you had typed them directly onto the command line.
+
+The shebang is simply
+
+```{bash}
+#!/usr/bin/bash
+```
+
+Writing a script will require use of a text editor...
+
+### Using text editors
+
+hawker has a choice of two text editors installed, *vi* and *nano*. Both have their pros and cons. Vi is an extremely powerful text editor and popular with many professionals, as it is installed on almost every Linux system. However, it is also notoriously frustrating to get to grips with. For this reason, you are probably better starting off with nano, which is very easy to use and displays instructions at the bottom of the screen.
+
+A word of warning... Documents written using a word processor such as Microsoft Word or OpenOffice Write are not plain text documents and will not work in either a text editor or if used as a script. We also recommend that you prepare text files for bioinformatics analyses using Linux-based text editors. This is because Windows- or Mac-based text editors may insert hidden characters that are not handled properly by Linux-based programs. There are endless posts on bioinformatics forums bemoaning the problems that arise from this!
+
+::: callout-important
+## Exercise: a simple script
+
+Let's create a file with nano and write a simple script in it. By convention, script files are given the extension .sh rather than .txt
+
+Note that unlike most graphical programmes, where you write a document and then name it at the end, command-line text editors require you to name a file when you create it. 
+
+```{bash}
+nano test_nano.sh
+```
+
+*	type the shebang at the top #!/usr/bin/bash
+*	Type ls on the next line
+*	Exit using ctrl-X, save and return to command line
+*	Now we need to make the file executable (so it can be run as a programme)
+
+```{bash}
+chmod a+x [script name]
+```
+
+this is shorthand for chmod (change modify) a(all)+(add)execute(x) [script name] – thus changing the permission to allow everyone to execute a script.  For a very helpful guide to chmod see https://en.wikipedia.org/wiki/Chmod
+
+Now run the program! 
+
+```{bash}
+./test_nano.sh
+```
+
+What output do you get? It is what you expected?
+:::
+
+## Quality trimming using fastp
+
+Having assessed the quality of our sequence data, the next thing we want to do is clean it up. There are many programmes available for the task, but we will use the one-stop-shop software fastp which has won many friends by being both comprehensive and easy to use. It has an excellent users' guide at https://github.com/OpenGene/fastp.
+
+The main things fastp does is to trim off bad bases and remove leftover adaptor sequences. It automatically identifies the adapters so you don't need to tell it in advance what to look for. 
+
+::: callout-important
+## Exercise: fastp
+
+Create a new file using nano, copy the script below, make it executable and run it! We are going to use the forward and reverse reads for our sample to run fastp in paired-end mode.
+
+Script:
+```{bash}
+#!/usr/bin/bash
+
+module load fastp/0.20.0
+
+fastp -q 20 -i Illumina_1.fastq -I Illumina_2.fastq -o Illumina_1trimmed.fastq -O Illumina_2trimmed.fastq
+``` 
+
+Look up the help page for fastp. What does each of the options given above mean?
+
+Use ls to look at the output. How could the script be improved to make it tidier?
+:::
+
+
+::: callout-important
+## Exercise: checking it worked!
+
+Run FastQC on your trimmed Illumina_1 file and compare it to the original. Can you see the difference?
+:::
+
+## If you have time: putting it all together
+
+In the Session1 directory there is a subdirectory called looping, with five single-end Illumina samples in it. Can you write a script which will use loop over those files to do QC on them, then trim them and re-run the QC? Extra brownie points for keeping the output directories nice and tidy!
+
+# End of session 1.
+## You have earned yourselves cake!

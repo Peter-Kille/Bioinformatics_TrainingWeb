@@ -3,11 +3,38 @@ project:
   output-dir: docs
 
 website:
-  navbar:
-    left:
-      - index.qmd
-      - Personal_Cloud.qmd
-      - about.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Introduction"
+        contents:
+          - index.qmd
+          - Personal_Cloud.qmd
+      - section: "Linux Basics"
+        contents:
+          - Introduction to Linux.qmd
+          - 1_Linux_fundermentals.qmd
+          - Commandline_Tools_and_Scripting.qmd
+      - section: "NGS Quality Control"
+        contents:
+          - NGS_Quality_Control.qmd
+      - section: "Genome Assembly and annotations"
+        contents:
+          - genome_assembly.qmd
+          - hybrid_assemblies.qmd
+          - Genome_visualisation_and_annotation.qmd
+      - section: "Phylogenetics and Phylogenomics"
+        contents:
+          - phylogentics_phylogenomics.qmd
+      - section: "Metabarcoding"
+        contents:
+          - metabarcoding.qmd
+      - section: "Transcriptomics"
+        contents:
+          - RNAseq_processing.qmd
+          - DEG_analysis.qmd
+          - DEG_Functional_Interpretation.qmd
 
 format:
   html:

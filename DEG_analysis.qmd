@@ -1,0 +1,96 @@
+---
+title-block-style: default
+title-block-banner: darkred
+title: "Differential Gene Expression Analysis"
+subtitle: "SarTools for DEG list generation and downstream analysis"
+author: "Prof Peter Kille"
+date: today
+affiliation: "Cardiff University"
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+# Introduction to Process
+
+RNAseq or transcriptomics is a method for quantifying the expression rate for all genes simultaneously. Analogous to a quantitative PCR of one gene, it comes with its advantages and drawbacks, with special statistical measures developed over years to make the results as accurate as possible.
+
+Three main steps are taken to analyse a series of RNAseq fastq sample files (omitting quality filtering steps for now):
+
+## Alignment
+
+STAR -- (Spliced Transcript Alignments to a Reference) is a pseudo-alignment package which functions similarly to standard genome alignments but is designed for short regions of RNA that could span intron-exon junctions and with low compute requirements. STAR outputs a bam format file which contains the locations where all the reads in your dataset have aligned and the genes they cover.
+
+## Counting
+
+FeatureCounts is a simple package that takes the positions of mapped reads and outputs a file quantifying the expression of each gene or exon (based on parameter choices). At this point raw read counts are hard to interpret due to likely different levels of sequencing achieved per sample and methodological biases.
+
+## Differential Gene Analysis
+
+Contrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.
+
+Following these three steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.
+
+# Data
+
+An R script template, and a folder of pre-computed FeatureCounts outputs are at:
+```{bash}
+    ~/classdata/Bioinformatics/Day4/RNAseq-Analysis
+```
+
+A set of nine Human neuronal differential RNAseq samples have been sequenced, consisting of 6x control samples (3x two different individuals) and 3x a deletion mutant of the 1q21.1 cytogenetic region of the human genome, and 3x of a duplication of this region.
+
+Deletions and alterations to this region has a range of impacts on neuropsychiatric disorders and is under active study. See the [omim](https://www.omim.org/entry/612474) and the Wikipedia page is remarkably informative! [1q21.1_deletion_syndrome](https://en.wikipedia.org/wiki/1q21.1_deletion_syndrome).
+
+![1q21.1 cytogenetic region of the human genome](images/Picture1.png){width="50%"}
+
+::: callout-important
+## Excercises - Differnetial Gene Analysis
+
+We will be using the script ```'template_script_DESeq2.r'``` provided on the server and github pages.
+
+We will use the server Rstudio to do the analysis.
+
+1.  Copy either the FeatureCounts/markdup or rmdup, and targets.txt data to your local directory
+
+2.  Inside of Rstudio, edit the sartools script in the fields highlighted with " \* \* \* " for your data
+
+3.  Explore the html report generated and the differentiation of the sample types
+
+4.  Look at the most differentially expressed genes in the outputted tables (excel)
+
+5.  \[extension\] Use the list of \~200 most differentially expressed genes in gProfiler, or other online databases to investigate the functional connotations.
+:::
+
+# Downstream Analysis Packages
+
+## Converting between common gene IDs
+
+-   [biodbnet](https://biodbnet-abcc.ncifcrf.gov/db/db2db.php)
+-   [gprofiler convert](https://biit.cs.ut.ee/gprofiler/convert)
+
+## Whole dataset annotation (and ontologies)
+
+-   [gProfiler](https://biit.cs.ut.ee/gprofiler/)
+-   [KEGG](https://www.genome.jp/kegg/)
+-   NeVOmics
+
+## Interaction Networks
+
+-   [StringDB](https://string-db.org/)
+-   [GOnet](https://tools.dice-database.org/GOnet/)
+-   Cytoscape
+    -   [bingo plugin](http://apps.cytoscape.org/apps/bingo)
+    -   [EnrichmentMap plugin](http://apps.cytoscape.org/apps/enrichmentmap)
+
+## Other visualisation tools
+
+-   [Morpheus](https://software.broadinstitute.org/morpheus/)
+-   [Complex venn](http://www.interactivenn.net/)
+
+## Whole packages
+
+-   [IPA](https://digitalinsights.qiagen.com/products-overview/discovery-insights-portfolio/analysis-and-visualization/qiagen-ipa/)
+-   [Shiny-Seq](https://szenitha.shinyapps.io/shiny-seq3/)
+-   [BeavR](https://github.com/developerpiru/BEAVR#loading-your-data-into-beavr)

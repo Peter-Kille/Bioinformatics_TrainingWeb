@@ -1,12 +1,14 @@
 ---
 title-block-style: default
 title-block-banner: darkred
-title: "Key skills for Big Data Biology and Bioinformatics"
+title: "Introduction to Big Data Biology and Bioinformatics"
 subtitle: "Guide to unlocking your inner bioinformatician"
 author: "Professor Peter Kille"
 date: today
 affiliation: "Cardiff University"
 ---
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=257ce45d-7a81-4c25-91b8-af6a01422c39&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
 # Bioinformatics Teaching Material
 

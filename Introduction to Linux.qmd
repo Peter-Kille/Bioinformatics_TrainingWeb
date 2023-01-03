@@ -1,0 +1,245 @@
+---
+title-block-style: default
+title-block-banner: darkred
+title: "Session 1 - Introduction to Linux"
+subtitle: "All things Linux"
+author: "Dr. Sarah Christofides"
+date: today
+affiliation: "Cardiff University"
+---
+
+<body style="background-color:gray99;">
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+# Part 1: Introduction to Linux
+
+## Useful information!
+
+• You don't need to type the \$ at the beginning of a command. That's a linux convention to indicate a command line
+
+• Always tab-complete! Pressing tab will auto complete a file name or program. If you're writing a file named myFirstSequencingRun.fastq (see the no spaces!) and type just 'myF' and press tab, it will complete it for you which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and **if it won't tab-complete then it doesn't exist**!
+
+-   If you still have a file not found error, do ls to see if you can see it.
+-   If you can't see a file you expect, do pwd and check you're in the right folder.
+-   If a script says "permission denied" make sure:
+-   It has executable permission.
+-   You're not inside the classdata folder!
+-   You always want to be working in the Working Directory. To get there use:
+
+```{bash}
+cd ~/mydata
+```
+
+• Tab-complete is your friend! It'll stop most typos from happening and save you the pain of writing a command for a file that's not there. It's worth re-iterating for the amount of time and pain it will save you.
+
+## Anatomy of a Command
+
+The first item you supply on the command line is interpreted by the system as a command -- something the system should do. Any options for the command, such what file you want the command to work on, or the format for the information that should be returned to you, appear after that on the same line separated by spaces.
+
+Most commands have options available that will alter the way they function. You make use of these options by providing the command with parameters (sometimes called flags), some of which will take arguments.
+
+**Reminder**: Items on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames, as will some symbols. This is important!
+
+### Learning about Linux commands
+
+Most Linux commands have a manual page that provides information about the command and options that can alter its behaviour. Many tasks can be made easier by using command options. Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard.
+
+### Exercise: looking up a man page
+
+Look up the manual information for the ls command by typing the following in a terminal:
+
+```{bash}
+man ls
+```
+
+-   Read through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the b key.
+-   What does the -m option do? What about the -a option? What would running ls -lrt do?
+-   Press the q key when you want to quit reading the man page.
+-   Try running ls using some of the options mentioned above.
+
+Note: Programs rather than core linux commands often have help pages that can be access in the same manner as a linux command manual but using -h or -help (often both will work). Others will default to show you the help page if you run the program with no arguments or have a typo.
+
+## Changing and making directories
+
+The command used to change directories is *cd*
+
+If you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.
+
+To change to a directory one below you are in, just use the cd command followed by the subdirectory name i.e. to move into the 'Downloads' directory inside your current directory, you could use:
+
+```{bash}
+cd Downloads
+```
+
+The shortcut for "the directory you are currently in" is a single full stop ( . ). If you type
+
+```{bash}
+cd .  
+```
+
+nothing will change. Later, when we want to run scripts or copy to the same folder that you are currently in we will use " ./ " to mean "you can find this in the current directory". To change directory to the one above you are in, use the shorthand for "the directory above" which is two full stops:
+
+```{bash}
+cd ..
+```
+
+For example, if you are in 'Downloads', this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, becuase a forward slash indicates the very top of the file tree:
+
+```{bash}
+cd /usr/local/bin
+```
+
+If you wish to return to your home directory at any time, just type cd by itself.
+
+```{bash}
+cd
+```
+
+To make a new directory, use the command *mkdir* and then the directory you want to create
+
+```{bash}
+mkdir brilliantIdeas
+mkdir ~/mydata/brilliantIdeas/InProgress
+```
+
+If you get lost and want to confirm where you are in the directory structure, use the *pwd* command (print working directory). This will return the full path of the directory you are currently in.
+
+Note also that by default you see the name of the current directory you are working in as part of your prompt.
+
+For example, when you first opened the terminal in a live session you should see your username and server, then the prompt:
+
+```{bash}
+[sbi9srj@hawker ~]$
+```
+
+This means I am logged in as the user sbi9srj on the machine named hawker, and in a directory called the character called 'tilde' \~. If you remember, \~ is always a shortcut for your home directory.
+
+All our folders and classdata can be found at:
+
+```{bash}
+/home/[your usename]/classdata/
+```
+
+However, we won't need to remember that as we can use the shortcuts of:
+
+```{bash}
+~/classdata
+~/mydata
+```
+
+::: callout-important
+## Exercises: changing directories
+
+1.  Change directory from your home directory to your working directory ('mydata')
+
+2.  Find the full path to the directory that you are currently in
+
+3.  Create a new directory inside mydata
+
+4.  Move into your new directory.
+
+5.  Move back into mydata.
+:::
+
+## Moving and copying data
+
+A standard format is used to move and copy data:
+
+command source destination
+
+For example, to move a file named RNAseq_1.fastq into a new folder that exists in this directory named exp1:
+
+```{bash}
+mv RNAseq_1.fastq exp1
+```
+
+To move it to a location somewhere else on the server you can use the full path
+
+```{bash}
+mv RNAseq_1.fastq ~/mydata/experiment1
+```
+
+Or alternatively "move" a file from one name to another. This is a common way to rename your files:
+
+```{bash}
+mv RNAseq_1.fastq LRubellus_1.fastq
+```
+
+To copy, use the cp command. You could copy a file from another directory to "here", remembering that a full-stop means "the folder I'm currently in":
+
+```{bash}
+cp ~/classdata/RNAseq_1.fastq  .
+```
+
+Often you'll want to copy a whole folder (directory), and you will need the -r parameter for "recursive".
+
+```{bash}
+cp -r mydata/all_fastqs NewExperiment/testdata/
+```
+
+::: callout-important
+## Exercises: copying files and folders
+
+1.  Use ls to look in the folder named
+
+```{bash}
+~/classdata
+```
+
+and
+
+```{bash}
+~/classdata/Bioinformatics
+```
+
+2.  Copy the file CopyExercise.txt into mydata
+
+3.  Copy the classdata folder named 'Session1' to your mydata folder \[IMPORTANT! You need this for the following exercises!\]
+
+4.  Do ls on mydata. What do you see?
+:::
+
+## Listing files in a directory
+
+The command *ls* lists files in a directory. By default, the command will list the filenames of the files in your current working directory.
+
+If you add a space followed by a --l (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is.
+
+You can also use glob patterns to limit the files you wish to list.
+
+\* an asterisk means any string of characters
+
+? a question mark means a single character
+
+\[ \] square brackets can be used to designate a group of characters
+
+e.g. to list all of blue.txt, banana.txt, baby.txt:
+
+```{bash}
+ls b*.txt
+```
+
+::: callout-important
+## Exercise: listing files
+
+1.  List all the files in the directory Session1 that start with the letters sub
+
+2.  List all the files in your directory that start with sub, and end in fasta
+
+3.  \[Extension\] Do a 'long list' (-l) of these files and see the difference in sizes. Add the 'human readable' parameter/flag (-h) to help read the sizes.
+:::
+
+## Putting it together: creating a mental map of your file system
+
+One of the commonest reasons why students get stuck in bioinformatics exercises is that they have forgotten where there are in the file system. They try to work with files that are in a different directory, panic that things seem to have disappeared, or wonder where exactly that output has ended up! The key to saving yourself much pain lies in developing awareness of how your file structure is laid out, and where you are in it at all times. If something doesn't work, stop and ask yourself: where am I? Where are the files I want to work with?
+
+You can also make life easier for yourself by thinking carefully about giving your directories and files self-explanatory names, and keeping them organised.
+
+As a final exercise in this part of the session, use the commands you have learned so far (particularly *pwd*, *ls* and *cd*) to sketch a map of your mydata folder.
+
+# End of Part 1!
+
+## Do not move on to part 2 until after the second lecture
