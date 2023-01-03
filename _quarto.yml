@@ -1,12 +1,12 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "Bioinformatics_TrainingWeb"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
+      - index.qmd
+      - Personal_Cloud.qmd
       - about.qmd
 
 format:

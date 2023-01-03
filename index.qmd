@@ -1,11 +1,113 @@
 ---
-title: "Bioinformatics_TrainingWeb"
+title-block-style: default
+title-block-banner: darkred
+title: "Key skills for Big Data Biology and Bioinformatics"
+subtitle: "Guide to unlocking your inner bioinformatician"
+author: "Professor Peter Kille"
+date: today
+affiliation: "Cardiff University"
 ---
 
-This is a Quarto website.
+# Bioinformatics Teaching Material
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+The training material provided is aimed at the novice with no experience of HPC or bioinformatics. You could be a biologist who wants to up their bioinformatics skills or a physical scientists (trained in computer science, maths or physics) interested in application your skills to the biological arena - this is where the journey starts.
 
-```{r}
-1 + 1
-```
+Big data is a fact of life for biologists whether they are reconstructing ecosystems from fragments of DNA (eDNA) found in the environment or reconstructing neural systems from MRI scans of brains - all walks of biology are exploiting larger and larger data sets. To access these data sets you will need a new set of skills - ***the time of big data biology is now***.
+
+There is a few piece of advice I would like to share before you get going on what I know will be a challenging but ultimately exciting and productive area of training:
+
+-   ***RTFM: Read The Fxxking Manual***
+
+Sorry for the expletives and starting my advice with an acronym but you will be using very complex software which will (mostly) generate some type of output - you need to know that output is valid and makes sense. By reading the manual and understanding concepts and theory behind what you are doing you will find it not only easier to use the software but also ensure that you results make sense. Most software comes with a 'git hub page', an online guide, a README file, help (accessed via the -h or -help flags) or a manual (man \[command\]). These resources have taken a huge amount of effort to generate - look through them, get to know the options, it will really help.
+
+-   ***Be part of the wider Bioinformatics community***
+
+There is a global bioinformatics community on-line and actively posting in chat rooms. Often the technical problem you are having or error code that has appeared has been seen before and you can find people have posted solution in old threads. You can post questions yourself and when you get more experienced find some time to contribute and help others.
+
+From chat rooms to human conversations with your colleague I have always gained more by contributing than trying to do things on my own. If you have time to develop your knowledge more formally I highly recommend lab exchanges or attending conferences or 'hack-a-thons' - it is fun to meet/learn from the people that develop the amazing code we use (and may be buy them beer to say thank you !!).
+
+-   ***Google is your friend***
+
+No I don't have a preference in search engine (well maybe a little) - but weather your are looking for code, trouble shooting a problem or looking for new software a five minute web search can save you a high amount of time and/or reveal new exciting solutions/software. There are lots of tools on the internet that can help you with coding from utube videos to AI chat bots like [Chatgpt](https://openai.com/blog/chatgpt/). These are all part of the solution - find what works for you but always try and understand what you are doing.
+
+-   ***Solving problems is fun but do not forget the question***
+
+The coding and problem solving aspects of bioinformatics can be really seductive and fun (or frustrating and exasperating) and can drawn you in so all you are focused on is solving a gnarly problem with your code or writing a complex workflow. DO NOT FORGET the question you started with !!
+
+It often helps to step back (I have a coffee) get some perspective - think about what you are trying to achieve, you could find a new way forward or find what you are doing is not need. Mostly the code is there of address a biological question - target your analysis to ensure it addressing the answers you seek.
+
+Any beyond all - have some fun doing science !!
+
+# Course Handbooks
+
+This training material, or elements of it, are used across a number of courses. The specific handbooks for these course are provided below. However, if you have been directed to these web pages because you are interested in developing your Bioinformatics skills or come come across them by chance you should be able to follow the exercises independently without reference to the handbooks given below.
+
+[Cardiff University integrated masters course BI3008 2022](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/0_HPC_Personal_cloud/BioinfHandbook2223_BI3008.html)
+
+# [Bioinformatics Road-Map](https://prezi.com/view/PJXGFaOeSh7r9EsmBCD1/)
+
+Different people learn in different ways and sometimes it is good to see a wider perspective of where the concept or challenge you are facing fits into the wide field. To aid this I have generated a interactive course guide using a tool call 'prezi'. This is just one way you can navigate the material - it may not work for you or it may be the life-line that helps you navigate your way through !! You can view the course from an overview perspective then click on the relevant element and zoom in to see additional resources.
+
+[![Prezi Overview](images/Prezi_Overview-01.png){fig-alt="Prezi Overview" fig-align="center"}](https://prezi.com/view/PJXGFaOeSh7r9EsmBCD1/)
+
+When you are zoomed in the resources appear in color coded spheres - red are lectures, purples are workshop materials and light green web-resources. If you click again you will zoom in to see specific links to the relevant training material.
+
+![Prezi Zooming In for Resources and Links](images/Prezi_zoom.png){fig-alt="Prezi Zooming In for Resources and Links" fig-align="center"}
+
+# Course components
+
+## [Basics of HPC and HPC vs Personal Cloud provision](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/0_HPC_Personal_cloud/Personal_Cloud.html)
+
+This element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to login in to the research platforms at Cardiff School of Biosciences. If you are research at Cardiff wanting to gain access to HPC please contact our (Biocompute team)\[http://hpc.bios.cf.ac.uk/contacts/\] and join the bioinformatics teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google .... many of these provide limited free options which can help you to learn.
+
+## Linux The basics
+
+This introduces you to the command line - yes no clicking on icons it is all about writing commands !!
+
+[Introduction Linux](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/1_Linux_NGS_Data_and_QC/Session1_Part1_Linux.html)
+
+This represent a rapid run through of the basics you need to get going on the commandline - lots of useful information and some basic exercises - copying / moving and learning about your linux environment this workshop is designed to get you start quickly.
+
+[Linux the fundementals](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/1_Linux_NGS_Data_and_QC/1_Linux_fundermentals.html)
+
+This session places more detail about the linux basic covering navigating around your linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect), how to preview files (less/cat/head/tail) and how to edit file (we use Nano but look into Vi).
+
+[Commandline Tools and Scripting](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/1_Linux_NGS_Data_and_QC/Commandline_Tools_and_Scripting.html)
+
+From more ways to visualize text file, query file with grep, using editors, running scripts and loops this material provides some more exercises to develop your skills.
+
+## [An Introduction to NGS Data and Quality Control](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/1_Linux_NGS_Data_and_QC/Session1_Part2_QC.html)
+
+Most of our training material does focus on bioinformatics application in the area of genomics. The section introduces the fundamental concepts of Next Generation Sequencing (NGS) and the basic file types (fasta / fastq) and approaches to quality control (evaluation) and initial data processing.
+
+## [Genome Assembly](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/2_Genome_Assembly/Genome_assembly.html)
+
+Approaches to Genome assembly vary hugely depending on what your are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations and short and long read data.
+
+## [Genome Annotation and Visualisation](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/3_Genome_Annotation_and_Visualisation/Genome_visualisation_and_annotation.html)
+
+A genome or transcript assembly means little until you overlay it with biological information. Here we introduce to to both generate that biological information as well as visualize the results. We primarily use Artemis (Sanger centre) but also introduce Integrated Genome Viewer (IGV) from the (Broad Institute)
+
+## [Phylogenomics and Phylogenomics](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/4_Phylogenetics_and_Phylogenomics/Phylogenetics.html)
+
+The taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual.
+
+## Transcriptomics
+
+The has been divided into three workshops each targeted at different aspects of the process.
+
+[RNAseq Data Processing](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/5_Transcriptomics/RNASeqAnalysisExcerises.html)
+
+Transcriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to counts given and known and annotated genome. We include approaches to identify and evaluate technical duplication - be aware this may not be relevant to your analytical approach.
+
+[Generation of Differnential Gene DEG Lists](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/5_Transcriptomics/Differential_Gene_Expression_Analysis.html)
+
+Performing quality control and provisional data visualization (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use [SARTools](https://github.com/PF2-pasteur-fr/SARTools) developed at the pasteur institute to illustrate best practice in transcriptome analysis. We also include multi-variant approach to data visualization such as PCA and HCA (Hierarchical clustering)
+
+[Functional Interpreation of DEGs](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/5_Transcriptomics/Transcriptomic_functional_analsyis.html)
+
+Interpreting the biological significant of a list of gene IDs or gene symbols representing your DEGs can be a significant but fun challenge. This course shows selection of tools that allow you to go from DEG to functional networks.
+
+## [Metabarcoding](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/6_Metabarcoding/Session6_Part1_Microbiome.html)
+
+Amplification of short phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S - bacterial, ITS - fungal, RbcL -Algal and COI/18S Eukaryotic). Data analysis uses (Qiime2)\[https://qiime2.org/\] to navigate you through preliminary metabarcoding data analsyis.
