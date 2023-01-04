@@ -4,9 +4,14 @@ title-block-banner: darkred
 title: "Introduction to Big Data Biology and Bioinformatics"
 subtitle: "Guide to unlocking your inner bioinformatician"
 author: "Professor Peter Kille"
+description: "Course contributions are provided by Drs Sarah Christofides and Alex Mullins but the material draws significantly on training material developed by Dr Daniel Pass (Compass Bioinformatics) and those involved with Biolinux project. Many thanks to all."
 date: today
 affiliation: "Cardiff University"
 ---
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=65b33cd7-3caa-45f5-8ca5-af800109ea98&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
 
 [Why Bioinformatics - Powerpoint](https://tinyurl.com/6h79uh7f)
 
@@ -21,6 +26,10 @@ There is a few piece of advice I would like to share before you get going on wha
 -   ***RTFM: Read The Fxxking Manual***
 
 Sorry for the expletives and starting my advice with an acronym but you will be using very complex software which will (mostly) generate some type of output - you need to know that output is valid and makes sense. By reading the manual and understanding concepts and theory behind what you are doing you will find it not only easier to use the software but also ensure that you results make sense. Most software comes with a 'git hub page', an online guide, a README file, help (accessed via the -h or -help flags) or a manual (man \[command\]). These resources have taken a huge amount of effort to generate - look through them, get to know the options, it will really help.
+
+-   ***Keep a notebook and annotate your code***
+
+Bioinformatic analyses represent *in silico* experiments and just as you would not perform an experiment in the lab without making appropriate notes your should always make notes relating to your computational processing. I suggest creating a text file as a note book and use it to record what you did and the final code/commands you used. Lots of informaticians use ['markdown'](https://en.wikipedia.org/wiki/Markdown) which is some simple text based additions which means your logbooks/notes can easily be rendered to provide structure and formatting. Also always add comments to your code so that you (or anyone else) using the code can follow what you did. In nearly all coding platforms if you proceed text with a `#` what you write afterwards on that line will be ignored and not 'executed' and code.
 
 -   ***Be part of the wider Bioinformatics community***
 
