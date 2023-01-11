@@ -202,6 +202,11 @@ Bandage is a program for visualising de novo assembly graphs. By displaying conn
 
 # Worked Example of assembly
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=b0cf9560-8b81-4002-9be1-af6a01361454&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+## Assembly Walk Through V1
 
-</iframe>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=cacd5bf0-99f8-4020-95af-af630098df69&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+
+## Assembly Walk Through V2
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=90c0321a-2043-4b2e-b5d1-af6a01420b85&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
