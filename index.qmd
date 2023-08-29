@@ -3,7 +3,7 @@ title-block-style: default
 title-block-banner: darkred
 title: "Introduction to Big Data Biology and Bioinformatics"
 subtitle: "Guide to unlocking your inner bioinformatician"
-author: "Professor Peter Kille"
+author: "Prof Peter Kille"
 description: "Course contributions are provided by Drs Sarah Christofides and Alex Mullins but the material draws significantly on training material developed by Dr Daniel Pass (Compass Bioinformatics) and those involved with Biolinux project. Many thanks to all."
 date: today
 affiliation: "Cardiff University"
