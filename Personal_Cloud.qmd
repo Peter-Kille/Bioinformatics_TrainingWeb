@@ -26,7 +26,10 @@ As part of the teaching provision at Cardiff University you will be provided wit
 
 ***Check with you instructors which system are available to you***
 
-## kubernete VM
+::: {.callout-note collapse="true"}
+## Cardiff University Taught Modules - Masters or UG
+
+### kubernete VM
 
 You will be provided with three pieces of information the host (or server) name, your user name (usually your staff ID or your student ID including the the 'small letter' prefix), a port number and a randomly generated pass phase. Here are some examples (user names and pas phases are fictitious).
 
@@ -40,9 +43,12 @@ Password: hard_phase_remember
 
 You may have received an email where the information is presented as a code block:
 
-    ssh c9999999@hawker.bios.cf.ac.uk -P 32222
-           ^              ^                ^
-        username        host              port
+```         
+ssh c9999999@hawker.bios.cf.ac.uk -P 32222
+       ^              ^                ^
+    username        host              port
+```
+:::
 
 ## HPC cluster access
 
@@ -80,9 +86,11 @@ If you have been supplied with a cloud container we will have also provided you 
 
 Enter your cloud host name and username name in you browser navigation bar e.g.:
 
-    https//sponsa.bios.cf.ac.uk/c9999999
-             ^                     ^
-          Host/server           user name
+```         
+https//sponsa.bios.cf.ac.uk/c9999999
+         ^                     ^
+      Host/server           user name
+```
 
 You should now see the following screen:
 
@@ -134,23 +142,29 @@ HPC server - both your personal cloud as well as HPC systems - are based on a Un
 
 Once you have your terminal open simply type (for standard HPC - not kubernetes - theer is no need to define the port with -P):
 
-    ssh [user]@[host] -P [Port]
+```         
+ssh [user]@[host] -P [Port]
 
-    #a fictious example work be
+#a fictious example work be
 
-    ssh c99999@sponsa.bios.cf.ac.uk -P 32222
+ssh c99999@sponsa.bios.cf.ac.uk -P 32222
+```
 
 Then enter you password and you are in - you can tell you are there because the test preceeding your cursor changes and shoudl look like (the numbers will probably be different for you):
 
-    [user@ssh-user-894cfb776-88kzg ~]$
+```         
+[user@ssh-user-894cfb776-88kzg ~]$
+```
 
 Unfortunately the standard SSH interface does not support X-forwarding for graphical applications. There is a mac application called (Xquartz)\[https://www.xquartz.org/\] that you can install and when it is running you can create a X-11 session by simply adding -X to your login so your login would be:
 
-    ssh -X [user]@[host] -P [Port]
+```         
+ssh -X [user]@[host] -P [Port]
 
-    #a fictious example work be
+#a fictious example work be
 
-    ssh -X c99999@sponsa.bios.cf.ac.uk -P 32222
+ssh -X c99999@sponsa.bios.cf.ac.uk -P 32222
+```
 
 Xquartz is open source software and Mac ***DO NOT SUPPORT*** it and it can be challenging to get working - newer Mac often do not support it as the open source developers haven't kept up with change sin the OS - play if you want too but it can be frustrating.
 
