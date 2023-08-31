@@ -12,7 +12,9 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2a1422b-b0e3-4a42-ac71-af630098d97d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2a1422b-b0e3-4a42-ac71-af630098d97d&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
 
 [DEG Analysis Powerpoint](https://tinyurl.com/2xuhh5t4)
 
