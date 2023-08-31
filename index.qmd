@@ -3,9 +3,9 @@ title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
 title: "Introduction to Big Data Biology and Bioinformatics"
-subtitle: "Guide to unlocking your inner bioinformatician"
+subtitle: "A guide to unlocking your inner bioinformatician"
 author: "Prof. Peter Kille"
-description: "Course contributions are provided by Prof. Pete Kille and Dr Sarah Christofides but draws significantly on training material developed by Dr Daniel Pass (Compass Bioinformatics), Dr Alex Mullins and those involved with Biolinux project. Many thanks to all."
+description: "Course contributions are provided by Prof. Pete Kille and Dr Sarah Christofides but draw significantly on training material developed by Dr Daniel Pass (Compass Bioinformatics), Dr Alex Mullins and those involved with Biolinux project. Many thanks to all."
 date: today
 affiliation: "Cardiff University"
 ---
@@ -18,7 +18,7 @@ affiliation: "Cardiff University"
 
 # Bioinformatics Teaching Material
 
-This training material is aimed at the novice with no experience of HPC or bioinformatics. You could be a biologist who wants to up their bioinformatics skills or a physical scientist (trained in computer science, maths or physics) interested in applying your skills to the biological arena - this is where the journey starts.
+This training material is aimed at the novice with no experience of high performance computing (HPC) or bioinformatics. You could be a biologist who wants to up their bioinformatics skills or a physical scientist (trained in computer science, maths or physics) interested in applying your skills to the biological arena - this is where the journey starts.
 
 Big data is a fact of life for biologists whether they are reconstructing ecosystems from fragments of DNA found in the environment (eDNA) or reconstructing neural systems from MRI scans of brains - all walks of biology are exploiting larger and larger data sets. To access these data sets you will need a new set of skills - ***the time of big data biology is now***.
 
@@ -42,7 +42,7 @@ From chat rooms to human conversations with your colleagues, I have always gaine
 
 -   ***Google is your friend***
 
-Other search engines are also available... whether you are looking for code, troubleshooting a problem or looking for new software a five-minute web search can save a huge amount of time and/or reveal new exciting solutions/software. There are lots of tools on the internet that can help you with coding from YouTube videos to AI chat bots like [Chatgpt](https://openai.com/blog/chatgpt/). These are all part of the solution - find what works for you but always try and understand what you are doing (you don't want to find that that great bit of code you copied is actually doing something you didn't want it to).
+Other search engines are also available... whether you are looking for code, troubleshooting a problem or looking for new software a five-minute web search can save a huge amount of time and/or reveal new exciting solutions/software. There are lots of tools on the internet that can help you with coding from YouTube videos to AI chat bots like [ChatGPT](https://openai.com/blog/chatgpt/). These are all part of the solution - find what works for you but always try and understand what you are doing (you don't want to find that that great bit of code you copied is actually doing something you didn't want it to).
 
 -   ***Solving problems is fun but do not forget the question***
 
@@ -72,19 +72,19 @@ When you are zoomed in, the resources appear in colour coded spheres - red are l
 
 ## [Basics of HPC and HPC vs Personal Cloud provision](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/0_HPC_Personal_cloud/Personal_Cloud.html)
 
-This element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to logging in to the research platforms at Cardiff School of Biosciences. If you are a researcher at Cardiff wanting to gain access to HPC please contact our (Biocompute team)\[http://hpc.bios.cf.ac.uk/contacts/\] and join the bioinformatics Teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google .... many of these provide limited free options which can help you to learn.
+This element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to logging in to the research platforms at Cardiff School of Biosciences. If you are a researcher at Cardiff wanting to gain access to HPC please contact our [Biocompute team](http://hpc.bios.cf.ac.uk/contacts/) and join the bioinformatics Teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google .... many of these provide limited free options which can help you to learn.
 
 ## Session 1. Linux: The basics
 
-This introduces you to the command line - yes, no more clicking on icons it is all about writing commands !!
+This introduces you to the command line - yes, no more clicking on icons as it is all about writing commands !!
 
 [Introduction to Linux](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/1_Linux_NGS_Data_and_QC/Session1_Part1_Linux.html)
 
-This represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you start quickly.
+This represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you started quickly.
 
 [Linux the fundamentals](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/1_Linux_NGS_Data_and_QC/1_Linux_fundermentals.html)
 
-This session places more detail about the Linux basics, covering navigating around your Linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect.), how to preview files (less/cat/head/tail) and how to edit files (we use Nano but touch on using Vi).
+This session gives more detail about the Linux basics, covering navigating around your Linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect.), how to preview files (less/cat/head/tail) and how to edit files (we use Nano but touch on using Vi).
 
 [Commandline Tools and Scripting](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/1_Linux_NGS_Data_and_QC/Commandline_Tools_and_Scripting.html)
 
@@ -106,7 +106,7 @@ A genome or transcript assembly means little until you overlay it with biologica
 
 ## Session 3. Building phylogenies
 
-[Phylogenomics and Phylogenomics](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/4_Phylogenetics_and_Phylogenomics/Phylogenetics.html)
+[Phylogenetics and Phylogenomics](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/4_Phylogenetics_and_Phylogenomics/Phylogenetics.html)
 
 The taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual.
 

@@ -665,53 +665,39 @@
     "text": "Basics of HPC and HPC vs Personal Cloud provision\nThis element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to logging in to the research platforms at Cardiff School of Biosciences. If you are a researcher at Cardiff wanting to gain access to HPC please contact our (Biocompute team)[http://hpc.bios.cf.ac.uk/contacts/] and join the bioinformatics Teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google …. many of these provide limited free options which can help you to learn."
   },
   {
-    "objectID": "index.html#linux-the-basics",
-    "href": "index.html#linux-the-basics",
+    "objectID": "index.html#session-1.-linux-the-basics",
+    "href": "index.html#session-1.-linux-the-basics",
     "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Linux The basics",
-    "text": "Linux The basics\nThis introduces you to the command line - yes no clicking on icons it is all about writing commands !!\nIntroduction Linux\nThis represent a rapid run through of the basics you need to get going on the commandline - lots of useful information and some basic exercises - copying / moving and learning about your linux environment this workshop is designed to get you start quickly.\nLinux the fundementals\nThis session places more detail about the linux basic covering navigating around your linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect), how to preview files (less/cat/head/tail) and how to edit file (we use Nano but look into Vi).\nCommandline Tools and Scripting\nFrom more ways to visualize text file, query file with grep, using editors, running scripts and loops this material provides some more exercises to develop your skills."
+    "section": "Session 1. Linux: The basics",
+    "text": "Session 1. Linux: The basics\nThis introduces you to the command line - yes, no more clicking on icons it is all about writing commands !!\nIntroduction to Linux\nThis represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you start quickly.\nLinux the fundamentals\nThis session places more detail about the Linux basics, covering navigating around your Linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect.), how to preview files (less/cat/head/tail) and how to edit files (we use Nano but touch on using Vi).\nCommandline Tools and Scripting\nFrom more ways to visualize text file, querying files with grep, using editors, running scripts and using loops, this material provides some more exercises to develop your skills.\nAn Introduction to NGS Data and Quality Control\nMost of our training material focuses on bioinformatics application in the area of genomics. This section introduces the fundamental concepts of Next Generation Sequencing (NGS) and the basic file types (fasta / fastq) and approaches to quality control and initial data processing."
   },
   {
-    "objectID": "index.html#an-introduction-to-ngs-data-and-quality-control",
-    "href": "index.html#an-introduction-to-ngs-data-and-quality-control",
+    "objectID": "index.html#session-2.-genomics",
+    "href": "index.html#session-2.-genomics",
     "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "An Introduction to NGS Data and Quality Control",
-    "text": "An Introduction to NGS Data and Quality Control\nMost of our training material does focus on bioinformatics application in the area of genomics. The section introduces the fundamental concepts of Next Generation Sequencing (NGS) and the basic file types (fasta / fastq) and approaches to quality control (evaluation) and initial data processing."
+    "section": "Session 2. Genomics",
+    "text": "Session 2. Genomics\nGenome Assembly\nApproaches to genome assembly vary hugely depending on what you are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations of short and long read data.\nGenome Annotation and Visualisation\nA genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results. We primarily use Artemis (Sanger Centre) but also introduce Integrated Genome Viewer (IGV) from the Broad Institute."
   },
   {
-    "objectID": "index.html#genome-assembly",
-    "href": "index.html#genome-assembly",
+    "objectID": "index.html#session-3.-building-phylogenies",
+    "href": "index.html#session-3.-building-phylogenies",
     "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Genome Assembly",
-    "text": "Genome Assembly\nApproaches to Genome assembly vary hugely depending on what your are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations and short and long read data."
+    "section": "Session 3. Building phylogenies",
+    "text": "Session 3. Building phylogenies\nPhylogenomics and Phylogenomics\nThe taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual."
   },
   {
-    "objectID": "index.html#genome-annotation-and-visualisation",
-    "href": "index.html#genome-annotation-and-visualisation",
+    "objectID": "index.html#session-4.-transcriptomics",
+    "href": "index.html#session-4.-transcriptomics",
     "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Genome Annotation and Visualisation",
-    "text": "Genome Annotation and Visualisation\nA genome or transcript assembly means little until you overlay it with biological information. Here we introduce to to both generate that biological information as well as visualize the results. We primarily use Artemis (Sanger centre) but also introduce Integrated Genome Viewer (IGV) from the (Broad Institute)"
+    "section": "Session 4. Transcriptomics",
+    "text": "Session 4. Transcriptomics\nThe has been divided into three workshops each targeted at different aspects of the process.\nRNAseq Data Processing\nTranscriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to transcript counts for an organism with an existing genome. We include approaches to identify and evaluate technical duplication, although be aware this may not be relevant to your analytical approach.\nGeneration of Differentially Expressed Gene (DEG) Lists\nPerforming quality control and provisional data visualisation (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use SARTools developed at the Pasteur Institute to illustrate best practice in transcriptome analysis. We also include multivariate approaches to data visualization such as PCA and HCA (hierarchical clustering analysis).\nFunctional Interpretation of DEGs\nInterpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks."
   },
   {
-    "objectID": "index.html#phylogenomics-and-phylogenomics",
-    "href": "index.html#phylogenomics-and-phylogenomics",
+    "objectID": "index.html#session-5.-microbial-community-analysis",
+    "href": "index.html#session-5.-microbial-community-analysis",
     "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Phylogenomics and Phylogenomics",
-    "text": "Phylogenomics and Phylogenomics\nThe taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual."
-  },
-  {
-    "objectID": "index.html#transcriptomics",
-    "href": "index.html#transcriptomics",
-    "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Transcriptomics",
-    "text": "Transcriptomics\nThe has been divided into three workshops each targeted at different aspects of the process.\nRNAseq Data Processing\nTranscriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to counts given and known and annotated genome. We include approaches to identify and evaluate technical duplication - be aware this may not be relevant to your analytical approach.\nGeneration of Differnential Gene DEG Lists\nPerforming quality control and provisional data visualization (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use SARTools developed at the pasteur institute to illustrate best practice in transcriptome analysis. We also include multi-variant approach to data visualization such as PCA and HCA (Hierarchical clustering)\nFunctional Interpreation of DEGs\nInterpreting the biological significant of a list of gene IDs or gene symbols representing your DEGs can be a significant but fun challenge. This course shows selection of tools that allow you to go from DEG to functional networks."
-  },
-  {
-    "objectID": "index.html#metabarcoding",
-    "href": "index.html#metabarcoding",
-    "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Metabarcoding",
-    "text": "Metabarcoding\nAmplification of short phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S - bacterial, ITS - fungal, RbcL -Algal and COI/18S Eukaryotic). Data analysis uses (Qiime2)[https://qiime2.org/] to navigate you through preliminary metabarcoding data analsyis."
+    "section": "Session 5. Microbial community analysis",
+    "text": "Session 5. Microbial community analysis\nMetabarcoding\nAmplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, RbcL for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)[https://qiime2.org/] to navigate you through preliminary metabarcoding data analysis."
   },
   {
     "objectID": "Introduction to Linux.html",
@@ -1083,40 +1069,5 @@
     "title": "Transcritomics An Introduction",
     "section": "Deriving Differential Gene Expression",
     "text": "Deriving Differential Gene Expression\nDeriving Differential Gene Expression"
-  },
-  {
-    "objectID": "index.html#session-1.-linux-the-basics",
-    "href": "index.html#session-1.-linux-the-basics",
-    "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Session 1. Linux: The basics",
-    "text": "Session 1. Linux: The basics\nThis introduces you to the command line - yes, no more clicking on icons it is all about writing commands !!\nIntroduction to Linux\nThis represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you start quickly.\nLinux the fundamentals\nThis session places more detail about the Linux basics, covering navigating around your Linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect.), how to preview files (less/cat/head/tail) and how to edit files (we use Nano but touch on using Vi).\nCommandline Tools and Scripting\nFrom more ways to visualize text file, querying files with grep, using editors, running scripts and using loops, this material provides some more exercises to develop your skills.\nAn Introduction to NGS Data and Quality Control\nMost of our training material focuses on bioinformatics application in the area of genomics. This section introduces the fundamental concepts of Next Generation Sequencing (NGS) and the basic file types (fasta / fastq) and approaches to quality control and initial data processing."
-  },
-  {
-    "objectID": "index.html#session-2.-genomics",
-    "href": "index.html#session-2.-genomics",
-    "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Session 2. Genomics",
-    "text": "Session 2. Genomics\nGenome Assembly\nApproaches to genome assembly vary hugely depending on what you are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations of short and long read data.\nGenome Annotation and Visualisation\nA genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results. We primarily use Artemis (Sanger Centre) but also introduce Integrated Genome Viewer (IGV) from the Broad Institute."
-  },
-  {
-    "objectID": "index.html#session-3.-building-phylogenies",
-    "href": "index.html#session-3.-building-phylogenies",
-    "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Session 3. Building phylogenies",
-    "text": "Session 3. Building phylogenies\nPhylogenomics and Phylogenomics\nThe taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual."
-  },
-  {
-    "objectID": "index.html#session-4.-transcriptomics",
-    "href": "index.html#session-4.-transcriptomics",
-    "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Session 4. Transcriptomics",
-    "text": "Session 4. Transcriptomics\nThe has been divided into three workshops each targeted at different aspects of the process.\nRNAseq Data Processing\nTranscriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to transcript counts for an organism with an existing genome. We include approaches to identify and evaluate technical duplication, although be aware this may not be relevant to your analytical approach.\nGeneration of Differentially Expressed Gene (DEG) Lists\nPerforming quality control and provisional data visualisation (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use SARTools developed at the Pasteur Institute to illustrate best practice in transcriptome analysis. We also include multivariate approaches to data visualization such as PCA and HCA (hierarchical clustering analysis).\nFunctional Interpretation of DEGs\nInterpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks."
-  },
-  {
-    "objectID": "index.html#session-5.-microbial-community-analysis",
-    "href": "index.html#session-5.-microbial-community-analysis",
-    "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Session 5. Microbial community analysis",
-    "text": "Session 5. Microbial community analysis\nMetabarcoding\nAmplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, RbcL for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)[https://qiime2.org/] to navigate you through preliminary metabarcoding data analysis."
   }
 ]
