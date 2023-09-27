@@ -7,7 +7,7 @@ website:
     style: "docked"
     search: true
     contents:
-      - section: "Session 0. Basics of HPC and HPC vs Personal Cloud provision"
+      - section: "Session 0. HPC and Personal"
         contents:
           - index.qmd
           - Personal_Cloud.qmd
@@ -16,26 +16,26 @@ website:
           - Introduction to Linux.qmd
           - 1_Linux_fundermentals.qmd
           - Commandline_Tools_and_Scripting.qmd
-      - section: "NGS Quality Control"
+      - section: "Session 2. NGS data"
         contents:
           - NGS_Quality_Control.qmd
-      - section: "Genome Assembly and annotations"
+      - section: "Session 3. Genomics"
         contents:
           - genome_assembly.qmd
           - hybrid_assemblies.qmd
           - Genome_visualisation_and_annotation.qmd
-      - section: "Phylogenetics and Phylogenomics"
-        contents:
-          - phylogentics_phylogenomics.qmd
-      - section: "Metabarcoding"
-        contents:
-          - metabarcoding.qmd
-      - section: "Transcriptomics"
+      - section: "Session 4. Transcriptomics"
         contents:
           - Transcriptomics_Introduction.qmd
           - RNAseq_processing.qmd
           - DEG_analysis.qmd
           - DEG_Functional_Interpretation.qmd
+      - section: "Session 5. Microbial community analysis"
+        contents:
+          - phylogentics_phylogenomics.qmd
+      - section: "Metabarcoding"
+        contents:
+          - metabarcoding.qmd
 
 format:
   html:
