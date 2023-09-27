@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Professor Peter Kille">
-<meta name="dcterms.date" content="2023-08-31">
+<meta name="dcterms.date" content="2023-09-27">
 
 <title>Personal Cloud</title>
 <style>
@@ -62,8 +62,19 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>
 
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
+
       .quarto-title-block .quarto-title-banner {
-        background: darkred;
+        color: white;
+background: darkred;
       }
 </style>
 
@@ -80,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li><li class="breadcrumb-item"><a href="./Personal_Cloud.html">Personal Cloud</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Session 0. Basics of HPC and HPC vs Personal Cloud provision</a></li><li class="breadcrumb-item"><a href="./Personal_Cloud.html">Personal Cloud</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -94,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Personal Cloud</h1>
-            <p class="subtitle lead">Gettign Connected</p>
+            <p class="subtitle lead">Getting Connected</p>
                       </div>
   </div>
     
@@ -111,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 31, 2023</p>
+        <p class="date">September 27, 2023</p>
       </div>
     </div>
     
@@ -132,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Session 0. Basics of HPC and HPC vs Personal Cloud provision</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -155,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Linux Basics</span></a>
+ <span class="menu-text">Session 1. Linux: The basics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -311,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#hpc-cluster-access" id="toc-hpc-cluster-access" class="nav-link" data-scroll-target="#hpc-cluster-access">HPC cluster access</a></li>
   </ul></li>
-  <li><a href="#vpn" id="toc-vpn" class="nav-link" data-scroll-target="#vpn">VPN</a></li>
+  <li><a href="#virtual-private-networks" id="toc-virtual-private-networks" class="nav-link" data-scroll-target="#virtual-private-networks">Virtual Private Networks</a></li>
   <li><a href="#r-studio" id="toc-r-studio" class="nav-link" data-scroll-target="#r-studio">R-studio</a></li>
   <li><a href="#ssh-using-mobxterm---connecting-to-server-on-pc" id="toc-ssh-using-mobxterm---connecting-to-server-on-pc" class="nav-link" data-scroll-target="#ssh-using-mobxterm---connecting-to-server-on-pc">SSH using Mobxterm - Connecting to server on PC</a></li>
   <li><a href="#ssh-using-terminal---connecting-to-server-on-mac" id="toc-ssh-using-terminal---connecting-to-server-on-mac" class="nav-link" data-scroll-target="#ssh-using-terminal---connecting-to-server-on-mac">SSH using terminal - Connecting to server on Mac</a></li>
@@ -329,16 +340,16 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="basics-of-hpc-and-hpc-vs-personal-cloud-provision" class="level1">
 <h1>Basics of HPC and HPC vs Personal Cloud provision</h1>
-<p><strong><em>To access any Cardiff University HPC or personal Cloud resources you will need to install and login to the University VPN - see Instructions below</em></strong></p>
-<p>HPC systems are large multi-processor large RAM ‘computer’ that are installed in data centres. usually users are provided with a log-in to a shared HPC-system with strictly control access writes and defined quotas. To run your informatic tasks you would configure a script to send your job to a ‘queuing’ program that coordinates the processing request of all the users on the system. In this way the system can support large numbers of users but you need to wait for your place in the ‘queue’ for your task to be performed. Although you can do simple task - manipulate files (copy, rename ect) without sending a queue script most tasked you would need to configure your queue script and send to the job to the queue - this can be very tedious when learning’s to code since even script with error would need to wait for the request to be queued.</p>
-<p>To avoid the ‘queues’ we provide person cloud systems to each person on the course allowing the to interactively interact with the HPC system. To do this we create a container which contains the equivalent of a ‘virtual machine’ (VM) in the cloud, we use a system called kubernetes to create these container based virtual machines, where each user has dedicated processor, RAM, storage and their own environment so they can interactively learn to use a linux system. Because we are having to reserve a proportion of the server for each user we can only allocate a limited number of processor and RAM to each user - usually this is 8 Processor and 16 Gb RAM but check with you course organiser.</p>
-<p>Similar ‘containers’ can be accessed using AWS cloud services (https://aws.amazon.com/health/genomics/) or through academic services such as CLIMB (https://www.climb.ac.uk/). AWS cloud does provide some educational free cloud processing but when these free credits are over you would need to pay for processing and storage - this can very quickly get expensive. CLIMB always academic registration if you are supported by specific research council funding.</p>
+<p><strong><em>To access any Cardiff University HPC or personal Cloud resources you will need to install and log in to the University virtual private network (VPN) - see instructions below</em></strong></p>
+<p>High performance computing (HPC) systems are large, multi-processor, large RAM ‘computers’ that are installed in data centres. Usually users are provided with a log-in to a shared HPC-system with strictly controlled access and defined quotas. To run your informatic tasks, you would write a script that sends your job to a ‘queuing’ program which coordinates the processing requests of all the users on the system. In this way the system can support large numbers of users but you need to wait for your place in the ‘queue’ before your task can be performed. Although you can do the very lightest tasks - copy small files, rename etc. - without sending them to the queue, most tasks need to a queue script which will send to the job to the queue. This can be very tedious when learning to code, as if your script creates an error you won’t know until it has waited its turn in the queue.</p>
+<p>To avoid the ‘queues’ we provide personal cloud systems to each person on the course, allowing them to interactively use the HPC system. To do this we create a container which has the equivalent of a ‘virtual machine’ (VM) in the cloud; we use a system called Kubernetes to create these container-based virtual machines. Each user has dedicated processors, RAM, storage and their own environment so they can interactively learn to use a Linux system. Because we are having to reserve a proportion of the server for each user we can only allocate a limited number of processors and RAM to each user - usually this is 8 processors and 16 Gb RAM, but check with your course organiser.</p>
+<p>Similar ‘containers’ can be accessed using <a href="https://aws.amazon.com/health/genomics/">AWS cloud services</a> or through academic services such as <a href="https://www.climb.ac.uk/">CLIMB</a>. AWS cloud does provide some educational free cloud processing but when these free credits are over you would need to pay for processing and storage, and this can very quickly get expensive. CLIMB provides academic registration if you are supported by specific research council funding.</p>
 </section>
 <section id="personal-hpc-and-hpc-clusters" class="level1">
 <h1>Personal HPC and HPC clusters</h1>
-<p><strong><em>To access any Cardiff University HPC or personal Cloud resources you will need to install and login to the University VPN - see Instructions below</em></strong></p>
-<p>As part of the teaching provision at Cardiff University you will be provided with specific ‘logins’ to your own kubernete VM. You may also be given access to our teaching HPC cluster or our research HPC system.</p>
-<p><strong><em>Check with you instructors which system are available to you</em></strong></p>
+<p><strong><em>To access any Cardiff University HPC or personal Cloud resources you will need to install and login to the University VPN - see instructions below</em></strong></p>
+<p>As part of the teaching provision at Cardiff University you will be provided with a specific ‘login’ to your own Kubernete VM. You may also be given access to our teaching HPC cluster or our research HPC system.</p>
+<p><strong><em>Check with your instructors which systems are available to you</em></strong></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -372,14 +383,14 @@ Cardiff University Taught Modules - Masters or UG
 <p>With standard HPC teh port number is always 22</p>
 </section>
 </section>
-<section id="vpn" class="level1">
-<h1>VPN</h1>
-<p>Cardiff University uses different VPNs for Staff and Students (UG &amp; Masters). Also some postgraduates (PhDs) qualify and staff some masters and MSc are registered on the student VPN - the VPN does not matter but you need to use the correct VPN or things will not work - the VPN software will install and you will think all is good but you will not achieve a connect. To find the correct instructions login to the <a href="intranet.cf.ac.uk">intranet</a> and search for VPN. Here are the current links which have installation instructions:</p>
-<p><strong><em>Student VPN (OpenVPN)</em></strong></p>
-<p>https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-access-for-undergraduates</p>
-<p><strong><em>Staff VPN (Global Protect)</em></strong></p>
+<section id="virtual-private-networks" class="level1">
+<h1>Virtual Private Networks</h1>
+<p>Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or things will not work: the VPN software will install and you will think all is good but then it will not connect. To find the correct instructions, log in to the <a href="intranet.cf.ac.uk">intranet</a> and search for VPN. Here are the current links which have installation instructions:</p>
+<p><strong><em>Student VPN</em></strong></p>
+<p>https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network</p>
+<p><strong><em>Staff VPN</em></strong></p>
 <p>https://intranet.cardiff.ac.uk/staff/supporting-your-work/it-support/wireless-and-remote-access/off-campus-access/virtual-private-network-vpn</p>
-<p>Once you have installed the VPN and connected test by going to this site:</p>
+<p>Once you have installed the VPN and connected test it by going to this site:</p>
 <p>http://hpc.bios.cf.ac.uk</p>
 <p><img src="images/good_VPN.png" class="img-fluid" style="width:60.0%" alt="Sucessful VPN"> <img src="images/bad_vpn.png" class="img-fluid" style="width:60.0%" alt="Unsucessful VPN"></p>
 </section>

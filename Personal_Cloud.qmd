@@ -1,8 +1,9 @@
 ---
 title-block-style: default
 title-block-banner: darkred
+title-block-banner-color: white
 title: "Personal Cloud"
-subtitle: "Gettign Connected"
+subtitle: "Getting Connected"
 author: "Professor Peter Kille"
 date: today
 affiliation: "Cardiff University"
@@ -10,21 +11,21 @@ affiliation: "Cardiff University"
 
 # Basics of HPC and HPC vs Personal Cloud provision
 
-***To access any Cardiff University HPC or personal Cloud resources you will need to install and login to the University VPN - see Instructions below***
+***To access any Cardiff University HPC or personal Cloud resources you will need to install and log in to the University virtual private network (VPN) - see instructions below***
 
-HPC systems are large multi-processor large RAM 'computer' that are installed in data centres. usually users are provided with a log-in to a shared HPC-system with strictly control access writes and defined quotas. To run your informatic tasks you would configure a script to send your job to a 'queuing' program that coordinates the processing request of all the users on the system. In this way the system can support large numbers of users but you need to wait for your place in the 'queue' for your task to be performed. Although you can do simple task - manipulate files (copy, rename ect) without sending a queue script most tasked you would need to configure your queue script and send to the job to the queue - this can be very tedious when learning's to code since even script with error would need to wait for the request to be queued.
+High performance computing (HPC) systems are large, multi-processor, large RAM 'computers' that are installed in data centres. Usually users are provided with a log-in to a shared HPC-system with strictly controlled access and defined quotas. To run your informatic tasks, you would write a script that sends your job to a 'queuing' program which coordinates the processing requests of all the users on the system. In this way the system can support large numbers of users but you need to wait for your place in the 'queue' before your task can be performed. Although you can do the very lightest tasks - copy small files, rename etc. - without sending them to the queue, most tasks need to a queue script which will send to the job to the queue. This can be very tedious when learning to code, as if your script creates an error you won't know until it has waited its turn in the queue.
 
-To avoid the 'queues' we provide person cloud systems to each person on the course allowing the to interactively interact with the HPC system. To do this we create a container which contains the equivalent of a 'virtual machine' (VM) in the cloud, we use a system called kubernetes to create these container based virtual machines, where each user has dedicated processor, RAM, storage and their own environment so they can interactively learn to use a linux system. Because we are having to reserve a proportion of the server for each user we can only allocate a limited number of processor and RAM to each user - usually this is 8 Processor and 16 Gb RAM but check with you course organiser.
+To avoid the 'queues' we provide personal cloud systems to each person on the course, allowing them to interactively use the HPC system. To do this we create a container which has the equivalent of a 'virtual machine' (VM) in the cloud; we use a system called Kubernetes to create these container-based virtual machines. Each user has dedicated processors, RAM, storage and their own environment so they can interactively learn to use a Linux system. Because we are having to reserve a proportion of the server for each user we can only allocate a limited number of processors and RAM to each user - usually this is 8 processors and 16 Gb RAM, but check with your course organiser.
 
-Similar 'containers' can be accessed using AWS cloud services (https://aws.amazon.com/health/genomics/) or through academic services such as CLIMB (https://www.climb.ac.uk/). AWS cloud does provide some educational free cloud processing but when these free credits are over you would need to pay for processing and storage - this can very quickly get expensive. CLIMB always academic registration if you are supported by specific research council funding.
+Similar 'containers' can be accessed using [AWS cloud services](https://aws.amazon.com/health/genomics/) or through academic services such as [CLIMB](https://www.climb.ac.uk/). AWS cloud does provide some educational free cloud processing but when these free credits are over you would need to pay for processing and storage, and this can very quickly get expensive. CLIMB provides academic registration if you are supported by specific research council funding.
 
 # Personal HPC and HPC clusters
 
-***To access any Cardiff University HPC or personal Cloud resources you will need to install and login to the University VPN - see Instructions below***
+***To access any Cardiff University HPC or personal Cloud resources you will need to install and login to the University VPN - see instructions below***
 
-As part of the teaching provision at Cardiff University you will be provided with specific 'logins' to your own kubernete VM. You may also be given access to our teaching HPC cluster or our research HPC system.
+As part of the teaching provision at Cardiff University you will be provided with a specific 'login' to your own Kubernete VM. You may also be given access to our teaching HPC cluster or our research HPC system.
 
-***Check with you instructors which system are available to you***
+***Check with your instructors which systems are available to you***
 
 ::: {.callout-note collapse="true"}
 ## Cardiff University Taught Modules - Masters or UG
@@ -60,19 +61,19 @@ Host Name: hawker.bios.cf.ac.uk sponsa.bios.cf.ac.uk
 
 With standard HPC teh port number is always 22
 
-# VPN
+# Virtual Private Networks
 
-Cardiff University uses different VPNs for Staff and Students (UG & Masters). Also some postgraduates (PhDs) qualify and staff some masters and MSc are registered on the student VPN - the VPN does not matter but you need to use the correct VPN or things will not work - the VPN software will install and you will think all is good but you will not achieve a connect. To find the correct instructions login to the [intranet](intranet.cf.ac.uk) and search for VPN. Here are the current links which have installation instructions:
+Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or things will not work: the VPN software will install and you will think all is good but then it will not connect. To find the correct instructions, log in to the [intranet](intranet.cf.ac.uk) and search for VPN. Here are the current links which have installation instructions:
 
-***Student VPN (OpenVPN)***
+***Student VPN***
 
-https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-access-for-undergraduates
+https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network
 
-***Staff VPN (Global Protect)***
+***Staff VPN***
 
 https://intranet.cardiff.ac.uk/staff/supporting-your-work/it-support/wireless-and-remote-access/off-campus-access/virtual-private-network-vpn
 
-Once you have installed the VPN and connected test by going to this site:
+Once you have installed the VPN and connected test it by going to this site:
 
 http://hpc.bios.cf.ac.uk
 

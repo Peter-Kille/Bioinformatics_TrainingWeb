@@ -70,7 +70,7 @@ When you are zoomed in, the resources appear in colour coded spheres - red are l
 
 # Course components
 
-## [Basics of HPC and HPC vs Personal Cloud provision](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/0_HPC_Personal_cloud/Personal_Cloud.html)
+## Session 0. [Basics of HPC and HPC vs Personal Cloud provision](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/0_HPC_Personal_cloud/Personal_Cloud.html)
 
 This element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to logging in to the research platforms at Cardiff School of Biosciences. If you are a researcher at Cardiff wanting to gain access to HPC please contact our [Biocompute team](http://hpc.bios.cf.ac.uk/contacts/) and join the bioinformatics Teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google .... many of these provide limited free options which can help you to learn.
 
@@ -130,4 +130,4 @@ Interpreting the biological significance of a list of gene IDs or gene symbols r
 
 [Metabarcoding](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/6_Metabarcoding/Session6_Part1_Microbiome.html)
 
-Amplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, *RbcL*  for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)\[https://qiime2.org/\] to navigate you through preliminary metabarcoding data analysis.
+Amplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, *RbcL* for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)\[https://qiime2.org/\] to navigate you through preliminary metabarcoding data analysis.

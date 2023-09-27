@@ -7,11 +7,11 @@ website:
     style: "docked"
     search: true
     contents:
-      - section: "Introduction"
+      - section: "Session 0. Basics of HPC and HPC vs Personal Cloud provision"
         contents:
           - index.qmd
           - Personal_Cloud.qmd
-      - section: "Linux Basics"
+      - section: "Session 1. Linux: The basics"
         contents:
           - Introduction to Linux.qmd
           - 1_Linux_fundermentals.qmd
