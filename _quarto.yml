@@ -7,7 +7,7 @@ website:
     style: "docked"
     search: true
     contents:
-      - section: "Session 0. HPC and Personal"
+      - section: "Session 0. HPC and Personal Cloud"
         contents:
           - index.qmd
           - Personal_Cloud.qmd
@@ -19,21 +19,21 @@ website:
       - section: "Session 2. NGS data"
         contents:
           - NGS_Quality_Control.qmd
+          - genome_assembly.qmd
       - section: "Session 3. Genomics"
         contents:
-          - genome_assembly.qmd
-          - hybrid_assemblies.qmd
           - Genome_visualisation_and_annotation.qmd
-      - section: "Session 4. Transcriptomics"
+          - hybrid_assemblies.qmd
+      - section: "Session 4. Building phylogenies"
+        contents:
+          - phylogentics_phylogenomics.qmd
+      - section: "Session 5. Transcriptomics"
         contents:
           - Transcriptomics_Introduction.qmd
           - RNAseq_processing.qmd
           - DEG_analysis.qmd
           - DEG_Functional_Interpretation.qmd
-      - section: "Session 5. Microbial community analysis"
-        contents:
-          - phylogentics_phylogenomics.qmd
-      - section: "Metabarcoding"
+      - section: "Session 6. Microbial community analysis"
         contents:
           - metabarcoding.qmd
 

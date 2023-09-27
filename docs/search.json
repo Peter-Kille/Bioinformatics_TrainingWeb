@@ -641,89 +641,96 @@
     "href": "index.html#session-1.-linux-the-basics",
     "title": "Introduction to Big Data Biology and Bioinformatics",
     "section": "Session 1. Linux: The basics",
-    "text": "Session 1. Linux: The basics\nThis introduces you to the command line - yes, no more clicking on icons as it is all about writing commands !!\nIntroduction to Linux\nThis represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you started quickly.\nLinux the fundamentals\nThis session gives more detail about the Linux basics, covering navigating around your Linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect.), how to preview files (less/cat/head/tail) and how to edit files (we use Nano but touch on using Vi).\nCommandline Tools and Scripting\nFrom more ways to visualize text file, querying files with grep, using editors, running scripts and using loops, this material provides some more exercises to develop your skills.\nAn Introduction to NGS Data and Quality Control\nMost of our training material focuses on bioinformatics application in the area of genomics. This section introduces the fundamental concepts of Next Generation Sequencing (NGS) and the basic file types (fasta / fastq) and approaches to quality control and initial data processing."
+    "text": "Session 1. Linux: The basics\nThis introduces you to the command line - yes, no more clicking on icons as it is all about writing commands !!\nIntroduction to Linux\nThis represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you started quickly.\nLinux the fundamentals\nThis session gives more detail about the Linux basics, covering navigating around your Linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect.), how to preview files (less/cat/head/tail) and how to edit files (we use Nano but touch on using Vi).\nCommandline Tools and Scripting\nFrom more ways to visualize text file, querying files with grep, using editors, running scripts and using loops, this material provides some more exercises to develop your skills."
   },
   {
-    "objectID": "index.html#session-2.-genomics",
-    "href": "index.html#session-2.-genomics",
+    "objectID": "index.html#session-2.-ngs-data-manipulation-from-seqences-to-assemblies.",
+    "href": "index.html#session-2.-ngs-data-manipulation-from-seqences-to-assemblies.",
     "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Session 2. Genomics",
-    "text": "Session 2. Genomics\nGenome Assembly\nApproaches to genome assembly vary hugely depending on what you are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations of short and long read data.\nGenome Annotation and Visualisation\nA genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results. We primarily use Artemis (Sanger Centre) but also introduce Integrated Genome Viewer (IGV) from the Broad Institute."
+    "section": "Session 2. NGS Data Manipulation: From seqences to assemblies.",
+    "text": "Session 2. NGS Data Manipulation: From seqences to assemblies.\nAn Introduction to NGS Data and Quality Control\nMost of our training material focuses on bioinformatics application in the area of genomics. This section introduces the fundamental concepts of Next Generation Sequencing (NGS) and the basic file types (fasta / fastq) and approaches to quality control and initial data processing.\nGenome Assembly\nApproaches to genome assembly vary hugely depending on what you are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations of short and long read data."
   },
   {
-    "objectID": "index.html#session-3.-building-phylogenies",
-    "href": "index.html#session-3.-building-phylogenies",
+    "objectID": "index.html#session-3.-genome-visualisation-and-annotation",
+    "href": "index.html#session-3.-genome-visualisation-and-annotation",
     "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Session 3. Building phylogenies",
-    "text": "Session 3. Building phylogenies\nPhylogenetics and Phylogenomics\nThe taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual."
+    "section": "Session 3. Genome visualisation and annotation",
+    "text": "Session 3. Genome visualisation and annotation\nGenome Annotation and Visualisation\nA genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results. We primarily use Artemis (Sanger Centre) but also introduce Integrated Genome Viewer (IGV) from the Broad Institute."
   },
   {
-    "objectID": "index.html#session-4.-transcriptomics",
-    "href": "index.html#session-4.-transcriptomics",
+    "objectID": "index.html#session-4.-building-phylogenies",
+    "href": "index.html#session-4.-building-phylogenies",
     "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Session 4. Transcriptomics",
-    "text": "Session 4. Transcriptomics\nThe has been divided into three workshops each targeted at different aspects of the process.\nRNAseq Data Processing\nTranscriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to transcript counts for an organism with an existing genome. We include approaches to identify and evaluate technical duplication, although be aware this may not be relevant to your analytical approach.\nGeneration of Differentially Expressed Gene (DEG) Lists\nPerforming quality control and provisional data visualisation (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use SARTools developed at the Pasteur Institute to illustrate best practice in transcriptome analysis. We also include multivariate approaches to data visualization such as PCA and HCA (hierarchical clustering analysis).\nFunctional Interpretation of DEGs\nInterpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks."
+    "section": "Session 4. Building phylogenies",
+    "text": "Session 4. Building phylogenies\nPhylogenetics and Phylogenomics\nThe taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual."
   },
   {
-    "objectID": "index.html#session-5.-microbial-community-analysis",
-    "href": "index.html#session-5.-microbial-community-analysis",
+    "objectID": "index.html#session-5.-transcriptomics",
+    "href": "index.html#session-5.-transcriptomics",
     "title": "Introduction to Big Data Biology and Bioinformatics",
-    "section": "Session 5. Microbial community analysis",
-    "text": "Session 5. Microbial community analysis\nMetabarcoding\nAmplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, RbcL for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)[https://qiime2.org/] to navigate you through preliminary metabarcoding data analysis."
+    "section": "Session 5. Transcriptomics",
+    "text": "Session 5. Transcriptomics\nThe has been divided into three workshops each targeted at different aspects of the process.\nRNAseq Data Processing\nTranscriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to transcript counts for an organism with an existing genome. We include approaches to identify and evaluate technical duplication, although be aware this may not be relevant to your analytical approach.\nGeneration of Differentially Expressed Gene (DEG) Lists\nPerforming quality control and provisional data visualisation (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use SARTools developed at the Pasteur Institute to illustrate best practice in transcriptome analysis. We also include multivariate approaches to data visualization such as PCA and HCA (hierarchical clustering analysis).\nFunctional Interpretation of DEGs\nInterpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks."
+  },
+  {
+    "objectID": "index.html#session-6.-microbial-community-analysis",
+    "href": "index.html#session-6.-microbial-community-analysis",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 6. Microbial community analysis",
+    "text": "Session 6. Microbial community analysis\nMetabarcoding\nAmplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, RbcL for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)[https://qiime2.org/] to navigate you through preliminary metabarcoding data analysis."
   },
   {
     "objectID": "Introduction to Linux.html",
     "href": "Introduction to Linux.html",
-    "title": "Session 1 - Introduction to Linux",
+    "title": "Introduction to Linux",
     "section": "",
     "text": "Introduction to Linux - Powerpoint"
   },
   {
     "objectID": "Introduction to Linux.html#useful-information",
     "href": "Introduction to Linux.html#useful-information",
-    "title": "Session 1 - Introduction to Linux",
+    "title": "Introduction to Linux",
     "section": "Useful information!",
     "text": "Useful information!\n• You don’t need to type the $ at the beginning of a command. That’s a linux convention to indicate a command line\n• Always tab-complete! Pressing tab will auto complete a file name or program. If you’re writing a file named myFirstSequencingRun.fastq (see the no spaces!) and type just ‘myF’ and press tab, it will complete it for you which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and if it won’t tab-complete then it doesn’t exist!\n\nIf you still have a file not found error, do ls to see if you can see it.\nIf you can’t see a file you expect, do pwd and check you’re in the right folder.\nIf a script says “permission denied” make sure:\nIt has executable permission.\nYou’re not inside the classdata folder!\nYou always want to be working in the Working Directory. To get there use:\n\n\ncd ~/mydata\n\n• Tab-complete is your friend! It’ll stop most typos from happening and save you the pain of writing a command for a file that’s not there. It’s worth re-iterating for the amount of time and pain it will save you."
   },
   {
     "objectID": "Introduction to Linux.html#anatomy-of-a-command",
     "href": "Introduction to Linux.html#anatomy-of-a-command",
-    "title": "Session 1 - Introduction to Linux",
+    "title": "Introduction to Linux",
     "section": "Anatomy of a Command",
     "text": "Anatomy of a Command\nThe first item you supply on the command line is interpreted by the system as a command – something the system should do. Any options for the command, such what file you want the command to work on, or the format for the information that should be returned to you, appear after that on the same line separated by spaces.\nMost commands have options available that will alter the way they function. You make use of these options by providing the command with parameters (sometimes called flags), some of which will take arguments.\nReminder: Items on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames, as will some symbols. This is important!\n\nLearning about Linux commands\nMost Linux commands have a manual page that provides information about the command and options that can alter its behaviour. Many tasks can be made easier by using command options. Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard.\n\n\nExercise: looking up a man page\nLook up the manual information for the ls command by typing the following in a terminal:\n\nman ls\n\n\nRead through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the b key.\nWhat does the -m option do? What about the -a option? What would running ls -lrt do?\nPress the q key when you want to quit reading the man page.\nTry running ls using some of the options mentioned above.\n\nNote: Programs rather than core linux commands often have help pages that can be access in the same manner as a linux command manual but using -h or -help (often both will work). Others will default to show you the help page if you run the program with no arguments or have a typo."
   },
   {
     "objectID": "Introduction to Linux.html#changing-and-making-directories",
     "href": "Introduction to Linux.html#changing-and-making-directories",
-    "title": "Session 1 - Introduction to Linux",
+    "title": "Introduction to Linux",
     "section": "Changing and making directories",
     "text": "Changing and making directories\nThe command used to change directories is cd\nIf you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.\nTo change to a directory one below you are in, just use the cd command followed by the subdirectory name i.e. to move into the ‘Downloads’ directory inside your current directory, you could use:\n\ncd Downloads\n\nThe shortcut for “the directory you are currently in” is a single full stop ( . ). If you type\n\ncd .  \n\nnothing will change. Later, when we want to run scripts or copy to the same folder that you are currently in we will use ” ./ ” to mean “you can find this in the current directory”. To change directory to the one above you are in, use the shorthand for “the directory above” which is two full stops:\n\ncd ..\n\nFor example, if you are in ‘Downloads’, this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, becuase a forward slash indicates the very top of the file tree:\n\ncd /usr/local/bin\n\nIf you wish to return to your home directory at any time, just type cd by itself.\n\ncd\n\nTo make a new directory, use the command mkdir and then the directory you want to create\n\nmkdir brilliantIdeas\nmkdir ~/mydata/brilliantIdeas/InProgress\n\nIf you get lost and want to confirm where you are in the directory structure, use the pwd command (print working directory). This will return the full path of the directory you are currently in.\nNote also that by default you see the name of the current directory you are working in as part of your prompt.\nFor example, when you first opened the terminal in a live session you should see your username and server, then the prompt:\n\n[sbi9srj@hawker ~]$\n\nThis means I am logged in as the user sbi9srj on the machine named hawker, and in a directory called the character called ‘tilde’ ~. If you remember, ~ is always a shortcut for your home directory.\nAll our folders and classdata can be found at:\n\n/home/[your usename]/classdata/\n\nHowever, we won’t need to remember that as we can use the shortcuts of:\n\n~/classdata\n~/mydata\n\n\n\n\n\n\n\nExercises: changing directories\n\n\n\n\nChange directory from your home directory to your working directory (‘mydata’)\nFind the full path to the directory that you are currently in\nCreate a new directory inside mydata\nMove into your new directory.\nMove back into mydata."
   },
   {
     "objectID": "Introduction to Linux.html#moving-and-copying-data",
     "href": "Introduction to Linux.html#moving-and-copying-data",
-    "title": "Session 1 - Introduction to Linux",
+    "title": "Introduction to Linux",
     "section": "Moving and copying data",
     "text": "Moving and copying data\nA standard format is used to move and copy data:\ncommand source destination\nFor example, to move a file named RNAseq_1.fastq into a new folder that exists in this directory named exp1:\n\nmv RNAseq_1.fastq exp1\n\nTo move it to a location somewhere else on the server you can use the full path\n\nmv RNAseq_1.fastq ~/mydata/experiment1\n\nOr alternatively “move” a file from one name to another. This is a common way to rename your files:\n\nmv RNAseq_1.fastq LRubellus_1.fastq\n\nTo copy, use the cp command. You could copy a file from another directory to “here”, remembering that a full-stop means “the folder I’m currently in”:\n\ncp ~/classdata/RNAseq_1.fastq  .\n\nOften you’ll want to copy a whole folder (directory), and you will need the -r parameter for “recursive”.\n\ncp -r mydata/all_fastqs NewExperiment/testdata/\n\n\n\n\n\n\n\nExercises: copying files and folders\n\n\n\n\nUse ls to look in the folder named\n\n\n~/classdata\n\nand\n\n~/classdata/Bioinformatics\n\n\nCopy the file CopyExercise.txt into mydata\nCopy the classdata folder named ‘Session1’ to your mydata folder [IMPORTANT! You need this for the following exercises!]\nDo ls on mydata. What do you see?"
   },
   {
     "objectID": "Introduction to Linux.html#listing-files-in-a-directory",
     "href": "Introduction to Linux.html#listing-files-in-a-directory",
-    "title": "Session 1 - Introduction to Linux",
+    "title": "Introduction to Linux",
     "section": "Listing files in a directory",
     "text": "Listing files in a directory\nThe command ls lists files in a directory. By default, the command will list the filenames of the files in your current working directory.\nIf you add a space followed by a –l (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is.\nYou can also use glob patterns to limit the files you wish to list.\n* an asterisk means any string of characters\n? a question mark means a single character\n[ ] square brackets can be used to designate a group of characters\ne.g. to list all of blue.txt, banana.txt, baby.txt:\n\nls b*.txt\n\n\n\n\n\n\n\nExercise: listing files\n\n\n\n\nList all the files in the directory Session1 that start with the letters sub\nList all the files in your directory that start with sub, and end in fasta\n[Extension] Do a ‘long list’ (-l) of these files and see the difference in sizes. Add the ‘human readable’ parameter/flag (-h) to help read the sizes."
   },
   {
     "objectID": "Introduction to Linux.html#putting-it-together-creating-a-mental-map-of-your-file-system",
     "href": "Introduction to Linux.html#putting-it-together-creating-a-mental-map-of-your-file-system",
-    "title": "Session 1 - Introduction to Linux",
+    "title": "Introduction to Linux",
     "section": "Putting it together: creating a mental map of your file system",
     "text": "Putting it together: creating a mental map of your file system\nOne of the commonest reasons why students get stuck in bioinformatics exercises is that they have forgotten where there are in the file system. They try to work with files that are in a different directory, panic that things seem to have disappeared, or wonder where exactly that output has ended up! The key to saving yourself much pain lies in developing awareness of how your file structure is laid out, and where you are in it at all times. If something doesn’t work, stop and ask yourself: where am I? Where are the files I want to work with?\nYou can also make life easier for yourself by thinking carefully about giving your directories and files self-explanatory names, and keeping them organised.\nAs a final exercise in this part of the session, use the commands you have learned so far (particularly pwd, ls and cd) to sketch a map of your mydata folder."
   },
   {
     "objectID": "Introduction to Linux.html#do-not-move-on-to-part-2-until-after-the-second-lecture",
     "href": "Introduction to Linux.html#do-not-move-on-to-part-2-until-after-the-second-lecture",
-    "title": "Session 1 - Introduction to Linux",
+    "title": "Introduction to Linux",
     "section": "Do not move on to part 2 until after the second lecture",
     "text": "Do not move on to part 2 until after the second lecture"
   },

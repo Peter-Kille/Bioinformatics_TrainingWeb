@@ -62,7 +62,7 @@ This training material, or elements of it, are used across a number of courses. 
 
 Different people learn in different ways and sometimes it is good to see a wider perspective of where the concept or challenge you are facing fits into the wide field. To aid this I have generated a interactive course guide using a tool call 'prezi'. This is just one way you can navigate the material - it may not work for you or it may be the life-line that helps you navigate your way through !! You can view the course from an overview perspective then click on the relevant element and zoom in to see additional resources.
 
-[![Prezi Overview](images/Prezi_Overview-01.png){fig-alt="Prezi Overview" fig-align="center"}](https://prezi.com/view/PJXGFaOeSh7r9EsmBCD1/)
+[![Prezi Overview](images/Prezi_Overview.png){fig-alt="Prezi Overview" fig-align="center"}](https://prezi.com/view/PJXGFaOeSh7r9EsmBCD1/)
 
 When you are zoomed in, the resources appear in colour coded spheres - red are lectures, purples are workshop materials and light green web-resources. If you click again you will zoom in to see specific links to the relevant training material.
 
@@ -90,27 +90,29 @@ This session gives more detail about the Linux basics, covering navigating aroun
 
 From more ways to visualize text file, querying files with grep, using editors, running scripts and using loops, this material provides some more exercises to develop your skills.
 
+## Session 2. NGS Data Manipulation: From seqences to assemblies.
+
 [An Introduction to NGS Data and Quality Control](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/1_Linux_NGS_Data_and_QC/Session1_Part2_QC.html)
 
 Most of our training material focuses on bioinformatics application in the area of genomics. This section introduces the fundamental concepts of Next Generation Sequencing (NGS) and the basic file types (fasta / fastq) and approaches to quality control and initial data processing.
-
-## Session 2. Genomics
 
 [Genome Assembly](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/2_Genome_Assembly/Genome_assembly.html)
 
 Approaches to genome assembly vary hugely depending on what you are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations of short and long read data.
 
+## Session 3. Genome visualisation and annotation
+
 [Genome Annotation and Visualisation](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/3_Genome_Annotation_and_Visualisation/Genome_visualisation_and_annotation.html)
 
 A genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results. We primarily use Artemis (Sanger Centre) but also introduce Integrated Genome Viewer (IGV) from the Broad Institute.
 
-## Session 3. Building phylogenies
+## Session 4. Building phylogenies
 
 [Phylogenetics and Phylogenomics](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/4_Phylogenetics_and_Phylogenomics/Phylogenetics.html)
 
 The taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual.
 
-## Session 4. Transcriptomics
+## Session 5. Transcriptomics
 
 The has been divided into three workshops each targeted at different aspects of the process.
 
@@ -126,7 +128,7 @@ Performing quality control and provisional data visualisation (Volcano plots and
 
 Interpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks.
 
-## Session 5. Microbial community analysis
+## Session 6. Microbial community analysis
 
 [Metabarcoding](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/6_Metabarcoding/Session6_Part1_Microbiome.html)
 
