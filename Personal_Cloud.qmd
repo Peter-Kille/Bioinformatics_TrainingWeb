@@ -32,9 +32,15 @@ As part of the teaching provision at Cardiff University you will be provided wit
 
 ### kubernete VM
 
-You will be provided with three pieces of information the host (or server) name, your user name (usually your staff ID or your student ID including the the 'small letter' prefix), a port number and a randomly generated pass phase. Here are some examples (user names and pas phases are fictitious).
+You will be provided with three pieces of information the host (or server) name, your user name (usually your staff ID or your student ID including the the 'small letter' prefix), a port number and a randomly generated pass phase. Here are some examples (user names and pass phases are fictitious).
 
-Host Name: hawker.bios.cf.ac.uk sponsa.bios.cf.ac.uk
+Host Names:
+
+```         
+hawker.bios.cf.ac.uk
+or
+sponsa.bios.cf.ac.uk
+```
 
 Username (student numbers usually have a small letter and 7 digits): c9999999 or sbixxx
 
@@ -51,15 +57,23 @@ ssh c9999999@hawker.bios.cf.ac.uk -P 32222
 ```
 :::
 
-## HPC cluster access
+::: {.callout-note collapse="true"}
+## HPC cluster access: Big Data Master HPC, PGR or Staff
 
 If you are provided with access either teaching or research HPC systems you will only be provided with a host or server name - you username and password will be your Single Sign-On (SO) for the University - your student/staff number and your standard password.
 
 server currently used include:
 
-Host Name: hawker.bios.cf.ac.uk sponsa.bios.cf.ac.uk
+Host Names:
 
-With standard HPC teh port number is always 22
+```         
+gomphus.bios.cf.ac.uk
+or
+iago.bios.cf.ac.uk
+```
+
+With standard HPC the port number is always 22
+:::
 
 # Virtual Private Networks
 

@@ -279,10 +279,7 @@ background: darkred;
    
   <ul>
   <li><a href="#basics-of-hpc-and-hpc-vs-personal-cloud-provision" id="toc-basics-of-hpc-and-hpc-vs-personal-cloud-provision" class="nav-link active" data-scroll-target="#basics-of-hpc-and-hpc-vs-personal-cloud-provision">Basics of HPC and HPC vs Personal Cloud provision</a></li>
-  <li><a href="#personal-hpc-and-hpc-clusters" id="toc-personal-hpc-and-hpc-clusters" class="nav-link" data-scroll-target="#personal-hpc-and-hpc-clusters">Personal HPC and HPC clusters</a>
-  <ul class="collapse">
-  <li><a href="#hpc-cluster-access" id="toc-hpc-cluster-access" class="nav-link" data-scroll-target="#hpc-cluster-access">HPC cluster access</a></li>
-  </ul></li>
+  <li><a href="#personal-hpc-and-hpc-clusters" id="toc-personal-hpc-and-hpc-clusters" class="nav-link" data-scroll-target="#personal-hpc-and-hpc-clusters">Personal HPC and HPC clusters</a></li>
   <li><a href="#virtual-private-networks" id="toc-virtual-private-networks" class="nav-link" data-scroll-target="#virtual-private-networks">Virtual Private Networks</a></li>
   <li><a href="#r-studio" id="toc-r-studio" class="nav-link" data-scroll-target="#r-studio">R-studio</a></li>
   <li><a href="#ssh-using-mobxterm---connecting-to-server-on-pc" id="toc-ssh-using-mobxterm---connecting-to-server-on-pc" class="nav-link" data-scroll-target="#ssh-using-mobxterm---connecting-to-server-on-pc">SSH using Mobxterm - Connecting to server on PC</a></li>
@@ -324,8 +321,11 @@ Cardiff University Taught Modules - Masters or UG
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <section id="kubernete-vm" class="level3 callout-body-container callout-body">
 <h3 class="anchored" data-anchor-id="kubernete-vm">kubernete VM</h3>
-<p>You will be provided with three pieces of information the host (or server) name, your user name (usually your staff ID or your student ID including the the ‘small letter’ prefix), a port number and a randomly generated pass phase. Here are some examples (user names and pas phases are fictitious).</p>
-<p>Host Name: hawker.bios.cf.ac.uk sponsa.bios.cf.ac.uk</p>
+<p>You will be provided with three pieces of information the host (or server) name, your user name (usually your staff ID or your student ID including the the ‘small letter’ prefix), a port number and a randomly generated pass phase. Here are some examples (user names and pass phases are fictitious).</p>
+<p>Host Names:</p>
+<pre><code>hawker.bios.cf.ac.uk
+or
+sponsa.bios.cf.ac.uk</code></pre>
 <p>Username (student numbers usually have a small letter and 7 digits): c9999999 or sbixxx</p>
 <p>Port (5 digit number): 32222</p>
 <p>Password: hard_phase_remember</p>
@@ -336,13 +336,28 @@ Cardiff University Taught Modules - Masters or UG
 </section>
 </div>
 </div>
-<section id="hpc-cluster-access" class="level2">
-<h2 class="anchored" data-anchor-id="hpc-cluster-access">HPC cluster access</h2>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+HPC cluster access: Big Data Master HPC, PGR or Staff
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>If you are provided with access either teaching or research HPC systems you will only be provided with a host or server name - you username and password will be your Single Sign-On (SO) for the University - your student/staff number and your standard password.</p>
 <p>server currently used include:</p>
-<p>Host Name: hawker.bios.cf.ac.uk sponsa.bios.cf.ac.uk</p>
-<p>With standard HPC teh port number is always 22</p>
-</section>
+<p>Host Names:</p>
+<pre><code>gomphus.bios.cf.ac.uk
+or
+iago.bios.cf.ac.uk</code></pre>
+<p>With standard HPC the port number is always 22</p>
+</div>
+</div>
+</div>
 </section>
 <section id="virtual-private-networks" class="level1">
 <h1>Virtual Private Networks</h1>
