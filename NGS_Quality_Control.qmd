@@ -1,7 +1,7 @@
 ---
 title-block-style: default
 title-block-banner: darkred
-title: "Session 1 - NGS Quality Control"
+title: "NGS Quality Control"
 subtitle: "First Steps - making sure your data is good"
 author: "Dr. Sarah Christofides"
 date: today
@@ -14,11 +14,13 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=87a22d5f-a684-45ec-a58e-af690122c542&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=87a22d5f-a684-45ec-a58e-af690122c542&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
 
 [NGS Quality Control](https://tinyurl.com/3sr2wkbx)
 
-# Part 2: Working with Quality Control
+# Working with Quality Control
 
 ## FASTA and FASTQ
 
@@ -26,24 +28,28 @@ The two commonest file types for sequencing data are FASTA and FASTQ. (To make l
 
 A FASTA is a 2-line file format. Each sequence has a header line, which always starts with \> and contains an identifier for the sequence. The next line contains the sequence itself. For example, a FASTA file with two sequences in it could look like this:
 
-    >Sequence 1 
+```         
+>Sequence 1 
 
-    ACGTGCTTCCGGTTTCAGGGTCA
+ACGTGCTTCCGGTTTCAGGGTCA
 
-    >Sequence 2
+>Sequence 2
 
-    GTACTTAACCTAAACTGGACTAA
+GTACTTAACCTAAACTGGACTAA
+```
 
 A FASTQ is an extension of a FASTA that includes quality scores for each base of the sequence. It is a 4-line file format. The first line is still a header, but now begins with \@, and the second line is the sequence. The third line is always a single + that separates the sequence from the quality scores on the fourth line. A FASTQ of those same two sequences could look like this:
 
-    @Sequence 1 
-    ACGTGCTTCCGGTTTCAGGGTCA
-    +
-    R%!JSQA(AD\@ASDIA&ASD&!N
-    @Sequence 2
-    GTACTTAACCTAAACTGGACTAA
-    +
-    &DJSA)ADFLA9DF5*J34AQBS
+```         
+@Sequence 1 
+ACGTGCTTCCGGTTTCAGGGTCA
++
+R%!JSQA(AD\@ASDIA&ASD&!N
+@Sequence 2
+GTACTTAACCTAAACTGGACTAA
++
+&DJSA)ADFLA9DF5*J34AQBS
+```
 
 ## Visualising text files
 
@@ -265,8 +271,10 @@ Run FastQC on your trimmed Illumina_1 file and compare it to the original. Can y
 
 In the Session1 directory there is a subdirectory called looping, with five single-end Illumina samples in it. Can you write a script which will use loop over those files to do QC on them, then trim them and re-run the QC? Extra brownie points for keeping the output directories nice and tidy!
 
-# End of session 1.
+# End of NGS QC.
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=6cec8b60-2ac0-4ab3-98ba-af690122c53b&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=6cec8b60-2ac0-4ab3-98ba-af690122c53b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
 
 ## You have earned yourselves cake!

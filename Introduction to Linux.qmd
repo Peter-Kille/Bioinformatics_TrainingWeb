@@ -246,6 +246,4 @@ You can also make life easier for yourself by thinking carefully about giving yo
 
 As a final exercise in this part of the session, use the commands you have learned so far (particularly *pwd*, *ls* and *cd*) to sketch a map of your mydata folder.
 
-# End of Part 1!
-
-## Do not move on to part 2 until after the second lecture
+# 

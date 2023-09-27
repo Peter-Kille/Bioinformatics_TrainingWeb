@@ -9,7 +9,7 @@
 <meta name="author" content="Dr.&nbsp;Sarah Christofides">
 <meta name="dcterms.date" content="2023-09-27">
 
-<title>Session 1 - NGS Quality Control</title>
+<title>NGS Quality Control</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -139,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Session 1 - NGS Quality Control</h1>
+      <h1 class="quarto-secondary-nav-title">NGS Quality Control</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -150,7 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Session 1 - NGS Quality Control</h1>
+      <h1 class="title d-none d-lg-block">NGS Quality Control</h1>
             <p class="subtitle lead">First Steps - making sure your data is good</p>
                       </div>
   </div>
@@ -241,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./NGS_Quality_Control.html" class="sidebar-item-text sidebar-link active">Session 1 - NGS Quality Control</a>
+  <a href="./NGS_Quality_Control.html" class="sidebar-item-text sidebar-link active">NGS Quality Control</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -340,7 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#part-2-working-with-quality-control" id="toc-part-2-working-with-quality-control" class="nav-link active" data-scroll-target="#part-2-working-with-quality-control">Part 2: Working with Quality Control</a>
+  <li><a href="#working-with-quality-control" id="toc-working-with-quality-control" class="nav-link active" data-scroll-target="#working-with-quality-control">Working with Quality Control</a>
   <ul class="collapse">
   <li><a href="#fasta-and-fastq" id="toc-fasta-and-fastq" class="nav-link" data-scroll-target="#fasta-and-fastq">FASTA and FASTQ</a></li>
   <li><a href="#visualising-text-files" id="toc-visualising-text-files" class="nav-link" data-scroll-target="#visualising-text-files">Visualising text files</a></li>
@@ -357,7 +357,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#quality-trimming-using-fastp" id="toc-quality-trimming-using-fastp" class="nav-link" data-scroll-target="#quality-trimming-using-fastp">Quality trimming using fastp</a></li>
   <li><a href="#if-you-have-time-putting-it-all-together" id="toc-if-you-have-time-putting-it-all-together" class="nav-link" data-scroll-target="#if-you-have-time-putting-it-all-together">If you have time: putting it all together</a></li>
   </ul></li>
-  <li><a href="#end-of-session-1." id="toc-end-of-session-1." class="nav-link" data-scroll-target="#end-of-session-1.">End of session 1.</a>
+  <li><a href="#end-of-ngs-qc." id="toc-end-of-ngs-qc." class="nav-link" data-scroll-target="#end-of-ngs-qc.">End of NGS QC.</a>
   <ul class="collapse">
   <li><a href="#you-have-earned-yourselves-cake" id="toc-you-have-earned-yourselves-cake" class="nav-link" data-scroll-target="#you-have-earned-yourselves-cake">You have earned yourselves cake!</a></li>
   </ul></li>
@@ -374,8 +374,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=87a22d5f-a684-45ec-a58e-af690122c542&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
 <p><a href="https://tinyurl.com/3sr2wkbx">NGS Quality Control</a></p>
-<section id="part-2-working-with-quality-control" class="level1">
-<h1>Part 2: Working with Quality Control</h1>
+<section id="working-with-quality-control" class="level1">
+<h1>Working with Quality Control</h1>
 <section id="fasta-and-fastq" class="level2">
 <h2 class="anchored" data-anchor-id="fasta-and-fastq">FASTA and FASTQ</h2>
 <p>The two commonest file types for sequencing data are FASTA and FASTQ. (To make life a little more complicated, both have more than one file extension. FASTAs can be .fasta, .fa or .fna; FASTQs can be .fastq or .fq)</p>
@@ -621,8 +621,8 @@ Exercise: checking it worked!
 <p>In the Session1 directory there is a subdirectory called looping, with five single-end Illumina samples in it. Can you write a script which will use loop over those files to do QC on them, then trim them and re-run the QC? Extra brownie points for keeping the output directories nice and tidy!</p>
 </section>
 </section>
-<section id="end-of-session-1." class="level1">
-<h1>End of session 1.</h1>
+<section id="end-of-ngs-qc." class="level1">
+<h1>End of NGS QC.</h1>
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=6cec8b60-2ac0-4ab3-98ba-af690122c53b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
 <section id="you-have-earned-yourselves-cake" class="level2">

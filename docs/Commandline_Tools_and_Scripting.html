@@ -178,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">Session 1 - NGS Quality Control</a>
+  <a href="./NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">NGS Quality Control</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -293,8 +293,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#fordone-loops-when-processing-lots-of-data" id="toc-fordone-loops-when-processing-lots-of-data" class="nav-link" data-scroll-target="#fordone-loops-when-processing-lots-of-data">For…Done Loops – When Processing Lots of Data</a>
   <ul class="collapse">
   <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools">Tools</a></li>
-  <li><a href="#loops-using-numerical-varibles" id="toc-loops-using-numerical-varibles" class="nav-link" data-scroll-target="#loops-using-numerical-varibles">Loops using numerical varibles</a></li>
-  <li><a href="#loops-using-strings-lists-as-varibles" id="toc-loops-using-strings-lists-as-varibles" class="nav-link" data-scroll-target="#loops-using-strings-lists-as-varibles">Loops using Strings (lists) as Varibles</a></li>
+  <li><a href="#loops-using-numerical-variables" id="toc-loops-using-numerical-variables" class="nav-link" data-scroll-target="#loops-using-numerical-variables">Loops using numerical variables</a></li>
+  <li><a href="#loops-using-strings-lists-as-variables" id="toc-loops-using-strings-lists-as-variables" class="nav-link" data-scroll-target="#loops-using-strings-lists-as-variables">Loops using Strings (lists) as variables</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -314,7 +314,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Once you are reading a document with more or less, typing a forward slash / will start a prompt at the bottom of the page, and you can then type in text that is searched for below the point in the document you were at. Typing in a ? also searches for a text string you enter, but it searches in the document above the point you were at. Hitting the n key during a search looks for the next instance of that text in the file.</p>
 <p>With less (but not more), you can use the arrow keys to scroll up and down the page, and the b key to move back up the document if you wish to.</p>
 <p>Remember these are just for reading the files. If you want to edit them you’ll need a text editor like nano or vi.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -360,7 +360,7 @@ man tail</code></pre>
 <p>grep requires a regular expression as input, and returns all the lines containing that pattern to you as output.</p>
 <p>grep is especially useful in combination with pipes as you can filter the results of other commands.</p>
 <p>For example, perhaps you only want to see only the information in an EMBL file relating to the origin of the sequence, that is, the DE line. You do not need to search the file in an editor, you can just grep for lines beginning in DE, as in the next exercise.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -420,7 +420,7 @@ grep -c “^&gt;” *seqs.fasta </code></pre>
 <p>Appears on nearly every Unix system. Can be very powerful if you take the time to know the key-short cuts.</p>
 <p><strong><em>Cons:</em></strong></p>
 <p>You have to know the shortcuts!! There’s no menus and no on screen prompts</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -485,8 +485,8 @@ echo 'Blast off' </code></pre>
 <h2 class="anchored" data-anchor-id="tools">Tools</h2>
 <p>Bash text editor - NANO OR VI</p>
 </section>
-<section id="loops-using-numerical-varibles" class="level2">
-<h2 class="anchored" data-anchor-id="loops-using-numerical-varibles">Loops using numerical varibles</h2>
+<section id="loops-using-numerical-variables" class="level2">
+<h2 class="anchored" data-anchor-id="loops-using-numerical-variables">Loops using numerical variables</h2>
 <p>Creating a Loop</p>
 <p>Invoke a text editor such as nano, then type</p>
 <pre><code>for i in {1..[number]}; do 
@@ -502,8 +502,8 @@ done</code></pre>
 <p>run</p>
 <pre><code>./[program_name]</code></pre>
 </section>
-<section id="loops-using-strings-lists-as-varibles" class="level2">
-<h2 class="anchored" data-anchor-id="loops-using-strings-lists-as-varibles">Loops using Strings (lists) as Varibles</h2>
+<section id="loops-using-strings-lists-as-variables" class="level2">
+<h2 class="anchored" data-anchor-id="loops-using-strings-lists-as-variables">Loops using Strings (lists) as variables</h2>
 <p>Invoke a text editor such as nano, then type</p>
 <pre><code>for i in sampleA sampleB sampleC sampleD; do 
 
@@ -518,7 +518,7 @@ done </code></pre>
 <pre><code>chmod +x [program_name] </code></pre>
 <p>run</p>
 <pre><code>./[program_name] </code></pre>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>

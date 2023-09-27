@@ -24,26 +24,32 @@ With less (but not more), you can use the arrow keys to scroll up and down the p
 
 Remember these are just for reading the files. If you want to edit them you'll need a text editor like nano or vi.
 
-::: callout-note
+::: callout-important
 # Exercise
 
 Move into an appropriate working directory in mydta
 
 fetch the file O97435.embl using wget
 
-    wget https://rest.uniprot.org/uniprotkb/O97435.txt > O97435.embl
+```         
+wget https://rest.uniprot.org/uniprotkb/O97435.txt > O97435.embl
+```
 
 using the commands cat, more, less, head and tail.
 
 Don't forget that tab completion can save you typing effort.
 
-    cat O97435.embl
-    more O97435.embl # Use the spacebar to scroll down
-    Press q to quit.
+```         
+cat O97435.embl
+more O97435.embl # Use the spacebar to scroll down
+Press q to quit.
+```
 
 Now try less
 
-    less O97435.embl
+```         
+less O97435.embl
+```
 
 Use the spacebar to scroll down, b to go up a page, and the up and down arrow keys to move up and down the file line by line.
 
@@ -51,8 +57,10 @@ Press the / key and search for the letters sequence in the file. Press the ? key
 
 Press the n key to search for other instances of gene in the file.
 
-    head O97435.embl
-    tail O97435.embl
+```         
+head O97435.embl
+tail O97435.embl
+```
 
 For reading files yourself, we recommend the command less. The command cat is more usually used in conjunction with other commands when you wish to process text from within a file in some way.
 
@@ -60,18 +68,22 @@ Remember the man pages
 
 There are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages:
 
-    man cat
-    man more
-    man less
-    man head
-    man tail
+```         
+man cat
+man more
+man less
+man head
+man tail
+```
 :::
 
 # Querying files with grep
 
 grep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.
 
-    grep “adge” /usr/share/dict/words
+```         
+grep “adge” /usr/share/dict/words
+```
 
 You can also use flexible search terms, known as regular expressions, in your grep searches. You have already used glob pattern expressions in this practical, but regular expressions are somewhat different and more powerful. For example, when you listed all files with the pattern tes*embl* you were using a glob pattern comprising explicit characters (e.g. tes) and special symbols (\* meaning any character or characters). The equivalent in grep would be "tes.*embl.*" where the period signifies any single character and the \* signifies any number of repeats.
 
@@ -85,18 +97,22 @@ grep is especially useful in combination with pipes as you can filter the result
 
 For example, perhaps you only want to see only the information in an EMBL file relating to the origin of the sequence, that is, the DE line. You do not need to search the file in an editor, you can just grep for lines beginning in DE, as in the next exercise.
 
-::: callout-note
+::: callout-important
 # Exercise
 
 Move into an appropriate working directory in mydta
 
 fetch the file O97435.embl using wget
 
-    wget https://rest.uniprot.org/uniprotkb/O97435.txt > O97435.embl
+```         
+wget https://rest.uniprot.org/uniprotkb/O97435.txt > O97435.embl
+```
 
 While in the download directory, type the command:
 
-    grep “DE” O97435.embl 
+```         
+grep “DE” O97435.embl 
+```
 
 What is this command doing?
 
@@ -104,14 +120,18 @@ Can you see why the above command results in the output you see? An explanation 
 
 Try the commands:
 
-    grep “^DE” O97435.embl
-    grep -x “DE.*” O97435.embl 
+```         
+grep “^DE” O97435.embl
+grep -x “DE.*” O97435.embl 
+```
 
 What are the \^ symbol and the -x parameter in these commands doing? Check the manpage for grep to be sure.
 
 Try the command:
 
-    cat O97435.embl | grep “^DE”. 
+```         
+cat O97435.embl | grep “^DE”. 
+```
 
 Does that do what you expected?
 
@@ -127,9 +147,11 @@ Another common example is counting how many sequences are in a set of multi-fast
 
 pipes between the commands cat, grep and the handy wc utility, which here we use to count lines found by grep.
 
-    cat *seqs.fasta | grep “^>” | wc -l 
+```         
+cat *seqs.fasta | grep “^>” | wc -l 
 
-    grep -c “^>” *seqs.fasta 
+grep -c “^>” *seqs.fasta 
+```
 
 Each sequence in a fasta file starts with a header line that begins with a \> . The above command streams the contents of all files matching the glob pattern \*seqs.fasta through a search with grep looking for lines that start with the symbol \> . The quotes around the pattern \^\> are necessary, as otherwise it is interpreted as a request for redirection of output to a file, rather than as a character to look for. As before, the \^ symbol means "match only at the beginning of the line".
 
@@ -172,20 +194,26 @@ Appears on nearly every Unix system. Can be very powerful if you take the time t
 
 You have to know the shortcuts!! There's no menus and no on screen prompts
 
-::: callout-note
+::: callout-important
 # Exercise
 
 ## Create a file with nano
 
-    nano test_nano.txt 
+```         
+nano test_nano.txt 
+```
 
 type some text, exit ctrl X, save and return to command line now list the contents of the file you created
 
-    less test_nano.txt 
+```         
+less test_nano.txt 
+```
 
 ## Create a file with vi
 
-    vi test_vi.txt 
+```         
+vi test_vi.txt 
+```
 
 type 'a' and you can then add text
 
@@ -193,7 +221,9 @@ exit saving you edits \[esc\]:wq! - this stands for write quit !!
 
 now list the contents of the file you created
 
-    less test_vi.txt 
+```         
+less test_vi.txt 
+```
 :::
 
 # Running and rerunning scripts
@@ -206,17 +236,21 @@ Make a text file containing the script in question. This can be achieved by down
 
 Here's a script you can try
 
-    #!/usr/bash 
+```         
+#!/usr/bash 
 
-    echo {10..1} 
+echo {10..1} 
 
-    echo 'Blast off' 
+echo 'Blast off' 
+```
 
 ## Step 2:
 
 Make the file executable. Before you can run the script you must make it executable. This is done by changing its property using
 
-    chmod a+x [script name] 
+```         
+chmod a+x [script name] 
+```
 
 this is shorthand for chmod (change modify) a(all)+(add)execute(e) \[script name\] -- thus changing the permission to allow everyone to execute a script. For more guide to chmod see https://en.wikipedia.org/wiki/Chmod
 
@@ -226,15 +260,21 @@ Run the program. This should be easy but there are a few ways of doing this.
 
 Place the program into the directory where you want to use it and type
 
-    ./[script name] parameters arguments 
+```         
+./[script name] parameters arguments 
+```
 
 On first use try to run with no parameters or arguments or with -h and -help to see the manual for the script. Some poorly written scripts will need you to define the program you need to use them. Ie if it was a perl program (you may have to module load perl before you run this example).
 
-    perl [script name] parameters arguments 
+```         
+perl [script name] parameters arguments 
+```
 
 Run from scripts current location using full path.
 
-    /full path/[script name] parameters arguments 
+```         
+/full path/[script name] parameters arguments 
+```
 
 Place the script into your 'PATH' -- this means that the computer automatically knows about the script and will run it from any location just given the program name. I suggest that if you want to do this ask the demonstrators and they can show you......this is advanced as if you put two scripts with the same name into the PATH you can cause issues.
 
@@ -244,67 +284,81 @@ Place the script into your 'PATH' -- this means that the computer automatically 
 
 Bash text editor - NANO OR VI
 
-## Loops using numerical varibles
+## Loops using numerical variables
 
 Creating a Loop
 
 Invoke a text editor such as nano, then type
 
-    for i in {1..[number]}; do 
+```         
+for i in {1..[number]}; do 
 
-    # use hash to include some level of documentation so when you get to script in a few months time 
-    # you can remember what it was all about.  ${i} = number which increment by 1 each time the loop runs 
-    [your commands]${i} 
+# use hash to include some level of documentation so when you get to script in a few months time 
+# you can remember what it was all about.  ${i} = number which increment by 1 each time the loop runs 
+[your commands]${i} 
 
-    done
+done
+```
 
 save.
 
 now make the program executable
 
-    chmod +x [program_name]
+```         
+chmod +x [program_name]
+```
 
 run
 
-    ./[program_name]
+```         
+./[program_name]
+```
 
-## Loops using Strings (lists) as Varibles
+## Loops using Strings (lists) as variables
 
 Invoke a text editor such as nano, then type
 
-    for i in sampleA sampleB sampleC sampleD; do 
+```         
+for i in sampleA sampleB sampleC sampleD; do 
 
-    # use hash to include some level of documentation so when you get to script in a few months time 
-    # you can remember what it was all about.  ${i} = the list of strings given at the start of the for loop 
+# use hash to include some level of documentation so when you get to script in a few months time 
+# you can remember what it was all about.  ${i} = the list of strings given at the start of the for loop 
 
-    [your commands]${i} 
+[your commands]${i} 
 
-    done 
+done 
+```
 
 save
 
 now make the program executable
 
-    chmod +x [program_name] 
+```         
+chmod +x [program_name] 
+```
 
 run
 
-    ./[program_name] 
+```         
+./[program_name] 
+```
 
-::: callout-note
+::: callout-important
 # Exercise
 
 This script will trim barcodes from a set of 17 dog pe sequences where the individual dog sequences are named for dog 1: forward sequence dog1_1.fastq & reverse sequence dog1_2.fastq to dog17: forward sequence dog17_1.fastq & reverse sequence dog17_2.fastq
 
-    for i in {1..17}; do 
+```         
+for i in {1..17}; do 
 
-    #replacing IUPAC codes with N since these codes can error with trimming programs 
-    sed -i 's/[YWR]/N/g' dog${i}_1.fastq 
-    sed -i 's/[YWR]/N/g' dog${i}_2.fastq 
+#replacing IUPAC codes with N since these codes can error with trimming programs 
+sed -i 's/[YWR]/N/g' dog${i}_1.fastq 
+sed -i 's/[YWR]/N/g' dog${i}_2.fastq 
 
-    #now remove the index barcodes 
-    fastx_trimmer -f 9 -i dog${i}_1.fastq -o dogtrim${i}_1.fastq 
-    fastx_trimmer -f 9 -i dog${i}_2.fastq -o dogtrim${i}_2.fastq 
+#now remove the index barcodes 
+fastx_trimmer -f 9 -i dog${i}_1.fastq -o dogtrim${i}_1.fastq 
+fastx_trimmer -f 9 -i dog${i}_2.fastq -o dogtrim${i}_2.fastq 
 
-    done
+done
+```
 :::
