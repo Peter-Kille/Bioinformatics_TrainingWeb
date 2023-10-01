@@ -25,9 +25,9 @@ With less (but not more), you can use the arrow keys to scroll up and down the p
 Remember these are just for reading the files. If you want to edit them you'll need a text editor like nano or vi.
 
 ::: callout-important
-# Exercise
+## Exercise
 
-Move into an appropriate working directory in mydta
+Move into an appropriate working directory in mydata
 
 fetch the file O97435.embl using wget
 
@@ -98,9 +98,9 @@ grep is especially useful in combination with pipes as you can filter the result
 For example, perhaps you only want to see only the information in an EMBL file relating to the origin of the sequence, that is, the DE line. You do not need to search the file in an editor, you can just grep for lines beginning in DE, as in the next exercise.
 
 ::: callout-important
-# Exercise
+## Exercise
 
-Move into an appropriate working directory in mydta
+Move into an appropriate working directory in mydata
 
 fetch the file O97435.embl using wget
 
@@ -162,6 +162,10 @@ An easier version of this shown as the second example uses the grep -c argument 
 So a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.
 :::
 
+## Use Zgrep with compressed files
+
+You can use all of grep functionality with a compressed file by adding a 'z' - just replace grep with zprep and you can directly query that .gz files.
+
 # Using text editors
 
 Plain text files are important, both as input to bioinformatics programs and as input or configuration files for system programs. We highly recommend that you learn to use a text editor to prepare and edit plain text files.
@@ -195,9 +199,9 @@ Appears on nearly every Unix system. Can be very powerful if you take the time t
 You have to know the shortcuts!! There's no menus and no on screen prompts
 
 ::: callout-important
-# Exercise
+## Exercise
 
-## Create a file with nano
+### Create a file with nano
 
 ```         
 nano test_nano.txt 
@@ -209,7 +213,7 @@ type some text, exit ctrl X, save and return to command line now list the conten
 less test_nano.txt 
 ```
 
-## Create a file with vi
+### Create a file with vi
 
 ```         
 vi test_vi.txt 
@@ -228,9 +232,9 @@ less test_vi.txt
 
 # Running and rerunning scripts
 
-Bioinformatic is full of altruistic people who share their skills by share their scripts. Most scripts you find on the internet are written in perl (bioperl) or python (biophython). There are a few simple steps to making use of this fantastic resource.
+Bioinformatic is full of altruistic people who share their skills by share their scripts. Most scripts you find on the internet are written in \perl (\bioperl) or \python (\biophython). There are a few simple steps to making use of this fantastic resource.
 
-## Step 1:
+## Step 1: Create your Script
 
 Make a text file containing the script in question. This can be achieved by downloading or transferring the scripts as a file in the correct format. Sometimes the scripts are posted as part of a website such as a web-post in a discussion forum. To use these scripts, create a file using vi or nano and copy into the test file the script in question ensuring you save it with an appropriate name.
 
@@ -244,7 +248,7 @@ echo {10..1}
 echo 'Blast off' 
 ```
 
-## Step 2:
+## Step 2: Make your script executable
 
 Make the file executable. Before you can run the script you must make it executable. This is done by changing its property using
 
@@ -254,7 +258,7 @@ chmod a+x [script name]
 
 this is shorthand for chmod (change modify) a(all)+(add)execute(e) \[script name\] -- thus changing the permission to allow everyone to execute a script. For more guide to chmod see https://en.wikipedia.org/wiki/Chmod
 
-## Step 3:
+## Step 3: Run Your Script
 
 Run the program. This should be easy but there are a few ways of doing this.
 
@@ -280,10 +284,6 @@ Place the script into your 'PATH' -- this means that the computer automatically 
 
 # For...Done Loops -- When Processing Lots of Data
 
-## Tools
-
-Bash text editor - NANO OR VI
-
 ## Loops using numerical variables
 
 Creating a Loop
@@ -291,10 +291,14 @@ Creating a Loop
 Invoke a text editor such as nano, then type
 
 ```         
+#!/bin/bash
+
 for i in {1..[number]}; do 
 
 # use hash to include some level of documentation so when you get to script in a few months time 
-# you can remember what it was all about.  ${i} = number which increment by 1 each time the loop runs 
+
+# you can remember what it was all about.  ${i} = number which increment by 1 each time the loop runs
+
 [your commands]${i} 
 
 done
@@ -318,10 +322,13 @@ run
 
 Invoke a text editor such as nano, then type
 
-```         
+```
+#!/bin/bash
+
 for i in sampleA sampleB sampleC sampleD; do 
 
-# use hash to include some level of documentation so when you get to script in a few months time 
+# use hash to include some level of documentation so when you get to script in a few months time
+
 # you can remember what it was all about.  ${i} = the list of strings given at the start of the for loop 
 
 [your commands]${i} 
@@ -343,22 +350,77 @@ run
 ./[program_name] 
 ```
 
-::: callout-important
-# Exercise
+## Loops using directory listings
 
-This script will trim barcodes from a set of 17 dog pe sequences where the individual dog sequences are named for dog 1: forward sequence dog1_1.fastq & reverse sequence dog1_2.fastq to dog17: forward sequence dog17_1.fastq & reverse sequence dog17_2.fastq
+This is a great method if you want to execute a series of command on a set of data files contained in a specific directory, for instance a series of sequence files.
+
+Invoke a text editor such as nano, then type
 
 ```         
-for i in {1..17}; do 
+#!/bin/bash
 
-#replacing IUPAC codes with N since these codes can error with trimming programs 
-sed -i 's/[YWR]/N/g' dog${i}_1.fastq 
-sed -i 's/[YWR]/N/g' dog${i}_2.fastq 
+sequence_dir=[location of folder containing paired end sequence files]
+#*_R1.fastq - lists all files ending in _R1.fastq
 
-#now remove the index barcodes 
-fastx_trimmer -f 9 -i dog${i}_1.fastq -o dogtrim${i}_1.fastq 
-fastx_trimmer -f 9 -i dog${i}_2.fastq -o dogtrim${i}_2.fastq 
+for f in ${sequence_dir}/*_R1.fastq
+do
 
-done
+#the file name are placed in variable $f - we can separate the name of the file away from the suffix (.fastq) using this simple cut expression - the variable 'R1' now contains the file name with no suffix 
+R1=$(basename $f | cut -f1 -d.)
+
+#Sometimes we want the 'base' name of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed 
+base=$(echo $R1 | sed 's/_R1//')
+
+echo ${base}
+
+done 
 ```
-:::
+
+save
+
+now make the program executable
+
+```         
+chmod +x [program_name] 
+```
+
+run
+
+```         
+./[program_name] 
+```
+
+# Decompressing tar.gz and .gz files
+
+You will commonly come across 2 type of compressed files in Linux .gz and tar.gz. The gz are equivalent to a 'zip' file in windows, whilst a tar.gz represent a compressed archive - that means it will contain multiple files and folders. Here's how to handle these file:
+
+##.gz ....wait a minute do you really need to decompress this file !! Many programs will happily use a .gz file directly, this a win for your file space so check out if you really need to decompress the file. Unfortunate some utilits like 'sed' require files to be unzipped, it that case:
+
+```         
+#to decompress
+gunzip [filename].gz
+#to recompress
+gzip [filename]
+```
+
+##.tar.gz
+
+How to extract a .tar.gz file on Linux?
+
+To extract a .tar.gz file on Linux, you can use the "tar" command in the terminal. Here is the general syntax:
+
+```         
+tar -xvzf filename.tar.gz
+```
+
+Here is a brief explanation of the options used:
+
+```         
+-x: This option tells tar to extract the contents of the archive.
+
+-v: This option is for verbose output, which means that tar will display a list of the files being extracted as it does so.
+
+-z: This option tells tar to decompress the archive using gzip.
+
+-f: This option is used to specify the archive file to extract.
+```

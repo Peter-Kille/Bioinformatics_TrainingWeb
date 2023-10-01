@@ -12,7 +12,9 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=35fe879e-58e9-4141-a49a-af630098dee1&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=35fe879e-58e9-4141-a49a-af630098dee1&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
 
 [Genome Visualisation Powerpoint](https://tinyurl.com/5d4kdk49)
 
@@ -66,8 +68,10 @@ Start Terminal
 
 Now Load Artemis Module and initiate Artemis with command `art`
 
-    module load artemis/18.2.0
-    art
+```         
+module load artemis/18.2.0
+art
+```
 
 Artemis Opening Screen
 
@@ -77,7 +81,9 @@ Artemis Opening Screen
 
 Open Genbank File
 
-    >File >Open
+```         
+>File >Open
+```
 
 Navigate to your Session3 folder and select the genbank file (`NC_003428.gb`).
 
@@ -93,9 +99,11 @@ The blue highlighted area should highlight open reading frames (ORFs) and the ve
 
 Now change the codon table by selecting
 
-    > Options > Genetic Code Tables
-    selecet
-    Vertebrate Mitochondrial
+```         
+> Options > Genetic Code Tables
+selecet
+Vertebrate Mitochondrial
+```
 
 Your gene visualisation should now look like this
 
@@ -129,8 +137,10 @@ Start Terminal
 
 Now Load IGV Module and initiate Artemis with command `igv.sh`
 
-    module load module load igv/2.12.3
-    igv.sh
+```         
+module load module load igv/2.12.3
+igv.sh
+```
 
 IVG Opening Screen
 
@@ -140,7 +150,9 @@ IVG Opening Screen
 
 Now open the GenBank file using Genomes
 
-    > Genomes > Load Genome from File
+```         
+> Genomes > Load Genome from File
+```
 
 Select GenBank file using file browser - you should see the following image
 
@@ -161,20 +173,26 @@ As you generate annotations - look to see how you can overlay them into IVG and 
 
 (Minimap - mapping software)\[https://github.com/lh3/minimap2\]
 
-    module load minimap2/2.14
+```         
+module load minimap2/2.14
+```
 
 Samtools - bam/sam tools utilities (for alignment files)
 
-    module load samtools/1.15.1
+```         
+module load samtools/1.15.1
+```
 
 ## Workshop
 
 Align sequences to your assemblies and convert to Bam file
 
-    minimap2 -ax sr [your contigs.fasta] [forward_read.fastq] [reverse_read.fastq] > aln.sam
-    samtools view -b -S aln.sam > aln.bam
-    samtools sort aln.bam > aln_sorted.bam
-    samtools index aln_sorted.bam
+```         
+minimap2 -ax sr [your contigs.fasta] [forward_read.fastq] [reverse_read.fastq] > aln.sam
+samtools view -b -S aln.sam > aln.bam
+samtools sort aln.bam > aln_sorted.bam
+samtools index aln_sorted.bam
+```
 
 ::: callout-important
 ## Excersise Minimap
@@ -192,7 +210,9 @@ Overlay the bam file you have generated into your assembly contig using Artemis 
 
 [PROKKA git hub site](https://github.com/tseemann/prokka)
 
-    module load prooka
+```         
+module load prooka
+```
 
 ***check installed version with `module avail`***
 
@@ -204,33 +224,43 @@ Summary: Prokka is a piece of software that is designed to identify genes from s
 
 Basic commands / usage: To run prokka on an assembly (with an example filename of 'contigs.fa' use the command:
 
-    module load prokka_mambaforge/1.14.6
-    prokka contigs.fa
+```         
+module load prokka_mambaforge/1.14.6
+prokka contigs.fa
+```
 
 If you want to view the names of output files, you need to provide a name for the files and a directory where they should be saved:
 
 Choose the names of the output files with --outdir and --prefix
 
-    module load prokka_mambaforge/1.14.6
-    prokka --outdir mydir --prefix mygenome contigs.fa
+```         
+module load prokka_mambaforge/1.14.6
+prokka --outdir mydir --prefix mygenome contigs.fa
+```
 
 NOTE: Prokka defaults to analysing Bacteria. Think about what your sample is and what translation table you should use (This is also important for Artemis!). If you're working on mitochondria include --kingdom mito and the relevant --gcodeSome examples:
 
-    1.  The Standard Code
-    2.  The Vertebrate Mitochondrial Code
-    3.  The Yeast Mitochondrial Code
-    4.  The Invertebrate Mitochondrial Code
-    5.  The Echinoderm and Flatworm Mitochondrial Code
+```         
+1.  The Standard Code
+2.  The Vertebrate Mitochondrial Code
+3.  The Yeast Mitochondrial Code
+4.  The Invertebrate Mitochondrial Code
+5.  The Echinoderm and Flatworm Mitochondrial Code
+```
 
 A full command for mitochondrial annotation would look like this:
 
-    module load prokka_mambaforge/1.14.6p
+```         
+module load prokka_mambaforge/1.14.6p
 
-    prokka --outdir prokka --kingdom Mitochondria --gcode 2 assembly/contigs.fasta
-    
+prokka --outdir prokka --kingdom Mitochondria --gcode 2 assembly/contigs.fasta
+```
+
 ## Prokka Loop
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=4fb71dc3-818c-4317-ab92-af6a0141efbd&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=4fb71dc3-818c-4317-ab92-af6a0141efbd&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
 
 ### BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR
 
@@ -242,19 +272,21 @@ It takes FASTA DNA sequence as input, and write GFF3 as output. It uses the new 
 
 Basic command Usage:
 
-    module load barrnap/0.8
-    barrnap [options] Your_contigs.fasta > outfile.gff
-    Options:
-    --help            This help
-    --version         Print version and exit
-    --citation        Print citation for referencing barrnap
-    --kingdom [X]     Kingdom: arc mito euk bac (default 'bac')
-    --quiet           No screen output (default OFF)
-    --threads [N]     Number of threads/cores/CPUs to use (default '8')
-    --lencutoff [n.n] Proportional length threshold to label as partial (default '0.8')
-    --reject [n.n]    Proportional length threshold to reject prediction (default '0.5')
-    --evalue [n.n]    Similarity e-value cut-off (default '1e-06')
-    --incseq          Include FASTA input sequences in GFF3 output (default OFF)
+```         
+module load barrnap/0.8
+barrnap [options] Your_contigs.fasta > outfile.gff
+Options:
+--help            This help
+--version         Print version and exit
+--citation        Print citation for referencing barrnap
+--kingdom [X]     Kingdom: arc mito euk bac (default 'bac')
+--quiet           No screen output (default OFF)
+--threads [N]     Number of threads/cores/CPUs to use (default '8')
+--lencutoff [n.n] Proportional length threshold to label as partial (default '0.8')
+--reject [n.n]    Proportional length threshold to reject prediction (default '0.5')
+--evalue [n.n]    Similarity e-value cut-off (default '1e-06')
+--incseq          Include FASTA input sequences in GFF3 output (default OFF)
+```
 
 ::: callout-important
 ## Barnap exercises
@@ -280,11 +312,15 @@ Use barrnap to generate a GFF file predicting the position of any ribosomal sequ
 
 \[mitos2 source\](https://gitlab.com/Bernt/MITOS), \[mitos browser version\](http://mitos2.bioinf.uni-leipzig.de/)
 
-    module load mitos/2.0.4
+```         
+module load mitos/2.0.4
+```
 
 bioperl-live/release-1-7-2
 
-    module load bioperl-live/release-1-7-2
+```         
+module load bioperl-live/release-1-7-2
+```
 
 selectSeqsAboveMinLength
 
@@ -294,7 +330,9 @@ selectSeqsAboveMinLength
 
 bedtools
 
-    module load bedtools2/2.30.0
+```         
+module load bedtools2/2.30.0
+```
 
 ## Workshop
 
@@ -357,9 +395,11 @@ done
 module unload mitos/2.0.4
 ```
 
-## Worked Mitoss  Loop example
+## Worked Mitoss Loop example
 
-<iframe  data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=257ce45d-7a81-4c25-91b8-af6a01422c39&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=257ce45d-7a81-4c25-91b8-af6a01422c39&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
 
 ### Extract Fasta sequence for genes in Bed file
 
@@ -415,7 +455,9 @@ mito_pro -- metazoan mitochondrial database
 
 [NCBI Blast+ suite available](https://blast.ncbi.nlm.nih.gov/Blast.cgi) Don't forget to load the blast and any other modules you need!
 
-    module load blast-plus/2.12.0
+```         
+module load blast-plus/2.12.0
+```
 
 ## Anatomy of the BLAST command
 
@@ -441,7 +483,9 @@ Currently installed are:
 
 You already have the databases you require today but for reference it is at location
 
-     ~/classdata/Bioinformatics/REFS/blastdb/
+```         
+ ~/classdata/Bioinformatics/REFS/blastdb/
+```
 
 To create blast databases use the makeblastdb. To create a new database:
 
@@ -451,40 +495,44 @@ To create blast databases use the makeblastdb. To create a new database:
 
 ## Command line options
 
-    -in         [input_file] 
-    -dbtype     [molecule_type], nucl – nucleotide or prot - protein
-    -title  [database_title]
-    -out        [database_name]
+```         
+-in         [input_file] 
+-dbtype     [molecule_type], nucl – nucleotide or prot - protein
+-title  [database_title]
+-out        [database_name]
+```
 
 OTHER OPTIONS
 
-      blastn [-h] [-help] [-import_search_strategy filename]
-        [-export_search_strategy filename] [-task task_name] [-db database_name]
-        [-dbsize num_letters] [-gilist filename] [-seqidlist filename]
-        [-negative_gilist filename] [-negative_seqidlist filename]
-        [-taxids taxids] [-negative_taxids taxids] [-taxidlist filename]
-        [-negative_taxidlist filename] [-entrez_query entrez_query]
-        [-db_soft_mask filtering_algorithm] [-db_hard_mask filtering_algorithm]
-        [-subject subject_input_file] [-subject_loc range] [-query input_file]
-        [-out output_file] [-evalue evalue] [-word_size int_value]
-        [-gapopen open_penalty] [-gapextend extend_penalty]
-        [-perc_identity float_value] [-qcov_hsp_perc float_value]
-        [-max_hsps int_value] [-xdrop_ungap float_value] [-xdrop_gap float_value]
-        [-xdrop_gap_final float_value] [-searchsp int_value] [-penalty penalty]
-        [-reward reward] [-no_greedy] [-min_raw_gapped_score int_value]
-        [-template_type type] [-template_length int_value] [-dust DUST_options]
-        [-filtering_db filtering_database]
-        [-window_masker_taxid window_masker_taxid]
-        [-window_masker_db window_masker_db] [-soft_masking soft_masking]
-        [-ungapped] [-culling_limit int_value] [-best_hit_overhang float_value]
-        [-best_hit_score_edge float_value] [-subject_besthit]
-        [-window_size int_value] [-off_diagonal_range int_value]
-        [-use_index boolean] [-index_name string] [-lcase_masking]
-        [-query_loc range] [-strand strand] [-parse_deflines] [-outfmt format]
-        [-show_gis] [-num_descriptions int_value] [-num_alignments int_value]
-        [-line_length line_length] [-html] [-sorthits sort_hits]
-        [-sorthsps sort_hsps] [-max_target_seqs num_sequences]
-        [-num_threads int_value] [-remote] [-version]
+```         
+  blastn [-h] [-help] [-import_search_strategy filename]
+    [-export_search_strategy filename] [-task task_name] [-db database_name]
+    [-dbsize num_letters] [-gilist filename] [-seqidlist filename]
+    [-negative_gilist filename] [-negative_seqidlist filename]
+    [-taxids taxids] [-negative_taxids taxids] [-taxidlist filename]
+    [-negative_taxidlist filename] [-entrez_query entrez_query]
+    [-db_soft_mask filtering_algorithm] [-db_hard_mask filtering_algorithm]
+    [-subject subject_input_file] [-subject_loc range] [-query input_file]
+    [-out output_file] [-evalue evalue] [-word_size int_value]
+    [-gapopen open_penalty] [-gapextend extend_penalty]
+    [-perc_identity float_value] [-qcov_hsp_perc float_value]
+    [-max_hsps int_value] [-xdrop_ungap float_value] [-xdrop_gap float_value]
+    [-xdrop_gap_final float_value] [-searchsp int_value] [-penalty penalty]
+    [-reward reward] [-no_greedy] [-min_raw_gapped_score int_value]
+    [-template_type type] [-template_length int_value] [-dust DUST_options]
+    [-filtering_db filtering_database]
+    [-window_masker_taxid window_masker_taxid]
+    [-window_masker_db window_masker_db] [-soft_masking soft_masking]
+    [-ungapped] [-culling_limit int_value] [-best_hit_overhang float_value]
+    [-best_hit_score_edge float_value] [-subject_besthit]
+    [-window_size int_value] [-off_diagonal_range int_value]
+    [-use_index boolean] [-index_name string] [-lcase_masking]
+    [-query_loc range] [-strand strand] [-parse_deflines] [-outfmt format]
+    [-show_gis] [-num_descriptions int_value] [-num_alignments int_value]
+    [-line_length line_length] [-html] [-sorthits sort_hits]
+    [-sorthsps sort_hsps] [-max_target_seqs num_sequences]
+    [-num_threads int_value] [-remote] [-version]
+```
 
 ::: callout-important
 ## Exercises: Annotate your mitochondria
@@ -509,4 +557,3 @@ You can now open the fasta sequence you have used in the blast with Artemis and 
 
 6.  \[Extension\] You can try repeating this exercise with swisprot and note the differences
 :::
-
