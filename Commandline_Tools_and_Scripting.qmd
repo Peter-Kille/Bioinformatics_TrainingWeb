@@ -8,6 +8,11 @@ date: today
 affiliation: "Cardiff University"
 ---
 
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+
 # Visualising Text Files
 
 There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but do not edit them. Among the most common of these commands are cat, more, less, head and tail.
@@ -31,7 +36,7 @@ Move into an appropriate working directory in mydata
 
 fetch the file O97435.embl using wget
 
-```         
+```{bash}      
 wget https://rest.uniprot.org/uniprotkb/O97435.txt > O97435.embl
 ```
 
@@ -39,7 +44,7 @@ using the commands cat, more, less, head and tail.
 
 Don't forget that tab completion can save you typing effort.
 
-```         
+```{bash}         
 cat O97435.embl
 more O97435.embl # Use the spacebar to scroll down
 Press q to quit.
@@ -47,7 +52,7 @@ Press q to quit.
 
 Now try less
 
-```         
+```{bash}         
 less O97435.embl
 ```
 
@@ -57,7 +62,7 @@ Press the / key and search for the letters sequence in the file. Press the ? key
 
 Press the n key to search for other instances of gene in the file.
 
-```         
+```{bash}         
 head O97435.embl
 tail O97435.embl
 ```
@@ -68,7 +73,7 @@ Remember the man pages
 
 There are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages:
 
-```         
+```{bash}         
 man cat
 man more
 man less
@@ -81,7 +86,7 @@ man tail
 
 grep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.
 
-```         
+```{bash}         
 grep “adge” /usr/share/dict/words
 ```
 
@@ -104,13 +109,13 @@ Move into an appropriate working directory in mydata
 
 fetch the file O97435.embl using wget
 
-```         
+```{bash}          
 wget https://rest.uniprot.org/uniprotkb/O97435.txt > O97435.embl
 ```
 
 While in the download directory, type the command:
 
-```         
+```{bash}         
 grep “DE” O97435.embl 
 ```
 
@@ -120,7 +125,7 @@ Can you see why the above command results in the output you see? An explanation 
 
 Try the commands:
 
-```         
+```{bash}         
 grep “^DE” O97435.embl
 grep -x “DE.*” O97435.embl 
 ```
@@ -129,7 +134,7 @@ What are the \^ symbol and the -x parameter in these commands doing? Check the m
 
 Try the command:
 
-```         
+```{bash}         
 cat O97435.embl | grep “^DE”. 
 ```
 
@@ -147,7 +152,7 @@ Another common example is counting how many sequences are in a set of multi-fast
 
 pipes between the commands cat, grep and the handy wc utility, which here we use to count lines found by grep.
 
-```         
+```{bash}    
 cat *seqs.fasta | grep “^>” | wc -l 
 
 grep -c “^>” *seqs.fasta 
@@ -203,13 +208,13 @@ You have to know the shortcuts!! There's no menus and no on screen prompts
 
 ### Create a file with nano
 
-```         
+```{bash}
 nano test_nano.txt 
 ```
 
 type some text, exit ctrl X, save and return to command line now list the contents of the file you created
 
-```         
+```{bash}  
 less test_nano.txt 
 ```
 
@@ -225,7 +230,7 @@ exit saving you edits \[esc\]:wq! - this stands for write quit !!
 
 now list the contents of the file you created
 
-```         
+```{bash}    
 less test_vi.txt 
 ```
 :::
@@ -240,8 +245,8 @@ Make a text file containing the script in question. This can be achieved by down
 
 Here's a script you can try
 
-```         
-#!/usr/bash 
+```{bash}
+#!/bin/bash 
 
 echo {10..1} 
 
@@ -252,7 +257,7 @@ echo 'Blast off'
 
 Make the file executable. Before you can run the script you must make it executable. This is done by changing its property using
 
-```         
+```{bash}         
 chmod a+x [script name] 
 ```
 
@@ -264,19 +269,19 @@ Run the program. This should be easy but there are a few ways of doing this.
 
 Place the program into the directory where you want to use it and type
 
-```         
+```{bash}         
 ./[script name] parameters arguments 
 ```
 
 On first use try to run with no parameters or arguments or with -h and -help to see the manual for the script. Some poorly written scripts will need you to define the program you need to use them. Ie if it was a perl program (you may have to module load perl before you run this example).
 
-```         
+```{bash}         
 perl [script name] parameters arguments 
 ```
 
 Run from scripts current location using full path.
 
-```         
+```{bash}         
 /full path/[script name] parameters arguments 
 ```
 
@@ -290,7 +295,7 @@ Creating a Loop
 
 Invoke a text editor such as nano, then type
 
-```         
+```{bash}          
 #!/bin/bash
 
 for i in {1..[number]}; do 
@@ -308,13 +313,13 @@ save.
 
 now make the program executable
 
-```         
+```{bash}       
 chmod +x [program_name]
 ```
 
 run
 
-```         
+```{bash}         
 ./[program_name]
 ```
 
@@ -322,7 +327,7 @@ run
 
 Invoke a text editor such as nano, then type
 
-```
+```{bash}   
 #!/bin/bash
 
 for i in sampleA sampleB sampleC sampleD; do 
@@ -340,13 +345,13 @@ save
 
 now make the program executable
 
-```         
+```{bash}         
 chmod +x [program_name] 
 ```
 
 run
 
-```         
+```{bash}         
 ./[program_name] 
 ```
 
@@ -356,7 +361,7 @@ This is a great method if you want to execute a series of command on a set of da
 
 Invoke a text editor such as nano, then type
 
-```         
+```{bash}         
 #!/bin/bash
 
 sequence_dir=[location of folder containing paired end sequence files]
@@ -380,13 +385,13 @@ save
 
 now make the program executable
 
-```         
+```{bash}         
 chmod +x [program_name] 
 ```
 
 run
 
-```         
+```{bash}         
 ./[program_name] 
 ```
 
@@ -394,28 +399,28 @@ run
 
 You will commonly come across 2 type of compressed files in Linux .gz and tar.gz. The gz are equivalent to a 'zip' file in windows, whilst a tar.gz represent a compressed archive - that means it will contain multiple files and folders. Here's how to handle these file:
 
-##.gz ....wait a minute do you really need to decompress this file !! Many programs will happily use a .gz file directly, this a win for your file space so check out if you really need to decompress the file. Unfortunate some utilits like 'sed' require files to be unzipped, it that case:
+## gz files
 
-```         
+....wait a minute do you really need to decompress this file !! Many programs will happily use a .gz file directly, this a win for your file space so check out if you really need to decompress the file. Unfortunate some utilits like 'sed' require files to be unzipped, it that case:
+
+```{bash}         
 #to decompress
 gunzip [filename].gz
 #to recompress
 gzip [filename]
 ```
 
-##.tar.gz
-
-How to extract a .tar.gz file on Linux?
+## How to extract a .tar.gz file on Linux?
 
 To extract a .tar.gz file on Linux, you can use the "tar" command in the terminal. Here is the general syntax:
 
-```         
+```{bash}         
 tar -xvzf filename.tar.gz
 ```
 
 Here is a brief explanation of the options used:
 
-```         
+```{bash}         
 -x: This option tells tar to extract the contents of the archive.
 
 -v: This option is for verbose output, which means that tar will display a list of the files being extracted as it does so.

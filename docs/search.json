@@ -1,10 +1,31 @@
 [
   {
+    "objectID": "1_Linux_fundermentals.html",
+    "href": "1_Linux_fundermentals.html",
+    "title": "Linux the fundementals",
+    "section": "",
+    "text": "Linux/Unix commands usually take the form shown below\nCommand       parameters      agguments\n   ^              ^               ^\nwhat I         how I want     on what do\nwant to do     to do it       I want to do it\nNB usually each element is separated by only one space\nThe first item you supply on the command line is interpreted by the system as a command; that is – something the system should do. Items that appear after that on the same line are separated by spaces. The additional input on the command line indicates to the system how the command should work. For example, what file you want the command to work on, or the format for the information that should be returned to you.\nMost commands have options available that will alter the way they function. You make use of these options by providing the command with parameters, some of which will take arguments. Examples in the following sections should make it clear how this works. With some commands you don’t need to issue any parameters or arguments. Occasionally this is because there are none available, but usually this is because the command will use default settings if nothing is specified.\nIf a command runs successfully, it will usually not report anything back to you, unless reporting to you was the purpose of the command. If the command does not execute properly, you will often see an error message returned. Whether or not the error is meaningful to you depends on your experience with Linux/Unix and how user-friendly the errors generated were designed to be.\nNote: Items supplied on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames by default."
+  },
+  {
+    "objectID": "1_Linux_fundermentals.html#changing-directories",
+    "href": "1_Linux_fundermentals.html#changing-directories",
+    "title": "Linux the fundementals",
+    "section": "Changing Directories",
+    "text": "Changing Directories\nThe command used to change directories is cd\nIf you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.\n\n\n\nLinux general file structure\n\n\nIf you are using a Cardiff personal cloud qubernetes container you will have access to the following additional file structure.\n\n\n\nCardiff University Personal Cloud File Structure\n\n\n\n# Change to a directory to your home directory use\n\ncd ~/\n\n# Now move into teh bioinformmatics Session1 of classdata \n\ncd ~/classdata/Bioinformatics/Session1\n\n# Go down a directory\n\ncd ..\n\n# you can review where you are at any time using the print working directory command\n\npwd"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
     "objectID": "Commandline_Tools_and_Scripting.html",
     "href": "Commandline_Tools_and_Scripting.html",
     "title": "Commandline Tools and Scripting",
     "section": "",
-    "text": "There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but do not edit them. Among the most common of these commands are cat, more, less, head and tail.\ncat can be used for concatenating files and reading files into other programs; it is a very useful facility. However, cat streams the entire contents of a file to your terminal and is thus not that useful for reading long files as the text streams past too quickly to read.\nmore and less are commands that show the contents of a file one page at a time. less has more functionality than more. With both more and less, you can use the space bar to scroll down the page, and typing the letter q causes the program to quit – returning you to your command line prompt.\nhead and tail show the beginning and end 10 lines of a document. You can use the argument -n [number] to change the number of lines displayed.\nOnce you are reading a document with more or less, typing a forward slash / will start a prompt at the bottom of the page, and you can then type in text that is searched for below the point in the document you were at. Typing in a ? also searches for a text string you enter, but it searches in the document above the point you were at. Hitting the n key during a search looks for the next instance of that text in the file.\nWith less (but not more), you can use the arrow keys to scroll up and down the page, and the b key to move back up the document if you wish to.\nRemember these are just for reading the files. If you want to edit them you’ll need a text editor like nano or vi.\n\n\n\n\n\n\nExercise\n\n\n\nMove into an appropriate working directory in mydata\nfetch the file O97435.embl using wget\nwget https://rest.uniprot.org/uniprotkb/O97435.txt &gt; O97435.embl\nusing the commands cat, more, less, head and tail.\nDon’t forget that tab completion can save you typing effort.\ncat O97435.embl\nmore O97435.embl # Use the spacebar to scroll down\nPress q to quit.\nNow try less\nless O97435.embl\nUse the spacebar to scroll down, b to go up a page, and the up and down arrow keys to move up and down the file line by line.\nPress the / key and search for the letters sequence in the file. Press the ? key and search for the letters gene in the file.\nPress the n key to search for other instances of gene in the file.\nhead O97435.embl\ntail O97435.embl\nFor reading files yourself, we recommend the command less. The command cat is more usually used in conjunction with other commands when you wish to process text from within a file in some way.\nRemember the man pages\nThere are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages:\nman cat\nman more\nman less\nman head\nman tail"
+    "text": "There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but do not edit them. Among the most common of these commands are cat, more, less, head and tail.\ncat can be used for concatenating files and reading files into other programs; it is a very useful facility. However, cat streams the entire contents of a file to your terminal and is thus not that useful for reading long files as the text streams past too quickly to read.\nmore and less are commands that show the contents of a file one page at a time. less has more functionality than more. With both more and less, you can use the space bar to scroll down the page, and typing the letter q causes the program to quit – returning you to your command line prompt.\nhead and tail show the beginning and end 10 lines of a document. You can use the argument -n [number] to change the number of lines displayed.\nOnce you are reading a document with more or less, typing a forward slash / will start a prompt at the bottom of the page, and you can then type in text that is searched for below the point in the document you were at. Typing in a ? also searches for a text string you enter, but it searches in the document above the point you were at. Hitting the n key during a search looks for the next instance of that text in the file.\nWith less (but not more), you can use the arrow keys to scroll up and down the page, and the b key to move back up the document if you wish to.\nRemember these are just for reading the files. If you want to edit them you’ll need a text editor like nano or vi.\n\n\n\n\n\n\nExercise\n\n\n\nMove into an appropriate working directory in mydata\nfetch the file O97435.embl using wget\n\nwget https://rest.uniprot.org/uniprotkb/O97435.txt &gt; O97435.embl\n\nusing the commands cat, more, less, head and tail.\nDon’t forget that tab completion can save you typing effort.\n\ncat O97435.embl\nmore O97435.embl # Use the spacebar to scroll down\nPress q to quit.\n\nNow try less\n\nless O97435.embl\n\nUse the spacebar to scroll down, b to go up a page, and the up and down arrow keys to move up and down the file line by line.\nPress the / key and search for the letters sequence in the file. Press the ? key and search for the letters gene in the file.\nPress the n key to search for other instances of gene in the file.\n\nhead O97435.embl\ntail O97435.embl\n\nFor reading files yourself, we recommend the command less. The command cat is more usually used in conjunction with other commands when you wish to process text from within a file in some way.\nRemember the man pages\nThere are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages:\n\nman cat\nman more\nman less\nman head\nman tail"
   },
   {
     "objectID": "Commandline_Tools_and_Scripting.html#use-zgrep-with-compressed-files",
@@ -25,49 +46,63 @@
     "href": "Commandline_Tools_and_Scripting.html#vi-or-vim",
     "title": "Commandline Tools and Scripting",
     "section": "Vi (or Vim)",
-    "text": "Vi (or Vim)\nPros:\nAppears on nearly every Unix system. Can be very powerful if you take the time to know the key-short cuts.\nCons:\nYou have to know the shortcuts!! There’s no menus and no on screen prompts\n\n\n\n\n\n\nExercise\n\n\n\n\nCreate a file with nano\nnano test_nano.txt \ntype some text, exit ctrl X, save and return to command line now list the contents of the file you created\nless test_nano.txt \n\n\nCreate a file with vi\nvi test_vi.txt \ntype ‘a’ and you can then add text\nexit saving you edits [esc]:wq! - this stands for write quit !!\nnow list the contents of the file you created\nless test_vi.txt"
+    "text": "Vi (or Vim)\nPros:\nAppears on nearly every Unix system. Can be very powerful if you take the time to know the key-short cuts.\nCons:\nYou have to know the shortcuts!! There’s no menus and no on screen prompts\n\n\n\n\n\n\nExercise\n\n\n\n\nCreate a file with nano\n\nnano test_nano.txt \n\ntype some text, exit ctrl X, save and return to command line now list the contents of the file you created\n\nless test_nano.txt \n\n\n\nCreate a file with vi\nvi test_vi.txt \ntype ‘a’ and you can then add text\nexit saving you edits [esc]:wq! - this stands for write quit !!\nnow list the contents of the file you created\n\nless test_vi.txt"
   },
   {
-    "objectID": "Commandline_Tools_and_Scripting.html#step-1",
-    "href": "Commandline_Tools_and_Scripting.html#step-1",
+    "objectID": "Commandline_Tools_and_Scripting.html#step-1-create-your-script",
+    "href": "Commandline_Tools_and_Scripting.html#step-1-create-your-script",
     "title": "Commandline Tools and Scripting",
-    "section": "Step 1:",
-    "text": "Step 1:\nMake a text file containing the script in question. This can be achieved by downloading or transferring the scripts as a file in the correct format. Sometimes the scripts are posted as part of a website such as a web-post in a discussion forum. To use these scripts, create a file using vi or nano and copy into the test file the script in question ensuring you save it with an appropriate name.\nHere’s a script you can try\n#!/usr/bash \n\necho {10..1} \n\necho 'Blast off'"
+    "section": "Step 1: Create your Script",
+    "text": "Step 1: Create your Script\nMake a text file containing the script in question. This can be achieved by downloading or transferring the scripts as a file in the correct format. Sometimes the scripts are posted as part of a website such as a web-post in a discussion forum. To use these scripts, create a file using vi or nano and copy into the test file the script in question ensuring you save it with an appropriate name.\nHere’s a script you can try\n\n#!/bin/bash \n\necho {10..1} \n\necho 'Blast off'"
   },
   {
-    "objectID": "Commandline_Tools_and_Scripting.html#step-2",
-    "href": "Commandline_Tools_and_Scripting.html#step-2",
+    "objectID": "Commandline_Tools_and_Scripting.html#step-2-make-your-script-executable",
+    "href": "Commandline_Tools_and_Scripting.html#step-2-make-your-script-executable",
     "title": "Commandline Tools and Scripting",
-    "section": "Step 2:",
-    "text": "Step 2:\nMake the file executable. Before you can run the script you must make it executable. This is done by changing its property using\nchmod a+x [script name] \nthis is shorthand for chmod (change modify) a(all)+(add)execute(e) [script name] – thus changing the permission to allow everyone to execute a script. For more guide to chmod see https://en.wikipedia.org/wiki/Chmod"
+    "section": "Step 2: Make your script executable",
+    "text": "Step 2: Make your script executable\nMake the file executable. Before you can run the script you must make it executable. This is done by changing its property using\n\nchmod a+x [script name] \n\nthis is shorthand for chmod (change modify) a(all)+(add)execute(e) [script name] – thus changing the permission to allow everyone to execute a script. For more guide to chmod see https://en.wikipedia.org/wiki/Chmod"
   },
   {
-    "objectID": "Commandline_Tools_and_Scripting.html#step-3",
-    "href": "Commandline_Tools_and_Scripting.html#step-3",
+    "objectID": "Commandline_Tools_and_Scripting.html#step-3-run-your-script",
+    "href": "Commandline_Tools_and_Scripting.html#step-3-run-your-script",
     "title": "Commandline Tools and Scripting",
-    "section": "Step 3:",
-    "text": "Step 3:\nRun the program. This should be easy but there are a few ways of doing this.\nPlace the program into the directory where you want to use it and type\n./[script name] parameters arguments \nOn first use try to run with no parameters or arguments or with -h and -help to see the manual for the script. Some poorly written scripts will need you to define the program you need to use them. Ie if it was a perl program (you may have to module load perl before you run this example).\nperl [script name] parameters arguments \nRun from scripts current location using full path.\n/full path/[script name] parameters arguments \nPlace the script into your ‘PATH’ – this means that the computer automatically knows about the script and will run it from any location just given the program name. I suggest that if you want to do this ask the demonstrators and they can show you……this is advanced as if you put two scripts with the same name into the PATH you can cause issues."
+    "section": "Step 3: Run Your Script",
+    "text": "Step 3: Run Your Script\nRun the program. This should be easy but there are a few ways of doing this.\nPlace the program into the directory where you want to use it and type\n\n./[script name] parameters arguments \n\nOn first use try to run with no parameters or arguments or with -h and -help to see the manual for the script. Some poorly written scripts will need you to define the program you need to use them. Ie if it was a perl program (you may have to module load perl before you run this example).\n\nperl [script name] parameters arguments \n\nRun from scripts current location using full path.\n\n/full path/[script name] parameters arguments \n\nPlace the script into your ‘PATH’ – this means that the computer automatically knows about the script and will run it from any location just given the program name. I suggest that if you want to do this ask the demonstrators and they can show you……this is advanced as if you put two scripts with the same name into the PATH you can cause issues."
   },
   {
     "objectID": "Commandline_Tools_and_Scripting.html#loops-using-numerical-variables",
     "href": "Commandline_Tools_and_Scripting.html#loops-using-numerical-variables",
     "title": "Commandline Tools and Scripting",
     "section": "Loops using numerical variables",
-    "text": "Loops using numerical variables\nCreating a Loop\nInvoke a text editor such as nano, then type\n#!/bin/bash\n\nfor i in {1..[number]}; do \n\n# use hash to include some level of documentation so when you get to script in a few months time \n\n# you can remember what it was all about.  ${i} = number which increment by 1 each time the loop runs\n\n[your commands]${i} \n\ndone\nsave.\nnow make the program executable\nchmod +x [program_name]\nrun\n./[program_name]"
+    "text": "Loops using numerical variables\nCreating a Loop\nInvoke a text editor such as nano, then type\n\n#!/bin/bash\n\nfor i in {1..[number]}; do \n\n# use hash to include some level of documentation so when you get to script in a few months time \n\n# you can remember what it was all about.  ${i} = number which increment by 1 each time the loop runs\n\n[your commands]${i} \n\ndone\n\nsave.\nnow make the program executable\n\nchmod +x [program_name]\n\nrun\n\n./[program_name]"
   },
   {
     "objectID": "Commandline_Tools_and_Scripting.html#loops-using-strings-lists-as-variables",
     "href": "Commandline_Tools_and_Scripting.html#loops-using-strings-lists-as-variables",
     "title": "Commandline Tools and Scripting",
     "section": "Loops using Strings (lists) as variables",
-    "text": "Loops using Strings (lists) as variables\nInvoke a text editor such as nano, then type\n#!/bin/bash\n\nfor i in sampleA sampleB sampleC sampleD; do \n\n# use hash to include some level of documentation so when you get to script in a few months time\n\n# you can remember what it was all about.  ${i} = the list of strings given at the start of the for loop \n\n[your commands]${i} \n\ndone \nsave\nnow make the program executable\nchmod +x [program_name] \nrun\n./[program_name]"
+    "text": "Loops using Strings (lists) as variables\nInvoke a text editor such as nano, then type\n\n#!/bin/bash\n\nfor i in sampleA sampleB sampleC sampleD; do \n\n# use hash to include some level of documentation so when you get to script in a few months time\n\n# you can remember what it was all about.  ${i} = the list of strings given at the start of the for loop \n\n[your commands]${i} \n\ndone \n\nsave\nnow make the program executable\n\nchmod +x [program_name] \n\nrun\n\n./[program_name]"
   },
   {
     "objectID": "Commandline_Tools_and_Scripting.html#loops-using-directory-listings",
     "href": "Commandline_Tools_and_Scripting.html#loops-using-directory-listings",
     "title": "Commandline Tools and Scripting",
     "section": "Loops using directory listings",
-    "text": "Loops using directory listings\nThis is a great method if you want to execute a series of command on a set of data files contained in a specific directory, for instance a series of sequence files.\nInvoke a text editor such as nano, then type\n#!/bin/bash\n\nsequence_dir=[location of folder containing paired end sequence files]\n#*_R1.fastq - lists all files ending in _R1.fastq\n\nfor f in ${sequence_dir}/*_R1.fastq\ndo\n\n#the file name are placed in variable $f - we can separate the name of the file away from the suffix (.fastq) using this simple cut expression - the variable 'R1' now contains the file name with no suffix \nR1=$(basename $f | cut -f1 -d.)\n\n#Sometimes we want the 'base' name of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed \nbase=$(echo $R1 | sed 's/_R1//')\n\necho ${base}\n\ndone \nsave\nnow make the program executable\nchmod +x [program_name] \nrun\n./[program_name]"
+    "text": "Loops using directory listings\nThis is a great method if you want to execute a series of command on a set of data files contained in a specific directory, for instance a series of sequence files.\nInvoke a text editor such as nano, then type\n\n#!/bin/bash\n\nsequence_dir=[location of folder containing paired end sequence files]\n#*_R1.fastq - lists all files ending in _R1.fastq\n\nfor f in ${sequence_dir}/*_R1.fastq\ndo\n\n#the file name are placed in variable $f - we can separate the name of the file away from the suffix (.fastq) using this simple cut expression - the variable 'R1' now contains the file name with no suffix \nR1=$(basename $f | cut -f1 -d.)\n\n#Sometimes we want the 'base' name of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed \nbase=$(echo $R1 | sed 's/_R1//')\n\necho ${base}\n\ndone \n\nsave\nnow make the program executable\n\nchmod +x [program_name] \n\nrun\n\n./[program_name]"
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#gz-files",
+    "href": "Commandline_Tools_and_Scripting.html#gz-files",
+    "title": "Commandline Tools and Scripting",
+    "section": "gz files",
+    "text": "gz files\n….wait a minute do you really need to decompress this file !! Many programs will happily use a .gz file directly, this a win for your file space so check out if you really need to decompress the file. Unfortunate some utilits like ‘sed’ require files to be unzipped, it that case:\n\n#to decompress\ngunzip [filename].gz\n#to recompress\ngzip [filename]"
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#how-to-extract-a-.tar.gz-file-on-linux",
+    "href": "Commandline_Tools_and_Scripting.html#how-to-extract-a-.tar.gz-file-on-linux",
+    "title": "Commandline Tools and Scripting",
+    "section": "How to extract a .tar.gz file on Linux?",
+    "text": "How to extract a .tar.gz file on Linux?\nTo extract a .tar.gz file on Linux, you can use the “tar” command in the terminal. Here is the general syntax:\n\ntar -xvzf filename.tar.gz\n\nHere is a brief explanation of the options used:\n\n-x: This option tells tar to extract the contents of the archive.\n\n-v: This option is for verbose output, which means that tar will display a list of the files being extracted as it does so.\n\n-z: This option tells tar to decompress the archive using gzip.\n\n-f: This option is used to specify the archive file to extract."
   },
   {
     "objectID": "DEG_analysis.html",
@@ -623,6 +658,62 @@
     "text": "Tools\nSPAdes – instal using module load\nUsage: spades.py [options\\ -o &lt;output_dir&gt;\n\nBasic options:\n-o &lt;output_dir&gt; directory to store all the resulting files (required) \n--sc                this flag is required for MDA (single-cell) data \n--meta          this flag is required for metagenomic sample data \n--rna               this flag is required for RNA-Seq data \n--plasmid           runs plasmidSPAdes pipeline for plasmid detection \n--iontorrent        this flag is required for IonTorrent data \n--test          runs SPAdes on toy dataset \n-h/--help           prints this usage message \n-v/--version        prints version \n\n\nInput data:\n--12 &lt;filename&gt; file with interlaced forward and reverse paired-end reads \n-1 &lt;filename&gt;       file with forward paired-end reads \n-2 &lt;filename&gt;       file with reverse paired-end reads \n-s &lt;filename&gt;       file with unpaired reads \n--pe&lt;#&gt;-12 &lt;filename&gt;   file with interlaced reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--pe&lt;#&gt;-1  &lt;filename&gt;   file with forward reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--pe&lt;#&gt;-2  &lt;filename&gt;   file with reverse reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--pe&lt;#&gt;-s  &lt;filename&gt;   file with unpaired reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--pe&lt;#&gt;-&lt;or&gt;    orientation of reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff) \n--s&lt;#&gt;  &lt;filename&gt;  file with unpaired reads for single reads library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)     --mp&lt;#&gt;-12  &lt;filename&gt;  file with interlaced reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--mp&lt;#&gt;-1  &lt;filename&gt;   file with forward reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)     --mp&lt;#&gt;-2  &lt;filename&gt;   file with reverse reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)     --mp&lt;#&gt;-s  &lt;filename&gt;   file with unpaired reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--mp&lt;#&gt;-&lt;or&gt;    orientation of reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff) \n--hqmp&lt;#&gt;-12  &lt;filename&gt;    file with interlaced reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--hqmp&lt;#&gt;-1  &lt;filename&gt; file with forward reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--hqmp&lt;#&gt;-2  &lt;filename&gt; file with reverse reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--hqmp&lt;#&gt;-s  &lt;filename&gt; file with unpaired reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--hqmp&lt;#&gt;-&lt;or&gt;  orientation of reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff) \n--nxmate&lt;#&gt;-1  &lt;filename&gt;   file with forward reads for Lucigen NxMate library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--nxmate&lt;#&gt;-2  &lt;filename&gt;   file with reverse reads for Lucigen NxMate library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--sanger  &lt;filename&gt;    file with Sanger reads \n--pacbio  &lt;filename&gt;    file with PacBio reads \n--nanopore  &lt;filename&gt;  file with Nanopore reads \n--tslr  &lt;filename&gt;  file with TSLR-contigs \n--trusted-contigs  &lt;filename&gt;   file with trusted contigs \n--untrusted-contigs  &lt;filename&gt; file with untrusted contigs \n\n\nPipeline options:\n--only-error-correction runs only read error correction (without assembling) \n--only-assembler    runs only assembling (without read error correction) \n--careful   tries to reduce number of mismatches and short indels \n--continue  continue run from the last available check-point \n--restart-from  &lt;cp&gt;    restart run with updated options and from the specified check-point ('ec', 'as', 'k&lt;int&gt;', 'mc') \n--disable-gzip-output   forces error correction not to compress the corrected reads \n--disable-rr    disables repeat resolution stage of assembling \n\n\nAdvanced options:\n    --dataset  &lt;filename&gt;   file with dataset description in YAML format \n    -t/--threads &lt;int&gt;  number of threads \n    [default: 16] \n    -m/--memory &lt;int&gt;   RAM limit for SPAdes in Gb (terminates if exceeded) [default: 250] \n    --tmp-dir &lt;dirname&gt;     directory for temporary files [default: &lt;output_dir&gt;/tmp] \n    -k &lt;int,int,...&gt;        comma-separated list of k-mer sizes (must be odd and less than 128) [default: 'auto'] \n    --cov-cutoff &lt;float&gt;    coverage cutoff value (a positive float number, or 'auto', or 'off') [default: 'off'] \n    --phred-offset  &lt;33 or 64&gt;  PHRED quality offset in the input reads (33 or 64) [default: auto-detect] \n    \n\n\n\n\n\n\nExcercise: SPades Hybrid\n\n\n\nTry and run spades with both the short reads on there own and then using a hybrid assembly with nanopore data, evaluate the resulting assemblies.\nHybrid assembly example command line:\nspades.py -1 Illumina_1.fastq -2 Illumina_2.fastq --nanopore bug_nanopore_reads_corrected.fasta -o assembly_name"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "",
+    "text": "Why Bioinformatics - Powerpoint"
+  },
+  {
+    "objectID": "index.html#session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision",
+    "href": "index.html#session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 0. Basics of HPC and HPC vs Personal Cloud provision",
+    "text": "Session 0. Basics of HPC and HPC vs Personal Cloud provision\nThis element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to logging in to the research platforms at Cardiff School of Biosciences. If you are a researcher at Cardiff wanting to gain access to HPC please contact our Biocompute team and join the bioinformatics Teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google …. many of these provide limited free options which can help you to learn."
+  },
+  {
+    "objectID": "index.html#session-1.-linux-the-basics",
+    "href": "index.html#session-1.-linux-the-basics",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 1. Linux: The basics",
+    "text": "Session 1. Linux: The basics\nThis introduces you to the command line - yes, no more clicking on icons as it is all about writing commands !!\nIntroduction to Linux\nThis represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you started quickly.\nLinux the fundamentals\nThis session gives more detail about the Linux basics, covering navigating around your Linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect.), how to preview files (less/cat/head/tail) and how to edit files (we use Nano but touch on using Vi).\nCommandline Tools and Scripting\nFrom more ways to visualize text file, querying files with grep, using editors, running scripts and using loops, this material provides some more exercises to develop your skills."
+  },
+  {
+    "objectID": "index.html#session-2.-ngs-data-manipulation-from-seqences-to-assemblies.",
+    "href": "index.html#session-2.-ngs-data-manipulation-from-seqences-to-assemblies.",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 2. NGS Data Manipulation: From seqences to assemblies.",
+    "text": "Session 2. NGS Data Manipulation: From seqences to assemblies.\nAn Introduction to NGS Data and Quality Control\nMost of our training material focuses on bioinformatics application in the area of genomics. This section introduces the fundamental concepts of Next Generation Sequencing (NGS) and the basic file types (fasta / fastq) and approaches to quality control and initial data processing.\nGenome Assembly\nApproaches to genome assembly vary hugely depending on what you are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations of short and long read data."
+  },
+  {
+    "objectID": "index.html#session-3.-genome-visualisation-and-annotation",
+    "href": "index.html#session-3.-genome-visualisation-and-annotation",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 3. Genome visualisation and annotation",
+    "text": "Session 3. Genome visualisation and annotation\nGenome Annotation and Visualisation\nA genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results. We primarily use Artemis (Sanger Centre) but also introduce Integrated Genome Viewer (IGV) from the Broad Institute."
+  },
+  {
+    "objectID": "index.html#session-4.-building-phylogenies",
+    "href": "index.html#session-4.-building-phylogenies",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 4. Building phylogenies",
+    "text": "Session 4. Building phylogenies\nPhylogenetics and Phylogenomics\nThe taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual."
+  },
+  {
+    "objectID": "index.html#session-5.-transcriptomics",
+    "href": "index.html#session-5.-transcriptomics",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 5. Transcriptomics",
+    "text": "Session 5. Transcriptomics\nThe has been divided into three workshops each targeted at different aspects of the process.\nRNAseq Data Processing\nTranscriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to transcript counts for an organism with an existing genome. We include approaches to identify and evaluate technical duplication, although be aware this may not be relevant to your analytical approach.\nGeneration of Differentially Expressed Gene (DEG) Lists\nPerforming quality control and provisional data visualisation (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use SARTools developed at the Pasteur Institute to illustrate best practice in transcriptome analysis. We also include multivariate approaches to data visualization such as PCA and HCA (hierarchical clustering analysis).\nFunctional Interpretation of DEGs\nInterpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks."
+  },
+  {
+    "objectID": "index.html#session-6.-microbial-community-analysis",
+    "href": "index.html#session-6.-microbial-community-analysis",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 6. Microbial community analysis",
+    "text": "Session 6. Microbial community analysis\nMetabarcoding\nAmplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, RbcL for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)[https://qiime2.org/] to navigate you through preliminary metabarcoding data analysis."
+  },
+  {
     "objectID": "Introduction to Linux.html",
     "href": "Introduction to Linux.html",
     "title": "Introduction to Linux",
@@ -978,26 +1069,5 @@
     "title": "Transcritomics An Introduction",
     "section": "Deriving Differential Gene Expression",
     "text": "Deriving Differential Gene Expression\nDeriving Differential Gene Expression"
-  },
-  {
-    "objectID": "Commandline_Tools_and_Scripting.html#step-1-create-your-script",
-    "href": "Commandline_Tools_and_Scripting.html#step-1-create-your-script",
-    "title": "Commandline Tools and Scripting",
-    "section": "Step 1: Create your Script",
-    "text": "Step 1: Create your Script\nMake a text file containing the script in question. This can be achieved by downloading or transferring the scripts as a file in the correct format. Sometimes the scripts are posted as part of a website such as a web-post in a discussion forum. To use these scripts, create a file using vi or nano and copy into the test file the script in question ensuring you save it with an appropriate name.\nHere’s a script you can try\n#!/usr/bash \n\necho {10..1} \n\necho 'Blast off'"
-  },
-  {
-    "objectID": "Commandline_Tools_and_Scripting.html#step-2-make-your-script-executable",
-    "href": "Commandline_Tools_and_Scripting.html#step-2-make-your-script-executable",
-    "title": "Commandline Tools and Scripting",
-    "section": "Step 2: Make your script executable",
-    "text": "Step 2: Make your script executable\nMake the file executable. Before you can run the script you must make it executable. This is done by changing its property using\nchmod a+x [script name] \nthis is shorthand for chmod (change modify) a(all)+(add)execute(e) [script name] – thus changing the permission to allow everyone to execute a script. For more guide to chmod see https://en.wikipedia.org/wiki/Chmod"
-  },
-  {
-    "objectID": "Commandline_Tools_and_Scripting.html#step-3-run-your-script",
-    "href": "Commandline_Tools_and_Scripting.html#step-3-run-your-script",
-    "title": "Commandline Tools and Scripting",
-    "section": "Step 3: Run Your Script",
-    "text": "Step 3: Run Your Script\nRun the program. This should be easy but there are a few ways of doing this.\nPlace the program into the directory where you want to use it and type\n./[script name] parameters arguments \nOn first use try to run with no parameters or arguments or with -h and -help to see the manual for the script. Some poorly written scripts will need you to define the program you need to use them. Ie if it was a perl program (you may have to module load perl before you run this example).\nperl [script name] parameters arguments \nRun from scripts current location using full path.\n/full path/[script name] parameters arguments \nPlace the script into your ‘PATH’ – this means that the computer automatically knows about the script and will run it from any location just given the program name. I suggest that if you want to do this ask the demonstrators and they can show you……this is advanced as if you put two scripts with the same name into the PATH you can cause issues."
   }
 ]
