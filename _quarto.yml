@@ -7,36 +7,38 @@ website:
     style: "docked"
     search: true
     contents:
-      - section: "Session 0. HPC and Personal Cloud"
+      - section: "Welcome to Bioinformatics!"
         contents:
           - index.qmd
-          - Personal_Cloud.qmd
+      - section: "Session 0. HPC and Personal Cloud"
+        contents:
+          - 0.1_Personal_Cloud.qmd
       - section: "Session 1. Linux: The basics"
         contents:
-          - Introduction to Linux.qmd
-          - 1_Linux_fundermentals.qmd
-          - Loading_Software_Sccessing_Data.qmd
-          - Commandline_Tools_and_Scripting.qmd
+          - 1.1_Introduction to Linux.qmd
+          - 1.2_Linux_fundamentals.qmd
+          - 1.3_Loading_Software_Accessing_Data.qmd
+          - 1.4_Commandline_Tools_and_Scripting.qmd
       - section: "Session 2. NGS data"
         contents:
-          - NGS_Quality_Control.qmd
-          - genome_assembly.qmd
+          - 2.1_NGS_Quality_Control.qmd
+          - 2.2_genome_assembly.qmd
       - section: "Session 3. Genomics"
         contents:
-          - Genome_visualisation_and_annotation.qmd
-          - hybrid_assemblies.qmd
+          - 3.1_Genome_visualisation_and_annotation.qmd
+          - 3.2_hybrid_assemblies.qmd
       - section: "Session 4. Building phylogenies"
         contents:
-          - phylogentics_phylogenomics.qmd
+          - 4.1_phylogentics_phylogenomics.qmd
       - section: "Session 5. Transcriptomics"
         contents:
-          - Transcriptomics_Introduction.qmd
-          - RNAseq_processing.qmd
-          - DEG_analysis.qmd
-          - DEG_Functional_Interpretation.qmd
+          - 5.1_Transcriptomics_Introduction.qmd
+          - 5.2_RNAseq_processing.qmd
+          - 5.3_DEG_analysis.qmd
+          - 5.4_DEG_Functional_Interpretation.qmd
       - section: "Session 6. Microbial community analysis"
         contents:
-          - metabarcoding.qmd
+          - 6.1_metabarcoding.qmd
 
 format:
   html:
