@@ -11,26 +11,28 @@ affiliation: "Cardiff University"
 
 # Basics of HPC and HPC vs Personal Cloud provision
 
-***To access any Cardiff University HPC or personal Cloud resources you will need to install and log in to the University virtual private network (VPN) - see instructions below***
+High performance computing (HPC) systems are large, multi-processor, large RAM 'computers' that are installed in data centres. Usually users are provided with a login to a shared HPC system with strictly controlled access and defined quotas. To run your informatic tasks, you write a script that sends your job to a 'queuing' program which coordinates the processing requests of all the users on the system. In this way the system can support large numbers of users, but you need to wait for your place in the queue before your task can be performed. Although you can do the very lightest tasks - copy small files, rename etc. - without sending them to the queue, most tasks need to go through the queue. This can be very tedious when learning to code, as if your script creates an error you won't know until it has waited its turn in the queue.
 
-High performance computing (HPC) systems are large, multi-processor, large RAM 'computers' that are installed in data centres. Usually users are provided with a log-in to a shared HPC-system with strictly controlled access and defined quotas. To run your informatic tasks, you would write a script that sends your job to a 'queuing' program which coordinates the processing requests of all the users on the system. In this way the system can support large numbers of users but you need to wait for your place in the 'queue' before your task can be performed. Although you can do the very lightest tasks - copy small files, rename etc. - without sending them to the queue, most tasks need to a queue script which will send to the job to the queue. This can be very tedious when learning to code, as if your script creates an error you won't know until it has waited its turn in the queue.
-
-To avoid the 'queues' we provide personal cloud systems to each person on the course, allowing them to interactively use the HPC system. To do this we create a container which has the equivalent of a 'virtual machine' (VM) in the cloud; we use a system called Kubernetes to create these container-based virtual machines. Each user has dedicated processors, RAM, storage and their own environment so they can interactively learn to use a Linux system. Because we are having to reserve a proportion of the server for each user we can only allocate a limited number of processors and RAM to each user - usually this is 8 processors and 16 Gb RAM, but check with your course organiser.
+To avoid the queues we provide personal cloud systems to each person on the course, allowing them to interactively use the HPC system. To do this we create a container which has the equivalent of a 'virtual machine' (VM) in the cloud; we use a system called Kubernetes to create these container-based virtual machines. Each user has dedicated processors, RAM, storage and their own environment so they can interactively learn to use a Linux system. Because we are having to reserve a proportion of the server for each user we can only allocate a limited number of processors and RAM to each user - usually this is 8 processors and 16 Gb RAM, but check with your course organiser.
 
 Similar 'containers' can be accessed using [AWS cloud services](https://aws.amazon.com/health/genomics/) or through academic services such as [CLIMB](https://www.climb.ac.uk/). AWS cloud does provide some educational free cloud processing but when these free credits are over you would need to pay for processing and storage, and this can very quickly get expensive. CLIMB provides academic registration if you are supported by specific research council funding.
 
+This information below is aimed at students and staff in Cardiff University's School of Biosciences, and will guide you through accessing the computing resources provided. 
+
 # Personal HPC and HPC clusters
 
-***To access any Cardiff University HPC or personal Cloud resources you will need to install and login to the University VPN - see instructions below***
+***To access any Cardiff University HPC or personal Cloud resources you will need to install and login to the University VPN - see instructions below.***
 
 As part of the teaching provision at Cardiff University you will be provided with a specific 'login' to your own Kubernete VM. You may also be given access to our teaching HPC cluster or our research HPC system.
 
-***Check with your instructors which systems are available to you***
+Staff or postgraduate research students at Cardiff School of Biosciences can request access to our research HPC system by emailing [biosi-biocomputinghub@cardiff.ac.uk](mailto:biosi-biocomputinghub@cardiff.ac.uk) with your University username and the name of your PI.
+
+***Check with your instructors which systems are available to you.***
 
 ::: {.callout-note collapse="true"}
-## Cardiff University Taught Modules - Masters or UG
+## Cardiff University Taught Modules - Masters or Undergraduate
 
-### kubernete VM
+### Logging into your person Kubernetes virtual machine
 
 You will be provided with three pieces of information the host (or server) name, your user name (usually your staff ID or your student ID including the the 'small letter' prefix), a port number and a randomly generated pass phase. Here are some examples (user names and pass phases are fictitious).
 
@@ -58,9 +60,9 @@ ssh c9999999@hawker.bios.cf.ac.uk -P 32222
 :::
 
 ::: {.callout-note collapse="true"}
-## HPC cluster access: Big Data Master HPC, PGR or Staff
+## HPC cluster access: MSc Big Data students (part 2 of the course), postgraduate researchers or staff
 
-If you are provided with access either teaching or research HPC systems you will only be provided with a host or server name - you username and password will be your Single Sign-On (SO) for the University - your student/staff number and your standard password.
+If you are provided with access to either teaching or research HPC systems you will only be provided with a host or server name - you username and password will be your Single Sign-On (SO) for the University - your student/staff number and your standard password.
 
 server currently used include:
 
@@ -77,7 +79,9 @@ With standard HPC the port number is always 22
 
 # Virtual Private Networks
 
-Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or things will not work: the VPN software will install and you will think all is good but then it will not connect. To find the correct instructions, log in to the [intranet](intranet.cf.ac.uk) and search for VPN. Here are the current links which have installation instructions:
+A virtual private network allows you to access the internet as though you were in a different physical location. In a university context, it allows you to access resources that are only available on campus, not matter where you: are far as the internet is concerned, you are on the university campus. 
+
+Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or the connection will not work: the VPN software will install and you will think all is good but then it will not connect. To find the correct instructions, log in to the [intranet](intranet.cf.ac.uk) and search for VPN. Here are the current links which have installation instructions:
 
 ***Student VPN***
 
@@ -91,13 +95,21 @@ Once you have installed the VPN and connected test it by going to this site:
 
 http://hpc.bios.cf.ac.uk
 
-![Sucessful VPN](images/good_VPN.png){width="60%"} ![Unsucessful VPN](images/bad_vpn.png){width="60%"}
+If all is working, you will see this:
 
-# R-studio
+![Sucessful VPN](images/good_VPN.png){width="60%"} 
 
-If you have been supplied with a cloud container we will have also provided you with a Rstudio browser based interface. I would suggest testing your login with the browser based Rstudio since this provides a straight-forward way of testing you login without the need for any software installs.
+If not, you will see this:
 
-***To access any Cardiff University Cloud based Rstudio you will need to install and login to the University VPN - see Instructions above***
+![Unsucessful VPN](images/bad_vpn.png){width="60%"}
+
+# RStudio
+
+[R](https://cran.r-project.org/), and its trusty companion [RStudio](https://posit.co/download/rstudio-desktop/), are essential parts of any bioinformatician's toolbox. Both can be easily downloaded and run on your local computer, but for the taught courses we provide you with a browser-based Rstudio interface as part of your virtual machine. The reasons for this are twofold: 1) it allows you to easily load data from your virtual machine into RStudio, and 2) it allows us to pre-install the packages you need, saving time in class.
+
+I would suggest testing your virtual machine login by connecting to the browser-based Rstudio, as this provides a straightforward test without the need for any software installs.
+
+***To access any Cardiff University cloud based RStudio you will need to install and login to the University VPN - see Instructions above***
 
 Enter your cloud host name and username name in you browser navigation bar e.g.:
 
@@ -111,15 +123,19 @@ You should now see the following screen:
 
 ![Rstudio Login](images/rstudio_login.png){width="60%"}
 
-Now reenter you username and input the pass phase you have been provided. You should now see the RStudio page. Note the file listed in the right hand lower tab are files on your server ***not*** your local computer.
+Now re-enter you username and input the pass phase you have been provided. You should now see the RStudio page. Note the file listed in the right hand lower tab are files on your virtual machine on the server, ***not*** your local computer.
 
 ![Rstudio Interface](images/Rstudio_interface.png){width="60%"}
 
-You are now successful logged on to the server - so you know that your account and password work !!
+You are now successful logged on to the server - so you know that your account and password work!!
 
-# SSH using Mobxterm - Connecting to server on PC
+# SSH: connecting to the server
 
-MobXterm a free SSH client that has a built SFTP for file transfer, X-forwarding (graphical emulation) for using remote graphical applications and allows you to open multiple windows to your server. You can download the free version of [MobXTerm](https://mobaxterm.mobatek.net/download.html) from there web-site. I suggest downloading and installing the 'Installer Addition' as it will fully install on your system - the portable version provide a simple executable (exe) that can be placed on a data pen and used in machine where you do not have administrator privileges to install software.
+To connect your local computer to a remote server, we use a technology called SSH: Secure Shell Protocol (I know, the acronym doesn't really match the name). This is a way of establishing a secure connection between your computer and the server. In effect, your computer becomes a remote control, sending instructions to be carried out on the server.
+
+## SSH using MobaXterm - connecting to the server on a PC
+
+MobaXterm is a free piece of software called an SSH client, which enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the free version of [MobaXTerm](https://mobaxterm.mobatek.net/download.html) from their website. I suggest downloading and installing the 'Installer Addition' as it will fully install on your system - the portable version provide a simple executable (.exe) that can be placed on a data pen and used in machine where you do not have administrator privileges to install software.
 
 Follow the installation instructions and you should be faced with the follow window:
 
@@ -143,19 +159,19 @@ NB - the three elements you need to complete are underlined in red in the image.
 
 4\. Enter your passphase
 
-***You will NOT see any typing - this is a security feature just continue typing***
+***You will NOT see any typing - this is a security feature, just continue typing***
 
 ![MobaXterm Password](images/MobaXterm_password.png){width="60%"}
 
-Once you have entered you password and it has been accepted you ***MAY*** be asked to save a master password - this you can set to what you wish. You will only be asked for this if you use the application on another computer / account (if you are moving from one networked PC to another in the classroom.
+Once you have entered your password and it has been accepted you ***MAY*** be asked to save a master password - this you can set to whatever you wish, if you want to save yourself the trouble of typing your pass phrase every time you connect. 
 
-Once created your 'session' will be saved in the left hand menu and you just have to click on it to connect in future.
+Once created, your 'session' will be saved in the left hand menu and in future you just have to click on it to connect.
 
-# SSH using terminal - Connecting to server on Mac
+## SSH using a terminal - connecting to the server on a Mac
 
-HPC server - both your personal cloud as well as HPC systems - are based on a Unix Operating System called Linux. Mac OS is also developed on this system - so connecting on a Mac is very simple. First you have to find and open your Terminal - I think the easiest way is to search for it in finder but if you don't find this easy there's a wiki entitled - [Open-a-Terminal-Window-in-Mac](https://www.wikihow.com/Open-a-Terminal-Window-in-Mac).
+HPC servers - both your personal cloud as well as HPC systems - are based on a Unix Operating System called Linux. Mac OS is also based on this system, so connecting on a Mac is very simple. First you have to find and open your Terminal - I think the easiest way is to search for it in finder but if you don't find this easy there's a wiki entitled - [Open-a-Terminal-Window-in-Mac](https://www.wikihow.com/Open-a-Terminal-Window-in-Mac).
 
-Once you have your terminal open simply type (for standard HPC - not kubernetes - theer is no need to define the port with -P):
+Once you have your terminal open simply type:
 
 ```         
 ssh [user]@[host] -P [Port]
@@ -165,13 +181,15 @@ ssh [user]@[host] -P [Port]
 ssh c99999@sponsa.bios.cf.ac.uk -P 32222
 ```
 
-Then enter you password and you are in - you can tell you are there because the test preceeding your cursor changes and shoudl look like (the numbers will probably be different for you):
+***For standard HPC (i.e. not Kubernetes) there is no need to define the port with -P***
+
+Then enter your password and you are in - you can tell it has worked because the text preceding your cursor changes and should look something like (the numbers will probably be different for you):
 
 ```         
 [user@ssh-user-894cfb776-88kzg ~]$
 ```
 
-Unfortunately the standard SSH interface does not support X-forwarding for graphical applications. There is a mac application called (Xquartz)\[https://www.xquartz.org/\] that you can install and when it is running you can create a X-11 session by simply adding -X to your login so your login would be:
+Unfortunately the standard SSH interface does not support X-forwarding for graphical applications. There is a mac application called (Xquartz)\[https://www.xquartz.org/\] that you can install, and when it is running you can create a X-11 session by simply adding -X to your login so your login would be:
 
 ```         
 ssh -X [user]@[host] -P [Port]
@@ -181,29 +199,31 @@ ssh -X [user]@[host] -P [Port]
 ssh -X c99999@sponsa.bios.cf.ac.uk -P 32222
 ```
 
-Xquartz is open source software and Mac ***DO NOT SUPPORT*** it and it can be challenging to get working - newer Mac often do not support it as the open source developers haven't kept up with change sin the OS - play if you want too but it can be frustrating.
+Don't worry if you don't understand the bit about Xquartz - it's not essential, just know that it's here for future reference if needed. Xquartz is open source software and Mac ***DO NOT SUPPORT*** it, so it can be challenging to get working. Newer Macs often do not support it as the open source developers haven't kept up with changes in the OS. Play if you want too, but be warned that it can be frustrating.
 
-# sFTP using Mobxterm
+# SFPT: transferring files to and from the server
 
-MobXaterm has a built in SFTP function. When you open you session a folder structure appears down the left hand side of the screen. This can be useful for navigating and for opening files without the need to download them - some people also use the built in text editor to open and edit there script but I do not recommend this use Nano or Vim (vi) it is much better.
+## SFTP using MobaXterm on a PC
 
-Use the arrows above the SFTP windows to up / down load file - you can also drag and drop files using this window.
+MobaXterm has a built in SFTP function. When you open your session, a folder structure appears down the left hand side of the screen. This can be useful for navigating and for opening files without the need to download them.
+
+Use the arrows above the SFTP windows to upload/download files - you can also drag and drop files using this. window.
 
 ![MobaXterm SFTP](images/MobaXterm_SFTP.png){width="60%"}
 
-# sFTP using Filezilla
+## SFTP using FileZilla
 
-(Filezilla)\[https://filezilla-project.org/\] is a open source program that works on all platforms and support multiple upload and download options including SFTP.
+(FileZilla)\[https://filezilla-project.org/\] is a open source program that works on all platforms and supports multiple upload and download options including SFTP.
 
-To configure Filezilla follow the steps below and this will create a saved profile you can go back to:
+To configure FileZilla follow the steps below and this will create a saved profile you can go back to:
 
 1.  Open and select profile icon
 
 ![Filezilla profile](images/Filezilla_session.png){width="60%"}
 
-2\. Configure your SFTP profile
+2. Configure your SFTP profile
 
-Remember for standard HPC the SFTP port will default to 22.
+Remember for standard HPC the SFTP port will default to 22; if you are working on a Kubernetes virtual machine you will need to change it.
 
 ![Filezilla profile](images/Filezilla_configure.png){width="60%"}
 
@@ -213,22 +233,22 @@ Select Connect and you are done - you can return to this session next time you w
 
 ![Filezilla drag and drop](images/Filezilla_main.png){width="60%"}
 
-# sFTP using Cyberduck
+## SFTP using Cyberduck
 
-\[Cyberduck\]\[https://cyberduck.io/download/\] is another free file transfer application that supports all type of file transfer including SFTP and some people prefer it as it has a very simple interface.
+\[Cyberduck\]\[https://cyberduck.io/download/\] is another free file transfer application that supports all type of file transfer including SFTP, and some people prefer it to FileZilla as it has a very simple interface.
 
 After downloading and installing the application open the transfer window by using the following steps:
 
-1.  Open A Cyberduck connection
+1.  Open a Cyberduck connection
 
 ![Cyberduck Open a Connection](images/Cyberduck_open.png){width="60%"}
 
-2.  Configure the connection - complete all things underlines
+2.  Configure the connection - complete all the things underlined here.
 
-Use your port number or if standard HPC this is will be 21
+Use your port number provided for Kubernetes, or if using standard HPC use port 22.
 
 ![Cyberduck configuration](images/Cyberduck_config.png){width="50%"}
 
-3\. You can now navigate around the server and drag and drop file to and from server
+3. You can now navigate around the server and drag and drop files to and from server.
 
 ![Cyberduck drag and drop window](images/Cyberduck_connect.png){width="50%"}
