@@ -1,6 +1,7 @@
 ---
 title-block-style: default
 title-block-banner: darkred
+title-block-banner-color: white
 title: "Introduction to Linux"
 subtitle: "All things Linux"
 author: "Dr. Sarah Christofides"

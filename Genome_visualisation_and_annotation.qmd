@@ -1,6 +1,7 @@
 ---
 title-block-style: default
 title-block-banner: darkred
+title-block-banner-color: white
 title: "Genome Visualisation and Annotation"
 subtitle: "Layering information onto your sequences"
 author: "Prof Peter Kille"

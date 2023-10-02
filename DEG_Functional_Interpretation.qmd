@@ -1,6 +1,7 @@
 ---
 title-block-style: default
 title-block-banner: darkred
+title-block-banner-color: white
 title: "DEG Functional Interpretation"
 subtitle: "From Gene Lists to Biological Meansing"
 author: "Prof Peter Kille"
@@ -340,9 +341,11 @@ You should now repeat this process for Molecular Function and Cell Component Ter
 
 Enter GO terms and P-values into Revigo - they should be in format
 
-    Term    PValue
-    GO:0045892  7.75E-06
-    GO:0006694  3.29E-04
+```         
+Term    PValue
+GO:0045892  7.75E-06
+GO:0006694  3.29E-04
+```
 
 Leave the default settings and select ***\< Start Revigo \>***
 

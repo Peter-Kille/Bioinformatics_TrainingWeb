@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Professor Peter Kille">
-<meta name="dcterms.date" content="2023-10-01">
+<meta name="dcterms.date" content="2023-10-02">
 
 <title>Linux the fundementals</title>
 <style>
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -62,8 +96,19 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>
 
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
+
       .quarto-title-block .quarto-title-banner {
-        background: darkred;
+        color: white;
+background: darkred;
       }
 </style>
 
@@ -111,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 1, 2023</p>
+        <p class="date">October 2, 2023</p>
       </div>
     </div>
     
@@ -327,10 +372,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="anatomy-of-a-command" class="level1">
 <h1>Anatomy of a Command</h1>
 <p>Linux/Unix commands usually take the form shown below</p>
-<pre><code>Command       parameters      agguments
-   ^              ^               ^
-what I         how I want     on what do
-want to do     to do it       I want to do it</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Command</span>       parameters      agguments</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">^</span>              ^               ^</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">what</span> I         how I want     on what do</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">want</span> to do     to do it       I want to do it</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>NB usually each element is separated by only <strong><em>one space</em></strong></p>
 <p>The first item you supply on the command line is interpreted by the system as a command; that is – something the system should do. Items that appear after that on the same line are separated by spaces. The additional input on the command line indicates to the system how the command should work. For example, what file you want the command to work on, or the format for the information that should be returned to you.</p>
 <p>Most commands have options available that will alter the way they function. You make use of these options by providing the command with parameters, some of which will take arguments. Examples in the following sections should make it clear how this works. With some commands you don’t need to issue any parameters or arguments. Occasionally this is because there are none available, but usually this is because the command will use default settings if nothing is specified.</p>
@@ -342,18 +389,22 @@ want to do     to do it       I want to do it</code></pre>
 <p>The command <code>ls</code> lists files in a directory.</p>
 <p>By default, the command will list the filenames of the files in your current working directory. At the moment, this is probably your home directory.</p>
 <p>If you add a space followed by a <code>-l</code> (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. Information about this is shown in the code block below.</p>
-<pre><code>drwxr-xr-x 6    manager users   4096    2008-08-21  09:26  twilliams
--rw-r--r-- 1    manager users   9784    2007-03-19  14:09  hybInfo.txt
--rw-r--r-- 1    manager users   9784    2007-03-19  14:09  targets_v1.txt
--rw-r--r-- 1    manager users   7793    2007-03-19  14:14  targets_v2.txt
-^      ^        ^       ^    ^         ^                ^
-File  File    User    Group Size   Date/Time         Filename
-type  Permission</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 6    manager users   4096    2008-08-21  09:26  twilliams</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   9784    2007-03-19  14:09  hybInfo.txt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   9784    2007-03-19  14:09  targets_v1.txt</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   7793    2007-03-19  14:14  targets_v2.txt</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">^</span>      ^        ^       ^    ^         ^                ^</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">File</span>  File    User    Group Size   Date/Time         Filename</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>  Permission</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>The File permissions are given in triplets <code>rwx</code> which represent write - read - execute permissions. The first triplet are the permission associated with the user, the second three defined group and the last three the world.</p>
 <p>You can also use <strong>glob patterns</strong> to limit the files you wish to list.</p>
-<pre><code>*   an asterisk means any string of characters
-?   a question mark means a single character
-[ ] square brackets can be used to designate a group of characters</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span>   an asterisk means any string of characters</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span>   a question mark means a single character</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">[</span> <span class="bu">]</span> <span class="ex">square</span> brackets can be used to designate a group of characters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="callout-Exercise">
 <p>Open your terminal and use <code>ls -l</code> command to interrogate the files in your directories.</p>
 </div>
@@ -364,13 +415,17 @@ type  Permission</code></pre>
 <p>Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard. If you do not know the name of a command to use for a particular job, you can search using <code>man –k</code> followed by the type of thing you are trying to do. An example of this is in exercise below).</p>
 <div class="callout-Exercise">
 <p>Look up the manual information for the <code>ls</code> command by typing the following in a terminal:</p>
-<pre><code>man ls</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Read through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the <code>b</code> key.</p>
 <p>What does the <code>-m</code> option do? What about the <code>-a</code> option? What would running <code>ls -lrt</code> do?</p>
 <p>Press the <code>q</code> key when you want to quit reading the man page.</p>
 <p>Try running <code>ls</code> using some of the options mentioned above.</p>
 <p>Look up some programs with man pages with the keywords “list directory”</p>
-<pre><code>man --k "list directory"</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> <span class="at">--k</span> <span class="st">"list directory"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -383,11 +438,13 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>Programs rather than core linux commends often have help pages that can be access in the same manner as a linux command manual but using <code>-h</code> or <code>-help</code>. Other will provide you a help is you run the program with no arguments.</p>
-<pre><code>program -h
-
-# or
-
-program -help</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">program</span> <span class="at">-h</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">program</span> <span class="at">-help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -411,21 +468,23 @@ program -help</code></pre>
 </figure>
 </div>
 <div class="callout-Exercise">
-<pre><code># Change to a directory to your home directory use
-
-cd ~/
-
-# Now move into teh bioinformmatics Session1 of classdata 
-
-cd ~/classdata/Bioinformatics/Session1
-
-# Go down a directory
-
-cd ..
-
-# you can review where you are at any time using the print working directory command
-
-pwd</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to a directory to your home directory use</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Now move into teh bioinformmatics Session1 of classdata </span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/classdata/Bioinformatics/Session1</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Go down a directory</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># you can review where you are at any time using the print working directory command</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </section>
 </section>
@@ -434,13 +493,17 @@ pwd</code></pre>
 <p>Tab completion is an incredibly useful facility for working on the command line.</p>
 <p>One thing tab completion does is complete the filename or program name you want, saving huge amounts of typing time. It also ensures that there are no errors in what you typed, which is easy to do with long filenames or paths</p>
 <p>For example, from the <code>classdata</code> directory, you could type:</p>
-<pre><code>#navigate to classdata folder
-cd 
-# now start to type Bioinformatics
-cd Bio </code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#navigate to classdata folder</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># now start to type Bioinformatics</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Bio </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>now hit the tab key.</p>
 <p>If there is only one directory with a name starting with the letters “Bio”, the rest of the name will be completed for you. Here this would give you:</p>
-<pre><code>cd Bioinformatics </code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Bioinformatics </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>User accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.</p>
 <div class="callout-Exercises">
 <p>Return to your home directory if you are not already there by typing <code>cd ~/</code></p>

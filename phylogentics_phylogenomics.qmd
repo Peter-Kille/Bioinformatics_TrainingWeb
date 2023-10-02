@@ -1,6 +1,7 @@
 ---
 title-block-style: default
 title-block-banner: darkred
+title-block-banner-color: white
 title: "Phylogenomics and Phylogeneomics"
 subtitle: "Deriving phylogenies from single genes to whole genomes"
 author: "Dr Alex Mullins"
@@ -12,7 +13,9 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7996f42d-c454-4329-8235-af630098de06&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7996f42d-c454-4329-8235-af630098de06&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
 
 [Phylogenetics to phylogenomics Powerpoint](https://tinyurl.com/2jv8jphr)
 
@@ -123,13 +126,17 @@ snippy -- identify sequence variants
 
 Whole genome annotation is the process of identifying features of interest in a set of genomic DNA sequences, and labelling them with useful information. Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce standards-compliant output files.
 
-    module load prokka_mambaforge/1.14.6
+```         
+module load prokka_mambaforge/1.14.6
+```
 
 <br>
 
 Basic usage:
 
-    prokka --prefix [output file prefix] --outdir [output directory] --cpus [cpu number] --kingdom Mitochondria [fasta file]
+```         
+prokka --prefix [output file prefix] --outdir [output directory] --cpus [cpu number] --kingdom Mitochondria [fasta file]
+```
 
 Prokka outputs the annotation in multiple formats. Open the gbk and gff files to see their structure. Both are annotation files that indicate the location of genes/proteins, their sequence, and their putative function based on sequence comparisons to databases
 
@@ -139,14 +146,18 @@ Prokka outputs the annotation in multiple formats. Open the gbk and gff files to
 
 BAsic Rapid Ribosomal RNA Predictor. Can be used to annotate rRNA genes in genomes.
 
-    module load barrnap/0.8
-    module load hmmer/3.3.2
+```         
+module load barrnap/0.8
+module load hmmer/3.3.2
+```
 
 <br>
 
 Basic usage:
 
-    barrnap --kingdom mito --threads [number of cpus] [fasta file] > [output gff annotation file]
+```         
+barrnap --kingdom mito --threads [number of cpus] [fasta file] > [output gff annotation file]
+```
 
 <br>
 
@@ -154,7 +165,9 @@ Basic usage:
 
 Collectively, the bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF. While each individual tool is designed to do a relatively simple task (e.g., intersect two interval files), quite sophisticated analyses can be conducted by combining multiple bedtools operations on the UNIX command line.
 
-    module load bedtools2/2.30.0
+```         
+module load bedtools2/2.30.0
+```
 
 <br>
 
@@ -163,25 +176,28 @@ We can use bedtools to extract gene/protein sequences from annotation files:
 1)  Navigate to either the **Prokka** annotation output directory or the **Barrnap** output file
 2)  Create a sub-gff file that contains the annotation information of only the 16S rRNA gene
 
-```{=html}
 <!-- -->
+
+```         
+grep "16S" [gff annotation file]  > [subset_16S.gff]
 ```
-    grep "16S" [gff annotation file]  > [subset_16S.gff]
 
 3)  Extract the 16S rRNA gene from the mitochondrial genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the *-s* option.
 
-```{=html}
 <!-- -->
+
+```         
+bedtools getfasta -fi [input fasta file] -bed [subset_gff file] -s > [output 16S file.fasta]
 ```
-    bedtools getfasta -fi [input fasta file] -bed [subset_gff file] -s > [output 16S file.fasta]
 
 4)  Move your extracted 16S rRNA gene sequence into the directory of 16S rRNA reference genes provided.
 5)  Combine all the 16S rRNA gene fasta files into a single multifasta file
 
-```{=html}
 <!-- -->
+
+```         
+cat [*.fasta] > [output multifasta file]
 ```
-    cat [*.fasta] > [output multifasta file]
 
 <br>
 
@@ -189,13 +205,17 @@ We can use bedtools to extract gene/protein sequences from annotation files:
 
 MAFFT is a multiple sequence alignment program for unix-like operating systems.
 
-    module load mafft/7.481
+```         
+module load mafft/7.481
+```
 
 <br>
 
 Basic usage:
 
-    mafft [input multifasta] > [output alignment multifasta]
+```         
+mafft [input multifasta] > [output alignment multifasta]
+```
 
 <br>
 
@@ -203,7 +223,9 @@ Basic usage:
 
 RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.
 
-    module load raxml-ng/1.0.2
+```         
+module load raxml-ng/1.0.2
+```
 
 <br>
 
@@ -211,7 +233,9 @@ RAxML-NG outputs files to your current location. Create a directory and run RAxM
 
 Basic usage for nucleotide alignment with GTR model:
 
-    raxml-ng-mpi --all --msa [input alignment] --model GTR --bs-tree [bootstrap replicate number e.g. 100] --prefix [prefix for output files] --threads [number of threads/cpus]
+```         
+raxml-ng-mpi --all --msa [input alignment] --model GTR --bs-tree [bootstrap replicate number e.g. 100] --prefix [prefix for output files] --threads [number of threads/cpus]
+```
 
 RAxML-NG produces multiple output files. The file we are interested in has the extension **.support**\
 Add the extension **.nwk** to this file to indicate it is a phylogeny.
@@ -222,7 +246,9 @@ Add the extension **.nwk** to this file to indicate it is a phylogeny.
 
 A Bacterial Pangenome Analysis Pipeline. Predicts core, accessory, and pangenomes. Produces core gene alignments.
 
-    module load panaroo/1.3.0
+```         
+module load panaroo/1.3.0
+```
 
 <br>
 
@@ -231,7 +257,9 @@ Use prokka to annotate the *Bacillus velezensis* genomes supplied, and remember 
 
 Basic usage:
 
-    panaroo -i *gff -o [output directory] -t [number of cpus] --clean-mode sensitive -a core --aligner mafft
+```         
+panaroo -i *gff -o [output directory] -t [number of cpus] --clean-mode sensitive -a core --aligner mafft
+```
 
 Output files of interest include the **summary_statistics.txt** and **core_gene.aln**\
 
@@ -243,7 +271,9 @@ Check the website for details of all the files produced: https://gtonkinhill.git
 
 A tool to identify variations between a reference genome in fasta format and genome sequence data in read format (fastq)
 
-    module load snippy/v4.6.0
+```         
+module load snippy/v4.6.0
+```
 
 <br>
 
@@ -251,7 +281,9 @@ Basic usage:
 
 To identify SNPs for one genome
 
-    snippy –outdir [output directory] -ref [reference sequence fasta] -R1 [read 1 fastq file] -R2 [read 2 fastq file] –prefix [prefix for output]
+```         
+snippy –outdir [output directory] -ref [reference sequence fasta] -R1 [read 1 fastq file] -R2 [read 2 fastq file] –prefix [prefix for output]
+```
 
 You will need a loop to call SNPs for multiple genomes
 
@@ -259,7 +291,9 @@ You will need a loop to call SNPs for multiple genomes
 
 To produce an alignment from SNPs, navigate to the snippy output directory and run **snippy-core**. The wildcard will extract the necessary SNP data from all the genomes analysed by snippy (directory for each genome in output directory).
 
-    snippy-core –ref [same reference sequence] –prefix [prefix for output] *
+```         
+snippy-core –ref [same reference sequence] –prefix [prefix for output] *
+```
 
 <br>
 
@@ -275,9 +309,12 @@ Download locally to your laptop: https://github.com/rambaut/figtree/releases / o
 
 ## Single Gene
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=f3046618-4e2d-4abc-ba0c-af630098dd8c&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=f3046618-4e2d-4abc-ba0c-af630098dd8c&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
 
 ## Whole Genome SNP
 
-<iframe  data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2cf9c78-0062-496f-bfe0-af630098da10&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2cf9c78-0062-496f-bfe0-af630098da10&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
 
+</iframe>

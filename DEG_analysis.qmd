@@ -1,6 +1,7 @@
 ---
 title-block-style: default
 title-block-banner: darkred
+title-block-banner-color: white
 title: "Differential Gene Expression Analysis"
 subtitle: "SarTools for DEG list generation and downstream analysis"
 author: "Prof Peter Kille"

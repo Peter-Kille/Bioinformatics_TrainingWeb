@@ -1,6 +1,7 @@
 ---
 title-block-style: default
 title-block-banner: darkred
+title-block-banner-color: white
 title: "Commandline Tools and Scripting"
 subtitle: "More tricks and tips"
 author: "Professor Peter Kille"
@@ -11,7 +12,6 @@ affiliation: "Cardiff University"
 ```{r include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 ```
-
 
 # Visualising Text Files
 

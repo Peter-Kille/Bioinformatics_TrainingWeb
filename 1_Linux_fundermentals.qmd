@@ -1,6 +1,7 @@
 ---
 title-block-style: default
 title-block-banner: darkred
+title-block-banner-color: white
 title: "Linux the fundementals"
 subtitle: "Command line rocks"
 author: "Professor Peter Kille"
@@ -8,16 +9,22 @@ date: today
 affiliation: "Cardiff University"
 ---
 
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
 <body style="background-color:gray99;">
 
 # Anatomy of a Command
 
 Linux/Unix commands usually take the form shown below
 
-    Command       parameters      agguments
-       ^              ^               ^
-    what I         how I want     on what do
-    want to do     to do it       I want to do it
+```{bash}
+Command       parameters      agguments
+   ^              ^               ^
+what I         how I want     on what do
+want to do     to do it       I want to do it
+```
 
 NB usually each element is separated by only ***one space***
 
@@ -37,21 +44,25 @@ By default, the command will list the filenames of the files in your current wor
 
 If you add a space followed by a `-l` (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. Information about this is shown in the code block below.
 
-    drwxr-xr-x 6    manager users   4096    2008-08-21  09:26  twilliams
-    -rw-r--r-- 1    manager users   9784    2007-03-19  14:09  hybInfo.txt
-    -rw-r--r-- 1    manager users   9784    2007-03-19  14:09  targets_v1.txt
-    -rw-r--r-- 1    manager users   7793    2007-03-19  14:14  targets_v2.txt
-    ^      ^        ^       ^    ^         ^                ^
-    File  File    User    Group Size   Date/Time         Filename
-    type  Permission
+```{bash}
+drwxr-xr-x 6    manager users   4096    2008-08-21  09:26  twilliams
+-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  hybInfo.txt
+-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  targets_v1.txt
+-rw-r--r-- 1    manager users   7793    2007-03-19  14:14  targets_v2.txt
+^      ^        ^       ^    ^         ^                ^
+File  File    User    Group Size   Date/Time         Filename
+type  Permission
+```
 
 The File permissions are given in triplets `rwx` which represent write - read - execute permissions. The first triplet are the permission associated with the user, the second three defined group and the last three the world.
 
 You can also use **glob patterns** to limit the files you wish to list.
 
-    *   an asterisk means any string of characters
-    ?   a question mark means a single character
-    [ ] square brackets can be used to designate a group of characters
+```{bash}
+*   an asterisk means any string of characters
+?   a question mark means a single character
+[ ] square brackets can be used to designate a group of characters
+```
 
 ::: callout-Exercise
 Open your terminal and use `ls -l` command to interrogate the files in your directories.
@@ -66,7 +77,9 @@ Linux manual pages are referred to as man pages. To open the man page for a part
 ::: callout-Exercise
 Look up the manual information for the `ls` command by typing the following in a terminal:
 
-    man ls
+```{bash}
+man ls
+```
 
 Read through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the `b` key.
 
@@ -78,17 +91,21 @@ Try running `ls` using some of the options mentioned above.
 
 Look up some programs with man pages with the keywords "list directory"
 
-    man --k "list directory"
+```{bash}
+man --k "list directory"
+```
 :::
 
 ::: callout-note
 Programs rather than core linux commends often have help pages that can be access in the same manner as a linux command manual but using `-h` or `-help`. Other will provide you a help is you run the program with no arguments.
 
-    program -h
+```{bash}
+program -h
 
-    # or
+# or
 
-    program -help
+program -help
+```
 :::
 
 # Changing directories and tab completion
@@ -106,21 +123,23 @@ If you are using a Cardiff personal cloud qubernetes container you will have acc
 ![Cardiff University Personal Cloud File Structure](Images/CU_perosnal_cloud.png){fig-alt="Cardiff University Personal Cloud File Structure"}
 
 ::: callout-Exercise
-    # Change to a directory to your home directory use
+```{bash}
+# Change to a directory to your home directory use
 
-    cd ~/
+cd ~/
 
-    # Now move into teh bioinformmatics Session1 of classdata 
+# Now move into teh bioinformmatics Session1 of classdata 
 
-    cd ~/classdata/Bioinformatics/Session1
+cd ~/classdata/Bioinformatics/Session1
 
-    # Go down a directory
+# Go down a directory
 
-    cd ..
+cd ..
 
-    # you can review where you are at any time using the print working directory command
+# you can review where you are at any time using the print working directory command
 
-    pwd
+pwd
+```
 :::
 
 # Tab completion
@@ -131,16 +150,20 @@ One thing tab completion does is complete the filename or program name you want,
 
 For example, from the `classdata` directory, you could type:
 
-    #navigate to classdata folder
-    cd 
-    # now start to type Bioinformatics
-    cd Bio 
+```{bash}
+#navigate to classdata folder
+cd 
+# now start to type Bioinformatics
+cd Bio 
+```
 
 now hit the tab key.
 
 If there is only one directory with a name starting with the letters "Bio", the rest of the name will be completed for you. Here this would give you:
 
-    cd Bioinformatics 
+```{bash}
+cd Bioinformatics 
+```
 
 User accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.
 
