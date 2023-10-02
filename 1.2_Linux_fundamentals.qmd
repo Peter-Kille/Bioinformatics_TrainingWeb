@@ -2,7 +2,7 @@
 title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
-title: "Linux the fundementals"
+title: "Linux the fundamentals"
 subtitle: "Command line rocks"
 author: "Professor Peter Kille"
 date: today

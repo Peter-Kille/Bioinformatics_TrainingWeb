@@ -14,8 +14,6 @@ affiliation: "Cardiff University"
 
 </iframe>
 
-[Why Bioinformatics - Powerpoint](https://tinyurl.com/6h79uh7f)
-
 # Bioinformatics Teaching Material
 
 This training material is aimed at the novice with no experience of high performance computing (HPC) or bioinformatics. You could be a biologist who wants to up their bioinformatics skills or a physical scientist (trained in computer science, maths or physics) interested in applying your skills to the biological arena - this is where the journey starts.
@@ -54,9 +52,7 @@ And above all - have some fun doing science !!
 
 # Course Handbooks
 
-This training material, or elements of it, are used across a number of courses. The specific handbooks for these course are provided below. However, if you have been directed to these web pages because you are interested in developing your Bioinformatics skills or come come across them by chance you should be able to follow the exercises independently without reference to the handbooks given below.
-
-[Cardiff University integrated masters course BI3008 2022](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/0_HPC_Personal_cloud/BioinfHandbook2223_BI3008.html)
+This training material, or elements of it, are used across a number of courses. The specific handbook for your course will have been provided to you by email. However, if you have been directed to these web pages because you are interested in developing your bioinformatics skills, or come come across them by chance, you should be able to follow the exercises independently without reference to the handbooks.
 
 # [Bioinformatics Road-Map](https://prezi.com/view/PJXGFaOeSh7r9EsmBCD1/)
 
@@ -70,7 +66,7 @@ When you are zoomed in, the resources appear in colour coded spheres - red are l
 
 # Course components
 
-## Session 0. [Basics of HPC and HPC vs Personal Cloud provision](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/0_HPC_Personal_cloud/Personal_Cloud.html)
+## Session 0. Basics of HPC and HPC vs Personal Cloud provision
 
 This element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to logging in to the research platforms at Cardiff School of Biosciences. If you are a researcher at Cardiff wanting to gain access to HPC please contact our [Biocompute team](http://hpc.bios.cf.ac.uk/contacts/) and join the bioinformatics Teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google .... many of these provide limited free options which can help you to learn.
 
@@ -78,58 +74,68 @@ This element of the course introduces you the the computational resources that h
 
 This introduces you to the command line - yes, no more clicking on icons as it is all about writing commands !!
 
-[Introduction to Linux](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/1_Linux_NGS_Data_and_QC/Session1_Part1_Linux.html)
+[Introduction to Linux](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.1_Introduction to Linux.html)
 
 This represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you started quickly.
 
-[Linux the fundamentals](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/1_Linux_NGS_Data_and_QC/1_Linux_fundermentals.html)
+[Linux the fundamentals](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.2_Linux_fundamentals.html)
 
 This session gives more detail about the Linux basics, covering navigating around your Linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect.), how to preview files (less/cat/head/tail) and how to edit files (we use Nano but touch on using Vi).
 
-[Commandline Tools and Scripting](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/1_Linux_NGS_Data_and_QC/Commandline_Tools_and_Scripting.html)
+[Loading Software and Accessing Data](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.3_Loading_Software_Accessing_Data.html)
+
+A guide to how to access the software and data you will need for the rest of the course.
+
+[Commandline Tools and Scripting](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.4_Commandline_Tools_and_Scripting.html)
 
 From more ways to visualize text file, querying files with grep, using editors, running scripts and using loops, this material provides some more exercises to develop your skills.
 
 ## Session 2. NGS Data Manipulation: From seqences to assemblies.
 
-[An Introduction to NGS Data and Quality Control](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/1_Linux_NGS_Data_and_QC/Session1_Part2_QC.html)
+[An Introduction to NGS Data and Quality Control](https://peter-kille.github.io/Bioinformatics_TrainingWeb/2.1_NGS_Quality_Control.html)
 
 Most of our training material focuses on bioinformatics application in the area of genomics. This section introduces the fundamental concepts of Next Generation Sequencing (NGS) and the basic file types (fasta / fastq) and approaches to quality control and initial data processing.
 
-[Genome Assembly](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/2_Genome_Assembly/Genome_assembly.html)
+[Genome Assembly](https://peter-kille.github.io/Bioinformatics_TrainingWeb/2.2_genome_assembly.html)
 
 Approaches to genome assembly vary hugely depending on what you are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations of short and long read data.
 
 ## Session 3. Genome visualisation and annotation
 
-[Genome Annotation and Visualisation](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/3_Genome_Annotation_and_Visualisation/Genome_visualisation_and_annotation.html)
+[Genome Annotation and Visualisation](https://peter-kille.github.io/Bioinformatics_TrainingWeb/3.1_Genome_visualisation_and_annotation.html)
 
 A genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results. We primarily use Artemis (Sanger Centre) but also introduce Integrated Genome Viewer (IGV) from the Broad Institute.
 
+[Hybrid Assemblies](https://peter-kille.github.io/Bioinformatics_TrainingWeb/3.2_hybrid_assemblies.html)
+
+Often the best way to get a high-quality genome is by a hybrid assembly: combining short-read (Illumina) and long-read (Nanopore/PacBio) data. This session will guide you through the principles of hybrid assembly.
+
 ## Session 4. Building phylogenies
 
-[Phylogenetics and Phylogenomics](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/4_Phylogenetics_and_Phylogenomics/Phylogenetics.html)
+[Phylogenetics and Phylogenomics](https://peter-kille.github.io/Bioinformatics_TrainingWeb/4.1_phylogentics_phylogenomics.html)
 
 The taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual.
 
 ## Session 5. Transcriptomics
 
-The has been divided into three workshops each targeted at different aspects of the process.
+[Transcriptomics Introduction](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.1_Transcriptomics_Introduction.html)
 
-[RNAseq Data Processing](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/5_Transcriptomics/RNASeqAnalysisExcerises.html)
+An introductory lecture on RNA sequencing. The subsequent workshop has been divided into three parts each targeted at different aspects of the process.
+
+[RNAseq Data Processing](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.2_RNAseq_processing.html)
 
 Transcriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to transcript counts for an organism with an existing genome. We include approaches to identify and evaluate technical duplication, although be aware this may not be relevant to your analytical approach.
 
-[Generation of Differentially Expressed Gene (DEG) Lists](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/5_Transcriptomics/Differential_Gene_Expression_Analysis.html)
+[Generation of Differentially Expressed Gene (DEG) Lists](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.3_DEG_analysis.html)
 
 Performing quality control and provisional data visualisation (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use [SARTools](https://github.com/PF2-pasteur-fr/SARTools) developed at the Pasteur Institute to illustrate best practice in transcriptome analysis. We also include multivariate approaches to data visualization such as PCA and HCA (hierarchical clustering analysis).
 
-[Functional Interpretation of DEGs](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/5_Transcriptomics/Transcriptomic_functional_analsyis.html)
+[Functional Interpretation of DEGs](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.4_DEG_Functional_Interpretation.html)
 
 Interpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks.
 
 ## Session 6. Microbial community analysis
 
-[Metabarcoding](https://peter-kille.github.io/Bioinformatics_Teaching_Repo/6_Metabarcoding/Session6_Part1_Microbiome.html)
+[Metabarcoding](https://peter-kille.github.io/Bioinformatics_TrainingWeb/6.1_metabarcoding.html)
 
 Amplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, *RbcL* for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)\[https://qiime2.org/\] to navigate you through preliminary metabarcoding data analysis.
