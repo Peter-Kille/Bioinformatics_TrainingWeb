@@ -66,6 +66,8 @@ When you are zoomed in, the resources appear in colour coded spheres - red are l
 
 # Course components
 
+If you are following this course as part of a taught module, Session 0 will be covered in the preliminary session to get you online and set up. Apart from Session 1 (which is a single 3-hour session), all the subsequent sessions will be allocated two 3-hour slots. The first will cover new material and the core workshop exercises. The second will be an opportunity for you to finish off/revisit any material you want to; if you're happy with what you've done so far, there are extension exercises provided for the second session that allow you to practise your skills and take them further.
+
 ## Session 0. Basics of HPC and HPC vs Personal Cloud provision
 
 This element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to logging in to the research platforms at Cardiff School of Biosciences. If you are a researcher at Cardiff wanting to gain access to HPC please contact our [Biocompute team](http://hpc.bios.cf.ac.uk/contacts/) and join the bioinformatics Teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google .... many of these provide limited free options which can help you to learn.

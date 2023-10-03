@@ -68,6 +68,7 @@ Most commands have options available that will alter the way they function. You 
 
 Most Linux commands have a manual page that provides information about the command and options that can alter its behaviour. Many tasks can be made easier by using command options. Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard.
 
+::: callout-important
 ### Exercise: looking up a man page
 
 Look up the manual information for the ls command by typing the following in a terminal:
@@ -80,6 +81,7 @@ man ls
 -   What does the -m option do? What about the -a option? What would running ls -lrt do?
 -   Press the q key when you want to quit reading the man page.
 -   Try running ls using some of the options mentioned above.
+:::
 
 Note: Programs (rather than core linux commands) often have help pages that can be accessed in the same manner as a linux command manual but using -h or -help (often both will work). Others will default to show you the help page if you run the program with no arguments or have a typo.
 
@@ -152,7 +154,7 @@ However, we won't need to remember that as we can use the shortcuts of:
 ```
 
 ::: callout-important
-## Exercises: changing directories
+### Exercises: changing directories
 
 1.  Change directory from your home directory to your working directory ('mydata')
 
@@ -202,7 +204,7 @@ cp -r mydata/all_fastqs NewExperiment/testdata/
 ```
 
 ::: callout-important
-## Exercises: copying files and folders
+### Exercises: copying files and folders
 
 1.  Use ls to look in the folder named
 
@@ -244,7 +246,7 @@ ls b*.txt
 ```
 
 ::: callout-important
-## Exercise: listing files
+### Exercises: listing files
 
 1.  List all the files in the directory Session1 that start with the letters sub
 
@@ -275,10 +277,12 @@ The file permissions are given in triplets `rwx` which represent write - read - 
 
 
 ::: callout-Exercise
+### Exercise: looking at file permissions
+
 Open your terminal and use `ls -l` command to interrogate the files in your directories.
 :::
 
-# Tab completion
+## Tab completion
 
 Have you been remembering to tab complete?
 
@@ -306,6 +310,8 @@ cd Bioinformatics
 User accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.
 
 ::: callout-Exercises
+### Exercises: practise tab completion
+
 Return to your home directory if you are not already there by typing `cd ~/`
 
 Type `cd cl` and use tab completion for the rest of the command. Then press the return key.
@@ -336,5 +342,5 @@ One of the commonest reasons why students get stuck in bioinformatics exercises 
 
 You can also make life easier for yourself by thinking carefully about giving your directories and files self-explanatory names, and keeping them organised.
 
-As a final exercise in this part of the session, use the commands you have learned so far (particularly *pwd*, *ls* and *cd*) to sketch a map of your mydata folder.
+**As a final exercise** in this part of the session, use the commands you have learned so far (particularly *pwd*, *ls* and *cd*) to sketch a map of your mydata folder.
 
