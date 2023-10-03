@@ -203,18 +203,11 @@
     "text": "Changing Directories\nThe command used to change directories is cd\nIf you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.\n\n\n\nLinux general file structure\n\n\nIf you are using a Cardiff personal cloud qubernetes container you will have access to the following additional file structure.\n\n\n\nCardiff University Personal Cloud File Structure\n\n\n\n\n# Change to a directory to your home directory use\n\ncd ~/\n\n# Now move into teh bioinformmatics Session1 of classdata \n\ncd ~/classdata/Bioinformatics/Session1\n\n# Go down a directory\n\ncd ..\n\n# you can review where you are at any time using the print working directory command\n\npwd"
   },
   {
-    "objectID": "2.1_NGS_Quality_Control.html",
-    "href": "2.1_NGS_Quality_Control.html",
-    "title": "NGS Quality Control",
-    "section": "",
-    "text": "NGS Quality Control"
-  },
-  {
     "objectID": "2.1_NGS_Quality_Control.html#fasta-and-fastq",
     "href": "2.1_NGS_Quality_Control.html#fasta-and-fastq",
     "title": "NGS Quality Control",
     "section": "FASTA and FASTQ",
-    "text": "FASTA and FASTQ\nThe two commonest file types for sequencing data are FASTA and FASTQ. (To make life a little more complicated, both have more than one file extension. FASTAs can be .fasta, .fa or .fna; FASTQs can be .fastq or .fq)\nA FASTA is a 2-line file format. Each sequence has a header line, which always starts with &gt; and contains an identifier for the sequence. The next line contains the sequence itself. For example, a FASTA file with two sequences in it could look like this:\n&gt;Sequence 1 \n\nACGTGCTTCCGGTTTCAGGGTCA\n\n&gt;Sequence 2\n\nGTACTTAACCTAAACTGGACTAA\nA FASTQ is an extension of a FASTA that includes quality scores for each base of the sequence. It is a 4-line file format. The first line is still a header, but now begins with @, and the second line is the sequence. The third line is always a single + that separates the sequence from the quality scores on the fourth line. A FASTQ of those same two sequences could look like this:\n@Sequence 1 \nACGTGCTTCCGGTTTCAGGGTCA\n+\nR%!JSQA(AD\\@ASDIA&ASD&!N\n@Sequence 2\nGTACTTAACCTAAACTGGACTAA\n+\n&DJSA)ADFLA9DF5*J34AQBS"
+    "text": "FASTA and FASTQ\nThe two commonest file types for sequencing data are FASTA and FASTQ. (To make life a little more complicated, both have more than one file extension. FASTAs can be .fasta, .fa or .fna; FASTQs can be .fastq or .fq)\nA FASTA is a 2-line file format. Each sequence has a header line, which always starts with &gt; and contains an identifier for the sequence. The next line contains the sequence itself. For example, a FASTA file with two sequences in it could look like this:\n\n&gt;Sequence 1 \nACGTGCTTCCGGTTTCAGGGTCA\n&gt;Sequence 2\nGTACTTAACCTAAACTGGACTAA\n\nA FASTQ is an extension of a FASTA that includes quality scores for each base of the sequence. It is a 4-line file format. The first line is still a header, but now begins with @, and the second line is the sequence. The third line is always a single + that separates the sequence from the quality scores on the fourth line. A FASTQ of those same two sequences could look like this:\n\n@Sequence 1 \nACGTGCTTCCGGTTTCAGGGTCA\n+\nR%!JSQA(AD\\@ASDIA&ASD&!N\n@Sequence 2\nGTACTTAACCTAAACTGGACTAA\n+\n&DJSA)ADFLA9DF5*J34AQBS"
   },
   {
     "objectID": "2.1_NGS_Quality_Control.html#visualising-text-files",
