@@ -19,30 +19,44 @@ knitr::opts_chunk$set(eval = FALSE)
 
 </iframe>
 
-[Introduction to Linux - Powerpoint](https://tinyurl.com/7b8hmhsk)
-
 # Part 1: Introduction to Linux
+
+Start by logging into your virtual machine on the server. You are now ready to start learning how to control it! Unlike the operating systems you may be used to, we are going to be typing commands rather than clicking buttons.
 
 ## Useful information!
 
 • You don't need to type the \$ at the beginning of a command. That's a linux convention to indicate a command line
 
-• Always tab-complete! Pressing tab will auto complete a file name or program. If you're writing a file named myFirstSequencingRun.fastq (see the no spaces!) and type just 'myF' and press tab, it will complete it for you which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and **if it won't tab-complete then it doesn't exist**!
+• **Always tab-complete**! Pressing tab will auto-complete a file name or program. If you're writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just 'myF' and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and **if it won't tab-complete then it doesn't exist**!
 
--   If you still have a file not found error, do ls to see if you can see it.
--   If you can't see a file you expect, do pwd and check you're in the right folder.
--   If a script says "permission denied" make sure:
--   It has executable permission.
--   You're not inside the classdata folder!
--   You always want to be working in the Working Directory. To get there use:
+• If you still have a 'file not found' error, do ls to see if you can see it.
+
+• If you can't see a file you expect, do pwd and check you're in the right folder.
+
+• If a script says "permission denied" make sure:
++   It has executable permission.
++   You're not inside the classdata folder!
+
+• You always want to be working in the Working Directory. To get there (assuming you're on a Cardiff virtual machine) use:
 
 ```{bash}
 cd ~/mydata
 ```
 
-• Tab-complete is your friend! It'll stop most typos from happening and save you the pain of writing a command for a file that's not there. It's worth re-iterating for the amount of time and pain it will save you.
+• Once more, tab-complete is your friend! It'll stop most typos from happening and save you the pain of writing a command for a file that's not there. It's worth re-iterating for the amount of time and pain it will save you.
 
 ## Anatomy of a Command
+
+Linux/Unix commands usually take the form shown below
+
+```{bash}
+Command       parameters      agguments
+   ^              ^               ^
+what I         how I want     on what do
+want to do     to do it       I want to do it
+```
+
+N.B. usually each element is separated by only ***one space***
 
 The first item you supply on the command line is interpreted by the system as a command -- something the system should do. Any options for the command, such what file you want the command to work on, or the format for the information that should be returned to you, appear after that on the same line separated by spaces.
 
@@ -62,12 +76,12 @@ Look up the manual information for the ls command by typing the following in a t
 man ls
 ```
 
--   Read through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the b key.
+-   Skim through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the b key.
 -   What does the -m option do? What about the -a option? What would running ls -lrt do?
 -   Press the q key when you want to quit reading the man page.
 -   Try running ls using some of the options mentioned above.
 
-Note: Programs rather than core linux commands often have help pages that can be access in the same manner as a linux command manual but using -h or -help (often both will work). Others will default to show you the help page if you run the program with no arguments or have a typo.
+Note: Programs (rather than core linux commands) often have help pages that can be accessed in the same manner as a linux command manual but using -h or -help (often both will work). Others will default to show you the help page if you run the program with no arguments or have a typo.
 
 ## Changing and making directories
 
@@ -75,10 +89,10 @@ The command used to change directories is *cd*
 
 If you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.
 
-To change to a directory one below you are in, just use the cd command followed by the subdirectory name i.e. to move into the 'Downloads' directory inside your current directory, you could use:
+To change to a directory one below you are in, just use the cd command followed by the subdirectory name i.e., fi you have just logged in and want to move into the 'mydata' directory (inside your current directory), you could use:
 
 ```{bash}
-cd Downloads
+cd mydata
 ```
 
 The shortcut for "the directory you are currently in" is a single full stop ( . ). If you type
@@ -93,7 +107,7 @@ nothing will change. Later, when we want to run scripts or copy to the same fold
 cd ..
 ```
 
-For example, if you are in 'Downloads', this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, becuase a forward slash indicates the very top of the file tree:
+For example, if you are in 'mydata', this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, because a forward slash indicates the very top of the file tree:
 
 ```{bash}
 cd /usr/local/bin
@@ -122,12 +136,12 @@ For example, when you first opened the terminal in a live session you should see
 [sbi9srj@hawker ~]$
 ```
 
-This means I am logged in as the user sbi9srj on the machine named hawker, and in a directory called the character called 'tilde' \~. If you remember, \~ is always a shortcut for your home directory.
+This means I am logged in as the user sbi9srj on the server named hawker, and in a directory named the character called 'tilde' \~. If you remember, \~ is always a shortcut for your home directory.
 
 All our folders and classdata can be found at:
 
 ```{bash}
-/home/[your usename]/classdata/
+/home/[your username]/classdata/
 ```
 
 However, we won't need to remember that as we can use the shortcuts of:
@@ -155,7 +169,7 @@ However, we won't need to remember that as we can use the shortcuts of:
 
 A standard format is used to move and copy data:
 
-command source destination
+*command source destination*
 
 For example, to move a file named RNAseq_1.fastq into a new folder that exists in this directory named exp1:
 
@@ -217,11 +231,11 @@ If you add a space followed by a --l (that is, a hyphen and a small letter L), a
 
 You can also use glob patterns to limit the files you wish to list.
 
+```{bash}
 \* an asterisk means any string of characters
-
 ? a question mark means a single character
-
 \[ \] square brackets can be used to designate a group of characters
+```
 
 e.g. to list all of blue.txt, banana.txt, baby.txt:
 
@@ -239,6 +253,83 @@ ls b*.txt
 3.  \[Extension\] Do a 'long list' (-l) of these files and see the difference in sizes. Add the 'human readable' parameter/flag (-h) to help read the sizes.
 :::
 
+## File permisions
+
+The command `ls` lists files in a directory.
+
+By default, the command will list the filenames of the files in your current working directory. At the moment, this is probably your home directory.
+
+If you add a space followed by a `-l` (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. An example is shown in the code block below.
+
+```{bash}
+drwxr-xr-x 6    manager users   4096    2008-08-21  09:26  twilliams
+-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  hybInfo.txt
+-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  targets_v1.txt
+-rw-r--r-- 1    manager users   7793    2007-03-19  14:14  targets_v2.txt
+^      ^        ^       ^    ^         ^                ^
+File  File    User    Group Size   Date/Time         Filename
+type  Permission
+```
+
+The file permissions are given in triplets `rwx` which represent write - read - execute permissions. The first triplet represents the permission associated with the owner (usually the person who created the file), the second triplet is permissions for owner's group, and the triplet is permission for everyone else.
+
+
+::: callout-Exercise
+Open your terminal and use `ls -l` command to interrogate the files in your directories.
+:::
+
+# Tab completion
+
+Have you been remembering to tab complete?
+
+Tab completion is an incredibly useful facility for working on the command line.
+
+One thing tab completion does is complete the filename or program name you want, saving huge amounts of typing time. It also ensures that there are no errors in what you typed, which is easy to do with long filenames or paths
+
+For example, you could type:
+
+```{bash}
+#navigate to classdata folder
+cd classdata
+# now start to type Bioinformatics
+cd Bio 
+```
+
+now hit the tab key.
+
+If there is only one directory with a name starting with the letters "Bio", the rest of the name will be completed for you. Here this would give you:
+
+```{bash}
+cd Bioinformatics 
+```
+
+User accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.
+
+::: callout-Exercises
+Return to your home directory if you are not already there by typing `cd ~/`
+
+Type `cd cl` and use tab completion for the rest of the command. Then press the return key.
+
+You will now be in your \~/classdata directory.
+
+Type `cd Bio` and use tab completion for the rest of the command. Then press the return key.
+
+You will now be in your \~/classdata/Bioinformatics directory
+
+Type `l Ses` and hit tab twice to view the files available.
+
+Now press the tab key again. You can gradually add extra letters and use the tab key to limit the options available.
+
+As you get faster with this, it will save you a lot of typing effort.
+:::
+
+::: callout-important
+## Auto completion for programs
+
+Auto completion works when you are calling programs that are available (where you have installed or loaded them with module load) and when you are constructing command. However, auto completion does NOT work if you are in a text editor constructing a script.
+:::
+
+
 ## Putting it together: creating a mental map of your file system
 
 One of the commonest reasons why students get stuck in bioinformatics exercises is that they have forgotten where there are in the file system. They try to work with files that are in a different directory, panic that things seem to have disappeared, or wonder where exactly that output has ended up! The key to saving yourself much pain lies in developing awareness of how your file structure is laid out, and where you are in it at all times. If something doesn't work, stop and ask yourself: where am I? Where are the files I want to work with?
@@ -247,4 +338,3 @@ You can also make life easier for yourself by thinking carefully about giving yo
 
 As a final exercise in this part of the session, use the commands you have learned so far (particularly *pwd*, *ls* and *cd*) to sketch a map of your mydata folder.
 
-# 

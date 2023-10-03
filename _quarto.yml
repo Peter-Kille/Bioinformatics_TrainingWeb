@@ -16,9 +16,8 @@ website:
       - section: "Session 1. Linux: The basics"
         contents:
           - 1.1_Introduction to Linux.qmd
-          - 1.2_Linux_fundamentals.qmd
-          - 1.3_Loading_Software_Accessing_Data.qmd
-          - 1.4_Commandline_Tools_and_Scripting.qmd
+          - 1.2_Loading_Software_Accessing_Data.qmd
+          - 1.3_Commandline_Tools_and_Scripting.qmd
       - section: "Session 2. NGS data"
         contents:
           - 2.1_NGS_Quality_Control.qmd

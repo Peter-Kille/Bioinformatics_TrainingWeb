@@ -78,15 +78,13 @@ This introduces you to the command line - yes, no more clicking on icons as it i
 
 This represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you started quickly.
 
-[Linux the fundamentals](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.2_Linux_fundamentals.html)
-
 This session gives more detail about the Linux basics, covering navigating around your Linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect.), how to preview files (less/cat/head/tail) and how to edit files (we use Nano but touch on using Vi).
 
-[Loading Software and Accessing Data](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.3_Loading_Software_Accessing_Data.html)
+[Loading Software and Accessing Data](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.2_Loading_Software_Accessing_Data.html)
 
 A guide to how to access the software and data you will need for the rest of the course.
 
-[Commandline Tools and Scripting](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.4_Commandline_Tools_and_Scripting.html)
+[Commandline Tools and Scripting](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.3_Commandline_Tools_and_Scripting.html)
 
 From more ways to visualize text file, querying files with grep, using editors, running scripts and using loops, this material provides some more exercises to develop your skills.
 
