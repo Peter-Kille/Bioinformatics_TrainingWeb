@@ -3,7 +3,7 @@ title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
 title: "Loading Software and Accessing Data"
-subtitle: "Its all there if you know where to look"
+subtitle: "It's all there if you know where to look"
 author: "Professor Peter Kille"
 date: today
 affiliation: "Cardiff University"
@@ -17,15 +17,16 @@ knitr::opts_chunk$set(eval = FALSE)
 
 # Software
 
-The linux OS has some really powerful utilities but these are not truly bioinformatics software. We have to 'install' or 'load' software. We do not pre-load the software as many informatic tools are not singular piece of software but are complex installs with dependencies i.e. requiring different versions of python or java and these elements can conflict causing software to malfunction. 
+The linux OS has some really powerful utilities but these are not truly bioinformatics software. We have to 'install' or 'load' software. We do not want tp have all our software loaded all the time, as many informatic tools are very complex i.e. requiring different versions of python or java to run. Having software that requires conflicting versions loaded at the same time can cause a malfunction.
 
-Most managed HPC systems (not your own personal computer) manage this by using modules.  These are preconfigured installers for your software packages.  Cardiff systems use a module system   - if this in the case you can see the software that is available try the following command:
+Most managed HPC systems (not your own personal computer) manage this by using modules. These are preconfigured installers for your software packages. Cardiff systems use modules - if this is the case you can see the software that is available try the following command:
 
 ```{bash}
 module avail
 ```
 
 this will bring up a software list that looks like the following:
+
 ```{bash}
 abyss/2.3.1        caliper/2.8.0    fastx-toolkit/0.0.14  mcl/14-137          racon/1.4.3      tbl2asn/2022-04-26
 alan/2.1.1         cdhit/4.8.1      figtree/1.4.3         minimap2/2.14       raxml-ng/1.0.2   tmux/3.2a
@@ -37,13 +38,13 @@ bowtie2/2.4.2      fasttree/2.1.11  mafft/7.481           prokka/1.14.6       su
 .......
 ```
 
-Any of these software packages can be load by simply using the module load command, e.g.
+Any of these software packages can be loaded by simply using the module load command, e.g.
 
 ```{bash}
 module load fastqc/0.11.9
 ```
 
-but remember to unload the module when you are finished so it does not conflict with the next piece of software or if you want to globally remove all module the module purge command to deinstall all loadde modules.
+Remember to unload the module when you are finished so it does not conflict with the next piece of software, or if you want to unload all modules, use the module purge command.
 
 ```{bash}
 module unload fastqc/0.11.9
@@ -53,7 +54,7 @@ module purge
 
 # Data
 
-The data for your course is available to you on a pre-mapped drive location, you can see list the folder it contains using the following simple command:
+The data for your course is available to you on a pre-mapped drive location. You can see and list the folders it contains using the following simple command:
 
 ```{bash}
 ls ~/classdata/Bioinformatics
@@ -64,12 +65,12 @@ REFS  Session1  Session2  Session3  Session4  Session5  Session6
 
 ```
 
-You cans ee these folders but not write to them. Before using them each Session folder can be copied to your mydata directory.  For example if you want to copy Session1 type
+You can **see these folders but not write to them**! Before each session, copy the corresponding folder to your mydata directory. For example, if you want to copy Session1 type
 
 ```{bash}
 
 cp -r ~/classdata/Bioinformatics/Session1 ~/mydata/Bioinformatics/Session1
 
 ```
- Note the inclusion of the '-r' flag to allow you to copy the folder 'recusively' this will copy all the folders and files inside. 
- 
+
+Note the inclusion of the '-r' flag to allow you to copy the folder 'recursively': this will copy all the folders and files inside.

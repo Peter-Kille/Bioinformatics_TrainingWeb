@@ -2,8 +2,8 @@
 title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
-title: "Commandline Tools and Scripting"
-subtitle: "More tricks and tips"
+title: "Extension: Commandline Tools and Scripting"
+subtitle: "Loads more tricks and tips"
 author: "Professor Peter Kille"
 date: today
 affiliation: "Cardiff University"
@@ -15,17 +15,17 @@ knitr::opts_chunk$set(eval = FALSE)
 
 # Visualising Text Files
 
-There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but do not edit them. Among the most common of these commands are cat, more, less, head and tail.
+There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but not edit them. Among the most common of these commands are `cat`, `more`, `less`, `head` and `tail`.
 
-cat can be used for concatenating files and reading files into other programs; it is a very useful facility. However, cat streams the entire contents of a file to your terminal and is thus not that useful for reading long files as the text streams past too quickly to read.
+`cat` can be used for concatenating files and reading files into other programs; it is a very useful facility. However, `cat` streams the entire contents of a file to your terminal and is thus not that useful for reading long files, as the text streams past too quickly to read.
 
-more and less are commands that show the contents of a file one page at a time. less has more functionality than more. With both more and less, you can use the space bar to scroll down the page, and typing the letter q causes the program to quit -- returning you to your command line prompt.
+`more` and `less` are commands that show the contents of a file one page at a time, but `less` has more functionality than `more` (doh)! With both `more` and `less`, you can use the space bar to scroll down the page, and typing the letter q causes the program to quit -- returning you to your command line prompt.
 
-head and tail show the beginning and end 10 lines of a document. You can use the argument -n \[number\] to change the number of lines displayed.
+`head` and `tail` show the first and last ten lines of a document, respectively. You can use the argument -n \[number\] to change the number of lines displayed.
 
-Once you are reading a document with more or less, typing a forward slash / will start a prompt at the bottom of the page, and you can then type in text that is searched for below the point in the document you were at. Typing in a ? also searches for a text string you enter, but it searches in the document above the point you were at. Hitting the n key during a search looks for the next instance of that text in the file.
+Once you are reading a document with `more` or `less`, typing a forward slash / will start a prompt at the bottom of the page, and you can then type in text that is searched for below the point in the document you were at. Typing in a ? also searches for a text string you enter, but it searches in the document above the point you were at. Hitting the n key during a search looks for the next instance of that text in the file.
 
-With less (but not more), you can use the arrow keys to scroll up and down the page, and the b key to move back up the document if you wish to.
+With `less` (but not `more`), you can use the arrow keys to scroll up and down the page, and the b key to move back up the document if you wish to.
 
 Remember these are just for reading the files. If you want to edit them you'll need a text editor like nano or vi.
 
@@ -34,25 +34,25 @@ Remember these are just for reading the files. If you want to edit them you'll n
 
 Move into an appropriate working directory in mydata
 
-fetch the file O97435.embl using wget
+Fetch the file O97435.embl using `wget` (this is just a command for downloading files from the web).
 
-```{bash}      
+```{bash}
 wget https://rest.uniprot.org/uniprotkb/O97435.txt > O97435.embl
 ```
 
-using the commands cat, more, less, head and tail.
+using the commands `cat`, `more`, `less`, `head` and `tail`.
 
-Don't forget that tab completion can save you typing effort.
+Don't forget that tab completion can save you typing effort!
 
-```{bash}         
+```{bash}
 cat O97435.embl
 more O97435.embl # Use the spacebar to scroll down
 Press q to quit.
 ```
 
-Now try less
+Now try `less`
 
-```{bash}         
+```{bash}
 less O97435.embl
 ```
 
@@ -62,18 +62,18 @@ Press the / key and search for the letters sequence in the file. Press the ? key
 
 Press the n key to search for other instances of gene in the file.
 
-```{bash}         
+```{bash}
 head O97435.embl
 tail O97435.embl
 ```
 
-For reading files yourself, we recommend the command less. The command cat is more usually used in conjunction with other commands when you wish to process text from within a file in some way.
+For reading files yourself, we recommend the command `less.` The command `cat` is more usually used in conjunction with other commands when you wish to process text from within a file in some way.
 
 Remember the man pages
 
 There are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages:
 
-```{bash}         
+```{bash}
 man cat
 man more
 man less
@@ -86,7 +86,7 @@ man tail
 
 grep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.
 
-```{bash}         
+```{bash}
 grep “adge” /usr/share/dict/words
 ```
 
@@ -105,17 +105,17 @@ For example, perhaps you only want to see only the information in an EMBL file r
 ::: callout-important
 ## Exercise
 
-Move into an appropriate working directory in mydata
+Move into an appropriate working directory in `mydata`
 
-fetch the file O97435.embl using wget
+Fetch the file O97435.embl using `wget`
 
-```{bash}          
+```{bash}
 wget https://rest.uniprot.org/uniprotkb/O97435.txt > O97435.embl
 ```
 
 While in the download directory, type the command:
 
-```{bash}         
+```{bash}
 grep “DE” O97435.embl 
 ```
 
@@ -125,7 +125,7 @@ Can you see why the above command results in the output you see? An explanation 
 
 Try the commands:
 
-```{bash}         
+```{bash}
 grep “^DE” O97435.embl
 grep -x “DE.*” O97435.embl 
 ```
@@ -134,7 +134,7 @@ What are the \^ symbol and the -x parameter in these commands doing? Check the m
 
 Try the command:
 
-```{bash}         
+```{bash}
 cat O97435.embl | grep “^DE”. 
 ```
 
@@ -148,11 +148,9 @@ The second command in the exercise also returns lines in the file that have a le
 
 What this anchoring does in the example above is return to you just the organism information in the embl file. This is because none of the other lines returned in the previous command started with DE, they just contained DE somewhere in them. This is an example where knowing how information is stored in an given file, along with a few basic Linux commands, allows you to retrieve information quickly.
 
-Another common example is counting how many sequences are in a set of multi-fasta files. We can do this with
+Another common example is counting how many sequences are in a set of multi-fasta files. We can do this with pipes between the commands `cat`, `grep` and the handy `wc` (word count) utility, which here we use to count lines found by grep.
 
-pipes between the commands cat, grep and the handy wc utility, which here we use to count lines found by grep.
-
-```{bash}    
+```{bash}
 cat *seqs.fasta | grep “^>” | wc -l 
 
 grep -c “^>” *seqs.fasta 
@@ -160,16 +158,16 @@ grep -c “^>” *seqs.fasta
 
 Each sequence in a fasta file starts with a header line that begins with a \> . The above command streams the contents of all files matching the glob pattern \*seqs.fasta through a search with grep looking for lines that start with the symbol \> . The quotes around the pattern \^\> are necessary, as otherwise it is interpreted as a request for redirection of output to a file, rather than as a character to look for. As before, the \^ symbol means "match only at the beginning of the line".
 
-The output of this grep search is sent to the wc command, with the -l indicating that you want to know the number of lines -- ie. the number of headers and by implication the number of sequences.
+The output of this grep search is sent to the `wc` command, with the -l indicating that you want to know the number of lines -- ie. the number of headers and by implication the number of sequences.
 
-An easier version of this shown as the second example uses the grep -c argument that return the number of matches found.
+An easier version of this shown as the second example uses the `grep` -c argument that return the number of matches found.
 
 So a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.
 :::
 
-## Use Zgrep with compressed files
+## Use zgrep with compressed files
 
-You can use all of grep functionality with a compressed file by adding a 'z' - just replace grep with zprep and you can directly query that .gz files.
+You can use all of grep functionality with a compressed file by adding a 'z' - just replace grep with zgrep and you can directly query that .gz files.
 
 # Using text editors
 
@@ -214,7 +212,7 @@ nano test_nano.txt
 
 type some text, exit ctrl X, save and return to command line now list the contents of the file you created
 
-```{bash}  
+```{bash}
 less test_nano.txt 
 ```
 
@@ -230,7 +228,7 @@ exit saving you edits \[esc\]:wq! - this stands for write quit !!
 
 now list the contents of the file you created
 
-```{bash}    
+```{bash}
 less test_vi.txt 
 ```
 :::
@@ -257,7 +255,7 @@ echo 'Blast off'
 
 Make the file executable. Before you can run the script you must make it executable. This is done by changing its property using
 
-```{bash}         
+```{bash}
 chmod a+x [script name] 
 ```
 
@@ -269,19 +267,19 @@ Run the program. This should be easy but there are a few ways of doing this.
 
 Place the program into the directory where you want to use it and type
 
-```{bash}         
+```{bash}
 ./[script name] parameters arguments 
 ```
 
 On first use try to run with no parameters or arguments or with -h and -help to see the manual for the script. Some poorly written scripts will need you to define the program you need to use them. Ie if it was a perl program (you may have to module load perl before you run this example).
 
-```{bash}         
+```{bash}
 perl [script name] parameters arguments 
 ```
 
 Run from scripts current location using full path.
 
-```{bash}         
+```{bash}
 /full path/[script name] parameters arguments 
 ```
 
@@ -295,7 +293,7 @@ Creating a Loop
 
 Invoke a text editor such as nano, then type
 
-```{bash}          
+```{bash}
 #!/bin/bash
 
 for i in {1..[number]}; do 
@@ -313,13 +311,13 @@ save.
 
 now make the program executable
 
-```{bash}       
+```{bash}
 chmod +x [program_name]
 ```
 
 run
 
-```{bash}         
+```{bash}
 ./[program_name]
 ```
 
@@ -327,7 +325,7 @@ run
 
 Invoke a text editor such as nano, then type
 
-```{bash}   
+```{bash}
 #!/bin/bash
 
 for i in sampleA sampleB sampleC sampleD; do 
@@ -345,13 +343,13 @@ save
 
 now make the program executable
 
-```{bash}         
+```{bash}
 chmod +x [program_name] 
 ```
 
 run
 
-```{bash}         
+```{bash}
 ./[program_name] 
 ```
 
@@ -361,7 +359,7 @@ This is a great method if you want to execute a series of command on a set of da
 
 Invoke a text editor such as nano, then type
 
-```{bash}         
+```{bash}
 #!/bin/bash
 
 sequence_dir=[location of folder containing paired end sequence files]
@@ -385,13 +383,13 @@ save
 
 now make the program executable
 
-```{bash}         
+```{bash}
 chmod +x [program_name] 
 ```
 
 run
 
-```{bash}         
+```{bash}
 ./[program_name] 
 ```
 
@@ -403,24 +401,24 @@ You will commonly come across 2 type of compressed files in Linux .gz and tar.gz
 
 ....wait a minute do you really need to decompress this file !! Many programs will happily use a .gz file directly, this a win for your file space so check out if you really need to decompress the file. Unfortunate some utilits like 'sed' require files to be unzipped, it that case:
 
-```{bash}         
+```{bash}
 #to decompress
 gunzip [filename].gz
 #to recompress
 gzip [filename]
 ```
 
-## How to extract a .tar.gz file on Linux?
+## How to extract a .tar.gz file on Linux
 
 To extract a .tar.gz file on Linux, you can use the "tar" command in the terminal. Here is the general syntax:
 
-```{bash}         
+```{bash}
 tar -xvzf filename.tar.gz
 ```
 
 Here is a brief explanation of the options used:
 
-```{bash}         
+```{bash}
 -x: This option tells tar to extract the contents of the archive.
 
 -v: This option is for verbose output, which means that tar will display a list of the files being extracted as it does so.

@@ -139,7 +139,7 @@ background: darkred;
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Loading Software and Accessing Data</h1>
-            <p class="subtitle lead">Its all there if you know where to look</p>
+            <p class="subtitle lead">It’s all there if you know where to look</p>
                       </div>
   </div>
     
@@ -232,7 +232,7 @@ background: darkred;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Commandline Tools and Scripting</span></a>
+ <span class="menu-text">Extension: Commandline Tools and Scripting</span></a>
   </div>
 </li>
       </ul>
@@ -376,8 +376,8 @@ background: darkred;
 
 <section id="software" class="level1">
 <h1>Software</h1>
-<p>The linux OS has some really powerful utilities but these are not truly bioinformatics software. We have to ‘install’ or ‘load’ software. We do not pre-load the software as many informatic tools are not singular piece of software but are complex installs with dependencies i.e.&nbsp;requiring different versions of python or java and these elements can conflict causing software to malfunction.</p>
-<p>Most managed HPC systems (not your own personal computer) manage this by using modules. These are preconfigured installers for your software packages. Cardiff systems use a module system - if this in the case you can see the software that is available try the following command:</p>
+<p>The linux OS has some really powerful utilities but these are not truly bioinformatics software. We have to ‘install’ or ‘load’ software. We do not want tp have all our software loaded all the time, as many informatic tools are very complex i.e.&nbsp;requiring different versions of python or java to run. Having software that requires conflicting versions loaded at the same time can cause a malfunction.</p>
+<p>Most managed HPC systems (not your own personal computer) manage this by using modules. These are preconfigured installers for your software packages. Cardiff systems use modules - if this is the case you can see the software that is available try the following command:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -392,11 +392,11 @@ background: darkred;
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2/2.4.2</span>      fasttree/2.1.11  mafft/7.481           prokka/1.14.6       subread/2.0.2</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">.......</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Any of these software packages can be load by simply using the module load command, e.g.</p>
+<p>Any of these software packages can be loaded by simply using the module load command, e.g.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/0.11.9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>but remember to unload the module when you are finished so it does not conflict with the next piece of software or if you want to globally remove all module the module purge command to deinstall all loadde modules.</p>
+<p>Remember to unload the module when you are finished so it does not conflict with the next piece of software, or if you want to unload all modules, use the module purge command.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload fastqc/0.11.9</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">or</span></span>
@@ -405,7 +405,7 @@ background: darkred;
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
-<p>The data for your course is available to you on a pre-mapped drive location, you can see list the folder it contains using the following simple command:</p>
+<p>The data for your course is available to you on a pre-mapped drive location. You can see and list the folders it contains using the following simple command:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ~/classdata/Bioinformatics</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -413,12 +413,12 @@ background: darkred;
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">REFS</span>  Session1  Session2  Session3  Session4  Session5  Session6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You cans ee these folders but not write to them. Before using them each Session folder can be copied to your mydata directory. For example if you want to copy Session1 type</p>
+<p>You can <strong>see these folders but not write to them</strong>! Before each session, copy the corresponding folder to your mydata directory. For example, if you want to copy Session1 type</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/classdata/Bioinformatics/Session1 ~/mydata/Bioinformatics/Session1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note the inclusion of the ‘-r’ flag to allow you to copy the folder ‘recusively’ this will copy all the folders and files inside.</p>
+<p>Note the inclusion of the ‘-r’ flag to allow you to copy the folder ‘recursively’: this will copy all the folders and files inside.</p>
 
 
 </section>

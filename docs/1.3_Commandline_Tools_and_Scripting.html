@@ -9,7 +9,7 @@
 <meta name="author" content="Professor Peter Kille">
 <meta name="dcterms.date" content="2023-10-03">
 
-<title>Commandline Tools and Scripting</title>
+<title>Extension: Commandline Tools and Scripting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1.1_Introduction to Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="./1.3_Commandline_Tools_and_Scripting.html">Commandline Tools and Scripting</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1.1_Introduction to Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="./1.3_Commandline_Tools_and_Scripting.html">Extension: Commandline Tools and Scripting</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,8 +138,8 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Commandline Tools and Scripting</h1>
-            <p class="subtitle lead">More tricks and tips</p>
+      <h1 class="title">Extension: Commandline Tools and Scripting</h1>
+            <p class="subtitle lead">Loads more tricks and tips</p>
                       </div>
   </div>
     
@@ -232,7 +232,7 @@ background: darkred;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Commandline Tools and Scripting</span></a>
+ <span class="menu-text">Extension: Commandline Tools and Scripting</span></a>
   </div>
 </li>
       </ul>
@@ -365,7 +365,7 @@ background: darkred;
   <li><a href="#visualising-text-files" id="toc-visualising-text-files" class="nav-link active" data-scroll-target="#visualising-text-files">Visualising Text Files</a></li>
   <li><a href="#querying-files-with-grep" id="toc-querying-files-with-grep" class="nav-link" data-scroll-target="#querying-files-with-grep">Querying files with grep</a>
   <ul class="collapse">
-  <li><a href="#use-zgrep-with-compressed-files" id="toc-use-zgrep-with-compressed-files" class="nav-link" data-scroll-target="#use-zgrep-with-compressed-files">Use Zgrep with compressed files</a></li>
+  <li><a href="#use-zgrep-with-compressed-files" id="toc-use-zgrep-with-compressed-files" class="nav-link" data-scroll-target="#use-zgrep-with-compressed-files">Use zgrep with compressed files</a></li>
   </ul></li>
   <li><a href="#using-text-editors" id="toc-using-text-editors" class="nav-link" data-scroll-target="#using-text-editors">Using text editors</a>
   <ul class="collapse">
@@ -387,7 +387,7 @@ background: darkred;
   <li><a href="#decompressing-tar.gz-and-.gz-files" id="toc-decompressing-tar.gz-and-.gz-files" class="nav-link" data-scroll-target="#decompressing-tar.gz-and-.gz-files">Decompressing tar.gz and .gz files</a>
   <ul class="collapse">
   <li><a href="#gz-files" id="toc-gz-files" class="nav-link" data-scroll-target="#gz-files">gz files</a></li>
-  <li><a href="#how-to-extract-a-.tar.gz-file-on-linux" id="toc-how-to-extract-a-.tar.gz-file-on-linux" class="nav-link" data-scroll-target="#how-to-extract-a-.tar.gz-file-on-linux">How to extract a .tar.gz file on Linux?</a></li>
+  <li><a href="#how-to-extract-a-.tar.gz-file-on-linux" id="toc-how-to-extract-a-.tar.gz-file-on-linux" class="nav-link" data-scroll-target="#how-to-extract-a-.tar.gz-file-on-linux">How to extract a .tar.gz file on Linux</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -400,12 +400,12 @@ background: darkred;
 
 <section id="visualising-text-files" class="level1">
 <h1>Visualising Text Files</h1>
-<p>There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but do not edit them. Among the most common of these commands are cat, more, less, head and tail.</p>
-<p>cat can be used for concatenating files and reading files into other programs; it is a very useful facility. However, cat streams the entire contents of a file to your terminal and is thus not that useful for reading long files as the text streams past too quickly to read.</p>
-<p>more and less are commands that show the contents of a file one page at a time. less has more functionality than more. With both more and less, you can use the space bar to scroll down the page, and typing the letter q causes the program to quit – returning you to your command line prompt.</p>
-<p>head and tail show the beginning and end 10 lines of a document. You can use the argument -n [number] to change the number of lines displayed.</p>
-<p>Once you are reading a document with more or less, typing a forward slash / will start a prompt at the bottom of the page, and you can then type in text that is searched for below the point in the document you were at. Typing in a ? also searches for a text string you enter, but it searches in the document above the point you were at. Hitting the n key during a search looks for the next instance of that text in the file.</p>
-<p>With less (but not more), you can use the arrow keys to scroll up and down the page, and the b key to move back up the document if you wish to.</p>
+<p>There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but not edit them. Among the most common of these commands are <code>cat</code>, <code>more</code>, <code>less</code>, <code>head</code> and <code>tail</code>.</p>
+<p><code>cat</code> can be used for concatenating files and reading files into other programs; it is a very useful facility. However, <code>cat</code> streams the entire contents of a file to your terminal and is thus not that useful for reading long files, as the text streams past too quickly to read.</p>
+<p><code>more</code> and <code>less</code> are commands that show the contents of a file one page at a time, but <code>less</code> has more functionality than <code>more</code> (doh)! With both <code>more</code> and <code>less</code>, you can use the space bar to scroll down the page, and typing the letter q causes the program to quit – returning you to your command line prompt.</p>
+<p><code>head</code> and <code>tail</code> show the first and last ten lines of a document, respectively. You can use the argument -n [number] to change the number of lines displayed.</p>
+<p>Once you are reading a document with <code>more</code> or <code>less</code>, typing a forward slash / will start a prompt at the bottom of the page, and you can then type in text that is searched for below the point in the document you were at. Typing in a ? also searches for a text string you enter, but it searches in the document above the point you were at. Hitting the n key during a search looks for the next instance of that text in the file.</p>
+<p>With <code>less</code> (but not <code>more</code>), you can use the arrow keys to scroll up and down the page, and the b key to move back up the document if you wish to.</p>
 <p>Remember these are just for reading the files. If you want to edit them you’ll need a text editor like nano or vi.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -418,18 +418,18 @@ Exercise
 </div>
 <div class="callout-body-container callout-body">
 <p>Move into an appropriate working directory in mydata</p>
-<p>fetch the file O97435.embl using wget</p>
+<p>Fetch the file O97435.embl using <code>wget</code> (this is just a command for downloading files from the web).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://rest.uniprot.org/uniprotkb/O97435.txt <span class="op">&gt;</span> O97435.embl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>using the commands cat, more, less, head and tail.</p>
-<p>Don’t forget that tab completion can save you typing effort.</p>
+<p>using the commands <code>cat</code>, <code>more</code>, <code>less</code>, <code>head</code> and <code>tail</code>.</p>
+<p>Don’t forget that tab completion can save you typing effort!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> O97435.embl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">more</span> O97435.embl <span class="co"># Use the spacebar to scroll down</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Press</span> q to quit.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now try less</p>
+<p>Now try <code>less</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> O97435.embl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -440,7 +440,7 @@ Exercise
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> O97435.embl</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> O97435.embl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>For reading files yourself, we recommend the command less. The command cat is more usually used in conjunction with other commands when you wish to process text from within a file in some way.</p>
+<p>For reading files yourself, we recommend the command <code>less.</code> The command <code>cat</code> is more usually used in conjunction with other commands when you wish to process text from within a file in some way.</p>
 <p>Remember the man pages</p>
 <p>There are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages:</p>
 <div class="cell">
@@ -475,8 +475,8 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Move into an appropriate working directory in mydata</p>
-<p>fetch the file O97435.embl using wget</p>
+<p>Move into an appropriate working directory in <code>mydata</code></p>
+<p>Fetch the file O97435.embl using <code>wget</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://rest.uniprot.org/uniprotkb/O97435.txt <span class="op">&gt;</span> O97435.embl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -501,22 +501,21 @@ Exercise
 <p>The first command in the above exercise searches all the text in the O97435.embl file and returns the lines in which it finds the letter D followed by the letter E.</p>
 <p>The second command in the exercise also returns lines in the file that have a letter D followed by a letter E, but only where DE is found at the beginning of a line. This is because the ^ symbol means “match at the beginning of a line”. The $ symbol can be used similarly to mean “at the end of a line”. These are known as anchors. Passing the -x flag to grep tells it to automatically anchor both ends of the search pattern.</p>
 <p>What this anchoring does in the example above is return to you just the organism information in the embl file. This is because none of the other lines returned in the previous command started with DE, they just contained DE somewhere in them. This is an example where knowing how information is stored in an given file, along with a few basic Linux commands, allows you to retrieve information quickly.</p>
-<p>Another common example is counting how many sequences are in a set of multi-fasta files. We can do this with</p>
-<p>pipes between the commands cat, grep and the handy wc utility, which here we use to count lines found by grep.</p>
+<p>Another common example is counting how many sequences are in a set of multi-fasta files. We can do this with pipes between the commands <code>cat</code>, <code>grep</code> and the handy <code>wc</code> (word count) utility, which here we use to count lines found by grep.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="pp">*</span>seqs.fasta <span class="kw">|</span> <span class="fu">grep</span> “^<span class="op">&gt;</span>” <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> “^<span class="op">&gt;</span>” <span class="pp">*</span>seqs.fasta </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Each sequence in a fasta file starts with a header line that begins with a &gt; . The above command streams the contents of all files matching the glob pattern *seqs.fasta through a search with grep looking for lines that start with the symbol &gt; . The quotes around the pattern ^&gt; are necessary, as otherwise it is interpreted as a request for redirection of output to a file, rather than as a character to look for. As before, the ^ symbol means “match only at the beginning of the line”.</p>
-<p>The output of this grep search is sent to the wc command, with the -l indicating that you want to know the number of lines – ie. the number of headers and by implication the number of sequences.</p>
-<p>An easier version of this shown as the second example uses the grep -c argument that return the number of matches found.</p>
+<p>The output of this grep search is sent to the <code>wc</code> command, with the -l indicating that you want to know the number of lines – ie. the number of headers and by implication the number of sequences.</p>
+<p>An easier version of this shown as the second example uses the <code>grep</code> -c argument that return the number of matches found.</p>
 <p>So a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.</p>
 </div>
 </div>
 <section id="use-zgrep-with-compressed-files" class="level2">
-<h2 class="anchored" data-anchor-id="use-zgrep-with-compressed-files">Use Zgrep with compressed files</h2>
-<p>You can use all of grep functionality with a compressed file by adding a ‘z’ - just replace grep with zprep and you can directly query that .gz files.</p>
+<h2 class="anchored" data-anchor-id="use-zgrep-with-compressed-files">Use zgrep with compressed files</h2>
+<p>You can use all of grep functionality with a compressed file by adding a ‘z’ - just replace grep with zgrep and you can directly query that .gz files.</p>
 </section>
 </section>
 <section id="using-text-editors" class="level1">
@@ -717,7 +716,7 @@ Exercise
 </div>
 </section>
 <section id="how-to-extract-a-.tar.gz-file-on-linux" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-extract-a-.tar.gz-file-on-linux">How to extract a .tar.gz file on Linux?</h2>
+<h2 class="anchored" data-anchor-id="how-to-extract-a-.tar.gz-file-on-linux">How to extract a .tar.gz file on Linux</h2>
 <p>To extract a .tar.gz file on Linux, you can use the “tar” command in the terminal. Here is the general syntax:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xvzf</span> filename.tar.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

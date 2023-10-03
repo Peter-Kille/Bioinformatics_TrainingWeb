@@ -232,7 +232,7 @@ background: darkred;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Commandline Tools and Scripting</span></a>
+ <span class="menu-text">Extension: Commandline Tools and Scripting</span></a>
   </div>
 </li>
       </ul>
@@ -368,15 +368,18 @@ background: darkred;
   <li><a href="#anatomy-of-a-command" id="toc-anatomy-of-a-command" class="nav-link" data-scroll-target="#anatomy-of-a-command">Anatomy of a Command</a>
   <ul class="collapse">
   <li><a href="#learning-about-linux-commands" id="toc-learning-about-linux-commands" class="nav-link" data-scroll-target="#learning-about-linux-commands">Learning about Linux commands</a></li>
-  <li><a href="#exercise-looking-up-a-man-page" id="toc-exercise-looking-up-a-man-page" class="nav-link" data-scroll-target="#exercise-looking-up-a-man-page">Exercise: looking up a man page</a></li>
   </ul></li>
   <li><a href="#changing-and-making-directories" id="toc-changing-and-making-directories" class="nav-link" data-scroll-target="#changing-and-making-directories">Changing and making directories</a></li>
   <li><a href="#moving-and-copying-data" id="toc-moving-and-copying-data" class="nav-link" data-scroll-target="#moving-and-copying-data">Moving and copying data</a></li>
   <li><a href="#listing-files-in-a-directory" id="toc-listing-files-in-a-directory" class="nav-link" data-scroll-target="#listing-files-in-a-directory">Listing files in a directory</a></li>
-  <li><a href="#file-permisions" id="toc-file-permisions" class="nav-link" data-scroll-target="#file-permisions">File permisions</a></li>
+  <li><a href="#file-permisions" id="toc-file-permisions" class="nav-link" data-scroll-target="#file-permisions">File permisions</a>
+  <ul class="collapse">
+  <li><a href="#exercise-looking-at-file-permissions" id="toc-exercise-looking-at-file-permissions" class="nav-link" data-scroll-target="#exercise-looking-at-file-permissions">Exercise: looking at file permissions</a></li>
   </ul></li>
   <li><a href="#tab-completion" id="toc-tab-completion" class="nav-link" data-scroll-target="#tab-completion">Tab completion</a>
   <ul class="collapse">
+  <li><a href="#exercises-practise-tab-completion" id="toc-exercises-practise-tab-completion" class="nav-link" data-scroll-target="#exercises-practise-tab-completion">Exercises: practise tab completion</a></li>
+  </ul></li>
   <li><a href="#putting-it-together-creating-a-mental-map-of-your-file-system" id="toc-putting-it-together-creating-a-mental-map-of-your-file-system" class="nav-link" data-scroll-target="#putting-it-together-creating-a-mental-map-of-your-file-system">Putting it together: creating a mental map of your file system</a></li>
   </ul></li>
   </ul>
@@ -423,9 +426,16 @@ background: darkred;
 <section id="learning-about-linux-commands" class="level3">
 <h3 class="anchored" data-anchor-id="learning-about-linux-commands">Learning about Linux commands</h3>
 <p>Most Linux commands have a manual page that provides information about the command and options that can alter its behaviour. Many tasks can be made easier by using command options. Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard.</p>
-</section>
-<section id="exercise-looking-up-a-man-page" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-looking-up-a-man-page">Exercise: looking up a man page</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise: looking up a man page
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Look up the manual information for the ls command by typing the following in a terminal:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -436,6 +446,8 @@ background: darkred;
 <li>Press the q key when you want to quit reading the man page.</li>
 <li>Try running ls using some of the options mentioned above.</li>
 </ul>
+</div>
+</div>
 <p>Note: Programs (rather than core linux commands) often have help pages that can be accessed in the same manner as a linux command manual but using -h or -help (often both will work). Others will default to show you the help page if you run the program with no arguments or have a typo.</p>
 </section>
 </section>
@@ -576,7 +588,7 @@ Exercises: copying files and folders
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise: listing files
+Exercises: listing files
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -603,13 +615,13 @@ Exercise: listing files
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>  Permission</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The file permissions are given in triplets <code>rwx</code> which represent write - read - execute permissions. The first triplet represents the permission associated with the owner (usually the person who created the file), the second triplet is permissions for owner’s group, and the triplet is permission for everyone else.</p>
-<div class="callout-Exercise">
+<section id="exercise-looking-at-file-permissions" class="level3 callout-Exercise">
+<h3 class="anchored" data-anchor-id="exercise-looking-at-file-permissions">Exercise: looking at file permissions</h3>
 <p>Open your terminal and use <code>ls -l</code> command to interrogate the files in your directories.</p>
-</div>
 </section>
 </section>
-<section id="tab-completion" class="level1">
-<h1>Tab completion</h1>
+<section id="tab-completion" class="level2">
+<h2 class="anchored" data-anchor-id="tab-completion">Tab completion</h2>
 <p>Have you been remembering to tab complete?</p>
 <p>Tab completion is an incredibly useful facility for working on the command line.</p>
 <p>One thing tab completion does is complete the filename or program name you want, saving huge amounts of typing time. It also ensures that there are no errors in what you typed, which is easy to do with long filenames or paths</p>
@@ -626,7 +638,8 @@ Exercise: listing files
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Bioinformatics </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>User accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.</p>
-<div class="callout-Exercises">
+<section id="exercises-practise-tab-completion" class="level3 callout-Exercises">
+<h3 class="anchored" data-anchor-id="exercises-practise-tab-completion">Exercises: practise tab completion</h3>
 <p>Return to your home directory if you are not already there by typing <code>cd ~/</code></p>
 <p>Type <code>cd cl</code> and use tab completion for the rest of the command. Then press the return key.</p>
 <p>You will now be in your ~/classdata directory.</p>
@@ -635,7 +648,7 @@ Exercise: listing files
 <p>Type <code>l Ses</code> and hit tab twice to view the files available.</p>
 <p>Now press the tab key again. You can gradually add extra letters and use the tab key to limit the options available.</p>
 <p>As you get faster with this, it will save you a lot of typing effort.</p>
-</div>
+</section>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -649,11 +662,12 @@ Auto completion for programs
 <p>Auto completion works when you are calling programs that are available (where you have installed or loaded them with module load) and when you are constructing command. However, auto completion does NOT work if you are in a text editor constructing a script.</p>
 </div>
 </div>
+</section>
 <section id="putting-it-together-creating-a-mental-map-of-your-file-system" class="level2">
 <h2 class="anchored" data-anchor-id="putting-it-together-creating-a-mental-map-of-your-file-system">Putting it together: creating a mental map of your file system</h2>
 <p>One of the commonest reasons why students get stuck in bioinformatics exercises is that they have forgotten where there are in the file system. They try to work with files that are in a different directory, panic that things seem to have disappeared, or wonder where exactly that output has ended up! The key to saving yourself much pain lies in developing awareness of how your file structure is laid out, and where you are in it at all times. If something doesn’t work, stop and ask yourself: where am I? Where are the files I want to work with?</p>
 <p>You can also make life easier for yourself by thinking carefully about giving your directories and files self-explanatory names, and keeping them organised.</p>
-<p>As a final exercise in this part of the session, use the commands you have learned so far (particularly <em>pwd</em>, <em>ls</em> and <em>cd</em>) to sketch a map of your mydata folder.</p>
+<p><strong>As a final exercise</strong> in this part of the session, use the commands you have learned so far (particularly <em>pwd</em>, <em>ls</em> and <em>cd</em>) to sketch a map of your mydata folder.</p>
 
 
 </section>
