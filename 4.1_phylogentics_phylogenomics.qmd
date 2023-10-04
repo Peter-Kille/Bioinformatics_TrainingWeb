@@ -134,7 +134,7 @@ snp-sites - align snp sites
 
 ## Software usage
 
-### Prokka
+### Prokka for bacterial genome annoation
 
 Whole genome annotation is the process of identifying features of interest in a set of genomic DNA sequences, and labelling them with useful information. Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce standards-compliant output files.
 
@@ -169,6 +169,27 @@ Basic usage:
 barrnap --kingdom bac --threads [number of cpus] [fasta file] > [output gff annotation file]
 ```
 
+### mitos for mitochondrial annotation
+
+```{base}
+module load mitos/2.0.4
+module load seqtk/1.3
+
+
+```{base}
+# make output dir
+mkdir mitos_output/[sample name]
+
+#merge secondary contigs - this artificially makes you assembly 
+sed -i '/^>[2-9].*$/d' [assembly.fasta]
+
+#remove line breaks
+seqtk seq -l 0 [assembly.fasta]
+
+runmitos.py  -i [assembly.fasta] -c 2 -o [dir name for sample annotation] -R ~/classdata/Bioinformatics/REFS/mitos -r refseq81m --rrna 0 --trna 0 --intron 0 --debug --noplot
+```
+
+
 ### Bedtools
 
 Collectively, the bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF. While each individual tool is designed to do a relatively simple task (e.g., intersect two interval files), quite sophisticated analyses can be conducted by combining multiple bedtools operations on the UNIX command line.
@@ -180,16 +201,27 @@ module load bedtools2/2.30.0
 We can use bedtools to extract gene/protein sequences from annotation files:
 
 1)  Navigate to either the **Prokka** annotation output directory or the **Barrnap** output file
-2)  Create a sub-gff file that contains the annotation information of only the 16S rRNA gene
+2)  Create a sub-gff file that contains the annotation information of only the 16 rRNA gene or CoI gene
 
-```{bash}         
-grep "16S" [gff annotation file]  > [subset_16S.gff]
+```{bash} 
+# For bacetrial sequences
+grep "product=16S ribosomal RNA" [gff annotation file]  > [subset_16S.gff]
+
+# For mitochondrial sequences
+grep "ID=gene_cox1" [gff annotation file]  > [subset_coi.gff]
 ```
 
 3)  Extract the 16S rRNA gene from the mitochondrial genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the *-s* option.
 
 ```{bash}            
 bedtools getfasta -fi [input fasta file] -bed [subset_gff file] -s > [output 16S file.fasta]
+```
+
+The fasta sequence will be given a numeric non-sensicle name (what coes after the >) - what about changing this for the name of the source sequence.
+
+
+```{bash}            
+sed -i "s/>.*/>[sequence name]/g" [output 16S file.fasta]
 ```
 
 4)  Move your extracted 16S rRNA gene sequence into the directory of 16S rRNA reference genes provided.
@@ -199,8 +231,6 @@ bedtools getfasta -fi [input fasta file] -bed [subset_gff file] -s > [output 16S
 cat [*.fasta] > [output multifasta file]
 ```
 
-<br>
-
 ### MAFFT
 
 MAFFT is a multiple sequence alignment program for unix-like operating systems.
@@ -208,8 +238,6 @@ MAFFT is a multiple sequence alignment program for unix-like operating systems.
 ```{bash}            
 module load mafft/7.481
 ```
-
-<br>
 
 Basic usage:
 
@@ -227,8 +255,6 @@ RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML
 module load raxml-ng/1.0.2
 ```
 
-<br>
-
 RAxML-NG outputs files to your current location. Create a directory and run RAxML from the directory to keep files organised
 
 Basic usage for nucleotide alignment with GTR model:
@@ -239,8 +265,6 @@ raxml-ng-mpi --all --msa [input alignment] --model GTR --bs-tree [bootstrap repl
 
 RAxML-NG produces multiple output files. The file we are interested in has the extension **.support**\
 Add the extension **.nwk** to this file to indicate it is a phylogeny.
-
-<br>
 
 ### panaroo
 
@@ -265,7 +289,6 @@ Output files of interest include the **summary_statistics.txt** and **core_gene.
 
 Check the website for details of all the files produced: https://gtonkinhill.github.io/panaroo/#/gettingstarted/output
 
-<br>
 
 ### snippy
 
@@ -273,6 +296,7 @@ A tool to identify variations between a reference genome in fasta format and gen
 
 ```{bash}         
 module load snippy/v4.6.0
+module load samtools/1.15.1
 ```
 
 <br>
@@ -282,17 +306,27 @@ Basic usage:
 To identify SNPs for one genome
 
 ```{bash}         
-snippy --outdir [output directory] -ref [reference sequence fasta] -R1 [read 1 fastq file] -R2 [read 2 fastq file] --prefix [prefix for output]
+snippy -outdir [snippy output directory/sampleID] -ref [reference sequence fasta] -R1 [sample1 fastq left trimmed read] -R2 [sample2 fastq right trimmed read] --prefix [prefix for output] --force
 ```
 
-You will need a loop to call SNPs for multiple genomes
+You will need a loop to call SNPs for multiple genomes.
 
 <br>
 
 To produce an alignment from SNPs, navigate to the snippy output directory and run **snippy-core**. The wildcard will extract the necessary SNP data from all the genomes analysed by snippy (directory for each genome in output directory).
 
 ```{bash}         
-snippy-core --ref [same reference sequence] --prefix [prefix for output] *
+snippy-core -ref [same reference sequence] -prefix [prefix for snp output] [snippy output directory]/*
+```
+
+Generate an alignment of the SNP sites:
+
+```{bash}
+module load snp-sites/2.5.1
+```
+
+```{bash}
+snp-sites -cb -o [alniment file name] [prefix for snp output].full.aln
 ```
 
 <br>
