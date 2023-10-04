@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Online Phylogenetic Lecture](https://goo.gl/BMzU8p)
 
-# Introduction
+# Introduction - New Material
 
 ## **Exercises on constructing and interpreting phylogenies**
 
@@ -38,6 +38,7 @@ For conservation purposes, you will identify the unknown species of cetacean spo
 1)  Use NCBI Genbank or the European Nucleotide Archive online to download the platypus mitochondrial genome and upload to your virtual machine. The platypus genome will function as an outgroup.
 2)  Use **Prokka** or **Barrnap** to annotate both your assembled mitochondrial genome and the platypus mitochondrial genome, and extract the 16S rRNA gene using **bedtools**
 3)  Use **MAFFT** to create an alignment of 16S rRNA genes that includes 16S rRNA genes from your assembled mitochondrial genome, platypus mitochondrial genome, and the provided reverence 16S rRNA sequences.
+
 4)  Construct a phylogeny with **RAxML-NG**
 
 <br>
