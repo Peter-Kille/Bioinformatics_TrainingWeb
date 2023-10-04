@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Professor Peter Kille">
+<meta name="dcterms.date" content="2023-10-02">
+
+<title>Hybrid Assemblies</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: white;
+background: darkred;
+      }
+</style>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3.1_Genome_visualisation_and_annotation.html">Session 3. Genomics</a></li><li class="breadcrumb-item"><a href="./3.2_hybrid_assemblies.html">Hybrid Assemblies</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Hybrid Assemblies</h1>
+            <p class="subtitle lead">When short read just doesn’t cut it</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Professor Peter Kille </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 2, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Welcome to Bioinformatics!</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Big Data Biology and Bioinformatics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Session 0. HPC and Personal Cloud</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Personal Cloud</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Session 1. Linux: The basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.1_Introduction to Linux.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Linux</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.2_Linux_fundamentals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linux the fundamentals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.3_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Loading Software and Accessing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.4_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Commandline Tools and Scripting</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Session 2. NGS data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2.1_NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NGS Quality Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2.2_genome_assembly.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genome Assembly</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Session 3. Genomics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genome Visualisation and Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3.2_hybrid_assemblies.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Hybrid Assemblies</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">Session 4. Building phylogenies</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phylogenomics and Phylogeneomics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">Session 5. Transcriptomics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.1_Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcritomics An Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.2_RNAseq_processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RNAseq Processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.3_DEG_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Gene Expression Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.4_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DEG Functional Interpretation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+ <span class="menu-text">Session 6. Microbial community analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6.1_metabarcoding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metagenomics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#nanopore-error-correction-with-fmlrc" id="toc-nanopore-error-correction-with-fmlrc" class="nav-link active" data-scroll-target="#nanopore-error-correction-with-fmlrc">Nanopore Error Correction with FMLRC</a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools">Tools</a></li>
+  <li><a href="#fmlrc-software-installation" id="toc-fmlrc-software-installation" class="nav-link" data-scroll-target="#fmlrc-software-installation">FMLRC Software Installation</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation:</a>
+  <ul class="collapse">
+  <li><a href="#download-and-install-msbwt" id="toc-download-and-install-msbwt" class="nav-link" data-scroll-target="#download-and-install-msbwt">Download and install msbwt</a></li>
+  <li><a href="#download-and-build-ropebwt2" id="toc-download-and-build-ropebwt2" class="nav-link" data-scroll-target="#download-and-build-ropebwt2">Download and build ropebwt2</a></li>
+  <li><a href="#download-and-build-fmlrc" id="toc-download-and-build-fmlrc" class="nav-link" data-scroll-target="#download-and-build-fmlrc">Download and build fmlrc</a></li>
+  <li><a href="#execute-error-correction" id="toc-execute-error-correction" class="nav-link" data-scroll-target="#execute-error-correction">Execute Error correction</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#hybrid-assembly-with-spades" id="toc-hybrid-assembly-with-spades" class="nav-link" data-scroll-target="#hybrid-assembly-with-spades">Hybrid Assembly with SPades</a>
+  <ul class="collapse">
+  <li><a href="#data-1" id="toc-data-1" class="nav-link" data-scroll-target="#data-1">Data</a></li>
+  <li><a href="#tools-1" id="toc-tools-1" class="nav-link" data-scroll-target="#tools-1">Tools</a>
+  <ul class="collapse">
+  <li><a href="#basic-options" id="toc-basic-options" class="nav-link" data-scroll-target="#basic-options">Basic options:</a></li>
+  <li><a href="#input-data" id="toc-input-data" class="nav-link" data-scroll-target="#input-data">Input data:</a></li>
+  <li><a href="#pipeline-options" id="toc-pipeline-options" class="nav-link" data-scroll-target="#pipeline-options">Pipeline options:</a></li>
+  <li><a href="#advanced-options" id="toc-advanced-options" class="nav-link" data-scroll-target="#advanced-options">Advanced options:</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="nanopore-error-correction-with-fmlrc" class="level1">
+<h1>Nanopore Error Correction with FMLRC</h1>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>Illumina Data bug_illumina_reads_1.fastq<br>
+bug_illumina_reads_2.fastq Nanopore Reads (corrected) bug_nanopore_reads.fasta</p>
+</section>
+<section id="tools" class="level2">
+<h2 class="anchored" data-anchor-id="tools">Tools</h2>
+<p>FMLRC: Paper - https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2051-3 FMLRC: fmlrc github home page - https://github.com/holtjma/fmlrc FMLRC: Quick Start Guide - https://github.com/holtjma/fmlrc/wiki/Quick-start-test</p>
+</section>
+<section id="fmlrc-software-installation" class="level2">
+<h2 class="anchored" data-anchor-id="fmlrc-software-installation">FMLRC Software Installation</h2>
+<p>Python 2.7 - tested on 2.7.6; assumes pip is installed as well</p>
+<p>C++ compiler - tested with Apple LLVM version 8.1.0 (clang-802.0.42); should work with most up-to-date compilers</p>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation:</h2>
+<section id="download-and-install-msbwt" class="level3">
+<h3 class="anchored" data-anchor-id="download-and-install-msbwt">Download and install msbwt</h3>
+<pre><code>pip install msbwt </code></pre>
+</section>
+<section id="download-and-build-ropebwt2" class="level3">
+<h3 class="anchored" data-anchor-id="download-and-build-ropebwt2">Download and build ropebwt2</h3>
+<pre><code>git clone https://github.com/lh3/ropebwt2.git 
+cd ropebwt2 
+make 
+d ~/ </code></pre>
+</section>
+<section id="download-and-build-fmlrc" class="level3">
+<h3 class="anchored" data-anchor-id="download-and-build-fmlrc">Download and build fmlrc</h3>
+<pre><code>git clone https://github.com/holtjma/fmlrc.git 
+cd fmlrc 
+make 
+cd ~/ </code></pre>
+</section>
+<section id="execute-error-correction" class="level3">
+<h3 class="anchored" data-anchor-id="execute-error-correction">Execute Error correction</h3>
+<p>Usage:</p>
+<pre><code>fmlrc [options] &lt;comp_msbwt.npy&gt; &lt;long_reads.fa&gt; &lt;corrected_reads.fa&gt;</code></pre>
+<p>Options:</p>
+<pre><code>-h        print help menu 
+-v        print version number and exit 
+-k INT    small k-mer size (default: 21) 
+-K INT    large K-mer size (default: 59), set K=k for single pass 
+-p INT    number of correction threads 
+-b INT    index of read to start with (default: 0) 
+-e INT    index of read to end with (default: end of file) 
+-m INT    absolute minimum count to consider a path (default: 5) 
+-f FLOAT  dynamic minimum fraction of median to consider a path (default: .10) 
+-B INT    set branch limit to &lt;INT&gt;*&lt;k or K&gt; (default: 4) 
+-i        build a sampled FM-index instead of bit arrays 
+-F INT    FM-index is sampled every 2**&lt;INT&gt; values (default: 8); requires \-i 
+-V        verbose output </code></pre>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Excerise: FMLRC Error Correction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<section id="process-and-index-short-reads" class="level3">
+<h3 class="anchored" data-anchor-id="process-and-index-short-reads">Process and index short reads</h3>
+<pre><code>awk "NR % 4 == 2" file_name_*.fq | sort -T ./temp | tr NT TN | ~/ropebwt2/ropebwt2 -LR | tr NT TN | msbwt convert ./file_name_msbwt</code></pre>
+</section>
+<section id="perform-error-correction" class="level3">
+<h3 class="anchored" data-anchor-id="perform-error-correction">Perform Error Correction</h3>
+<pre><code>~/fmlrc/fmlrc -p 8 -V -e [No. of reads] ./file_name_msbwt/comp_msbwt.npy ./nanopore_reads.fasta ./corrected_final.fa </code></pre>
+</section>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="hybrid-assembly-with-spades" class="level1">
+<h1>Hybrid Assembly with SPades</h1>
+<section id="data-1" class="level2">
+<h2 class="anchored" data-anchor-id="data-1">Data</h2>
+<pre><code>Illumina Data 
+bug_illumina_reads_1.fastq   
+bug_illumina_reads_2.fastq 
+Nanopore Reads (corrected) 
+bug_nanopore_reads_corrected.fasta (you shoould have generated these from previously)</code></pre>
+</section>
+<section id="tools-1" class="level2">
+<h2 class="anchored" data-anchor-id="tools-1">Tools</h2>
+<p>SPAdes – instal using module load</p>
+<pre><code>Usage: spades.py [options\ -o &lt;output_dir&gt;</code></pre>
+<section id="basic-options" class="level3">
+<h3 class="anchored" data-anchor-id="basic-options">Basic options:</h3>
+<pre><code>-o &lt;output_dir&gt; directory to store all the resulting files (required) 
+--sc                this flag is required for MDA (single-cell) data 
+--meta          this flag is required for metagenomic sample data 
+--rna               this flag is required for RNA-Seq data 
+--plasmid           runs plasmidSPAdes pipeline for plasmid detection 
+--iontorrent        this flag is required for IonTorrent data 
+--test          runs SPAdes on toy dataset 
+-h/--help           prints this usage message 
+-v/--version        prints version </code></pre>
+</section>
+<section id="input-data" class="level3">
+<h3 class="anchored" data-anchor-id="input-data">Input data:</h3>
+<pre><code>--12 &lt;filename&gt; file with interlaced forward and reverse paired-end reads 
+-1 &lt;filename&gt;       file with forward paired-end reads 
+-2 &lt;filename&gt;       file with reverse paired-end reads 
+-s &lt;filename&gt;       file with unpaired reads 
+--pe&lt;#&gt;-12 &lt;filename&gt;   file with interlaced reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
+--pe&lt;#&gt;-1  &lt;filename&gt;   file with forward reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
+--pe&lt;#&gt;-2  &lt;filename&gt;   file with reverse reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
+--pe&lt;#&gt;-s  &lt;filename&gt;   file with unpaired reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
+--pe&lt;#&gt;-&lt;or&gt;    orientation of reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff) 
+--s&lt;#&gt;  &lt;filename&gt;  file with unpaired reads for single reads library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)     --mp&lt;#&gt;-12  &lt;filename&gt;  file with interlaced reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
+--mp&lt;#&gt;-1  &lt;filename&gt;   file with forward reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)     --mp&lt;#&gt;-2  &lt;filename&gt;   file with reverse reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)     --mp&lt;#&gt;-s  &lt;filename&gt;   file with unpaired reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
+--mp&lt;#&gt;-&lt;or&gt;    orientation of reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff) 
+--hqmp&lt;#&gt;-12  &lt;filename&gt;    file with interlaced reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
+--hqmp&lt;#&gt;-1  &lt;filename&gt; file with forward reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
+--hqmp&lt;#&gt;-2  &lt;filename&gt; file with reverse reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
+--hqmp&lt;#&gt;-s  &lt;filename&gt; file with unpaired reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
+--hqmp&lt;#&gt;-&lt;or&gt;  orientation of reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff) 
+--nxmate&lt;#&gt;-1  &lt;filename&gt;   file with forward reads for Lucigen NxMate library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
+--nxmate&lt;#&gt;-2  &lt;filename&gt;   file with reverse reads for Lucigen NxMate library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
+--sanger  &lt;filename&gt;    file with Sanger reads 
+--pacbio  &lt;filename&gt;    file with PacBio reads 
+--nanopore  &lt;filename&gt;  file with Nanopore reads 
+--tslr  &lt;filename&gt;  file with TSLR-contigs 
+--trusted-contigs  &lt;filename&gt;   file with trusted contigs 
+--untrusted-contigs  &lt;filename&gt; file with untrusted contigs </code></pre>
+</section>
+<section id="pipeline-options" class="level3">
+<h3 class="anchored" data-anchor-id="pipeline-options">Pipeline options:</h3>
+<pre><code>--only-error-correction runs only read error correction (without assembling) 
+--only-assembler    runs only assembling (without read error correction) 
+--careful   tries to reduce number of mismatches and short indels 
+--continue  continue run from the last available check-point 
+--restart-from  &lt;cp&gt;    restart run with updated options and from the specified check-point ('ec', 'as', 'k&lt;int&gt;', 'mc') 
+--disable-gzip-output   forces error correction not to compress the corrected reads 
+--disable-rr    disables repeat resolution stage of assembling </code></pre>
+</section>
+<section id="advanced-options" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-options">Advanced options:</h3>
+<pre><code>    --dataset  &lt;filename&gt;   file with dataset description in YAML format 
+    -t/--threads &lt;int&gt;  number of threads 
+    [default: 16] 
+    -m/--memory &lt;int&gt;   RAM limit for SPAdes in Gb (terminates if exceeded) [default: 250] 
+    --tmp-dir &lt;dirname&gt;     directory for temporary files [default: &lt;output_dir&gt;/tmp] 
+    -k &lt;int,int,...&gt;        comma-separated list of k-mer sizes (must be odd and less than 128) [default: 'auto'] 
+    --cov-cutoff &lt;float&gt;    coverage cutoff value (a positive float number, or 'auto', or 'off') [default: 'off'] 
+    --phred-offset  &lt;33 or 64&gt;  PHRED quality offset in the input reads (33 or 64) [default: auto-detect] 
+    </code></pre>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Excercise: SPades Hybrid
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Try and run spades with both the short reads on there own and then using a hybrid assembly with nanopore data, evaluate the resulting assemblies.</p>
+<p>Hybrid assembly example command line:</p>
+<pre><code>spades.py -1 Illumina_1.fastq -2 Illumina_2.fastq --nanopore bug_nanopore_reads_corrected.fasta -o assembly_name</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
