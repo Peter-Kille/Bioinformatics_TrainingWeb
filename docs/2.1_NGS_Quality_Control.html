@@ -7,7 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Sarah Christofides">
+<<<<<<< HEAD
 <meta name="dcterms.date" content="2023-10-02">
+=======
+<meta name="dcterms.date" content="2023-10-04">
+>>>>>>> 8d9d306ee1dc364e5cbdf43dd1cb2098cfec0e4d
 
 <title>NGS Quality Control</title>
 <style>
@@ -139,7 +143,11 @@ background: darkred;
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">NGS Quality Control</h1>
+<<<<<<< HEAD
             <p class="subtitle lead">First Steps - making sure your data is good</p>
+=======
+            <p class="subtitle lead">First steps - making sure your data is good</p>
+>>>>>>> 8d9d306ee1dc364e5cbdf43dd1cb2098cfec0e4d
                       </div>
   </div>
     
@@ -156,7 +164,11 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
+<<<<<<< HEAD
         <p class="date">October 2, 2023</p>
+=======
+        <p class="date">October 4, 2023</p>
+>>>>>>> 8d9d306ee1dc364e5cbdf43dd1cb2098cfec0e4d
       </div>
     </div>
     
@@ -225,6 +237,7 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+<<<<<<< HEAD
   <a href="./1.2_Linux_fundamentals.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linux the fundamentals</span></a>
   </div>
@@ -232,13 +245,21 @@ background: darkred;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1.3_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
+=======
+  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
+>>>>>>> 8d9d306ee1dc364e5cbdf43dd1cb2098cfec0e4d
  <span class="menu-text">Loading Software and Accessing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+<<<<<<< HEAD
   <a href="./1.4_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Commandline Tools and Scripting</span></a>
+=======
+  <a href="./1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extension: Commandline Tools and Scripting</span></a>
+>>>>>>> 8d9d306ee1dc364e5cbdf43dd1cb2098cfec0e4d
   </div>
 </li>
       </ul>
@@ -401,13 +422,17 @@ background: darkred;
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=87a22d5f-a684-45ec-a58e-af690122c542&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
+<<<<<<< HEAD
 <p><a href="https://tinyurl.com/3sr2wkbx">NGS Quality Control</a></p>
+=======
+>>>>>>> 8d9d306ee1dc364e5cbdf43dd1cb2098cfec0e4d
 <section id="working-with-quality-control" class="level1">
 <h1>Working with Quality Control</h1>
 <section id="fasta-and-fastq" class="level2">
 <h2 class="anchored" data-anchor-id="fasta-and-fastq">FASTA and FASTQ</h2>
 <p>The two commonest file types for sequencing data are FASTA and FASTQ. (To make life a little more complicated, both have more than one file extension. FASTAs can be .fasta, .fa or .fna; FASTQs can be .fastq or .fq)</p>
 <p>A FASTA is a 2-line file format. Each sequence has a header line, which always starts with &gt; and contains an identifier for the sequence. The next line contains the sequence itself. For example, a FASTA file with two sequences in it could look like this:</p>
+<<<<<<< HEAD
 <pre><code>&gt;Sequence 1 
 
 ACGTGCTTCCGGTTTCAGGGTCA
@@ -431,6 +456,32 @@ GTACTTAACCTAAACTGGACTAA
 <p><em>less</em> will show the contents of a file one page at a time and is the default way to read a file. You can use the arrow keys to scroll up and down the page, and typing the letter q causes the program to quit – returning you to your command line prompt.</p>
 <p><em>cat</em> streams the entire contents of a file to your terminal and is thus not that useful for reading long files as the text streams past too quickly to read. It is a very useful facility for reading files into other programs.</p>
 <p><em>head</em> and <em>tail</em> show the beginning and end 10 lines of a document, respectively. <em>head</em> in particular is useful for taking a quick peek inside a file. You can use the argument -n [number] to change the number of lines displayed. For example, to see the first 20 lines of a file:</p>
+=======
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>Sequence <span class="ex">1</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ACGTGCTTCCGGTTTCAGGGTCA</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>Sequence <span class="ex">2</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">GTACTTAACCTAAACTGGACTAA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A FASTQ is an extension of a FASTA that includes quality scores for each base of the sequence. It is a 4-line file format. The first line is still a header, but now begins with @, and the second line is the sequence. The third line is always a single + that separates the sequence from the quality scores on the fourth line. A FASTQ of those same two sequences could look like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">@Sequence</span> 1 </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ACGTGCTTCCGGTTTCAGGGTCA</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">R%!JSQA</span><span class="er">(</span><span class="ex">AD\@ASDIA</span><span class="kw">&amp;</span><span class="ex">ASD</span><span class="kw">&amp;</span><span class="ex">!N</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">@Sequence</span> 2</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">GTACTTAACCTAAACTGGACTAA</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">&amp;</span><span class="ex">DJSA</span><span class="kw">)</span><span class="ex">ADFLA9DF5*J34AQBS</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualising-text-files" class="level2">
+<h2 class="anchored" data-anchor-id="visualising-text-files">Visualising text files</h2>
+<p>There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but do not edit them. Among the most common of these commands are <code>cat</code>, <code>less</code>, <code>head</code> and <code>tail</code>.</p>
+<p><code>less</code> will show the contents of a file one page at a time and is the default way to read a file. You can use the arrow keys to scroll up and down the page, and typing the letter q causes the program to quit – returning you to your command line prompt.</p>
+<p><code>cat</code> streams the entire contents of a file to your terminal and is thus not that useful for reading long files as the text streams past too quickly to read. It is a very useful facility for reading files into other programs.</p>
+<p><code>head</code> and <code>tail</code> show the beginning and end 10 lines of a document, respectively. <code>head</code> in particular is useful for taking a quick peek inside a file. You can use the argument -n [number] to change the number of lines displayed. For example, to see the first 20 lines of a file:</p>
+>>>>>>> 8d9d306ee1dc364e5cbdf43dd1cb2098cfec0e4d
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 20 file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

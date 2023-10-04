@@ -6,14 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dr.&nbsp;Alex Mullins">
-<<<<<<< HEAD
-<meta name="dcterms.date" content="2023-10-02">
-=======
+<meta name="author" content="Professor Peter Kille">
 <meta name="dcterms.date" content="2023-10-04">
->>>>>>> 8d9d306ee1dc364e5cbdf43dd1cb2098cfec0e4d
 
-<title>Genome Assembly</title>
+<title>Loading Software and Accessing Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -86,7 +116,7 @@ background: darkred;
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body style="background-color:gray99;" class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -95,7 +125,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2.1_NGS_Quality_Control.html">Session 2. NGS data</a></li><li class="breadcrumb-item"><a href="./2.2_genome_assembly.html">Genome Assembly</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1.1_Introduction to Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="./1.2_Loading_Software_Accessing_Data.html">Loading Software and Accessing Data</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -108,8 +138,8 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Genome Assembly</h1>
-            <p class="subtitle lead">Puttign the pieces together</p>
+      <h1 class="title">Loading Software and Accessing Data</h1>
+            <p class="subtitle lead">It’s all there if you know where to look</p>
                       </div>
   </div>
     
@@ -119,18 +149,14 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Dr.&nbsp;Alex Mullins </p>
+               <p>Professor Peter Kille </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-<<<<<<< HEAD
-        <p class="date">October 2, 2023</p>
-=======
         <p class="date">October 4, 2023</p>
->>>>>>> 8d9d306ee1dc364e5cbdf43dd1cb2098cfec0e4d
       </div>
     </div>
     
@@ -199,29 +225,14 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-<<<<<<< HEAD
-  <a href="./1.2_Linux_fundamentals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Linux the fundamentals</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./1.3_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
-=======
-  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
->>>>>>> 8d9d306ee1dc364e5cbdf43dd1cb2098cfec0e4d
+  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Loading Software and Accessing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-<<<<<<< HEAD
-  <a href="./1.4_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Commandline Tools and Scripting</span></a>
-=======
   <a href="./1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Commandline Tools and Scripting</span></a>
->>>>>>> 8d9d306ee1dc364e5cbdf43dd1cb2098cfec0e4d
   </div>
 </li>
       </ul>
@@ -243,7 +254,7 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2.2_genome_assembly.html" class="sidebar-item-text sidebar-link active">
+  <a href="./2.2_genome_assembly.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Genome Assembly</span></a>
   </div>
 </li>
@@ -351,39 +362,8 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#bioinformatic-process-to-assemble-a-genome" id="toc-bioinformatic-process-to-assemble-a-genome" class="nav-link" data-scroll-target="#bioinformatic-process-to-assemble-a-genome"><strong>Bioinformatic process to assemble a genome</strong></a></li>
-  <li><a href="#quality-checking-data" id="toc-quality-checking-data" class="nav-link" data-scroll-target="#quality-checking-data">Quality checking data</a></li>
-  <li><a href="#triming-and-adapter-removal" id="toc-triming-and-adapter-removal" class="nav-link" data-scroll-target="#triming-and-adapter-removal">Triming and adapter removal</a></li>
-  <li><a href="#re-assess-data-quality" id="toc-re-assess-data-quality" class="nav-link" data-scroll-target="#re-assess-data-quality">Re-assess data quality</a></li>
-  <li><a href="#genome-assembly" id="toc-genome-assembly" class="nav-link" data-scroll-target="#genome-assembly">Genome assembly</a></li>
-  <li><a href="#rename-assembly-files-and-copy-to-new-directory" id="toc-rename-assembly-files-and-copy-to-new-directory" class="nav-link" data-scroll-target="#rename-assembly-files-and-copy-to-new-directory">Rename assembly files and copy to new directory</a></li>
-  <li><a href="#assembly-statistics" id="toc-assembly-statistics" class="nav-link" data-scroll-target="#assembly-statistics">Assembly statistics</a></li>
-  <li><a href="#assembly-graph" id="toc-assembly-graph" class="nav-link" data-scroll-target="#assembly-graph">Assembly graph</a></li>
-  </ul></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
-  <ul class="collapse">
-  <li><a href="#sequence-data-and-files-available-for-mitochondrial-assembly" id="toc-sequence-data-and-files-available-for-mitochondrial-assembly" class="nav-link" data-scroll-target="#sequence-data-and-files-available-for-mitochondrial-assembly"><strong>Sequence data and files available for mitochondrial assembly</strong></a></li>
-  </ul></li>
-  <li><a href="#tools-and-usage" id="toc-tools-and-usage" class="nav-link" data-scroll-target="#tools-and-usage">Tools and Usage</a>
-  <ul class="collapse">
-  <li><a href="#bioinformatic-software-and-tools" id="toc-bioinformatic-software-and-tools" class="nav-link" data-scroll-target="#bioinformatic-software-and-tools"><strong>Bioinformatic software and tools</strong></a></li>
-  <li><a href="#software-usage" id="toc-software-usage" class="nav-link" data-scroll-target="#software-usage">Software usage</a>
-  <ul class="collapse">
-  <li><a href="#tmux" id="toc-tmux" class="nav-link" data-scroll-target="#tmux">tmux</a></li>
-  <li><a href="#fastqc" id="toc-fastqc" class="nav-link" data-scroll-target="#fastqc">Fastqc</a></li>
-  <li><a href="#fastp" id="toc-fastp" class="nav-link" data-scroll-target="#fastp">Fastp</a></li>
-  <li><a href="#unicycler" id="toc-unicycler" class="nav-link" data-scroll-target="#unicycler">Unicycler</a></li>
-  <li><a href="#quast" id="toc-quast" class="nav-link" data-scroll-target="#quast">Quast</a></li>
-  <li><a href="#bandage" id="toc-bandage" class="nav-link" data-scroll-target="#bandage">Bandage</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#worked-example-of-assembly" id="toc-worked-example-of-assembly" class="nav-link" data-scroll-target="#worked-example-of-assembly">Worked Example of assembly</a>
-  <ul class="collapse">
-  <li><a href="#assembly-walk-through-v1" id="toc-assembly-walk-through-v1" class="nav-link" data-scroll-target="#assembly-walk-through-v1">Assembly Walk Through V1</a></li>
-  <li><a href="#assembly-walk-through-v2" id="toc-assembly-walk-through-v2" class="nav-link" data-scroll-target="#assembly-walk-through-v2">Assembly Walk Through V2</a></li>
-  </ul></li>
+  <li><a href="#software" id="toc-software" class="nav-link active" data-scroll-target="#software">Software</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   </ul>
 </nav>
     </div>
@@ -393,159 +373,54 @@ background: darkred;
 
 
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3d87d25f-bc34-448a-a65e-af630098e01b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
-</iframe>
-<p><a href="https://tinyurl.com/2p88c3er">NGS Assembly Powerpoint</a></p>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<section id="bioinformatic-process-to-assemble-a-genome" class="level2">
-<h2 class="anchored" data-anchor-id="bioinformatic-process-to-assemble-a-genome"><strong>Bioinformatic process to assemble a genome</strong></h2>
-<p>Below is a walkthrough on the steps necessary to assemble a mitochondrial or bacterial genome. Don’t get lost in the terminal with typing commands meaninglessly, step back and think about the bioinformatic process to get to the end goal.</p>
-<p><br></p>
-</section>
-<section id="quality-checking-data" class="level2">
-<h2 class="anchored" data-anchor-id="quality-checking-data">Quality checking data</h2>
-<p>You will often start with <strong>raw sequence</strong> data in fastq format. You first need to check the quality of the data before proceeding with the assembly, this can be achieved using <strong>Fastqc</strong>.</p>
-<p><br></p>
-</section>
-<section id="triming-and-adapter-removal" class="level2">
-<h2 class="anchored" data-anchor-id="triming-and-adapter-removal">Triming and adapter removal</h2>
-<p>Raw sequence data may still contain fragments of the adapter sequences from the sequencing process; these artificial sequences need to be removed. Low quality bases that may occur toward the end of reads can also be trimmed to improve the overall sequence quality. These steps will be carried out using <strong>Fastp</strong>. After this step you will have <strong>processed reads</strong>.</p>
-<p><br></p>
-</section>
-<section id="re-assess-data-quality" class="level2">
-<h2 class="anchored" data-anchor-id="re-assess-data-quality">Re-assess data quality</h2>
-<p>Following adaptor removal and trimming, We need to repeat the quality checking with <strong>Fastqc</strong>, but this time we will use the <strong>processed reads</strong>.</p>
-<p><br></p>
-</section>
-<section id="genome-assembly" class="level2">
-<h2 class="anchored" data-anchor-id="genome-assembly">Genome assembly</h2>
-<p>We will assembly the processed reads into an assembly using the assembler <strong>Unicycler</strong>.</p>
-<p><br></p>
-</section>
-<section id="rename-assembly-files-and-copy-to-new-directory" class="level2">
-<h2 class="anchored" data-anchor-id="rename-assembly-files-and-copy-to-new-directory">Rename assembly files and copy to new directory</h2>
-<p>A big part of bioinformatics is maintaining directory and file organisation. Each mitochondrial genome assembly output by <strong>Unicycler</strong> will be located in a different folder <strong>but</strong> have the same generic name: <em>assembly.fasta</em>. We need to rename these files to reflect the input data. Compose a loop to <strong>copy and rename</strong> these files to a new directory.</p>
-<p><br></p>
-</section>
-<section id="assembly-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="assembly-statistics">Assembly statistics</h2>
-<p>Once our assembly files have been renamed and copied to a single location, we can analyse them for quality statistics. Use <strong>Quast</strong> to report useful metrics such as assembly length, GC content, contig number, and N50 value. As the mitochondrial genomes are small and assembly well, there is a bacterial genome assembly <strong>Quast</strong> output to view in the data directory for this session.</p>
-<p><br></p>
-</section>
-<section id="assembly-graph" class="level2">
-<h2 class="anchored" data-anchor-id="assembly-graph">Assembly graph</h2>
-<p>One of the files produced by <strong>Unicycler</strong> is an assembly graph (gfa file extension). This file details the links between contigs that were produced during the assembly and can provide valuable information on the difficult-to-assemble regions of the genome. As the mitochondrial genomes are small and assembly well, there is a bacterial genome assembly graph to visualise with <strong>Bandage</strong>.</p>
-</section>
+
+<section id="software" class="level1">
+<h1>Software</h1>
+<p>The linux OS has some really powerful utilities but these are not truly bioinformatics software. We have to ‘install’ or ‘load’ software. We do not want tp have all our software loaded all the time, as many informatic tools are very complex i.e.&nbsp;requiring different versions of python or java to run. Having software that requires conflicting versions loaded at the same time can cause a malfunction.</p>
+<p>Most managed HPC systems (not your own personal computer) manage this by using modules. These are preconfigured installers for your software packages. Cardiff systems use modules - if this is the case you can see the software that is available try the following command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>this will bring up a software list that looks like the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">abyss/2.3.1</span>        caliper/2.8.0    fastx-toolkit/0.0.14  mcl/14-137          racon/1.4.3      tbl2asn/2022-04-26</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">alan/2.1.1</span>         cdhit/4.8.1      figtree/1.4.3         minimap2/2.14       raxml-ng/1.0.2   tmux/3.2a</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">barrnap/0.8</span>        dos2unix/7.4.2   freebayes/1.3.6       ncurses/6.3         samtools/1.15.1  trimmomatic/0.39</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">bcftools/1.14</span>      emboss/6.6.0     gdbm/1.23             perl-bioperl/1.7.6  seqtk/1.3        velvet/1.2.10</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools2/2.30.0</span>   fastp/0.20.0     hmmer/3.3.2           picard/2.26.2       spades/3.15.5    vt/0.5772</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">blast-plus/2.13.0</span>  fastqc/0.11.9    igv/2.12.3            pilon/1.22          star/2.7.6a      wtdbg2/2.3</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2/2.4.2</span>      fasttree/2.1.11  mafft/7.481           prokka/1.14.6       subread/2.0.2</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">.......</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Any of these software packages can be loaded by simply using the module load command, e.g.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/0.11.9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Remember to unload the module when you are finished so it does not conflict with the next piece of software, or if you want to unload all modules, use the module purge command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload fastqc/0.11.9</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">or</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> purge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
-<section id="sequence-data-and-files-available-for-mitochondrial-assembly" class="level2">
-<h2 class="anchored" data-anchor-id="sequence-data-and-files-available-for-mitochondrial-assembly"><strong>Sequence data and files available for mitochondrial assembly</strong></h2>
-<p><br></p>
-<ul>
-<li><p>Each group will have access to a set of <strong>paired fastq reads: R1 and R2 files.</strong></p></li>
-<li><p>There is also a representative bacterial genome assembly with a graphical assembly file and <strong>quast</strong> output as an example of a more complicated assembly.</p></li>
-</ul>
-</section>
-</section>
-<section id="tools-and-usage" class="level1">
-<h1>Tools and Usage</h1>
-<section id="bioinformatic-software-and-tools" class="level2">
-<h2 class="anchored" data-anchor-id="bioinformatic-software-and-tools"><strong>Bioinformatic software and tools</strong></h2>
-<p>We will use multiple bioinformatic packages to assemble a genome and provide assembly statistics</p>
-<p>tmux – terminal multiplexer<br>
-Fastqc – Quality control of reads<br>
-Fastp – adapter removal and trimming tool<br>
-Unicycler – genome assembler<br>
-Quast – genome assembly statistics<br>
-Bandage- view graphical fragment assembly (gfa) files</p>
-<p><br></p>
-<p><strong>Remember that you can access the “help” option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or –help. After using a program, dont forget to unload the module.</strong></p>
-<p><br></p>
-</section>
-<section id="software-usage" class="level2">
-<h2 class="anchored" data-anchor-id="software-usage">Software usage</h2>
-<section id="tmux" class="level3">
-<h3 class="anchored" data-anchor-id="tmux">tmux</h3>
-<p>tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. If you run a script in the terminal and then close the session/turn off the laptop, the script will be cancelled. To avoid this, we use tmux. This will allow you to run scripts and programs in the terminal, close the terminal/turn off your laptop, and the script will continue to run.</p>
-<pre><code>module load tmux/3.2a</code></pre>
-<p><br></p>
-<p>Basic usage cheatsheet: https://tmuxcheatsheet.com/</p>
-<p>Start a new session:</p>
-<pre><code>tmux new -s [session name]</code></pre>
-<p>Close a session:</p>
-<pre><code>Ctrl + b, then d</code></pre>
-<p>List available sessions:</p>
-<pre><code>tmux list</code></pre>
-<p>Re-join an existing session:</p>
-<pre><code>tmux a -t [session name]</code></pre>
-<p>Delete a session:</p>
-<pre><code>tmux kill-session -t [session name]</code></pre>
-<p><br></p>
-</section>
-<section id="fastqc" class="level3">
-<h3 class="anchored" data-anchor-id="fastqc">Fastqc</h3>
-<p>A quality control tool for high throughput sequence data.</p>
-<pre><code>module load fastqc/0.11.9</code></pre>
-<p><br> Basic usage:</p>
-<p>Create the output directory before running the command.</p>
-<pre><code>fastqc --threads [thread number] [input fastq file] --outdir [output directory]</code></pre>
-<p>Check out the html files created for a report of the fastq file read quality</p>
-<p><br></p>
-</section>
-<section id="fastp" class="level3">
-<h3 class="anchored" data-anchor-id="fastp">Fastp</h3>
-<p>A tool designed to provide fast all-in-one preprocessing for FastQ files. This tool is developed in C++ with multithreading supported to afford high performance.</p>
-<pre><code>module load fastp/0.20.0</code></pre>
-<p><br></p>
-<p>Basic usage: Create the output directory before running the command.</p>
-<pre><code>fastp -w [thread number] -i [input fastq R1] -I [input fastq R2] -o [output fastq R1] -O [output fastq R2] -h [trimming_report.html]</code></pre>
-<p>Check out the html report for a summary of the trimming process – the adaptors have already been removed, and reads are high quality so no trimming should have been performed.</p>
-<p><br></p>
-</section>
-<section id="unicycler" class="level3">
-<h3 class="anchored" data-anchor-id="unicycler">Unicycler</h3>
-<p>Unicycler is an assembly pipeline for bacterial genomes. It can assemble Illumina-only read sets where it functions as a SPAdes-optimiser.</p>
-<pre><code>module load unicycler/v0.5.0</code></pre>
-<p><br></p>
-<p>Basic usage:</p>
-<pre><code>unicycler -t [thread number] -1 [processed fastq R1] -2 [processed fastq R2] \
--o [output directory]</code></pre>
-<p>Each assembly will be located in a different directory within the parent directory indicated by the <em>-o</em> option</p>
-<p><br></p>
-</section>
-<section id="quast" class="level3">
-<h3 class="anchored" data-anchor-id="quast">Quast</h3>
-<p>QUAST stands for QUality ASsessment Tool. It evaluates genome/metagenome assemblies by computing various metrics.</p>
-<pre><code>module load quast/5.2.0</code></pre>
-<p><br></p>
-<p>Basic usage:</p>
-<pre><code>quast.py -t [thread number] -o [output directory] [input fasta file]</code></pre>
-<p>Output directory contains the report in multiple formats. To view the report on the terminal use the <strong>cat</strong> command which prints the contents of a file to the terminal (don’t forget to navigate to the file first as it’s in a different directory!):</p>
-<pre><code>cat [report.txt]</code></pre>
-<p><br></p>
-</section>
-<section id="bandage" class="level3">
-<h3 class="anchored" data-anchor-id="bandage">Bandage</h3>
-<p>Bandage is a program for visualising de novo assembly graphs. By displaying connections which are not present in the contigs file, Bandage opens up new possibilities for analysing de novo assemblies. Download to your local laptop from the link: https://rrwick.github.io/Bandage/ or access through Guacamole.</p>
-</section>
-</section>
-</section>
-<section id="worked-example-of-assembly" class="level1">
-<h1>Worked Example of assembly</h1>
-<section id="assembly-walk-through-v1" class="level2">
-<h2 class="anchored" data-anchor-id="assembly-walk-through-v1">Assembly Walk Through V1</h2>
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=cacd5bf0-99f8-4020-95af-af630098df69&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
-</iframe>
-</section>
-<section id="assembly-walk-through-v2" class="level2">
-<h2 class="anchored" data-anchor-id="assembly-walk-through-v2">Assembly Walk Through V2</h2>
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=90c0321a-2043-4b2e-b5d1-af6a01420b85&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
-</iframe>
+<p>The data for your course is available to you on a pre-mapped drive location. You can see and list the folders it contains using the following simple command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ~/classdata/Bioinformatics</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#this should yield the follow list of folders</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">REFS</span>  Session1  Session2  Session3  Session4  Session5  Session6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can <strong>see these folders but not write to them</strong>! Before each session, copy the corresponding folder to your mydata directory. For example, if you want to copy Session1 type</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/classdata/Bioinformatics/Session1 ~/mydata/Bioinformatics/Session1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note the inclusion of the ‘-r’ flag to allow you to copy the folder ‘recursively’: this will copy all the folders and files inside.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
