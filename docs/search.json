@@ -1141,6 +1141,13 @@
     "text": "How to extract a .tar.gz file on Linux?\nTo extract a .tar.gz file on Linux, you can use the “tar” command in the terminal. Here is the general syntax:\n```{bash}\ntar -xvzf filename.tar.gz\n```\nHere is a brief explanation of the options used:\n```{bash}\n-x: This option tells tar to extract the contents of the archive.\n\n-v: This option is for verbose output, which means that tar will display a list of the files being extracted as it does so.\n\n-z: This option tells tar to decompress the archive using gzip.\n\n-f: This option is used to specify the archive file to extract.\n```"
   },
   {
+    "objectID": "index.html#artifical-intelligence-ai-and-writing-code",
+    "href": "index.html#artifical-intelligence-ai-and-writing-code",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Artifical intelligence (AI) and Writing Code",
+    "text": "Artifical intelligence (AI) and Writing Code\nThere has been a recent explosion in the quality and availability of large language models (LLM), colloquially referred to simply as AI, of which ChatGPT remains the most famous. One of their much-vaunted features is the ability to write code, which begs the question: should I use AI to help me write my bioinformatics scripts? The answer is… depends how you use it. LLMs will quickly churn out code which is (mostly) runnable. However, there is no guarantee that the code does exactly what you think it does. If you want to use AI-generated code, you will need to go through it line by line, checking and testing exactly what is happening; this, obviously, still requires you to understand the code in detail.\nOne area is which LLMs are likely to prove very useful is in debugging. Error messages usually contain useful information, but not necessarily in a wording accessible to a beginner. LLMs are showing promise for helping to identify and diagnose bugs in code.\nIf you want some tips for using LLMs to write code, this article from Nature provides some guidance."
+  },
+  {
     "objectID": "index.html#session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision",
     "href": "index.html#session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision",
     "title": "Introduction to Big Data Biology and Bioinformatics",
