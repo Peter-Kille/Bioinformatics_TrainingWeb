@@ -331,7 +331,7 @@ background: darkred;
   <li><a href="#basics-of-hpc-and-hpc-vs-personal-cloud-provision" id="toc-basics-of-hpc-and-hpc-vs-personal-cloud-provision" class="nav-link active" data-scroll-target="#basics-of-hpc-and-hpc-vs-personal-cloud-provision">Basics of HPC and HPC vs Personal Cloud provision</a></li>
   <li><a href="#personal-hpc-and-hpc-clusters" id="toc-personal-hpc-and-hpc-clusters" class="nav-link" data-scroll-target="#personal-hpc-and-hpc-clusters">Personal HPC and HPC clusters</a></li>
   <li><a href="#virtual-private-networks" id="toc-virtual-private-networks" class="nav-link" data-scroll-target="#virtual-private-networks">Virtual Private Networks</a></li>
-  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a></li>
+  <li><a href="#rstudio-and-jupiter-notebook-through-posit" id="toc-rstudio-and-jupiter-notebook-through-posit" class="nav-link" data-scroll-target="#rstudio-and-jupiter-notebook-through-posit">RStudio (and jupiter notebook) Through Posit</a></li>
   <li><a href="#ssh-connecting-to-the-server" id="toc-ssh-connecting-to-the-server" class="nav-link" data-scroll-target="#ssh-connecting-to-the-server">SSH: connecting to the server</a>
   <ul class="collapse">
   <li><a href="#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" id="toc-ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" class="nav-link" data-scroll-target="#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc">SSH using MobaXterm - connecting to the server on a PC</a></li>
@@ -441,23 +441,40 @@ iago.bios.cf.ac.uk</code></pre>
 </figure>
 </div>
 </section>
-<section id="rstudio" class="level1">
-<h1>RStudio</h1>
+<section id="rstudio-and-jupiter-notebook-through-posit" class="level1">
+<h1>RStudio (and jupiter notebook) Through Posit</h1>
 <p><a href="https://cran.r-project.org/">R</a>, and its trusty companion <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, are essential parts of any bioinformatician’s toolbox. Both can be easily downloaded and run on your local computer, but for the taught courses we provide you with a browser-based Rstudio interface as part of your virtual machine. The reasons for this are twofold: 1) it allows you to easily load data from your virtual machine into RStudio, and 2) it allows us to pre-install the packages you need, saving time in class.</p>
 <p>I would suggest testing your virtual machine login by connecting to the browser-based Rstudio, as this provides a straightforward test without the need for any software installs.</p>
 <p><strong><em>To access any Cardiff University cloud based RStudio you will need to install and login to the University VPN - see Instructions above</em></strong></p>
 <p>Enter your cloud host name and username name in you browser navigation bar e.g.:</p>
-<pre><code>https//sponsa.bios.cf.ac.uk/c9999999
-         ^                     ^
-      Host/server           user name</code></pre>
+<pre><code>https//posit.sponsa.bios.cf.ac.uk/
+         ^                     
+      Host/server</code></pre>
 <p>You should now see the following screen:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/rstudio_login.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Rstudio Login</figcaption>
+<p><img src="images/posit_login.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Posit Login</figcaption>
 </figure>
 </div>
-<p>Now re-enter you username and input the pass phase you have been provided. You should now see the RStudio page. Note the file listed in the right hand lower tab are files on your virtual machine on the server, <strong><em>not</em></strong> your local computer.</p>
+<p>Use your normal normal University username/password to logon, and the following page should be displayed.</p>
+<p><img src="images/posit_session.png" class="img-fluid" alt="Posit Session"> Click on the + to create a new session.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/posit_newsession.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Posit New Session</figcaption>
+</figure>
+</div>
+<p>Selection the session you wish to create - for this example we will create a RstudioPro Session</p>
+<p><img src="images/Rstudio_pro.png" class="img-fluid" alt="Rstudio Pro"> Leave teh default parameter as they are and start the session.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Rstudio_dashboard.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Rstudio_dashboard</figcaption>
+</figure>
+</div>
+<p>To enter the session click on the right arrow —&gt;</p>
+<p>You should now see the standard Rstudio interface.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/Rstudio_interface.png" class="img-fluid figure-img" style="width:60.0%"></p>

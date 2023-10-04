@@ -220,4 +220,4 @@ less test_vi.txt
 
 # End of Session 1. Go and relax!
 
-Or if you're a total nerd and can't leave the command line, go ahead and have a look at *Extension: Commandline Tools and Scripting*. This contains more Linux-related tidbits and a sneak preview of some material we'll cover in Session 2. 
+Or if you're a total nerd and can't leave the command line, go ahead and have a look at *Extension: Commandline Tools and Scripting*. This contains more Linux-related tidbits and a sneak preview of some material we'll cover in Session 2.

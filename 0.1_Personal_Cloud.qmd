@@ -17,7 +17,7 @@ To avoid the queues we provide personal cloud systems to each person on the cour
 
 Similar 'containers' can be accessed using [AWS cloud services](https://aws.amazon.com/health/genomics/) or through academic services such as [CLIMB](https://www.climb.ac.uk/). AWS cloud does provide some educational free cloud processing but when these free credits are over you would need to pay for processing and storage, and this can very quickly get expensive. CLIMB provides academic registration if you are supported by specific research council funding.
 
-This information below is aimed at students and staff in Cardiff University's School of Biosciences, and will guide you through accessing the computing resources provided. 
+This information below is aimed at students and staff in Cardiff University's School of Biosciences, and will guide you through accessing the computing resources provided.
 
 # Personal HPC and HPC clusters
 
@@ -25,7 +25,7 @@ This information below is aimed at students and staff in Cardiff University's Sc
 
 As part of the teaching provision at Cardiff University you will be provided with a specific 'login' to your own Kubernete VM. You may also be given access to our teaching HPC cluster or our research HPC system.
 
-Staff or postgraduate research students at Cardiff School of Biosciences can request access to our research HPC system by emailing [biosi-biocomputinghub@cardiff.ac.uk](mailto:biosi-biocomputinghub@cardiff.ac.uk) with your University username and the name of your PI.
+Staff or postgraduate research students at Cardiff School of Biosciences can request access to our research HPC system by emailing [biosi-biocomputinghub\@cardiff.ac.uk](mailto:biosi-biocomputinghub@cardiff.ac.uk) with your University username and the name of your PI.
 
 ***Check with your instructors which systems are available to you.***
 
@@ -79,7 +79,7 @@ With standard HPC the port number is always 22
 
 # Virtual Private Networks
 
-A virtual private network allows you to access the internet as though you were in a different physical location. In a university context, it allows you to access resources that are only available on campus, not matter where you: are far as the internet is concerned, you are on the university campus. 
+A virtual private network allows you to access the internet as though you were in a different physical location. In a university context, it allows you to access resources that are only available on campus, not matter where you: are far as the internet is concerned, you are on the university campus.
 
 Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or the connection will not work: the VPN software will install and you will think all is good but then it will not connect. To find the correct instructions, log in to the [intranet](intranet.cf.ac.uk) and search for VPN. Here are the current links which have installation instructions:
 
@@ -97,13 +97,13 @@ http://hpc.bios.cf.ac.uk
 
 If all is working, you will see this:
 
-![Sucessful VPN](images/good_VPN.png){width="60%"} 
+![Sucessful VPN](images/good_VPN.png){width="60%"}
 
 If not, you will see this:
 
 ![Unsucessful VPN](images/bad_vpn.png){width="60%"}
 
-# RStudio
+# RStudio (and jupiter notebook) Through Posit
 
 [R](https://cran.r-project.org/), and its trusty companion [RStudio](https://posit.co/download/rstudio-desktop/), are essential parts of any bioinformatician's toolbox. Both can be easily downloaded and run on your local computer, but for the taught courses we provide you with a browser-based Rstudio interface as part of your virtual machine. The reasons for this are twofold: 1) it allows you to easily load data from your virtual machine into RStudio, and 2) it allows us to pre-install the packages you need, saving time in class.
 
@@ -114,16 +114,32 @@ I would suggest testing your virtual machine login by connecting to the browser-
 Enter your cloud host name and username name in you browser navigation bar e.g.:
 
 ```         
-https//sponsa.bios.cf.ac.uk/c9999999
-         ^                     ^
-      Host/server           user name
+https//posit.sponsa.bios.cf.ac.uk/
+         ^                     
+      Host/server
 ```
 
 You should now see the following screen:
 
-![Rstudio Login](images/rstudio_login.png){width="60%"}
+![Posit Login](images/posit_login.png){width="60%"}
 
-Now re-enter you username and input the pass phase you have been provided. You should now see the RStudio page. Note the file listed in the right hand lower tab are files on your virtual machine on the server, ***not*** your local computer.
+Use your normal normal University username/password to logon, and the following page should be displayed.
+
+![Posit Session](images/posit_session.png){width="60%}
+Click on the + to create a new session.
+
+![Posit New Session](images/posit_newsession.png){width="60%}
+
+Selection the session you wish to create - for this example we will create a RstudioPro Session
+
+![Rstudio Pro](images/Rstudio_pro.png){width="60%}
+Leave teh default parameter as they are and start the session.
+
+![Rstudio_dashboard](images/Rstudio_dashboard.png){width="60%}
+
+To enter the session click on the right arrow --->
+
+You should now see the standard Rstudio interface.
 
 ![Rstudio Interface](images/Rstudio_interface.png){width="60%"}
 
@@ -163,7 +179,7 @@ NB - the three elements you need to complete are underlined in red in the image.
 
 ![MobaXterm Password](images/MobaXterm_password.png){width="60%"}
 
-Once you have entered your password and it has been accepted you ***MAY*** be asked to save a master password - this you can set to whatever you wish, if you want to save yourself the trouble of typing your pass phrase every time you connect. 
+Once you have entered your password and it has been accepted you ***MAY*** be asked to save a master password - this you can set to whatever you wish, if you want to save yourself the trouble of typing your pass phrase every time you connect.
 
 Once created, your 'session' will be saved in the left hand menu and in future you just have to click on it to connect.
 
@@ -221,7 +237,7 @@ To configure FileZilla follow the steps below and this will create a saved profi
 
 ![Filezilla profile](images/Filezilla_session.png){width="60%"}
 
-2. Configure your SFTP profile
+2.  Configure your SFTP profile
 
 Remember for standard HPC the SFTP port will default to 22; if you are working on a Kubernetes virtual machine you will need to change it.
 
@@ -249,6 +265,6 @@ Use your port number provided for Kubernetes, or if using standard HPC use port 
 
 ![Cyberduck configuration](images/Cyberduck_config.png){width="50%"}
 
-3. You can now navigate around the server and drag and drop files to and from server.
+3.  You can now navigate around the server and drag and drop files to and from server.
 
 ![Cyberduck drag and drop window](images/Cyberduck_connect.png){width="50%"}
