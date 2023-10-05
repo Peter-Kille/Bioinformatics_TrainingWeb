@@ -27,14 +27,16 @@ Start by logging into your virtual machine on the server. You are now ready to s
 
 • You don't need to type the \$ at the beginning of a command. That's a linux convention to indicate a command line
 
-• ``Always tab-complete``! Pressing tab will auto-complete a file name or program. If you're writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just 'myF' and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and ``if it won't tab-complete then it doesn't exist``!
+• **Always tab-complete**! Pressing tab will auto-complete a file name or program. If you're writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just 'myF' and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and **if it won't tab-complete then it doesn't exist**!
 
 • If you still have a 'file not found' error, do ls to see if you can see it.
 
 • If you can't see a file you expect, do `pwd` and check you're in the right folder.
 
 • If a script says "permission denied" make sure:
+
 +   It has executable permission.
+
 +   You're not inside the classdata folder!
 
 • You always want to be working in the Working Directory. To get there (assuming you're on a Cardiff virtual machine) use:
@@ -56,13 +58,13 @@ what I         how I want     on what do
 want to do     to do it       I want to do it
 ```
 
-N.B. usually each element is separated by only ```one space```
+N.B. usually each element is separated by only ***one space***
 
 The first item you supply on the command line is interpreted by the system as a command -- something the system should do. Any options for the command, such what file you want the command to work on, or the format for the information that should be returned to you, appear after that on the same line separated by spaces.
 
 Most commands have options available that will alter the way they function. You make use of these options by providing the command with parameters (sometimes called flags), some of which will take arguments.
 
-``Reminder``: Items on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames, as will some symbols. This is important!
+**Reminder**: Items on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames, as will some symbols. This is important!
 
 ### Learning about Linux commands
 
@@ -124,7 +126,7 @@ cd
 To make a new directory, use the command `mkdir` and then the directory you want to create
 
 ```{bash}
-mkdir brilliantIdeas
+mkdir mydata/brilliantIdeas
 mkdir ~/mydata/brilliantIdeas/InProgress
 ```
 
@@ -215,7 +217,7 @@ cp -r mydata/all_fastqs NewExperiment/testdata/
 and
 
 ```{bash}
-~/classdata/Bioinformatics
+~/classdata/Session1
 ```
 
 2.  Copy the file CopyExercise.txt into `mydata`
@@ -234,7 +236,7 @@ If you add a space followed by a --l (that is, a hyphen and a small letter L), a
 You can also use glob patterns to limit the files you wish to list.
 
 ```{bash}
-\` an asterisk means any string of characters
+\* an asterisk means any string of characters
 ? a question mark means a single character
 \[ \] square brackets can be used to designate a group of characters
 ```
@@ -242,7 +244,7 @@ You can also use glob patterns to limit the files you wish to list.
 e.g. to list all of blue.txt, banana.txt, baby.txt:
 
 ```{bash}
-ls b`.txt
+ls b*.txt
 ```
 
 ::: callout-important
@@ -250,9 +252,11 @@ ls b`.txt
 
 1.  List all the files in the directory Session1 that start with the letters sub
 
-2.  List all the files in your directory that start with sub, and end in fasta
+2.  List all the files in the directory Session1 that start with the letters sub
 
-3.  \[Extension\] Do a 'long list' (-l) of these files and see the difference in sizes. Add the 'human readable' parameter/flag (-h) to help read the sizes.
+3.  List all the files in your directory that start with sub, and end in fasta
+
+4.  \[Extension\] Do a 'long list' (-l) of these files and see the difference in sizes. Add the 'human readable' parameter/flag (-h) to help read the sizes.
 :::
 
 ## File permisions
@@ -295,16 +299,16 @@ For example, you could type:
 ```{bash}
 #navigate to classdata folder
 cd classdata
-# now start to type Bioinformatics
-cd Bio 
+# now start to type REFS
+cd R 
 ```
 
 now hit the tab key.
 
-If there is only one directory with a name starting with the letters "Bio", the rest of the name will be completed for you. Here this would give you:
+If there is only one directory with a name starting with the letter "R", the rest of the name will be completed for you. Here this would give you:
 
 ```{bash}
-cd Bioinformatics 
+cd REFS
 ```
 
 User accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.
@@ -318,10 +322,6 @@ Type `cd cl` and use tab completion for the rest of the command. Then press the 
 
 You will now be in your \~/classdata directory.
 
-Type `cd Bio` and use tab completion for the rest of the command. Then press the return key.
-
-You will now be in your \~/classdata/Bioinformatics directory
-
 Type `l Ses` and hit tab twice to view the files available.
 
 Now press the tab key again. You can gradually add extra letters and use the tab key to limit the options available.
@@ -332,7 +332,7 @@ As you get faster with this, it will save you a lot of typing effort.
 ::: callout-important
 ## Auto completion for programs
 
-Auto completion works when you are calling programs that are available (where you have installed or loaded them with module load) and when you are constructing command. However, auto completion does NOT work if you are in a text editor constructing a script.
+Auto completion works when you are calling programs that are available (where you have installed or loaded them with module load) and when you are constructing commands. However, auto completion does NOT work if you are in a text editor constructing a script.
 :::
 
 

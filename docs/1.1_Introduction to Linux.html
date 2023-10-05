@@ -401,10 +401,14 @@ background: darkred;
 <section id="useful-information" class="level2">
 <h2 class="anchored" data-anchor-id="useful-information">Useful information!</h2>
 <p>• You don’t need to type the $ at the beginning of a command. That’s a linux convention to indicate a command line</p>
-<p>• <code>Always tab-complete</code>! Pressing tab will auto-complete a file name or program. If you’re writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just ‘myF’ and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and <code>if it won't tab-complete then it doesn't exist</code>!</p>
+<p>• <strong>Always tab-complete</strong>! Pressing tab will auto-complete a file name or program. If you’re writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just ‘myF’ and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and <strong>if it won’t tab-complete then it doesn’t exist</strong>!</p>
 <p>• If you still have a ‘file not found’ error, do ls to see if you can see it.</p>
 <p>• If you can’t see a file you expect, do <code>pwd</code> and check you’re in the right folder.</p>
-<p>• If a script says “permission denied” make sure: + It has executable permission. + You’re not inside the classdata folder!</p>
+<p>• If a script says “permission denied” make sure:</p>
+<ul>
+<li><p>It has executable permission.</p></li>
+<li><p>You’re not inside the classdata folder!</p></li>
+</ul>
 <p>• You always want to be working in the Working Directory. To get there (assuming you’re on a Cardiff virtual machine) use:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/mydata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -420,10 +424,10 @@ background: darkred;
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">what</span> I         how I want     on what do</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">want</span> to do     to do it       I want to do it</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>N.B. usually each element is separated by only <code>one space</code></p>
+<p>N.B. usually each element is separated by only <strong><em>one space</em></strong></p>
 <p>The first item you supply on the command line is interpreted by the system as a command – something the system should do. Any options for the command, such what file you want the command to work on, or the format for the information that should be returned to you, appear after that on the same line separated by spaces.</p>
 <p>Most commands have options available that will alter the way they function. You make use of these options by providing the command with parameters (sometimes called flags), some of which will take arguments.</p>
-<p><code>Reminder</code>: Items on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames, as will some symbols. This is important!</p>
+<p><strong>Reminder</strong>: Items on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames, as will some symbols. This is important!</p>
 <section id="learning-about-linux-commands" class="level3">
 <h3 class="anchored" data-anchor-id="learning-about-linux-commands">Learning about Linux commands</h3>
 <p>Most Linux commands have a manual page that provides information about the command and options that can alter its behaviour. Many tasks can be made easier by using command options. Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard.</p>
@@ -478,7 +482,7 @@ Exercise: looking up a man page
 </div>
 <p>To make a new directory, use the command <code>mkdir</code> and then the directory you want to create</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> brilliantIdeas</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> mydata/brilliantIdeas</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> ~/mydata/brilliantIdeas/InProgress</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you get lost and want to confirm where you are in the directory structure, use the <code>pwd</code> command (print working directory). This will return the full path of the directory you are currently in.</p>
@@ -559,7 +563,7 @@ Exercises: copying files and folders
 </div>
 <p>and</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/Bioinformatics</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/Session1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li><p>Copy the file CopyExercise.txt into <code>mydata</code></p></li>
@@ -575,13 +579,13 @@ Exercises: copying files and folders
 <p>If you add a space followed by a –l (that is, a hyphen and a small letter L), after the <code>ls</code> command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is.</p>
 <p>You can also use glob patterns to limit the files you wish to list.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">\`</span> an asterisk means any string of characters</span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">\*</span> an asterisk means any string of characters</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> a question mark means a single character</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="ex">\[</span> <span class="dt">\]</span> square brackets can be used to designate a group of characters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>e.g.&nbsp;to list all of blue.txt, banana.txt, baby.txt:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> b<span class="kw">`</span><span class="ex">.txt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> b<span class="pp">*</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -594,6 +598,7 @@ Exercises: listing files
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
+<li><p>List all the files in the directory Session1 that start with the letters sub</p></li>
 <li><p>List all the files in the directory Session1 that start with the letters sub</p></li>
 <li><p>List all the files in your directory that start with sub, and end in fasta</p></li>
 <li><p>[Extension] Do a ‘long list’ (-l) of these files and see the difference in sizes. Add the ‘human readable’ parameter/flag (-h) to help read the sizes.</p></li>
@@ -630,13 +635,13 @@ Exercises: listing files
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#navigate to classdata folder</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> classdata</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># now start to type Bioinformatics</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Bio </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># now start to type REFS</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> R </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>now hit the tab key.</p>
-<p>If there is only one directory with a name starting with the letters “Bio”, the rest of the name will be completed for you. Here this would give you:</p>
+<p>If there is only one directory with a name starting with the letter “R”, the rest of the name will be completed for you. Here this would give you:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Bioinformatics </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> REFS</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>User accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.</p>
 <section id="exercises-practise-tab-completion" class="level3 callout-Exercises">
@@ -644,8 +649,6 @@ Exercises: listing files
 <p>Return to your home directory if you are not already there by typing <code>cd ~/</code></p>
 <p>Type <code>cd cl</code> and use tab completion for the rest of the command. Then press the return key.</p>
 <p>You will now be in your ~/classdata directory.</p>
-<p>Type <code>cd Bio</code> and use tab completion for the rest of the command. Then press the return key.</p>
-<p>You will now be in your ~/classdata/Bioinformatics directory</p>
 <p>Type <code>l Ses</code> and hit tab twice to view the files available.</p>
 <p>Now press the tab key again. You can gradually add extra letters and use the tab key to limit the options available.</p>
 <p>As you get faster with this, it will save you a lot of typing effort.</p>
@@ -660,7 +663,7 @@ Auto completion for programs
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Auto completion works when you are calling programs that are available (where you have installed or loaded them with module load) and when you are constructing command. However, auto completion does NOT work if you are in a text editor constructing a script.</p>
+<p>Auto completion works when you are calling programs that are available (where you have installed or loaded them with module load) and when you are constructing commands. However, auto completion does NOT work if you are in a text editor constructing a script.</p>
 </div>
 </div>
 </section>

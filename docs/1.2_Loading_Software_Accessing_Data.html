@@ -418,17 +418,13 @@ background: darkred;
 <h1>Data</h1>
 <p>The data for your course is available to you on a pre-mapped drive location. You can see and list the folders it contains using the following simple command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ~/classdata/Bioinformatics</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ~/classdata/</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#this should yield the follow list of folders</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#this should yield the following list of folders</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">REFS</span>  Session1  Session2  Session3  Session4  Session5  Session6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can <strong>see these folders but not write to them</strong>! Before each session, copy the corresponding folder to your mydata directory. For example, if you want to copy Session1 type</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/classdata/Bioinformatics/Session1 ~/mydata/Bioinformatics/Session1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>You can <strong>see these folders but not write to them</strong>! Before each session, copy the corresponding folder to your mydata directory using <code>cp</code>.</p>
 <p>Note the inclusion of the ‘-r’ flag to allow you to copy the folder ‘recursively’: this will copy all the folders and files inside.</p>
 </section>
 <section id="visualising-text-files" class="level1">
@@ -437,7 +433,7 @@ background: darkred;
 <p><code>cat</code> streams the entire contents of a file to your terminal and is thus not that useful for reading long files as the text streams past too quickly to read. It is a very useful facility for reading files into other programs.</p>
 <p><code>head</code> and <code>tail</code> show the beginning and end 10 lines of a document, respectively. <code>head</code> in particular is useful for taking a quick peek inside a file. You can use the argument -n [number] to change the number of lines displayed. For example, to see the first 20 lines of a file:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 20 file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 20 file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>more</code> and <code>less</code> are commands that show the contents of a file one page at a time, but <code>less</code> has more functionality than <code>more</code> (doh)! With both <code>more</code> and <code>less</code>, you can use the space bar to scroll down the page, and typing the letter q causes the program to quit – returning you to your command line prompt.</p>
 <p>Once you are reading a document with <code>more</code> or <code>less</code>, typing a forward slash / will start a prompt at the bottom of the page, and you can then type in text that is searched for below the point in the document you were at. Typing in a ? also searches for a text string you enter, but it searches in the document above the point you were at. Hitting the n key during a search looks for the next instance of that text in the file.</p>
@@ -454,38 +450,34 @@ Exercise: looking at text files
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Move into an appropriate working directory in mydata</p>
-<p>Fetch the file O97435.embl using <code>wget</code> (this is just a command for downloading files from the web).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://rest.uniprot.org/uniprotkb/O97435.txt <span class="op">&gt;</span> O97435.embl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>using the commands <code>cat</code>, <code>more</code>, <code>less</code>, <code>head</code> and <code>tail</code>.</p>
+<p>Move into mydata/Session1</p>
+<p>Explore the file O97435.txt by using the commands <code>cat</code>, <code>more</code>, <code>less</code>, <code>head</code> and <code>tail</code>. (Note that the file name starts with a capital O, rather than a zero.)</p>
 <p>Don’t forget that tab completion can save you typing effort!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> O97435.embl</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">more</span> O97435.embl <span class="co"># Use the spacebar to scroll down</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Press</span> q to quit.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> O97435.txt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">more</span> O97435.txt <span class="co"># Use the spacebar to scroll down</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Press</span> q to quit.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now try <code>less</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> O97435.embl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> O97435.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Use the spacebar to scroll down, b to go up a page, and the up and down arrow keys to move up and down the file line by line.</p>
 <p>Press the / key and search for the letters sequence in the file. Press the ? key and search for the letters gene in the file.</p>
 <p>Press the n key to search for other instances of gene in the file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> O97435.embl</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> O97435.embl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> O97435.txt</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> O97435.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For reading files yourself, we recommend the command <code>less.</code> The command <code>cat</code> is more usually used in conjunction with other commands when you wish to process text from within a file in some way.</p>
 <p>Remember the man pages</p>
 <p>There are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> cat</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> more</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> less</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> head</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> tail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> cat</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> more</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> less</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> head</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> tail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -525,21 +517,25 @@ Exercise
 <section id="create-a-file-with-nano" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-file-with-nano">Create a file with nano</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> test_nano.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> test_nano.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Type some text, exit ctrl X, save and return to command line now list the contents of the file you created</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> test_nano.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> test_nano.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="create-a-file-with-vi" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-file-with-vi">Create a file with vi</h3>
-<pre><code>vi test_vi.txt </code></pre>
-<p>Type ‘a’ and you can then add text</p>
-<p>Exit saving your edits [esc]:wq! - this stands for write quit !!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vi</span> test_vi.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Vi has two separate modes: ‘inpu’ mode, where you can type and edit text, and ‘control’ mode where you can do things such as save, search and exit the programme.</p>
+<p>Type ‘i’ to enter input mode, and add some text.</p>
+<p>Press [esc] to enter control mode.</p>
+<p>Exit, saving your edits, by typing <code>:wq</code> - this stands for write and quit! If you wanted to exit without saving the edits, typing <code>:q!</code> will force vi to exit without saving.</p>
 <p>Now list the contents of the file you created</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> test_vi.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> test_vi.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </div>

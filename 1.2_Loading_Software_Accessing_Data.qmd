@@ -59,21 +59,15 @@ module purge
 The data for your course is available to you on a pre-mapped drive location. You can see and list the folders it contains using the following simple command:
 
 ```{bash}
-ls ~/classdata/Bioinformatics
+ls ~/classdata/
 
-#this should yield the follow list of folders
+#this should yield the following list of folders
 
 REFS  Session1  Session2  Session3  Session4  Session5  Session6
 
 ```
 
-You can **see these folders but not write to them**! Before each session, copy the corresponding folder to your mydata directory. For example, if you want to copy Session1 type
-
-```{bash}
-
-cp -r ~/classdata/Bioinformatics/Session1 ~/mydata/Bioinformatics/Session1
-
-```
+You can **see these folders but not write to them**! Before each session, copy the corresponding folder to your mydata directory using `cp`. 
 
 Note the inclusion of the '-r' flag to allow you to copy the folder 'recursively': this will copy all the folders and files inside.
 
@@ -102,28 +96,22 @@ There are many command line options available for each of the above commands, as
 ::: callout-important
 ## Exercise: looking at text files
 
-Move into an appropriate working directory in mydata
+Move into mydata/Session1
 
-Fetch the file O97435.embl using `wget` (this is just a command for downloading files from the web).
-
-```{bash}
-wget https://rest.uniprot.org/uniprotkb/O97435.txt > O97435.embl
-```
-
-using the commands `cat`, `more`, `less`, `head` and `tail`.
+Explore the file O97435.txt by using the commands `cat`, `more`, `less`, `head` and `tail`. (Note that the file name starts with a capital O, rather than a zero.)
 
 Don't forget that tab completion can save you typing effort!
 
 ```{bash}
-cat O97435.embl
-more O97435.embl # Use the spacebar to scroll down
+cat O97435.txt
+more O97435.txt # Use the spacebar to scroll down
 Press q to quit.
 ```
 
 Now try `less`
 
 ```{bash}
-less O97435.embl
+less O97435.txt
 ```
 
 Use the spacebar to scroll down, b to go up a page, and the up and down arrow keys to move up and down the file line by line.
@@ -133,8 +121,8 @@ Press the / key and search for the letters sequence in the file. Press the ? key
 Press the n key to search for other instances of gene in the file.
 
 ```{bash}
-head O97435.embl
-tail O97435.embl
+head O97435.txt
+tail O97435.txt
 ```
 
 For reading files yourself, we recommend the command `less.` The command `cat` is more usually used in conjunction with other commands when you wish to process text from within a file in some way.
@@ -203,13 +191,17 @@ less test_nano.txt
 
 ### Create a file with vi
 
-```         
+```{bash}  
 vi test_vi.txt 
 ```
 
-Type 'a' and you can then add text
+Vi has two separate modes: 'inpu' mode, where you can type and edit text, and 'control' mode where you can do things such as save, search and exit the programme.
 
-Exit saving your edits \[esc\]:wq! - this stands for write quit !!
+Type 'i' to enter input mode, and add some text.
+
+Press \[esc\] to enter control mode.
+
+Exit, saving your edits, by typing `:wq` - this stands for write and quit! If you wanted to exit without saving the edits, typing `:q!` will force vi to exit without saving.
 
 Now list the contents of the file you created
 
