@@ -331,7 +331,7 @@ background: darkred;
   <li><a href="#basics-of-hpc-and-hpc-vs-personal-cloud-provision" id="toc-basics-of-hpc-and-hpc-vs-personal-cloud-provision" class="nav-link active" data-scroll-target="#basics-of-hpc-and-hpc-vs-personal-cloud-provision">Basics of HPC and HPC vs Personal Cloud provision</a></li>
   <li><a href="#personal-hpc-and-hpc-clusters" id="toc-personal-hpc-and-hpc-clusters" class="nav-link" data-scroll-target="#personal-hpc-and-hpc-clusters">Personal HPC and HPC clusters</a></li>
   <li><a href="#virtual-private-networks" id="toc-virtual-private-networks" class="nav-link" data-scroll-target="#virtual-private-networks">Virtual Private Networks</a></li>
-  <li><a href="#rstudio-and-jupiter-notebook-through-posit" id="toc-rstudio-and-jupiter-notebook-through-posit" class="nav-link" data-scroll-target="#rstudio-and-jupiter-notebook-through-posit">RStudio (and jupiter notebook) Through Posit</a></li>
+  <li><a href="#rstudio-and-jupyter-notebook-through-posit" id="toc-rstudio-and-jupyter-notebook-through-posit" class="nav-link" data-scroll-target="#rstudio-and-jupyter-notebook-through-posit">RStudio (and Jupyter notebook) Through Posit</a></li>
   <li><a href="#ssh-connecting-to-the-server" id="toc-ssh-connecting-to-the-server" class="nav-link" data-scroll-target="#ssh-connecting-to-the-server">SSH: connecting to the server</a>
   <ul class="collapse">
   <li><a href="#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" id="toc-ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" class="nav-link" data-scroll-target="#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc">SSH using MobaXterm - connecting to the server on a PC</a></li>
@@ -387,7 +387,7 @@ sponsa.bios.cf.ac.uk</code></pre>
 <p>Port (5 digit number): 32222</p>
 <p>Password: hard_phase_remember</p>
 <p>You may have received an email where the information is presented as a code block:</p>
-<pre><code>ssh c9999999@hawker.bios.cf.ac.uk -P 32222
+<pre><code>ssh c9999999@sponsa.bios.cf.ac.uk -P 32222
        ^              ^                ^
     username        host              port</code></pre>
 </section>
@@ -419,13 +419,13 @@ iago.bios.cf.ac.uk</code></pre>
 <section id="virtual-private-networks" class="level1">
 <h1>Virtual Private Networks</h1>
 <p>A virtual private network allows you to access the internet as though you were in a different physical location. In a university context, it allows you to access resources that are only available on campus, not matter where you: are far as the internet is concerned, you are on the university campus.</p>
-<p>Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or the connection will not work: the VPN software will install and you will think all is good but then it will not connect. To find the correct instructions, log in to the <a href="intranet.cf.ac.uk">intranet</a> and search for VPN. Here are the current links which have installation instructions:</p>
+<p>Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or the connection will not work: the VPN software will install and you will think all is good but then it will not connect. To find the correct instructions, log in to the <a href="https://intranet.cf.ac.uk">intranet</a> and search for VPN. Here are the current links which have installation instructions:</p>
 <p><strong><em>Student VPN</em></strong></p>
-<p>https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network</p>
+<p><a href="https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network">https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network</a></p>
 <p><strong><em>Staff VPN</em></strong></p>
-<p>https://intranet.cardiff.ac.uk/staff/supporting-your-work/it-support/wireless-and-remote-access/off-campus-access/virtual-private-network-vpn</p>
+<p><a href="https://intranet.cardiff.ac.uk/staff/supporting-your-work/it-support/wireless-and-remote-access/off-campus-access/virtual-private-network-vpn">https://intranet.cardiff.ac.uk/staff/supporting-your-work/it-support/wireless-and-remote-access/off-campus-access/virtual-private-network-vpn</a></p>
 <p>Once you have installed the VPN and connected test it by going to this site:</p>
-<p>http://hpc.bios.cf.ac.uk</p>
+<p><a href="http://hpc.bios.cf.ac.uk">http://hpc.bios.cf.ac.uk</a></p>
 <p>If all is working, you will see this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -441,11 +441,11 @@ iago.bios.cf.ac.uk</code></pre>
 </figure>
 </div>
 </section>
-<section id="rstudio-and-jupiter-notebook-through-posit" class="level1">
-<h1>RStudio (and jupiter notebook) Through Posit</h1>
+<section id="rstudio-and-jupyter-notebook-through-posit" class="level1">
+<h1>RStudio (and Jupyter notebook) Through Posit</h1>
 <p><a href="https://cran.r-project.org/">R</a>, and its trusty companion <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, are essential parts of any bioinformatician’s toolbox. Both can be easily downloaded and run on your local computer, but for the taught courses we provide you with a browser-based Rstudio interface as part of your virtual machine. The reasons for this are twofold: 1) it allows you to easily load data from your virtual machine into RStudio, and 2) it allows us to pre-install the packages you need, saving time in class.</p>
 <p>I would suggest testing your virtual machine login by connecting to the browser-based Rstudio, as this provides a straightforward test without the need for any software installs.</p>
-<p><strong><em>To access any Cardiff University cloud based RStudio you will need to install and login to the University VPN - see Instructions above</em></strong></p>
+<p><strong><em>To access any Cardiff University cloud based RStudio you will need to install and login to the University VPN - see instructions above</em></strong></p>
 <p>Enter your cloud host name and username name in you browser navigation bar e.g.:</p>
 <pre><code>https//posit.sponsa.bios.cf.ac.uk/
          ^                     
@@ -458,7 +458,13 @@ iago.bios.cf.ac.uk</code></pre>
 </figure>
 </div>
 <p>Use your normal normal University username/password to logon, and the following page should be displayed.</p>
-<p><img src="images/posit_session.png" class="img-fluid" alt="Posit Session"> Click on the + to create a new session.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/posit_session.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Posit Session</figcaption>
+</figure>
+</div>
+<p>Click on the + to create a new session.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/posit_newsession.png" class="img-fluid figure-img"></p>
@@ -466,7 +472,13 @@ iago.bios.cf.ac.uk</code></pre>
 </figure>
 </div>
 <p>Selection the session you wish to create - for this example we will create a RstudioPro Session</p>
-<p><img src="images/Rstudio_pro.png" class="img-fluid" alt="Rstudio Pro"> Leave teh default parameter as they are and start the session.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Rstudio_pro.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Rstudio Pro</figcaption>
+</figure>
+</div>
+<p>Leave the default parameters as they are and start the session.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/Rstudio_dashboard.png" class="img-fluid figure-img"></p>
@@ -474,7 +486,7 @@ iago.bios.cf.ac.uk</code></pre>
 </figure>
 </div>
 <p>To enter the session click on the right arrow —&gt;</p>
-<p>You should now see the standard Rstudio interface.</p>
+<p>You should now see the standard RStudio interface.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/Rstudio_interface.png" class="img-fluid figure-img" style="width:60.0%"></p>
@@ -498,7 +510,7 @@ iago.bios.cf.ac.uk</code></pre>
 </div>
 <p>Now you want to create a session, this can be done following these easy steps:</p>
 <ol type="1">
-<li>Select session ICON</li>
+<li>Select <em>Session</em> icon</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -507,7 +519,7 @@ iago.bios.cf.ac.uk</code></pre>
 </figure>
 </div>
 <ol start="2" type="1">
-<li>Select SSH icon</li>
+<li>Select <em>SSH</em> icon</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -518,14 +530,17 @@ iago.bios.cf.ac.uk</code></pre>
 <ol start="3" type="1">
 <li>Configure your SSH connection by filling in boxes for -Host -User and -Port</li>
 </ol>
-<p>NB - the three elements you need to complete are underlined in red in the image. NB - for standard HPC the port leave the port at the default value of 22</p>
+<p>N.B. - the three elements you need to complete are underlined in red in the image.</p>
+<p>N.B. - for standard HPC the port leave the port at the default value of 22</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/MobaXterm_config.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <figcaption class="figure-caption">MobaXterm Configure</figcaption>
 </figure>
 </div>
-<p>4. Enter your passphase</p>
+<ol start="4" type="1">
+<li>Enter your passphase</li>
+</ol>
 <p><strong><em>You will NOT see any typing - this is a security feature, just continue typing</em></strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -542,7 +557,7 @@ iago.bios.cf.ac.uk</code></pre>
 <p>Once you have your terminal open simply type:</p>
 <pre><code>ssh [user]@[host] -P [Port]
 
-#a fictious example work be
+#a fictious example would be
 
 ssh c99999@sponsa.bios.cf.ac.uk -P 32222</code></pre>
 <p><strong><em>For standard HPC (i.e.&nbsp;not Kubernetes) there is no need to define the port with -P</em></strong></p>
@@ -559,6 +574,7 @@ ssh -X c99999@sponsa.bios.cf.ac.uk -P 32222</code></pre>
 </section>
 <section id="sfpt-transferring-files-to-and-from-the-server" class="level1">
 <h1>SFPT: transferring files to and from the server</h1>
+<p>You will often want/need to transfer files between the server and your local computer. We can do this using SFTP (Secure File Transfer Protocol), for which there are multiple software options. If you have a PC and are using MobaXterm to access the server, it’s easiest to use MobaXterm’s built-in SFTP function. If you are connecting via the terminal on a Mac, you’ll need to install either FileZilla or Cyberduck (you can also install these on a PC if you want to) .</p>
 <section id="sftp-using-mobaxterm-on-a-pc" class="level2">
 <h2 class="anchored" data-anchor-id="sftp-using-mobaxterm-on-a-pc">SFTP using MobaXterm on a PC</h2>
 <p>MobaXterm has a built in SFTP function. When you open your session, a folder structure appears down the left hand side of the screen. This can be useful for navigating and for opening files without the need to download them.</p>
