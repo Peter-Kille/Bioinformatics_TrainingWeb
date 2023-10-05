@@ -421,11 +421,11 @@ iago.bios.cf.ac.uk</code></pre>
 <p>A virtual private network allows you to access the internet as though you were in a different physical location. In a university context, it allows you to access resources that are only available on campus, not matter where you: are far as the internet is concerned, you are on the university campus.</p>
 <p>Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or the connection will not work: the VPN software will install and you will think all is good but then it will not connect. To find the correct instructions, log in to the <a href="https://intranet.cf.ac.uk">intranet</a> and search for VPN. Here are the current links which have installation instructions:</p>
 <p><strong><em>Student VPN</em></strong></p>
-<p><a href="https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network">https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network</a></p>
+<p><a href="https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network" class="uri">https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network</a></p>
 <p><strong><em>Staff VPN</em></strong></p>
-<p><a href="https://intranet.cardiff.ac.uk/staff/supporting-your-work/it-support/wireless-and-remote-access/off-campus-access/virtual-private-network-vpn">https://intranet.cardiff.ac.uk/staff/supporting-your-work/it-support/wireless-and-remote-access/off-campus-access/virtual-private-network-vpn</a></p>
+<p><a href="https://intranet.cardiff.ac.uk/staff/supporting-your-work/it-support/wireless-and-remote-access/off-campus-access/virtual-private-network-vpn" class="uri">https://intranet.cardiff.ac.uk/staff/supporting-your-work/it-support/wireless-and-remote-access/off-campus-access/virtual-private-network-vpn</a></p>
 <p>Once you have installed the VPN and connected test it by going to this site:</p>
-<p><a href="http://hpc.bios.cf.ac.uk">http://hpc.bios.cf.ac.uk</a></p>
+<p><a href="http://hpc.bios.cf.ac.uk" class="uri">http://hpc.bios.cf.ac.uk</a></p>
 <p>If all is working, you will see this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -500,14 +500,47 @@ iago.bios.cf.ac.uk</code></pre>
 <p>To connect your local computer to a remote server, we use a technology called SSH: Secure Shell Protocol (I know, the acronym doesn’t really match the name). This is a way of establishing a secure connection between your computer and the server. In effect, your computer becomes a remote control, sending instructions to be carried out on the server.</p>
 <section id="ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" class="level2">
 <h2 class="anchored" data-anchor-id="ssh-using-mobaxterm---connecting-to-the-server-on-a-pc">SSH using MobaXterm - connecting to the server on a PC</h2>
-<p>MobaXterm is a free piece of software called an SSH client, which enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the free version of <a href="https://mobaxterm.mobatek.net/download.html">MobaXTerm</a> from their website. I suggest downloading and installing the ‘Installer Addition’ as it will fully install on your system - the portable version provide a simple executable (.exe) that can be placed on a data pen and used in machine where you do not have administrator privileges to install software.</p>
-<p>Follow the installation instructions and you should be faced with the follow window:</p>
+<p>MobaXterm is a free piece of software called an SSH client, which enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the free version of <a href="https://mobaxterm.mobatek.net/download.html">MobaXTerm</a> from their website.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Using MobaXterm on your personal PC
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I suggest downloading and installing the ‘Installer Addition’ as it will fully install on your system - the portable version provide a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Using MobaXterm on a University-networked PC
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You will not have administrator privileges to install the ‘Installer Addition’ on a University-managed machine.Instead, download the portable version which provides a simple executable (.exe) that can used on a machine where you do not have administrator privileges to install software.</p>
+</div>
+</div>
+</div>
+<p>Once your download is complete, you will need to unzip the folder (extract files) before you can run the installer. Then follow the installation instructions and you should be faced with the follow window:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/MobaXterm.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <figcaption class="figure-caption">MobaXterm Interface</figcaption>
 </figure>
 </div>
+<p><em>N.B. The first time you open MobaXterm, Windows security may pop up saying that some features are blocked by the firewall. Click ‘Cancel’ and the message will go away without preventing MobaXterm from doing its thing.</em></p>
 <p>Now you want to create a session, this can be done following these easy steps:</p>
 <ol type="1">
 <li>Select <em>Session</em> icon</li>

@@ -35,9 +35,9 @@ Start by logging into your virtual machine on the server. You are now ready to s
 
 • If a script says "permission denied" make sure:
 
-+   It has executable permission.
+-   It has executable permission.
 
-+   You're not inside the classdata folder!
+-   You're not inside the classdata folder!
 
 • You always want to be working in the Working Directory. To get there (assuming you're on a Cardiff virtual machine) use:
 
@@ -279,7 +279,6 @@ type  Permission
 
 The file permissions are given in triplets `rwx` which represent write - read - execute permissions. The first triplet represents the permission associated with the owner (usually the person who created the file), the second triplet is permissions for owner's group, and the triplet is permission for everyone else.
 
-
 ::: callout-Exercise
 ### Exercise: looking at file permissions
 
@@ -334,7 +333,6 @@ As you get faster with this, it will save you a lot of typing effort.
 
 Auto completion works when you are calling programs that are available (where you have installed or loaded them with module load) and when you are constructing commands. However, auto completion does NOT work if you are in a text editor constructing a script.
 :::
-
 
 ## Putting it together: creating a mental map of your file system
 
