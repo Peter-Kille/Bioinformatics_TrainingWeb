@@ -195,7 +195,7 @@ less test_nano.txt
 vi test_vi.txt 
 ```
 
-Vi has two separate modes: 'inpu' mode, where you can type and edit text, and 'control' mode where you can do things such as save, search and exit the programme.
+Vi has two separate modes: 'input' mode, where you can type and edit text, and 'control' mode where you can do things such as save, search and exit the programme.
 
 Type 'i' to enter input mode, and add some text.
 

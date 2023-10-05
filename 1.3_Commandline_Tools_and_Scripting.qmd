@@ -19,10 +19,10 @@ knitr::opts_chunk$set(eval = FALSE)
 grep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.
 
 ```{bash}
-grep “adge” /usr/share/dict/words
+grep "ency" ~/mydata/Session1/subsample.txt
 ```
 
-You can also use flexible search terms, known as regular expressions, in your grep searches. You have already used glob pattern expressions in this practical, but regular expressions are somewhat different and more powerful. For example, when you listed all files with the pattern tes*embl* you were using a glob pattern comprising explicit characters (e.g. tes) and special symbols (\* meaning any character or characters). The equivalent in grep would be "tes.*embl.*" where the period signifies any single character and the \* signifies any number of repeats.
+You can also use flexible search terms, known as regular expressions, in your grep searches. You have already used glob pattern expressions in this practical, but regular expressions are somewhat different and more powerful. For example, when you listed all files with the pattern tes*txt* you were using a glob pattern comprising explicit characters (e.g. tes) and special symbols (\* meaning any character or characters). The equivalent in grep would be "tes.*txt.*" where the period signifies any single character and the \* signifies any number of repeats.
 
 Therefore to get from a shell glob pattern to a regular expression replace each \* with .\* and each ? with . . You also need to enclose the expression in quotes to tell the shell not to try and interpret it as a glob.
 
@@ -32,23 +32,17 @@ grep requires a regular expression as input, and returns all the lines containin
 
 grep is especially useful in combination with pipes as you can filter the results of other commands.
 
-For example, perhaps you only want to see only the information in an EMBL file relating to the origin of the sequence, that is, the DE line. You do not need to search the file in an editor, you can just grep for lines beginning in DE, as in the next exercise.
+For example, perhaps you only want to see only the information in an txt file relating to the origin of the sequence, that is, the DE line. You do not need to search the file in an editor, you can just grep for lines beginning in DE, as in the next exercise.
 
 ::: callout-important
 ## Exercise
 
-Move into an appropriate working directory in `mydata`
+Move into `mydata/Session1`
 
-Fetch the file O97435.embl using `wget`
-
-```{bash}
-wget https://rest.uniprot.org/uniprotkb/O97435.txt > O97435.embl
-```
-
-While in the download directory, type the command:
+Type the command:
 
 ```{bash}
-grep “DE” O97435.embl 
+grep "DE" O97435.txt 
 ```
 
 What is this command doing?
@@ -58,34 +52,34 @@ Can you see why the above command results in the output you see? An explanation 
 Try the commands:
 
 ```{bash}
-grep “^DE” O97435.embl
-grep -x “DE.*” O97435.embl 
+grep "^DE" O97435.txt
+grep -x "DE.*" O97435.txt 
 ```
 
-What are the \^ symbol and the -x parameter in these commands doing? Check the manpage for grep to be sure.
+What are the \^ symbol and the -x parameter in these commands doing? Check the man page for grep to be sure.
 
 Try the command:
 
 ```{bash}
-cat O97435.embl | grep “^DE”. 
+cat O97435.txt | grep "^DE". 
 ```
 
 Does that do what you expected?
 
 Use the above command with a pipe and a grep command to search for files created or modified today.
 
-The first command in the above exercise searches all the text in the O97435.embl file and returns the lines in which it finds the letter D followed by the letter E.
+The first command in the above exercise searches all the text in the O97435.txt file and returns the lines in which it finds the letter D followed by the letter E.
 
 The second command in the exercise also returns lines in the file that have a letter D followed by a letter E, but only where DE is found at the beginning of a line. This is because the \^ symbol means "match at the beginning of a line". The \$ symbol can be used similarly to mean "at the end of a line". These are known as anchors. Passing the -x flag to grep tells it to automatically anchor both ends of the search pattern.
 
-What this anchoring does in the example above is return to you just the organism information in the embl file. This is because none of the other lines returned in the previous command started with DE, they just contained DE somewhere in them. This is an example where knowing how information is stored in an given file, along with a few basic Linux commands, allows you to retrieve information quickly.
+What this anchoring does in the example above is return to you just the organism information in the txt file. This is because none of the other lines returned in the previous command started with DE, they just contained DE somewhere in them. This is an example where knowing how information is stored in an given file, along with a few basic Linux commands, allows you to retrieve information quickly.
 
 Another common example is counting how many sequences are in a set of multi-fasta files. We can do this with pipes between the commands `cat`, `grep` and the handy `wc` (word count) utility, which here we use to count lines found by grep.
 
 ```{bash}
-cat *seqs.fasta | grep “^>” | wc -l 
+cat subsample_Ill1.fasta | grep "^>" | wc -l 
 
-grep -c “^>” *seqs.fasta 
+grep -c "^>" subsample_Ill1.fasta 
 ```
 
 Each sequence in a fasta file starts with a header line that begins with a \> . The above command streams the contents of all files matching the glob pattern \*seqs.fasta through a search with grep looking for lines that start with the symbol \> . The quotes around the pattern \^\> are necessary, as otherwise it is interpreted as a request for redirection of output to a file, rather than as a character to look for. As before, the \^ symbol means "match only at the beginning of the line".
@@ -94,7 +88,13 @@ The output of this grep search is sent to the `wc` command, with the -l indicati
 
 An easier version of this shown as the second example uses the `grep` -c argument that return the number of matches found.
 
-So a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.
+Now try this:
+
+```{bash}
+cat *.fasta | grep "^>" | wc -l 
+```
+
+Remember that * means any pattern, and that `cat` will concatentate all the files given as input. Therefore, a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.
 :::
 
 ## Use zgrep with compressed files
@@ -130,7 +130,7 @@ chmod a+x [script name]
 
 this is shorthand for chmod (change modify) a(all)+(add)execute(e) \[script name\] -- thus changing the permission to allow everyone to execute a script. For more guide to chmod see https://en.wikipedia.org/wiki/Chmod
 
-## Step 3: Run Your Script
+## Step 3: Run your script
 
 Run the program. This should be easy but there are a few ways of doing this.
 
@@ -140,13 +140,13 @@ Place the program into the directory where you want to use it and type
 ./[script name] parameters arguments 
 ```
 
-On first use try to run with no parameters or arguments or with -h and -help to see the manual for the script. Some poorly written scripts will need you to define the program you need to use them. Ie if it was a perl program (you may have to module load perl before you run this example).
+On first use try to run with no parameters or arguments or with -h and -help to see the manual for the script. Some poorly written scripts will need you to define the program you need to use them, i.e. for a bash script :
 
 ```{bash}
-perl [script name] parameters arguments 
+bash [script name] parameters arguments 
 ```
 
-Run from scripts current location using full path.
+Run from your current location using the script's full path.
 
 ```{bash}
 /full path/[script name] parameters arguments 
