@@ -365,10 +365,7 @@ background: darkred;
   <li><a href="#working-with-quality-control" id="toc-working-with-quality-control" class="nav-link active" data-scroll-target="#working-with-quality-control">Working with Quality Control</a>
   <ul class="collapse">
   <li><a href="#fasta-and-fastq" id="toc-fasta-and-fastq" class="nav-link" data-scroll-target="#fasta-and-fastq">FASTA and FASTQ</a></li>
-  <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes">Pipes</a>
-  <ul class="collapse">
-  <li><a href="#exercise-using-the-pipe" id="toc-exercise-using-the-pipe" class="nav-link" data-scroll-target="#exercise-using-the-pipe">Exercise: using the pipe</a></li>
-  </ul></li>
+  <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes">Pipes</a></li>
   <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a></li>
   <li><a href="#fastqc" id="toc-fastqc" class="nav-link" data-scroll-target="#fastqc">FastQC</a></li>
   <li><a href="#running-and-reusing-scripts" id="toc-running-and-reusing-scripts" class="nav-link" data-scroll-target="#running-and-reusing-scripts">Running and Reusing Scripts</a></li>
@@ -425,8 +422,8 @@ Exercise: looking at sequence files
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Make sure you’re in the Session2 folder that you copied into your local <code>mydata</code> folder</p></li>
-<li><p>Read the file subsample_Ill1.fasta using the commands <code>cat</code>, <code>less</code>, <code>head</code> and <code>tail</code>.</p></li>
+<li><p>Copy the Session2 folder from classdata to mydata, and <code>cd</code> into it.</p></li>
+<li><p>Read the file subsample_Ill1.fasta using one (or more!) of the commands <code>cat</code>, <code>less</code>, <code>head</code> and <code>tail</code>.</p></li>
 <li><p>Using your method of choice, look at Illumina_1.fastq. Can you see the difference?</p></li>
 </ol>
 <p>Don’t forget to use tab completion!</p>
@@ -440,14 +437,23 @@ Exercise: looking at sequence files
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> myFile.fasta <span class="kw">|</span> <span class="fu">grep</span> <span class="st">"&gt;"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s break down what this command is doing. First of all, I access the whole content of myFile.fasta using <em>cat</em>. However, rather than dumping it onto the screen I redirect that to become the input to <em>grep</em>. I tell <em>grep</em> to search for the symbol &gt; and sift out only the lines which contain that symbol. Because this is a FASTA, I know that can only be the header lines. I then feed this output into the <em>wc</em> command, with the option <em>-l</em> to count lines rather than words.</p>
-<section id="exercise-using-the-pipe" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-using-the-pipe">Exercise: using the pipe</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise: using the pipe
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>Try using the command above to count the number of sequences in subsample_Ill1.fasta.</p></li>
 <li><p>What happens if you remove <em>| wc -l</em> from the end? Do you understand why?</p></li>
 </ol>
+</div>
+</div>
 <p>Pipes are particularly useful as they allow you to run…. LOOPS!</p>
-</section>
 </section>
 <section id="loops" class="level2">
 <h2 class="anchored" data-anchor-id="loops">Loops</h2>
@@ -492,7 +498,7 @@ Exercise: using loops
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/0.11.9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Try this out now!</p>
-<p>As mentioned before, FastQC is very easy to run. At its most basic (without any extra options), you simply type</p>
+<p>As mentioned before, FastQC is very easy to run. At its most basic (without any extra options), you simply type (substituting file.fastq for the name of the FASTQ file you want to check):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> file.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -518,7 +524,7 @@ Exercise: using FastQC
 </ol>
 <p>Reminder: if using FileZilla, the details are:</p>
 <ul>
-<li>Host: hawker.bios.cf.ac.uk</li>
+<li>Host: sponsa.bios.cf.ac.uk</li>
 <li>Username: your username</li>
 <li>Password: your three word password</li>
 <li>Port: Your assigned port number</li>
@@ -565,7 +571,7 @@ Exercise: a simple script
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> a+x [script name]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>this is shorthand for chmod (change modify) a(all)+(add)execute(x) [script name] – thus changing the permission to allow everyone to execute a script. For a very helpful guide to chmod see https://en.wikipedia.org/wiki/Chmod</p>
+<p>this is shorthand for chmod (change modify) a(all)+(add)execute(x) [script name] – thus changing the permission to allow everyone to execute a script. For a very helpful guide to chmod see <a href="https://en.wikipedia.org/wiki/Chmod">https://en.wikipedia.org/wiki/Chmod</a></p>
 <p>Now run the program!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./test_nano.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -595,7 +601,7 @@ Exercise: fastp
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastp/0.20.0</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-q</span> 20 <span class="at">-i</span> Illumina_1.fastq <span class="at">-I</span> Illumina_2.fastq <span class="at">-o</span> Illumina_1trimmed.fastq <span class="at">-O</span> Illumina_2trimmed.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-q</span> 20 <span class="at">-u</span> 10 <span class="dt">\-\-</span>cut_right <span class="at">-i</span> Illumina_1.fastq <span class="at">-I</span> Illumina_2.fastq <span class="at">-o</span> Illumina_1trimmed.fastq <span class="at">-O</span> Illumina_2trimmed.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Look up the help page for fastp. What does each of the options given above mean?</p>
 <p>Use ls to look at the output. How could the script be improved to make it tidier?</p>

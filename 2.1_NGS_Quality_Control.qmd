@@ -51,9 +51,9 @@ GTACTTAACCTAAACTGGACTAA
 ::: callout-important
 ### Exercise: looking at sequence files
 
-1.  Make sure you're in the Session2 folder that you copied into your local `mydata` folder
+1.  Copy the Session2 folder from classdata to mydata, and `cd` into it.
 
-2.  Read the file subsample_Ill1.fasta using the commands `cat`, `less`, `head` and `tail`.
+2.  Read the file subsample_Ill1.fasta using one (or more!) of the commands `cat`, `less`, `head` and `tail`.
 
 3.  Using your method of choice, look at Illumina_1.fastq. Can you see the difference?
 
@@ -71,11 +71,13 @@ cat myFile.fasta | grep ">" | wc -l
 
 Let's break down what this command is doing. First of all, I access the whole content of myFile.fasta using *cat*. However, rather than dumping it onto the screen I redirect that to become the input to *grep*. I tell *grep* to search for the symbol \> and sift out only the lines which contain that symbol. Because this is a FASTA, I know that can only be the header lines. I then feed this output into the *wc* command, with the option *-l* to count lines rather than words.
 
+::: callout-important
 ### Exercise: using the pipe
 
 1.  Try using the command above to count the number of sequences in subsample_Ill1.fasta.
 
 2.  What happens if you remove *\| wc -l* from the end? Do you understand why?
+:::
 
 Pipes are particularly useful as they allow you to run.... LOOPS!
 
@@ -100,7 +102,7 @@ The next step is to use a pipe. Instead of just listing the FASTA files on the s
 Having set the loop in progress, a semicolon indicates that next comes the command we want to run for each value of our variable. In this case, I am using *wc -l* to count the total number of lines in the file. Another semicolon followed by 'done' is needed to finish the loop and tell it to go away and run.
 
 ::: callout-important
-## Exercise: using loops
+### Exercise: using loops
 
 1.  Try running the loop above in the Session2 directory.
 
@@ -127,7 +129,7 @@ module load fastqc/0.11.9
 
 Try this out now!
 
-As mentioned before, FastQC is very easy to run. At its most basic (without any extra options), you simply type
+As mentioned before, FastQC is very easy to run. At its most basic (without any extra options), you simply type (substituting file.fastq for the name of the FASTQ file you want to check):
 
 ```{bash}
 fastqc file.fastq
@@ -140,7 +142,7 @@ fastqc -o output_dir file.fastq
 ```
 
 ::: callout-important
-## Exercise: using FastQC
+### Exercise: using FastQC
 
 1.  Make a directory called fastqc inside your Session2 folder.
 
@@ -152,7 +154,7 @@ fastqc -o output_dir file.fastq
 
 Reminder: if using FileZilla, the details are:
 
--   Host: hawker.bios.cf.ac.uk
+-   Host: sponsa.bios.cf.ac.uk
 -   Username: your username
 -   Password: your three word password
 -   Port: Your assigned port number
@@ -178,7 +180,7 @@ The shebang is simply
 
 
 ::: callout-important
-## Exercise: a simple script
+### Exercise: a simple script
 
 Let's create a file with nano and write a simple script in it. By convention, script files are given the extension .sh rather than .txt
 
@@ -195,7 +197,7 @@ nano test_nano.sh
 chmod a+x [script name]
 ```
 
-this is shorthand for chmod (change modify) a(all)+(add)execute(x) \[script name\] -- thus changing the permission to allow everyone to execute a script. For a very helpful guide to chmod see https://en.wikipedia.org/wiki/Chmod
+this is shorthand for chmod (change modify) a(all)+(add)execute(x) \[script name\] -- thus changing the permission to allow everyone to execute a script. For a very helpful guide to chmod see [https://en.wikipedia.org/wiki/Chmod](https://en.wikipedia.org/wiki/Chmod)
 
 Now run the program!
 
@@ -213,7 +215,7 @@ Having assessed the quality of our sequence data, the next thing we want to do i
 The main things fastp does is to trim off bad bases and remove leftover adaptor sequences. It automatically identifies the adapters so you don't need to tell it in advance what to look for.
 
 ::: callout-important
-## Exercise: fastp
+### Exercise: fastp
 
 Create a new file using nano, copy the script below, make it executable and run it! We are going to use the forward and reverse reads for our sample to run fastp in paired-end mode.
 
@@ -224,7 +226,7 @@ Script:
 
 module load fastp/0.20.0
 
-fastp -q 20 -i Illumina_1.fastq -I Illumina_2.fastq -o Illumina_1trimmed.fastq -O Illumina_2trimmed.fastq
+fastp -q 20 -u 10 \-\-cut_right -i Illumina_1.fastq -I Illumina_2.fastq -o Illumina_1trimmed.fastq -O Illumina_2trimmed.fastq
 ```
 
 Look up the help page for fastp. What does each of the options given above mean?
@@ -233,7 +235,7 @@ Use ls to look at the output. How could the script be improved to make it tidier
 :::
 
 ::: callout-important
-## Exercise: checking it worked!
+### Exercise: checking it worked!
 
 Run FastQC on your trimmed Illumina_1 file and compare it to the original. Can you see the difference?
 :::
