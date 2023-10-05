@@ -31,7 +31,7 @@ Start by logging into your virtual machine on the server. You are now ready to s
 
 • If you still have a 'file not found' error, do ls to see if you can see it.
 
-• If you can't see a file you expect, do pwd and check you're in the right folder.
+• If you can't see a file you expect, do `pwd` and check you're in the right folder.
 
 • If a script says "permission denied" make sure:
 +   It has executable permission.
@@ -50,7 +50,7 @@ cd ~/mydata
 Linux/Unix commands usually take the form shown below
 
 ```{bash}
-Command       parameters      agguments
+command       parameters      arguments
    ^              ^               ^
 what I         how I want     on what do
 want to do     to do it       I want to do it

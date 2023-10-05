@@ -24,39 +24,39 @@ This is a challenging but ultimately exciting and productive area of training, s
 
 -   ***RTFM: Read The - Fantastic - Manual***
 
-You will be using very complex software which will (mostly) generate some type of output - you need to know that output is valid and makes sense. By reading the manual and understanding the concepts and theory behind what you are doing you will find it not only easier to use the software but also ensure that your results make sense. Most software comes with a 'git hub page', an online guide, a README file, help (accessed via the -h or -help flags) or a manual (man \[command\]). Sometimes these can be very technical, so don't be discouraged if you don't understand it all: just looking through and gleaning bits of information will make a huge difference to your understanding and confidence. These resources have taken a huge amount of effort to generate - look through them, get to know the options, it will really help.
+You will be using very complex software which will (mostly) generate some type of output - you need to know that output is valid and makes sense. By reading the manual and understanding the concepts and theory behind what you are doing you will find it not only easier to use the software but also ensure that your results make sense. Most software comes with a GitHub page, an online guide, a README file, help (accessed via the -h or -help flags) or a manual (man \[command\]). Sometimes these can be very technical, so don't be discouraged if you don't understand it all: just looking through and gleaning bits of information will make a huge difference to your understanding and confidence. These resources have taken a huge amount of effort to generate - look through them, get to know the options, it will really help.
 
 -   ***Keep a notebook and annotate your code***
 
-Bioinformatic analyses are *in silico* experiments, and just as you would not perform an experiment in the lab without making appropriate notes you should always make notes relating to your computational processing. I suggest creating a text file as a note book and use it to record what you did along with the final code/commands you used and any thoughts/ ideas/ pitfalls you had along the way. Lots of informaticians use ['markdown'](https://en.wikipedia.org/wiki/Markdown) which is some simple text based additions which means your logbooks/notes can easily be rendered to provide structure and formatting. Also always add comments to your code so that you (or anyone else) using the code can follow what you did. In nearly all coding platforms if you put a `#` in front of a line of text, that line will be ignored and not 'executed' as code.
+Bioinformatic analyses are *in silico* experiments, and just as you would not perform an experiment in the lab without making appropriate notes you should always make notes relating to your computational processing. I suggest creating a text file as a note book and use it to record what you did along with the final code/commands you used and any thoughts/ ideas/ pitfalls you had along the way. Lots of informaticians use ['markdown'](https://en.wikipedia.org/wiki/Markdown) which is a simple text based system which means your logbooks/notes can easily be rendered to provide structure and formatting. Also always add comments to your code so that you (or anyone else) using the code can follow what you did. In nearly all coding platforms if you put a `#` in front of a line of text, that line will be ignored and not 'executed' as code.
 
--   ***Be part of the wider Bioinformatics community***
+-   ***Be part of the wider bioinformatics community***
 
-There is a global bioinformatics community on-line and actively posting in chat rooms. Often the technical problem you are having or error code that has appeared has been seen before and you can find people have posted solution in old threads. [Stack overflow](https://stackoverflow.com/) is a great place to start. You can post questions yourself and when you get more experienced find some time to contribute and help others.
+There is a global bioinformatics community on-line and actively posting in chat rooms. Often the technical problem you are having or error code that has appeared has been seen before and you can find people have posted solution in old threads. [Stack Overflow](https://stackoverflow.com/) is a great place to start. You can post questions yourself and when you get more experienced find some time to contribute and help others.
 
 Get to know other people on your course/ in your department who do bioinformatics. Having a buddy to discuss ideas and troubleshoot problems with makes a huge difference. Don't underestimate the value of a fresh pair of eyes when looking for bugs in code! We are all perpetually learning, and even the most experienced bioinformatician can pick up helpful tips and new ideas from talking to others.
 
-From chat rooms to human conversations with your colleagues, I have always gained more by contributing than trying to do things on my own. If you have time to develop your knowledge more formally I highly recommend lab exchanges or attending conferences or 'hack-a-thons' - it is fun to meet/learn from the people that develop the amazing code we use (and maybe buy them beer to say thank you !!).
+From chat rooms to human conversations with your colleagues, I have always gained more by contributing than trying to do things on my own. If you have time to develop your knowledge more formally I highly recommend lab exchanges or attending conferences or 'hack-a-thons' - it is fun to meet/learn from the people that develop the amazing code we use (and maybe buy them beer to say thank you!).
 
 -   ***Google is your friend***
 
-Other search engines are also available... whether you are looking for code, troubleshooting a problem or looking for new software a five-minute web search can save a huge amount of time and/or reveal new exciting solutions/software. There are lots of tools on the internet that can help you with coding from YouTube videos to AI chat bots like [ChatGPT](https://openai.com/blog/chatgpt/) (see section below). These are all part of the solution - find what works for you but always try and understand what you are doing (you don't want to find that that great bit of code you copied is actually doing something you didn't want it to).
+Other search engines are also available... whether you are looking for code, troubleshooting a problem or looking for new software, a five-minute web search can save a huge amount of time and/or reveal new exciting solutions/software. There are lots of tools on the internet that can help you with coding from YouTube videos to AI chat bots like [ChatGPT](https://openai.com/blog/chatgpt/) (see section below). These are all part of the solution - find what works for you but always try and understand what you are doing (you don't want to find that that great bit of code you copied is actually doing something you didn't want it to).
 
 -   ***Solving problems is fun but do not forget the question***
 
-The coding and problem-solving aspects of bioinformatics can be really seductive and fun (or frustrating and exasperating) and can drawn you in so all you are focused on is solving a gnarly problem with your code or writing a complex workflow. (Who needs Sudoku?) However, DO NOT FORGET the question you started with!!
+The coding and problem-solving aspects of bioinformatics can be really seductive and fun (or frustrating and exasperating) and can draw you in so all you are focused on is solving a gnarly problem with your code or writing a complex workflow. (Who needs Sudoku?) However, DO NOT FORGET the question you started with!!
 
-It often helps to step back (I have a coffee), get some perspective and think about what you are trying to achieve: you could find a new way forward or find what you are doing is not needed. Always keep the big picture in mind of what you want to achieve and how each step will get you towards that goal. It's easy to get lost in the code, but ultimately it is there to address a biological question - target your analysis to ensure it addressing the answers you seek. I suggest doodling a flow diagram on a physical sheet of paper before you even attempt to wade into typing commands.
+It often helps to step back (Pete has a coffee, Sarah goes for a walk), get some perspective and think about what you are trying to achieve: you could find a new way forward or find what you are doing is not needed. Always keep the big picture in mind of what you want to achieve and how each step will get you towards that goal. It's easy to get lost in the code, but ultimately it is there to address a biological question - target your analysis to ensure it addressing the answers you seek. I suggest doodling a flow diagram on a physical sheet of paper before you even attempt to wade into typing commands.
 
-And above all - have some fun doing science !!
+And above all - have some fun doing science!!
 
 ## Artifical intelligence (AI) and Writing Code
 
-There has been a recent explosion in the quality and availability of large language models (LLM), colloquially referred to simply as AI, of which ChatGPT remains the most famous. One of their much-vaunted features is the ability to write code, which begs the question: should I use AI to help me write my bioinformatics scripts? The answer is... depends how you use it. LLMs will quickly churn out code which is (mostly) runnable. However, there is no guarantee that the code does exactly what you think it does. If you want to use AI-generated code, you will need to go through it line by line, checking and testing exactly what is happening; this, obviously, still requires you to understand the code in detail.
+There has been a recent explosion in the quality and availability of large language models (LLM), colloquially referred to simply as AI, of which ChatGPT remains the most famous. One of their much-vaunted features is the ability to write code, which begs the question: should I use AI to help me write my bioinformatics scripts? The answer is... it depends how you use it. LLMs will quickly churn out code which is (mostly) runnable. However, there is no guarantee that the code does exactly what you think it does. If you want to use AI-generated code, you will need to go through it line by line, checking and testing exactly what is happening; this, obviously, still requires you to understand the code in detail.
 
 One area is which LLMs are likely to prove very useful is in debugging. Error messages usually contain useful information, but not necessarily in a wording accessible to a beginner. LLMs are showing promise for helping to identify and diagnose bugs in code.
 
-If you want some tips for using LLMs to write code, [this article](https://www.nature.com/articles/d41586-023-01833-0) from Nature provides some guidance.
+If you want some tips for using LLMs to write code, [this article](https://www.nature.com/articles/d41586-023-01833-0) from *Nature* provides some guidance.
 
 # Course Handbooks
 
@@ -92,11 +92,11 @@ This session gives more detail about the Linux basics, covering navigating aroun
 
 [Loading Software and Accessing Data](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.2_Loading_Software_Accessing_Data.html)
 
-A guide to how to access the software and data you will need for the rest of the course.
+A guide to how to access the software and data you will need for the rest of the course, plus more useful Linux commands.
 
-[Commandline Tools and Scripting](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.3_Commandline_Tools_and_Scripting.html)
+[Extension: Commandline Tools and Scripting](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.3_Commandline_Tools_and_Scripting.html)
 
-From more ways to visualize text file, querying files with grep, using editors, running scripts and using loops, this material provides some more exercises to develop your skills.
+From querying files with grep, running scripts and using loops, this material provides some more exercises to develop your skills.
 
 ## Session 2. NGS Data Manipulation: From seqences to assemblies.
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2023-10-04">
+<meta name="dcterms.date" content="2023-10-05">
 
 <title>Introduction to Linux</title>
 <style>
@@ -156,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 4, 2023</p>
+        <p class="date">October 5, 2023</p>
       </div>
     </div>
     
@@ -403,7 +403,7 @@ background: darkred;
 <p>• You don’t need to type the $ at the beginning of a command. That’s a linux convention to indicate a command line</p>
 <p>• <code>Always tab-complete</code>! Pressing tab will auto-complete a file name or program. If you’re writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just ‘myF’ and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and <code>if it won't tab-complete then it doesn't exist</code>!</p>
 <p>• If you still have a ‘file not found’ error, do ls to see if you can see it.</p>
-<p>• If you can’t see a file you expect, do pwd and check you’re in the right folder.</p>
+<p>• If you can’t see a file you expect, do <code>pwd</code> and check you’re in the right folder.</p>
 <p>• If a script says “permission denied” make sure: + It has executable permission. + You’re not inside the classdata folder!</p>
 <p>• You always want to be working in the Working Directory. To get there (assuming you’re on a Cardiff virtual machine) use:</p>
 <div class="cell">
@@ -415,7 +415,7 @@ background: darkred;
 <h2 class="anchored" data-anchor-id="anatomy-of-a-command">Anatomy of a Command</h2>
 <p>Linux/Unix commands usually take the form shown below</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Command</span>       parameters      agguments</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">command</span>       parameters      arguments</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">^</span>              ^               ^</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">what</span> I         how I want     on what do</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">want</span> to do     to do it       I want to do it</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
