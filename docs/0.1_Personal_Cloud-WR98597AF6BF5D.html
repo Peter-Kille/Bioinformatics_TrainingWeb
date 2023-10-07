@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Professor Peter Kille">
-<meta name="dcterms.date" content="2023-10-05">
+<meta name="dcterms.date" content="2023-10-04">
 
-<title>Linux the fundamentals</title>
+<title>Personal Cloud</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -116,7 +82,7 @@ background: darkred;
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body style="background-color:gray99;" class="nav-sidebar docked">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -125,7 +91,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Linux the fundamentals</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="0.1_Personal_Cloud.html">Session 0. HPC and Personal Cloud</a></li><li class="breadcrumb-item"><a href="0.1_Personal_Cloud.html">Personal Cloud</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,8 +104,8 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Linux the fundamentals</h1>
-            <p class="subtitle lead">Command line rocks</p>
+      <h1 class="title">Personal Cloud</h1>
+            <p class="subtitle lead">Getting Connected</p>
                       </div>
   </div>
     
@@ -156,7 +122,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 5, 2023</p>
+        <p class="date">October 4, 2023</p>
       </div>
     </div>
     
@@ -202,7 +168,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
+  <a href="0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Personal Cloud</span></a>
   </div>
 </li>
@@ -362,14 +328,21 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#anatomy-of-a-command" id="toc-anatomy-of-a-command" class="nav-link active" data-scroll-target="#anatomy-of-a-command">Anatomy of a Command</a></li>
-  <li><a href="#file-permisions" id="toc-file-permisions" class="nav-link" data-scroll-target="#file-permisions">File permisions</a></li>
-  <li><a href="#learning-about-linux-commands" id="toc-learning-about-linux-commands" class="nav-link" data-scroll-target="#learning-about-linux-commands">Learning about Linux commands</a></li>
-  <li><a href="#changing-directories-and-tab-completion" id="toc-changing-directories-and-tab-completion" class="nav-link" data-scroll-target="#changing-directories-and-tab-completion">Changing directories and tab completion</a>
+  <li><a href="#basics-of-hpc-and-hpc-vs-personal-cloud-provision" id="toc-basics-of-hpc-and-hpc-vs-personal-cloud-provision" class="nav-link active" data-scroll-target="#basics-of-hpc-and-hpc-vs-personal-cloud-provision">Basics of HPC and HPC vs Personal Cloud provision</a></li>
+  <li><a href="#personal-hpc-and-hpc-clusters" id="toc-personal-hpc-and-hpc-clusters" class="nav-link" data-scroll-target="#personal-hpc-and-hpc-clusters">Personal HPC and HPC clusters</a></li>
+  <li><a href="#virtual-private-networks" id="toc-virtual-private-networks" class="nav-link" data-scroll-target="#virtual-private-networks">Virtual Private Networks</a></li>
+  <li><a href="#rstudio-and-jupiter-notebook-through-posit" id="toc-rstudio-and-jupiter-notebook-through-posit" class="nav-link" data-scroll-target="#rstudio-and-jupiter-notebook-through-posit">RStudio (and jupiter notebook) Through Posit</a></li>
+  <li><a href="#ssh-connecting-to-the-server" id="toc-ssh-connecting-to-the-server" class="nav-link" data-scroll-target="#ssh-connecting-to-the-server">SSH: connecting to the server</a>
   <ul class="collapse">
-  <li><a href="#changing-directories" id="toc-changing-directories" class="nav-link" data-scroll-target="#changing-directories">Changing Directories</a></li>
+  <li><a href="#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" id="toc-ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" class="nav-link" data-scroll-target="#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc">SSH using MobaXterm - connecting to the server on a PC</a></li>
+  <li><a href="#ssh-using-a-terminal---connecting-to-the-server-on-a-mac" id="toc-ssh-using-a-terminal---connecting-to-the-server-on-a-mac" class="nav-link" data-scroll-target="#ssh-using-a-terminal---connecting-to-the-server-on-a-mac">SSH using a terminal - connecting to the server on a Mac</a></li>
   </ul></li>
-  <li><a href="#tab-completion" id="toc-tab-completion" class="nav-link" data-scroll-target="#tab-completion">Tab completion</a></li>
+  <li><a href="#sfpt-transferring-files-to-and-from-the-server" id="toc-sfpt-transferring-files-to-and-from-the-server" class="nav-link" data-scroll-target="#sfpt-transferring-files-to-and-from-the-server">SFPT: transferring files to and from the server</a>
+  <ul class="collapse">
+  <li><a href="#sftp-using-mobaxterm-on-a-pc" id="toc-sftp-using-mobaxterm-on-a-pc" class="nav-link" data-scroll-target="#sftp-using-mobaxterm-on-a-pc">SFTP using MobaXterm on a PC</a></li>
+  <li><a href="#sftp-using-filezilla" id="toc-sftp-using-filezilla" class="nav-link" data-scroll-target="#sftp-using-filezilla">SFTP using FileZilla</a></li>
+  <li><a href="#sftp-using-cyberduck" id="toc-sftp-using-cyberduck" class="nav-link" data-scroll-target="#sftp-using-cyberduck">SFTP using Cyberduck</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -379,168 +352,293 @@ background: darkred;
 
 
 
-
-<section id="anatomy-of-a-command" class="level1">
-<h1>Anatomy of a Command</h1>
-<p>Linux/Unix commands usually take the form shown below</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Command</span>       parameters      agguments</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">^</span>              ^               ^</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">what</span> I         how I want     on what do</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">want</span> to do     to do it       I want to do it</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>NB usually each element is separated by only <strong><em>one space</em></strong></p>
-<p>The first item you supply on the command line is interpreted by the system as a command; that is – something the system should do. Items that appear after that on the same line are separated by spaces. The additional input on the command line indicates to the system how the command should work. For example, what file you want the command to work on, or the format for the information that should be returned to you.</p>
-<p>Most commands have options available that will alter the way they function. You make use of these options by providing the command with parameters, some of which will take arguments. Examples in the following sections should make it clear how this works. With some commands you don’t need to issue any parameters or arguments. Occasionally this is because there are none available, but usually this is because the command will use default settings if nothing is specified.</p>
-<p>If a command runs successfully, it will usually not report anything back to you, unless reporting to you was the purpose of the command. If the command does not execute properly, you will often see an error message returned. Whether or not the error is meaningful to you depends on your experience with Linux/Unix and how user-friendly the errors generated were designed to be.</p>
-<p>Note: Items supplied on the command line separated by spaces are interpreted as individual pieces of information for the system. <strong><em>For this reason, a filename with a space in it will be interpreted as two filenames by default.</em></strong></p>
+<section id="basics-of-hpc-and-hpc-vs-personal-cloud-provision" class="level1">
+<h1>Basics of HPC and HPC vs Personal Cloud provision</h1>
+<p>High performance computing (HPC) systems are large, multi-processor, large RAM ‘computers’ that are installed in data centres. Usually users are provided with a login to a shared HPC system with strictly controlled access and defined quotas. To run your informatic tasks, you write a script that sends your job to a ‘queuing’ program which coordinates the processing requests of all the users on the system. In this way the system can support large numbers of users, but you need to wait for your place in the queue before your task can be performed. Although you can do the very lightest tasks - copy small files, rename etc. - without sending them to the queue, most tasks need to go through the queue. This can be very tedious when learning to code, as if your script creates an error you won’t know until it has waited its turn in the queue.</p>
+<p>To avoid the queues we provide personal cloud systems to each person on the course, allowing them to interactively use the HPC system. To do this we create a container which has the equivalent of a ‘virtual machine’ (VM) in the cloud; we use a system called Kubernetes to create these container-based virtual machines. Each user has dedicated processors, RAM, storage and their own environment so they can interactively learn to use a Linux system. Because we are having to reserve a proportion of the server for each user we can only allocate a limited number of processors and RAM to each user - usually this is 8 processors and 16 Gb RAM, but check with your course organiser.</p>
+<p>Similar ‘containers’ can be accessed using <a href="https://aws.amazon.com/health/genomics/">AWS cloud services</a> or through academic services such as <a href="https://www.climb.ac.uk/">CLIMB</a>. AWS cloud does provide some educational free cloud processing but when these free credits are over you would need to pay for processing and storage, and this can very quickly get expensive. CLIMB provides academic registration if you are supported by specific research council funding.</p>
+<p>This information below is aimed at students and staff in Cardiff University’s School of Biosciences, and will guide you through accessing the computing resources provided.</p>
 </section>
-<section id="file-permisions" class="level1">
-<h1>File permisions</h1>
-<p>The command <code>ls</code> lists files in a directory.</p>
-<p>By default, the command will list the filenames of the files in your current working directory. At the moment, this is probably your home directory.</p>
-<p>If you add a space followed by a <code>-l</code> (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. Information about this is shown in the code block below.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 6    manager users   4096    2008-08-21  09:26  twilliams</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   9784    2007-03-19  14:09  hybInfo.txt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   9784    2007-03-19  14:09  targets_v1.txt</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   7793    2007-03-19  14:14  targets_v2.txt</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">^</span>      ^        ^       ^    ^         ^                ^</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">File</span>  File    User    Group Size   Date/Time         Filename</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>  Permission</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="personal-hpc-and-hpc-clusters" class="level1">
+<h1>Personal HPC and HPC clusters</h1>
+<p><strong><em>To access any Cardiff University HPC or personal Cloud resources you will need to install and login to the University VPN - see instructions below.</em></strong></p>
+<p>As part of the teaching provision at Cardiff University you will be provided with a specific ‘login’ to your own Kubernete VM. You may also be given access to our teaching HPC cluster or our research HPC system.</p>
+<p>Staff or postgraduate research students at Cardiff School of Biosciences can request access to our research HPC system by emailing <a href="mailto:biosi-biocomputinghub@cardiff.ac.uk">biosi-biocomputinghub@cardiff.ac.uk</a> with your University username and the name of your PI.</p>
+<p><strong><em>Check with your instructors which systems are available to you.</em></strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>The File permissions are given in triplets <code>rwx</code> which represent write - read - execute permissions. The first triplet are the permission associated with the user, the second three defined group and the last three the world.</p>
-<p>You can also use <strong>glob patterns</strong> to limit the files you wish to list.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span>   an asterisk means any string of characters</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span>   a question mark means a single character</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">[</span> <span class="bu">]</span> <span class="ex">square</span> brackets can be used to designate a group of characters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-title-container flex-fill">
+Cardiff University Taught Modules - Masters or Undergraduate
 </div>
-<div class="callout-Exercise">
-<p>Open your terminal and use <code>ls -l</code> command to interrogate the files in your directories.</p>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<section id="logging-into-your-person-kubernetes-virtual-machine" class="level3 callout-body-container callout-body">
+<h3 class="anchored" data-anchor-id="logging-into-your-person-kubernetes-virtual-machine">Logging into your person Kubernetes virtual machine</h3>
+<p>You will be provided with three pieces of information the host (or server) name, your user name (usually your staff ID or your student ID including the the ‘small letter’ prefix), a port number and a randomly generated pass phase. Here are some examples (user names and pass phases are fictitious).</p>
+<p>Host Names:</p>
+<pre><code>hawker.bios.cf.ac.uk
+or
+sponsa.bios.cf.ac.uk</code></pre>
+<p>Username (student numbers usually have a small letter and 7 digits): c9999999 or sbixxx</p>
+<p>Port (5 digit number): 32222</p>
+<p>Password: hard_phase_remember</p>
+<p>You may have received an email where the information is presented as a code block:</p>
+<pre><code>ssh c9999999@hawker.bios.cf.ac.uk -P 32222
+       ^              ^                ^
+    username        host              port</code></pre>
 </section>
-<section id="learning-about-linux-commands" class="level1">
-<h1>Learning about Linux commands</h1>
-<p>Most Linux commands have a manual page that provides information about the command and options that can alter its behaviour. Many tasks can be made easier by using command options. A good rule of thumb is to ask yourself whether what you want to do is something many others may have wanted to do. If the answer is yes, then there may well be commands and options available to do that task.</p>
-<p>Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard. If you do not know the name of a command to use for a particular job, you can search using <code>man –k</code> followed by the type of thing you are trying to do. An example of this is in exercise below).</p>
-<div class="callout-Exercise">
-<p>Look up the manual information for the <code>ls</code> command by typing the following in a terminal:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Read through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the <code>b</code> key.</p>
-<p>What does the <code>-m</code> option do? What about the <code>-a</code> option? What would running <code>ls -lrt</code> do?</p>
-<p>Press the <code>q</code> key when you want to quit reading the man page.</p>
-<p>Try running <code>ls</code> using some of the options mentioned above.</p>
-<p>Look up some programs with man pages with the keywords “list directory”</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> <span class="at">--k</span> <span class="st">"list directory"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+HPC cluster access: MSc Big Data students (part 2 of the course), postgraduate researchers or staff
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Programs rather than core linux commends often have help pages that can be access in the same manner as a linux command manual but using <code>-h</code> or <code>-help</code>. Other will provide you a help is you run the program with no arguments.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">program</span> <span class="at">-h</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">program</span> <span class="at">-help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you are provided with access to either teaching or research HPC systems you will only be provided with a host or server name - you username and password will be your Single Sign-On (SO) for the University - your student/staff number and your standard password.</p>
+<p>server currently used include:</p>
+<p>Host Names:</p>
+<pre><code>gomphus.bios.cf.ac.uk
+or
+iago.bios.cf.ac.uk</code></pre>
+<p>With standard HPC the port number is always 22</p>
 </div>
 </div>
 </div>
 </section>
-<section id="changing-directories-and-tab-completion" class="level1">
-<h1>Changing directories and tab completion</h1>
-<section id="changing-directories" class="level2">
-<h2 class="anchored" data-anchor-id="changing-directories">Changing Directories</h2>
-<p>The command used to change directories is <code>cd</code></p>
-<p>If you think of your directory structure, (i.e.&nbsp;this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.</p>
+<section id="virtual-private-networks" class="level1">
+<h1>Virtual Private Networks</h1>
+<p>A virtual private network allows you to access the internet as though you were in a different physical location. In a university context, it allows you to access resources that are only available on campus, not matter where you: are far as the internet is concerned, you are on the university campus.</p>
+<p>Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or the connection will not work: the VPN software will install and you will think all is good but then it will not connect. To find the correct instructions, log in to the <a href="intranet.cf.ac.uk">intranet</a> and search for VPN. Here are the current links which have installation instructions:</p>
+<p><strong><em>Student VPN</em></strong></p>
+<p>https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network</p>
+<p><strong><em>Staff VPN</em></strong></p>
+<p>https://intranet.cardiff.ac.uk/staff/supporting-your-work/it-support/wireless-and-remote-access/off-campus-access/virtual-private-network-vpn</p>
+<p>Once you have installed the VPN and connected test it by going to this site:</p>
+<p>http://hpc.bios.cf.ac.uk</p>
+<p>If all is working, you will see this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Linux_General_File_structure.png" class="img-fluid figure-img" alt="Linux general file structure"></p>
-<figcaption class="figure-caption">Linux general file structure</figcaption>
+<p><img src="images/good_VPN.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Sucessful VPN</figcaption>
 </figure>
 </div>
-<p>If you are using a Cardiff personal cloud qubernetes container you will have access to the following additional file structure.</p>
+<p>If not, you will see this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/CU_perosnal_cloud.png" class="img-fluid figure-img" alt="Cardiff University Personal Cloud File Structure"></p>
-<figcaption class="figure-caption">Cardiff University Personal Cloud File Structure</figcaption>
+<p><img src="images/bad_vpn.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Unsucessful VPN</figcaption>
 </figure>
 </div>
-<div class="callout-Exercise">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to a directory to your home directory use</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Now move into teh bioinformmatics Session1 of classdata </span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/classdata/Bioinformatics/Session1</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Go down a directory</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># you can review where you are at any time using the print working directory command</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="rstudio-and-jupiter-notebook-through-posit" class="level1">
+<h1>RStudio (and jupiter notebook) Through Posit</h1>
+<p><a href="https://cran.r-project.org/">R</a>, and its trusty companion <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, are essential parts of any bioinformatician’s toolbox. Both can be easily downloaded and run on your local computer, but for the taught courses we provide you with a browser-based Rstudio interface as part of your virtual machine. The reasons for this are twofold: 1) it allows you to easily load data from your virtual machine into RStudio, and 2) it allows us to pre-install the packages you need, saving time in class.</p>
+<p>I would suggest testing your virtual machine login by connecting to the browser-based Rstudio, as this provides a straightforward test without the need for any software installs.</p>
+<p><strong><em>To access any Cardiff University cloud based RStudio you will need to install and login to the University VPN - see Instructions above</em></strong></p>
+<p>Enter your cloud host name and username name in you browser navigation bar e.g.:</p>
+<pre><code>https//posit.sponsa.bios.cf.ac.uk/
+         ^                     
+      Host/server</code></pre>
+<p>You should now see the following screen:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/posit_login.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Posit Login</figcaption>
+</figure>
 </div>
+<p>Use your normal normal University username/password to logon, and the following page should be displayed.</p>
+<p><img src="images/posit_session.png" class="img-fluid" alt="Posit Session"> Click on the + to create a new session.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/posit_newsession.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Posit New Session</figcaption>
+</figure>
 </div>
+<p>Selection the session you wish to create - for this example we will create a RstudioPro Session</p>
+<p><img src="images/Rstudio_pro.png" class="img-fluid" alt="Rstudio Pro"> Leave teh default parameter as they are and start the session.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Rstudio_dashboard.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Rstudio_dashboard</figcaption>
+</figure>
+</div>
+<p>To enter the session click on the right arrow —&gt;</p>
+<p>You should now see the standard Rstudio interface.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Rstudio_interface.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Rstudio Interface</figcaption>
+</figure>
+</div>
+<p>You are now successful logged on to the server - so you know that your account and password work!!</p>
+</section>
+<section id="ssh-connecting-to-the-server" class="level1">
+<h1>SSH: connecting to the server</h1>
+<p>To connect your local computer to a remote server, we use a technology called SSH: Secure Shell Protocol (I know, the acronym doesn’t really match the name). This is a way of establishing a secure connection between your computer and the server. In effect, your computer becomes a remote control, sending instructions to be carried out on the server.</p>
+<section id="ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" class="level2">
+<h2 class="anchored" data-anchor-id="ssh-using-mobaxterm---connecting-to-the-server-on-a-pc">SSH using MobaXterm - connecting to the server on a PC</h2>
+<p>MobaXterm is a free piece of software called an SSH client, which enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the free version of <a href="https://mobaxterm.mobatek.net/download.html">MobaXTerm</a> from their website. I suggest downloading and installing the ‘Installer Addition’ as it will fully install on your system - the portable version provide a simple executable (.exe) that can be placed on a data pen and used in machine where you do not have administrator privileges to install software.</p>
+<p>Follow the installation instructions and you should be faced with the follow window:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MobaXterm.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">MobaXterm Interface</figcaption>
+</figure>
+</div>
+<p>Now you want to create a session, this can be done following these easy steps:</p>
+<ol type="1">
+<li>Select session ICON</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MobXaterm_session.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">MobaXterm session</figcaption>
+</figure>
+</div>
+<ol start="2" type="1">
+<li>Select SSH icon</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MobaXterm_SSH.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">MobaXterm SSH</figcaption>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>Configure your SSH connection by filling in boxes for -Host -User and -Port</li>
+</ol>
+<p>NB - the three elements you need to complete are underlined in red in the image. NB - for standard HPC the port leave the port at the default value of 22</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MobaXterm_config.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">MobaXterm Configure</figcaption>
+</figure>
+</div>
+<p>4. Enter your passphase</p>
+<p><strong><em>You will NOT see any typing - this is a security feature, just continue typing</em></strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MobaXterm_password.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">MobaXterm Password</figcaption>
+</figure>
+</div>
+<p>Once you have entered your password and it has been accepted you <strong><em>MAY</em></strong> be asked to save a master password - this you can set to whatever you wish, if you want to save yourself the trouble of typing your pass phrase every time you connect.</p>
+<p>Once created, your ‘session’ will be saved in the left hand menu and in future you just have to click on it to connect.</p>
+</section>
+<section id="ssh-using-a-terminal---connecting-to-the-server-on-a-mac" class="level2">
+<h2 class="anchored" data-anchor-id="ssh-using-a-terminal---connecting-to-the-server-on-a-mac">SSH using a terminal - connecting to the server on a Mac</h2>
+<p>HPC servers - both your personal cloud as well as HPC systems - are based on a Unix Operating System called Linux. Mac OS is also based on this system, so connecting on a Mac is very simple. First you have to find and open your Terminal - I think the easiest way is to search for it in finder but if you don’t find this easy there’s a wiki entitled - <a href="https://www.wikihow.com/Open-a-Terminal-Window-in-Mac">Open-a-Terminal-Window-in-Mac</a>.</p>
+<p>Once you have your terminal open simply type:</p>
+<pre><code>ssh [user]@[host] -P [Port]
+
+#a fictious example work be
+
+ssh c99999@sponsa.bios.cf.ac.uk -P 32222</code></pre>
+<p><strong><em>For standard HPC (i.e.&nbsp;not Kubernetes) there is no need to define the port with -P</em></strong></p>
+<p>Then enter your password and you are in - you can tell it has worked because the text preceding your cursor changes and should look something like (the numbers will probably be different for you):</p>
+<pre><code>[user@ssh-user-894cfb776-88kzg ~]$</code></pre>
+<p>Unfortunately the standard SSH interface does not support X-forwarding for graphical applications. There is a mac application called (Xquartz)[https://www.xquartz.org/] that you can install, and when it is running you can create a X-11 session by simply adding -X to your login so your login would be:</p>
+<pre><code>ssh -X [user]@[host] -P [Port]
+
+#a fictious example work be
+
+ssh -X c99999@sponsa.bios.cf.ac.uk -P 32222</code></pre>
+<p>Don’t worry if you don’t understand the bit about Xquartz - it’s not essential, just know that it’s here for future reference if needed. Xquartz is open source software and Mac <strong><em>DO NOT SUPPORT</em></strong> it, so it can be challenging to get working. Newer Macs often do not support it as the open source developers haven’t kept up with changes in the OS. Play if you want too, but be warned that it can be frustrating.</p>
 </section>
 </section>
-<section id="tab-completion" class="level1">
-<h1>Tab completion</h1>
-<p>Tab completion is an incredibly useful facility for working on the command line.</p>
-<p>One thing tab completion does is complete the filename or program name you want, saving huge amounts of typing time. It also ensures that there are no errors in what you typed, which is easy to do with long filenames or paths</p>
-<p>For example, from the <code>classdata</code> directory, you could type:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#navigate to classdata folder</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># now start to type Bioinformatics</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Bio </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="sfpt-transferring-files-to-and-from-the-server" class="level1">
+<h1>SFPT: transferring files to and from the server</h1>
+<section id="sftp-using-mobaxterm-on-a-pc" class="level2">
+<h2 class="anchored" data-anchor-id="sftp-using-mobaxterm-on-a-pc">SFTP using MobaXterm on a PC</h2>
+<p>MobaXterm has a built in SFTP function. When you open your session, a folder structure appears down the left hand side of the screen. This can be useful for navigating and for opening files without the need to download them.</p>
+<p>Use the arrows above the SFTP windows to upload/download files - you can also drag and drop files using this. window.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MobaXterm_SFTP.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">MobaXterm SFTP</figcaption>
+</figure>
 </div>
-<p>now hit the tab key.</p>
-<p>If there is only one directory with a name starting with the letters “Bio”, the rest of the name will be completed for you. Here this would give you:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Bioinformatics </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sftp-using-filezilla" class="level2">
+<h2 class="anchored" data-anchor-id="sftp-using-filezilla">SFTP using FileZilla</h2>
+<p>(FileZilla)[https://filezilla-project.org/] is a open source program that works on all platforms and supports multiple upload and download options including SFTP.</p>
+<p>To configure FileZilla follow the steps below and this will create a saved profile you can go back to:</p>
+<ol type="1">
+<li>Open and select profile icon</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Filezilla_session.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Filezilla profile</figcaption>
+</figure>
 </div>
-<p>User accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.</p>
-<div class="callout-Exercises">
-<p>Return to your home directory if you are not already there by typing <code>cd ~/</code></p>
-<p>Type <code>cd cl</code> and use tab completion for the rest of the command. Then press the return key.</p>
-<p>You will now be in your ~/classdata directory.</p>
-<p>Type <code>cd Bio</code> and use tab completion for the rest of the command. Then press the return key.</p>
-<p>You will now be in your ~/classdata/Bioinformatics directory</p>
-<p>Type <code>l Ses</code> and hit tab twice to view the files available.</p>
-<p>Now press the tab key again. You can gradually add extra letters and use the tab key to limit the options available.</p>
-<p>As you get faster with this, it will save you a lot of typing effort.</p>
+<ol start="2" type="1">
+<li>Configure your SFTP profile</li>
+</ol>
+<p>Remember for standard HPC the SFTP port will default to 22; if you are working on a Kubernetes virtual machine you will need to change it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Filezilla_configure.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Filezilla profile</figcaption>
+</figure>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>Select Connect and you are done - you can return to this session next time you want to transfer</p>
+<ol start="3" type="1">
+<li>Drag and drop your files from local to server (remote host) system</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Filezilla_main.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Filezilla drag and drop</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-Auto completion for programs
+</section>
+<section id="sftp-using-cyberduck" class="level2">
+<h2 class="anchored" data-anchor-id="sftp-using-cyberduck">SFTP using Cyberduck</h2>
+<p>[Cyberduck][https://cyberduck.io/download/] is another free file transfer application that supports all type of file transfer including SFTP, and some people prefer it to FileZilla as it has a very simple interface.</p>
+<p>After downloading and installing the application open the transfer window by using the following steps:</p>
+<ol type="1">
+<li>Open a Cyberduck connection</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Cyberduck_open.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Cyberduck Open a Connection</figcaption>
+</figure>
 </div>
+<ol start="2" type="1">
+<li>Configure the connection - complete all the things underlined here.</li>
+</ol>
+<p>Use your port number provided for Kubernetes, or if using standard HPC use port 22.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Cyberduck_config.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Cyberduck configuration</figcaption>
+</figure>
 </div>
-<div class="callout-body-container callout-body">
-<p>Auto completion works when you are calling programs that are available (where you have installed or loaded them with module load) and when you are constructing command. However, auto completion does NOT work if you are in a text editor constructing a script.</p>
-</div>
+<ol start="3" type="1">
+<li>You can now navigate around the server and drag and drop files to and from server.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Cyberduck_connect.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Cyberduck drag and drop window</figcaption>
+</figure>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

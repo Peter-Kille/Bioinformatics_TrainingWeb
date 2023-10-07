@@ -1,0 +1,1192 @@
+[
+  {
+    "objectID": "0.1_Personal_Cloud.html",
+    "href": "0.1_Personal_Cloud.html",
+    "title": "Personal Cloud",
+    "section": "",
+    "text": "High performance computing (HPC) systems are large, multi-processor, large RAM ‘computers’ that are installed in data centres. Usually users are provided with a login to a shared HPC system with strictly controlled access and defined quotas. To run your informatic tasks, you write a script that sends your job to a ‘queuing’ program which coordinates the processing requests of all the users on the system. In this way the system can support large numbers of users, but you need to wait for your place in the queue before your task can be performed. Although you can do the very lightest tasks - copy small files, rename etc. - without sending them to the queue, most tasks need to go through the queue. This can be very tedious when learning to code, as if your script creates an error you won’t know until it has waited its turn in the queue.\nTo avoid the queues we provide personal cloud systems to each person on the course, allowing them to interactively use the HPC system. To do this we create a container which has the equivalent of a ‘virtual machine’ (VM) in the cloud; we use a system called Kubernetes to create these container-based virtual machines. Each user has dedicated processors, RAM, storage and their own environment so they can interactively learn to use a Linux system. Because we are having to reserve a proportion of the server for each user we can only allocate a limited number of processors and RAM to each user - usually this is 8 processors and 16 Gb RAM, but check with your course organiser.\nSimilar ‘containers’ can be accessed using AWS cloud services or through academic services such as CLIMB. AWS cloud does provide some educational free cloud processing but when these free credits are over you would need to pay for processing and storage, and this can very quickly get expensive. CLIMB provides academic registration if you are supported by specific research council funding.\nThis information below is aimed at students and staff in Cardiff University’s School of Biosciences, and will guide you through accessing the computing resources provided."
+  },
+  {
+    "objectID": "0.1_Personal_Cloud.html#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc",
+    "href": "0.1_Personal_Cloud.html#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc",
+    "title": "Personal Cloud",
+    "section": "SSH using MobaXterm - connecting to the server on a PC",
+    "text": "SSH using MobaXterm - connecting to the server on a PC\nMobaXterm is a free piece of software called an SSH client, which enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the free version of MobaXTerm from their website.\n\n\n\n\n\n\nUsing MobaXterm on your personal PC\n\n\n\n\n\nI suggest downloading and installing the ‘Installer Addition’ as it will fully install on your system - the portable version provide a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.\n\n\n\n\n\n\n\n\n\nUsing MobaXterm on a University-networked PC\n\n\n\n\n\nYou will not have administrator privileges to install the ‘Installer Addition’ on a University-managed machine. Instead, download the portable version which provides a simple executable (.exe) that can used on a machine where you do not have administrator privileges to install software.\n\n\n\nOnce your download is complete, you will need to unzip the folder (extract files) before you can run the installer. Then follow the installation instructions and you should be faced with the follow window:\n\n\n\nMobaXterm Interface\n\n\nN.B. The first time you open MobaXterm, Windows security may pop up saying that some features are blocked by the firewall. Click ‘Cancel’ and the message will go away without preventing MobaXterm from doing its thing.\nNow you want to create a session, this can be done following these easy steps:\n\nSelect Session icon\n\n\n\n\nMobaXterm session\n\n\n\nSelect SSH icon\n\n\n\n\nMobaXterm SSH\n\n\n\nConfigure your SSH connection by filling in boxes for -Host -User and -Port\n\nN.B. - the three elements you need to complete are underlined in red in the image.\nN.B. - for standard HPC the port leave the port at the default value of 22\n\n\n\nMobaXterm Configure\n\n\n\nEnter your passphase\n\nYou will NOT see any typing - this is a security feature, just continue typing\n\n\n\nMobaXterm Password\n\n\nOnce you have entered your password and it has been accepted you MAY be asked to save a master password - this you can set to whatever you wish, if you want to save yourself the trouble of typing your pass phrase every time you connect.\nOnce created, your ‘session’ will be saved in the left hand menu and in future you just have to click on it to connect."
+  },
+  {
+    "objectID": "0.1_Personal_Cloud.html#ssh-using-a-terminal---connecting-to-the-server-on-a-mac",
+    "href": "0.1_Personal_Cloud.html#ssh-using-a-terminal---connecting-to-the-server-on-a-mac",
+    "title": "Personal Cloud",
+    "section": "SSH using a terminal - connecting to the server on a Mac",
+    "text": "SSH using a terminal - connecting to the server on a Mac\nHPC servers - both your personal cloud as well as HPC systems - are based on a Unix Operating System called Linux. Mac OS is also based on this system, so connecting on a Mac is very simple. First you have to find and open your Terminal - I think the easiest way is to search for it in finder but if you don’t find this easy there’s a wiki entitled - Open-a-Terminal-Window-in-Mac.\nOnce you have your terminal open simply type:\nssh [user]@[host] -P [Port]\n\n#a fictious example would be\n\nssh c99999@sponsa.bios.cf.ac.uk -P 32222\nFor standard HPC (i.e. not Kubernetes) there is no need to define the port with -P\nThen enter your password and you are in - you can tell it has worked because the text preceding your cursor changes and should look something like (the numbers will probably be different for you):\n[user@ssh-user-894cfb776-88kzg ~]$\nUnfortunately the standard SSH interface does not support X-forwarding for graphical applications. There is a mac application called (Xquartz)[https://www.xquartz.org/] that you can install, and when it is running you can create a X-11 session by simply adding -X to your login so your login would be:\nssh -X [user]@[host] -P [Port]\n\n#a fictious example work be\n\nssh -X c99999@sponsa.bios.cf.ac.uk -P 32222\nDon’t worry if you don’t understand the bit about Xquartz - it’s not essential, just know that it’s here for future reference if needed. Xquartz is open source software and Mac DO NOT SUPPORT it, so it can be challenging to get working. Newer Macs often do not support it as the open source developers haven’t kept up with changes in the OS. Play if you want too, but be warned that it can be frustrating."
+  },
+  {
+    "objectID": "0.1_Personal_Cloud.html#sftp-using-mobaxterm-on-a-pc",
+    "href": "0.1_Personal_Cloud.html#sftp-using-mobaxterm-on-a-pc",
+    "title": "Personal Cloud",
+    "section": "SFTP using MobaXterm on a PC",
+    "text": "SFTP using MobaXterm on a PC\nMobaXterm has a built in SFTP function. When you open your session, a folder structure appears down the left hand side of the screen. This can be useful for navigating and for opening files without the need to download them.\nUse the arrows above the SFTP windows to upload/download files - you can also drag and drop files using this. window.\n\n\n\nMobaXterm SFTP"
+  },
+  {
+    "objectID": "0.1_Personal_Cloud.html#sftp-using-filezilla",
+    "href": "0.1_Personal_Cloud.html#sftp-using-filezilla",
+    "title": "Personal Cloud",
+    "section": "SFTP using FileZilla",
+    "text": "SFTP using FileZilla\n(FileZilla)[https://filezilla-project.org/] is a open source program that works on all platforms and supports multiple upload and download options including SFTP.\nTo configure FileZilla follow the steps below and this will create a saved profile you can go back to:\n\nOpen and select profile icon\n\n\n\n\nFilezilla profile\n\n\n\nConfigure your SFTP profile\n\nRemember for standard HPC the SFTP port will default to 22; if you are working on a Kubernetes virtual machine you will need to change it.\n\n\n\nFilezilla profile\n\n\nSelect Connect and you are done - you can return to this session next time you want to transfer\n\nDrag and drop your files from local to server (remote host) system\n\n\n\n\nFilezilla drag and drop"
+  },
+  {
+    "objectID": "0.1_Personal_Cloud.html#sftp-using-cyberduck",
+    "href": "0.1_Personal_Cloud.html#sftp-using-cyberduck",
+    "title": "Personal Cloud",
+    "section": "SFTP using Cyberduck",
+    "text": "SFTP using Cyberduck\n[Cyberduck][https://cyberduck.io/download/] is another free file transfer application that supports all type of file transfer including SFTP, and some people prefer it to FileZilla as it has a very simple interface.\nAfter downloading and installing the application open the transfer window by using the following steps:\n\nOpen a Cyberduck connection\n\n\n\n\nCyberduck Open a Connection\n\n\n\nConfigure the connection - complete all the things underlined here.\n\nUse your port number provided for Kubernetes, or if using standard HPC use port 22.\n\n\n\nCyberduck configuration\n\n\n\nYou can now navigate around the server and drag and drop files to and from server.\n\n\n\n\nCyberduck drag and drop window"
+  },
+  {
+    "objectID": "1.1_Introduction to Linux.html#useful-information",
+    "href": "1.1_Introduction to Linux.html#useful-information",
+    "title": "Introduction to Linux",
+    "section": "Useful information!",
+    "text": "Useful information!\n• You don’t need to type the $ at the beginning of a command. That’s a linux convention to indicate a command line\n• Always tab-complete! Pressing tab will auto-complete a file name or program. If you’re writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just ‘myF’ and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and if it won’t tab-complete then it doesn’t exist!\n• If you still have a ‘file not found’ error, do ls to see if you can see it.\n• If you can’t see a file you expect, do pwd and check you’re in the right folder.\n• If a script says “permission denied” make sure:\n\nIt has executable permission.\nYou’re not inside the classdata folder!\n\n• You always want to be working in the Working Directory. To get there (assuming you’re on a Cardiff virtual machine) use:\n\ncd ~/mydata\n\n• Once more, tab-complete is your friend! It’ll stop most typos from happening and save you the pain of writing a command for a file that’s not there. It’s worth re-iterating for the amount of time and pain it will save you."
+  },
+  {
+    "objectID": "1.1_Introduction to Linux.html#anatomy-of-a-command",
+    "href": "1.1_Introduction to Linux.html#anatomy-of-a-command",
+    "title": "Introduction to Linux",
+    "section": "Anatomy of a Command",
+    "text": "Anatomy of a Command\nLinux/Unix commands usually take the form shown below\n\ncommand       parameters      arguments\n   ^              ^               ^\nwhat I         how I want     on what do\nwant to do     to do it       I want to do it\n\nN.B. usually each element is separated by only one space\nThe first item you supply on the command line is interpreted by the system as a command – something the system should do. Any options for the command, such what file you want the command to work on, or the format for the information that should be returned to you, appear after that on the same line separated by spaces.\nMost commands have options available that will alter the way they function. You make use of these options by providing the command with parameters (sometimes called flags), some of which will take arguments.\nReminder: Items on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames, as will some symbols. This is important!\n\nLearning about Linux commands\nMost Linux commands have a manual page that provides information about the command and options that can alter its behaviour. Many tasks can be made easier by using command options. Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard.\n\n\n\n\n\n\nExercise: looking up a man page\n\n\n\nLook up the manual information for the ls command by typing the following in a terminal:\n\nman ls\n\n\nSkim through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the b key.\nWhat does the -m option do? What about the -a option? What would running ls -lrt do?\nPress the q key when you want to quit reading the man page.\nTry running ls using some of the options mentioned above.\n\n\n\nNote: Programs (rather than core linux commands) often have help pages that can be accessed in the same manner as a linux command manual but using -h or -help (often both will work). Others will default to show you the help page if you run the program with no arguments or have a typo."
+  },
+  {
+    "objectID": "1.1_Introduction to Linux.html#changing-and-making-directories",
+    "href": "1.1_Introduction to Linux.html#changing-and-making-directories",
+    "title": "Introduction to Linux",
+    "section": "Changing and making directories",
+    "text": "Changing and making directories\nThe command used to change directories is cd\nIf you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.\nTo change to a directory one below you are in, just use the cd command followed by the subdirectory name i.e., fi you have just logged in and want to move into the ‘mydata’ directory (inside your current directory), you could use:\n\ncd mydata\n\nThe shortcut for “the directory you are currently in” is a single full stop ( . ). If you type\n\ncd .  \n\nnothing will change. Later, when we want to run scripts or copy to the same folder that you are currently in we will use ” ./ ” to mean “you can find this in the current directory”. To change directory to the one above you are in, use the shorthand for “the directory above” which is two full stops:\n\ncd ..\n\nFor example, if you are in ‘mydata’, this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, because a forward slash indicates the very top of the file tree:\n\ncd /usr/local/bin\n\nIf you wish to return to your home directory at any time, just type cd by itself.\n\ncd\n\nTo make a new directory, use the command mkdir and then the directory you want to create\n\nmkdir mydata/brilliantIdeas\nmkdir ~/mydata/brilliantIdeas/InProgress\n\nIf you get lost and want to confirm where you are in the directory structure, use the pwd command (print working directory). This will return the full path of the directory you are currently in.\nNote also that by default you see the name of the current directory you are working in as part of your prompt.\nFor example, when you first opened the terminal in a live session you should see your username and server, then the prompt:\n\n[sbi9srj@hawker ~]$\n\nThis means I am logged in as the user sbi9srj on the server named hawker, and in a directory named the character called ‘tilde’ ~. If you remember, ~ is always a shortcut for your home directory.\nAll our folders and classdata can be found at:\n\n/home/[your username]/classdata/\n\nHowever, we won’t need to remember that as we can use the shortcuts of:\n\n~/classdata\n~/mydata\n\n\n\n\n\n\n\nExercises: changing directories\n\n\n\n\nChange directory from your home directory to your working directory (mydata)\nFind the full path to the directory that you are currently in\nCreate a new directory inside mydata\nMove into your new directory.\nMove back into mydata."
+  },
+  {
+    "objectID": "1.1_Introduction to Linux.html#moving-and-copying-data",
+    "href": "1.1_Introduction to Linux.html#moving-and-copying-data",
+    "title": "Introduction to Linux",
+    "section": "Moving and copying data",
+    "text": "Moving and copying data\nA standard format is used to move and copy data:\ncommand source destination\nFor example, to move a file named RNAseq_1.fastq into a new folder that exists in this directory named exp1:\n\nmv RNAseq_1.fastq exp1\n\nTo move it to a location somewhere else on the server you can use the full path\n\nmv RNAseq_1.fastq ~/mydata/experiment1\n\nOr alternatively “move” a file from one name to another. This is a common way to rename your files:\n\nmv RNAseq_1.fastq LRubellus_1.fastq\n\nTo copy, use the cp command. You could copy a file from another directory to “here”, remembering that a full-stop means “the folder I’m currently in”:\n\ncp ~/classdata/RNAseq_1.fastq  .\n\nOften you’ll want to copy a whole folder (directory), and you will need the -r parameter for “recursive”.\n\ncp -r mydata/all_fastqs NewExperiment/testdata/\n\n\n\n\n\n\n\nExercises: copying files and folders\n\n\n\n\nUse ls to look in the folder named\n\n\n~/classdata\n\nand\n\n~/classdata/Session1\n\n\nCopy the file CopyExercise.txt into mydata\nCopy the classdata folder named ‘Session1’ to your mydata folder [IMPORTANT! You need this for the following exercises!]\nDo ls on mydata. What do you see?"
+  },
+  {
+    "objectID": "1.1_Introduction to Linux.html#listing-files-in-a-directory",
+    "href": "1.1_Introduction to Linux.html#listing-files-in-a-directory",
+    "title": "Introduction to Linux",
+    "section": "Listing files in a directory",
+    "text": "Listing files in a directory\nThe command ls lists files in a directory. By default, the command will list the filenames of the files in your current working directory.\nIf you add a space followed by a –l (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is.\nYou can also use glob patterns to limit the files you wish to list.\n\n\\* an asterisk means any string of characters\n? a question mark means a single character\n\\[ \\] square brackets can be used to designate a group of characters\n\ne.g. to list all of blue.txt, banana.txt, baby.txt:\n\nls b*.txt\n\n\n\n\n\n\n\nExercises: listing files\n\n\n\n\nList all the files in the directory Session1 that start with the letters sub\nList all the files in the directory Session1 that start with the letters sub\nList all the files in your directory that start with sub, and end in fasta\n[Extension] Do a ‘long list’ (-l) of these files and see the difference in sizes. Add the ‘human readable’ parameter/flag (-h) to help read the sizes."
+  },
+  {
+    "objectID": "1.1_Introduction to Linux.html#file-permisions",
+    "href": "1.1_Introduction to Linux.html#file-permisions",
+    "title": "Introduction to Linux",
+    "section": "File permisions",
+    "text": "File permisions\nThe command ls lists files in a directory.\nBy default, the command will list the filenames of the files in your current working directory. At the moment, this is probably your home directory.\nIf you add a space followed by a -l (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. An example is shown in the code block below.\n\ndrwxr-xr-x 6    manager users   4096    2008-08-21  09:26  twilliams\n-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  hybInfo.txt\n-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  targets_v1.txt\n-rw-r--r-- 1    manager users   7793    2007-03-19  14:14  targets_v2.txt\n^      ^        ^       ^    ^         ^                ^\nFile  File    User    Group Size   Date/Time         Filename\ntype  Permission\n\nThe file permissions are given in triplets rwx which represent write - read - execute permissions. The first triplet represents the permission associated with the owner (usually the person who created the file), the second triplet is permissions for owner’s group, and the triplet is permission for everyone else.\n\nExercise: looking at file permissions\nOpen your terminal and use ls -l command to interrogate the files in your directories."
+  },
+  {
+    "objectID": "1.1_Introduction to Linux.html#tab-completion",
+    "href": "1.1_Introduction to Linux.html#tab-completion",
+    "title": "Introduction to Linux",
+    "section": "Tab completion",
+    "text": "Tab completion\nHave you been remembering to tab complete?\nTab completion is an incredibly useful facility for working on the command line.\nOne thing tab completion does is complete the filename or program name you want, saving huge amounts of typing time. It also ensures that there are no errors in what you typed, which is easy to do with long filenames or paths\nFor example, you could type:\n\n#navigate to classdata folder\ncd classdata\n# now start to type REFS\ncd R \n\nnow hit the tab key.\nIf there is only one directory with a name starting with the letter “R”, the rest of the name will be completed for you. Here this would give you:\n\ncd REFS\n\nUser accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.\n\nExercises: practise tab completion\nReturn to your home directory if you are not already there by typing cd ~/\nType cd cl and use tab completion for the rest of the command. Then press the return key.\nYou will now be in your ~/classdata directory.\nType l Ses and hit tab twice to view the files available.\nNow press the tab key again. You can gradually add extra letters and use the tab key to limit the options available.\nAs you get faster with this, it will save you a lot of typing effort.\n\n\n\n\n\n\n\nAuto completion for programs\n\n\n\nAuto completion works when you are calling programs that are available (where you have installed or loaded them with module load) and when you are constructing commands. However, auto completion does NOT work if you are in a text editor constructing a script."
+  },
+  {
+    "objectID": "1.1_Introduction to Linux.html#putting-it-together-creating-a-mental-map-of-your-file-system",
+    "href": "1.1_Introduction to Linux.html#putting-it-together-creating-a-mental-map-of-your-file-system",
+    "title": "Introduction to Linux",
+    "section": "Putting it together: creating a mental map of your file system",
+    "text": "Putting it together: creating a mental map of your file system\nOne of the commonest reasons why students get stuck in bioinformatics exercises is that they have forgotten where there are in the file system. They try to work with files that are in a different directory, panic that things seem to have disappeared, or wonder where exactly that output has ended up! The key to saving yourself much pain lies in developing awareness of how your file structure is laid out, and where you are in it at all times. If something doesn’t work, stop and ask yourself: where am I? Where are the files I want to work with?\nYou can also make life easier for yourself by thinking carefully about giving your directories and files self-explanatory names, and keeping them organised.\nAs a final exercise in this part of the session, use the commands you have learned so far (particularly pwd, ls and cd) to sketch a map of your mydata folder."
+  },
+  {
+    "objectID": "1.2_Loading_Software_Accessing_Data.html",
+    "href": "1.2_Loading_Software_Accessing_Data.html",
+    "title": "Loading Software and Accessing Data",
+    "section": "",
+    "text": "Now that you’re (hopefully) re-caffeinated and have stretched your legs and cleared your brain, let’s have a look at some more need-to-know information."
+  },
+  {
+    "objectID": "1.2_Loading_Software_Accessing_Data.html#text-files-word-processors-and-bioinformatics",
+    "href": "1.2_Loading_Software_Accessing_Data.html#text-files-word-processors-and-bioinformatics",
+    "title": "Loading Software and Accessing Data",
+    "section": "Text files, Word Processors and Bioinformatics",
+    "text": "Text files, Word Processors and Bioinformatics\nDocuments written using a word processor such as Microsoft Word or OpenOffice Write are not plain text documents and will not work in either a text editor or if used as a script. If your filename has an extension such as .doc or .odt, it is unlikely to be a plain text document. (Try opening a Word document in notepad or another text editor on Windows if you want proof of this.)\nWord processors are very useful for preparing documents, but do not use them for working with bioinformatics-related files. We recommend that you prepare text files for bioinformatics analyses using Linux-based text editors and not Windows- or Mac-based text editors. This is because Windows- or Mac-based text editors may insert hidden characters that are not handled properly by Linux-based programs. There are endless posts on bioinformatics forums bemoaning the problems that arise from this!\nThere are a number of different text editors available on Bio-Linux. These range in ease of use, and each has its pros and cons. In this practical we will briefly look at two editors, nano and vi. Vi is an extremely powerful text editor and popular with many professionals, as it is installed on almost every Linux system. However, it is also notoriously frustrating to get to grips with. For this reason, you are probably better starting off with nano, which is very easy to use and displays instructions at the bottom of the screen.\n\nNano\nPros:\nVery easy – For example, command options are visible at the bottom of the window, it can be used when logged in without graphical support, and is fast to start up and use\nCons:\nBy default it puts return characters into lines too long for the screen (i.e. using nano for system administration can be dangerous!) This behavior can be changed by setting different defaults for the program or running it with the –w option. It is not completely intuitive for people who are used to graphical word processors.\n\n\nVi (or Vim)\nPros:\nAppears on nearly every Unix system. Can be very powerful if you take the time to know the key-short cuts.\nCons:\nYou have to know the shortcuts!! There’s no menus and no on screen prompts\n\n\n\n\n\n\nExercise\n\n\n\nNote that unlike most graphical programmes, where you write a document and then name it at the end, command-line text editors require you to name a file when you create it.\n\nCreate a file with nano\n\nnano test_nano.txt \n\nType some text, exit ctrl X, save and return to command line now list the contents of the file you created\n\nless test_nano.txt \n\n\n\nCreate a file with vi\n\nvi test_vi.txt \n\nVi has two separate modes: ‘input’ mode, where you can type and edit text, and ‘control’ mode where you can do things such as save, search and exit the programme.\nType ‘i’ to enter input mode, and add some text.\nPress [esc] to enter control mode.\nExit, saving your edits, by typing :wq - this stands for write and quit! If you wanted to exit without saving the edits, typing :q! will force vi to exit without saving.\nNow list the contents of the file you created\n\nless test_vi.txt"
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html",
+    "href": "1.3_Commandline_Tools_and_Scripting.html",
+    "title": "Extension: Commandline Tools and Scripting",
+    "section": "",
+    "text": "grep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.\n\ngrep \"ency\" ~/mydata/Session1/subsample.txt\n\nYou can also use flexible search terms, known as regular expressions, in your grep searches. You have already used glob pattern expressions in this practical, but regular expressions are somewhat different and more powerful. For example, when you listed all files with the pattern testxt you were using a glob pattern comprising explicit characters (e.g. tes) and special symbols (* meaning any character or characters). The equivalent in grep would be “tes.txt.” where the period signifies any single character and the * signifies any number of repeats.\nTherefore to get from a shell glob pattern to a regular expression replace each * with .* and each ? with . . You also need to enclose the expression in quotes to tell the shell not to try and interpret it as a glob.\nUnmodified glob patterns will be accepted by grep but will not work as intended. For example the pattern tes* in grep means te followed by any number of s characters in sequence (te, tes, tess, tesss, …). The question mark now signifies optionality – so tes? means te followed by zero or one s character (te, tes). Regular expressions are found in several places other than grep, most notably in the Perl scripting language. The full syntax is extensive and powerful but is beyond the scope of this course, so back to the command itself…\ngrep requires a regular expression as input, and returns all the lines containing that pattern to you as output.\ngrep is especially useful in combination with pipes as you can filter the results of other commands.\nFor example, perhaps you only want to see only the information in an txt file relating to the origin of the sequence, that is, the DE line. You do not need to search the file in an editor, you can just grep for lines beginning in DE, as in the next exercise.\n\n\n\n\n\n\nExercise\n\n\n\nMove into mydata/Session1\nType the command:\n\ngrep \"DE\" O97435.txt \n\nWhat is this command doing?\nCan you see why the above command results in the output you see? An explanation of this command can be found below this exercise box.\nTry the commands:\n\ngrep \"^DE\" O97435.txt\ngrep -x \"DE.*\" O97435.txt \n\nWhat are the ^ symbol and the -x parameter in these commands doing? Check the man page for grep to be sure.\nTry the command:\n\ncat O97435.txt | grep \"^DE\". \n\nDoes that do what you expected?\nUse the above command with a pipe and a grep command to search for files created or modified today.\nThe first command in the above exercise searches all the text in the O97435.txt file and returns the lines in which it finds the letter D followed by the letter E.\nThe second command in the exercise also returns lines in the file that have a letter D followed by a letter E, but only where DE is found at the beginning of a line. This is because the ^ symbol means “match at the beginning of a line”. The $ symbol can be used similarly to mean “at the end of a line”. These are known as anchors. Passing the -x flag to grep tells it to automatically anchor both ends of the search pattern.\nWhat this anchoring does in the example above is return to you just the organism information in the txt file. This is because none of the other lines returned in the previous command started with DE, they just contained DE somewhere in them. This is an example where knowing how information is stored in an given file, along with a few basic Linux commands, allows you to retrieve information quickly.\nAnother common example is counting how many sequences are in a set of multi-fasta files. We can do this with pipes between the commands cat, grep and the handy wc (word count) utility, which here we use to count lines found by grep.\n\ncat subsample_Ill1.fasta | grep \"^&gt;\" | wc -l \n\ngrep -c \"^&gt;\" subsample_Ill1.fasta \n\nEach sequence in a fasta file starts with a header line that begins with a &gt; . The above command streams the contents of all files matching the glob pattern *seqs.fasta through a search with grep looking for lines that start with the symbol &gt; . The quotes around the pattern ^&gt; are necessary, as otherwise it is interpreted as a request for redirection of output to a file, rather than as a character to look for. As before, the ^ symbol means “match only at the beginning of the line”.\nThe output of this grep search is sent to the wc command, with the -l indicating that you want to know the number of lines – ie. the number of headers and by implication the number of sequences.\nAn easier version of this shown as the second example uses the grep -c argument that return the number of matches found.\nNow try this:\n\ncat *.fasta | grep \"^&gt;\" | wc -l \n\nRemember that * means any pattern, and that cat will concatentate all the files given as input. Therefore, a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.\n\n\n\n\nYou can use all of grep functionality with a compressed file by adding a ‘z’ - just replace grep with zgrep and you can directly query that .gz files."
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#use-zgrep-with-compressed-files",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#use-zgrep-with-compressed-files",
+    "title": "Extension: Commandline Tools and Scripting",
+    "section": "",
+    "text": "You can use all of grep functionality with a compressed file by adding a ‘z’ - just replace grep with zgrep and you can directly query that .gz files."
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#step-1-create-your-script",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#step-1-create-your-script",
+    "title": "Extension: Commandline Tools and Scripting",
+    "section": "Step 1: Create your Script",
+    "text": "Step 1: Create your Script\nMake a text file containing the script in question. This can be achieved by downloading or transferring the scripts as a file in the correct format. Sometimes the scripts are posted as part of a website such as a web-post in a discussion forum. To use these scripts, create a file using vi or nano and copy into the test file the script in question ensuring you save it with an appropriate name.\nHere’s a script you can try\n\n#!/bin/bash \n\necho {10..1} \n\necho 'Blast off'"
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#step-2-make-your-script-executable",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#step-2-make-your-script-executable",
+    "title": "Extension: Commandline Tools and Scripting",
+    "section": "Step 2: Make your script executable",
+    "text": "Step 2: Make your script executable\nMake the file executable. Before you can run the script you must make it executable. This is done by changing its property using\n\nchmod a+x [script name] \n\nthis is shorthand for chmod (change modify) a(all)+(add)execute(e) [script name] – thus changing the permission to allow everyone to execute a script. For more guide to chmod see https://en.wikipedia.org/wiki/Chmod"
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#step-3-run-your-script",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#step-3-run-your-script",
+    "title": "Extension: Commandline Tools and Scripting",
+    "section": "Step 3: Run your script",
+    "text": "Step 3: Run your script\nRun the program. This should be easy but there are a few ways of doing this.\nPlace the program into the directory where you want to use it and type\n\n./[script name] parameters arguments \n\nOn first use try to run with no parameters or arguments or with -h and -help to see the manual for the script. Some poorly written scripts will need you to define the program you need to use them, i.e. for a bash script :\n\nbash [script name] parameters arguments \n\nRun from your current location using the script’s full path.\n\n/full path/[script name] parameters arguments \n\nPlace the script into your ‘PATH’ – this means that the computer automatically knows about the script and will run it from any location just given the program name. I suggest that if you want to do this ask the demonstrators and they can show you……this is advanced as if you put two scripts with the same name into the PATH you can cause issues."
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#loops-using-numerical-variables",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#loops-using-numerical-variables",
+    "title": "Extension: Commandline Tools and Scripting",
+    "section": "Loops using numerical variables",
+    "text": "Loops using numerical variables\nCreating a Loop\nInvoke a text editor such as nano, then type\n\n#!/bin/bash\n\nfor i in {1..[number]}; do \n\n# use hash to include some level of documentation so when you get to script in a few months time \n\n# you can remember what it was all about.  ${i} = number which increment by 1 each time the loop runs\n\n[your commands]${i} \n\ndone\n\nsave.\nnow make the program executable\n\nchmod +x [program_name]\n\nrun\n\n./[program_name]"
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#loops-using-strings-lists-as-variables",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#loops-using-strings-lists-as-variables",
+    "title": "Extension: Commandline Tools and Scripting",
+    "section": "Loops using Strings (lists) as variables",
+    "text": "Loops using Strings (lists) as variables\nInvoke a text editor such as nano, then type\n\n#!/bin/bash\n\nfor i in sampleA sampleB sampleC sampleD; do \n\n# use hash to include some level of documentation so when you get to script in a few months time\n\n# you can remember what it was all about.  ${i} = the list of strings given at the start of the for loop \n\n[your commands]${i} \n\ndone \n\nsave\nnow make the program executable\n\nchmod +x [program_name] \n\nrun\n\n./[program_name]"
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#loops-using-directory-listings",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#loops-using-directory-listings",
+    "title": "Extension: Commandline Tools and Scripting",
+    "section": "Loops using directory listings",
+    "text": "Loops using directory listings\nThis is a great method if you want to execute a series of command on a set of data files contained in a specific directory, for instance a series of sequence files.\nInvoke a text editor such as nano, then type\n\n#!/bin/bash\n\nsequence_dir=[location of folder containing paired end sequence files]\n#*_R1.fastq - lists all files ending in _R1.fastq\n\nfor f in ${sequence_dir}/*_R1.fastq\ndo\n\n#the file name are placed in variable $f - we can separate the name of the file away from the suffix (.fastq) using this simple cut expression - the variable 'R1' now contains the file name with no suffix \nR1=$(basename $f | cut -f1 -d.)\n\n#Sometimes we want the 'base' name of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed \nbase=$(echo $R1 | sed 's/_R1//')\n\necho ${base}\n\ndone \n\nsave\nnow make the program executable\n\nchmod +x [program_name] \n\nrun\n\n./[program_name]"
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#gz-files",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#gz-files",
+    "title": "Extension: Commandline Tools and Scripting",
+    "section": "gz files",
+    "text": "gz files\n….wait a minute do you really need to decompress this file !! Many programs will happily use a .gz file directly, this a win for your file space so check out if you really need to decompress the file. Unfortunate some utilits like ‘sed’ require files to be unzipped, it that case:\n\n#to decompress\ngunzip [filename].gz\n#to recompress\ngzip [filename]"
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#how-to-extract-a-.tar.gz-file-on-linux",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#how-to-extract-a-.tar.gz-file-on-linux",
+    "title": "Extension: Commandline Tools and Scripting",
+    "section": "How to extract a .tar.gz file on Linux",
+    "text": "How to extract a .tar.gz file on Linux\nTo extract a .tar.gz file on Linux, you can use the “tar” command in the terminal. Here is the general syntax:\n\ntar -xvzf filename.tar.gz\n\nHere is a brief explanation of the options used:\n\n-x: This option tells tar to extract the contents of the archive.\n\n-v: This option is for verbose output, which means that tar will display a list of the files being extracted as it does so.\n\n-z: This option tells tar to decompress the archive using gzip.\n\n-f: This option is used to specify the archive file to extract."
+  },
+  {
+    "objectID": "1.x_Linux_fundamentals.html",
+    "href": "1.x_Linux_fundamentals.html",
+    "title": "Linux the fundamentals",
+    "section": "",
+    "text": "Linux/Unix commands usually take the form shown below\n\nCommand       parameters      agguments\n   ^              ^               ^\nwhat I         how I want     on what do\nwant to do     to do it       I want to do it\n\nNB usually each element is separated by only one space\nThe first item you supply on the command line is interpreted by the system as a command; that is – something the system should do. Items that appear after that on the same line are separated by spaces. The additional input on the command line indicates to the system how the command should work. For example, what file you want the command to work on, or the format for the information that should be returned to you.\nMost commands have options available that will alter the way they function. You make use of these options by providing the command with parameters, some of which will take arguments. Examples in the following sections should make it clear how this works. With some commands you don’t need to issue any parameters or arguments. Occasionally this is because there are none available, but usually this is because the command will use default settings if nothing is specified.\nIf a command runs successfully, it will usually not report anything back to you, unless reporting to you was the purpose of the command. If the command does not execute properly, you will often see an error message returned. Whether or not the error is meaningful to you depends on your experience with Linux/Unix and how user-friendly the errors generated were designed to be.\nNote: Items supplied on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames by default."
+  },
+  {
+    "objectID": "1.x_Linux_fundamentals.html#changing-directories",
+    "href": "1.x_Linux_fundamentals.html#changing-directories",
+    "title": "Linux the fundamentals",
+    "section": "Changing Directories",
+    "text": "Changing Directories\nThe command used to change directories is cd\nIf you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.\n\n\n\nLinux general file structure\n\n\nIf you are using a Cardiff personal cloud qubernetes container you will have access to the following additional file structure.\n\n\n\nCardiff University Personal Cloud File Structure\n\n\n\n\n# Change to a directory to your home directory use\n\ncd ~/\n\n# Now move into teh bioinformmatics Session1 of classdata \n\ncd ~/classdata/Bioinformatics/Session1\n\n# Go down a directory\n\ncd ..\n\n# you can review where you are at any time using the print working directory command\n\npwd"
+  },
+  {
+    "objectID": "2.1_NGS_Quality_Control.html#fasta-and-fastq",
+    "href": "2.1_NGS_Quality_Control.html#fasta-and-fastq",
+    "title": "NGS Quality Control",
+    "section": "FASTA and FASTQ",
+    "text": "FASTA and FASTQ\nThe two commonest file types for sequencing data are FASTA and FASTQ. (To make life a little more complicated, both have more than one file extension. FASTAs can be .fasta, .fa or .fna; FASTQs can be .fastq or .fq)\nA FASTA is a 2-line file format. Each sequence has a header line, which always starts with &gt; and contains an identifier for the sequence. The next line contains the sequence itself. For example, a FASTA file with two sequences in it could look like this:\n\n&gt;Sequence 1 \nACGTGCTTCCGGTTTCAGGGTCA\n&gt;Sequence 2\nGTACTTAACCTAAACTGGACTAA\n\nA FASTQ is an extension of a FASTA that includes quality scores for each base of the sequence. It is a 4-line file format. The first line is still a header, but now begins with @, and the second line is the sequence. The third line is always a single + that separates the sequence from the quality scores on the fourth line. A FASTQ of those same two sequences could look like this:\n\n@Sequence 1 \nACGTGCTTCCGGTTTCAGGGTCA\n+\nR%!JSQA(AD\\@ASDIA&ASD&!N\n@Sequence 2\nGTACTTAACCTAAACTGGACTAA\n+\n&DJSA)ADFLA9DF5*J34AQBS\n\n\n\n\n\n\n\nExercise: looking at sequence files\n\n\n\n\nCopy the Session2 folder from classdata to mydata, and cd into it.\nRead the file subsample_Ill1.fasta using one (or more!) of the commands cat, less, head and tail.\nUsing your method of choice, look at Illumina_1.fastq. Can you see the difference?\n\nDon’t forget to use tab completion!"
+  },
+  {
+    "objectID": "2.1_NGS_Quality_Control.html#pipes",
+    "href": "2.1_NGS_Quality_Control.html#pipes",
+    "title": "NGS Quality Control",
+    "section": "Pipes",
+    "text": "Pipes\nVery often in Linux you want to use the output of one command as the input to the next. This can easily be done using the pipe (|) character. For example, suppose I want to count the number of sequences in a FASTA file. I can do this easily using a combination of the search command grep and the word count command wc.\n\ncat myFile.fasta | grep \"&gt;\" | wc -l\n\nLet’s break down what this command is doing. First of all, I access the whole content of myFile.fasta using cat. However, rather than dumping it onto the screen I redirect that to become the input to grep. I tell grep to search for the symbol &gt; and sift out only the lines which contain that symbol. Because this is a FASTA, I know that can only be the header lines. I then feed this output into the wc command, with the option -l to count lines rather than words.\n\n\n\n\n\n\nExercise: using the pipe\n\n\n\n\nTry using the command above to count the number of sequences in subsample_Ill1.fasta.\nWhat happens if you remove | wc -l from the end? Do you understand why?\n\n\n\nPipes are particularly useful as they allow you to run…. LOOPS!"
+  },
+  {
+    "objectID": "2.1_NGS_Quality_Control.html#loops",
+    "href": "2.1_NGS_Quality_Control.html#loops",
+    "title": "NGS Quality Control",
+    "section": "Loops",
+    "text": "Loops\nLoops are one of the best things about working on a Linux system. They allow you to write a command once and then run it on any number of files. There are several kinds of loops which all work on the same principles, so we will focus on the while loop. Let’s look at a simple loop and break it down.\n\nls *.fasta | while read file; do wc -l ${file}; done\n\nThis starts by listing all the FASTA files in the directory Session2 (remember that * stands in for anything). Try running\n\nls *.fasta \n\njust to check you’re happy with that.\nThe next step is to use a pipe. Instead of just listing the FASTA files on the screen, we are going to use that as input for our loop. The loop starts while read file. This means that one at a time, every line of that input will take a turn at being substituted for the word ‘file’ in the command that will follow. You don’t have to call it ‘file’ - it could be banana or profiterole or socks; the only thing that matters is that you use the same word throughout the loop. Whatever word you choose, it becomes something known as a variable: literally, a value that can vary as it stands in for something else. while read sets the value of file, and then whenever we want to access its contents we can do so using ${file}.\nHaving set the loop in progress, a semicolon indicates that next comes the command we want to run for each value of our variable. In this case, I am using wc -l to count the total number of lines in the file. Another semicolon followed by ‘done’ is needed to finish the loop and tell it to go away and run.\n\n\n\n\n\n\nExercise: using loops\n\n\n\n\nTry running the loop above in the Session2 directory.\nTry changing ‘file’ to something else. Does it work?\n[Extension] Using what you’ve learned so far, can you make a loop that will only count the sequence header lines?"
+  },
+  {
+    "objectID": "2.1_NGS_Quality_Control.html#fastqc",
+    "href": "2.1_NGS_Quality_Control.html#fastqc",
+    "title": "NGS Quality Control",
+    "section": "FastQC",
+    "text": "FastQC\nIn the pantheon of great bioinformatics software, FastQC has a special place. It’s free, simple to use and has been around for ages, and everyone uses it because it’s just so good. FastQC will take your FASTQ file and produce a nice easy-to-read report about it with loads of information.\nTo use FastQC on the server, we will first need to load the module. This is the equivalent of starting up a programme on your desktop computer. You can find out what modules are available on the server by typing the command\n\nmodule avail\n\nYou should see that the list includes fastqc/0.11.9. To load this module, simply type\n\nmodule load fastqc/0.11.9\n\nTry this out now!\nAs mentioned before, FastQC is very easy to run. At its most basic (without any extra options), you simply type (substituting file.fastq for the name of the FASTQ file you want to check):\n\nfastqc file.fastq\n\nThere is one extra option that is useful to include, and that is the -o flag. This stands for ‘output’ and tells FastQC what directory to put its output files in.\n\nfastqc -o output_dir file.fastq\n\n\n\n\n\n\n\nExercise: using FastQC\n\n\n\n\nMake a directory called fastqc inside your Session2 folder.\nTry running FastQC on Illumina_1.fastq, using your fastqc directory for the output.\nUse ls to see what output it has created.\nUsing the MobaX file transfer window or FileZilla, transfer the html file to your desktop and open it.\n\nReminder: if using FileZilla, the details are:\n\nHost: sponsa.bios.cf.ac.uk\nUsername: your username\nPassword: your three word password\nPort: Your assigned port number\n\n\n[Extension] Look up the help page using fastqc -h. What other options are available?"
+  },
+  {
+    "objectID": "2.1_NGS_Quality_Control.html#running-and-reusing-scripts",
+    "href": "2.1_NGS_Quality_Control.html#running-and-reusing-scripts",
+    "title": "NGS Quality Control",
+    "section": "Running and Reusing Scripts",
+    "text": "Running and Reusing Scripts\nSo far you have just been typing commands directly into the command line. This is great for exploring directories etc., but now you are starting to do some proper analysis you’ll soon find yourself asking questions like\n\nwhat if I want to run this again?\nwhat if I want to check exactly what I did?\nwhat if I want to show someone else what I did?\n\nThese are excellent questions, and they can all be answered by writing SCRIPTS! If that sounds a bit daunting, a script is simply a text file that you write your commands into. By adding a special line of code called a shebang, the computer can run the commands in this text file as though you had typed them directly onto the command line.\nThe shebang is simply\n\n#!/usr/bin/bash\n\n\n\n\n\n\n\nExercise: a simple script\n\n\n\nLet’s create a file with nano and write a simple script in it. By convention, script files are given the extension .sh rather than .txt\n\nnano test_nano.sh\n\n\ntype the shebang at the top #!/usr/bin/bash\nType ls on the next line\nExit using ctrl-X, save and return to command line\nNow we need to make the file executable (so it can be run as a programme)\n\n\nchmod a+x [script name]\n\nthis is shorthand for chmod (change modify) a(all)+(add)execute(x) [script name] – thus changing the permission to allow everyone to execute a script. For a very helpful guide to chmod see https://en.wikipedia.org/wiki/Chmod\nNow run the program!\n\n./test_nano.sh\n\nWhat output do you get? It is what you expected?"
+  },
+  {
+    "objectID": "2.1_NGS_Quality_Control.html#quality-trimming-using-fastp",
+    "href": "2.1_NGS_Quality_Control.html#quality-trimming-using-fastp",
+    "title": "NGS Quality Control",
+    "section": "Quality trimming using fastp",
+    "text": "Quality trimming using fastp\nHaving assessed the quality of our sequence data, the next thing we want to do is clean it up. There are many programmes available for the task, but we will use the one-stop-shop software fastp which has won many friends by being both comprehensive and easy to use. It has an excellent users’ guide at https://github.com/OpenGene/fastp.\nThe main things fastp does is to trim off bad bases and remove leftover adaptor sequences. It automatically identifies the adapters so you don’t need to tell it in advance what to look for.\n\n\n\n\n\n\nExercise: fastp\n\n\n\nCreate a new file using nano, copy the script below, make it executable and run it! We are going to use the forward and reverse reads for our sample to run fastp in paired-end mode.\nScript:\n\n#!/usr/bin/bash\n\nmodule load fastp/0.20.0\n\nfastp -q 20 -u 10 \\-\\-cut_right -i Illumina_1.fastq -I Illumina_2.fastq -o Illumina_1trimmed.fastq -O Illumina_2trimmed.fastq\n\nLook up the help page for fastp. What does each of the options given above mean?\nUse ls to look at the output. How could the script be improved to make it tidier?\n\n\n\n\n\n\n\n\nExercise: checking it worked!\n\n\n\nRun FastQC on your trimmed Illumina_1 file and compare it to the original. Can you see the difference?"
+  },
+  {
+    "objectID": "2.1_NGS_Quality_Control.html#if-you-have-time-putting-it-all-together",
+    "href": "2.1_NGS_Quality_Control.html#if-you-have-time-putting-it-all-together",
+    "title": "NGS Quality Control",
+    "section": "If you have time: putting it all together",
+    "text": "If you have time: putting it all together\nIn the Session2 directory there is a subdirectory called looping, with five single-end Illumina samples in it. Can you write a script which will use loop over those files to do QC on them, then trim them and re-run the QC? Extra brownie points for keeping the output directories nice and tidy!"
+  },
+  {
+    "objectID": "2.1_NGS_Quality_Control.html#you-have-earned-yourselves-cake",
+    "href": "2.1_NGS_Quality_Control.html#you-have-earned-yourselves-cake",
+    "title": "NGS Quality Control",
+    "section": "You have earned yourselves cake!",
+    "text": "You have earned yourselves cake!"
+  },
+  {
+    "objectID": "2.2_genome_assembly.html",
+    "href": "2.2_genome_assembly.html",
+    "title": "Genome Assembly",
+    "section": "",
+    "text": "NGS Assembly Powerpoint"
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#bioinformatic-process-to-assemble-a-genome",
+    "href": "2.2_genome_assembly.html#bioinformatic-process-to-assemble-a-genome",
+    "title": "Genome Assembly",
+    "section": "Bioinformatic process to assemble a genome",
+    "text": "Bioinformatic process to assemble a genome\nBelow is a walkthrough on the steps necessary to assemble a mitochondrial or bacterial genome. Don’t get lost in the terminal with typing commands meaninglessly, step back and think about the bioinformatic process to get to the end goal."
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#quality-checking-data",
+    "href": "2.2_genome_assembly.html#quality-checking-data",
+    "title": "Genome Assembly",
+    "section": "Quality checking data",
+    "text": "Quality checking data\nYou will often start with raw sequence data in fastq format. You first need to check the quality of the data before proceeding with the assembly, this can be achieved using Fastqc."
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#triming-and-adapter-removal",
+    "href": "2.2_genome_assembly.html#triming-and-adapter-removal",
+    "title": "Genome Assembly",
+    "section": "Triming and adapter removal",
+    "text": "Triming and adapter removal\nRaw sequence data may still contain fragments of the adapter sequences from the sequencing process; these artificial sequences need to be removed. Low quality bases that may occur toward the end of reads can also be trimmed to improve the overall sequence quality. These steps will be carried out using Fastp. After this step you will have processed reads."
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#re-assess-data-quality",
+    "href": "2.2_genome_assembly.html#re-assess-data-quality",
+    "title": "Genome Assembly",
+    "section": "Re-assess data quality",
+    "text": "Re-assess data quality\nFollowing adaptor removal and trimming, We need to repeat the quality checking with Fastqc, but this time we will use the processed reads."
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#genome-assembly",
+    "href": "2.2_genome_assembly.html#genome-assembly",
+    "title": "Genome Assembly",
+    "section": "Genome assembly",
+    "text": "Genome assembly\nWe will assembly the processed reads into an assembly using the assembler Unicycler."
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#rename-assembly-files-and-copy-to-new-directory",
+    "href": "2.2_genome_assembly.html#rename-assembly-files-and-copy-to-new-directory",
+    "title": "Genome Assembly",
+    "section": "Rename assembly files and copy to new directory",
+    "text": "Rename assembly files and copy to new directory\nA big part of bioinformatics is maintaining directory and file organisation. Each mitochondrial genome assembly output by Unicycler will be located in a different folder but have the same generic name: assembly.fasta. We need to rename these files to reflect the input data. Compose a loop to copy and rename these files to a new directory."
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#assembly-statistics",
+    "href": "2.2_genome_assembly.html#assembly-statistics",
+    "title": "Genome Assembly",
+    "section": "Assembly statistics",
+    "text": "Assembly statistics\nOnce our assembly files have been renamed and copied to a single location, we can analyse them for quality statistics. Use Quast to report useful metrics such as assembly length, GC content, contig number, and N50 value. As the mitochondrial genomes are small and assembly well, there is a bacterial genome assembly Quast output to view in the data directory for this session."
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#assembly-graph",
+    "href": "2.2_genome_assembly.html#assembly-graph",
+    "title": "Genome Assembly",
+    "section": "Assembly graph",
+    "text": "Assembly graph\nOne of the files produced by Unicycler is an assembly graph (gfa file extension). This file details the links between contigs that were produced during the assembly and can provide valuable information on the difficult-to-assemble regions of the genome. As the mitochondrial genomes are small and assembly well, there is a bacterial genome assembly graph to visualise with Bandage."
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#sequence-data-and-files-available-for-mitochondrial-assembly",
+    "href": "2.2_genome_assembly.html#sequence-data-and-files-available-for-mitochondrial-assembly",
+    "title": "Genome Assembly",
+    "section": "Sequence data and files available for mitochondrial assembly",
+    "text": "Sequence data and files available for mitochondrial assembly\n\n\nEach group will have access to a set of paired fastq reads: R1 and R2 files.\nThere is also a representative bacterial genome assembly with a graphical assembly file and quast output as an example of a more complicated assembly."
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#bioinformatic-software-and-tools",
+    "href": "2.2_genome_assembly.html#bioinformatic-software-and-tools",
+    "title": "Genome Assembly",
+    "section": "Bioinformatic software and tools",
+    "text": "Bioinformatic software and tools\nWe will use multiple bioinformatic packages to assemble a genome and provide assembly statistics\ntmux – terminal multiplexer\nFastqc – Quality control of reads\nFastp – adapter removal and trimming tool\nUnicycler – genome assembler\nQuast – genome assembly statistics\nBandage- view graphical fragment assembly (gfa) files\n\nRemember that you can access the “help” option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or –help. After using a program, dont forget to unload the module."
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#software-usage",
+    "href": "2.2_genome_assembly.html#software-usage",
+    "title": "Genome Assembly",
+    "section": "Software usage",
+    "text": "Software usage\n\ntmux\ntmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. If you run a script in the terminal and then close the session/turn off the laptop, the script will be cancelled. To avoid this, we use tmux. This will allow you to run scripts and programs in the terminal, close the terminal/turn off your laptop, and the script will continue to run.\nmodule load tmux/3.2a\n\nBasic usage cheatsheet: https://tmuxcheatsheet.com/\nStart a new session:\ntmux new -s [session name]\nClose a session:\nCtrl + b, then d\nList available sessions:\ntmux list\nRe-join an existing session:\ntmux a -t [session name]\nDelete a session:\ntmux kill-session -t [session name]\n\n\n\nFastqc\nA quality control tool for high throughput sequence data.\nmodule load fastqc/0.11.9\n Basic usage:\nCreate the output directory before running the command.\nfastqc --threads [thread number] [input fastq file] --outdir [output directory]\nCheck out the html files created for a report of the fastq file read quality\n\n\n\nFastp\nA tool designed to provide fast all-in-one preprocessing for FastQ files. This tool is developed in C++ with multithreading supported to afford high performance.\nmodule load fastp/0.20.0\n\nBasic usage: Create the output directory before running the command.\nfastp -w [thread number] -i [input fastq R1] -I [input fastq R2] -o [output fastq R1] -O [output fastq R2] -h [trimming_report.html]\nCheck out the html report for a summary of the trimming process – the adaptors have already been removed, and reads are high quality so no trimming should have been performed.\n\n\n\nUnicycler\nUnicycler is an assembly pipeline for bacterial genomes. It can assemble Illumina-only read sets where it functions as a SPAdes-optimiser.\nmodule load unicycler/v0.5.0\n\nBasic usage:\nunicycler -t [thread number] -1 [processed fastq R1] -2 [processed fastq R2] \\\n-o [output directory]\nEach assembly will be located in a different directory within the parent directory indicated by the -o option\n\n\n\nQuast\nQUAST stands for QUality ASsessment Tool. It evaluates genome/metagenome assemblies by computing various metrics.\nmodule load quast/5.2.0\n\nBasic usage:\nquast.py -t [thread number] -o [output directory] [input fasta file]\nOutput directory contains the report in multiple formats. To view the report on the terminal use the cat command which prints the contents of a file to the terminal (don’t forget to navigate to the file first as it’s in a different directory!):\ncat [report.txt]\n\n\n\nBandage\nBandage is a program for visualising de novo assembly graphs. By displaying connections which are not present in the contigs file, Bandage opens up new possibilities for analysing de novo assemblies. Download to your local laptop from the link: https://rrwick.github.io/Bandage/ or access through Guacamole."
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#assembly-walk-through-v1",
+    "href": "2.2_genome_assembly.html#assembly-walk-through-v1",
+    "title": "Genome Assembly",
+    "section": "Assembly Walk Through V1",
+    "text": "Assembly Walk Through V1"
+  },
+  {
+    "objectID": "2.2_genome_assembly.html#assembly-walk-through-v2",
+    "href": "2.2_genome_assembly.html#assembly-walk-through-v2",
+    "title": "Genome Assembly",
+    "section": "Assembly Walk Through V2",
+    "text": "Assembly Walk Through V2"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html",
+    "href": "3.1_Genome_visualisation_and_annotation.html",
+    "title": "Genome Visualisation and Annotation",
+    "section": "",
+    "text": "Genome Visualisation Powerpoint"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#data",
+    "href": "3.1_Genome_visualisation_and_annotation.html#data",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Data",
+    "text": "Data\nThe data you will need for this exercise are:\n\nexample genbank or embl files\nfastq file (pair end or single end data)\nfasta file representing assembly of data from (1)"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#software",
+    "href": "3.1_Genome_visualisation_and_annotation.html#software",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Software",
+    "text": "Software\nGraphics software (https://sponsa.bios.cf.ac.uk/guacamole/ or install local)\n\nArtemis\nIGV\n\nServer command line modules (use command module avail to check versions):\n\nminimap2\nprokka\nmitos2\nNCBI Blast+"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#data-1",
+    "href": "3.1_Genome_visualisation_and_annotation.html#data-1",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Data",
+    "text": "Data\n\nExample genbank or embl files"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#software-1",
+    "href": "3.1_Genome_visualisation_and_annotation.html#software-1",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Software",
+    "text": "Software\nArtemis\nThis can be installed locally local install instructions Warning this can take time please do not do it during teaching session.\nIf you are installing Artemis on a Mac you will need to first install Java Java SE 15.0.2 which can be downloaded from TechSpot. Then you can Install Artemis Software dm.\nAdditional sanger center traning material can be downloaded using the following link - Sanger center traning\nWe are going to use Artemis using the VNC access to your Linux desktop - go to https://sponsa.bios.cf.ac.uk/guacamole/ and login using your university credentials.\n\n\n\n\n\nStart Terminal\n\n\n\n\n\nNow Load Artemis Module and initiate Artemis with command art\nmodule load artemis/18.2.0\nart\nArtemis Opening Screen"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#workshop",
+    "href": "3.1_Genome_visualisation_and_annotation.html#workshop",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Workshop",
+    "text": "Workshop\nOpen Genbank File\n&gt;File &gt;Open\nNavigate to your Session3 folder and select the genbank file (NC_003428.gb).\n\n\n\n\n\nCancel any warnings you should see the following window;\n\n\n\n\n\nThe blue highlighted area should highlight open reading frames (ORFs) and the vertical lines stop codons - notice that there are vertical line in the middle of ORFs this indicates that we are using the wrong codon table. Arrange your graphics windows so you can see the Opening window which will be hidden behind the gene display window - you should see something like this.\n\n\n\n\n\nNow change the codon table by selecting\n&gt; Options &gt; Genetic Code Tables\nselecet\nVertebrate Mitochondrial\nYour gene visualisation should now look like this"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#excercises",
+    "href": "3.1_Genome_visualisation_and_annotation.html#excercises",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Excercises",
+    "text": "Excercises\nAs we look at creating are own annotation you will be able to visual the various outputs using Artemis.\nI have included a range of extension exercises / guides generated by Sanger center (the people to wrote Artemis) these are included in you Session Folder under Artemis_Sanger_Center"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#data-2",
+    "href": "3.1_Genome_visualisation_and_annotation.html#data-2",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Data",
+    "text": "Data\n\nExample genbank or embl files"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#software-2",
+    "href": "3.1_Genome_visualisation_and_annotation.html#software-2",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Software",
+    "text": "Software\n[Integrative Genomics Viewer](https://software.broadinstitute.org/software/igv/) can be IGV local - Warning this can take time please do not do it during teaching session].\nWe are going to use Artemis using the VNC access to your Linux desktop - go to https://sponsa.bios.cf.ac.uk/guacamole/ and login using your university credentials.\nGuacamole Opening Screen\n\n\n\n\n\nStart Terminal\n\n\n\n\n\nNow Load IGV Module and initiate Artemis with command igv.sh\nmodule load module load igv/2.12.3\nigv.sh\nIVG Opening Screen"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#workshop-1",
+    "href": "3.1_Genome_visualisation_and_annotation.html#workshop-1",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Workshop",
+    "text": "Workshop\nNow open the GenBank file using Genomes\n&gt; Genomes &gt; Load Genome from File\nSelect GenBank file using file browser - you should see the following image"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#excercise",
+    "href": "3.1_Genome_visualisation_and_annotation.html#excercise",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Excercise",
+    "text": "Excercise\nAs you generate annotations - look to see how you can overlay them into IVG and also try and visualise the whole bacterial genome and its prokka annotation."
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#data-3",
+    "href": "3.1_Genome_visualisation_and_annotation.html#data-3",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Data",
+    "text": "Data\n\nfastq file (pair end or single end data)\nfasta file representing assembly of data from (1)"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#software-3",
+    "href": "3.1_Genome_visualisation_and_annotation.html#software-3",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Software",
+    "text": "Software\n(Minimap - mapping software)[https://github.com/lh3/minimap2]\nmodule load minimap2/2.14\nSamtools - bam/sam tools utilities (for alignment files)\nmodule load samtools/1.15.1"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#workshop-2",
+    "href": "3.1_Genome_visualisation_and_annotation.html#workshop-2",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Workshop",
+    "text": "Workshop\nAlign sequences to your assemblies and convert to Bam file\nminimap2 -ax sr [your contigs.fasta] [forward_read.fastq] [reverse_read.fastq] &gt; aln.sam\nsamtools view -b -S aln.sam &gt; aln.bam\nsamtools sort aln.bam &gt; aln_sorted.bam\nsamtools index aln_sorted.bam\n\n\n\n\n\n\nExcersise Minimap\n\n\n\nOverlay the bam file you have generated into your assembly contig using Artemis and IGV"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#data-4",
+    "href": "3.1_Genome_visualisation_and_annotation.html#data-4",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Data",
+    "text": "Data\n\nSequence reads and assembled genomes (contigs.fasta)"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#software-4",
+    "href": "3.1_Genome_visualisation_and_annotation.html#software-4",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Software",
+    "text": "Software\nPROKKA git hub site\nmodule load prooka\ncheck installed version with module avail"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#workshop-3",
+    "href": "3.1_Genome_visualisation_and_annotation.html#workshop-3",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Workshop",
+    "text": "Workshop\n\nProkka\nSummary: Prokka is a piece of software that is designed to identify genes from sequence data. It works on prokaryotes. Once it identifies genes, it creates a file including the sequence for the sample, along with a set of annotations to that sequence, which identify the locations of genes.\nBasic commands / usage: To run prokka on an assembly (with an example filename of ‘contigs.fa’ use the command:\nmodule load prokka_mambaforge/1.14.6\nprokka contigs.fa\nIf you want to view the names of output files, you need to provide a name for the files and a directory where they should be saved:\nChoose the names of the output files with –outdir and –prefix\nmodule load prokka_mambaforge/1.14.6\nprokka --outdir mydir --prefix mygenome contigs.fa\nNOTE: Prokka defaults to analysing Bacteria. Think about what your sample is and what translation table you should use (This is also important for Artemis!). If you’re working on mitochondria include –kingdom mito and the relevant –gcodeSome examples:\n1.  The Standard Code\n2.  The Vertebrate Mitochondrial Code\n3.  The Yeast Mitochondrial Code\n4.  The Invertebrate Mitochondrial Code\n5.  The Echinoderm and Flatworm Mitochondrial Code\nA full command for mitochondrial annotation would look like this:\nmodule load prokka_mambaforge/1.14.6p\n\nprokka --outdir prokka --kingdom Mitochondria --gcode 2 assembly/contigs.fasta"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#prokka-loop",
+    "href": "3.1_Genome_visualisation_and_annotation.html#prokka-loop",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Prokka Loop",
+    "text": "Prokka Loop\n\n\n\nBARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR\n[BARNAP Github](https://github.com/tseemann/barrnap)\nSummary: Barrnap predicts the location of ribosomal RNA genes in genomes. It supports bacteria (5S,23S,16S), archaea (5S,5.8S,23S,16S), metazoan mitochondria (12S,16S) and eukaryotes (5S,5.8S,28S,18S).\nIt takes FASTA DNA sequence as input, and write GFF3 as output. It uses the new NHMMER tool that comes with HMMER 3.1 for HMM searching in RNA:DNA style. NHMMER binaries for 64-bit Linux and Mac OS X are included and will be auto-detected. Multithreading is supported and one can expect roughly linear speed-ups with more CPUs.\nBasic command Usage:\nmodule load barrnap/0.8\nbarrnap [options] Your_contigs.fasta &gt; outfile.gff\nOptions:\n--help            This help\n--version         Print version and exit\n--citation        Print citation for referencing barrnap\n--kingdom [X]     Kingdom: arc mito euk bac (default 'bac')\n--quiet           No screen output (default OFF)\n--threads [N]     Number of threads/cores/CPUs to use (default '8')\n--lencutoff [n.n] Proportional length threshold to label as partial (default '0.8')\n--reject [n.n]    Proportional length threshold to reject prediction (default '0.5')\n--evalue [n.n]    Similarity e-value cut-off (default '1e-06')\n--incseq          Include FASTA input sequences in GFF3 output (default OFF)\n\n\n\n\n\n\nBarnap exercises\n\n\n\n\nExercise 1:Running PROKKA and checking Annotations\nTake your assembled mitochondrial genome, assemble it and run Prokka to annotate the genome. When you have done your visualization introduction you can open this in Artemis.\nWhat do you see as you move along the genome? Are there regions where genes should be that Prokka has not annotated? How would you work out if a gene should be there?\n\n\nExercise 2: Find Ribosomal Sequences\nUse barrnap to generate a GFF file predicting the position of any ribosomal sequences – remember to customize the ‘Kingdom’ parameter to reflect the source of the sequence you are using."
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#data-5",
+    "href": "3.1_Genome_visualisation_and_annotation.html#data-5",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Data",
+    "text": "Data\n\nUse the assembled contig from your last session (contigs.fasta)"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#software-5",
+    "href": "3.1_Genome_visualisation_and_annotation.html#software-5",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Software",
+    "text": "Software\n[mitos2 source](https://gitlab.com/Bernt/MITOS), [mitos browser version](http://mitos2.bioinf.uni-leipzig.de/)\nmodule load mitos/2.0.4\nbioperl-live/release-1-7-2\nmodule load bioperl-live/release-1-7-2\nselectSeqsAboveMinLength\n\n    ~/classdata/Bioinformatics/REFS/script/selectSeqsAboveMinLength.pl\n\nbedtools\nmodule load bedtools2/2.30.0"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#workshop-4",
+    "href": "3.1_Genome_visualisation_and_annotation.html#workshop-4",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Workshop",
+    "text": "Workshop\n\nExtract largest contig\nUse loop to extract out your longest contig - if single contig no need to perform this step\n\nmodule load bioperl-live/release-1-7-2\nfor i in {1..3};do\nperl ~/classdata/Bioinformatics/REFS/script/selectSeqsAboveMinLength.pl &lt;your_assembly.fasta&gt; &lt;largest_contig.fasta&gt; 8000\ndone\n\n\n\nAnnotate with MITOS2\nMITOS is a web server for the automatic annotation of metazoan mitochondrial genomes. MITOS allows a reliable and consistent annotation of proteins and non-coding RNAs. The analysis steps are as follows:\n• Candidate protein coding genes are found by detecting congruences in the results of blastx searches against the amino acid sequences of the annotated proteins of metazoan mitochondrial genomes found in the NCBI RefSeq 81. A postprocessing step detects start and stop codons, duplicates, and hits belonging to the same transcript, e.g. frame shift or splicing.\n• tRNAs are annotated using MITFI, i.e. novel structure-based covariance models as described in Jühling, et al. Nucleic Acids Research, 2012, 40(7):2833-2845. This approach was shown to have an unmatched sensitivity (outperforming ARWEN and tRNAscan-SE, respectively) and a precision higher than ARWEN and equivalent to tRNAscan-SE.\n• rRNA annotation is performed using structure-based covariance # models that have been developed similarly to the tRNA models. Structural considerations improve 5’ and 3’ end predictions of the rRNAs.\n• In a final step, conflicts are resolved and the outcome is prepared for visualization.\nNB ensure you create you output folder before you run mitos\n\nmkdir mitos_annot\nrunmitos.py  -i contigs.fasta -c 2 -o mitos_annot -R ~/classdata/Bioinformatics/REFS/mitos/ -r refseq81m --rrna 0 --trna 0 --intron 0 --debug --noplot\n\nloop would be something like this\n\n#!/bin/bash\n\nworkdir=~/mydata/Session3/\n\nmodule load mitos/2.0.4\n\nfor i in {1..3}; do\n\nmkdir grp${i}_mitos_annot\n\nrunmitos.py -i \"${workdir}/group${i}_unknown_cetacean_assembly.fasta\" \\\n            -c 2 \\\n            -o grp${i}_mitos_annot \\\n            -R ~/classdata/Bioinformatics/REFS/mitos/ \\\n            -r refseq81m \\\n            --rrna 0 \\\n            --trna 0 \\\n            --intron 0 \\\n            --debug \\\n            --noplot\n\ndone\n\nmodule unload mitos/2.0.4"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#worked-mitoss-loop-example",
+    "href": "3.1_Genome_visualisation_and_annotation.html#worked-mitoss-loop-example",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Worked Mitoss Loop example",
+    "text": "Worked Mitoss Loop example\n\n\n\nExtract Fasta sequence for genes in Bed file\nYou can extract the fasta sequence for the genes in the bed file using bedtools getfasta:\n\nmodule load bedtools2/2.30.0\nbedtools getfasta –fi contigs.fasta -bed result.bed -name &gt;result.fasta\n\nOr using a loop\n\nfor i in {1..3}; \ndo \nbedtools getfasta -fi spades_output_${i}/before_rr.fasta -bed mitos_${i}/result.bed -name &gt;mitos_${i}_result.fasta\ndone\n\n\n\n\n\n\n\nmitos2 Excersises\n\n\n\nWe will now annotate your genome using mitos:\n\nUse seqtk seq to select only the largest contig into a new file\nUse mitos to annotate the contig, and visualize it with Artemis\nCreate a loop to generate the output for all canidiea assembiles\n[Extension] Use the BEDtools to extract the sequence of the annotated genes\n[Extension] Use seqtk to extract just the COX1 gene"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#data-6",
+    "href": "3.1_Genome_visualisation_and_annotation.html#data-6",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Data",
+    "text": "Data\n\nUse the assembled contig from your last session (contigs.fasta)\nBlast Databases, Location:\n\n\n    ~/classdata/Bioinformatics/REFS/blastdb/\n\nswissprot -- uniprot protein database (Uniprot -- annotated protein database) \nmito_pro -- metazoan mitochondrial database \n16S_ribosomal_RNA \n16S ribosomal database"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#software-6",
+    "href": "3.1_Genome_visualisation_and_annotation.html#software-6",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Software",
+    "text": "Software\nNCBI Blast+ suite available Don’t forget to load the blast and any other modules you need!\nmodule load blast-plus/2.12.0"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#anatomy-of-the-blast-command",
+    "href": "3.1_Genome_visualisation_and_annotation.html#anatomy-of-the-blast-command",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Anatomy of the BLAST command",
+    "text": "Anatomy of the BLAST command\nA basic blast command states your reference database that has been constructed, your query, and an output file: blastx –db /home/db/fish –query contigs.fasta –out contigs_blx.txt This uses blastx to match DNA query against protein database. Targets the protein database stored at /home/db/ that’s named ‘fish’. Blast using contig.fasta file and puts the output in contig_blx.txt"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#blast-programs",
+    "href": "3.1_Genome_visualisation_and_annotation.html#blast-programs",
+    "title": "Genome Visualisation and Annotation",
+    "section": "BLAST Programs",
+    "text": "BLAST Programs\n\n\n\n\n\n\n\n\nProgram\nInput-Output\nDescription\n\n\n\n\nblastn\nnucleotide-nucleotide\nThis program, given a DNA query, returns the most similar DNA sequences from the DNA database that the user specifies.\n\n\nblastp\nprotein-protein\nThis program, given a protein query, returns the most similar protein sequences from the protein database that the user specifies.\n\n\nblastx\nnucleotide\n6-frame translation-protein This program compares the six-frame conceptual translation products of a nucleotide query sequence (both strands) against a protein sequence database.\n\n\ntblastx\nnucleotide\n6-frame translation-nucleotide 6-frame translation This program is the slowest of the BLAST family. It translates the query nucleotide sequence in all six possible frames and compares it against the six-frame translations of a nucleotide sequence database. The purpose of tblastx is to find very distant relationships between nucleotide sequences.\n\n\ntblastn\nprotein-nucleotide\n6-frame translation This program compares a protein query against the all six reading frames of a nucleotide sequence database.\n\n\npsi-blast\nposition-specific\nThis program is used to find distant relatives of a protein. First, a list of all closely related proteins is created. These proteins are combined into a general “profile” sequence, which summarises significant features present in these sequences. A query against the protein database is then run using this profile, and a larger group of proteins is found. This larger group is used to construct another profile, and the process is repeated. By including related proteins in the search, PSI-BLAST is much more sensitive in picking up distant evolutionary relationships than a standard protein-protein BLAST.\n\n\nmegablast\nlarge queries seqs\nWhen comparing large numbers of input sequences via the command-line BLAST, “megablast” is much faster than running BLAST multiple times. It concatenates many input sequences together to form a large sequence before searching the BLAST database, then post-analyze the search results to glean individual alignments and statistical values"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#blast-databases",
+    "href": "3.1_Genome_visualisation_and_annotation.html#blast-databases",
+    "title": "Genome Visualisation and Annotation",
+    "section": "BLAST Databases",
+    "text": "BLAST Databases\nCurrently installed are:\n• swissprot – uniprot protein database (Uniprot – annotated protein database) • mito_pro – metazoan mitochondrial database • 16S_ribosomal_RNA – 16S ribosomal database • hum_mt_pep – human mitochondrial\nYou already have the databases you require today but for reference it is at location\n ~/classdata/Bioinformatics/REFS/blastdb/\nTo create blast databases use the makeblastdb. To create a new database:\n\n    makeblastdb -in nucleotide_seq.fa –dbtype nucl –title my_db -out my_seq"
+  },
+  {
+    "objectID": "3.1_Genome_visualisation_and_annotation.html#command-line-options",
+    "href": "3.1_Genome_visualisation_and_annotation.html#command-line-options",
+    "title": "Genome Visualisation and Annotation",
+    "section": "Command line options",
+    "text": "Command line options\n-in         [input_file] \n-dbtype     [molecule_type], nucl – nucleotide or prot - protein\n-title  [database_title]\n-out        [database_name]\nOTHER OPTIONS\n  blastn [-h] [-help] [-import_search_strategy filename]\n    [-export_search_strategy filename] [-task task_name] [-db database_name]\n    [-dbsize num_letters] [-gilist filename] [-seqidlist filename]\n    [-negative_gilist filename] [-negative_seqidlist filename]\n    [-taxids taxids] [-negative_taxids taxids] [-taxidlist filename]\n    [-negative_taxidlist filename] [-entrez_query entrez_query]\n    [-db_soft_mask filtering_algorithm] [-db_hard_mask filtering_algorithm]\n    [-subject subject_input_file] [-subject_loc range] [-query input_file]\n    [-out output_file] [-evalue evalue] [-word_size int_value]\n    [-gapopen open_penalty] [-gapextend extend_penalty]\n    [-perc_identity float_value] [-qcov_hsp_perc float_value]\n    [-max_hsps int_value] [-xdrop_ungap float_value] [-xdrop_gap float_value]\n    [-xdrop_gap_final float_value] [-searchsp int_value] [-penalty penalty]\n    [-reward reward] [-no_greedy] [-min_raw_gapped_score int_value]\n    [-template_type type] [-template_length int_value] [-dust DUST_options]\n    [-filtering_db filtering_database]\n    [-window_masker_taxid window_masker_taxid]\n    [-window_masker_db window_masker_db] [-soft_masking soft_masking]\n    [-ungapped] [-culling_limit int_value] [-best_hit_overhang float_value]\n    [-best_hit_score_edge float_value] [-subject_besthit]\n    [-window_size int_value] [-off_diagonal_range int_value]\n    [-use_index boolean] [-index_name string] [-lcase_masking]\n    [-query_loc range] [-strand strand] [-parse_deflines] [-outfmt format]\n    [-show_gis] [-num_descriptions int_value] [-num_alignments int_value]\n    [-line_length line_length] [-html] [-sorthits sort_hits]\n    [-sorthsps sort_hsps] [-max_target_seqs num_sequences]\n    [-num_threads int_value] [-remote] [-version]\n\n\n\n\n\n\nExercises: Annotate your mitochondria\n\n\n\nTake your assembled mitochondrial genome and identify mitochondrial orthologues using blast.\n\nPerform blastx analysis of your sequence against the mitochondrial protein database. Interrogate the using ‘less’.\nRe-run the blastx analysis with the output format parameter set to a cutomised -outfmt 6, which will output the data into a tablular format compatible with Artemis.\n\n\n    blastx -query [contigs.fasta] -db ~/classdata/Bioinformatics/REFS/blastdb/hum_mt_pep -out [output.txt] -outfmt \"6 qseqid sseqid pident length mismatch gapopen sstart send qstart qend evalue bitscore\"\n\nYou can now open the fasta sequence you have used in the blast with Artemis and then overlay with the clast output file.\n\nRepeat the blastx analysis of your sequence against the mitochondrial protein database [mito_pro] only returning blast matches with an E value lower that 1E-10 and using all 4 threads.\nRepeat the blastx analysis of your sequence against the mitochondrial protein database, only returning blast matches with an E value lower that 1E-10, using all 4 threads, limiting the outputs so that you keep to 100 and putting the outputs into the tabular format compatible with Artemis.\n[Extension] Produce a loop to annotate all assembled contigs using blast\n[Extension] You can try repeating this exercise with swisprot and note the differences"
+  },
+  {
+    "objectID": "3.2_hybrid_assemblies.html",
+    "href": "3.2_hybrid_assemblies.html",
+    "title": "Hybrid Assemblies",
+    "section": "",
+    "text": "Illumina Data bug_illumina_reads_1.fastq\nbug_illumina_reads_2.fastq Nanopore Reads (corrected) bug_nanopore_reads.fasta\n\n\n\nFMLRC: Paper - https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2051-3 FMLRC: fmlrc github home page - https://github.com/holtjma/fmlrc FMLRC: Quick Start Guide - https://github.com/holtjma/fmlrc/wiki/Quick-start-test\n\n\n\nPython 2.7 - tested on 2.7.6; assumes pip is installed as well\nC++ compiler - tested with Apple LLVM version 8.1.0 (clang-802.0.42); should work with most up-to-date compilers\n\n\n\n\n\npip install msbwt \n\n\n\ngit clone https://github.com/lh3/ropebwt2.git \ncd ropebwt2 \nmake \nd ~/ \n\n\n\ngit clone https://github.com/holtjma/fmlrc.git \ncd fmlrc \nmake \ncd ~/ \n\n\n\nUsage:\nfmlrc [options] &lt;comp_msbwt.npy&gt; &lt;long_reads.fa&gt; &lt;corrected_reads.fa&gt;\nOptions:\n-h        print help menu \n-v        print version number and exit \n-k INT    small k-mer size (default: 21) \n-K INT    large K-mer size (default: 59), set K=k for single pass \n-p INT    number of correction threads \n-b INT    index of read to start with (default: 0) \n-e INT    index of read to end with (default: end of file) \n-m INT    absolute minimum count to consider a path (default: 5) \n-f FLOAT  dynamic minimum fraction of median to consider a path (default: .10) \n-B INT    set branch limit to &lt;INT&gt;*&lt;k or K&gt; (default: 4) \n-i        build a sampled FM-index instead of bit arrays \n-F INT    FM-index is sampled every 2**&lt;INT&gt; values (default: 8); requires \\-i \n-V        verbose output \n\n\n\n\n\n\nExcerise: FMLRC Error Correction\n\n\n\n\n\nawk \"NR % 4 == 2\" file_name_*.fq | sort -T ./temp | tr NT TN | ~/ropebwt2/ropebwt2 -LR | tr NT TN | msbwt convert ./file_name_msbwt\n\n\n\n~/fmlrc/fmlrc -p 8 -V -e [No. of reads] ./file_name_msbwt/comp_msbwt.npy ./nanopore_reads.fasta ./corrected_final.fa"
+  },
+  {
+    "objectID": "3.2_hybrid_assemblies.html#data",
+    "href": "3.2_hybrid_assemblies.html#data",
+    "title": "Hybrid Assemblies",
+    "section": "",
+    "text": "Illumina Data bug_illumina_reads_1.fastq\nbug_illumina_reads_2.fastq Nanopore Reads (corrected) bug_nanopore_reads.fasta"
+  },
+  {
+    "objectID": "3.2_hybrid_assemblies.html#tools",
+    "href": "3.2_hybrid_assemblies.html#tools",
+    "title": "Hybrid Assemblies",
+    "section": "",
+    "text": "FMLRC: Paper - https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2051-3 FMLRC: fmlrc github home page - https://github.com/holtjma/fmlrc FMLRC: Quick Start Guide - https://github.com/holtjma/fmlrc/wiki/Quick-start-test"
+  },
+  {
+    "objectID": "3.2_hybrid_assemblies.html#fmlrc-software-installation",
+    "href": "3.2_hybrid_assemblies.html#fmlrc-software-installation",
+    "title": "Hybrid Assemblies",
+    "section": "",
+    "text": "Python 2.7 - tested on 2.7.6; assumes pip is installed as well\nC++ compiler - tested with Apple LLVM version 8.1.0 (clang-802.0.42); should work with most up-to-date compilers"
+  },
+  {
+    "objectID": "3.2_hybrid_assemblies.html#installation",
+    "href": "3.2_hybrid_assemblies.html#installation",
+    "title": "Hybrid Assemblies",
+    "section": "",
+    "text": "pip install msbwt \n\n\n\ngit clone https://github.com/lh3/ropebwt2.git \ncd ropebwt2 \nmake \nd ~/ \n\n\n\ngit clone https://github.com/holtjma/fmlrc.git \ncd fmlrc \nmake \ncd ~/ \n\n\n\nUsage:\nfmlrc [options] &lt;comp_msbwt.npy&gt; &lt;long_reads.fa&gt; &lt;corrected_reads.fa&gt;\nOptions:\n-h        print help menu \n-v        print version number and exit \n-k INT    small k-mer size (default: 21) \n-K INT    large K-mer size (default: 59), set K=k for single pass \n-p INT    number of correction threads \n-b INT    index of read to start with (default: 0) \n-e INT    index of read to end with (default: end of file) \n-m INT    absolute minimum count to consider a path (default: 5) \n-f FLOAT  dynamic minimum fraction of median to consider a path (default: .10) \n-B INT    set branch limit to &lt;INT&gt;*&lt;k or K&gt; (default: 4) \n-i        build a sampled FM-index instead of bit arrays \n-F INT    FM-index is sampled every 2**&lt;INT&gt; values (default: 8); requires \\-i \n-V        verbose output \n\n\n\n\n\n\nExcerise: FMLRC Error Correction\n\n\n\n\n\nawk \"NR % 4 == 2\" file_name_*.fq | sort -T ./temp | tr NT TN | ~/ropebwt2/ropebwt2 -LR | tr NT TN | msbwt convert ./file_name_msbwt\n\n\n\n~/fmlrc/fmlrc -p 8 -V -e [No. of reads] ./file_name_msbwt/comp_msbwt.npy ./nanopore_reads.fasta ./corrected_final.fa"
+  },
+  {
+    "objectID": "3.2_hybrid_assemblies.html#data-1",
+    "href": "3.2_hybrid_assemblies.html#data-1",
+    "title": "Hybrid Assemblies",
+    "section": "Data",
+    "text": "Data\nIllumina Data \nbug_illumina_reads_1.fastq   \nbug_illumina_reads_2.fastq \nNanopore Reads (corrected) \nbug_nanopore_reads_corrected.fasta (you shoould have generated these from previously)"
+  },
+  {
+    "objectID": "3.2_hybrid_assemblies.html#tools-1",
+    "href": "3.2_hybrid_assemblies.html#tools-1",
+    "title": "Hybrid Assemblies",
+    "section": "Tools",
+    "text": "Tools\nSPAdes – instal using module load\nUsage: spades.py [options\\ -o &lt;output_dir&gt;\n\nBasic options:\n-o &lt;output_dir&gt; directory to store all the resulting files (required) \n--sc                this flag is required for MDA (single-cell) data \n--meta          this flag is required for metagenomic sample data \n--rna               this flag is required for RNA-Seq data \n--plasmid           runs plasmidSPAdes pipeline for plasmid detection \n--iontorrent        this flag is required for IonTorrent data \n--test          runs SPAdes on toy dataset \n-h/--help           prints this usage message \n-v/--version        prints version \n\n\nInput data:\n--12 &lt;filename&gt; file with interlaced forward and reverse paired-end reads \n-1 &lt;filename&gt;       file with forward paired-end reads \n-2 &lt;filename&gt;       file with reverse paired-end reads \n-s &lt;filename&gt;       file with unpaired reads \n--pe&lt;#&gt;-12 &lt;filename&gt;   file with interlaced reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--pe&lt;#&gt;-1  &lt;filename&gt;   file with forward reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--pe&lt;#&gt;-2  &lt;filename&gt;   file with reverse reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--pe&lt;#&gt;-s  &lt;filename&gt;   file with unpaired reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--pe&lt;#&gt;-&lt;or&gt;    orientation of reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff) \n--s&lt;#&gt;  &lt;filename&gt;  file with unpaired reads for single reads library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)     --mp&lt;#&gt;-12  &lt;filename&gt;  file with interlaced reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--mp&lt;#&gt;-1  &lt;filename&gt;   file with forward reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)     --mp&lt;#&gt;-2  &lt;filename&gt;   file with reverse reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)     --mp&lt;#&gt;-s  &lt;filename&gt;   file with unpaired reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--mp&lt;#&gt;-&lt;or&gt;    orientation of reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff) \n--hqmp&lt;#&gt;-12  &lt;filename&gt;    file with interlaced reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--hqmp&lt;#&gt;-1  &lt;filename&gt; file with forward reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--hqmp&lt;#&gt;-2  &lt;filename&gt; file with reverse reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--hqmp&lt;#&gt;-s  &lt;filename&gt; file with unpaired reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--hqmp&lt;#&gt;-&lt;or&gt;  orientation of reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff) \n--nxmate&lt;#&gt;-1  &lt;filename&gt;   file with forward reads for Lucigen NxMate library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--nxmate&lt;#&gt;-2  &lt;filename&gt;   file with reverse reads for Lucigen NxMate library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) \n--sanger  &lt;filename&gt;    file with Sanger reads \n--pacbio  &lt;filename&gt;    file with PacBio reads \n--nanopore  &lt;filename&gt;  file with Nanopore reads \n--tslr  &lt;filename&gt;  file with TSLR-contigs \n--trusted-contigs  &lt;filename&gt;   file with trusted contigs \n--untrusted-contigs  &lt;filename&gt; file with untrusted contigs \n\n\nPipeline options:\n--only-error-correction runs only read error correction (without assembling) \n--only-assembler    runs only assembling (without read error correction) \n--careful   tries to reduce number of mismatches and short indels \n--continue  continue run from the last available check-point \n--restart-from  &lt;cp&gt;    restart run with updated options and from the specified check-point ('ec', 'as', 'k&lt;int&gt;', 'mc') \n--disable-gzip-output   forces error correction not to compress the corrected reads \n--disable-rr    disables repeat resolution stage of assembling \n\n\nAdvanced options:\n    --dataset  &lt;filename&gt;   file with dataset description in YAML format \n    -t/--threads &lt;int&gt;  number of threads \n    [default: 16] \n    -m/--memory &lt;int&gt;   RAM limit for SPAdes in Gb (terminates if exceeded) [default: 250] \n    --tmp-dir &lt;dirname&gt;     directory for temporary files [default: &lt;output_dir&gt;/tmp] \n    -k &lt;int,int,...&gt;        comma-separated list of k-mer sizes (must be odd and less than 128) [default: 'auto'] \n    --cov-cutoff &lt;float&gt;    coverage cutoff value (a positive float number, or 'auto', or 'off') [default: 'off'] \n    --phred-offset  &lt;33 or 64&gt;  PHRED quality offset in the input reads (33 or 64) [default: auto-detect] \n    \n\n\n\n\n\n\nExcercise: SPades Hybrid\n\n\n\nTry and run spades with both the short reads on there own and then using a hybrid assembly with nanopore data, evaluate the resulting assemblies.\nHybrid assembly example command line:\nspades.py -1 Illumina_1.fastq -2 Illumina_2.fastq --nanopore bug_nanopore_reads_corrected.fasta -o assembly_name"
+  },
+  {
+    "objectID": "4.1_phylogentics_phylogenomics.html",
+    "href": "4.1_phylogentics_phylogenomics.html",
+    "title": "Phylogenomics and Phylogeneomics",
+    "section": "",
+    "text": "Phylogenetics to phylogenomics Powerpoint\nOnline Phylogenetic Lecture"
+  },
+  {
+    "objectID": "4.1_phylogentics_phylogenomics.html#exercises-on-constructing-and-interpreting-phylogenies",
+    "href": "4.1_phylogentics_phylogenomics.html#exercises-on-constructing-and-interpreting-phylogenies",
+    "title": "Phylogenomics and Phylogeneomics",
+    "section": "Exercises on constructing and interpreting phylogenies",
+    "text": "Exercises on constructing and interpreting phylogenies\nBelow are four approaches for constrcting phylogenetic tress from a single gene, multiple genes, core genome gene, and whoel genome SNP phylogeny. Remember that we are processing the sequence data to obtain biological interpretations so think what question you are trying to answer. Don’t get lost in the terminal with typing commands meaninglessly, step back and think about the bioinformatic process to get to the end goal.\nWhich ever approach you are taking the overarching process follows the same principle steps:\n\nExtract (and if appropriate concatenate) the target(s) nucleotide sequence(s) from your samples. The approach will differ depending on if you constructing a single gene, multigene, pan genome or SNP approach. You should include a reference / outgroup sequence\nCreate an alignment of the nucleotide sequences from all samples. MAFFT is a commonly used linux aligner. Remember to ensure your sequences are trimmed and orientated in the same direction !!\nConstruct a phylogeny. RAxML-NG is a great very scalable phylogenetic program. You may wish to optimize the phylogenetic model you use - there are specific programs to do this but we will not cover these in this course.\nVisualize your tree Figtree is a good program for visualizing trees on linux platform, but you could equally download you trees and visualise using MEGAX."
+  },
+  {
+    "objectID": "4.1_phylogentics_phylogenomics.html#single-gene-phylogeny-identify-the-unknown-cetacean",
+    "href": "4.1_phylogentics_phylogenomics.html#single-gene-phylogeny-identify-the-unknown-cetacean",
+    "title": "Phylogenomics and Phylogeneomics",
+    "section": "Single gene phylogeny: Identify the unknown cetacean",
+    "text": "Single gene phylogeny: Identify the unknown cetacean\nMany purposes you need to identify an species identify from which an assembly was derived. The most common way to do this is to construct a phylogeny based on a single gene. The gene used differs by kingdom. For bacteria and archaea people use 16S rRNA whilst for most Eukaryotas people use mitochondrial COI (Cytochrome Oxidase I). There are a few domain specific loci used, for instance Algal people use large subunit of ribulose bisphosphate carboxylase (RbcL) whilst the fungal communities use internal transcribed spacer (ITS) between there nuclear ribosomal genes.\n\nIf a outgroup is not provided use NCBI Genbank or the European Nucleotide Archive to download an appropriate outgroup (remember an outgroup should be the same phylogenetic marker (in the correct orientation) from a species that is phylogenetically distinct from but still related to your study group. i.e. If you are studying dog species use a CoI from a Cat.\nAnnotate your assembled contigs and extract out your phylogenetic marker.\n\n\nIf using prokayotic geneomes use Prokka or Barrnap to annotate your assembled genome generating a gff file. If you have a mtDNA then use Mitos to perform the annotation.\nUsing bedtools to extract a sequence file (e.g. 16S or CoI) from the original assembly.\n\n\nUse MAFFT to create an alignment of your phylogenetic marker.\nConstruct a phylogeny with RAxML-NG\nVisualize your tree Figtree"
+  },
+  {
+    "objectID": "4.1_phylogentics_phylogenomics.html#muliple-gene-plylogenys-mlst",
+    "href": "4.1_phylogentics_phylogenomics.html#muliple-gene-plylogenys-mlst",
+    "title": "Phylogenomics and Phylogeneomics",
+    "section": "Muliple gene plylogenys: MLST",
+    "text": "Muliple gene plylogenys: MLST\nThe most common use of multiple genes to create phylogenogies is Multi-locus sequence typing (MLST). This is primarily used in bacterial phylogenetics when it is necessary to go beyond species and identify the strain. This method is extreme valuable when identifying pathogenic strains away for sometimes harmless relatives. Established ‘Stereotype’ have often now been align with specific MLST allele sequences. There are on-line tools that allow you to upload your sequence and perform MLST analysis - such as autoMLST. However, many of the resources are ‘species specific’ and allowing you to enter a draft genome from specific species and using MLST appropriate to plylogenetically ‘type’ the strain it represents. Many of these tools can be accessed through pubmlst. There are also a myriad of command line tools that can be used - simplest to remember and a very easy one to use is the software entitled MLST.\nRemember you can only use these tools if you have already identified the species and if there is a MLTS database for the organism in question.\nThis approach is very rarely used for Eukaryotes."
+  },
+  {
+    "objectID": "4.1_phylogentics_phylogenomics.html#core-gene-phylogeny-understand-the-diversity-of-a-bacterial-species",
+    "href": "4.1_phylogentics_phylogenomics.html#core-gene-phylogeny-understand-the-diversity-of-a-bacterial-species",
+    "title": "Phylogenomics and Phylogeneomics",
+    "section": "Core gene phylogeny: Understand the diversity of a bacterial species",
+    "text": "Core gene phylogeny: Understand the diversity of a bacterial species\nOrganisms within particular phylogenetic groups share a set of ‘core’ genes - these are often those representing essential metabolism. Then each species has a unique set of ‘ancillary’ genes which define the unique phenotype of the organism. Worth noting that the ultimate bacterial ‘ancillary’ genes are mobile genetic elements that carry things such as antibiotic resistance genes. For bacteria this ‘core’ and ‘ancillary’ relationship is well define and programs have been developed that identify the ‘core’ genome by identifying all the ‘shared’ gene loci between a group of bacteria, concatenate these sequences and use them to derive create a phylogeny. The program we will use to demonstrate this is panaroo which will identify, extract, and concatenate the core genome.\nSimilar approach can be taken with Eukaryotic genomes. A project know as Busco has been working to identify list of core genes within different phylogenetic lineages. A tool and database allows you to identify and extract those core genes from draft genomes and even has plugin for generating phylogenies.\nThe procedure to create a bacterial pan-genome phylogeny is:\n\nIdentify a suitable outgroup for this phylogeny (closely related species) – look back at the lecture to understand outgrouping in core genome phylogenies. Download a suitable genome from NCBI Genbank or the European Nucleotide Archive and upload to your virtual machine.\nAnnotate your bacterial genomes using Prokka.\nPredict and align the pangenome and construct a core gene alignment by processing the gff annotation files with panaroo using MAFFT alignment option.\nConstruct a phylogeny with RAxML-NG.\nVisualize your tree Figtree\n\nIf you were to repeat this analysis without the designated outgroup, which strain/s would be the outgroup of the phylogeny? (check lecture for guidance)."
+  },
+  {
+    "objectID": "4.1_phylogentics_phylogenomics.html#whole-genome-snp-phylogeny",
+    "href": "4.1_phylogentics_phylogenomics.html#whole-genome-snp-phylogeny",
+    "title": "Phylogenomics and Phylogeneomics",
+    "section": "Whole genome SNP phylogeny",
+    "text": "Whole genome SNP phylogeny\nTracking individual mutations between strains of an organism allows a precision in the phylogenetic analysis unlock phenomenal potential - since these mutation or SNP occur and a organism is transmitted between individual we can use this within a pathogenic context, viral or bacterial, to explore epidemiology of disease.\nUsing whole mitochondrial SNP data we can explore relationship between genetically distinct ‘breeds’ of the same organism or isolated populations to derive conservation requirements or determine relationships between ancient ancestral populations (often extinct).\nOne significant advantage of performing a SNP phylogeny is it can be performed with the trim quality control reads and does NOT require de novo assembly. The limitation is that a good and complete reference is required. The process aligns the reads to the reference, derives SNPs, aligns these SNPs from different samples and uses this to generate a phyogeny.\n\nIdentify a reference genome. Either use the sequenec provided or use NCBI Genbank or the European Nucleotide Archive online to download a suitable outgroup/reference genome and upload to your virtual machine.\nRecall from previosu session that we processed raw sequence data prior to use. Use Fastqc and Fastp to quality check and remove adaptors/trim poor quality bases, respectively.\nUse snippy to identify SNPs between the reference/outgroup genome and both your processed unknown samples and processed characterised sequence data - you need to analyse both datasets (characterised and unknown) otherwise your phylogeny will look pretty sparse!\nUse snippy-core to create an alignment of SNPs.\nUse snp-sites to align the SNPs\nConstruct a phylogeny with RAxML-NG.\nVisualize your tree Figtree"
+  },
+  {
+    "objectID": "4.1_phylogentics_phylogenomics.html#sequence-data-available-for-the-phylogeny-exercises",
+    "href": "4.1_phylogentics_phylogenomics.html#sequence-data-available-for-the-phylogeny-exercises",
+    "title": "Phylogenomics and Phylogeneomics",
+    "section": "Sequence data available for the phylogeny exercises",
+    "text": "Sequence data available for the phylogeny exercises\n\nSingle Gene Phylogeny\n\nAssembled and annoated prokka prokayotic genomes\nAssembled and annotated mitos mitochondrial genomes\n\n\n\nCore Gene Phylogeny\n\nAssembled and annoated prokka prokayotic genomes\n\n\n\nSNP Phylogeny\n\nAssembled and annoated prokka prokayotic genomes\nAssembled and annotated mitos mitochondrial genomes"
+  },
+  {
+    "objectID": "4.1_phylogentics_phylogenomics.html#bioinformatic-software-and-tools",
+    "href": "4.1_phylogentics_phylogenomics.html#bioinformatic-software-and-tools",
+    "title": "Phylogenomics and Phylogeneomics",
+    "section": "Bioinformatic software and tools",
+    "text": "Bioinformatic software and tools\nWe will use multiple bioinformatic packages to extract and process the sequence data to construct phylogenies\nProkka – genome annotation\nbedtools – manipulate and extract sequences from fasta files\nMAFFT – sequence alignment\nRAxML-NG – construct phylogenies\npanaroo – pangenome pipeline\nsnippy – identify sequence variants snp-sites - align snp sites\n\nRemember that you can access the “help” option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or –help. After using a program, dont forget to unload the module."
+  },
+  {
+    "objectID": "4.1_phylogentics_phylogenomics.html#software-usage",
+    "href": "4.1_phylogentics_phylogenomics.html#software-usage",
+    "title": "Phylogenomics and Phylogeneomics",
+    "section": "Software usage",
+    "text": "Software usage\n\nProkka for bacterial genome annoation\nWhole genome annotation is the process of identifying features of interest in a set of genomic DNA sequences, and labelling them with useful information. Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce standards-compliant output files.\n\nmodule load prokka_mambaforge/1.14.6\n\nBasic usage:\n\nprokka --prefix [output file prefix] --outdir [output directory] --cpus [cpu number] --kingdom Bacteria [fasta file]\n\nProkka outputs the annotation in multiple formats. Open the gbk and gff files to see their structure. Both are annotation files that indicate the location of genes/proteins, their sequence, and their putative function based on sequence comparisons to databases\n\n\n\nBarrnap\nBAsic Rapid Ribosomal RNA Predictor. Can be used to annotate rRNA genes in genomes.\n\nmodule load barrnap/0.8\nmodule load hmmer/3.3.2\n\n\nBasic usage:\n\nbarrnap --kingdom bac --threads [number of cpus] [fasta file] &gt; [output gff annotation file]\n\n\n\nmitos for mitochondrial annotation\n\nmodule load mitos/2.0.4\nmodule load seqtk/1.3\n\n\n\n# make output dir\nmkdir mitos_output/[sample name]\n\n#merge secondary contigs - this artificially makes you assembly \nsed -i '/^&gt;[2-9].*$/d' [assembly.fasta]\n\n#remove line breaks\nseqtk seq -l 0 [assembly.fasta]\n\nrunmitos.py  -i [assembly.fasta] -c 2 -o [dir name for sample annotation] -R ~/classdata/Bioinformatics/REFS/mitos -r refseq81m --rrna 0 --trna 0 --intron 0 --debug --noplot\n\n\n\nBedtools\nCollectively, the bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF. While each individual tool is designed to do a relatively simple task (e.g., intersect two interval files), quite sophisticated analyses can be conducted by combining multiple bedtools operations on the UNIX command line.\n\nmodule load bedtools2/2.30.0\n\nWe can use bedtools to extract gene/protein sequences from annotation files:\n\nNavigate to either the Prokka annotation output directory or the Barrnap output file\nCreate a sub-gff file that contains the annotation information of only the 16 rRNA gene or CoI gene\n\n\n# For bacetrial sequences\ngrep \"product=16S ribosomal RNA\" [gff annotation file]  &gt; [subset_16S.gff]\n\n# For mitochondrial sequences\ngrep \"ID=gene_cox1\" [gff annotation file]  &gt; [subset_coi.gff]\n\n\nExtract the 16S rRNA gene from the mitochondrial genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the -s option.\n\n\nbedtools getfasta -fi [input fasta file] -bed [subset_gff file] -s &gt; [output 16S file.fasta]\n\nThe fasta sequence will be given a numeric non-sensicle name (what coes after the &gt;) - what about changing this for the name of the source sequence.\n\nsed -i \"s/&gt;.*/&gt;[sequence name]/g\" [output 16S file.fasta]\n\n\nMove your extracted 16S rRNA gene sequence into the directory of 16S rRNA reference genes provided.\nCombine all the 16S rRNA gene fasta files into a single multifasta file\n\n\ncat [*.fasta] &gt; [output multifasta file]\n\n\n\nMAFFT\nMAFFT is a multiple sequence alignment program for unix-like operating systems.\n\nmodule load mafft/7.481\n\nBasic usage:\n\nmafft [input multifasta] &gt; [output alignment multifasta]\n\n\n\n\nRAxML-NG\nRAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.\n\nmodule load raxml-ng/1.0.2\n\nRAxML-NG outputs files to your current location. Create a directory and run RAxML from the directory to keep files organised\nBasic usage for nucleotide alignment with GTR model:\n\nraxml-ng-mpi --all --msa [input alignment] --model GTR --bs-tree [bootstrap replicate number e.g. 100] --prefix [prefix for output files] --threads [number of threads/cpus]\n\nRAxML-NG produces multiple output files. The file we are interested in has the extension .support\nAdd the extension .nwk to this file to indicate it is a phylogeny.\n\n\npanaroo\nA Bacterial Pangenome Analysis Pipeline. Predicts core, accessory, and pangenomes. Produces core gene alignments.\n\nmodule load panaroo/1.3.0\n\n\nPanaroo takes annotation files in .gff format to predict pangenomes.\nUse prokka to annotate the Bacillus velezensis genomes supplied, and remember to change the kingdom flag to bacteria\nBasic usage:\n\npanaroo -i *gff -o [output directory] -t [number of cpus] --clean-mode sensitive -a core --aligner mafft\n\nOutput files of interest include the summary_statistics.txt and core_gene.aln\n\nCheck the website for details of all the files produced: https://gtonkinhill.github.io/panaroo/#/gettingstarted/output\n\n\nsnippy\nA tool to identify variations between a reference genome in fasta format and genome sequence data in read format (fastq)\n\nmodule load snippy/v4.6.0\nmodule load samtools/1.15.1\n\n\nBasic usage:\nTo identify SNPs for one genome\n\nsnippy -outdir [snippy output directory/sampleID] -ref [reference sequence fasta] -R1 [sample1 fastq left trimmed read] -R2 [sample2 fastq right trimmed read] --prefix [prefix for output] --force\n\nYou will need a loop to call SNPs for multiple genomes.\n\nTo produce an alignment from SNPs, navigate to the snippy output directory and run snippy-core. The wildcard will extract the necessary SNP data from all the genomes analysed by snippy (directory for each genome in output directory).\n\nsnippy-core -ref [same reference sequence] -prefix [prefix for snp output] [snippy output directory]/*\n\nGenerate an alignment of the SNP sites:\n\nmodule load snp-sites/2.5.1\n\n\nsnp-sites -cb -o [alniment file name] [prefix for snp output].full.aln\n\n\n\n\nFigtree\nFigTree is designed as a graphical viewer of phylogenetic trees and as a program for producing publication-ready figures.\nDownload locally to your laptop: https://github.com/rambaut/figtree/releases / or access through Guacamole graphical user interface"
+  },
+  {
+    "objectID": "4.1_phylogentics_phylogenomics.html#single-gene",
+    "href": "4.1_phylogentics_phylogenomics.html#single-gene",
+    "title": "Phylogenomics and Phylogeneomics",
+    "section": "Single Gene",
+    "text": "Single Gene"
+  },
+  {
+    "objectID": "4.1_phylogentics_phylogenomics.html#whole-genome-snp",
+    "href": "4.1_phylogentics_phylogenomics.html#whole-genome-snp",
+    "title": "Phylogenomics and Phylogeneomics",
+    "section": "Whole Genome SNP",
+    "text": "Whole Genome SNP"
+  },
+  {
+    "objectID": "5.1_Transcriptomics_Introduction.html",
+    "href": "5.1_Transcriptomics_Introduction.html",
+    "title": "Transcritomics An Introduction",
+    "section": "",
+    "text": "Transcripromics Data: An Introduction powerpoint"
+  },
+  {
+    "objectID": "5.1_Transcriptomics_Introduction.html#transcripromics-data-an-introduction",
+    "href": "5.1_Transcriptomics_Introduction.html#transcripromics-data-an-introduction",
+    "title": "Transcritomics An Introduction",
+    "section": "",
+    "text": "Transcripromics Data: An Introduction powerpoint"
+  },
+  {
+    "objectID": "5.1_Transcriptomics_Introduction.html#deriving-differential-gene-expression",
+    "href": "5.1_Transcriptomics_Introduction.html#deriving-differential-gene-expression",
+    "title": "Transcritomics An Introduction",
+    "section": "Deriving Differential Gene Expression",
+    "text": "Deriving Differential Gene Expression\nDeriving Differential Gene Expression"
+  },
+  {
+    "objectID": "5.2_RNAseq_processing.html",
+    "href": "5.2_RNAseq_processing.html",
+    "title": "RNAseq Processing",
+    "section": "",
+    "text": "RNAseq Processing Powerpoint"
+  },
+  {
+    "objectID": "5.2_RNAseq_processing.html#alignment",
+    "href": "5.2_RNAseq_processing.html#alignment",
+    "title": "RNAseq Processing",
+    "section": "Alignment",
+    "text": "Alignment\nSTAR – (Spliced Transcript Alignments to a Reference) is an alignment package which functions similarly to standard genome alignments but is designed for short regions of RNA that could span intron-exon junctions and with low compute requirements. STAR outputs a bam format file which contains the locations where all the reads in your dataset have aligned and the genes they cover."
+  },
+  {
+    "objectID": "5.2_RNAseq_processing.html#counting",
+    "href": "5.2_RNAseq_processing.html#counting",
+    "title": "RNAseq Processing",
+    "section": "Counting",
+    "text": "Counting\nFeatureCounts is a simple package that takes the positions of mapped reads and outputs a file quantifying the expression of each gene or exon (based on parameter choices). At this point raw read counts are hard to interpret due to likely different levels of sequencing achieved per sample and methodological biases.\nOne common step prior to counting is marking duplicates that arise from data generation for further information, or so that they can be removed. Here we’ll use the imaginatively named MarkDuplicates from GATK."
+  },
+  {
+    "objectID": "5.2_RNAseq_processing.html#differential-gene-analysis",
+    "href": "5.2_RNAseq_processing.html#differential-gene-analysis",
+    "title": "RNAseq Processing",
+    "section": "Differential Gene Analysis",
+    "text": "Differential Gene Analysis\nContrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.\nFollowing these three steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against."
+  },
+  {
+    "objectID": "5.2_RNAseq_processing.html#data",
+    "href": "5.2_RNAseq_processing.html#data",
+    "title": "RNAseq Processing",
+    "section": "Data",
+    "text": "Data\nThe data you will need for this exercise are:\n~/classdata/Bioinformatics/Day4/ RNAseq-Processing/fastq\nSRR5222797_1.fastq    SRR5222797_2.fastq\nSRR5222798_1.fastq    SRR5222798_2.fastq\nSRR5222799_1.fastq    SRR5222799_2.fastq\n\n~/classdata/Bioinformatics/STAR/REFS\nArabidopsis_thaliana.TAIR10.47.gtf\nArabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa\nThis folder contains lots of other index files for star to function that you don’t need to touch! Note: most programs will accept fastq or fastq.gz without any changes however star requires you to include the --readFilesCommand zcat parameter."
+  },
+  {
+    "objectID": "5.2_RNAseq_processing.html#software",
+    "href": "5.2_RNAseq_processing.html#software",
+    "title": "RNAseq Processing",
+    "section": "Software",
+    "text": "Software\nWe will be using scripts to run these steps. In the classdata/Day4/scripts folder you will find the following that you can use to base your analysis, however make sure you’re tuning it to your own file structure and file names.\nSo far we have used only a small dataset to quickly practice the steps but now we’ll be using a full sized RNAseq sample otherwise it causes the programs to think it’s bad data. In the classdata/Day3 folder there four pairs of RNAseq files from an Arabidopsis RNAseq study. In the folder classdata/REFS there is a reference genome, and a gtf file. The step 2 “star index genome” has already been ran for you (you don’t need to do this!)\n~/classdata/Bioinformatics/Day4/RNAseq-Processing\nScripts\n\n1-QC.sh\n2-star_index_genome.sh (already done, don’t repeat!)\n3-star.sh\n\n4-markduplicates.sh\n\n5-featurecounts.sh"
+  },
+  {
+    "objectID": "5.2_RNAseq_processing.html#qc.sh",
+    "href": "5.2_RNAseq_processing.html#qc.sh",
+    "title": "RNAseq Processing",
+    "section": "1-QC.sh",
+    "text": "1-QC.sh\n\n#!/bin/bash\n\n## Load some Modules\nmodule load fastqc/0.11.9\nmodule load trimmomatic/0.39\n\n## Useful shortcuts\nexport workingdir=~/mydata/Session5/RNAseq-Processing\n\n#list=(\"sample1\" \"sample2\" \"sample3\")\nlist=(\"SRR5222797\" \"SRR5222798\" \"SRR5222799\")\n\nfor i in ${list[@]}\ndo\n## The commands you want to run\n\n# fastqc the raw data\nfastqc -t 4 $workingdir/fastq/${i}_1.fastq\nfastqc -t 4 $workingdir/fastq/${i}_2.fastq\n\n# Run trimmomatic\ntrimmomatic PE $workingdir/fastq/${i}_1.fastq $workingdir/fastq/${i}_2.fastq  -baseout $workingdir/fastq/${i}-trim.fastq ILLUMINACLIP:/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15\n\n# fastqc the outputs\nfastqc -t 4 $workingdir/fastq/${i}-trim_1P.fastq\nfastqc -t 4 $workingdir/fastq/${i}-trim_2P.fastq\n\ndone"
+  },
+  {
+    "objectID": "5.2_RNAseq_processing.html#star_index_genome.sh",
+    "href": "5.2_RNAseq_processing.html#star_index_genome.sh",
+    "title": "RNAseq Processing",
+    "section": "2-star_index_genome.sh",
+    "text": "2-star_index_genome.sh\n#!/bin/bash\n\n# Load some modules\nmodule load star/2.7.6a\n \n## Useful shortcuts\nexport refdir=~/classdata/REFS\n\n## Change --sjdbOverhang to length of your sequence data /2 minus 1\n\n\necho \"\\n\\n I TOLD YOU NOT TO RUN THIS ONE NOW! \\n\\n (unless you're in the future and trying to run this for real, in which case you need to edit this script and remove the # characters from the command)\"\n\nSTAR    --runThreadN 8 \\\n        --limitGenomeGenerateRAM 321563573 \\\n        --runMode genomeGenerate \\\n        --genomeDir  $refdir/ \\\n        --genomeFastaFiles $refdir/Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa \\\n        --sjdbGTFfile $refdir/Arabidopsis_thaliana.TAIR10.47.gtf \\\n        --sjdbOverhang 49"
+  },
+  {
+    "objectID": "5.2_RNAseq_processing.html#star.sh",
+    "href": "5.2_RNAseq_processing.html#star.sh",
+    "title": "RNAseq Processing",
+    "section": "3-star.sh",
+    "text": "3-star.sh\n#!/bin/bash\n\n## Load some Modules\nmodule load star/2.7.6a\n\n## Useful shortcuts\nexport workingdir=~/mydata/Session5/RNAseq-Processing\nexport refdir=~/classdata/Bioinformatics/REFS/STAR/\n\n## The commands you want to run\nmkdir $workingdir/star\n\n#list=(\"sample1\" \"sample2\" \"sample3\")\nlist=(\"SRR5222797\" \"SRR5222798\" \"SRR5222799\")\n\nfor i in ${list[@]}\ndo\n# map forward and reverse reads to genome\n# If input data is gzipped (.fastq.gz) inculde the additional parameter:   --readFilesCommand zcat\nSTAR   --outMultimapperOrder Random \\\n       --outSAMmultNmax 1 \\\n       --runThreadN 4  \\\n       --runMode alignReads \\\n       --outSAMtype BAM Unsorted \\\n       --quantMode GeneCounts \\\n       --outFileNamePrefix $workingdir/star/${i}-unsort. \\\n       --genomeDir $refdir \\\n       --readFilesIn $workingdir/fastq/${i}-trim_1P.fastq $workingdir/fastq/${i}-trim_2P.fastq\ndone"
+  },
+  {
+    "objectID": "5.2_RNAseq_processing.html#markduplicates.sh",
+    "href": "5.2_RNAseq_processing.html#markduplicates.sh",
+    "title": "RNAseq Processing",
+    "section": "4-markduplicates.sh",
+    "text": "4-markduplicates.sh\n#!/bin/bash\n\n#load some modules\nmodule load picard/2.26.2\nmodule load samtools/1.15.1\n\n## Useful shortcuts\nexport workingdir=~/mydata/Session5/RNAseq-Processing\n\nmkdir markdup\n\n#list=(\"sample1\" \"sample2\" \"sample3\")\nlist=(\"SRR5222797\" \"SRR5222798\" \"SRR5222799\")\n\nfor i in ${list[@]}\ndo\nsamtools index $workingdir/star/${i}-unsort.Aligned.out.bam\nsamtools sort -@ 4 -o $workingdir/star/${i}.sorted.bam $workingdir/star/${i}-unsort.Aligned.out.bam\n\n##  MARK DUPLICATES  ##\npicard MarkDuplicates I=$workingdir/star/${i}.sorted.bam O=$workingdir/markdup/${i}.markdup.bam M=$workingdir/markdup/${i}.metrics.markdup.txt REMOVE_DUPLICATES=false VALIDATION_STRINGENCY=SILENT\n\n\n## REMOVE DUPLICATES ##\npicard MarkDuplicates I=$workingdir/star/${i}.sorted.bam O=$workingdir/markdup/${i}.rmdup.bam M=$workingdir/markdup/${i}.metrics.rmdup.txt REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT\n\ndone"
+  },
+  {
+    "objectID": "5.2_RNAseq_processing.html#featurecounts.sh",
+    "href": "5.2_RNAseq_processing.html#featurecounts.sh",
+    "title": "RNAseq Processing",
+    "section": "5-featurecounts.sh",
+    "text": "5-featurecounts.sh\n#!/bin/bash\n\n# Load some modules\nmodule load subread/2.0.2\n\n## Useful shortcuts\nexport workingdir=~/mydata/Session5/RNAseq-Processing\nexport refdir=~/classdata/Bioinformatics/REFS/STAR/\n\n\nmkdir $workingdir/featureCounts\n\n#list=(\"sample1\" \"sample2\" \"sample3\")\nlist=(\"SRR5222797\" \"SRR5222798\" \"SRR5222799\")\n\n\n\nfor i in ${list[@]}\ndo\n\nfeatureCounts \\\n        -T 4 -p -F GTF -t exon -g gene_id \\\n        -a $refdir/Arabidopsis_thaliana.TAIR10.47.gtf \\\n        -o $workingdir/featureCounts/${i}.markdup.featurecount \\\n        $workingdir/markdup/${i}.markdup.bam\n\nfeatureCounts \\\n        -T 4 -p -F GTF -t exon -g gene_id \\\n        -a $refdir/Arabidopsis_thaliana.TAIR10.47.gtf \\\n        -o $workingdir/featureCounts/${i}.rmdup.featurecount \\\n        $workingdir/markdup/${i}.rmdup.bam\n\ndone"
+  },
+  {
+    "objectID": "5.3_DEG_analysis.html",
+    "href": "5.3_DEG_analysis.html",
+    "title": "Differential Gene Expression Analysis",
+    "section": "",
+    "text": "DEG Analysis Powerpoint"
+  },
+  {
+    "objectID": "5.3_DEG_analysis.html#alignment",
+    "href": "5.3_DEG_analysis.html#alignment",
+    "title": "Differential Gene Expression Analysis",
+    "section": "Alignment",
+    "text": "Alignment\nSTAR – (Spliced Transcript Alignments to a Reference) is a pseudo-alignment package which functions similarly to standard genome alignments but is designed for short regions of RNA that could span intron-exon junctions and with low compute requirements. STAR outputs a bam format file which contains the locations where all the reads in your dataset have aligned and the genes they cover."
+  },
+  {
+    "objectID": "5.3_DEG_analysis.html#counting",
+    "href": "5.3_DEG_analysis.html#counting",
+    "title": "Differential Gene Expression Analysis",
+    "section": "Counting",
+    "text": "Counting\nFeatureCounts is a simple package that takes the positions of mapped reads and outputs a file quantifying the expression of each gene or exon (based on parameter choices). At this point raw read counts are hard to interpret due to likely different levels of sequencing achieved per sample and methodological biases."
+  },
+  {
+    "objectID": "5.3_DEG_analysis.html#differential-gene-analysis",
+    "href": "5.3_DEG_analysis.html#differential-gene-analysis",
+    "title": "Differential Gene Expression Analysis",
+    "section": "Differential Gene Analysis",
+    "text": "Differential Gene Analysis\nContrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.\nFollowing these three steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against."
+  },
+  {
+    "objectID": "5.3_DEG_analysis.html#converting-between-common-gene-ids",
+    "href": "5.3_DEG_analysis.html#converting-between-common-gene-ids",
+    "title": "Differential Gene Expression Analysis",
+    "section": "Converting between common gene IDs",
+    "text": "Converting between common gene IDs\n\nbiodbnet\ngprofiler convert"
+  },
+  {
+    "objectID": "5.3_DEG_analysis.html#whole-dataset-annotation-and-ontologies",
+    "href": "5.3_DEG_analysis.html#whole-dataset-annotation-and-ontologies",
+    "title": "Differential Gene Expression Analysis",
+    "section": "Whole dataset annotation (and ontologies)",
+    "text": "Whole dataset annotation (and ontologies)\n\ngProfiler\nKEGG\nNeVOmics"
+  },
+  {
+    "objectID": "5.3_DEG_analysis.html#interaction-networks",
+    "href": "5.3_DEG_analysis.html#interaction-networks",
+    "title": "Differential Gene Expression Analysis",
+    "section": "Interaction Networks",
+    "text": "Interaction Networks\n\nStringDB\nGOnet\nCytoscape\n\nbingo plugin\nEnrichmentMap plugin"
+  },
+  {
+    "objectID": "5.3_DEG_analysis.html#other-visualisation-tools",
+    "href": "5.3_DEG_analysis.html#other-visualisation-tools",
+    "title": "Differential Gene Expression Analysis",
+    "section": "Other visualisation tools",
+    "text": "Other visualisation tools\n\nMorpheus\nComplex venn"
+  },
+  {
+    "objectID": "5.3_DEG_analysis.html#whole-packages",
+    "href": "5.3_DEG_analysis.html#whole-packages",
+    "title": "Differential Gene Expression Analysis",
+    "section": "Whole packages",
+    "text": "Whole packages\n\nIPA\nShiny-Seq\nBeavR"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html",
+    "href": "5.4_DEG_Functional_Interpretation.html",
+    "title": "DEG Functional Interpretation",
+    "section": "",
+    "text": "Workshop Recording to come"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#processing-rnaseq-data",
+    "href": "5.4_DEG_Functional_Interpretation.html#processing-rnaseq-data",
+    "title": "DEG Functional Interpretation",
+    "section": "Processing RNAseq Data",
+    "text": "Processing RNAseq Data\nConverting RNASeq data into gene counts is the first-step prior to analysis of the biological function and networks revealed through the subsequent transcription analysis. This process is outside the scope of this workshop but if you are interested Andres et al 2013 Provides an excellent overview of the processes involved.\n Figure 1. Process overview"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#dataset-to-use---geogds2565",
+    "href": "5.4_DEG_Functional_Interpretation.html#dataset-to-use---geogds2565",
+    "title": "DEG Functional Interpretation",
+    "section": "Dataset to use - Geo:GDS2565",
+    "text": "Dataset to use - Geo:GDS2565"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#panopto_walk_through",
+    "href": "5.4_DEG_Functional_Interpretation.html#panopto_walk_through",
+    "title": "DEG Functional Interpretation",
+    "section": "Panopto_walk_through",
+    "text": "Panopto_walk_through"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#false-discover-rate",
+    "href": "5.4_DEG_Functional_Interpretation.html#false-discover-rate",
+    "title": "DEG Functional Interpretation",
+    "section": "False Discover Rate",
+    "text": "False Discover Rate"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#fishers-exact-test-and-enrichment-analysis",
+    "href": "5.4_DEG_Functional_Interpretation.html#fishers-exact-test-and-enrichment-analysis",
+    "title": "DEG Functional Interpretation",
+    "section": "Fisher’s Exact Test and Enrichment Analysis",
+    "text": "Fisher’s Exact Test and Enrichment Analysis"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#geo-workshop",
+    "href": "5.4_DEG_Functional_Interpretation.html#geo-workshop",
+    "title": "DEG Functional Interpretation",
+    "section": "Geo Workshop",
+    "text": "Geo Workshop\n\nSearch for you dataset\n\nGo to Geo DataSets: (https://www.ncbi.nlm.nih.gov/gds/)[https://www.ncbi.nlm.nih.gov/gds/]\n GEO_DataSet Search\nnow select \n\nRefine search to only show ‘DataSets’ and ‘Series’\n\nSelect &lt; DataSets and Series &gt; from the left hand menu.\n Refine to DataSets\n3A. Select procesed dataset (should be number 3 in list and have a heat map icon to the right)\nClick on title &lt; Endothelial cell response to ultrafine particles &gt; to select DataSet\n Entry Page\nTake notes off all pertinent information about the experiment, including species and what microarray platform was used. In this case experiment was conducted on rats and analysed on an Affymetrix Human Genome U133 Plus 2.0 Array. Download any publication available. Also, if you are interested you could have a look at the cluster analysis on the right hand site. This will show you how the relationship of the expression profiles from each sample relative to each other. If the experiment was successful, all samples of a certain treatment should cluster together.\n4A. Compare experiment samples\nClick &lt;Compare 2 sets of sample&gt;\nChoose &lt;test e.g. One-tailed t-test (A &gt; B)&gt;\nChoose _ e.g. 0.001\nClick on: Step 2: Select which Samples to put in Group A and Group B\n Select Groups to compare\nChoose &lt; Query Group A vs B &gt;\nYou should now see a list of the following DEGS\n DEG List\n5A. Download DEGs\nYou have &gt;100 DEGs but the page only displays the first 20. Before downloading DEGS change the items per page from 20 to 500.\n Items Per Page\nSelect &lt; Download profile data &gt;\nand you will be prompted to save the profiling of the DEGs displayed as default file name &lt;profile_data.txt&gt;\nSave to appropriate location. If needed Select Page 2…. of the DEGS and repeat the download process.\nRepeat this process for &lt;test e.g. One-tailed t-test (B &gt; A) significance level 0.001 &gt;_\n6A. Open and Merge DEG lists in Excel\nThe DEG lists show the gene list with there relative expression level (normalised) and annotation for the genes involved (annotation shown in columns BG -&gt;). For Our next steps we will use the Gene symbol that is in Column BH.\n3B. Select un-processed series (should be number 2 - it will have icon &lt; Analyze with GEO2R &gt; at the end of the entry)\nClick on &lt; Analyze with GEO2R &gt;\nNow Define groups by click clicking the &lt; Define Group pull &gt; down and create groups ‘control’ and ‘Treatment’ (enter group name and press enter). Click on each sample in list and associated it with one of your group (you can hold ctrl down to select multiple entry before associating them with the group).\n Select Groups to compare\n4B. Customise the Option and Analyse\nSelect &lt; Options &gt; and customise as shown below:\n Geo2R Options\nSelect &lt; reanalyze &gt;\nWill will now see a Processing icon - this may take a minute or two.\n5B. DEGs\nYou will now see a table and a series of Visualisations - review the visualisation taking note of what each are showing you.\n Geo2R results\nVenn diagram showing GSE4567: Limma, Padj&lt;0.05 - 704 genes - this is the set we will use\nClick on &lt; Explore and download, control vs treatment and Download Significant genes &gt;\nThis will give you a Tsv you can open in excel\n6B DEG TSV\nOpen the DEG TSV - you will have ID (Affymetrix), Gene Symbol, Description and Log2(fold Change) and Adjusted p-value. The Gene.symbol can have multiple symonyms for each gene - this can bias future analsyis. Copy/paste gene symbol column to rught hand column (so no other data is on right), and use &lt; Data &gt; Text to Columns &gt; Delimited &gt; Other &gt; ‘/’ &gt; Finish &gt;_ to push secondary symbols into other columns."
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#geo-database-panopto",
+    "href": "5.4_DEG_Functional_Interpretation.html#geo-database-panopto",
+    "title": "DEG Functional Interpretation",
+    "section": "GEO Database Panopto",
+    "text": "GEO Database Panopto"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#gprofiler-panopto",
+    "href": "5.4_DEG_Functional_Interpretation.html#gprofiler-panopto",
+    "title": "DEG Functional Interpretation",
+    "section": "gprofiler panopto",
+    "text": "gprofiler panopto"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#gene-enrichment-analysis-with-david",
+    "href": "5.4_DEG_Functional_Interpretation.html#gene-enrichment-analysis-with-david",
+    "title": "DEG Functional Interpretation",
+    "section": "Gene Enrichment Analysis with David",
+    "text": "Gene Enrichment Analysis with David\n[David - Database for Annotation, Visualization and Integrated Discovery] (https://david.ncifcrf.gov/) was the tool to use for gene enrichment from 2005 - 2016 but the database it hosted became out of date due to a break in the research groups funding. From 2016 (gprofiler)[https://biit.cs.ut.ee/gprofiler/gost] and (stringdb)[https://string-db.org/] have been prefered because they have been kept upto date. However, DAVID was refunded and a 2021 update means it is back to being maintained. Although there will not be time to explore it in our workshop the following workshop and video is there to support anyone wanting to explore its functionality."
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#start-analysis-and-upload-you-data",
+    "href": "5.4_DEG_Functional_Interpretation.html#start-analysis-and-upload-you-data",
+    "title": "DEG Functional Interpretation",
+    "section": "1. Start analysis and upload you data",
+    "text": "1. Start analysis and upload you data\nSelect &lt; start analysis &gt;\nPaste in you gene list (1) in box (A) and, select identifier (2), and identify as a Gene List (3). Select your species (2a) . In more nuanced analysis you may wish to define your own background - this is useful when working with non-model organisms or if your starting population does not represent the entire genome.\n DAVID Upload\nnow select &lt; Submit List &gt;"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#generate-functional-analysis-of-gene-list",
+    "href": "5.4_DEG_Functional_Interpretation.html#generate-functional-analysis-of-gene-list",
+    "title": "DEG Functional Interpretation",
+    "section": "2. Generate Functional Analysis of gene list",
+    "text": "2. Generate Functional Analysis of gene list\nIf you have used a non-regulate gene identifier or it does not recognize the identifier type you have used it may ask you to convert the identifiers - check the programs suggestion - it is usually good but you should check.\nSelect &lt; Functional Annotation Tool &gt;\nYou will now be give a annotation summary as shown below:\n Annotation Summary\nYou will see a range of categories for which the functional annotation has been performed. The analysis told has not only cross referenced the gene list against a range of functional databases it has also analysed the gene co-appearance in citations (Literature), links to disease (Disease) and Interactions agonist other linkages."
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#review-gene-ontology-enrichment",
+    "href": "5.4_DEG_Functional_Interpretation.html#review-gene-ontology-enrichment",
+    "title": "DEG Functional Interpretation",
+    "section": "3. Review Gene Ontology Enrichment",
+    "text": "3. Review Gene Ontology Enrichment\nLet us consider the functional enrichment using (Gene Ontology)[http://geneontology.org/]. Gene Ontology categorizes gene products using three distinct characteristics - Molecular Function (biochemistry of the product), Cellular Component (where it appears in the cell), and the Biological Processes - see more about these classification by reviewing the (Gene Ontology Overview documentation)[http://geneontology.org/docs/ontology-documentation/]. Although ontologies are hierarchical, they are not a simple classification system, they not only allow for gene products to be involved with multiple processes the relationship between elements in the hierarchy are closely defined. The ontology also allows for classification to be as specific or detailed as knowledge allows ie if a protein is a transporter but what it transports is not known it will be defined by a mid-level term ‘transporter’ but if it is known to transport Zn it will be classified at a ‘Zinc transport’ as well as a ‘transporter’. Enrichment analysis uses fisher exact test (see about) to calculate the enrichment at each of these ‘levels’ - although I usually choose to look at the integrated data summarized under the ‘GOTERM_[BP/CC/MF]_DIRECT’.\nclick on the + next too the &lt; Gene_Ontology &gt; category\nSelect &lt; Chart &gt; right of the GOTERM_BP_DIRECT\n BP Enrichment\nNote the P-value and benjamini correct p-value displaying the like hood that those specific Go terms are represented by random - i.e. lost the P-value the less likely the representation of the term is a random select , therefore the more likely the term is enriched.\nTo see the list of gene involved in for instance ‘positive regulation of osteoblast differentiation’ click on the blue bar under the ‘Genes’ column.\nThis is the list you will see:\n positive regulation of osteoblast differentiation\nNow review enrichment for Cell Component and Molecular Function."
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#pathway-analysis",
+    "href": "5.4_DEG_Functional_Interpretation.html#pathway-analysis",
+    "title": "DEG Functional Interpretation",
+    "section": "4. Pathway analysis",
+    "text": "4. Pathway analysis\nclick on the + next too the &lt; Pathways &gt; category\n Pathway Options\nSelect &lt; Chart &gt; right of the KEGG\n KEGG Enrichment\nYou will see a list of enriched pathways - Note the P-value and benjamini correct p-value displaying the like hood that those specific pathways are represented by random - i.e. lost the P-value the less likely the representation of the pathway is a random select, therefore the more likely the pathways is enriched.\nclick on the &lt; TNF Signalling Pathway &gt;_ in the term column\nThis will display the pathway with the terms that are present in the list shown with red stars or highlight by redtext below the figure.\n TNF Signalling Pathway\nExplore some more pathways"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#functional-annotation-clustering",
+    "href": "5.4_DEG_Functional_Interpretation.html#functional-annotation-clustering",
+    "title": "DEG Functional Interpretation",
+    "section": "5. Functional Annotation Clustering",
+    "text": "5. Functional Annotation Clustering\nDAVID attempts to summarise enrichment between categorization systems using a tool it terms - Functional annotation clustering. If you select this for you current data set. you will be provided with the following clusters:\n Functional Annotation Clustering\nEach cluster is assigned an enrichment score under which ‘terms’ that are enriched under different classification systems are displayed grouped together. Each ‘grouping’ is given a ‘Enrichment Score’ the larger the enrichment score the higher the score the more likely that cluster is being enriched. Note that the is a ‘Classification Stringency’ pull down menu that allows you to define the strength of associated of the term being grouped together.\nFor annotation Cluster 6 (which contains lots of Metallothionein/cadimum associated terms) there is a small green and black box - after the Enrichment Score and the ‘G’ - click on this box. This brings up a cluster matrix showing the gene gene products on the Y-axis and the classification ‘vlasses’ on the X-axis.\n Cluster Matrix\nDavid Workshop\n\nEnrichment with David Panopto"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#string-panopto",
+    "href": "5.4_DEG_Functional_Interpretation.html#string-panopto",
+    "title": "DEG Functional Interpretation",
+    "section": "STRING Panopto",
+    "text": "STRING Panopto"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#export-go-terms-and-p-values",
+    "href": "5.4_DEG_Functional_Interpretation.html#export-go-terms-and-p-values",
+    "title": "DEG Functional Interpretation",
+    "section": "1. Export GO terms and P-values",
+    "text": "1. Export GO terms and P-values\n\n1A. gprofiler\nUnder the detailed results menu there is a CSV icon which when clicked can be used to export your enriched terms as a CSV which can then be imported into excel. You can use the associated setting button (the cog symbol next toi the CSV) to select only GO terms to export for this exercise.\n gprofiler export\nYou will then need to copy column C and D into Revigo\n\n\n1B. DAVID\nAfter you have completed the functional analysis select &lt; Gene_ontology &gt; GOTERM_BP_DIRECT &gt; Chart &gt;\nnow Select &lt; Download File &gt;\n DAVID Go Download\nThis will either display the enrichment table into the browser window or ask for a save location depending on your browser settings. If you are not asked for a save location right hand click the displayed table and select Save as and save to a appropriate location as a text file. This text file can be opened/imported into excel. You will file the GO term is concatenated with the GO description in Column B. To split this insert a blank column after column B, then select column B and select menu option &lt; Data &gt; Test to columns &gt;. Select &lt; Delimited &gt; Next &gt;_ and use the radio button to select other and add a ~_ to the box directly to the right of this option. Now click &lt; Next and Finish &gt;. You will see the GO term in now in Column B and the P-value in column F. Select these columns and paste them into Revigo.\nYou should now repeat this process for Molecular Function and Cell Component Terms.When all the data is merged you can paste the GO term and P value into Revigo."
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#revigo-data-entry",
+    "href": "5.4_DEG_Functional_Interpretation.html#revigo-data-entry",
+    "title": "DEG Functional Interpretation",
+    "section": "2. Revigo data entry",
+    "text": "2. Revigo data entry\nEnter GO terms and P-values into Revigo - they should be in format\nTerm    PValue\nGO:0045892  7.75E-06\nGO:0006694  3.29E-04\nLeave the default settings and select &lt; Start Revigo &gt;"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#review-revigo-results",
+    "href": "5.4_DEG_Functional_Interpretation.html#review-revigo-results",
+    "title": "DEG Functional Interpretation",
+    "section": "3. Review Revigo Results",
+    "text": "3. Review Revigo Results\nFor each GO term category Revigo will generate a Scatterplot, Table, 3D scatter plot, interactive Graph and Tree Map. Note: at the bottom of each plot there are export options for R and other formats _.\nThe most intuitive format is are the Tree Maps (see below) whilst the Scatterplot output table, which include terms like ‘Frequency and Uniqueness’ can be used to create networks in Cytoscape.\n Revigo BP TreeMap"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#revigo-workshop",
+    "href": "5.4_DEG_Functional_Interpretation.html#revigo-workshop",
+    "title": "DEG Functional Interpretation",
+    "section": "Revigo Workshop",
+    "text": "Revigo Workshop"
+  },
+  {
+    "objectID": "5.4_DEG_Functional_Interpretation.html#revigo-panopto",
+    "href": "5.4_DEG_Functional_Interpretation.html#revigo-panopto",
+    "title": "DEG Functional Interpretation",
+    "section": "Revigo Panopto",
+    "text": "Revigo Panopto"
+  },
+  {
+    "objectID": "6.1_metabarcoding.html",
+    "href": "6.1_metabarcoding.html",
+    "title": "Metagenomics",
+    "section": "",
+    "text": "Metabarcoding Powerpoint\nThis workshop is based heavily on QIIME’s own tutorial, Moving Pictures of the Human Microbiome. I have just modified this tutorial slightly to tailor it to our context and computer system."
+  },
+  {
+    "objectID": "6.1_metabarcoding.html#importing-data-in-qiime",
+    "href": "6.1_metabarcoding.html#importing-data-in-qiime",
+    "title": "Metagenomics",
+    "section": "Importing data in QIIME",
+    "text": "Importing data in QIIME\nQIIME handles data by importing it into its own file format, called a QIIME artefact. This contains not only the data itself but a record of all the processes that it has gone through. Start by loading up QIIME.\n\nmodule load qiime2/2022.8 \n\nThe first step in the analysis is to read the data in.\nYou will see that the import command below has backslashes at the end of each line. This isn’t specific to QIIME, but a universal way to break up a complex command into multiple lines so that it’s easier to read. In Linux, a backslash is called an escape character; it means “interpret the next character literally”. Normally pressing enter at the end of a command tells the computer to run that command. Typing a backslash before pressing enter tells the computer that you literally just want a line break.\nLet’s explore the parts of the command\n\nqiime tools import is the QIIME programme to be used\ntype EMPSingleEndSequences tells QIIME the format the sequences will be in\ninput-path emp-single-end-sequences gives the name of the directory the sequence files are in\noutput-path emp-single-end-sequences.qza gives the name of the artefact file to be created. Note the file extension: .qza\n\n\nqiime tools import \\\n  --type EMPSingleEndSequences \\\n  --input-path emp-single-end-sequences \\\n  --output-path emp-single-end-sequences.qza\n\nHenceforth, I have removed some parts of the script! Every time you see YOURFILE, it’s up to you to replace it with the correct file name."
+  },
+  {
+    "objectID": "6.1_metabarcoding.html#demultiplexing",
+    "href": "6.1_metabarcoding.html#demultiplexing",
+    "title": "Metagenomics",
+    "section": "Demultiplexing",
+    "text": "Demultiplexing\nAs mentioned above, this step would normally be done automatically be the sequencing centre. However, it’s good to have a go at demultiplexing as there are still occasions when it needs to be done manually.\nThis command takes the QIIME artefact we have just created and uses the barcode information to decide which sample each sequence belongs to. It creates another QIIME artefact containing the demultiplexed samples.\n\nqiime demux emp-single \\\n  --i-seqs YOURFILE \\\n  --m-barcodes-file sample-metadata.tsv \\\n  --m-barcodes-column barcode-sequence \\\n  --o-per-sample-sequences demux.qza \\\n  --o-error-correction-details demux-details.qza\n\nWe can then ask QIIME to produce some summary statistics. The output here is a .qzv: this is a QIIME visualisation file. Download a qzv and then drag and drop it into view.qiime2.org/\n\nqiime demux summarize \\\n  --i-data demux.qza \\\n  --o-visualization demux.qzv\n\nHave a look at the qzv file. What does it tell you about the data?"
+  },
+  {
+    "objectID": "6.1_metabarcoding.html#quality-filtering-and-counting",
+    "href": "6.1_metabarcoding.html#quality-filtering-and-counting",
+    "title": "Metagenomics",
+    "section": "Quality filtering and counting",
+    "text": "Quality filtering and counting\nThe next step in the process does two things at once. Firstly, it quality checks the data. It removes any PhiX reads leftover from the sequencing, checks for low quality reads, and removes chimeras (hybrid reads created when two PCR products get erroneously stuck together). Secondly, it counts how many times each unique sequence (ASV) occurs in each sample.\nQIIME offers a few different pipelines for this step, but we are going to use one called DADA2. This is the most computationally intensive step, so be prepared for it to take up to 10 minutes to complete.\nHave a look at the help page for this command at https://docs.qiime2.org/2022.8/plugins/available/dada2/denoise-single/\n\nWhat are the p-trim-left and p-trunc-len options doing? Would there be a better way to have dealt with this problem in the data? HINT: it would need to be done before reading into QIIME!\n\n\nqiime dada2 denoise-single \\\n  --i-demultiplexed-seqs YOURFILE \\\n  --p-trim-left 0 \\\n  --p-trunc-len 120 \\\n  --o-representative-sequences rep-seqs.qza \\\n  --o-table table.qza \\\n  --o-denoising-stats stats.qza\n\nThis command produces three outputs. One is the table (how many reads per ASV per sample). Another is the representative sequences: for each ASV, it marries up the identifier with the actual sequence. Finally, there are some stats on the process.\nHaving produced our outputs, we can run some summaries to see how it’s gone.\n\nqiime feature-table summarize \\\n  --i-table YOURFILE \\\n  --o-visualization table.qzv \\\n  --m-sample-metadata-file YOURFILE\n  \nqiime feature-table tabulate-seqs \\\n  --i-data YOURFILE \\\n  --o-visualization rep-seqs.qzv\n\nLook at these qzv files. What information does each give you?"
+  },
+  {
+    "objectID": "6.1_metabarcoding.html#taxonomy-assignment",
+    "href": "6.1_metabarcoding.html#taxonomy-assignment",
+    "title": "Metagenomics",
+    "section": "Taxonomy assignment",
+    "text": "Taxonomy assignment\nHaving counted the number of times each sequence occurs in each sample, we really want to know what organism that sequence came from. QIIME uses a machine learning tool (a Naive Bayes classifier, if you’re into that kind of thing) to assign a taxonomic identity to each sequence. The classifier is trained by giving it a database of sequences of known identity. This approach is endlessly flexible, as you can train the classifier to any type of sequence you are interested in. However, we will be using a pre-trained classifier as our data relates to a commonly-used 16S rRNA region. This classifier has been trained on the Silva database of 16S rRNA genes, focussing in just on the 515-806 region targeted by our primers.\n\nqiime feature-classifier classify-sklearn \\\n  --i-classifier silva-138-99-515-806-nb-classifier.qza\\\n  --i-reads rep-seqs.qza \\\n  --o-classification taxonomy.qza\n\nqiime metadata tabulate \\\n  --m-input-file taxonomy.qza \\\n  --o-visualization taxonomy.qzv"
+  },
+  {
+    "objectID": "6.1_metabarcoding.html#barplots",
+    "href": "6.1_metabarcoding.html#barplots",
+    "title": "Metagenomics",
+    "section": "Barplots",
+    "text": "Barplots\nNow we can get QIIME to make its famous barplots! You will see these in many, many microbiome papers.\n\nqiime taxa barplot \\\n  --i-table YOURFILE \\\n  --i-taxonomy YOURFILE \\\n  --m-metadata-file YOURFILE \\\n  --o-visualization taxa-bar-plots.qzv\n\nDownload the qzv and have a play with the options!"
+  },
+  {
+    "objectID": "6.1_metabarcoding.html#diversity-exploration",
+    "href": "6.1_metabarcoding.html#diversity-exploration",
+    "title": "Metagenomics",
+    "section": "Diversity exploration",
+    "text": "Diversity exploration\nQIIME will also compute a lot of other statistics on your data. I personally prefer to do this in R, but for the sake of completeness let’s also look at the QIIME output (I admit, some of it is quite pretty).\n\nqiime diversity core-metrics \\\n  --i-table YOURFILE \\\n  --p-sampling-depth 1103 \\\n  --m-metadata-file YOURFILE \\\n  --output-dir core-metrics-results\n\n\nqiime emperor plot \\\n  --i-pcoa core-metrics-results/bray_curtis_pcoa_results.qza \\\n  --m-metadata-file sample-metadata.tsv \\\n  --p-custom-axes days-since-experiment-start \\\n  --o-visualization core-metrics-results/bray-curtis-emperor-days-since-experiment-start.qzv"
+  },
+  {
+    "objectID": "6.1_metabarcoding.html#references",
+    "href": "6.1_metabarcoding.html#references",
+    "title": "Metagenomics",
+    "section": "References",
+    "text": "References\nBokulich NA, Kaehler BD, Rideout JR, et al. Optimizing taxonomic classification of marker‐gene amplicon sequences with QIIME 2’s q2‐feature‐classifier plug. Microbiome. 2018a;6:90\nBolyen E, Rideout JR, Dillon MR, et al. 2019. Reproducible, interactive, scalable and extensible microbiome data science using QIIME 2. Nature Biotechnology 37: 852–857. https://doi.org/10.1038/s41587-019-0209-9\nCallahan BJ, McMurdie PJ, Rosen MJ, et al. DADA2: high‐resolution sample inference from Illumina amplicon data. Nature Methods 2016;13:581‐583.\nCaporaso JG, Lauber CL, Costello EK, Berg-Lyons D, Gonzalez A, Stombaugh J, Knights D, Gajer P, Ravel J, Fierer N, Gordon JI, Knight R. Moving pictures of the human microbiome. Genome Biology 2011;12(5):R50. doi: 10.1186/gb-2011-12-5-r50. PMID: 21624126; PMCID: PMC3271711.\nCaporaso, J. G., Lauber, C. L., Walters, W. A., Berg-Lyons, D., Lozupone, C. A., Turnbaugh, P. J., Noah Fierer, N., & Knight, R. (2011). Global patterns of 16S rRNA diversity at a depth of millions of sequences per sample. Proceedings of the Natural Academy of Sciences USA 108, 4516–4522. http://doi.org/10.1073/pnas.1000080107\nCaporaso, J. G., Lauber, C. L., Walters, W. A., Berg-Lyons, D., Huntley, J., Fierer, N., Owens, S. M., Betley, J., Fraser, L., Bauer, M., Gormley, N., Gilbert, J. A., Smith, G., & Knight, R. (2012). Ultra-high-throughput microbial community analysis on the Illumina HiSeq and MiSeq platforms. ISME Journal 6, 1621–1624. http://doi.org/10.1038/ismej.2012.8"
+  },
+  {
+    "objectID": "6.1_metabarcoding.html#workshop-run-through",
+    "href": "6.1_metabarcoding.html#workshop-run-through",
+    "title": "Metagenomics",
+    "section": "Workshop Run-Through",
+    "text": "Workshop Run-Through"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html",
+    "href": "Commandline_Tools_and_Scripting.html",
+    "title": "Commandline Tools and Scripting",
+    "section": "",
+    "text": "{bash include=FALSE} knitr::opts_chunk$set(eval = FALSE)"
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#use-zgrep-with-compressed-files",
+    "href": "Commandline_Tools_and_Scripting.html#use-zgrep-with-compressed-files",
+    "title": "Commandline Tools and Scripting",
+    "section": "Use Zgrep with compressed files",
+    "text": "Use Zgrep with compressed files\nYou can use all of grep functionality with a compressed file by adding a ‘z’ - just replace grep with zprep and you can directly query that .gz files."
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#text-files-word-processors-and-bioinformatics",
+    "href": "Commandline_Tools_and_Scripting.html#text-files-word-processors-and-bioinformatics",
+    "title": "Commandline Tools and Scripting",
+    "section": "Text files, Word Processors and Bioinformatics",
+    "text": "Text files, Word Processors and Bioinformatics\nDocuments written using a word processor such as Microsoft Word or OpenOffice Write are not plain text documents. If your filename has an extension such as .doc or .odt, it is unlikely to be a plain text document. (Try opening a Word document in notepad or another text editor on Windows if you want proof of this.)\nWord processors are very useful for preparing documents, but we recommend you do not use them for working with bioinformatics-related files.\nWe recommend that you prepare text files for bioinformatics analyses using Linux-based text editors and not Windows- or Mac-based text editors. This is because Windows- or Mac-based text editors may insert hidden characters that are not handled properly by Linux-based programs.\nThere are a number of different text editors available on Bio-Linux. These range in ease of use, and each has its pros and cons. In this practical we will briefly look at two editors, nano and vi. ## Nano\nPros:\nvery easy – For example, command options are visible at the bottom of the window can be used when logged in without graphical support fast to start up and use\nCons:\nby default it puts return characters into lines too long for the screen (i.e. using nano for system administration can be dangerous!) This behavior can be changed by setting different defaults for the program or running it with the –w option. It is not completely intuitive for people who are used to graphical word processors"
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#vi-or-vim",
+    "href": "Commandline_Tools_and_Scripting.html#vi-or-vim",
+    "title": "Commandline Tools and Scripting",
+    "section": "Vi (or Vim)",
+    "text": "Vi (or Vim)\nPros:\nAppears on nearly every Unix system. Can be very powerful if you take the time to know the key-short cuts.\nCons:\nYou have to know the shortcuts!! There’s no menus and no on screen prompts\n\n\n\n\n\n\nExercise\n\n\n\n\nCreate a file with nano\n```{bash}\nnano test_nano.txt \n```\ntype some text, exit ctrl X, save and return to command line now list the contents of the file you created\n```{bash}\nless test_nano.txt \n```\n\n\nCreate a file with vi\nvi test_vi.txt \ntype ‘a’ and you can then add text\nexit saving you edits [esc]:wq! - this stands for write quit !!\nnow list the contents of the file you created\n```{bash}\nless test_vi.txt \n```"
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#step-1-create-your-script",
+    "href": "Commandline_Tools_and_Scripting.html#step-1-create-your-script",
+    "title": "Commandline Tools and Scripting",
+    "section": "Step 1: Create your Script",
+    "text": "Step 1: Create your Script\nMake a text file containing the script in question. This can be achieved by downloading or transferring the scripts as a file in the correct format. Sometimes the scripts are posted as part of a website such as a web-post in a discussion forum. To use these scripts, create a file using vi or nano and copy into the test file the script in question ensuring you save it with an appropriate name.\nHere’s a script you can try\n```{bash}\n#!/bin/bash \n\necho {10..1} \n\necho 'Blast off' \n```"
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#step-2-make-your-script-executable",
+    "href": "Commandline_Tools_and_Scripting.html#step-2-make-your-script-executable",
+    "title": "Commandline Tools and Scripting",
+    "section": "Step 2: Make your script executable",
+    "text": "Step 2: Make your script executable\nMake the file executable. Before you can run the script you must make it executable. This is done by changing its property using\n```{bash}\nchmod a+x [script name] \n```\nthis is shorthand for chmod (change modify) a(all)+(add)execute(e) [script name] – thus changing the permission to allow everyone to execute a script. For more guide to chmod see https://en.wikipedia.org/wiki/Chmod"
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#step-3-run-your-script",
+    "href": "Commandline_Tools_and_Scripting.html#step-3-run-your-script",
+    "title": "Commandline Tools and Scripting",
+    "section": "Step 3: Run Your Script",
+    "text": "Step 3: Run Your Script\nRun the program. This should be easy but there are a few ways of doing this.\nPlace the program into the directory where you want to use it and type\n```{bash}\n./[script name] parameters arguments \n```\nOn first use try to run with no parameters or arguments or with -h and -help to see the manual for the script. Some poorly written scripts will need you to define the program you need to use them. Ie if it was a perl program (you may have to module load perl before you run this example).\n```{bash}\nperl [script name] parameters arguments \n```\nRun from scripts current location using full path.\n```{bash}\n/full path/[script name] parameters arguments \n```\nPlace the script into your ‘PATH’ – this means that the computer automatically knows about the script and will run it from any location just given the program name. I suggest that if you want to do this ask the demonstrators and they can show you……this is advanced as if you put two scripts with the same name into the PATH you can cause issues."
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#loops-using-numerical-variables",
+    "href": "Commandline_Tools_and_Scripting.html#loops-using-numerical-variables",
+    "title": "Commandline Tools and Scripting",
+    "section": "Loops using numerical variables",
+    "text": "Loops using numerical variables\nCreating a Loop\nInvoke a text editor such as nano, then type\n```{bash}\n#!/bin/bash\n\nfor i in {1..[number]}; do \n\n# use hash to include some level of documentation so when you get to script in a few months time \n\n# you can remember what it was all about.  ${i} = number which increment by 1 each time the loop runs\n\n[your commands]${i} \n\ndone\n```\nsave.\nnow make the program executable\n```{bash}\nchmod +x [program_name]\n```\nrun\n```{bash}\n./[program_name]\n```"
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#loops-using-strings-lists-as-variables",
+    "href": "Commandline_Tools_and_Scripting.html#loops-using-strings-lists-as-variables",
+    "title": "Commandline Tools and Scripting",
+    "section": "Loops using Strings (lists) as variables",
+    "text": "Loops using Strings (lists) as variables\nInvoke a text editor such as nano, then type\n```{bash}\n#!/bin/bash\n\nfor i in sampleA sampleB sampleC sampleD; do \n\n# use hash to include some level of documentation so when you get to script in a few months time\n\n# you can remember what it was all about.  ${i} = the list of strings given at the start of the for loop \n\n[your commands]${i} \n\ndone \n```\nsave\nnow make the program executable\n```{bash}\nchmod +x [program_name] \n```\nrun\n```{bash}\n./[program_name] \n```"
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#loops-using-directory-listings",
+    "href": "Commandline_Tools_and_Scripting.html#loops-using-directory-listings",
+    "title": "Commandline Tools and Scripting",
+    "section": "Loops using directory listings",
+    "text": "Loops using directory listings\nThis is a great method if you want to execute a series of command on a set of data files contained in a specific directory, for instance a series of sequence files.\nInvoke a text editor such as nano, then type\n```{bash}\n#!/bin/bash\n\nsequence_dir=[location of folder containing paired end sequence files]\n#*_R1.fastq - lists all files ending in _R1.fastq\n\nfor f in ${sequence_dir}/*_R1.fastq\ndo\n\n#the file name are placed in variable $f - we can separate the name of the file away from the suffix (.fastq) using this simple cut expression - the variable 'R1' now contains the file name with no suffix \nR1=$(basename $f | cut -f1 -d.)\n\n#Sometimes we want the 'base' name of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed \nbase=$(echo $R1 | sed 's/_R1//')\n\necho ${base}\n\ndone \n```\nsave\nnow make the program executable\n```{bash}\nchmod +x [program_name] \n```\nrun\n```{bash}\n./[program_name] \n```"
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#gz-files",
+    "href": "Commandline_Tools_and_Scripting.html#gz-files",
+    "title": "Commandline Tools and Scripting",
+    "section": "gz files",
+    "text": "gz files\n….wait a minute do you really need to decompress this file !! Many programs will happily use a .gz file directly, this a win for your file space so check out if you really need to decompress the file. Unfortunate some utilits like ‘sed’ require files to be unzipped, it that case:\n```{bash}\n#to decompress\ngunzip [filename].gz\n#to recompress\ngzip [filename]\n```"
+  },
+  {
+    "objectID": "Commandline_Tools_and_Scripting.html#how-to-extract-a-.tar.gz-file-on-linux",
+    "href": "Commandline_Tools_and_Scripting.html#how-to-extract-a-.tar.gz-file-on-linux",
+    "title": "Commandline Tools and Scripting",
+    "section": "How to extract a .tar.gz file on Linux?",
+    "text": "How to extract a .tar.gz file on Linux?\nTo extract a .tar.gz file on Linux, you can use the “tar” command in the terminal. Here is the general syntax:\n```{bash}\ntar -xvzf filename.tar.gz\n```\nHere is a brief explanation of the options used:\n```{bash}\n-x: This option tells tar to extract the contents of the archive.\n\n-v: This option is for verbose output, which means that tar will display a list of the files being extracted as it does so.\n\n-z: This option tells tar to decompress the archive using gzip.\n\n-f: This option is used to specify the archive file to extract.\n```"
+  },
+  {
+    "objectID": "index.html#artifical-intelligence-ai-and-writing-code",
+    "href": "index.html#artifical-intelligence-ai-and-writing-code",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Artifical intelligence (AI) and Writing Code",
+    "text": "Artifical intelligence (AI) and Writing Code\nThere has been a recent explosion in the quality and availability of large language models (LLM), colloquially referred to simply as AI, of which ChatGPT remains the most famous. One of their much-vaunted features is the ability to write code, which begs the question: should I use AI to help me write my bioinformatics scripts? The answer is… it depends how you use it. LLMs will quickly churn out code which is (mostly) runnable. However, there is no guarantee that the code does exactly what you think it does. If you want to use AI-generated code, you will need to go through it line by line, checking and testing exactly what is happening; this, obviously, still requires you to understand the code in detail.\nOne area is which LLMs are likely to prove very useful is in debugging. Error messages usually contain useful information, but not necessarily in a wording accessible to a beginner. LLMs are showing promise for helping to identify and diagnose bugs in code.\nIf you want some tips for using LLMs to write code, this article from Nature provides some guidance."
+  },
+  {
+    "objectID": "index.html#session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision",
+    "href": "index.html#session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 0. Basics of HPC and HPC vs Personal Cloud provision",
+    "text": "Session 0. Basics of HPC and HPC vs Personal Cloud provision\nThis element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to logging in to the research platforms at Cardiff School of Biosciences. If you are a researcher at Cardiff wanting to gain access to HPC please contact our Biocompute team and join the bioinformatics Teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google …. many of these provide limited free options which can help you to learn."
+  },
+  {
+    "objectID": "index.html#session-1.-linux-the-basics",
+    "href": "index.html#session-1.-linux-the-basics",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 1. Linux: The basics",
+    "text": "Session 1. Linux: The basics\nThis introduces you to the command line - yes, no more clicking on icons as it is all about writing commands !!\nIntroduction to Linux\nThis represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you started quickly.\nThis session gives more detail about the Linux basics, covering navigating around your Linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect.), how to preview files (less/cat/head/tail) and how to edit files (we use Nano but touch on using Vi).\nLoading Software and Accessing Data\nA guide to how to access the software and data you will need for the rest of the course, plus more useful Linux commands.\nExtension: Commandline Tools and Scripting\nFrom querying files with grep, running scripts and using loops, this material provides some more exercises to develop your skills."
+  },
+  {
+    "objectID": "index.html#session-2.-ngs-data-manipulation-from-seqences-to-assemblies.",
+    "href": "index.html#session-2.-ngs-data-manipulation-from-seqences-to-assemblies.",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 2. NGS Data Manipulation: From seqences to assemblies.",
+    "text": "Session 2. NGS Data Manipulation: From seqences to assemblies.\nAn Introduction to NGS Data and Quality Control\nMost of our training material focuses on bioinformatics application in the area of genomics. This section introduces the fundamental concepts of Next Generation Sequencing (NGS) and the basic file types (fasta / fastq) and approaches to quality control and initial data processing.\nGenome Assembly\nApproaches to genome assembly vary hugely depending on what you are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations of short and long read data."
+  },
+  {
+    "objectID": "index.html#session-3.-genome-visualisation-and-annotation",
+    "href": "index.html#session-3.-genome-visualisation-and-annotation",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 3. Genome visualisation and annotation",
+    "text": "Session 3. Genome visualisation and annotation\nGenome Annotation and Visualisation\nA genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results. We primarily use Artemis (Sanger Centre) but also introduce Integrated Genome Viewer (IGV) from the Broad Institute.\nHybrid Assemblies\nOften the best way to get a high-quality genome is by a hybrid assembly: combining short-read (Illumina) and long-read (Nanopore/PacBio) data. This session will guide you through the principles of hybrid assembly."
+  },
+  {
+    "objectID": "index.html#session-4.-building-phylogenies",
+    "href": "index.html#session-4.-building-phylogenies",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 4. Building phylogenies",
+    "text": "Session 4. Building phylogenies\nPhylogenetics and Phylogenomics\nThe taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual."
+  },
+  {
+    "objectID": "index.html#session-5.-transcriptomics",
+    "href": "index.html#session-5.-transcriptomics",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 5. Transcriptomics",
+    "text": "Session 5. Transcriptomics\nTranscriptomics Introduction\nAn introductory lecture on RNA sequencing. The subsequent workshop has been divided into three parts each targeted at different aspects of the process.\nRNAseq Data Processing\nTranscriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to transcript counts for an organism with an existing genome. We include approaches to identify and evaluate technical duplication, although be aware this may not be relevant to your analytical approach.\nGeneration of Differentially Expressed Gene (DEG) Lists\nPerforming quality control and provisional data visualisation (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use SARTools developed at the Pasteur Institute to illustrate best practice in transcriptome analysis. We also include multivariate approaches to data visualization such as PCA and HCA (hierarchical clustering analysis).\nFunctional Interpretation of DEGs\nInterpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks."
+  },
+  {
+    "objectID": "index.html#session-6.-microbial-community-analysis",
+    "href": "index.html#session-6.-microbial-community-analysis",
+    "title": "Introduction to Big Data Biology and Bioinformatics",
+    "section": "Session 6. Microbial community analysis",
+    "text": "Session 6. Microbial community analysis\nMetabarcoding\nAmplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, RbcL for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)[https://qiime2.org/] to navigate you through preliminary metabarcoding data analysis."
+  }
+]

@@ -6,11 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof.&nbsp;Peter Kille">
-<meta name="dcterms.date" content="2023-10-05">
-<meta name="description" content="Course contributions are provided by Prof.&nbsp;Pete Kille and Dr Sarah Christofides but draw significantly on training material developed by Dr Daniel Pass (Compass Bioinformatics), Dr Alex Mullins and those involved with Biolinux project. Many thanks to all.">
+<meta name="author" content="Dr.&nbsp;Alex Mullins">
+<meta name="dcterms.date" content="2023-10-04">
 
-<title>Introduction to Big Data Biology and Bioinformatics</title>
+<title>Genome Assembly</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,7 +91,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Welcome to Bioinformatics!</a></li><li class="breadcrumb-item"><a href="index.html">Introduction to Big Data Biology and Bioinformatics</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="2.1_NGS_Quality_Control.html">Session 2. NGS data</a></li><li class="breadcrumb-item"><a href="2.2_genome_assembly.html">Genome Assembly</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -105,14 +104,9 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Introduction to Big Data Biology and Bioinformatics</h1>
-            <p class="subtitle lead">A guide to unlocking your inner bioinformatician</p>
-                  <div>
-        <div class="description">
-          Course contributions are provided by Prof.&nbsp;Pete Kille and Dr Sarah Christofides but draw significantly on training material developed by Dr Daniel Pass (Compass Bioinformatics), Dr Alex Mullins and those involved with Biolinux project. Many thanks to all.
-        </div>
-      </div>
-                </div>
+      <h1 class="title">Genome Assembly</h1>
+            <p class="subtitle lead">Puttign the pieces together</p>
+                      </div>
   </div>
     
   
@@ -121,14 +115,14 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Prof.&nbsp;Peter Kille </p>
+               <p>Dr.&nbsp;Alex Mullins </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 5, 2023</p>
+        <p class="date">October 4, 2023</p>
       </div>
     </div>
     
@@ -157,7 +151,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="index.html" class="sidebar-item-text sidebar-link active">
+  <a href="index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Big Data Biology and Bioinformatics</span></a>
   </div>
 </li>
@@ -226,7 +220,7 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="2.2_genome_assembly.html" class="sidebar-item-text sidebar-link">
+  <a href="2.2_genome_assembly.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Genome Assembly</span></a>
   </div>
 </li>
@@ -334,21 +328,38 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bioinformatics-teaching-material" id="toc-bioinformatics-teaching-material" class="nav-link active" data-scroll-target="#bioinformatics-teaching-material">Bioinformatics Teaching Material</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#artifical-intelligence-ai-and-writing-code" id="toc-artifical-intelligence-ai-and-writing-code" class="nav-link" data-scroll-target="#artifical-intelligence-ai-and-writing-code">Artifical intelligence (AI) and Writing Code</a></li>
+  <li><a href="#bioinformatic-process-to-assemble-a-genome" id="toc-bioinformatic-process-to-assemble-a-genome" class="nav-link" data-scroll-target="#bioinformatic-process-to-assemble-a-genome"><strong>Bioinformatic process to assemble a genome</strong></a></li>
+  <li><a href="#quality-checking-data" id="toc-quality-checking-data" class="nav-link" data-scroll-target="#quality-checking-data">Quality checking data</a></li>
+  <li><a href="#triming-and-adapter-removal" id="toc-triming-and-adapter-removal" class="nav-link" data-scroll-target="#triming-and-adapter-removal">Triming and adapter removal</a></li>
+  <li><a href="#re-assess-data-quality" id="toc-re-assess-data-quality" class="nav-link" data-scroll-target="#re-assess-data-quality">Re-assess data quality</a></li>
+  <li><a href="#genome-assembly" id="toc-genome-assembly" class="nav-link" data-scroll-target="#genome-assembly">Genome assembly</a></li>
+  <li><a href="#rename-assembly-files-and-copy-to-new-directory" id="toc-rename-assembly-files-and-copy-to-new-directory" class="nav-link" data-scroll-target="#rename-assembly-files-and-copy-to-new-directory">Rename assembly files and copy to new directory</a></li>
+  <li><a href="#assembly-statistics" id="toc-assembly-statistics" class="nav-link" data-scroll-target="#assembly-statistics">Assembly statistics</a></li>
+  <li><a href="#assembly-graph" id="toc-assembly-graph" class="nav-link" data-scroll-target="#assembly-graph">Assembly graph</a></li>
   </ul></li>
-  <li><a href="#course-handbooks" id="toc-course-handbooks" class="nav-link" data-scroll-target="#course-handbooks">Course Handbooks</a></li>
-  <li><a href="#bioinformatics-road-map" id="toc-bioinformatics-road-map" class="nav-link" data-scroll-target="#bioinformatics-road-map">Bioinformatics Road-Map</a></li>
-  <li><a href="#course-components" id="toc-course-components" class="nav-link" data-scroll-target="#course-components">Course components</a>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
   <ul class="collapse">
-  <li><a href="#session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision" id="toc-session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision" class="nav-link" data-scroll-target="#session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision">Session 0. Basics of HPC and HPC vs Personal Cloud provision</a></li>
-  <li><a href="#session-1.-linux-the-basics" id="toc-session-1.-linux-the-basics" class="nav-link" data-scroll-target="#session-1.-linux-the-basics">Session 1. Linux: The basics</a></li>
-  <li><a href="#session-2.-ngs-data-manipulation-from-seqences-to-assemblies." id="toc-session-2.-ngs-data-manipulation-from-seqences-to-assemblies." class="nav-link" data-scroll-target="#session-2.-ngs-data-manipulation-from-seqences-to-assemblies.">Session 2. NGS Data Manipulation: From seqences to assemblies.</a></li>
-  <li><a href="#session-3.-genome-visualisation-and-annotation" id="toc-session-3.-genome-visualisation-and-annotation" class="nav-link" data-scroll-target="#session-3.-genome-visualisation-and-annotation">Session 3. Genome visualisation and annotation</a></li>
-  <li><a href="#session-4.-building-phylogenies" id="toc-session-4.-building-phylogenies" class="nav-link" data-scroll-target="#session-4.-building-phylogenies">Session 4. Building phylogenies</a></li>
-  <li><a href="#session-5.-transcriptomics" id="toc-session-5.-transcriptomics" class="nav-link" data-scroll-target="#session-5.-transcriptomics">Session 5. Transcriptomics</a></li>
-  <li><a href="#session-6.-microbial-community-analysis" id="toc-session-6.-microbial-community-analysis" class="nav-link" data-scroll-target="#session-6.-microbial-community-analysis">Session 6. Microbial community analysis</a></li>
+  <li><a href="#sequence-data-and-files-available-for-mitochondrial-assembly" id="toc-sequence-data-and-files-available-for-mitochondrial-assembly" class="nav-link" data-scroll-target="#sequence-data-and-files-available-for-mitochondrial-assembly"><strong>Sequence data and files available for mitochondrial assembly</strong></a></li>
+  </ul></li>
+  <li><a href="#tools-and-usage" id="toc-tools-and-usage" class="nav-link" data-scroll-target="#tools-and-usage">Tools and Usage</a>
+  <ul class="collapse">
+  <li><a href="#bioinformatic-software-and-tools" id="toc-bioinformatic-software-and-tools" class="nav-link" data-scroll-target="#bioinformatic-software-and-tools"><strong>Bioinformatic software and tools</strong></a></li>
+  <li><a href="#software-usage" id="toc-software-usage" class="nav-link" data-scroll-target="#software-usage">Software usage</a>
+  <ul class="collapse">
+  <li><a href="#tmux" id="toc-tmux" class="nav-link" data-scroll-target="#tmux">tmux</a></li>
+  <li><a href="#fastqc" id="toc-fastqc" class="nav-link" data-scroll-target="#fastqc">Fastqc</a></li>
+  <li><a href="#fastp" id="toc-fastp" class="nav-link" data-scroll-target="#fastp">Fastp</a></li>
+  <li><a href="#unicycler" id="toc-unicycler" class="nav-link" data-scroll-target="#unicycler">Unicycler</a></li>
+  <li><a href="#quast" id="toc-quast" class="nav-link" data-scroll-target="#quast">Quast</a></li>
+  <li><a href="#bandage" id="toc-bandage" class="nav-link" data-scroll-target="#bandage">Bandage</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#worked-example-of-assembly" id="toc-worked-example-of-assembly" class="nav-link" data-scroll-target="#worked-example-of-assembly">Worked Example of assembly</a>
+  <ul class="collapse">
+  <li><a href="#assembly-walk-through-v1" id="toc-assembly-walk-through-v1" class="nav-link" data-scroll-target="#assembly-walk-through-v1">Assembly Walk Through V1</a></li>
+  <li><a href="#assembly-walk-through-v2" id="toc-assembly-walk-through-v2" class="nav-link" data-scroll-target="#assembly-walk-through-v2">Assembly Walk Through V2</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -359,117 +370,156 @@ background: darkred;
 
 
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=65b33cd7-3caa-45f5-8ca5-af800109ea98&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3d87d25f-bc34-448a-a65e-af630098e01b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
-<section id="bioinformatics-teaching-material" class="level1">
-<h1>Bioinformatics Teaching Material</h1>
-<p>This training material is aimed at the novice with no experience of high performance computing (HPC) or bioinformatics. You could be a biologist who wants to up their bioinformatics skills or a physical scientist (trained in computer science, maths or physics) interested in applying your skills to the biological arena - this is where the journey starts.</p>
-<p>Big data is a fact of life for biologists whether they are reconstructing ecosystems from fragments of DNA found in the environment (eDNA) or reconstructing neural systems from MRI scans of brains - all walks of biology are exploiting larger and larger data sets. To access these data sets you will need a new set of skills - <strong><em>the time of big data biology is now</em></strong>.</p>
-<p>This is a challenging but ultimately exciting and productive area of training, so before we start here are a few pieces of important advice to carry with you on the journey:</p>
+<p><a href="https://tinyurl.com/2p88c3er">NGS Assembly Powerpoint</a></p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<section id="bioinformatic-process-to-assemble-a-genome" class="level2">
+<h2 class="anchored" data-anchor-id="bioinformatic-process-to-assemble-a-genome"><strong>Bioinformatic process to assemble a genome</strong></h2>
+<p>Below is a walkthrough on the steps necessary to assemble a mitochondrial or bacterial genome. Don’t get lost in the terminal with typing commands meaninglessly, step back and think about the bioinformatic process to get to the end goal.</p>
+<p><br></p>
+</section>
+<section id="quality-checking-data" class="level2">
+<h2 class="anchored" data-anchor-id="quality-checking-data">Quality checking data</h2>
+<p>You will often start with <strong>raw sequence</strong> data in fastq format. You first need to check the quality of the data before proceeding with the assembly, this can be achieved using <strong>Fastqc</strong>.</p>
+<p><br></p>
+</section>
+<section id="triming-and-adapter-removal" class="level2">
+<h2 class="anchored" data-anchor-id="triming-and-adapter-removal">Triming and adapter removal</h2>
+<p>Raw sequence data may still contain fragments of the adapter sequences from the sequencing process; these artificial sequences need to be removed. Low quality bases that may occur toward the end of reads can also be trimmed to improve the overall sequence quality. These steps will be carried out using <strong>Fastp</strong>. After this step you will have <strong>processed reads</strong>.</p>
+<p><br></p>
+</section>
+<section id="re-assess-data-quality" class="level2">
+<h2 class="anchored" data-anchor-id="re-assess-data-quality">Re-assess data quality</h2>
+<p>Following adaptor removal and trimming, We need to repeat the quality checking with <strong>Fastqc</strong>, but this time we will use the <strong>processed reads</strong>.</p>
+<p><br></p>
+</section>
+<section id="genome-assembly" class="level2">
+<h2 class="anchored" data-anchor-id="genome-assembly">Genome assembly</h2>
+<p>We will assembly the processed reads into an assembly using the assembler <strong>Unicycler</strong>.</p>
+<p><br></p>
+</section>
+<section id="rename-assembly-files-and-copy-to-new-directory" class="level2">
+<h2 class="anchored" data-anchor-id="rename-assembly-files-and-copy-to-new-directory">Rename assembly files and copy to new directory</h2>
+<p>A big part of bioinformatics is maintaining directory and file organisation. Each mitochondrial genome assembly output by <strong>Unicycler</strong> will be located in a different folder <strong>but</strong> have the same generic name: <em>assembly.fasta</em>. We need to rename these files to reflect the input data. Compose a loop to <strong>copy and rename</strong> these files to a new directory.</p>
+<p><br></p>
+</section>
+<section id="assembly-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="assembly-statistics">Assembly statistics</h2>
+<p>Once our assembly files have been renamed and copied to a single location, we can analyse them for quality statistics. Use <strong>Quast</strong> to report useful metrics such as assembly length, GC content, contig number, and N50 value. As the mitochondrial genomes are small and assembly well, there is a bacterial genome assembly <strong>Quast</strong> output to view in the data directory for this session.</p>
+<p><br></p>
+</section>
+<section id="assembly-graph" class="level2">
+<h2 class="anchored" data-anchor-id="assembly-graph">Assembly graph</h2>
+<p>One of the files produced by <strong>Unicycler</strong> is an assembly graph (gfa file extension). This file details the links between contigs that were produced during the assembly and can provide valuable information on the difficult-to-assemble regions of the genome. As the mitochondrial genomes are small and assembly well, there is a bacterial genome assembly graph to visualise with <strong>Bandage</strong>.</p>
+</section>
+</section>
+<section id="data" class="level1">
+<h1>Data</h1>
+<section id="sequence-data-and-files-available-for-mitochondrial-assembly" class="level2">
+<h2 class="anchored" data-anchor-id="sequence-data-and-files-available-for-mitochondrial-assembly"><strong>Sequence data and files available for mitochondrial assembly</strong></h2>
+<p><br></p>
 <ul>
-<li><strong><em>RTFM: Read The - Fantastic - Manual</em></strong></li>
+<li><p>Each group will have access to a set of <strong>paired fastq reads: R1 and R2 files.</strong></p></li>
+<li><p>There is also a representative bacterial genome assembly with a graphical assembly file and <strong>quast</strong> output as an example of a more complicated assembly.</p></li>
 </ul>
-<p>You will be using very complex software which will (mostly) generate some type of output - you need to know that output is valid and makes sense. By reading the manual and understanding the concepts and theory behind what you are doing you will find it not only easier to use the software but also ensure that your results make sense. Most software comes with a GitHub page, an online guide, a README file, help (accessed via the -h or -help flags) or a manual (man [command]). Sometimes these can be very technical, so don’t be discouraged if you don’t understand it all: just looking through and gleaning bits of information will make a huge difference to your understanding and confidence. These resources have taken a huge amount of effort to generate - look through them, get to know the options, it will really help.</p>
-<ul>
-<li><strong><em>Keep a notebook and annotate your code</em></strong></li>
-</ul>
-<p>Bioinformatic analyses are <em>in silico</em> experiments, and just as you would not perform an experiment in the lab without making appropriate notes you should always make notes relating to your computational processing. I suggest creating a text file as a note book and use it to record what you did along with the final code/commands you used and any thoughts/ ideas/ pitfalls you had along the way. Lots of informaticians use <a href="https://en.wikipedia.org/wiki/Markdown">‘markdown’</a> which is a simple text based system which means your logbooks/notes can easily be rendered to provide structure and formatting. Also always add comments to your code so that you (or anyone else) using the code can follow what you did. In nearly all coding platforms if you put a <code>#</code> in front of a line of text, that line will be ignored and not ‘executed’ as code.</p>
-<ul>
-<li><strong><em>Be part of the wider bioinformatics community</em></strong></li>
-</ul>
-<p>There is a global bioinformatics community on-line and actively posting in chat rooms. Often the technical problem you are having or error code that has appeared has been seen before and you can find people have posted solution in old threads. <a href="https://stackoverflow.com/">Stack Overflow</a> is a great place to start. You can post questions yourself and when you get more experienced find some time to contribute and help others.</p>
-<p>Get to know other people on your course/ in your department who do bioinformatics. Having a buddy to discuss ideas and troubleshoot problems with makes a huge difference. Don’t underestimate the value of a fresh pair of eyes when looking for bugs in code! We are all perpetually learning, and even the most experienced bioinformatician can pick up helpful tips and new ideas from talking to others.</p>
-<p>From chat rooms to human conversations with your colleagues, I have always gained more by contributing than trying to do things on my own. If you have time to develop your knowledge more formally I highly recommend lab exchanges or attending conferences or ‘hack-a-thons’ - it is fun to meet/learn from the people that develop the amazing code we use (and maybe buy them beer to say thank you!).</p>
-<ul>
-<li><strong><em>Google is your friend</em></strong></li>
-</ul>
-<p>Other search engines are also available… whether you are looking for code, troubleshooting a problem or looking for new software, a five-minute web search can save a huge amount of time and/or reveal new exciting solutions/software. There are lots of tools on the internet that can help you with coding from YouTube videos to AI chat bots like <a href="https://openai.com/blog/chatgpt/">ChatGPT</a> (see section below). These are all part of the solution - find what works for you but always try and understand what you are doing (you don’t want to find that that great bit of code you copied is actually doing something you didn’t want it to).</p>
-<ul>
-<li><strong><em>Solving problems is fun but do not forget the question</em></strong></li>
-</ul>
-<p>The coding and problem-solving aspects of bioinformatics can be really seductive and fun (or frustrating and exasperating) and can draw you in so all you are focused on is solving a gnarly problem with your code or writing a complex workflow. (Who needs Sudoku?) However, DO NOT FORGET the question you started with!!</p>
-<p>It often helps to step back (Pete has a coffee, Sarah goes for a walk), get some perspective and think about what you are trying to achieve: you could find a new way forward or find what you are doing is not needed. Always keep the big picture in mind of what you want to achieve and how each step will get you towards that goal. It’s easy to get lost in the code, but ultimately it is there to address a biological question - target your analysis to ensure it addressing the answers you seek. I suggest doodling a flow diagram on a physical sheet of paper before you even attempt to wade into typing commands.</p>
-<p>And above all - have some fun doing science!!</p>
-<section id="artifical-intelligence-ai-and-writing-code" class="level2">
-<h2 class="anchored" data-anchor-id="artifical-intelligence-ai-and-writing-code">Artifical intelligence (AI) and Writing Code</h2>
-<p>There has been a recent explosion in the quality and availability of large language models (LLM), colloquially referred to simply as AI, of which ChatGPT remains the most famous. One of their much-vaunted features is the ability to write code, which begs the question: should I use AI to help me write my bioinformatics scripts? The answer is… it depends how you use it. LLMs will quickly churn out code which is (mostly) runnable. However, there is no guarantee that the code does exactly what you think it does. If you want to use AI-generated code, you will need to go through it line by line, checking and testing exactly what is happening; this, obviously, still requires you to understand the code in detail.</p>
-<p>One area is which LLMs are likely to prove very useful is in debugging. Error messages usually contain useful information, but not necessarily in a wording accessible to a beginner. LLMs are showing promise for helping to identify and diagnose bugs in code.</p>
-<p>If you want some tips for using LLMs to write code, <a href="https://www.nature.com/articles/d41586-023-01833-0">this article</a> from <em>Nature</em> provides some guidance.</p>
 </section>
 </section>
-<section id="course-handbooks" class="level1">
-<h1>Course Handbooks</h1>
-<p>This training material, or elements of it, are used across a number of courses. The specific handbook for your course will have been provided to you by email. However, if you have been directed to these web pages because you are interested in developing your bioinformatics skills, or come come across them by chance, you should be able to follow the exercises independently without reference to the handbooks.</p>
+<section id="tools-and-usage" class="level1">
+<h1>Tools and Usage</h1>
+<section id="bioinformatic-software-and-tools" class="level2">
+<h2 class="anchored" data-anchor-id="bioinformatic-software-and-tools"><strong>Bioinformatic software and tools</strong></h2>
+<p>We will use multiple bioinformatic packages to assemble a genome and provide assembly statistics</p>
+<p>tmux – terminal multiplexer<br>
+Fastqc – Quality control of reads<br>
+Fastp – adapter removal and trimming tool<br>
+Unicycler – genome assembler<br>
+Quast – genome assembly statistics<br>
+Bandage- view graphical fragment assembly (gfa) files</p>
+<p><br></p>
+<p><strong>Remember that you can access the “help” option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or –help. After using a program, dont forget to unload the module.</strong></p>
+<p><br></p>
 </section>
-<section id="bioinformatics-road-map" class="level1">
-<h1><a href="https://prezi.com/view/PJXGFaOeSh7r9EsmBCD1/">Bioinformatics Road-Map</a></h1>
-<p>Different people learn in different ways and sometimes it is good to see a wider perspective of where the concept or challenge you are facing fits into the wide field. To aid this I have generated a interactive course guide using a tool call ‘prezi’. This is just one way you can navigate the material - it may not work for you or it may be the life-line that helps you navigate your way through !! You can view the course from an overview perspective then click on the relevant element and zoom in to see additional resources.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://prezi.com/view/PJXGFaOeSh7r9EsmBCD1/"><img src="images/Prezi_Overview.png" class="img-fluid figure-img" alt="Prezi Overview"></a></p>
-<figcaption class="figure-caption">Prezi Overview</figcaption>
-</figure>
-</div>
-<p>When you are zoomed in, the resources appear in colour coded spheres - red are lectures, purples are workshop materials and light green web-resources. If you click again you will zoom in to see specific links to the relevant training material.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Prezi_zoom.png" class="img-fluid figure-img" alt="Prezi Zooming In for Resources and Links"></p>
-<figcaption class="figure-caption">Prezi Zooming In for Resources and Links</figcaption>
-</figure>
-</div>
+<section id="software-usage" class="level2">
+<h2 class="anchored" data-anchor-id="software-usage">Software usage</h2>
+<section id="tmux" class="level3">
+<h3 class="anchored" data-anchor-id="tmux">tmux</h3>
+<p>tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. If you run a script in the terminal and then close the session/turn off the laptop, the script will be cancelled. To avoid this, we use tmux. This will allow you to run scripts and programs in the terminal, close the terminal/turn off your laptop, and the script will continue to run.</p>
+<pre><code>module load tmux/3.2a</code></pre>
+<p><br></p>
+<p>Basic usage cheatsheet: https://tmuxcheatsheet.com/</p>
+<p>Start a new session:</p>
+<pre><code>tmux new -s [session name]</code></pre>
+<p>Close a session:</p>
+<pre><code>Ctrl + b, then d</code></pre>
+<p>List available sessions:</p>
+<pre><code>tmux list</code></pre>
+<p>Re-join an existing session:</p>
+<pre><code>tmux a -t [session name]</code></pre>
+<p>Delete a session:</p>
+<pre><code>tmux kill-session -t [session name]</code></pre>
+<p><br></p>
 </section>
-<section id="course-components" class="level1">
-<h1>Course components</h1>
-<p>If you are following this course as part of a taught module, Session 0 will be covered in the preliminary session to get you online and set up. Apart from Session 1 (which is a single 3-hour session), all the subsequent sessions will be allocated two 3-hour slots. The first will cover new material and the core workshop exercises. The second will be an opportunity for you to finish off/revisit any material you want to; if you’re happy with what you’ve done so far, there are extension exercises provided for the second session that allow you to practise your skills and take them further.</p>
-<section id="session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision" class="level2">
-<h2 class="anchored" data-anchor-id="session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision">Session 0. Basics of HPC and HPC vs Personal Cloud provision</h2>
-<p>This element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to logging in to the research platforms at Cardiff School of Biosciences. If you are a researcher at Cardiff wanting to gain access to HPC please contact our <a href="http://hpc.bios.cf.ac.uk/contacts/">Biocompute team</a> and join the bioinformatics Teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google …. many of these provide limited free options which can help you to learn.</p>
+<section id="fastqc" class="level3">
+<h3 class="anchored" data-anchor-id="fastqc">Fastqc</h3>
+<p>A quality control tool for high throughput sequence data.</p>
+<pre><code>module load fastqc/0.11.9</code></pre>
+<p><br> Basic usage:</p>
+<p>Create the output directory before running the command.</p>
+<pre><code>fastqc --threads [thread number] [input fastq file] --outdir [output directory]</code></pre>
+<p>Check out the html files created for a report of the fastq file read quality</p>
+<p><br></p>
 </section>
-<section id="session-1.-linux-the-basics" class="level2">
-<h2 class="anchored" data-anchor-id="session-1.-linux-the-basics">Session 1. Linux: The basics</h2>
-<p>This introduces you to the command line - yes, no more clicking on icons as it is all about writing commands !!</p>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.1_Introduction%20to%20Linux.html">Introduction to Linux</a></p>
-<p>This represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you started quickly.</p>
-<p>This session gives more detail about the Linux basics, covering navigating around your Linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect.), how to preview files (less/cat/head/tail) and how to edit files (we use Nano but touch on using Vi).</p>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.2_Loading_Software_Accessing_Data.html">Loading Software and Accessing Data</a></p>
-<p>A guide to how to access the software and data you will need for the rest of the course, plus more useful Linux commands.</p>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.3_Commandline_Tools_and_Scripting.html">Extension: Commandline Tools and Scripting</a></p>
-<p>From querying files with grep, running scripts and using loops, this material provides some more exercises to develop your skills.</p>
+<section id="fastp" class="level3">
+<h3 class="anchored" data-anchor-id="fastp">Fastp</h3>
+<p>A tool designed to provide fast all-in-one preprocessing for FastQ files. This tool is developed in C++ with multithreading supported to afford high performance.</p>
+<pre><code>module load fastp/0.20.0</code></pre>
+<p><br></p>
+<p>Basic usage: Create the output directory before running the command.</p>
+<pre><code>fastp -w [thread number] -i [input fastq R1] -I [input fastq R2] -o [output fastq R1] -O [output fastq R2] -h [trimming_report.html]</code></pre>
+<p>Check out the html report for a summary of the trimming process – the adaptors have already been removed, and reads are high quality so no trimming should have been performed.</p>
+<p><br></p>
 </section>
-<section id="session-2.-ngs-data-manipulation-from-seqences-to-assemblies." class="level2">
-<h2 class="anchored" data-anchor-id="session-2.-ngs-data-manipulation-from-seqences-to-assemblies.">Session 2. NGS Data Manipulation: From seqences to assemblies.</h2>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/2.1_NGS_Quality_Control.html">An Introduction to NGS Data and Quality Control</a></p>
-<p>Most of our training material focuses on bioinformatics application in the area of genomics. This section introduces the fundamental concepts of Next Generation Sequencing (NGS) and the basic file types (fasta / fastq) and approaches to quality control and initial data processing.</p>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/2.2_genome_assembly.html">Genome Assembly</a></p>
-<p>Approaches to genome assembly vary hugely depending on what you are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations of short and long read data.</p>
+<section id="unicycler" class="level3">
+<h3 class="anchored" data-anchor-id="unicycler">Unicycler</h3>
+<p>Unicycler is an assembly pipeline for bacterial genomes. It can assemble Illumina-only read sets where it functions as a SPAdes-optimiser.</p>
+<pre><code>module load unicycler/v0.5.0</code></pre>
+<p><br></p>
+<p>Basic usage:</p>
+<pre><code>unicycler -t [thread number] -1 [processed fastq R1] -2 [processed fastq R2] \
+-o [output directory]</code></pre>
+<p>Each assembly will be located in a different directory within the parent directory indicated by the <em>-o</em> option</p>
+<p><br></p>
 </section>
-<section id="session-3.-genome-visualisation-and-annotation" class="level2">
-<h2 class="anchored" data-anchor-id="session-3.-genome-visualisation-and-annotation">Session 3. Genome visualisation and annotation</h2>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/3.1_Genome_visualisation_and_annotation.html">Genome Annotation and Visualisation</a></p>
-<p>A genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results. We primarily use Artemis (Sanger Centre) but also introduce Integrated Genome Viewer (IGV) from the Broad Institute.</p>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/3.2_hybrid_assemblies.html">Hybrid Assemblies</a></p>
-<p>Often the best way to get a high-quality genome is by a hybrid assembly: combining short-read (Illumina) and long-read (Nanopore/PacBio) data. This session will guide you through the principles of hybrid assembly.</p>
+<section id="quast" class="level3">
+<h3 class="anchored" data-anchor-id="quast">Quast</h3>
+<p>QUAST stands for QUality ASsessment Tool. It evaluates genome/metagenome assemblies by computing various metrics.</p>
+<pre><code>module load quast/5.2.0</code></pre>
+<p><br></p>
+<p>Basic usage:</p>
+<pre><code>quast.py -t [thread number] -o [output directory] [input fasta file]</code></pre>
+<p>Output directory contains the report in multiple formats. To view the report on the terminal use the <strong>cat</strong> command which prints the contents of a file to the terminal (don’t forget to navigate to the file first as it’s in a different directory!):</p>
+<pre><code>cat [report.txt]</code></pre>
+<p><br></p>
 </section>
-<section id="session-4.-building-phylogenies" class="level2">
-<h2 class="anchored" data-anchor-id="session-4.-building-phylogenies">Session 4. Building phylogenies</h2>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/4.1_phylogentics_phylogenomics.html">Phylogenetics and Phylogenomics</a></p>
-<p>The taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual.</p>
+<section id="bandage" class="level3">
+<h3 class="anchored" data-anchor-id="bandage">Bandage</h3>
+<p>Bandage is a program for visualising de novo assembly graphs. By displaying connections which are not present in the contigs file, Bandage opens up new possibilities for analysing de novo assemblies. Download to your local laptop from the link: https://rrwick.github.io/Bandage/ or access through Guacamole.</p>
 </section>
-<section id="session-5.-transcriptomics" class="level2">
-<h2 class="anchored" data-anchor-id="session-5.-transcriptomics">Session 5. Transcriptomics</h2>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.1_Transcriptomics_Introduction.html">Transcriptomics Introduction</a></p>
-<p>An introductory lecture on RNA sequencing. The subsequent workshop has been divided into three parts each targeted at different aspects of the process.</p>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.2_RNAseq_processing.html">RNAseq Data Processing</a></p>
-<p>Transcriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to transcript counts for an organism with an existing genome. We include approaches to identify and evaluate technical duplication, although be aware this may not be relevant to your analytical approach.</p>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.3_DEG_analysis.html">Generation of Differentially Expressed Gene (DEG) Lists</a></p>
-<p>Performing quality control and provisional data visualisation (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use <a href="https://github.com/PF2-pasteur-fr/SARTools">SARTools</a> developed at the Pasteur Institute to illustrate best practice in transcriptome analysis. We also include multivariate approaches to data visualization such as PCA and HCA (hierarchical clustering analysis).</p>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.4_DEG_Functional_Interpretation.html">Functional Interpretation of DEGs</a></p>
-<p>Interpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks.</p>
 </section>
-<section id="session-6.-microbial-community-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="session-6.-microbial-community-analysis">Session 6. Microbial community analysis</h2>
-<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/6.1_metabarcoding.html">Metabarcoding</a></p>
-<p>Amplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, <em>RbcL</em> for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)[https://qiime2.org/] to navigate you through preliminary metabarcoding data analysis.</p>
+</section>
+<section id="worked-example-of-assembly" class="level1">
+<h1>Worked Example of assembly</h1>
+<section id="assembly-walk-through-v1" class="level2">
+<h2 class="anchored" data-anchor-id="assembly-walk-through-v1">Assembly Walk Through V1</h2>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=cacd5bf0-99f8-4020-95af-af630098df69&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+</section>
+<section id="assembly-walk-through-v2" class="level2">
+<h2 class="anchored" data-anchor-id="assembly-walk-through-v2">Assembly Walk Through V2</h2>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=90c0321a-2043-4b2e-b5d1-af6a01420b85&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
 
 
 </section>
