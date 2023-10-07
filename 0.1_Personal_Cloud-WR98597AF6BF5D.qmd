@@ -4,7 +4,7 @@ title-block-banner: darkred
 title-block-banner-color: white
 title: "Personal Cloud"
 subtitle: "Getting Connected"
-author: "Professor Peter Kille"
+author: "Professor Peter Kille and Dr. Sarah Christofides"
 date: today
 affiliation: "Cardiff University"
 ---
@@ -125,19 +125,17 @@ You should now see the following screen:
 
 Use your normal normal University username/password to logon, and the following page should be displayed.
 
-![Posit Session](images/posit_session.png){width="60%}
-Click on the + to create a new session.
+![Posit Session](images/posit_session.png){width="\"60%"} Click on the + to create a new session.
 
-![Posit New Session](images/posit_newsession.png){width="60%}
+![Posit New Session](images/posit_newsession.png){width="\"60%"}
 
 Selection the session you wish to create - for this example we will create a RstudioPro Session
 
-![Rstudio Pro](images/Rstudio_pro.png){width="60%}
-Leave teh default parameter as they are and start the session.
+![Rstudio Pro](images/Rstudio_pro.png){width="\"60%"} Leave teh default parameter as they are and start the session.
 
-![Rstudio_dashboard](images/Rstudio_dashboard.png){width="60%}
+![Rstudio_dashboard](images/Rstudio_dashboard.png){width="\"60%"}
 
-To enter the session click on the right arrow --->
+To enter the session click on the right arrow ---\>
 
 You should now see the standard Rstudio interface.
 

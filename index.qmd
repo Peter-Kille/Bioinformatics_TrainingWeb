@@ -4,7 +4,7 @@ title-block-banner: darkred
 title-block-banner-color: white
 title: "Introduction to Big Data Biology and Bioinformatics"
 subtitle: "A guide to unlocking your inner bioinformatician"
-author: "Prof. Peter Kille"
+author: "Prof. Peter Kille and Dr. Sarah Christofides"
 description: "Course contributions are provided by Prof. Pete Kille and Dr Sarah Christofides but draw significantly on training material developed by Dr Daniel Pass (Compass Bioinformatics), Dr Alex Mullins and those involved with Biolinux project. Many thanks to all."
 date: today
 affiliation: "Cardiff University"
@@ -84,7 +84,7 @@ This element of the course introduces you the the computational resources that h
 
 This introduces you to the command line - yes, no more clicking on icons as it is all about writing commands !!
 
-[Introduction to Linux](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.1_Introduction to Linux.html)
+[Introduction to Linux](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.1_Introduction%20to%20Linux.html)
 
 This represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you started quickly.
 

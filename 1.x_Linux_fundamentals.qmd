@@ -4,7 +4,7 @@ title-block-banner: darkred
 title-block-banner-color: white
 title: "Linux the fundamentals"
 subtitle: "Command line rocks"
-author: "Professor Peter Kille"
+author: "Professor Peter Kille and Dr. Sarah Christofides"
 date: today
 affiliation: "Cardiff University"
 ---
