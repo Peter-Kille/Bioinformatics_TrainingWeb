@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof Peter Kille">
-<meta name="dcterms.date" content="2023-10-07">
+<meta name="author" content="Prof Peter Kille and Dr.&nbsp;Sarah Christofides">
+<meta name="dcterms.date" content="2023-10-08">
 
 <title>Genome Visualisation and Annotation</title>
 <style>
@@ -149,14 +149,14 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Prof Peter Kille </p>
+               <p>Prof Peter Kille and Dr.&nbsp;Sarah Christofides </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 7, 2023</p>
+        <p class="date">October 8, 2023</p>
       </div>
     </div>
     
@@ -387,26 +387,26 @@ background: darkred;
   <li><a href="#software-3" id="toc-software-3" class="nav-link" data-scroll-target="#software-3">Software</a></li>
   <li><a href="#workshop-2" id="toc-workshop-2" class="nav-link" data-scroll-target="#workshop-2">Workshop</a></li>
   </ul></li>
-  <li><a href="#prokka" id="toc-prokka" class="nav-link" data-scroll-target="#prokka">Prokka</a>
+  <li><a href="#prokka---bacetrial-genome-annotation" id="toc-prokka---bacetrial-genome-annotation" class="nav-link" data-scroll-target="#prokka---bacetrial-genome-annotation">Prokka - bacetrial genome annotation</a>
   <ul class="collapse">
   <li><a href="#data-4" id="toc-data-4" class="nav-link" data-scroll-target="#data-4">Data</a></li>
   <li><a href="#software-4" id="toc-software-4" class="nav-link" data-scroll-target="#software-4">Software</a></li>
   <li><a href="#workshop-3" id="toc-workshop-3" class="nav-link" data-scroll-target="#workshop-3">Workshop</a>
   <ul class="collapse">
-  <li><a href="#prokka-1" id="toc-prokka-1" class="nav-link" data-scroll-target="#prokka-1">Prokka</a></li>
+  <li><a href="#prokka" id="toc-prokka" class="nav-link" data-scroll-target="#prokka">Prokka</a></li>
   </ul></li>
   <li><a href="#prokka-loop" id="toc-prokka-loop" class="nav-link" data-scroll-target="#prokka-loop">Prokka Loop</a>
   <ul class="collapse">
   <li><a href="#barrnap---basic-rapid-ribosomal-rna-predictor" id="toc-barrnap---basic-rapid-ribosomal-rna-predictor" class="nav-link" data-scroll-target="#barrnap---basic-rapid-ribosomal-rna-predictor">BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#mitos2" id="toc-mitos2" class="nav-link" data-scroll-target="#mitos2">Mitos2</a>
+  <li><a href="#mitos2---only-use-for-mitochondrial-annotation" id="toc-mitos2---only-use-for-mitochondrial-annotation" class="nav-link" data-scroll-target="#mitos2---only-use-for-mitochondrial-annotation">Mitos2 - Only use for Mitochondrial annotation</a>
   <ul class="collapse">
   <li><a href="#data-5" id="toc-data-5" class="nav-link" data-scroll-target="#data-5">Data</a></li>
   <li><a href="#software-5" id="toc-software-5" class="nav-link" data-scroll-target="#software-5">Software</a></li>
   <li><a href="#workshop-4" id="toc-workshop-4" class="nav-link" data-scroll-target="#workshop-4">Workshop</a>
   <ul class="collapse">
-  <li><a href="#extract-largest-contig" id="toc-extract-largest-contig" class="nav-link" data-scroll-target="#extract-largest-contig">Extract largest contig</a></li>
+  <li><a href="#ensure-you-have-a-single-contig" id="toc-ensure-you-have-a-single-contig" class="nav-link" data-scroll-target="#ensure-you-have-a-single-contig">Ensure you have a single contig</a></li>
   <li><a href="#annotate-with-mitos2" id="toc-annotate-with-mitos2" class="nav-link" data-scroll-target="#annotate-with-mitos2">Annotate with MITOS2</a></li>
   </ul></li>
   <li><a href="#worked-mitoss-loop-example" id="toc-worked-mitoss-loop-example" class="nav-link" data-scroll-target="#worked-mitoss-loop-example">Worked Mitoss Loop example</a>
@@ -489,8 +489,10 @@ background: darkred;
 </figure>
 </div>
 <p>Now Load Artemis Module and initiate Artemis with command <code>art</code></p>
-<pre><code>module load artemis/18.2.0
-art</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load artemis/18.2.0</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">art</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Artemis Opening Screen</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -501,7 +503,9 @@ art</code></pre>
 <section id="workshop" class="level2">
 <h2 class="anchored" data-anchor-id="workshop">Workshop</h2>
 <p>Open Genbank File</p>
-<pre><code>&gt;File &gt;Open</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>File <span class="op">&gt;</span>Open</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Navigate to your Session3 folder and select the genbank file (<code>NC_003428.gb</code>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -521,9 +525,11 @@ art</code></pre>
 </figure>
 </div>
 <p>Now change the codon table by selecting</p>
-<pre><code>&gt; Options &gt; Genetic Code Tables
-selecet
-Vertebrate Mitochondrial</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> Options <span class="op">&gt;</span> Genetic <span class="ex">Code</span> Tables</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">selecet</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Vertebrate</span> Mitochondrial</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Your gene visualisation should now look like this</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -562,8 +568,10 @@ Vertebrate Mitochondrial</code></pre>
 </figure>
 </div>
 <p>Now Load IGV Module and initiate Artemis with command <code>igv.sh</code></p>
-<pre><code>module load module load igv/2.12.3
-igv.sh</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load module load igv/2.12.3</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">igv.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>IVG Opening Screen</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -574,7 +582,9 @@ igv.sh</code></pre>
 <section id="workshop-1" class="level2">
 <h2 class="anchored" data-anchor-id="workshop-1">Workshop</h2>
 <p>Now open the GenBank file using Genomes</p>
-<pre><code>&gt; Genomes &gt; Load Genome from File</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> Genomes <span class="op">&gt;</span> Load <span class="ex">Genome</span> from File</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Select GenBank file using file browser - you should see the following image</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -599,17 +609,23 @@ igv.sh</code></pre>
 <section id="software-3" class="level2">
 <h2 class="anchored" data-anchor-id="software-3">Software</h2>
 <p>(Minimap - mapping software)[https://github.com/lh3/minimap2]</p>
-<pre><code>module load minimap2/2.14</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load minimap2/2.14</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Samtools - bam/sam tools utilities (for alignment files)</p>
-<pre><code>module load samtools/1.15.1</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load samtools/1.15.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="workshop-2" class="level2">
 <h2 class="anchored" data-anchor-id="workshop-2">Workshop</h2>
 <p>Align sequences to your assemblies and convert to Bam file</p>
-<pre><code>minimap2 -ax sr [your contigs.fasta] [forward_read.fastq] [reverse_read.fastq] &gt; aln.sam
-samtools view -b -S aln.sam &gt; aln.bam
-samtools sort aln.bam &gt; aln_sorted.bam
-samtools index aln_sorted.bam</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">minimap2</span> <span class="at">-ax</span> sr [your contigs.fasta] <span class="pp">[</span><span class="ss">forward_read.fastq</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">reverse_read.fastq</span><span class="pp">]</span> <span class="op">&gt;</span> aln.sam</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-S</span> aln.sam <span class="op">&gt;</span> aln.bam</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort aln.bam <span class="op">&gt;</span> aln_sorted.bam</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index aln_sorted.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -625,8 +641,8 @@ Excersise Minimap
 </div>
 </section>
 </section>
-<section id="prokka" class="level1">
-<h1>Prokka</h1>
+<section id="prokka---bacetrial-genome-annotation" class="level1">
+<h1>Prokka - bacetrial genome annotation</h1>
 <section id="data-4" class="level2">
 <h2 class="anchored" data-anchor-id="data-4">Data</h2>
 <ol type="1">
@@ -636,31 +652,55 @@ Excersise Minimap
 <section id="software-4" class="level2">
 <h2 class="anchored" data-anchor-id="software-4">Software</h2>
 <p><a href="https://github.com/tseemann/prokka">PROKKA git hub site</a></p>
-<pre><code>module load prooka</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka_mambaforge/1.14.6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><strong><em>check installed version with <code>module avail</code></em></strong></p>
 </section>
 <section id="workshop-3" class="level2">
 <h2 class="anchored" data-anchor-id="workshop-3">Workshop</h2>
-<section id="prokka-1" class="level3">
-<h3 class="anchored" data-anchor-id="prokka-1">Prokka</h3>
+<section id="prokka" class="level3">
+<h3 class="anchored" data-anchor-id="prokka">Prokka</h3>
 <p>Summary: Prokka is a piece of software that is designed to identify genes from sequence data. It works on prokaryotes. Once it identifies genes, it creates a file including the sequence for the sample, along with a set of annotations to that sequence, which identify the locations of genes.</p>
 <p>Basic commands / usage: To run prokka on an assembly (with an example filename of ‘contigs.fa’ use the command:</p>
-<pre><code>module load prokka_mambaforge/1.14.6
-prokka contigs.fa</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka_mambaforge/1.14.6</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> contigs.fa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>If you want to view the names of output files, you need to provide a name for the files and a directory where they should be saved:</p>
 <p>Choose the names of the output files with –outdir and –prefix</p>
-<pre><code>module load prokka_mambaforge/1.14.6
-prokka --outdir mydir --prefix mygenome contigs.fa</code></pre>
-<p>NOTE: Prokka defaults to analysing Bacteria. Think about what your sample is and what translation table you should use (This is also important for Artemis!). If you’re working on mitochondria include –kingdom mito and the relevant –gcodeSome examples:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka_mambaforge/1.14.6</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> <span class="at">--outdir</span> mydir <span class="at">--prefix</span> mygenome contigs.fa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>NOTE: Prokka defaults to analyzing Bacteria. Think about what your sample is and what translation table you should use (This is also important for Artemis!).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prokka for mitochondrial annotation: <strong>Not recommended</strong>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you’re working on mitochondria include –kingdom mito and the relevant –gcodeSome examples:</p>
 <pre><code>1.  The Standard Code
 2.  The Vertebrate Mitochondrial Code
 3.  The Yeast Mitochondrial Code
 4.  The Invertebrate Mitochondrial Code
 5.  The Echinoderm and Flatworm Mitochondrial Code</code></pre>
 <p>A full command for mitochondrial annotation would look like this:</p>
-<pre><code>module load prokka_mambaforge/1.14.6p
-
-prokka --outdir prokka --kingdom Mitochondria --gcode 2 assembly/contigs.fasta</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka_mambaforge/1.14.6</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> <span class="at">--outdir</span> prokka <span class="at">--kingdom</span> Mitochondria <span class="at">--gcode</span> 2 assembly/contigs.fasta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="prokka-loop" class="level2">
@@ -710,8 +750,8 @@ Barnap exercises
 </section>
 </section>
 </section>
-<section id="mitos2" class="level1">
-<h1>Mitos2</h1>
+<section id="mitos2---only-use-for-mitochondrial-annotation" class="level1">
+<h1>Mitos2 - Only use for Mitochondrial annotation</h1>
 <section id="data-5" class="level2">
 <h2 class="anchored" data-anchor-id="data-5">Data</h2>
 <ol type="1">
@@ -726,21 +766,62 @@ Barnap exercises
 <pre><code>module load bioperl-live/release-1-7-2</code></pre>
 <p>selectSeqsAboveMinLength</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">~/classdata/Bioinformatics/REFS/script/selectSeqsAboveMinLength.pl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">~/classdata/REFS/script/selectSeqsAboveMinLength.pl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>bedtools</p>
 <pre><code>module load bedtools2/2.30.0</code></pre>
 </section>
 <section id="workshop-4" class="level2">
 <h2 class="anchored" data-anchor-id="workshop-4">Workshop</h2>
-<section id="extract-largest-contig" class="level3">
-<h3 class="anchored" data-anchor-id="extract-largest-contig">Extract largest contig</h3>
-<p>Use loop to extract out your longest contig - if single contig no need to perform this step</p>
+<section id="ensure-you-have-a-single-contig" class="level3">
+<h3 class="anchored" data-anchor-id="ensure-you-have-a-single-contig">Ensure you have a single contig</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Option 1: extract out your longest contig
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This code will extract your longest contig - if single contig no need to perform this step.,</p>
+<p><strong>The risk associated with this option is that the gene you are intersted is not in the longest contig</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bioperl-live/release-1-7-2</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">3</span><span class="dt">}</span><span class="kw">;</span><span class="cf">do</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">perl</span> ~/classdata/Bioinformatics/REFS/script/selectSeqsAboveMinLength.pl <span class="op">&lt;</span>your_assembly.fasta<span class="op">&gt;</span> <span class="op">&lt;</span>largest_contig.fasta<span class="op">&gt;</span> 8000</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bioperl-live/release-1-7-2</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">perl</span> ~/classdata/REFS/script/selectSeqsAboveMinLength.pl <span class="op">&lt;</span>your_assembly.fasta<span class="op">&gt;</span> <span class="op">&lt;</span>largest_contig.fasta<span class="op">&gt;</span> 8000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Option 2: Artificially merge your contigs
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This code will remove the contig names (as long as they are named 2-9) for all accept the first contig and then remove any line breaks to ensure correct base nukbering for the annotation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load seqtk/1.3</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#This sed removes any contigs where the name start '&gt;[any digit between 2-9]'</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'/^&gt;[2-9].*$/d'</span> mito_assemblies/<span class="va">${base}</span>.fasta</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#This seqtk utility removes any line breaks from the sequences ensuring correct base numbering for the annotation</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ex">seqtk</span> seq <span class="at">-l</span> <span class="pp">[</span><span class="ss">assembly</span><span class="pp">]</span>.fasta <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">assembly_NLB.fasta</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="annotate-with-mitos2" class="level3">
@@ -752,35 +833,35 @@ Barnap exercises
 <p>• In a final step, conflicts are resolved and the outcome is prepared for visualization.</p>
 <p>NB ensure you create you output folder before you run mitos</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> mitos_annot</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">runmitos.py</span>  <span class="at">-i</span> contigs.fasta <span class="at">-c</span> 2 <span class="at">-o</span> mitos_annot <span class="at">-R</span> ~/classdata/Bioinformatics/REFS/mitos/ <span class="at">-r</span> refseq81m <span class="at">--rrna</span> 0 <span class="at">--trna</span> 0 <span class="at">--intron</span> 0 <span class="at">--debug</span> <span class="at">--noplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> mitos_annot</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">runmitos.py</span>  <span class="at">-i</span> contigs.fasta <span class="at">-c</span> 2 <span class="at">-o</span> mitos_annot <span class="at">-R</span> ~/classdata/REFS/mitos/ <span class="at">-r</span> refseq81m <span class="at">--rrna</span> 0 <span class="at">--trna</span> 0 <span class="at">--intron</span> 0 <span class="at">--debug</span> <span class="at">--noplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>loop would be something like this</p>
+<p>loop would be something like this (remember to edit loop for your files)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="va">workdir</span><span class="op">=</span>~/mydata/Session3/</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load mitos/2.0.4</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">3</span><span class="dt">}</span><span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> grp<span class="va">${i}</span>_mitos_annot</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="ex">runmitos.py</span> <span class="at">-i</span> <span class="st">"</span><span class="va">${workdir}</span><span class="st">/group</span><span class="va">${i}</span><span class="st">_unknown_cetacean_assembly.fasta"</span> <span class="dt">\</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">-c</span> 2 <span class="dt">\</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">-o</span> grp<span class="va">${i}</span>_mitos_annot <span class="dt">\</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">-R</span> ~/classdata/Bioinformatics/REFS/mitos/ <span class="dt">\</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">-r</span> refseq81m <span class="dt">\</span></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">--rrna</span> 0 <span class="dt">\</span></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">--trna</span> 0 <span class="dt">\</span></span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">--intron</span> 0 <span class="dt">\</span></span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">--debug</span> <span class="dt">\</span></span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">--noplot</span></span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload mitos/2.0.4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="va">workdir</span><span class="op">=</span>~/mydata/Session3/</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load mitos/2.0.4</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">3</span><span class="dt">}</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> grp<span class="va">${i}</span>_mitos_annot</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="ex">runmitos.py</span> <span class="at">-i</span> <span class="st">"</span><span class="va">${workdir}</span><span class="st">/group</span><span class="va">${i}</span><span class="st">_unknown_cetacean_assembly.fasta"</span> <span class="dt">\</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">-c</span> 2 <span class="dt">\</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">-o</span> grp<span class="va">${i}</span>_mitos_annot <span class="dt">\</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">-R</span> ~/classdata/REFS/mitos/ <span class="dt">\</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">-r</span> refseq81m <span class="dt">\</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">--rrna</span> 0 <span class="dt">\</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">--trna</span> 0 <span class="dt">\</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">--intron</span> 0 <span class="dt">\</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">--debug</span> <span class="dt">\</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">--noplot</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload mitos/2.0.4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -792,15 +873,15 @@ Barnap exercises
 <h3 class="anchored" data-anchor-id="extract-fasta-sequence-for-genes-in-bed-file">Extract Fasta sequence for genes in Bed file</h3>
 <p>You can extract the fasta sequence for the genes in the bed file using bedtools getfasta:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.30.0</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta –fi contigs.fasta <span class="at">-bed</span> result.bed <span class="at">-name</span> <span class="op">&gt;</span>result.fasta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.30.0</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta –fi contigs.fasta <span class="at">-bed</span> result.bed <span class="at">-name</span> <span class="op">&gt;</span>result.fasta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Or using a loop</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">3</span><span class="dt">}</span><span class="kw">;</span> </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span> </span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta <span class="at">-fi</span> spades_output_<span class="va">${i}</span>/before_rr.fasta <span class="at">-bed</span> mitos_<span class="va">${i}</span>/result.bed <span class="at">-name</span> <span class="op">&gt;</span>mitos_<span class="va">${i}</span>_result.fasta</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">3</span><span class="dt">}</span><span class="kw">;</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta <span class="at">-fi</span> spades_output_<span class="va">${i}</span>/before_rr.fasta <span class="at">-bed</span> mitos_<span class="va">${i}</span>/result.bed <span class="at">-name</span> <span class="op">&gt;</span>mitos_<span class="va">${i}</span>_result.fasta</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -834,18 +915,20 @@ mitos2 Excersises
 <li>Blast Databases, Location:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">~/classdata/Bioinformatics/REFS/blastdb/</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="ex">swissprot</span> <span class="at">--</span> uniprot protein database <span class="er">(</span><span class="ex">Uniprot</span> <span class="at">--</span> annotated protein database<span class="kw">)</span> </span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="ex">mito_pro</span> <span class="at">--</span> metazoan mitochondrial database </span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="ex">16S_ribosomal_RNA</span> </span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="ex">16S</span> ribosomal database</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">~/classdata/REFS/blastdb/</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="ex">swissprot</span> <span class="at">--</span> uniprot protein database <span class="er">(</span><span class="ex">Uniprot</span> <span class="at">--</span> annotated protein database<span class="kw">)</span> </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ex">mito_pro</span> <span class="at">--</span> metazoan mitochondrial database </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="ex">16S_ribosomal_RNA</span> </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="ex">16S</span> ribosomal database</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="software-6" class="level2">
 <h2 class="anchored" data-anchor-id="software-6">Software</h2>
 <p><a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI Blast+ suite available</a> Don’t forget to load the blast and any other modules you need!</p>
-<pre><code>module load blast-plus/2.12.0</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load blast-plus/2.12.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="anatomy-of-the-blast-command" class="level2">
 <h2 class="anchored" data-anchor-id="anatomy-of-the-blast-command">Anatomy of the BLAST command</h2>
@@ -910,18 +993,22 @@ mitos2 Excersises
 <p>Currently installed are:</p>
 <p>• swissprot – uniprot protein database (Uniprot – annotated protein database) • mito_pro – metazoan mitochondrial database • 16S_ribosomal_RNA – 16S ribosomal database • hum_mt_pep – human mitochondrial</p>
 <p>You already have the databases you require today but for reference it is at location</p>
-<pre><code> ~/classdata/Bioinformatics/REFS/blastdb/</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">~/classdata/REFS/blastdb/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>To create blast databases use the makeblastdb. To create a new database:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">makeblastdb</span> <span class="at">-in</span> nucleotide_seq.fa –dbtype nucl –title my_db <span class="at">-out</span> my_seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">makeblastdb</span> <span class="at">-in</span> nucleotide_seq.fa –dbtype nucl –title my_db <span class="at">-out</span> my_seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="command-line-options" class="level2">
 <h2 class="anchored" data-anchor-id="command-line-options">Command line options</h2>
-<pre><code>-in         [input_file] 
--dbtype     [molecule_type], nucl – nucleotide or prot - protein
--title  [database_title]
--out        [database_name]</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-in</span>         <span class="pp">[</span><span class="ss">input_file</span><span class="pp">]</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-dbtype</span>     <span class="pp">[</span><span class="ss">molecule_type</span><span class="pp">]</span>, nucl – nucleotide or prot <span class="at">-</span> protein</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-title</span>  <span class="pp">[</span><span class="ss">database_title</span><span class="pp">]</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-out</span>        <span class="pp">[</span><span class="ss">database_name</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>OTHER OPTIONS</p>
 <pre><code>  blastn [-h] [-help] [-import_search_strategy filename]
     [-export_search_strategy filename] [-task task_name] [-db database_name]
@@ -966,7 +1053,7 @@ Exercises: Annotate your mitochondria
 <li><p>Re-run the blastx analysis with the output format parameter set to a cutomised <code>-outfmt 6</code>, which will output the data into a tablular format compatible with Artemis.</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">blastx</span> <span class="at">-query</span> <span class="pp">[</span><span class="ss">contigs.fasta</span><span class="pp">]</span> <span class="at">-db</span> ~/classdata/Bioinformatics/REFS/blastdb/hum_mt_pep <span class="at">-out</span> <span class="pp">[</span><span class="ss">output.txt</span><span class="pp">]</span> <span class="at">-outfmt</span> <span class="st">"6 qseqid sseqid pident length mismatch gapopen sstart send qstart qend evalue bitscore"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">blastx</span> <span class="at">-query</span> <span class="pp">[</span><span class="ss">contigs.fasta</span><span class="pp">]</span> <span class="at">-db</span> ~/classdata/REFS/blastdb/hum_mt_pep <span class="at">-out</span> <span class="pp">[</span><span class="ss">output.txt</span><span class="pp">]</span> <span class="at">-outfmt</span> <span class="st">"6 qseqid sseqid pident length mismatch gapopen sstart send qstart qend evalue bitscore"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can now open the fasta sequence you have used in the blast with Artemis and then overlay with the clast output file.</p>
 <ol start="3" type="1">

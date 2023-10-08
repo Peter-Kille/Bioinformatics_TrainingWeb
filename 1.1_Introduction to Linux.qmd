@@ -4,7 +4,7 @@ title-block-banner: darkred
 title-block-banner-color: white
 title: "Introduction to Linux"
 subtitle: "All things Linux"
-author: "Dr. Sarah Christofides"
+author: "Prof Peter Kille and Dr. Sarah Christofides"
 date: today
 affiliation: "Cardiff University"
 ---
