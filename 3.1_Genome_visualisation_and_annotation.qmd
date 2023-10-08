@@ -55,9 +55,88 @@ Server command line modules (use command `module avail` to check versions):
 
 ***This can be installed locally [local install instructions](http://sanger-pathogens.github.io/Artemis/) Warning this can take time please do not do it during teaching session.***
 
-If you are installing Artemis on a Mac you will need to first install Java Java SE 15.0.2 which can be downloaded from [TechSpot](https://www.techspot.com/downloads/5552-java-15-jdk.html). Then you can Install [Artemis Software dm](http://sanger-pathogens.github.io/Artemis/Artemis/).
+::: {.callout-note collapse="true"}
+## Artemis Mac Install
 
 Additional sanger center traning material can be downloaded using the following link - [Sanger center traning](https://tinyurl.com/4dzbj9nk)
+
+1.  download latest version of Artemis from https://github.com/sanger-pathogens/Artemis/releases/download/v18.2.0/artemis-macosx-release-18.2.0.dmg.gz
+
+2.  download java from Latest Releases - must be jdk v11 or above, from [TechSpot](https://www.techspot.com/downloads/7407-java-se-16.html) or [Adoptium](https://adoptium.net/en-GB/temurin/releases/?version=16&os=mac&arch=x64&package=jdk)
+
+3.  unpack Artemis - and move the files to a folder somewhere ... i.e to an Artemis directory you've made somewhere.
+
+4.  find out what version of java is currently on your system
+
+```{bash}
+java -version
+```
+
+or you can see the java versions you have available using
+
+```{bash}
+/usr/libexec/java_home -V
+```
+
+5.  then depending on your shell - edit the relevant rc file
+
+```{bash}
+nano ~/.zshrc
+```
+
+and add a line .... change the -v1.8 to -vXX depending on the version of java you have as default.
+
+```{bash}
+export JAVA_HOME=$(/usr/libexec/java_home - v1.8)
+```
+
+6.  now install the version of java you have just downloaded - this will install and make the default java change to this version. You should also see a new line appear when you run this command.
+
+```{bbash}
+/usr/libexec/java_home -V
+```
+
+7.  now run Artemis - use terminal to change to the directory you put the apps in in step 3
+
+```{bash}
+cd ~/Artemis/
+Artemis.app/Contents/art
+```
+
+* will run Artemis - or alternatively you should be able to click on the icons in finder to run.
+
+* If there is a security issue - go ... File -- System Settings -- Privacy & Security .. and then look for a statement that says "Artemis" was blocked from use because it is not from an identified developer .... and click Open Anyway - you need to have admin/sudo privileges to do this.
+
+* Artemis should run
+
+8.  the next time you log into your mac - the default java will be the default one and not the one required to use Artemis ... so to the terminal and type (change -v flag depending on jvm version)
+
+```{bash}
+export JAVA_HOME=$(/usr/libexec/java_home -v16)
+```
+
+* and now you should be able to run Artemis again
+
+* if you want to keep use this java as default - edit your .zshrc file
+
+* if you don't want to type in that command all the time, add this to your .zshrc file
+
+```{bash}
+alias javaart='export JAVA_HOME=$(/usr/libexec/java_home -v16)'
+```
+
+* and then type ```javaart``` into a terminal to change to the version of java required for Artemis
+
+* alternatively you should be able to edit the
+
+```{bash}
+Artemis.app/Contents/art
+#script and add
+export JAVA_HOME=$(/usr/libexec/java_home - v16)
+```
+
+* at the top somewhere - haven't tested this to force the right version of java to be used.
+:::
 
 We are going to use Artemis using the VNC access to your Linux desktop - go to https://sponsa.bios.cf.ac.uk/guacamole/ and login using your university credentials.
 
@@ -69,7 +148,7 @@ Start Terminal
 
 Now Load Artemis Module and initiate Artemis with command `art`
 
-```{bash}         
+```{bash}
 module load artemis/18.2.0
 art
 ```
@@ -82,7 +161,7 @@ Artemis Opening Screen
 
 Open Genbank File
 
-```{bash}         
+```{bash}
 >File >Open
 ```
 
@@ -100,7 +179,7 @@ The blue highlighted area should highlight open reading frames (ORFs) and the ve
 
 Now change the codon table by selecting
 
-```{bash}         
+```{bash}
 > Options > Genetic Code Tables
 selecet
 Vertebrate Mitochondrial
@@ -138,7 +217,7 @@ Start Terminal
 
 Now Load IGV Module and initiate Artemis with command `igv.sh`
 
-```{bash}         
+```{bash}
 module load module load igv/2.12.3
 igv.sh
 ```
@@ -151,7 +230,7 @@ IVG Opening Screen
 
 Now open the GenBank file using Genomes
 
-```{bash}         
+```{bash}
 > Genomes > Load Genome from File
 ```
 
@@ -174,21 +253,21 @@ As you generate annotations - look to see how you can overlay them into IVG and 
 
 (Minimap - mapping software)\[https://github.com/lh3/minimap2\]
 
-```{bash}         
+```{bash}
 module load minimap2/2.14
 ```
 
 Samtools - bam/sam tools utilities (for alignment files)
 
-```{bash}         
-module load samtools/1.15.1
+```{bash}
+module load samtools/1.16.1
 ```
 
 ## Workshop
 
 Align sequences to your assemblies and convert to Bam file
 
-```{bash}         
+```{bash}
 minimap2 -ax sr [your contigs.fasta] [forward_read.fastq] [reverse_read.fastq] > aln.sam
 samtools view -b -S aln.sam > aln.bam
 samtools sort aln.bam > aln_sorted.bam
@@ -211,7 +290,7 @@ Overlay the bam file you have generated into your assembly contig using Artemis 
 
 [PROKKA git hub site](https://github.com/tseemann/prokka)
 
-```{bash}         
+```{bash}
 module load prokka_mambaforge/1.14.6
 ```
 
@@ -225,7 +304,7 @@ Summary: Prokka is a piece of software that is designed to identify genes from s
 
 Basic commands / usage: To run prokka on an assembly (with an example filename of 'contigs.fa' use the command:
 
-```{bash}         
+```{bash}
 module load prokka_mambaforge/1.14.6
 prokka contigs.fa
 ```
@@ -234,7 +313,7 @@ If you want to view the names of output files, you need to provide a name for th
 
 Choose the names of the output files with --outdir and --prefix
 
-```{bash}         
+```{bash}
 module load prokka_mambaforge/1.14.6
 prokka --outdir mydir --prefix mygenome contigs.fa
 ```
@@ -242,7 +321,7 @@ prokka --outdir mydir --prefix mygenome contigs.fa
 NOTE: Prokka defaults to analyzing Bacteria. Think about what your sample is and what translation table you should use (This is also important for Artemis!).
 
 ::: {.callout-note collapse="true"}
-## Prokka for mitochondrial annotation: **Not recommended** 
+## Prokka for mitochondrial annotation: **Not recommended**
 
 If you're working on mitochondria include --kingdom mito and the relevant --gcodeSome examples:
 
@@ -256,7 +335,7 @@ If you're working on mitochondria include --kingdom mito and the relevant --gcod
 
 A full command for mitochondrial annotation would look like this:
 
-```{bash}         
+```{bash}
 module load prokka_mambaforge/1.14.6
 
 prokka --outdir prokka --kingdom Mitochondria --gcode 2 assembly/contigs.fasta
@@ -280,7 +359,7 @@ It takes FASTA DNA sequence as input, and write GFF3 as output. It uses the new 
 Basic command Usage:
 
 ```         
-module load barrnap/0.8
+module load barrnap/0.9
 barrnap [options] Your_contigs.fasta > outfile.gff
 Options:
 --help            This help
@@ -338,7 +417,7 @@ selectSeqsAboveMinLength
 bedtools
 
 ```         
-module load bedtools2/2.30.0
+module load bedtools2/2.31.0
 ```
 
 ## Workshop
@@ -364,7 +443,7 @@ perl ~/classdata/REFS/script/selectSeqsAboveMinLength.pl <your_assembly.fasta> <
 ::: {.callout-note collapse="true"}
 ## Option 2: Artificially merge your contigs
 
-This code will remove the contig names (as long as they are named 2-9) for all accept the first contig and then remove any line breaks to ensure correct base nukbering for the annotation. 
+This code will remove the contig names (as long as they are named 2-9) for all accept the first contig and then remove any line breaks to ensure correct base nukbering for the annotation.
 
 ```{bash}
 module load seqtk/1.3
@@ -376,7 +455,6 @@ sed -i '/^>[2-9].*$/d' mito_assemblies/${base}.fasta
 seqtk seq -l [assembly].fasta > [assembly_NLB.fasta]
 
 ```
-
 :::
 
 ### Annotate with MITOS2
@@ -438,7 +516,7 @@ module unload mitos/2.0.4
 You can extract the fasta sequence for the genes in the bed file using bedtools getfasta:
 
 ```{bash}
-module load bedtools2/2.30.0
+module load bedtools2/2.31.0
 bedtools getfasta –fi contigs.fasta -bed result.bed -name >result.fasta
 ```
 
@@ -487,8 +565,8 @@ mito_pro -- metazoan mitochondrial database
 
 [NCBI Blast+ suite available](https://blast.ncbi.nlm.nih.gov/Blast.cgi) Don't forget to load the blast and any other modules you need!
 
-```{bash}         
-module load blast-plus/2.12.0
+```{bash}
+module load blast-plus/2.13.0
 ```
 
 ## Anatomy of the BLAST command
@@ -497,7 +575,7 @@ A basic blast command states your reference database that has been constructed, 
 
 ## BLAST Programs
 
-| Program   |          Input-Output |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Description |
+| Program   |          Input-Output |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Description |
 |-------------------|------------------:|---------------------------------:|
 | blastn    | nucleotide-nucleotide |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           This program, given a DNA query, returns the most similar DNA sequences from the DNA database that the user specifies. |
 | blastp    |       protein-protein |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               This program, given a protein query, returns the most similar protein sequences from the protein database that the user specifies. |
@@ -515,7 +593,7 @@ Currently installed are:
 
 You already have the databases you require today but for reference it is at location
 
-```{bash}         
+```{bash}
  ~/classdata/REFS/blastdb/
 ```
 
@@ -527,7 +605,7 @@ To create blast databases use the makeblastdb. To create a new database:
 
 ## Command line options
 
-```{bash}         
+```{bash}
 -in         [input_file] 
 -dbtype     [molecule_type], nucl – nucleotide or prot - protein
 -title  [database_title]

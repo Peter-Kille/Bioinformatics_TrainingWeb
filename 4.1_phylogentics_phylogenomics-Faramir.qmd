@@ -45,9 +45,15 @@ Many purposes you need to identify an species identify from which an assembly wa
 
 2)  Annotate your assembled contigs and extract out your phylogenetic marker.
 
+```{=html}
+<!-- -->
+```
 a)  If using prokayotic geneomes use **Prokka** or **Barrnap** to annotate your assembled genome generating a gff file. If you have a mtDNA then use **Mitos** to perform the annotation.
 b)  Using **bedtools** to extract a sequence file (e.g. 16S or CoI) from the original assembly.
 
+```{=html}
+<!-- -->
+```
 3)  Use **MAFFT** to create an alignment of your phylogenetic marker.
 
 4)  Construct a phylogeny with **RAxML-NG**
@@ -56,19 +62,19 @@ b)  Using **bedtools** to extract a sequence file (e.g. 16S or CoI) from the ori
 
 ## Muliple gene plylogenys: MLST
 
-The most common use of multiple genes to create phylogenogies is [Multi-locus sequence typing (MLST)](https://www.sciencedirect.com/topics/medicine-and-dentistry/multilocus-sequence-typing#:~:text=Multi%2Dlocus%20sequence%20typing%20(MLST,and%20plants)%2C%20and%20biosafety). This is primarily used in bacterial phylogenetics when it is necessary to go beyond species and identify the strain. This method is extreme valuable when identifying pathogenic strains away for sometimes harmless relatives. Established 'Stereotype' have often now been align with specific MLST allele sequences. There are on-line tools that allow you to upload your sequence and perform MLST analysis - such as [autoMLST](https://automlst.ziemertlab.com/).  However, many of the resources are 'species specific' and allowing you to enter a draft genome from specific species and using MLST appropriate to plylogenetically 'type' the strain it represents. Many of these tools can be accessed through [pubmlst](https://pubmlst.org/). There are also a myriad of command line tools that can be used - simplest to remember and a very easy one to use is the software entitled [MLST](https://github.com/tseemann/mlst).
+The most common use of multiple genes to create phylogenogies is [Multi-locus sequence typing (MLST)](https://www.sciencedirect.com/topics/medicine-and-dentistry/multilocus-sequence-typing#:~:text=Multi%2Dlocus%20sequence%20typing%20(MLST,and%20plants)%2C%20and%20biosafety). This is primarily used in bacterial phylogenetics when it is necessary to go beyond species and identify the strain. This method is extreme valuable when identifying pathogenic strains away for sometimes harmless relatives. Established 'Stereotype' have often now been align with specific MLST allele sequences. There are on-line tools that allow you to upload your sequence and perform MLST analysis - such as [autoMLST](https://automlst.ziemertlab.com/). However, many of the resources are 'species specific' and allowing you to enter a draft genome from specific species and using MLST appropriate to plylogenetically 'type' the strain it represents. Many of these tools can be accessed through [pubmlst](https://pubmlst.org/). There are also a myriad of command line tools that can be used - simplest to remember and a very easy one to use is the software entitled [MLST](https://github.com/tseemann/mlst).
 
-Remember you can only use these tools if you have already identified the species and if there is a MLTS database for the organism in question. 
+Remember you can only use these tools if you have already identified the species and if there is a MLTS database for the organism in question.
 
 This approach is very rarely used for Eukaryotes.
 
 ## Core gene phylogeny: Understand the diversity of a bacterial species
 
-Organisms within particular phylogenetic groups share a set of 'core' genes - these are often those representing essential metabolism.  Then each species has a unique set of 'ancillary' genes which define the unique phenotype of the organism. Worth noting that the ultimate bacterial 'ancillary' genes are mobile genetic elements that carry things such as antibiotic resistance genes. For bacteria this 'core' and 'ancillary' relationship is well define and programs have been developed that identify the 'core' genome by identifying all the 'shared' gene loci between a group of bacteria, concatenate these sequences and use them to derive create a phylogeny.  The program we will use to demonstrate this is **panaroo** which will identify, extract, and concatenate the core genome.
+Organisms within particular phylogenetic groups share a set of 'core' genes - these are often those representing essential metabolism. Then each species has a unique set of 'ancillary' genes which define the unique phenotype of the organism. Worth noting that the ultimate bacterial 'ancillary' genes are mobile genetic elements that carry things such as antibiotic resistance genes. For bacteria this 'core' and 'ancillary' relationship is well define and programs have been developed that identify the 'core' genome by identifying all the 'shared' gene loci between a group of bacteria, concatenate these sequences and use them to derive create a phylogeny. The program we will use to demonstrate this is **panaroo** which will identify, extract, and concatenate the core genome.
 
-Similar approach can be taken with Eukaryotic genomes.  A project know as [Busco](https://busco.ezlab.org/) has been working to identify list of core genes within different phylogenetic lineages. A tool and database allows you to identify and extract those core genes from draft genomes and even has plugin for generating phylogenies. 
+Similar approach can be taken with Eukaryotic genomes. A project know as [Busco](https://busco.ezlab.org/) has been working to identify list of core genes within different phylogenetic lineages. A tool and database allows you to identify and extract those core genes from draft genomes and even has plugin for generating phylogenies.
 
-The procedure to create  a bacterial pan-genome phylogeny is:
+The procedure to create a bacterial pan-genome phylogeny is:
 
 1)  Identify a suitable outgroup for this phylogeny (closely related species) -- look back at the lecture to understand outgrouping in core genome phylogenies. Download a suitable genome from NCBI Genbank or the European Nucleotide Archive and upload to your virtual machine.
 2)  Annotate your bacterial genomes using **Prokka**.
@@ -80,14 +86,14 @@ If you were to repeat this analysis without the designated outgroup, which strai
 
 ## Whole genome SNP phylogeny
 
-Tracking individual mutations between strains of an organism allows a precision in the phylogenetic analysis unlock phenomenal potential - since these mutation or SNP occur and a organism is transmitted between individual we can use this within a pathogenic context, viral or bacterial, to explore epidemiology of disease.  
+Tracking individual mutations between strains of an organism allows a precision in the phylogenetic analysis unlock phenomenal potential - since these mutation or SNP occur and a organism is transmitted between individual we can use this within a pathogenic context, viral or bacterial, to explore epidemiology of disease.
 
-Using whole mitochondrial SNP data we can  explore relationship between genetically distinct 'breeds' of the same organism or isolated populations to derive conservation requirements or determine relationships between ancient ancestral populations (often extinct).
+Using whole mitochondrial SNP data we can explore relationship between genetically distinct 'breeds' of the same organism or isolated populations to derive conservation requirements or determine relationships between ancient ancestral populations (often extinct).
 
-One significant advantage of performing a SNP phylogeny is it can be performed with the trim quality control reads and does NOT require de novo assembly. The limitation is that a good and complete reference is required. The process aligns the reads to the reference, derives SNPs, aligns these SNPs from different samples and uses this to generate a phyogeny. 
+One significant advantage of performing a SNP phylogeny is it can be performed with the trim quality control reads and does NOT require de novo assembly. The limitation is that a good and complete reference is required. The process aligns the reads to the reference, derives SNPs, aligns these SNPs from different samples and uses this to generate a phyogeny.
 
 1)  Identify a reference genome. Either use the sequenec provided or use NCBI Genbank or the European Nucleotide Archive online to download a suitable outgroup/reference genome and upload to your virtual machine.
-2)  Recall from previosu session that we  processed raw sequence data prior to use. Use **Fastqc** and **Fastp** to quality check and remove adaptors/trim poor quality bases, respectively.
+2)  Recall from previosu session that we processed raw sequence data prior to use. Use **Fastqc** and **Fastp** to quality check and remove adaptors/trim poor quality bases, respectively.
 3)  Use **snippy** to identify SNPs between the reference/outgroup genome and **both** your processed unknown samples and processed characterised sequence data - you need to analyse both datasets (characterised and unknown) otherwise your phylogeny will look pretty sparse!
 4)  Use **snippy-core** to create an alignment of SNPs.
 5)  Use **snp-sites** to align the SNPs
@@ -123,8 +129,7 @@ bedtools -- manipulate and extract sequences from fasta files\
 MAFFT -- sequence alignment\
 RAxML-NG -- construct phylogenies\
 panaroo -- pangenome pipeline\
-snippy -- identify sequence variants
-snp-sites - align snp sites
+snippy -- identify sequence variants snp-sites - align snp sites
 
 <br>
 
@@ -138,13 +143,13 @@ snp-sites - align snp sites
 
 Whole genome annotation is the process of identifying features of interest in a set of genomic DNA sequences, and labelling them with useful information. Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce standards-compliant output files.
 
-```{bash}            
+```{bash}
 module load prokka_mambaforge/1.14.6
 ```
 
 Basic usage:
 
-```{bash}         
+```{bash}
 prokka --prefix [output file prefix] --outdir [output directory] --cpus [cpu number] --kingdom Bacteria [fasta file]
 ```
 
@@ -156,8 +161,8 @@ Prokka outputs the annotation in multiple formats. Open the gbk and gff files to
 
 BAsic Rapid Ribosomal RNA Predictor. Can be used to annotate rRNA genes in genomes.
 
-```{bash}            
-module load barrnap/0.8
+```{bash}
+module load barrnap/0.9
 module load hmmer/3.3.2
 ```
 
@@ -165,7 +170,7 @@ module load hmmer/3.3.2
 
 Basic usage:
 
-```{bash}            
+```{bash}
 barrnap --kingdom bac --threads [number of cpus] [fasta file] > [output gff annotation file]
 ```
 
@@ -176,7 +181,6 @@ module load mitos/2.0.4
 module load seqtk/1.3
 
 
-```{base}
 # make output dir
 mkdir mitos_output/[sample name]
 
@@ -189,13 +193,12 @@ seqtk seq -l 0 [assembly.fasta]
 runmitos.py  -i [assembly.fasta] -c 2 -o [dir name for sample annotation] -R ~/classdata/Bioinformatics/REFS/mitos -r refseq81m --rrna 0 --trna 0 --intron 0 --debug --noplot
 ```
 
-
 ### Bedtools
 
 Collectively, the bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF. While each individual tool is designed to do a relatively simple task (e.g., intersect two interval files), quite sophisticated analyses can be conducted by combining multiple bedtools operations on the UNIX command line.
 
-```{bash}            
-module load bedtools2/2.30.0
+```{bash}
+module load bedtools2/2.31.0
 ```
 
 We can use bedtools to extract gene/protein sequences from annotation files:
@@ -203,7 +206,7 @@ We can use bedtools to extract gene/protein sequences from annotation files:
 1)  Navigate to either the **Prokka** annotation output directory or the **Barrnap** output file
 2)  Create a sub-gff file that contains the annotation information of only the 16 rRNA gene or CoI gene
 
-```{bash} 
+```{bash}
 # For bacetrial sequences
 grep "product=16S ribosomal RNA" [gff annotation file]  > [subset_16S.gff]
 
@@ -213,21 +216,20 @@ grep "ID=gene_cox1" [gff annotation file]  > [subset_coi.gff]
 
 3)  Extract the 16S rRNA gene from the mitochondrial genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the *-s* option.
 
-```{bash}            
+```{bash}
 bedtools getfasta -fi [input fasta file] -bed [subset_gff file] -s > [output 16S file.fasta]
 ```
 
-The fasta sequence will be given a numeric non-sensicle name (what coes after the >) - what about changing this for the name of the source sequence.
+The fasta sequence will be given a numeric non-sensicle name (what coes after the \>) - what about changing this for the name of the source sequence.
 
-
-```{bash}            
+```{bash}
 sed -i "s/>.*/>[sequence name]/g" [output 16S file.fasta]
 ```
 
 4)  Move your extracted 16S rRNA gene sequence into the directory of 16S rRNA reference genes provided.
 5)  Combine all the 16S rRNA gene fasta files into a single multifasta file
 
-```{bash}         
+```{bash}
 cat [*.fasta] > [output multifasta file]
 ```
 
@@ -235,13 +237,13 @@ cat [*.fasta] > [output multifasta file]
 
 MAFFT is a multiple sequence alignment program for unix-like operating systems.
 
-```{bash}            
-module load mafft/7.481
+```{bash}
+module load mafft/7.505
 ```
 
 Basic usage:
 
-```{bash}         
+```{bash}
 mafft [input multifasta] > [output alignment multifasta]
 ```
 
@@ -251,15 +253,15 @@ mafft [input multifasta] > [output alignment multifasta]
 
 RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.
 
-```{bash}         
-module load raxml-ng/1.0.2
+```{bash}
+module load raxml-ng/v1.2.0
 ```
 
 RAxML-NG outputs files to your current location. Create a directory and run RAxML from the directory to keep files organised
 
 Basic usage for nucleotide alignment with GTR model:
 
-```{bash}         
+```{bash}
 raxml-ng-mpi --all --msa [input alignment] --model GTR --bs-tree [bootstrap replicate number e.g. 100] --prefix [prefix for output files] --threads [number of threads/cpus]
 ```
 
@@ -270,7 +272,7 @@ Add the extension **.nwk** to this file to indicate it is a phylogeny.
 
 A Bacterial Pangenome Analysis Pipeline. Predicts core, accessory, and pangenomes. Produces core gene alignments.
 
-```{bash}         
+```{bash}
 module load panaroo/1.3.0
 ```
 
@@ -281,7 +283,7 @@ Use prokka to annotate the *Bacillus velezensis* genomes supplied, and remember 
 
 Basic usage:
 
-```{bash}         
+```{bash}
 panaroo -i *gff -o [output directory] -t [number of cpus] --clean-mode sensitive -a core --aligner mafft
 ```
 
@@ -289,14 +291,13 @@ Output files of interest include the **summary_statistics.txt** and **core_gene.
 
 Check the website for details of all the files produced: https://gtonkinhill.github.io/panaroo/#/gettingstarted/output
 
-
 ### snippy
 
 A tool to identify variations between a reference genome in fasta format and genome sequence data in read format (fastq)
 
-```{bash}         
+```{bash}
 module load snippy/v4.6.0
-module load samtools/1.15.1
+module load samtools/1.16.1
 ```
 
 <br>
@@ -305,7 +306,7 @@ Basic usage:
 
 To identify SNPs for one genome
 
-```{bash}         
+```{bash}
 snippy -outdir [snippy output directory/sampleID] -ref [reference sequence fasta] -R1 [sample1 fastq left trimmed read] -R2 [sample2 fastq right trimmed read] --prefix [prefix for output] --force
 ```
 
@@ -315,7 +316,7 @@ You will need a loop to call SNPs for multiple genomes.
 
 To produce an alignment from SNPs, navigate to the snippy output directory and run **snippy-core**. The wildcard will extract the necessary SNP data from all the genomes analysed by snippy (directory for each genome in output directory).
 
-```{bash}         
+```{bash}
 snippy-core -ref [same reference sequence] -prefix [prefix for snp output] [snippy output directory]/*
 ```
 
@@ -336,6 +337,13 @@ snp-sites -cb -o [alniment file name] [prefix for snp output].full.aln
 FigTree is designed as a graphical viewer of phylogenetic trees and as a program for producing publication-ready figures.
 
 Download locally to your laptop: https://github.com/rambaut/figtree/releases / or access through Guacamole graphical user interface
+
+```{base}
+figtree/1.4.4
+
+figtree
+```
+An interactive window will now open for you to use if you are using X11 enabled mobaxterm.  If you are using a mac or linux shell you will need to install [figtree](http://tree.bio.ed.ac.uk/software/figtree/) locally and download the newick file (nwk suffix). 
 
 <br>
 
