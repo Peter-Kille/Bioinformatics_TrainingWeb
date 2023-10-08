@@ -45,15 +45,13 @@ Many purposes you need to identify an species identify from which an assembly wa
 
 2)  Annotate your assembled contigs and extract out your phylogenetic marker.
 
-```{=html}
 <!-- -->
-```
+
 a)  If using prokayotic geneomes use **Prokka** or **Barrnap** to annotate your assembled genome generating a gff file. If you have a mtDNA then use **Mitos** to perform the annotation.
 b)  Using **bedtools** to extract a sequence file (e.g. 16S or CoI) from the original assembly.
 
-```{=html}
 <!-- -->
-```
+
 3)  Use **MAFFT** to create an alignment of your phylogenetic marker.
 
 4)  Construct a phylogeny with **RAxML-NG**
@@ -254,7 +252,7 @@ mafft [input multifasta] > [output alignment multifasta]
 RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.
 
 ```{bash}
-module load raxml-ng/v1.2.0
+module load RAxML-NG/v1.2.0
 ```
 
 RAxML-NG outputs files to your current location. Create a directory and run RAxML from the directory to keep files organised
@@ -262,7 +260,7 @@ RAxML-NG outputs files to your current location. Create a directory and run RAxM
 Basic usage for nucleotide alignment with GTR model:
 
 ```{bash}
-raxml-ng-mpi --all --msa [input alignment] --model GTR --bs-tree [bootstrap replicate number e.g. 100] --prefix [prefix for output files] --threads [number of threads/cpus]
+raxml-ng --all --msa [input alignment] --model GTR --bs-tree [bootstrap replicate number e.g. 100] --prefix [prefix for output files] --threads [number of threads/cpus]
 ```
 
 RAxML-NG produces multiple output files. The file we are interested in has the extension **.support**\
@@ -343,7 +341,8 @@ figtree/1.4.4
 
 figtree
 ```
-An interactive window will now open for you to use if you are using X11 enabled mobaxterm.  If you are using a mac or linux shell you will need to install [figtree](http://tree.bio.ed.ac.uk/software/figtree/) (Download locally to your laptop: https://github.com/rambaut/figtree/releases) locally and download the newick file (nwk suffix). 
+
+An interactive window will now open for you to use if you are using X11 enabled mobaxterm. If you are using a mac or linux shell you will need to install [figtree](http://tree.bio.ed.ac.uk/software/figtree/) (Download locally to your laptop: https://github.com/rambaut/figtree/releases) locally and download the newick file (nwk suffix).
 
 <br>
 

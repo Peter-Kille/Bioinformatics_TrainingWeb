@@ -621,12 +621,12 @@ runmitos.py  -i [assembly.fasta] -c 2 -o [dir name for sample annotation] -R ~/c
 <h3 class="anchored" data-anchor-id="raxml-ng">RAxML-NG</h3>
 <p>RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load raxml-ng/v1.2.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load RAxML-NG/v1.2.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>RAxML-NG outputs files to your current location. Create a directory and run RAxML from the directory to keep files organised</p>
 <p>Basic usage for nucleotide alignment with GTR model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">raxml-ng-mpi</span> <span class="at">--all</span> <span class="at">--msa</span> [input alignment] <span class="at">--model</span> GTR <span class="at">--bs-tree</span> [bootstrap replicate number e.g. 100] <span class="at">--prefix</span> [prefix for output files] <span class="at">--threads</span> [number of threads/cpus]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">raxml-ng</span> <span class="at">--all</span> <span class="at">--msa</span> [input alignment] <span class="at">--model</span> GTR <span class="at">--bs-tree</span> [bootstrap replicate number e.g. 100] <span class="at">--prefix</span> [prefix for output files] <span class="at">--threads</span> [number of threads/cpus]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>RAxML-NG produces multiple output files. The file we are interested in has the extension <strong>.support</strong><br>
 Add the extension <strong>.nwk</strong> to this file to indicate it is a phylogeny.</p>
