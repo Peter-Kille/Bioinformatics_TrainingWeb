@@ -289,6 +289,8 @@ Output files of interest include the **summary_statistics.txt** and **core_gene.
 
 Check the website for details of all the files produced: https://gtonkinhill.github.io/panaroo/#/gettingstarted/output
 
+***If you incorporate a reference genome we strangely recommend you re-annotate the genome with prokka even if an annotation file (.gff) is available since panaroo is very particular about the gff format and prefers prokka annotation files.***
+
 ### snippy
 
 A tool to identify variations between a reference genome in fasta format and genome sequence data in read format (fastq)

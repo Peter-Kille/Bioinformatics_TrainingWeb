@@ -159,14 +159,12 @@ MobaXterm is a free piece of software called an SSH client, which enables you to
 ### Using MobaXterm on your personal PC
 
 I suggest downloading and installing the 'Installer Addition' as it will fully install on your system - the portable version provide a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.
-
 :::
 
 ::: {.callout-note collapse="true"}
 ### Using MobaXterm on a University-networked PC
 
 You will not have administrator privileges to install the 'Installer Addition' on a University-managed machine. Instead, download the portable version which provides a simple executable (.exe) that can used on a machine where you do not have administrator privileges to install software.
-
 :::
 
 Once your download is complete, you will need to unzip the folder (extract files) before you can run the installer. Then follow the installation instructions and you should be faced with the follow window:

@@ -19,7 +19,6 @@ knitr::opts_chunk$set(eval = FALSE)
 
 </iframe>
 
-
 # Working with Quality Control
 
 ## FASTA and FASTQ
@@ -59,7 +58,6 @@ GTACTTAACCTAAACTGGACTAA
 
 Don't forget to use tab completion!
 :::
-
 
 ## Pipes
 
@@ -178,7 +176,6 @@ The shebang is simply
 #!/usr/bin/bash
 ```
 
-
 ::: callout-important
 ### Exercise: a simple script
 
@@ -197,7 +194,7 @@ nano test_nano.sh
 chmod a+x [script name]
 ```
 
-this is shorthand for chmod (change modify) a(all)+(add)execute(x) \[script name\] -- thus changing the permission to allow everyone to execute a script. For a very helpful guide to chmod see [https://en.wikipedia.org/wiki/Chmod](https://en.wikipedia.org/wiki/Chmod)
+this is shorthand for chmod (change modify) a(all)+(add)execute(x) \[script name\] -- thus changing the permission to allow everyone to execute a script. For a very helpful guide to chmod see <https://en.wikipedia.org/wiki/Chmod>
 
 Now run the program!
 
