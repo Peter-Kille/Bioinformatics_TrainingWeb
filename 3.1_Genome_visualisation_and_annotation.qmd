@@ -103,11 +103,11 @@ cd ~/Artemis/
 Artemis.app/Contents/art
 ```
 
-* will run Artemis - or alternatively you should be able to click on the icons in finder to run.
+-   will run Artemis - or alternatively you should be able to click on the icons in finder to run.
 
-* If there is a security issue - go ... File -- System Settings -- Privacy & Security .. and then look for a statement that says "Artemis" was blocked from use because it is not from an identified developer .... and click Open Anyway - you need to have admin/sudo privileges to do this.
+-   If there is a security issue - go ... File -- System Settings -- Privacy & Security .. and then look for a statement that says "Artemis" was blocked from use because it is not from an identified developer .... and click Open Anyway - you need to have admin/sudo privileges to do this.
 
-* Artemis should run
+-   Artemis should run
 
 8.  the next time you log into your mac - the default java will be the default one and not the one required to use Artemis ... so to the terminal and type (change -v flag depending on jvm version)
 
@@ -115,19 +115,19 @@ Artemis.app/Contents/art
 export JAVA_HOME=$(/usr/libexec/java_home -v16)
 ```
 
-* and now you should be able to run Artemis again
+-   and now you should be able to run Artemis again
 
-* if you want to keep use this java as default - edit your .zshrc file
+-   if you want to keep use this java as default - edit your .zshrc file
 
-* if you don't want to type in that command all the time, add this to your .zshrc file
+-   if you don't want to type in that command all the time, add this to your .zshrc file
 
 ```{bash}
 alias javaart='export JAVA_HOME=$(/usr/libexec/java_home -v16)'
 ```
 
-* and then type ```javaart``` into a terminal to change to the version of java required for Artemis
+-   and then type `javaart` into a terminal to change to the version of java required for Artemis
 
-* alternatively you should be able to edit the
+-   alternatively you should be able to edit the
 
 ```{bash}
 Artemis.app/Contents/art
@@ -135,7 +135,7 @@ Artemis.app/Contents/art
 export JAVA_HOME=$(/usr/libexec/java_home - v16)
 ```
 
-* at the top somewhere - haven't tested this to force the right version of java to be used.
+-   at the top somewhere - haven't tested this to force the right version of java to be used.
 :::
 
 We are going to use Artemis using the VNC access to your Linux desktop - go to https://sponsa.bios.cf.ac.uk/guacamole/ and login using your university credentials.
@@ -666,4 +666,21 @@ You can now open the fasta sequence you have used in the blast with Artemis and 
 5.  \[Extension\] Produce a loop to annotate all assembled contigs using blast
 
 6.  \[Extension\] You can try repeating this exercise with swisprot and note the differences
+:::
+
+::: callout-warning
+## Extension Work
+
+For your two datasets: mitochondrial and prokaryote attempt the following process.
+
+1.  Annotate your genomes using a loop
+:::
+
+::: {.callout-note collapse="true"}
+## Worked Example - Prokayote: annotation loop
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=df930bd2-5f91-4151-9866-b09500b7390c&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
+
 :::

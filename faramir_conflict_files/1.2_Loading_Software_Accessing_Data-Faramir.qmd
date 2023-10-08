@@ -1,0 +1,223 @@
+---
+title-block-style: default
+title-block-banner: darkred
+title-block-banner-color: white
+title: "Loading Software and Accessing Data"
+subtitle: "It's all there if you know where to look"
+author: "Professor Peter Kille"
+date: today
+affiliation: "Cardiff University"
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+<body style="background-color:gray99;">
+
+Now that you're (hopefully) re-caffeinated and have stretched your legs and cleared your brain, let's have a look at some more need-to-know information.
+
+# Software
+
+The linux OS has some really powerful utilities but these are not truly bioinformatics software. We have to 'install' or 'load' software. We do not want tp have all our software loaded all the time, as many informatic tools are very complex i.e. requiring different versions of python or java to run. Having software that requires conflicting versions loaded at the same time can cause a malfunction.
+
+Most managed HPC systems (not your own personal computer) manage this by using modules. These are preconfigured installers for your software packages. Cardiff systems use modules - if this is the case you can see the software that is available try the following command:
+
+```{bash}
+module avail
+```
+
+this will bring up a software list that looks like the following:
+
+```{bash}
+abyss/2.3.1        caliper/2.8.0    fastx-toolkit/0.0.14  mcl/14-137          racon/1.4.3      tbl2asn/2022-04-26
+alan/2.1.1         cdhit/4.8.1      figtree/1.4.3         minimap2/2.14       raxml-ng/1.0.2   tmux/3.2a
+barrnap/0.8        dos2unix/7.4.2   freebayes/1.3.6       ncurses/6.3         samtools/1.15.1  trimmomatic/0.39
+bcftools/1.14      emboss/6.6.0     gdbm/1.23             perl-bioperl/1.7.6  seqtk/1.3        velvet/1.2.10
+bedtools2/2.30.0   fastp/0.20.0     hmmer/3.3.2           picard/2.26.2       spades/3.15.5    vt/0.5772
+blast-plus/2.13.0  fastqc/0.11.9    igv/2.12.3            pilon/1.22          star/2.7.6a      wtdbg2/2.3
+bowtie2/2.4.2      fasttree/2.1.11  mafft/7.481           prokka/1.14.6       subread/2.0.2
+.......
+```
+
+Any of these software packages can be loaded by simply using the module load command, e.g.
+
+```{bash}
+module load fastqc/0.11.9
+```
+
+Remember to unload the module when you are finished so it does not conflict with the next piece of software, or if you want to unload all modules, use the module purge command.
+
+```{bash}
+module unload fastqc/0.11.9
+or
+module purge
+```
+
+# Data
+
+The data for your course is available to you on a pre-mapped drive location. You can see and list the folders it contains using the following simple command:
+
+```{bash}
+ls ~/classdata/
+
+#this should yield the following list of folders
+
+REFS  Session1  Session2  Session3  Session4  Session5  Session6
+
+```
+
+You can **see these folders but not write to them**! Before each session, copy the corresponding folder to your mydata directory using `cp`.
+
+Note the inclusion of the '-r' flag to allow you to copy the folder 'recursively': this will copy all the folders and files inside.
+
+# Visualising text files
+
+There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but not edit them. Among the most common of these commands are `cat`, `more`, `less`, `head` and `tail`.
+
+`cat` streams the entire contents of a file to your terminal and is thus not that useful for reading long files as the text streams past too quickly to read. It is a very useful facility for reading files into other programs.
+
+`head` and `tail` show the beginning and end 10 lines of a document, respectively. `head` in particular is useful for taking a quick peek inside a file. You can use the argument -n \[number\] to change the number of lines displayed. For example, to see the first 20 lines of a file:
+
+```{bash}
+head -n 20 file.txt
+```
+
+`more` and `less` are commands that show the contents of a file one page at a time, but `less` has more functionality than `more` (doh)! With both `more` and `less`, you can use the space bar to scroll down the page, and typing the letter q causes the program to quit -- returning you to your command line prompt.
+
+Once you are reading a document with `more` or `less`, typing a forward slash / will start a prompt at the bottom of the page, and you can then type in text that is searched for below the point in the document you were at. Typing in a ? also searches for a text string you enter, but it searches in the document above the point you were at. Hitting the n key during a search looks for the next instance of that text in the file.
+
+With `less` (but not `more`), you can use the arrow keys to scroll up and down the page, and the b key to move back up the document if you wish to.
+
+Remember these are just for reading the files. If you want to edit them you'll need a text editor like nano or vi (see below).
+
+There are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages.
+
+::: callout-important
+## Exercise: looking at text files
+
+Move into mydata/Session1
+
+Explore the file O97435.txt by using the commands `cat`, `more`, `less`, `head` and `tail`. (Note that the file name starts with a capital O, rather than a zero.)
+
+Don't forget that tab completion can save you typing effort!
+
+```{bash}
+cat O97435.txt
+more O97435.txt # Use the spacebar to scroll down
+Press q to quit.
+```
+
+Now try `less`
+
+```{bash}
+less O97435.txt
+```
+
+Use the spacebar to scroll down, b to go up a page, and the up and down arrow keys to move up and down the file line by line.
+
+Press the / key and search for the letters sequence in the file. Press the ? key and search for the letters gene in the file.
+
+Press the n key to search for other instances of gene in the file.
+
+```{bash}
+head O97435.txt
+tail O97435.txt
+```
+
+For reading files yourself, we recommend the command `less.` The command `cat` is more usually used in conjunction with other commands when you wish to process text from within a file in some way.
+
+Remember the man pages
+
+There are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages:
+
+```{bash}
+man cat
+man more
+man less
+man head
+man tail
+```
+:::
+
+::: {.callout-note collapse="true"}
+## Visualising files using less, cat, head and tail
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=94ba890f-5ad3-447b-871e-b09400e844d5&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
+:::
+
+# Using text editors
+
+Plain text files are important, both as input to bioinformatics programs and as input or configuration files for system programs. We highly recommend that you learn to use a text editor to prepare and edit plain text files.
+
+## Text files, Word Processors and Bioinformatics
+
+Documents written using a word processor such as Microsoft Word or OpenOffice Write are not plain text documents and will not work in either a text editor or if used as a script. If your filename has an extension such as .doc or .odt, it is unlikely to be a plain text document. (Try opening a Word document in notepad or another text editor on Windows if you want proof of this.)
+
+Word processors are very useful for preparing documents, but do not use them for working with bioinformatics-related files. We recommend that you prepare text files for bioinformatics analyses using Linux-based text editors and not Windows- or Mac-based text editors. This is because Windows- or Mac-based text editors may insert hidden characters that are not handled properly by Linux-based programs. There are endless posts on bioinformatics forums bemoaning the problems that arise from this!
+
+There are a number of different text editors available on Bio-Linux. These range in ease of use, and each has its pros and cons. In this practical we will briefly look at two editors, ***nano and vi***. Vi is an extremely powerful text editor and popular with many professionals, as it is installed on almost every Linux system. However, it is also notoriously frustrating to get to grips with. For this reason, you are probably better starting off with nano, which is very easy to use and displays instructions at the bottom of the screen.
+
+### Nano
+
+***Pros:***
+
+Very easy -- For example, command options are visible at the bottom of the window, it can be used when logged in without graphical support, and is fast to start up and use
+
+***Cons:***
+
+By default it puts return characters into lines too long for the screen (i.e. using nano for system administration can be dangerous!) This behavior can be changed by setting different defaults for the program or running it with the --w option. It is not completely intuitive for people who are used to graphical word processors.
+
+### Vi (or Vim)
+
+***Pros:***
+
+Appears on nearly every Unix system. Can be very powerful if you take the time to know the key-short cuts.
+
+***Cons:***
+
+You have to know the shortcuts!! There's no menus and no on screen prompts
+
+::: callout-important
+## Exercise
+
+Note that unlike most graphical programmes, where you write a document and then name it at the end, command-line text editors require you to name a file when you create it.
+
+### Create a file with nano
+
+```{bash}
+nano test_nano.txt 
+```
+
+Type some text, exit ctrl X, save and return to command line now list the contents of the file you created
+
+```{bash}
+less test_nano.txt 
+```
+
+### Create a file with vi
+
+```{bash}
+vi test_vi.txt 
+```
+
+Vi has two separate modes: 'input' mode, where you can type and edit text, and 'control' mode where you can do things such as save, search and exit the programme.
+
+Type 'i' to enter input mode, and add some text.
+
+Press \[esc\] to enter control mode.
+
+Exit, saving your edits, by typing `:wq` - this stands for write and quit! If you wanted to exit without saving the edits, typing `:q!` will force vi to exit without saving.
+
+Now list the contents of the file you created
+
+```{bash}
+less test_vi.txt 
+```
+:::
+
+# End of Session 1. Go and relax!
+
+Or if you're a total nerd and can't leave the command line, go ahead and have a look at *Extension: Commandline Tools and Scripting*. This contains more Linux-related tidbits and a sneak preview of some material we'll cover in Session 2.

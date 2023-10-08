@@ -370,7 +370,7 @@ background: darkred;
   <li><a href="#fastqc" id="toc-fastqc" class="nav-link" data-scroll-target="#fastqc">FastQC</a></li>
   <li><a href="#running-and-reusing-scripts" id="toc-running-and-reusing-scripts" class="nav-link" data-scroll-target="#running-and-reusing-scripts">Running and Reusing Scripts</a></li>
   <li><a href="#quality-trimming-using-fastp" id="toc-quality-trimming-using-fastp" class="nav-link" data-scroll-target="#quality-trimming-using-fastp">Quality trimming using fastp</a></li>
-  <li><a href="#if-you-have-time-putting-it-all-together" id="toc-if-you-have-time-putting-it-all-together" class="nav-link" data-scroll-target="#if-you-have-time-putting-it-all-together">If you have time: putting it all together</a></li>
+  <li><a href="#creating-a-quality-summary-with-multiqc" id="toc-creating-a-quality-summary-with-multiqc" class="nav-link" data-scroll-target="#creating-a-quality-summary-with-multiqc">Creating a quality summary with multiqc</a></li>
   </ul></li>
   <li><a href="#end-of-ngs-qc." id="toc-end-of-ngs-qc." class="nav-link" data-scroll-target="#end-of-ngs-qc.">End of NGS QC.</a>
   <ul class="collapse">
@@ -520,7 +520,7 @@ Exercise: using FastQC
 <li><p>Make a directory called fastqc inside your Session2 folder.</p></li>
 <li><p>Try running FastQC on Illumina_1.fastq, using your fastqc directory for the output.</p></li>
 <li><p>Use <em>ls</em> to see what output it has created.</p></li>
-<li><p>Using the MobaX file transfer window or FileZilla, transfer the html file to your desktop and open it.</p></li>
+<li><p>Using the MobaXterm sftp file transfer window or FileZilla, transfer the html file to your desktop and open it.</p></li>
 </ol>
 <p>Reminder: if using FileZilla, the details are:</p>
 <ul>
@@ -532,6 +532,23 @@ Exercise: using FastQC
 <ol start="5" type="1">
 <li>[Extension] Look up the help page using fastqc -h. What other options are available?</li>
 </ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example: Quality Control example for a single fastq file
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=707132d0-9e12-4f26-aaae-b09400e8653b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
 </div>
 </div>
 </section>
@@ -601,7 +618,7 @@ Exercise: fastp
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastp/0.20.0</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-q</span> 20 <span class="at">-u</span> 10 <span class="dt">\-\-</span>cut_right <span class="at">-i</span> Illumina_1.fastq <span class="at">-I</span> Illumina_2.fastq <span class="at">-o</span> Illumina_1trimmed.fastq <span class="at">-O</span> Illumina_2trimmed.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-q</span> 20 <span class="at">-u</span> 10 <span class="at">--cut_right</span> <span class="at">-i</span> Illumina_1.fastq <span class="at">-I</span> Illumina_2.fastq <span class="at">-o</span> Illumina_1trimmed.fastq <span class="at">-O</span> Illumina_2trimmed.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Look up the help page for fastp. What does each of the options given above mean?</p>
 <p>Use ls to look at the output. How could the script be improved to make it tidier?</p>
@@ -617,21 +634,137 @@ Exercise: checking it worked!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Run FastQC on your trimmed Illumina_1 file and compare it to the original. Can you see the difference?</p>
+<ol type="1">
+<li><p>Run FastQC on your trimmed Illumina_1 file and compare it to the original. Can you see the difference?</p></li>
+<li><p>In the Session2 directory there is a sub-directory called looping, with five single-end Illumina samples in it. Can you write a script which will use loop over those files to do QC on them, then trim them and re-run the QC? Extra brownie points for keeping the output directories nice and tidy!</p></li>
+</ol>
 </div>
 </div>
 </section>
-<section id="if-you-have-time-putting-it-all-together" class="level2">
-<h2 class="anchored" data-anchor-id="if-you-have-time-putting-it-all-together">If you have time: putting it all together</h2>
-<p>In the Session2 directory there is a subdirectory called looping, with five single-end Illumina samples in it. Can you write a script which will use loop over those files to do QC on them, then trim them and re-run the QC? Extra brownie points for keeping the output directories nice and tidy!</p>
+<section id="creating-a-quality-summary-with-multiqc" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-quality-summary-with-multiqc">Creating a quality summary with multiqc</h2>
+<p>Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">module</span> load multiqc/1.16</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a> <span class="co">#run multiqc on all files in the current working directory</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">multiqc</span> .</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>use the -h flag to see what option multiqc provides.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example: Fastqc interactive loop
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e591c923-11fc-4a04-9272-b09400e8d1bc&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example: Fastqc bash loop
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=894c4cd6-2f3e-40a3-934d-b09400e7fcb2&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example: Multiqc
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5420d78c-873e-400e-89c3-b09400e88a50&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="end-of-ngs-qc." class="level1">
 <h1>End of NGS QC.</h1>
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=6cec8b60-2ac0-4ab3-98ba-af690122c53b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
-</iframe>
 <section id="you-have-earned-yourselves-cake" class="level2">
 <h2 class="anchored" data-anchor-id="you-have-earned-yourselves-cake">You have earned yourselves cake!</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extension Work
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In ~/classdata there is a folder called datasets. Copy this folder across to your ~/mydata directory</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-R</span> ~/classdata/datasets ~/mydata/datasets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In side this folder you will find two data sets: mitochondrial and prokaryote. As you become more confident try and write programs that perform the following processes:</p>
+<ol type="1">
+<li><p>fastqc rawdata</p></li>
+<li><p>fastqc rawdata, fastp trim, fastqc trimdata and generate a multiqc summary</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example - Prokayote: rawdata fastqc loop
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ba22f2db-e320-4bd4-9516-b094011020df&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example - Prokayote: rawdata QC triming and post trim QC
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=95ed97fe-fffa-46bf-956c-b094010bfa4e&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
+</div>
+</div>
+<p>:::</p>
 
 
 </section>

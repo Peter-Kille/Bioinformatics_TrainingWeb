@@ -58,6 +58,23 @@ b)  Using **bedtools** to extract a sequence file (e.g. 16S or CoI) from the ori
 
 5)  Visualize your tree **Figtree**
 
+::: callout-warning
+## Extension Work
+
+For your two datasets: mitochondrial and prokaryote attempt the following process.
+
+1.  Create a single gene phylogenetic tree
+:::
+
+::: {.callout-note collapse="true"}
+## Worked Example - Prokayote: creating a 16S phylogeny
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=344ff837-6338-4bd2-9638-b09500f3f29d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
+
+:::
+
 ## Muliple gene plylogenys: MLST
 
 The most common use of multiple genes to create phylogenogies is [Multi-locus sequence typing (MLST)](https://www.sciencedirect.com/topics/medicine-and-dentistry/multilocus-sequence-typing#:~:text=Multi%2Dlocus%20sequence%20typing%20(MLST,and%20plants)%2C%20and%20biosafety). This is primarily used in bacterial phylogenetics when it is necessary to go beyond species and identify the strain. This method is extreme valuable when identifying pathogenic strains away for sometimes harmless relatives. Established 'Stereotype' have often now been align with specific MLST allele sequences. There are on-line tools that allow you to upload your sequence and perform MLST analysis - such as [autoMLST](https://automlst.ziemertlab.com/). However, many of the resources are 'species specific' and allowing you to enter a draft genome from specific species and using MLST appropriate to plylogenetically 'type' the strain it represents. Many of these tools can be accessed through [pubmlst](https://pubmlst.org/). There are also a myriad of command line tools that can be used - simplest to remember and a very easy one to use is the software entitled [MLST](https://github.com/tseemann/mlst).
@@ -346,10 +363,9 @@ figtree
 
 An interactive window will now open for you to use if you are using X11 enabled mobaxterm. If you are using a mac or linux shell you will need to install [figtree](http://tree.bio.ed.ac.uk/software/figtree/) (Download locally to your laptop: https://github.com/rambaut/figtree/releases) locally and download the newick file (nwk suffix).
 
-When you open your newick if you will be asked about node labeling.  You should identify that your node labeling is you bootstrap values:
+When you open your newick if you will be asked about node labeling. You should identify that your node labeling is you bootstrap values:
 
-Labeling Fig Tree Branches
-![](images/fig_tree_lables.png){width="40%" fig-align="center"}
+Labeling Fig Tree Branches ![](images/fig_tree_lables.png){width="40%" fig-align="center"}
 
 <br>
 

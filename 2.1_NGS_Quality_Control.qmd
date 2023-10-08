@@ -148,7 +148,7 @@ fastqc -o output_dir file.fastq
 
 3.  Use *ls* to see what output it has created.
 
-4.  Using the MobaX file transfer window or FileZilla, transfer the html file to your desktop and open it.
+4.  Using the MobaXterm sftp file transfer window or FileZilla, transfer the html file to your desktop and open it.
 
 Reminder: if using FileZilla, the details are:
 
@@ -158,6 +158,14 @@ Reminder: if using FileZilla, the details are:
 -   Port: Your assigned port number
 
 5.  \[Extension\] Look up the help page using fastqc -h. What other options are available?
+:::
+
+::: {.callout-note collapse="true"}
+## Worked Example: Quality Control example for a single fastq file
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=707132d0-9e12-4f26-aaae-b09400e8653b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
 :::
 
 ## Running and Reusing Scripts
@@ -223,7 +231,7 @@ Script:
 
 module load fastp/0.20.0
 
-fastp -q 20 -u 10 \-\-cut_right -i Illumina_1.fastq -I Illumina_2.fastq -o Illumina_1trimmed.fastq -O Illumina_2trimmed.fastq
+fastp -q 20 -u 10 --cut_right -i Illumina_1.fastq -I Illumina_2.fastq -o Illumina_1trimmed.fastq -O Illumina_2trimmed.fastq
 ```
 
 Look up the help page for fastp. What does each of the options given above mean?
@@ -234,17 +242,87 @@ Use ls to look at the output. How could the script be improved to make it tidier
 ::: callout-important
 ### Exercise: checking it worked!
 
-Run FastQC on your trimmed Illumina_1 file and compare it to the original. Can you see the difference?
+1.  Run FastQC on your trimmed Illumina_1 file and compare it to the original. Can you see the difference?
+
+2.  In the Session2 directory there is a sub-directory called looping, with five single-end Illumina samples in it. Can you write a script which will use loop over those files to do QC on them, then trim them and re-run the QC? Extra brownie points for keeping the output directories nice and tidy!
 :::
 
-## If you have time: putting it all together
+## Creating a quality summary with multiqc
 
-In the Session2 directory there is a subdirectory called looping, with five single-end Illumina samples in it. Can you write a script which will use loop over those files to do QC on them, then trim them and re-run the QC? Extra brownie points for keeping the output directories nice and tidy!
+Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.
+
+```{bash}
+ module load multiqc/1.16
+ 
+ #run multiqc on all files in the current working directory
+ multiqc .
+ 
+```
+
+use the -h flag to see what option multiqc provides.
+
+::: {.callout-note collapse="true"}
+## Worked Example: Fastqc interactive loop
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e591c923-11fc-4a04-9272-b09400e8d1bc&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
+:::
+
+::: {.callout-note collapse="true"}
+## Worked Example: Fastqc bash loop
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=894c4cd6-2f3e-40a3-934d-b09400e7fcb2&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
+:::
+
+::: {.callout-note collapse="true"}
+## Worked Example: Multiqc
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5420d78c-873e-400e-89c3-b09400e88a50&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
+:::
 
 # End of NGS QC.
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=6cec8b60-2ac0-4ab3-98ba-af690122c53b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+## You have earned yourselves cake!
+
+::: callout-warning
+## Extension Work
+
+In ~/classdata there is a folder called datasets.  Copy this folder across to your ~/mydata directory
+
+```{bash}
+cp -R ~/classdata/datasets ~/mydata/datasets
+```
+
+In side this folder you will find two data sets: mitochondrial and prokaryote. As you become more confident try and write programs that perform the following processes:
+
+1. fastqc rawdata
+
+2. fastqc rawdata, fastp trim, fastqc trimdata and generate a multiqc summary
+:::
+
+::: {.callout-note collapse="true"}
+## Worked Example - Prokayote: rawdata fastqc loop
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ba22f2db-e320-4bd4-9516-b094011020df&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
 
-## You have earned yourselves cake!
+:::
+
+::: {.callout-note collapse="true"}
+## Worked Example - Prokayote: rawdata QC triming and post trim QC
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=95ed97fe-fffa-46bf-956c-b094010bfa4e&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
+
+:::
+
+:::
+
