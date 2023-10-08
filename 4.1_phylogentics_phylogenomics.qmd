@@ -37,7 +37,7 @@ Which ever approach you are taking the overarching process follows the same prin
 
 4.  Visualize your tree **Figtree** is a good program for visualizing trees on linux platform, but you could equally download you trees and visualise using **MEGAX**.
 
-## Single gene phylogeny: Identify the unknown cetacean
+## Single gene phylogeny
 
 Many purposes you need to identify an species identify from which an assembly was derived. The most common way to do this is to construct a phylogeny based on a single gene. The gene used differs by kingdom. For bacteria and archaea people use 16S rRNA whilst for most Eukaryotas people use mitochondrial COI (Cytochrome Oxidase I). There are a few domain specific loci used, for instance Algal people use large subunit of ribulose bisphosphate carboxylase (RbcL) whilst the fungal communities use internal transcribed spacer (ITS) between there nuclear ribosomal genes.
 
