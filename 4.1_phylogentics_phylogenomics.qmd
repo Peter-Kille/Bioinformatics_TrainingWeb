@@ -4,7 +4,7 @@ title-block-banner: darkred
 title-block-banner-color: white
 title: "Phylogenomics and Phylogeneomics"
 subtitle: "Deriving phylogenies from single genes to whole genomes"
-author: "Dr Alex Mullins"
+author: "Prof Peter Kille and Dr. Sarah Christofides"
 date: today
 affiliation: "Cardiff University"
 ---
@@ -337,12 +337,17 @@ FigTree is designed as a graphical viewer of phylogenetic trees and as a program
 Download locally to your laptop: https://github.com/rambaut/figtree/releases / or access through Guacamole graphical user interface
 
 ```{base}
-figtree/1.4.4
+module load figtree/1.4.4
 
 figtree
 ```
 
 An interactive window will now open for you to use if you are using X11 enabled mobaxterm. If you are using a mac or linux shell you will need to install [figtree](http://tree.bio.ed.ac.uk/software/figtree/) (Download locally to your laptop: https://github.com/rambaut/figtree/releases) locally and download the newick file (nwk suffix).
+
+When you open your newick if you will be asked about node labelling.  You should idenfiy that your node labeling is you bootstrap values:
+
+Labeling Fig Tree Branches
+![](images/fig_tree_lables.png){width="40%" fig-align="center"}
 
 <br>
 
