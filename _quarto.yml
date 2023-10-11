@@ -26,6 +26,7 @@ website:
       - section: "Session 3. Genomics"
         contents:
           - 3.1_Genome_visualisation_and_annotation.qmd
+          - 3.2_Annotating_mitochondria.qmd
       - section: "Session 4. Building phylogenies"
         contents:
           - 4.1_phylogentics_phylogenomics.qmd

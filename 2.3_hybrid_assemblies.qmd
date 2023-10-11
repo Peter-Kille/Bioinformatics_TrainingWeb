@@ -28,7 +28,7 @@ bug_nanopore_reads_corrected.fasta (you shoould have generated these from previo
 
 ## Tools
 
-SPAdes -- instal using module load
+SPAdes -- install using module load
 
 ```         
 Usage: spades.py [options\ -o <output_dir>
