@@ -69,10 +69,9 @@ For your two datasets: mitochondrial and prokaryote attempt the following proces
 ::: {.callout-note collapse="true"}
 ## Worked Example - Prokayote: creating a 16S phylogeny
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=344ff837-6338-4bd2-9638-b09500f3f29d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=344ff837-6338-4bd2-9638-b09500f3f29d&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
-
 :::
 
 ## Muliple gene plylogenys: MLST
@@ -98,6 +97,14 @@ The procedure to create a bacterial pan-genome phylogeny is:
 5)  Visualize your tree **Figtree**
 
 If you were to repeat this analysis without the designated outgroup, which strain/s would be the outgroup of the phylogeny? (check lecture for guidance).
+
+::: {.callout-note collapse="true"}
+## Worked Example - Prokayote: creating a Pan Genome phylogeny
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bf77e80f-9012-4fc5-92e4-b0980088eb93&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
+:::
 
 ## Whole genome SNP phylogeny
 

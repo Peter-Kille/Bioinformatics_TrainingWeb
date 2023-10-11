@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof Peter Kille and Dr.&nbsp;Sarah Christofides">
+<meta name="dcterms.date" content="2023-10-11">
+
+<title>Phylogenomics and Phylogeneomics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: white;
+background: darkred;
+      }
+</style>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4.1_phylogentics_phylogenomics.html">Session 4. Building phylogenies</a></li><li class="breadcrumb-item"><a href="./4.1_phylogentics_phylogenomics.html">Phylogenomics and Phylogeneomics</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Phylogenomics and Phylogeneomics</h1>
+            <p class="subtitle lead">Deriving phylogenies from single genes to whole genomes</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Prof Peter Kille and Dr.&nbsp;Sarah Christofides </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 11, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Welcome to Bioinformatics!</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Big Data Biology and Bioinformatics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Session 0. HPC and Personal Cloud</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Personal Cloud</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Session 1. Linux: The basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.1_Introduction to Linux.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Linux</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Loading Software and Accessing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extension: Commandline Tools and Scripting</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Session 2. NGS data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2.1_NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NGS Quality Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2.2_genome_assembly.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genome Assembly</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Session 3. Genomics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genome Visualisation and Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3.2_hybrid_assemblies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hybrid Assemblies</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">Session 4. Building phylogenies</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Phylogenomics and Phylogeneomics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">Session 5. Transcriptomics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.1_Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcritomics An Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.2_RNAseq_processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RNAseq Processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.3_DEG_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Gene Expression Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.4_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DEG Functional Interpretation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+ <span class="menu-text">Session 6. Microbial community analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6.1_metabarcoding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metagenomics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction---new-material" id="toc-introduction---new-material" class="nav-link active" data-scroll-target="#introduction---new-material">Introduction - New Material</a>
+  <ul class="collapse">
+  <li><a href="#exercises-on-constructing-and-interpreting-phylogenies" id="toc-exercises-on-constructing-and-interpreting-phylogenies" class="nav-link" data-scroll-target="#exercises-on-constructing-and-interpreting-phylogenies"><strong>Exercises on constructing and interpreting phylogenies</strong></a></li>
+  <li><a href="#single-gene-phylogeny" id="toc-single-gene-phylogeny" class="nav-link" data-scroll-target="#single-gene-phylogeny">Single gene phylogeny</a></li>
+  <li><a href="#muliple-gene-plylogenys-mlst" id="toc-muliple-gene-plylogenys-mlst" class="nav-link" data-scroll-target="#muliple-gene-plylogenys-mlst">Muliple gene plylogenys: MLST</a></li>
+  <li><a href="#core-gene-phylogeny-understand-the-diversity-of-a-bacterial-species" id="toc-core-gene-phylogeny-understand-the-diversity-of-a-bacterial-species" class="nav-link" data-scroll-target="#core-gene-phylogeny-understand-the-diversity-of-a-bacterial-species">Core gene phylogeny: Understand the diversity of a bacterial species</a></li>
+  <li><a href="#whole-genome-snp-phylogeny" id="toc-whole-genome-snp-phylogeny" class="nav-link" data-scroll-target="#whole-genome-snp-phylogeny">Whole genome SNP phylogeny</a></li>
+  </ul></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#sequence-data-available-for-the-phylogeny-exercises" id="toc-sequence-data-available-for-the-phylogeny-exercises" class="nav-link" data-scroll-target="#sequence-data-available-for-the-phylogeny-exercises"><strong>Sequence data available for the phylogeny exercises</strong></a>
+  <ul class="collapse">
+  <li><a href="#single-gene-phylogeny-1" id="toc-single-gene-phylogeny-1" class="nav-link" data-scroll-target="#single-gene-phylogeny-1">Single Gene Phylogeny</a></li>
+  <li><a href="#core-gene-phylogeny" id="toc-core-gene-phylogeny" class="nav-link" data-scroll-target="#core-gene-phylogeny">Core Gene Phylogeny</a></li>
+  <li><a href="#snp-phylogeny" id="toc-snp-phylogeny" class="nav-link" data-scroll-target="#snp-phylogeny">SNP Phylogeny</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#tools-and-usage" id="toc-tools-and-usage" class="nav-link" data-scroll-target="#tools-and-usage">Tools and Usage</a>
+  <ul class="collapse">
+  <li><a href="#bioinformatic-software-and-tools" id="toc-bioinformatic-software-and-tools" class="nav-link" data-scroll-target="#bioinformatic-software-and-tools"><strong>Bioinformatic software and tools</strong></a></li>
+  <li><a href="#software-usage" id="toc-software-usage" class="nav-link" data-scroll-target="#software-usage">Software usage</a>
+  <ul class="collapse">
+  <li><a href="#prokka-for-bacterial-genome-annoation" id="toc-prokka-for-bacterial-genome-annoation" class="nav-link" data-scroll-target="#prokka-for-bacterial-genome-annoation">Prokka for bacterial genome annoation</a></li>
+  <li><a href="#barrnap" id="toc-barrnap" class="nav-link" data-scroll-target="#barrnap">Barrnap</a></li>
+  <li><a href="#mitos-for-mitochondrial-annotation" id="toc-mitos-for-mitochondrial-annotation" class="nav-link" data-scroll-target="#mitos-for-mitochondrial-annotation">mitos for mitochondrial annotation</a></li>
+  <li><a href="#bedtools" id="toc-bedtools" class="nav-link" data-scroll-target="#bedtools">Bedtools</a></li>
+  <li><a href="#mafft" id="toc-mafft" class="nav-link" data-scroll-target="#mafft">MAFFT</a></li>
+  <li><a href="#raxml-ng" id="toc-raxml-ng" class="nav-link" data-scroll-target="#raxml-ng">RAxML-NG</a></li>
+  <li><a href="#panaroo" id="toc-panaroo" class="nav-link" data-scroll-target="#panaroo">panaroo</a></li>
+  <li><a href="#snippy" id="toc-snippy" class="nav-link" data-scroll-target="#snippy">snippy</a></li>
+  <li><a href="#figtree" id="toc-figtree" class="nav-link" data-scroll-target="#figtree">Figtree</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#walk-throughs" id="toc-walk-throughs" class="nav-link" data-scroll-target="#walk-throughs">Walk throughs</a>
+  <ul class="collapse">
+  <li><a href="#single-gene" id="toc-single-gene" class="nav-link" data-scroll-target="#single-gene">Single Gene</a></li>
+  <li><a href="#whole-genome-snp" id="toc-whole-genome-snp" class="nav-link" data-scroll-target="#whole-genome-snp">Whole Genome SNP</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7996f42d-c454-4329-8235-af630098de06&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+<p><a href="https://tinyurl.com/2jv8jphr">Phylogenetics to phylogenomics Powerpoint</a></p>
+<p><a href="https://goo.gl/BMzU8p">Online Phylogenetic Lecture</a></p>
+<section id="introduction---new-material" class="level1">
+<h1>Introduction - New Material</h1>
+<section id="exercises-on-constructing-and-interpreting-phylogenies" class="level2">
+<h2 class="anchored" data-anchor-id="exercises-on-constructing-and-interpreting-phylogenies"><strong>Exercises on constructing and interpreting phylogenies</strong></h2>
+<p>Below are four approaches for constrcting phylogenetic tress from a single gene, multiple genes, core genome gene, and whoel genome SNP phylogeny. Remember that we are processing the sequence data to obtain <strong>biological interpretations</strong> so think what question you are trying to answer. Don’t get lost in the terminal with typing commands meaninglessly, step back and think about the bioinformatic process to get to the end goal.</p>
+<p>Which ever approach you are taking the overarching process follows the same principle steps:</p>
+<ol type="1">
+<li><p>Extract (and if appropriate concatenate) the target(s) nucleotide sequence(s) from your samples. The approach will differ depending on if you constructing a single gene, multigene, pan genome or SNP approach. You should include a reference / outgroup sequence</p></li>
+<li><p>Create an alignment of the nucleotide sequences from all samples. <strong>MAFFT</strong> is a commonly used linux aligner. Remember to ensure your sequences are trimmed and orientated in the same direction !!</p></li>
+<li><p>Construct a phylogeny. <strong>RAxML-NG</strong> is a great very scalable phylogenetic program. You may wish to optimize the phylogenetic model you use - there are specific programs to do this but we will not cover these in this course.</p></li>
+<li><p>Visualize your tree <strong>Figtree</strong> is a good program for visualizing trees on linux platform, but you could equally download you trees and visualise using <strong>MEGAX</strong>.</p></li>
+</ol>
+</section>
+<section id="single-gene-phylogeny" class="level2">
+<h2 class="anchored" data-anchor-id="single-gene-phylogeny">Single gene phylogeny</h2>
+<p>Many purposes you need to identify an species identify from which an assembly was derived. The most common way to do this is to construct a phylogeny based on a single gene. The gene used differs by kingdom. For bacteria and archaea people use 16S rRNA whilst for most Eukaryotas people use mitochondrial COI (Cytochrome Oxidase I). There are a few domain specific loci used, for instance Algal people use large subunit of ribulose bisphosphate carboxylase (RbcL) whilst the fungal communities use internal transcribed spacer (ITS) between there nuclear ribosomal genes.</p>
+<ol type="1">
+<li><p>If a outgroup is not provided use NCBI Genbank or the European Nucleotide Archive to download an appropriate outgroup (remember an outgroup should be the same phylogenetic marker (in the correct orientation) from a species that is phylogenetically distinct from but still related to your study group. i.e.&nbsp;If you are studying dog species use a CoI from a Cat.</p></li>
+<li><p>Annotate your assembled contigs and extract out your phylogenetic marker.</p></li>
+</ol>
+<!-- -->
+<ol type="a">
+<li>If using prokayotic geneomes use <strong>Prokka</strong> or <strong>Barrnap</strong> to annotate your assembled genome generating a gff file. If you have a mtDNA then use <strong>Mitos</strong> to perform the annotation.</li>
+<li>Using <strong>bedtools</strong> to extract a sequence file (e.g.&nbsp;16S or CoI) from the original assembly.</li>
+</ol>
+<!-- -->
+<ol start="3" type="1">
+<li><p>Use <strong>MAFFT</strong> to create an alignment of your phylogenetic marker.</p></li>
+<li><p>Construct a phylogeny with <strong>RAxML-NG</strong></p></li>
+<li><p>Visualize your tree <strong>Figtree</strong></p></li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extension Work
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For your two datasets: mitochondrial and prokaryote attempt the following process.</p>
+<ol type="1">
+<li>Create a single gene phylogenetic tree</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example - Prokayote: creating a 16S phylogeny
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=344ff837-6338-4bd2-9638-b09500f3f29d&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+<section id="muliple-gene-plylogenys-mlst" class="level2">
+<h2 class="anchored" data-anchor-id="muliple-gene-plylogenys-mlst">Muliple gene plylogenys: MLST</h2>
+<p>The most common use of multiple genes to create phylogenogies is <a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/multilocus-sequence-typing#:~:text=Multi%2Dlocus%20sequence%20typing%20(MLST,and%20plants)%2C%20and%20biosafety">Multi-locus sequence typing (MLST)</a>. This is primarily used in bacterial phylogenetics when it is necessary to go beyond species and identify the strain. This method is extreme valuable when identifying pathogenic strains away for sometimes harmless relatives. Established ‘Stereotype’ have often now been align with specific MLST allele sequences. There are on-line tools that allow you to upload your sequence and perform MLST analysis - such as <a href="https://automlst.ziemertlab.com/">autoMLST</a>. However, many of the resources are ‘species specific’ and allowing you to enter a draft genome from specific species and using MLST appropriate to plylogenetically ‘type’ the strain it represents. Many of these tools can be accessed through <a href="https://pubmlst.org/">pubmlst</a>. There are also a myriad of command line tools that can be used - simplest to remember and a very easy one to use is the software entitled <a href="https://github.com/tseemann/mlst">MLST</a>.</p>
+<p>Remember you can only use these tools if you have already identified the species and if there is a MLTS database for the organism in question.</p>
+<p>This approach is very rarely used for Eukaryotes.</p>
+</section>
+<section id="core-gene-phylogeny-understand-the-diversity-of-a-bacterial-species" class="level2">
+<h2 class="anchored" data-anchor-id="core-gene-phylogeny-understand-the-diversity-of-a-bacterial-species">Core gene phylogeny: Understand the diversity of a bacterial species</h2>
+<p>Organisms within particular phylogenetic groups share a set of ‘core’ genes - these are often those representing essential metabolism. Then each species has a unique set of ‘ancillary’ genes which define the unique phenotype of the organism. Worth noting that the ultimate bacterial ‘ancillary’ genes are mobile genetic elements that carry things such as antibiotic resistance genes. For bacteria this ‘core’ and ‘ancillary’ relationship is well define and programs have been developed that identify the ‘core’ genome by identifying all the ‘shared’ gene loci between a group of bacteria, concatenate these sequences and use them to derive create a phylogeny. The program we will use to demonstrate this is <strong>panaroo</strong> which will identify, extract, and concatenate the core genome.</p>
+<p>Similar approach can be taken with Eukaryotic genomes. A project know as <a href="https://busco.ezlab.org/">Busco</a> has been working to identify list of core genes within different phylogenetic lineages. A tool and database allows you to identify and extract those core genes from draft genomes and even has plugin for generating phylogenies.</p>
+<p>The procedure to create a bacterial pan-genome phylogeny is:</p>
+<ol type="1">
+<li>Identify a suitable outgroup for this phylogeny (closely related species) – look back at the lecture to understand outgrouping in core genome phylogenies. Download a suitable genome from NCBI Genbank or the European Nucleotide Archive and upload to your virtual machine.</li>
+<li>Annotate your bacterial genomes using <strong>Prokka</strong>.</li>
+<li>Predict and align the pangenome and construct a core gene alignment by processing the gff annotation files with <strong>panaroo</strong> using <strong>MAFFT</strong> alignment option.</li>
+<li>Construct a phylogeny with <strong>RAxML-NG</strong>.</li>
+<li>Visualize your tree <strong>Figtree</strong></li>
+</ol>
+<p>If you were to repeat this analysis without the designated outgroup, which strain/s would be the outgroup of the phylogeny? (check lecture for guidance).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example - Prokayote: creating a Pan Genome phylogeny
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bf77e80f-9012-4fc5-92e4-b0980088eb93&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+<section id="whole-genome-snp-phylogeny" class="level2">
+<h2 class="anchored" data-anchor-id="whole-genome-snp-phylogeny">Whole genome SNP phylogeny</h2>
+<p>Tracking individual mutations between strains of an organism allows a precision in the phylogenetic analysis unlock phenomenal potential - since these mutation or SNP occur and a organism is transmitted between individual we can use this within a pathogenic context, viral or bacterial, to explore epidemiology of disease.</p>
+<p>Using whole mitochondrial SNP data we can explore relationship between genetically distinct ‘breeds’ of the same organism or isolated populations to derive conservation requirements or determine relationships between ancient ancestral populations (often extinct).</p>
+<p>One significant advantage of performing a SNP phylogeny is it can be performed with the trim quality control reads and does NOT require de novo assembly. The limitation is that a good and complete reference is required. The process aligns the reads to the reference, derives SNPs, aligns these SNPs from different samples and uses this to generate a phyogeny.</p>
+<ol type="1">
+<li>Identify a reference genome. Either use the sequenec provided or use NCBI Genbank or the European Nucleotide Archive online to download a suitable outgroup/reference genome and upload to your virtual machine.</li>
+<li>Recall from previosu session that we processed raw sequence data prior to use. Use <strong>Fastqc</strong> and <strong>Fastp</strong> to quality check and remove adaptors/trim poor quality bases, respectively.</li>
+<li>Use <strong>snippy</strong> to identify SNPs between the reference/outgroup genome and <strong>both</strong> your processed unknown samples and processed characterised sequence data - you need to analyse both datasets (characterised and unknown) otherwise your phylogeny will look pretty sparse!</li>
+<li>Use <strong>snippy-core</strong> to create an alignment of SNPs.</li>
+<li>Use <strong>snp-sites</strong> to align the SNPs</li>
+<li>Construct a phylogeny with <strong>RAxML-NG</strong>.</li>
+<li>Visualize your tree <strong>Figtree</strong></li>
+</ol>
+</section>
+</section>
+<section id="data" class="level1">
+<h1>Data</h1>
+<section id="sequence-data-available-for-the-phylogeny-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="sequence-data-available-for-the-phylogeny-exercises"><strong>Sequence data available for the phylogeny exercises</strong></h2>
+<section id="single-gene-phylogeny-1" class="level3">
+<h3 class="anchored" data-anchor-id="single-gene-phylogeny-1">Single Gene Phylogeny</h3>
+<ul>
+<li>Assembled and annoated <strong>prokka</strong> prokayotic genomes</li>
+<li>Assembled and annotated <strong>mitos</strong> mitochondrial genomes</li>
+</ul>
+</section>
+<section id="core-gene-phylogeny" class="level3">
+<h3 class="anchored" data-anchor-id="core-gene-phylogeny">Core Gene Phylogeny</h3>
+<ul>
+<li>Assembled and annoated <strong>prokka</strong> prokayotic genomes</li>
+</ul>
+</section>
+<section id="snp-phylogeny" class="level3">
+<h3 class="anchored" data-anchor-id="snp-phylogeny">SNP Phylogeny</h3>
+<ul>
+<li>Assembled and annoated <strong>prokka</strong> prokayotic genomes</li>
+<li>Assembled and annotated <strong>mitos</strong> mitochondrial genomes</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="tools-and-usage" class="level1">
+<h1>Tools and Usage</h1>
+<section id="bioinformatic-software-and-tools" class="level2">
+<h2 class="anchored" data-anchor-id="bioinformatic-software-and-tools"><strong>Bioinformatic software and tools</strong></h2>
+<p>We will use multiple bioinformatic packages to extract and process the sequence data to construct phylogenies</p>
+<p>Prokka – genome annotation<br>
+bedtools – manipulate and extract sequences from fasta files<br>
+MAFFT – sequence alignment<br>
+RAxML-NG – construct phylogenies<br>
+panaroo – pangenome pipeline<br>
+snippy – identify sequence variants snp-sites - align snp sites</p>
+<p><br></p>
+<p><strong>Remember that you can access the “help” option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or –help. After using a program, dont forget to unload the module.</strong></p>
+<p><br></p>
+</section>
+<section id="software-usage" class="level2">
+<h2 class="anchored" data-anchor-id="software-usage">Software usage</h2>
+<section id="prokka-for-bacterial-genome-annoation" class="level3">
+<h3 class="anchored" data-anchor-id="prokka-for-bacterial-genome-annoation">Prokka for bacterial genome annoation</h3>
+<p>Whole genome annotation is the process of identifying features of interest in a set of genomic DNA sequences, and labelling them with useful information. Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce standards-compliant output files.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka_mambaforge/1.14.6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Basic usage:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> <span class="at">--prefix</span> [output file prefix] <span class="at">--outdir</span> [output directory] <span class="at">--cpus</span> [cpu number] <span class="at">--kingdom</span> Bacteria [fasta file]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Prokka outputs the annotation in multiple formats. Open the gbk and gff files to see their structure. Both are annotation files that indicate the location of genes/proteins, their sequence, and their putative function based on sequence comparisons to databases</p>
+<p><br></p>
+</section>
+<section id="barrnap" class="level3">
+<h3 class="anchored" data-anchor-id="barrnap">Barrnap</h3>
+<p>BAsic Rapid Ribosomal RNA Predictor. Can be used to annotate rRNA genes in genomes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load barrnap/0.9</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load hmmer/3.3.2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>Basic usage:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">barrnap</span> <span class="at">--kingdom</span> bac <span class="at">--threads</span> [number of cpus] [fasta file] <span class="op">&gt;</span> [output gff annotation file]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mitos-for-mitochondrial-annotation" class="level3">
+<h3 class="anchored" data-anchor-id="mitos-for-mitochondrial-annotation">mitos for mitochondrial annotation</h3>
+<div class="cell">
+<pre class="base cell-code"><code>module load mitos/2.0.4
+module load seqtk/1.3
+
+
+# make output dir
+mkdir mitos_output/[sample name]
+
+#merge secondary contigs - this artificially makes you assembly 
+sed -i '/^&gt;[2-9].*$/d' [assembly.fasta]
+
+#remove line breaks
+seqtk seq -l 0 [assembly.fasta]
+
+runmitos.py  -i [assembly.fasta] -c 2 -o [dir name for sample annotation] -R ~/classdata/Bioinformatics/REFS/mitos -r refseq81m --rrna 0 --trna 0 --intron 0 --debug --noplot</code></pre>
+</div>
+</section>
+<section id="bedtools" class="level3">
+<h3 class="anchored" data-anchor-id="bedtools">Bedtools</h3>
+<p>Collectively, the bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF. While each individual tool is designed to do a relatively simple task (e.g., intersect two interval files), quite sophisticated analyses can be conducted by combining multiple bedtools operations on the UNIX command line.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.31.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can use bedtools to extract gene/protein sequences from annotation files:</p>
+<ol type="1">
+<li>Navigate to either the <strong>Prokka</strong> annotation output directory or the <strong>Barrnap</strong> output file</li>
+<li>Create a sub-gff file that contains the annotation information of only the 16 rRNA gene or CoI gene</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For bacetrial sequences</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"product=16S ribosomal RNA"</span> [gff annotation file]  <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">subset_16S.gff</span><span class="pp">]</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># For mitochondrial sequences</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"ID=gene_cox1"</span> [gff annotation file]  <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">subset_coi.gff</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Extract the 16S rRNA gene from the mitochondrial genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the <em>-s</em> option.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta <span class="at">-fi</span> [input fasta file] <span class="at">-bed</span> [subset_gff file] <span class="at">-s</span> <span class="op">&gt;</span> [output 16S file.fasta]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The fasta sequence will be given a numeric non-sensicle name (what coes after the &gt;) - what about changing this for the name of the source sequence.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">"s/&gt;.*/&gt;[sequence name]/g"</span> [output 16S file.fasta]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Move your extracted 16S rRNA gene sequence into the directory of 16S rRNA reference genes provided.</li>
+<li>Combine all the 16S rRNA gene fasta files into a single multifasta file</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="pp">[</span><span class="ss">*.fasta</span><span class="pp">]</span> <span class="op">&gt;</span> [output multifasta file]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mafft" class="level3">
+<h3 class="anchored" data-anchor-id="mafft">MAFFT</h3>
+<p>MAFFT is a multiple sequence alignment program for unix-like operating systems.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load mafft/7.505</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Basic usage:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mafft</span> [input multifasta] <span class="op">&gt;</span> [output alignment multifasta]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</section>
+<section id="raxml-ng" class="level3">
+<h3 class="anchored" data-anchor-id="raxml-ng">RAxML-NG</h3>
+<p>RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load RAxML-NG/v1.2.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>RAxML-NG outputs files to your current location. Create a directory and run RAxML from the directory to keep files organised</p>
+<p>Basic usage for nucleotide alignment with GTR model:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">raxml-ng</span> <span class="at">--all</span> <span class="at">--msa</span> [input alignment] <span class="at">--model</span> GTR <span class="at">--bs-tree</span> [bootstrap replicate number e.g. 100] <span class="at">--prefix</span> [prefix for output files] <span class="at">--threads</span> [number of threads/cpus]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>RAxML-NG produces multiple output files. The file we are interested in has the extension <strong>.support</strong><br>
+Add the extension <strong>.nwk</strong> to this file to indicate it is a phylogeny.</p>
+</section>
+<section id="panaroo" class="level3">
+<h3 class="anchored" data-anchor-id="panaroo">panaroo</h3>
+<p>A Bacterial Pangenome Analysis Pipeline. Predicts core, accessory, and pangenomes. Produces core gene alignments.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load panaroo/1.3.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>Panaroo takes annotation files in <strong>.gff</strong> format to predict pangenomes.<br>
+Use prokka to annotate the <em>Bacillus velezensis</em> genomes supplied, and remember to change the kingdom flag to bacteria</p>
+<p>Basic usage:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">panaroo</span> <span class="at">-i</span> <span class="pp">*</span>gff <span class="at">-o</span> [output directory] <span class="at">-t</span> [number of cpus] <span class="at">--clean-mode</span> sensitive <span class="at">-a</span> core <span class="at">--aligner</span> mafft</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Output files of interest include the <strong>summary_statistics.txt</strong> and <strong>core_gene.aln</strong><br>
+</p>
+<p>Check the website for details of all the files produced: https://gtonkinhill.github.io/panaroo/#/gettingstarted/output</p>
+<p><strong><em>If you incorporate a reference genome we strangely recommend you re-annotate the genome with prokka even if an annotation file (.gff) is available since panaroo is very particular about the gff format and prefers prokka annotation files.</em></strong></p>
+</section>
+<section id="snippy" class="level3">
+<h3 class="anchored" data-anchor-id="snippy">snippy</h3>
+<p>A tool to identify variations between a reference genome in fasta format and genome sequence data in read format (fastq)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load snippy/v4.6.0</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load samtools/1.16.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>Basic usage:</p>
+<p>To identify SNPs for one genome</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">snippy</span> <span class="at">-outdir</span> [snippy output directory/sampleID] <span class="at">-ref</span> [reference sequence fasta] <span class="at">-R1</span> [sample1 fastq left trimmed read] <span class="at">-R2</span> [sample2 fastq right trimmed read] <span class="at">--prefix</span> [prefix for output] <span class="at">--force</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You will need a loop to call SNPs for multiple genomes.</p>
+<p><br></p>
+<p>To produce an alignment from SNPs, navigate to the snippy output directory and run <strong>snippy-core</strong>. The wildcard will extract the necessary SNP data from all the genomes analysed by snippy (directory for each genome in output directory).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">snippy-core</span> <span class="at">-ref</span> [same reference sequence] <span class="at">-prefix</span> [prefix for snp output] [snippy output directory]/<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Generate an alignment of the SNP sites:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load snp-sites/2.5.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">snp-sites</span> <span class="at">-cb</span> <span class="at">-o</span> [alniment file name] [prefix for snp output].full.aln</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</section>
+<section id="figtree" class="level3">
+<h3 class="anchored" data-anchor-id="figtree">Figtree</h3>
+<p>FigTree is designed as a graphical viewer of phylogenetic trees and as a program for producing publication-ready figures.</p>
+<p>Download locally to your laptop: https://github.com/rambaut/figtree/releases / or access through Guacamole graphical user interface</p>
+<div class="cell">
+<pre class="base cell-code"><code>module load figtree/1.4.4
+
+figtree</code></pre>
+</div>
+<p>An interactive window will now open for you to use if you are using X11 enabled mobaxterm. If you are using a mac or linux shell you will need to install <a href="http://tree.bio.ed.ac.uk/software/figtree/">figtree</a> (Download locally to your laptop: https://github.com/rambaut/figtree/releases) locally and download the newick file (nwk suffix).</p>
+<p>When you open your newick if you will be asked about node labeling. You should identify that your node labeling is you bootstrap values:</p>
+<p>Labeling Fig Tree Branches <img src="images/fig_tree_lables.png" class="img-fluid" style="width:40.0%" data-fig-align="center"></p>
+<p><br></p>
+</section>
+</section>
+</section>
+<section id="walk-throughs" class="level1">
+<h1>Walk throughs</h1>
+<section id="single-gene" class="level2">
+<h2 class="anchored" data-anchor-id="single-gene">Single Gene</h2>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=f3046618-4e2d-4abc-ba0c-af630098dd8c&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+</section>
+<section id="whole-genome-snp" class="level2">
+<h2 class="anchored" data-anchor-id="whole-genome-snp">Whole Genome SNP</h2>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2cf9c78-0062-496f-bfe0-af630098da10&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
