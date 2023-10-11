@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Professor Peter Kille">
+<meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
 <meta name="dcterms.date" content="2023-10-11">
 
-<title>Hybrid Assemblies</title>
+<title>Extension: Hybrid Assemblies</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,7 +91,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3.1_Genome_visualisation_and_annotation.html">Session 3. Genomics</a></li><li class="breadcrumb-item"><a href="./3.2_hybrid_assemblies.html">Hybrid Assemblies</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2.1_NGS_Quality_Control.html">Session 2. NGS data</a></li><li class="breadcrumb-item"><a href="./2.3_hybrid_assemblies.html">Extension: Hybrid Assemblies</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -104,8 +104,8 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Hybrid Assemblies</h1>
-            <p class="subtitle lead">When short read just doesn’t cut it</p>
+      <h1 class="title">Extension: Hybrid Assemblies</h1>
+            <p class="subtitle lead">When short-read just doesn’t cut it</p>
                       </div>
   </div>
     
@@ -115,7 +115,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Professor Peter Kille </p>
+               <p>Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides </p>
             </div>
     </div>
       
@@ -224,6 +224,12 @@ background: darkred;
  <span class="menu-text">Genome Assembly</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2.3_hybrid_assemblies.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Extension: Hybrid Assemblies</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -239,12 +245,6 @@ background: darkred;
   <div class="sidebar-item-container"> 
   <a href="./3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Genome Visualisation and Annotation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3.2_hybrid_assemblies.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Hybrid Assemblies</span></a>
   </div>
 </li>
       </ul>
@@ -328,23 +328,10 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#nanopore-error-correction-with-fmlrc" id="toc-nanopore-error-correction-with-fmlrc" class="nav-link active" data-scroll-target="#nanopore-error-correction-with-fmlrc">Nanopore Error Correction with FMLRC</a>
+  <li><a href="#hybrid-assembly-with-spades" id="toc-hybrid-assembly-with-spades" class="nav-link active" data-scroll-target="#hybrid-assembly-with-spades">Hybrid Assembly with SPades</a>
   <ul class="collapse">
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools">Tools</a></li>
-  <li><a href="#fmlrc-software-installation" id="toc-fmlrc-software-installation" class="nav-link" data-scroll-target="#fmlrc-software-installation">FMLRC Software Installation</a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation:</a>
-  <ul class="collapse">
-  <li><a href="#download-and-install-msbwt" id="toc-download-and-install-msbwt" class="nav-link" data-scroll-target="#download-and-install-msbwt">Download and install msbwt</a></li>
-  <li><a href="#download-and-build-ropebwt2" id="toc-download-and-build-ropebwt2" class="nav-link" data-scroll-target="#download-and-build-ropebwt2">Download and build ropebwt2</a></li>
-  <li><a href="#download-and-build-fmlrc" id="toc-download-and-build-fmlrc" class="nav-link" data-scroll-target="#download-and-build-fmlrc">Download and build fmlrc</a></li>
-  <li><a href="#execute-error-correction" id="toc-execute-error-correction" class="nav-link" data-scroll-target="#execute-error-correction">Execute Error correction</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#hybrid-assembly-with-spades" id="toc-hybrid-assembly-with-spades" class="nav-link" data-scroll-target="#hybrid-assembly-with-spades">Hybrid Assembly with SPades</a>
-  <ul class="collapse">
-  <li><a href="#data-1" id="toc-data-1" class="nav-link" data-scroll-target="#data-1">Data</a></li>
-  <li><a href="#tools-1" id="toc-tools-1" class="nav-link" data-scroll-target="#tools-1">Tools</a>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools">Tools</a>
   <ul class="collapse">
   <li><a href="#basic-options" id="toc-basic-options" class="nav-link" data-scroll-target="#basic-options">Basic options:</a></li>
   <li><a href="#input-data" id="toc-input-data" class="nav-link" data-scroll-target="#input-data">Input data:</a></li>
@@ -361,95 +348,18 @@ background: darkred;
 
 
 
-<section id="nanopore-error-correction-with-fmlrc" class="level1">
-<h1>Nanopore Error Correction with FMLRC</h1>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>Illumina Data bug_illumina_reads_1.fastq<br>
-bug_illumina_reads_2.fastq Nanopore Reads (corrected) bug_nanopore_reads.fasta</p>
-</section>
-<section id="tools" class="level2">
-<h2 class="anchored" data-anchor-id="tools">Tools</h2>
-<p>FMLRC: Paper - https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2051-3 FMLRC: fmlrc github home page - https://github.com/holtjma/fmlrc FMLRC: Quick Start Guide - https://github.com/holtjma/fmlrc/wiki/Quick-start-test</p>
-</section>
-<section id="fmlrc-software-installation" class="level2">
-<h2 class="anchored" data-anchor-id="fmlrc-software-installation">FMLRC Software Installation</h2>
-<p>Python 2.7 - tested on 2.7.6; assumes pip is installed as well</p>
-<p>C++ compiler - tested with Apple LLVM version 8.1.0 (clang-802.0.42); should work with most up-to-date compilers</p>
-</section>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation:</h2>
-<section id="download-and-install-msbwt" class="level3">
-<h3 class="anchored" data-anchor-id="download-and-install-msbwt">Download and install msbwt</h3>
-<pre><code>pip install msbwt </code></pre>
-</section>
-<section id="download-and-build-ropebwt2" class="level3">
-<h3 class="anchored" data-anchor-id="download-and-build-ropebwt2">Download and build ropebwt2</h3>
-<pre><code>git clone https://github.com/lh3/ropebwt2.git 
-cd ropebwt2 
-make 
-d ~/ </code></pre>
-</section>
-<section id="download-and-build-fmlrc" class="level3">
-<h3 class="anchored" data-anchor-id="download-and-build-fmlrc">Download and build fmlrc</h3>
-<pre><code>git clone https://github.com/holtjma/fmlrc.git 
-cd fmlrc 
-make 
-cd ~/ </code></pre>
-</section>
-<section id="execute-error-correction" class="level3">
-<h3 class="anchored" data-anchor-id="execute-error-correction">Execute Error correction</h3>
-<p>Usage:</p>
-<pre><code>fmlrc [options] &lt;comp_msbwt.npy&gt; &lt;long_reads.fa&gt; &lt;corrected_reads.fa&gt;</code></pre>
-<p>Options:</p>
-<pre><code>-h        print help menu 
--v        print version number and exit 
--k INT    small k-mer size (default: 21) 
--K INT    large K-mer size (default: 59), set K=k for single pass 
--p INT    number of correction threads 
--b INT    index of read to start with (default: 0) 
--e INT    index of read to end with (default: end of file) 
--m INT    absolute minimum count to consider a path (default: 5) 
--f FLOAT  dynamic minimum fraction of median to consider a path (default: .10) 
--B INT    set branch limit to &lt;INT&gt;*&lt;k or K&gt; (default: 4) 
--i        build a sampled FM-index instead of bit arrays 
--F INT    FM-index is sampled every 2**&lt;INT&gt; values (default: 8); requires \-i 
--V        verbose output </code></pre>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Excerise: FMLRC Error Correction
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<section id="process-and-index-short-reads" class="level3">
-<h3 class="anchored" data-anchor-id="process-and-index-short-reads">Process and index short reads</h3>
-<pre><code>awk "NR % 4 == 2" file_name_*.fq | sort -T ./temp | tr NT TN | ~/ropebwt2/ropebwt2 -LR | tr NT TN | msbwt convert ./file_name_msbwt</code></pre>
-</section>
-<section id="perform-error-correction" class="level3">
-<h3 class="anchored" data-anchor-id="perform-error-correction">Perform Error Correction</h3>
-<pre><code>~/fmlrc/fmlrc -p 8 -V -e [No. of reads] ./file_name_msbwt/comp_msbwt.npy ./nanopore_reads.fasta ./corrected_final.fa </code></pre>
-</section>
-</div>
-</div>
-</section>
-</section>
-</section>
 <section id="hybrid-assembly-with-spades" class="level1">
 <h1>Hybrid Assembly with SPades</h1>
-<section id="data-1" class="level2">
-<h2 class="anchored" data-anchor-id="data-1">Data</h2>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
 <pre><code>Illumina Data 
 bug_illumina_reads_1.fastq   
 bug_illumina_reads_2.fastq 
 Nanopore Reads (corrected) 
 bug_nanopore_reads_corrected.fasta (you shoould have generated these from previously)</code></pre>
 </section>
-<section id="tools-1" class="level2">
-<h2 class="anchored" data-anchor-id="tools-1">Tools</h2>
+<section id="tools" class="level2">
+<h2 class="anchored" data-anchor-id="tools">Tools</h2>
 <p>SPAdes – instal using module load</p>
 <pre><code>Usage: spades.py [options\ -o &lt;output_dir&gt;</code></pre>
 <section id="basic-options" class="level3">

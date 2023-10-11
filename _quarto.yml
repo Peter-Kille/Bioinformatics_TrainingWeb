@@ -22,10 +22,10 @@ website:
         contents:
           - 2.1_NGS_Quality_Control.qmd
           - 2.2_genome_assembly.qmd
+          - 2.3_hybrid_assemblies.qmd
       - section: "Session 3. Genomics"
         contents:
           - 3.1_Genome_visualisation_and_annotation.qmd
-          - 3.2_hybrid_assemblies.qmd
       - section: "Session 4. Building phylogenies"
         contents:
           - 4.1_phylogentics_phylogenomics.qmd

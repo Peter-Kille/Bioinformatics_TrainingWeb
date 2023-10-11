@@ -258,6 +258,12 @@ background: darkred;
  <span class="menu-text">Genome Assembly</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2.3_hybrid_assemblies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extension: Hybrid Assemblies</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -273,12 +279,6 @@ background: darkred;
   <div class="sidebar-item-container"> 
   <a href="./3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Genome Visualisation and Annotation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3.2_hybrid_assemblies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hybrid Assemblies</span></a>
   </div>
 </li>
       </ul>
@@ -362,35 +362,29 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#requirements" id="toc-requirements" class="nav-link active" data-scroll-target="#requirements">Requirements</a>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a></li>
+  <li><a href="#visualising-genomes-using-artemis" id="toc-visualising-genomes-using-artemis" class="nav-link" data-scroll-target="#visualising-genomes-using-artemis">Visualising genomes using Artemis</a>
   <ul class="collapse">
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
-  </ul></li>
-  <li><a href="#artemis" id="toc-artemis" class="nav-link" data-scroll-target="#artemis">Artemis</a>
-  <ul class="collapse">
-  <li><a href="#data-1" id="toc-data-1" class="nav-link" data-scroll-target="#data-1">Data</a></li>
-  <li><a href="#software-1" id="toc-software-1" class="nav-link" data-scroll-target="#software-1">Software</a></li>
   <li><a href="#workshop" id="toc-workshop" class="nav-link" data-scroll-target="#workshop">Workshop</a></li>
-  <li><a href="#excercises" id="toc-excercises" class="nav-link" data-scroll-target="#excercises">Excercises</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul></li>
   <li><a href="#igv" id="toc-igv" class="nav-link" data-scroll-target="#igv">IGV</a>
   <ul class="collapse">
-  <li><a href="#data-2" id="toc-data-2" class="nav-link" data-scroll-target="#data-2">Data</a></li>
-  <li><a href="#software-2" id="toc-software-2" class="nav-link" data-scroll-target="#software-2">Software</a></li>
+  <li><a href="#data-1" id="toc-data-1" class="nav-link" data-scroll-target="#data-1">Data</a></li>
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
   <li><a href="#workshop-1" id="toc-workshop-1" class="nav-link" data-scroll-target="#workshop-1">Workshop</a></li>
   <li><a href="#excercise" id="toc-excercise" class="nav-link" data-scroll-target="#excercise">Excercise</a></li>
   </ul></li>
   <li><a href="#minimap2" id="toc-minimap2" class="nav-link" data-scroll-target="#minimap2">minimap2</a>
   <ul class="collapse">
-  <li><a href="#data-3" id="toc-data-3" class="nav-link" data-scroll-target="#data-3">Data</a></li>
-  <li><a href="#software-3" id="toc-software-3" class="nav-link" data-scroll-target="#software-3">Software</a></li>
+  <li><a href="#data-2" id="toc-data-2" class="nav-link" data-scroll-target="#data-2">Data</a></li>
+  <li><a href="#software-1" id="toc-software-1" class="nav-link" data-scroll-target="#software-1">Software</a></li>
   <li><a href="#workshop-2" id="toc-workshop-2" class="nav-link" data-scroll-target="#workshop-2">Workshop</a></li>
   </ul></li>
   <li><a href="#prokka---bacetrial-genome-annotation" id="toc-prokka---bacetrial-genome-annotation" class="nav-link" data-scroll-target="#prokka---bacetrial-genome-annotation">Prokka - bacetrial genome annotation</a>
   <ul class="collapse">
-  <li><a href="#data-4" id="toc-data-4" class="nav-link" data-scroll-target="#data-4">Data</a></li>
-  <li><a href="#software-4" id="toc-software-4" class="nav-link" data-scroll-target="#software-4">Software</a></li>
+  <li><a href="#data-3" id="toc-data-3" class="nav-link" data-scroll-target="#data-3">Data</a></li>
+  <li><a href="#software-2" id="toc-software-2" class="nav-link" data-scroll-target="#software-2">Software</a></li>
   <li><a href="#workshop-3" id="toc-workshop-3" class="nav-link" data-scroll-target="#workshop-3">Workshop</a>
   <ul class="collapse">
   <li><a href="#prokka" id="toc-prokka" class="nav-link" data-scroll-target="#prokka">Prokka</a></li>
@@ -402,8 +396,8 @@ background: darkred;
   </ul></li>
   <li><a href="#mitos2---only-use-for-mitochondrial-annotation" id="toc-mitos2---only-use-for-mitochondrial-annotation" class="nav-link" data-scroll-target="#mitos2---only-use-for-mitochondrial-annotation">Mitos2 - Only use for Mitochondrial annotation</a>
   <ul class="collapse">
-  <li><a href="#data-5" id="toc-data-5" class="nav-link" data-scroll-target="#data-5">Data</a></li>
-  <li><a href="#software-5" id="toc-software-5" class="nav-link" data-scroll-target="#software-5">Software</a></li>
+  <li><a href="#data-4" id="toc-data-4" class="nav-link" data-scroll-target="#data-4">Data</a></li>
+  <li><a href="#software-3" id="toc-software-3" class="nav-link" data-scroll-target="#software-3">Software</a></li>
   <li><a href="#workshop-4" id="toc-workshop-4" class="nav-link" data-scroll-target="#workshop-4">Workshop</a>
   <ul class="collapse">
   <li><a href="#ensure-you-have-a-single-contig" id="toc-ensure-you-have-a-single-contig" class="nav-link" data-scroll-target="#ensure-you-have-a-single-contig">Ensure you have a single contig</a></li>
@@ -416,8 +410,8 @@ background: darkred;
   </ul></li>
   <li><a href="#ncbi-blast" id="toc-ncbi-blast" class="nav-link" data-scroll-target="#ncbi-blast">NCBI Blast+</a>
   <ul class="collapse">
-  <li><a href="#data-6" id="toc-data-6" class="nav-link" data-scroll-target="#data-6">Data</a></li>
-  <li><a href="#software-6" id="toc-software-6" class="nav-link" data-scroll-target="#software-6">Software</a></li>
+  <li><a href="#data-5" id="toc-data-5" class="nav-link" data-scroll-target="#data-5">Data</a></li>
+  <li><a href="#software-4" id="toc-software-4" class="nav-link" data-scroll-target="#software-4">Software</a></li>
   <li><a href="#anatomy-of-the-blast-command" id="toc-anatomy-of-the-blast-command" class="nav-link" data-scroll-target="#anatomy-of-the-blast-command">Anatomy of the BLAST command</a></li>
   <li><a href="#blast-programs" id="toc-blast-programs" class="nav-link" data-scroll-target="#blast-programs">BLAST Programs</a></li>
   <li><a href="#blast-databases" id="toc-blast-databases" class="nav-link" data-scroll-target="#blast-databases">BLAST Databases</a></li>
@@ -434,9 +428,6 @@ background: darkred;
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=35fe879e-58e9-4141-a49a-af630098dee1&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
-<p><a href="https://tinyurl.com/5d4kdk49">Genome Visualisation Powerpoint</a></p>
-<section id="requirements" class="level1">
-<h1>Requirements</h1>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>The data you will need for this exercise are:</p>
@@ -446,34 +437,10 @@ background: darkred;
 <li>fasta file representing assembly of data from (1)</li>
 </ol>
 </section>
-<section id="software" class="level2">
-<h2 class="anchored" data-anchor-id="software">Software</h2>
-<p>Graphics software (https://sponsa.bios.cf.ac.uk/guacamole/ or install local)</p>
-<ol type="1">
-<li>Artemis</li>
-<li>IGV</li>
-</ol>
-<p>Server command line modules (use command <code>module avail</code> to check versions):</p>
-<ol start="3" type="1">
-<li>minimap2</li>
-<li>prokka</li>
-<li>mitos2</li>
-<li>NCBI Blast+</li>
-</ol>
-</section>
-</section>
-<section id="artemis" class="level1">
-<h1>Artemis</h1>
-<section id="data-1" class="level2">
-<h2 class="anchored" data-anchor-id="data-1">Data</h2>
-<ol type="1">
-<li>Example genbank or embl files</li>
-</ol>
-</section>
-<section id="software-1" class="level2">
-<h2 class="anchored" data-anchor-id="software-1">Software</h2>
-<p><a href="https://www.sanger.ac.uk/tool/artemis/">Artemis</a></p>
-<p><strong><em>This can be installed locally <a href="http://sanger-pathogens.github.io/Artemis/">local install instructions</a> Warning this can take time please do not do it during teaching session.</em></strong></p>
+<section id="visualising-genomes-using-artemis" class="level1">
+<h1>Visualising genomes using Artemis</h1>
+<p><a href="https://www.sanger.ac.uk/tool/artemis/">Artemis</a> is a rather old but very elegant genome visualisation tool. To get you used to using it, we will try it out using an example genome that’s already been annotated.</p>
+<p><strong><em>Artemis can be installed locally <a href="http://sanger-pathogens.github.io/Artemis/">local install instructions</a> Warning: this can take time, so please do not do it during teaching session.</em></strong></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -580,7 +547,6 @@ Artemis Mac Install
 <p><img src="images/Artemis_Open_window.png" class="img-fluid figure-img" style="width:40.0%"></p>
 </figure>
 </div>
-</section>
 <section id="workshop" class="level2">
 <h2 class="anchored" data-anchor-id="workshop">Workshop</h2>
 <p>Open Genbank File</p>
@@ -618,22 +584,22 @@ Artemis Mac Install
 </figure>
 </div>
 </section>
-<section id="excercises" class="level2">
-<h2 class="anchored" data-anchor-id="excercises">Excercises</h2>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
 <p>As we look at creating are own annotation you will be able to visual the various outputs using Artemis.</p>
 <p>I have included a range of extension exercises / guides generated by Sanger center (the people to wrote Artemis) these are included in you Session Folder under <code>Artemis_Sanger_Center</code></p>
 </section>
 </section>
 <section id="igv" class="level1">
 <h1>IGV</h1>
-<section id="data-2" class="level2">
-<h2 class="anchored" data-anchor-id="data-2">Data</h2>
+<section id="data-1" class="level2">
+<h2 class="anchored" data-anchor-id="data-1">Data</h2>
 <ol type="1">
 <li>Example genbank or embl files</li>
 </ol>
 </section>
-<section id="software-2" class="level2">
-<h2 class="anchored" data-anchor-id="software-2">Software</h2>
+<section id="software" class="level2">
+<h2 class="anchored" data-anchor-id="software">Software</h2>
 <p>[Integrative Genomics Viewer](https://software.broadinstitute.org/software/igv/) can be <a href="https://software.broadinstitute.org/software/igv/download">IGV local</a> - Warning this can take time please do not do it during teaching session].</p>
 <p>We are going to use Artemis using the VNC access to your Linux desktop - go to https://sponsa.bios.cf.ac.uk/guacamole/ and login using your university credentials.</p>
 <p>Guacamole Opening Screen</p>
@@ -680,15 +646,15 @@ Artemis Mac Install
 </section>
 <section id="minimap2" class="level1">
 <h1>minimap2</h1>
-<section id="data-3" class="level2">
-<h2 class="anchored" data-anchor-id="data-3">Data</h2>
+<section id="data-2" class="level2">
+<h2 class="anchored" data-anchor-id="data-2">Data</h2>
 <ol type="1">
 <li>fastq file (pair end or single end data)</li>
 <li>fasta file representing assembly of data from (1)</li>
 </ol>
 </section>
-<section id="software-3" class="level2">
-<h2 class="anchored" data-anchor-id="software-3">Software</h2>
+<section id="software-1" class="level2">
+<h2 class="anchored" data-anchor-id="software-1">Software</h2>
 <p>(Minimap - mapping software)[https://github.com/lh3/minimap2]</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load minimap2/2.14</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -724,14 +690,14 @@ Excersise Minimap
 </section>
 <section id="prokka---bacetrial-genome-annotation" class="level1">
 <h1>Prokka - bacetrial genome annotation</h1>
-<section id="data-4" class="level2">
-<h2 class="anchored" data-anchor-id="data-4">Data</h2>
+<section id="data-3" class="level2">
+<h2 class="anchored" data-anchor-id="data-3">Data</h2>
 <ol type="1">
 <li>Sequence reads and assembled genomes (contigs.fasta)</li>
 </ol>
 </section>
-<section id="software-4" class="level2">
-<h2 class="anchored" data-anchor-id="software-4">Software</h2>
+<section id="software-2" class="level2">
+<h2 class="anchored" data-anchor-id="software-2">Software</h2>
 <p><a href="https://github.com/tseemann/prokka">PROKKA git hub site</a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka_mambaforge/1.14.6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -833,14 +799,14 @@ Barnap exercises
 </section>
 <section id="mitos2---only-use-for-mitochondrial-annotation" class="level1">
 <h1>Mitos2 - Only use for Mitochondrial annotation</h1>
-<section id="data-5" class="level2">
-<h2 class="anchored" data-anchor-id="data-5">Data</h2>
+<section id="data-4" class="level2">
+<h2 class="anchored" data-anchor-id="data-4">Data</h2>
 <ol type="1">
 <li>Use the assembled contig from your last session (contigs.fasta)</li>
 </ol>
 </section>
-<section id="software-5" class="level2">
-<h2 class="anchored" data-anchor-id="software-5">Software</h2>
+<section id="software-3" class="level2">
+<h2 class="anchored" data-anchor-id="software-3">Software</h2>
 <p>[mitos2 source](https://gitlab.com/Bernt/MITOS), [mitos browser version](http://mitos2.bioinf.uni-leipzig.de/)</p>
 <pre><code>module load mitos/2.0.4</code></pre>
 <p>bioperl-live/release-1-7-2</p>
@@ -989,8 +955,8 @@ mitos2 Excersises
 </section>
 <section id="ncbi-blast" class="level1">
 <h1>NCBI Blast+</h1>
-<section id="data-6" class="level2">
-<h2 class="anchored" data-anchor-id="data-6">Data</h2>
+<section id="data-5" class="level2">
+<h2 class="anchored" data-anchor-id="data-5">Data</h2>
 <ol type="1">
 <li>Use the assembled contig from your last session (contigs.fasta)</li>
 <li>Blast Databases, Location:</li>
@@ -1004,8 +970,8 @@ mitos2 Excersises
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="ex">16S</span> ribosomal database</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="software-6" class="level2">
-<h2 class="anchored" data-anchor-id="software-6">Software</h2>
+<section id="software-4" class="level2">
+<h2 class="anchored" data-anchor-id="software-4">Software</h2>
 <p><a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI Blast+ suite available</a> Don’t forget to load the blast and any other modules you need!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load blast-plus/2.13.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

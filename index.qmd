@@ -108,15 +108,15 @@ Most of our training material focuses on bioinformatics application in the area 
 
 Approaches to genome assembly vary hugely depending on what you are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations of short and long read data.
 
+[Hybrid Assemblies](https://peter-kille.github.io/Bioinformatics_TrainingWeb/2.3_hybrid_assemblies.html)
+
+Often the best way to get a high-quality genome is by a hybrid assembly: combining short-read (Illumina) and long-read (Nanopore/PacBio) data. This session will guide you through the principles of hybrid assembly.
+
 ## Session 3. Genome visualisation and annotation
 
 [Genome Annotation and Visualisation](https://peter-kille.github.io/Bioinformatics_TrainingWeb/3.1_Genome_visualisation_and_annotation.html)
 
 A genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results. We primarily use Artemis (Sanger Centre) but also introduce Integrated Genome Viewer (IGV) from the Broad Institute.
-
-[Hybrid Assemblies](https://peter-kille.github.io/Bioinformatics_TrainingWeb/3.2_hybrid_assemblies.html)
-
-Often the best way to get a high-quality genome is by a hybrid assembly: combining short-read (Illumina) and long-read (Nanopore/PacBio) data. This session will guide you through the principles of hybrid assembly.
 
 ## Session 4. Building phylogenies
 

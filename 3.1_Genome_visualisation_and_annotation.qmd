@@ -17,9 +17,6 @@ knitr::opts_chunk$set(eval = FALSE)
 
 </iframe>
 
-[Genome Visualisation Powerpoint](https://tinyurl.com/5d4kdk49)
-
-# Requirements
 
 ## Data
 
@@ -29,31 +26,12 @@ The data you will need for this exercise are:
 2)  fastq file (pair end or single end data)
 3)  fasta file representing assembly of data from (1)
 
-## Software
 
-Graphics software (https://sponsa.bios.cf.ac.uk/guacamole/ or install local)
+# Visualising genomes using Artemis
 
-1)  Artemis
-2)  IGV
+[Artemis](https://www.sanger.ac.uk/tool/artemis/) is a rather old but very elegant genome visualisation tool. To get you used to using it, we will try it out using an example genome that's already been annotated.
 
-Server command line modules (use command `module avail` to check versions):
-
-3)  minimap2
-4)  prokka
-5)  mitos2
-6)  NCBI Blast+
-
-# Artemis
-
-## Data
-
-1)  Example genbank or embl files
-
-## Software
-
-[Artemis](https://www.sanger.ac.uk/tool/artemis/)
-
-***This can be installed locally [local install instructions](http://sanger-pathogens.github.io/Artemis/) Warning this can take time please do not do it during teaching session.***
+***Artemis can be installed locally [local install instructions](http://sanger-pathogens.github.io/Artemis/) Warning: this can take time, so please do not do it during teaching session.***
 
 ::: {.callout-note collapse="true"}
 ## Artemis Mac Install
@@ -189,7 +167,7 @@ Your gene visualisation should now look like this
 
 ![](images/Artemis_genbank_file_correct_codon_table.png){width="40%" fig-align="center"}
 
-## Excercises
+## Exercises
 
 As we look at creating are own annotation you will be able to visual the various outputs using Artemis.
 
@@ -679,8 +657,7 @@ For your two datasets: mitochondrial and prokaryote attempt the following proces
 ::: {.callout-note collapse="true"}
 ## Worked Example - Prokayote: annotation loop
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=df930bd2-5f91-4151-9866-b09500b7390c&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=df930bd2-5f91-4151-9866-b09500b7390c&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
-
 :::

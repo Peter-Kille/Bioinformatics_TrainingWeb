@@ -2,102 +2,17 @@
 title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
-title: "Hybrid Assemblies"
-subtitle: "When short read just doesn't cut it"
-author: "Professor Peter Kille"
+title: "Extension: Hybrid Assemblies"
+subtitle: "When short-read just doesn't cut it"
+author: "Prof. Peter Kille and Dr. Sarah Christofides"
 date: today
 affiliation: "Cardiff University"
 ---
-
 
 ```{r include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-# Nanopore Error Correction with FMLRC
-
-## Data
-
-Illumina Data bug_illumina_reads_1.fastq\
-bug_illumina_reads_2.fastq Nanopore Reads (corrected) bug_nanopore_reads.fasta
-
-## Tools
-
-FMLRC: Paper - https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2051-3 FMLRC: fmlrc github home page - https://github.com/holtjma/fmlrc FMLRC: Quick Start Guide - https://github.com/holtjma/fmlrc/wiki/Quick-start-test
-
-## FMLRC Software Installation
-
-Python 2.7 - tested on 2.7.6; assumes pip is installed as well
-
-C++ compiler - tested with Apple LLVM version 8.1.0 (clang-802.0.42); should work with most up-to-date compilers
-
-## Installation:
-
-### Download and install msbwt
-
-```         
-pip install msbwt 
-```
-
-### Download and build ropebwt2
-
-```         
-git clone https://github.com/lh3/ropebwt2.git 
-cd ropebwt2 
-make 
-d ~/ 
-```
-
-### Download and build fmlrc
-
-```         
-git clone https://github.com/holtjma/fmlrc.git 
-cd fmlrc 
-make 
-cd ~/ 
-```
-
-### Execute Error correction
-
-Usage:
-
-```         
-fmlrc [options] <comp_msbwt.npy> <long_reads.fa> <corrected_reads.fa>
-```
-
-Options:
-
-```         
--h        print help menu 
--v        print version number and exit 
--k INT    small k-mer size (default: 21) 
--K INT    large K-mer size (default: 59), set K=k for single pass 
--p INT    number of correction threads 
--b INT    index of read to start with (default: 0) 
--e INT    index of read to end with (default: end of file) 
--m INT    absolute minimum count to consider a path (default: 5) 
--f FLOAT  dynamic minimum fraction of median to consider a path (default: .10) 
--B INT    set branch limit to <INT>*<k or K> (default: 4) 
--i        build a sampled FM-index instead of bit arrays 
--F INT    FM-index is sampled every 2**<INT> values (default: 8); requires \-i 
--V        verbose output 
-```
-
-::: callout-important
-## Excerise: FMLRC Error Correction
-
-### Process and index short reads
-
-```         
-awk "NR % 4 == 2" file_name_*.fq | sort -T ./temp | tr NT TN | ~/ropebwt2/ropebwt2 -LR | tr NT TN | msbwt convert ./file_name_msbwt
-```
-
-### Perform Error Correction
-
-```         
-~/fmlrc/fmlrc -p 8 -V -e [No. of reads] ./file_name_msbwt/comp_msbwt.npy ./nanopore_reads.fasta ./corrected_final.fa 
-```
-:::
 
 # Hybrid Assembly with SPades
 
