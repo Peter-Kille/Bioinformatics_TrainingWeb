@@ -259,11 +259,11 @@
     "text": "Creating a quality summary with multiqc\nMultiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.\n\n module load multiqc/1.16\n \n #run multiqc on all files in the current working directory\n multiqc .\n \n\nuse the -h flag to see what option multiqc provides.\n\n\n\n\n\n\nWorked Example: Fastqc interactive loop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorked Example: Fastqc bash loop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorked Example: Multiqc"
   },
   {
-    "objectID": "2.1_NGS_Quality_Control.html#you-have-earned-yourselves-cake",
-    "href": "2.1_NGS_Quality_Control.html#you-have-earned-yourselves-cake",
+    "objectID": "2.1_NGS_Quality_Control.html#time-for-coffee.-you-have-earned-yourselves-cake",
+    "href": "2.1_NGS_Quality_Control.html#time-for-coffee.-you-have-earned-yourselves-cake",
     "title": "NGS Quality Control",
-    "section": "You have earned yourselves cake!",
-    "text": "You have earned yourselves cake!\n\n\n\n\n\n\nExtension Work\n\n\n\nIn ~/classdata there is a folder called datasets. Copy this folder across to your ~/mydata directory\n\ncp -R ~/classdata/datasets ~/mydata/datasets\n\nIn side this folder you will find two data sets: mitochondrial and prokaryote. As you become more confident try and write programs that perform the following processes:\n\nfastqc rawdata\nfastqc rawdata, fastp trim, fastqc trimdata and generate a multiqc summary\n\n\n\n\n\n\n\n\n\nWorked Example - Prokayote: rawdata fastqc loop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorked Example - Prokayote: rawdata QC triming and post trim QC\n\n\n\n\n\n\n\n\n\n\n:::"
+    "section": "Time for coffee. You have earned yourselves cake!",
+    "text": "Time for coffee. You have earned yourselves cake!\n\n\n\n\n\n\nExtension Work\n\n\n\nIn ~/classdata there is a folder called datasets. Copy this folder across to your ~/mydata directory\n\ncp -R ~/classdata/datasets ~/mydata/datasets\n\nIn side this folder you will find two data sets: mitochondrial and prokaryote. As you become more confident try and write programs that perform the following processes:\n\nfastqc rawdata\nfastqc rawdata, fastp trim, fastqc trimdata and generate a multiqc summary\n\n\n\n\n\n\n\n\n\nWorked Example - Prokayote: rawdata fastqc loop\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorked Example - Prokayote: rawdata QC triming and post trim QC\n\n\n\n\n\n\n\n\n\n\n:::"
   },
   {
     "objectID": "2.2_genome_assembly.html",

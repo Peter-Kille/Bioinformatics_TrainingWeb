@@ -21,6 +21,8 @@ knitr::opts_chunk$set(eval = FALSE)
 
 # Working with Quality Control
 
+Start off by logging onto the server and navigating to your `mydata` directory.
+
 ## FASTA and FASTQ
 
 The two commonest file types for sequencing data are FASTA and FASTQ. (To make life a little more complicated, both have more than one file extension. FASTAs can be .fasta, .fa or .fna; FASTQs can be .fastq or .fq)
@@ -234,7 +236,7 @@ module load fastp/0.20.0
 fastp -q 20 -u 10 --cut_right -i Illumina_1.fastq -I Illumina_2.fastq -o Illumina_1trimmed.fastq -O Illumina_2trimmed.fastq
 ```
 
-Look up the help page for fastp. What does each of the options given above mean?
+Look up the [help page for fastp](https://github.com/OpenGene/fastp). What does each of the options given above mean?
 
 Use ls to look at the output. How could the script be improved to make it tidier?
 :::
@@ -288,7 +290,7 @@ use the -h flag to see what option multiqc provides.
 # End of NGS QC.
 
 
-## You have earned yourselves cake!
+## Time for coffee. You have earned yourselves cake!
 
 ::: callout-warning
 ## Extension Work
