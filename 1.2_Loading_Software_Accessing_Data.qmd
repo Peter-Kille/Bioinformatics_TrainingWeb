@@ -67,7 +67,7 @@ REFS  Session1  Session2  Session3  Session4  Session5  Session6
 
 ```
 
-You can **see these folders but not write to them**! Before each session, copy the corresponding folder to your mydata directory using `cp`. 
+You can **see these folders but not write to them**! Before each session, copy the corresponding folder to your mydata directory using `cp`.
 
 Note the inclusion of the '-r' flag to allow you to copy the folder 'recursively': this will copy all the folders and files inside.
 
@@ -140,6 +140,14 @@ man tail
 ```
 :::
 
+::: {.callout-note collapse="true"}
+## Visualising files using less, cat, head and tail
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=94ba890f-5ad3-447b-871e-b09400e844d5&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
+:::
+
 # Using text editors
 
 Plain text files are important, both as input to bioinformatics programs and as input or configuration files for system programs. We highly recommend that you learn to use a text editor to prepare and edit plain text files.
@@ -191,7 +199,7 @@ less test_nano.txt
 
 ### Create a file with vi
 
-```{bash}  
+```{bash}
 vi test_vi.txt 
 ```
 

@@ -368,24 +368,17 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a></li>
-  <li><a href="#visualising-genomes-using-artemis" id="toc-visualising-genomes-using-artemis" class="nav-link" data-scroll-target="#visualising-genomes-using-artemis">Visualising genomes using Artemis</a>
-  <ul class="collapse">
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
-  </ul></li>
-  <li><a href="#visualising-genomes-using-igv" id="toc-visualising-genomes-using-igv" class="nav-link" data-scroll-target="#visualising-genomes-using-igv">Visualising genomes using IGV</a>
-  <ul class="collapse">
-  <li><a href="#excercise" id="toc-excercise" class="nav-link" data-scroll-target="#excercise">Excercise</a></li>
-  </ul></li>
+  <li><a href="#visualising-genomes-using-artemis" id="toc-visualising-genomes-using-artemis" class="nav-link active" data-scroll-target="#visualising-genomes-using-artemis">Visualising genomes using Artemis</a></li>
+  <li><a href="#visualising-genomes-using-igv" id="toc-visualising-genomes-using-igv" class="nav-link" data-scroll-target="#visualising-genomes-using-igv">Visualising genomes using IGV</a></li>
   <li><a href="#minimap2" id="toc-minimap2" class="nav-link" data-scroll-target="#minimap2">minimap2</a>
   <ul class="collapse">
-  <li><a href="#data-1" id="toc-data-1" class="nav-link" data-scroll-target="#data-1">Data</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
   <li><a href="#workshop" id="toc-workshop" class="nav-link" data-scroll-target="#workshop">Workshop</a></li>
   </ul></li>
   <li><a href="#prokka---bacetrial-genome-annotation" id="toc-prokka---bacetrial-genome-annotation" class="nav-link" data-scroll-target="#prokka---bacetrial-genome-annotation">Prokka - bacetrial genome annotation</a>
   <ul class="collapse">
-  <li><a href="#data-2" id="toc-data-2" class="nav-link" data-scroll-target="#data-2">Data</a></li>
+  <li><a href="#data-1" id="toc-data-1" class="nav-link" data-scroll-target="#data-1">Data</a></li>
   <li><a href="#software-1" id="toc-software-1" class="nav-link" data-scroll-target="#software-1">Software</a></li>
   <li><a href="#workshop-1" id="toc-workshop-1" class="nav-link" data-scroll-target="#workshop-1">Workshop</a>
   <ul class="collapse">
@@ -398,7 +391,7 @@ background: darkred;
   </ul></li>
   <li><a href="#ncbi-blast" id="toc-ncbi-blast" class="nav-link" data-scroll-target="#ncbi-blast">NCBI Blast+</a>
   <ul class="collapse">
-  <li><a href="#data-3" id="toc-data-3" class="nav-link" data-scroll-target="#data-3">Data</a></li>
+  <li><a href="#data-2" id="toc-data-2" class="nav-link" data-scroll-target="#data-2">Data</a></li>
   <li><a href="#software-2" id="toc-software-2" class="nav-link" data-scroll-target="#software-2">Software</a></li>
   <li><a href="#anatomy-of-the-blast-command" id="toc-anatomy-of-the-blast-command" class="nav-link" data-scroll-target="#anatomy-of-the-blast-command">Anatomy of the BLAST command</a></li>
   <li><a href="#blast-programs" id="toc-blast-programs" class="nav-link" data-scroll-target="#blast-programs">BLAST Programs</a></li>
@@ -416,15 +409,6 @@ background: darkred;
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=35fe879e-58e9-4141-a49a-af630098dee1&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>The data you will need for this exercise are:</p>
-<ol type="1">
-<li>example genbank or embl files</li>
-<li>fastq file (pair end or single end data)</li>
-<li>fasta file representing assembly of data from (1)</li>
-</ol>
-</section>
 <section id="visualising-genomes-using-artemis" class="level1">
 <h1>Visualising genomes using Artemis</h1>
 <p><a href="https://www.sanger.ac.uk/tool/artemis/">Artemis</a> is a rather old but very elegant genome visualisation tool. To get you used to using it, we will try it out using an example genome that’s already been annotated.</p>
@@ -518,7 +502,17 @@ Artemis Mac Install
 </div>
 <p>Use the three-word passphrase you were assigned.</p>
 <p>The <code>-X</code> enables the graphical interface.</p>
-<p>Now load the Artemis module and initiate Artemis with command <code>art</code></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Excercise: Loading a Genome into Artemis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Load the Artemis module and initiate Artemis with command <code>art</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load artemis/18.2.0</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">art</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -563,17 +557,38 @@ Artemis Mac Install
 <p><img src="images/Artemis_genbank_file_correct_codon_table.png" class="img-fluid figure-img" style="width:40.0%"></p>
 </figure>
 </div>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<p>As we look at creating are own annotation you will be able to visual the various outputs using Artemis.</p>
-<p>I have included a range of extension exercises / guides generated by Sanger center (the people to wrote Artemis) these are included in you Session Folder under <code>Artemis_Sanger_Center</code></p>
-</section>
+</div>
+</div>
+<p>As we look at creating are our annotations you will be able to visual the various outputs using Artemis.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extension Work
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I have included a range of extension exercises / guides generated by the Sanger Centre (the people who wrote Artemis) these are included in your Session3 folder under <code>Artemis_Sanger_Center</code></p>
+</div>
+</div>
 </section>
 <section id="visualising-genomes-using-igv" class="level1">
 <h1>Visualising genomes using IGV</h1>
 <p>[Integrative Genomics Viewer](https://software.broadinstitute.org/software/igv/) can be <a href="https://software.broadinstitute.org/software/igv/download">installed locally</a>. Warning: this can take time, so please do not do it during teaching session.</p>
 <p>To use IGV on your Linux desktop you will need to log in using <code>-X</code> (see instructions for Artemis).</p>
-<p>Now load the IGV Module and initiate IGV with command <code>igv.sh</code></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Excercise: Loading a Genome into IGV
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Load the IGV Module and initiate IGV with command <code>igv.sh</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load module load igv/2.12.3</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">igv.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -594,15 +609,14 @@ Artemis Mac Install
 <p><img src="images/IGV_GenBank_File.png" class="img-fluid figure-img" style="width:40.0%"></p>
 </figure>
 </div>
-<section id="excercise" class="level2">
-<h2 class="anchored" data-anchor-id="excercise">Excercise</h2>
-<p>As you generate annotations - look to see how you can overlay them into IVG and also try and visualise the whole bacterial genome and its prokka annotation.</p>
-</section>
+</div>
+</div>
+<p>As you generate your annotations, look to see how you can overlay them into IVG. Try and visualise the whole bacterial genome and its prokka annotation.</p>
 </section>
 <section id="minimap2" class="level1">
 <h1>minimap2</h1>
-<section id="data-1" class="level2">
-<h2 class="anchored" data-anchor-id="data-1">Data</h2>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
 <ol type="1">
 <li>fastq file (pair end or single end data)</li>
 <li>fasta file representing assembly of data from (1)</li>
@@ -645,8 +659,8 @@ Excersise Minimap
 </section>
 <section id="prokka---bacetrial-genome-annotation" class="level1">
 <h1>Prokka - bacetrial genome annotation</h1>
-<section id="data-2" class="level2">
-<h2 class="anchored" data-anchor-id="data-2">Data</h2>
+<section id="data-1" class="level2">
+<h2 class="anchored" data-anchor-id="data-1">Data</h2>
 <ol type="1">
 <li>Sequence reads and assembled genomes (contigs.fasta)</li>
 </ol>
@@ -677,7 +691,7 @@ Excersise Minimap
 </div>
 <p>NOTE: Prokka defaults to analyzing Bacteria. Think about what your sample is and what translation table you should use (This is also important for Artemis!).</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -686,7 +700,7 @@ Prokka for mitochondrial annotation: <strong>Not recommended</strong>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If you’re working on mitochondria include –kingdom mito and the relevant –gcodeSome examples:</p>
 <pre><code>1.  The Standard Code
@@ -754,8 +768,8 @@ Barnap exercises
 </section>
 <section id="ncbi-blast" class="level1">
 <h1>NCBI Blast+</h1>
-<section id="data-3" class="level2">
-<h2 class="anchored" data-anchor-id="data-3">Data</h2>
+<section id="data-2" class="level2">
+<h2 class="anchored" data-anchor-id="data-2">Data</h2>
 <ol type="1">
 <li>Use the assembled contig from your last session (contigs.fasta)</li>
 <li>Blast Databases, Location:</li>
@@ -927,7 +941,7 @@ Extension Work
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -936,7 +950,7 @@ Worked Example - Prokayote: annotation loop
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=df930bd2-5f91-4151-9866-b09500b7390c&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
 </iframe>
