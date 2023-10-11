@@ -704,31 +704,23 @@ Worked Example: Multiqc
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="end-of-ngs-qc." class="level1">
-<h1>End of NGS QC.</h1>
-<section id="time-for-coffee.-you-have-earned-yourselves-cake" class="level2">
-<h2 class="anchored" data-anchor-id="time-for-coffee.-you-have-earned-yourselves-cake">Time for coffee. You have earned yourselves cake!</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Extension Work
+Exercise: the main event!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In ~/classdata there is a folder called datasets. Copy this folder across to your ~/mydata directory</p>
+<p>You are now going to meet the dataset we’ll be exploring for the next few days. In ~/classdata there is a folder called datasets. Copy this folder across to your ~/mydata directory</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-R</span> ~/classdata/datasets ~/mydata/datasets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/classdata/datasets ~/mydata/datasets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In side this folder you will find two data sets: mitochondrial and prokaryote. As you become more confident try and write programs that perform the following processes:</p>
-<ol type="1">
-<li><p>fastqc rawdata</p></li>
-<li><p>fastqc rawdata, fastp trim, fastqc trimdata and generate a multiqc summary</p></li>
-</ol>
+<p>Inside this folder you will find two data sets: prokaryote and mitochondrial. We will be using the prokaryote dataset to clean, assemble, annotate and analyse genomes over the next few days. The mitochondrial dataset will be for you to play with in the extension sessions.</p>
+<p>Your challenge now is to write script(s) to run fastQC, fastp, fastQC (again!) and multiqc on the prokaryote files. You can either copy them over to <code>mydata/Session2</code> or work directly from <code>mydata/datasets/prokaryotes</code>. There are multiple prokaryote files, so you will need to use loops!</p>
+<p>If you are feeling confident, try creating one script that will carry out all the processes on all the files. <em>Remember to keep your file names and output directories tidy!</em></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -765,7 +757,25 @@ Worked Example - Prokayote: rawdata QC triming and post trim QC
 </div>
 </div>
 </div>
-<p>:::</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extension Work
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do the same for the mitochondrial data!</p>
+</div>
+</div>
+</section>
+</section>
+<section id="end-of-ngs-qc." class="level1">
+<h1>End of NGS QC.</h1>
+<section id="time-for-coffee.-you-have-earned-yourselves-cake" class="level2">
+<h2 class="anchored" data-anchor-id="time-for-coffee.-you-have-earned-yourselves-cake">Time for coffee. You have earned yourselves cake!</h2>
 
 
 </section>

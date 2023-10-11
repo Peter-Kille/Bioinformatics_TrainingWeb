@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof Peter Kille &amp; Dr.&nbsp;Sarah Christofides">
+<meta name="author" content="Prof.&nbsp;Peter Kille &amp; Dr.&nbsp;Sarah Christofides">
 <meta name="dcterms.date" content="2023-10-11">
 
 <title>Genome Assembly</title>
@@ -139,7 +139,7 @@ background: darkred;
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Genome Assembly</h1>
-            <p class="subtitle lead">Puttign the pieces together</p>
+            <p class="subtitle lead">Putting the pieces together</p>
                       </div>
   </div>
     
@@ -149,7 +149,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Prof Peter Kille &amp; Dr.&nbsp;Sarah Christofides </p>
+               <p>Prof.&nbsp;Peter Kille &amp; Dr.&nbsp;Sarah Christofides </p>
             </div>
     </div>
       
@@ -362,39 +362,12 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#the-bioinformatic-process-to-assemble-a-genome" id="toc-the-bioinformatic-process-to-assemble-a-genome" class="nav-link active" data-scroll-target="#the-bioinformatic-process-to-assemble-a-genome">The bioinformatic process to assemble a genome</a>
   <ul class="collapse">
-  <li><a href="#bioinformatic-process-to-assemble-a-genome" id="toc-bioinformatic-process-to-assemble-a-genome" class="nav-link" data-scroll-target="#bioinformatic-process-to-assemble-a-genome"><strong>Bioinformatic process to assemble a genome</strong></a></li>
-  <li><a href="#quality-checking-data" id="toc-quality-checking-data" class="nav-link" data-scroll-target="#quality-checking-data">Quality checking data</a></li>
-  <li><a href="#triming-and-adapter-removal" id="toc-triming-and-adapter-removal" class="nav-link" data-scroll-target="#triming-and-adapter-removal">Triming and adapter removal</a></li>
-  <li><a href="#re-assess-data-quality" id="toc-re-assess-data-quality" class="nav-link" data-scroll-target="#re-assess-data-quality">Re-assess data quality</a></li>
   <li><a href="#genome-assembly" id="toc-genome-assembly" class="nav-link" data-scroll-target="#genome-assembly">Genome assembly</a></li>
-  <li><a href="#rename-assembly-files-and-copy-to-new-directory" id="toc-rename-assembly-files-and-copy-to-new-directory" class="nav-link" data-scroll-target="#rename-assembly-files-and-copy-to-new-directory">Rename assembly files and copy to new directory</a></li>
   <li><a href="#assembly-statistics" id="toc-assembly-statistics" class="nav-link" data-scroll-target="#assembly-statistics">Assembly statistics</a></li>
-  <li><a href="#assembly-graph" id="toc-assembly-graph" class="nav-link" data-scroll-target="#assembly-graph">Assembly graph</a></li>
   </ul></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
-  <ul class="collapse">
-  <li><a href="#sequence-data-and-files-available-for-mitochondrial-assembly" id="toc-sequence-data-and-files-available-for-mitochondrial-assembly" class="nav-link" data-scroll-target="#sequence-data-and-files-available-for-mitochondrial-assembly"><strong>Sequence data and files available for mitochondrial assembly</strong></a></li>
-  </ul></li>
-  <li><a href="#tools-and-usage" id="toc-tools-and-usage" class="nav-link" data-scroll-target="#tools-and-usage">Tools and Usage</a>
-  <ul class="collapse">
-  <li><a href="#bioinformatic-software-and-tools" id="toc-bioinformatic-software-and-tools" class="nav-link" data-scroll-target="#bioinformatic-software-and-tools"><strong>Bioinformatic software and tools</strong></a></li>
-  <li><a href="#software-usage" id="toc-software-usage" class="nav-link" data-scroll-target="#software-usage">Software usage</a>
-  <ul class="collapse">
-  <li><a href="#tmux" id="toc-tmux" class="nav-link" data-scroll-target="#tmux">tmux</a></li>
-  <li><a href="#fastqc" id="toc-fastqc" class="nav-link" data-scroll-target="#fastqc">Fastqc</a></li>
-  <li><a href="#fastp" id="toc-fastp" class="nav-link" data-scroll-target="#fastp">Fastp</a></li>
-  <li><a href="#unicycler" id="toc-unicycler" class="nav-link" data-scroll-target="#unicycler">Unicycler</a></li>
-  <li><a href="#quast" id="toc-quast" class="nav-link" data-scroll-target="#quast">Quast</a></li>
-  <li><a href="#bandage" id="toc-bandage" class="nav-link" data-scroll-target="#bandage">Bandage</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#worked-example-of-assembly" id="toc-worked-example-of-assembly" class="nav-link" data-scroll-target="#worked-example-of-assembly">Worked Example of assembly</a>
-  <ul class="collapse">
-  <li><a href="#assembly-walk-through-v1" id="toc-assembly-walk-through-v1" class="nav-link" data-scroll-target="#assembly-walk-through-v1">Assembly Walk Through V1</a></li>
-  <li><a href="#assembly-walk-through-v2" id="toc-assembly-walk-through-v2" class="nav-link" data-scroll-target="#assembly-walk-through-v2">Assembly Walk Through V2</a></li>
-  </ul></li>
+  <li><a href="#worked-example-of-assembly" id="toc-worked-example-of-assembly" class="nav-link" data-scroll-target="#worked-example-of-assembly">Worked Example of Assembly</a></li>
   </ul>
 </nav>
     </div>
@@ -406,84 +379,66 @@ background: darkred;
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3d87d25f-bc34-448a-a65e-af630098e01b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
-<p><a href="https://tinyurl.com/2p88c3er">NGS Assembly Powerpoint</a></p>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<section id="bioinformatic-process-to-assemble-a-genome" class="level2">
-<h2 class="anchored" data-anchor-id="bioinformatic-process-to-assemble-a-genome"><strong>Bioinformatic process to assemble a genome</strong></h2>
-<p>Below is a walkthrough on the steps necessary to assemble a mitochondrial or bacterial genome. Don’t get lost in the terminal with typing commands meaninglessly, step back and think about the bioinformatic process to get to the end goal.</p>
-<p><br></p>
-</section>
-<section id="quality-checking-data" class="level2">
-<h2 class="anchored" data-anchor-id="quality-checking-data">Quality checking data</h2>
-<p>You will often start with <strong>raw sequence</strong> data in fastq format. You first need to check the quality of the data before proceeding with the assembly, this can be achieved using <strong>Fastqc</strong>.</p>
-<p><br></p>
-</section>
-<section id="triming-and-adapter-removal" class="level2">
-<h2 class="anchored" data-anchor-id="triming-and-adapter-removal">Triming and adapter removal</h2>
-<p>Raw sequence data may still contain fragments of the adapter sequences from the sequencing process; these artificial sequences need to be removed. Low quality bases that may occur toward the end of reads can also be trimmed to improve the overall sequence quality. These steps will be carried out using <strong>Fastp</strong>. After this step you will have <strong>processed reads</strong>.</p>
-<p><br></p>
-</section>
-<section id="re-assess-data-quality" class="level2">
-<h2 class="anchored" data-anchor-id="re-assess-data-quality">Re-assess data quality</h2>
-<p>Following adaptor removal and trimming, We need to repeat the quality checking with <strong>Fastqc</strong>, but this time we will use the <strong>processed reads</strong>.</p>
-<p><br></p>
-</section>
-<section id="genome-assembly" class="level2">
-<h2 class="anchored" data-anchor-id="genome-assembly">Genome assembly</h2>
-<p>We will assembly the processed reads into an assembly using the assembler <strong>Unicycler</strong>.</p>
-<p><br></p>
-</section>
-<section id="rename-assembly-files-and-copy-to-new-directory" class="level2">
-<h2 class="anchored" data-anchor-id="rename-assembly-files-and-copy-to-new-directory">Rename assembly files and copy to new directory</h2>
-<p>A big part of bioinformatics is maintaining directory and file organisation. Each mitochondrial genome assembly output by <strong>Unicycler</strong> will be located in a different folder <strong>but</strong> have the same generic name: <em>assembly.fasta</em>. We need to rename these files to reflect the input data. Compose a loop to <strong>copy and rename</strong> these files to a new directory.</p>
-<p><br></p>
-</section>
-<section id="assembly-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="assembly-statistics">Assembly statistics</h2>
-<p>Once our assembly files have been renamed and copied to a single location, we can analyse them for quality statistics. Use <strong>Quast</strong> to report useful metrics such as assembly length, GC content, contig number, and N50 value. As the mitochondrial genomes are small and assembly well, there is a bacterial genome assembly <strong>Quast</strong> output to view in the data directory for this session.</p>
-<p><br></p>
-</section>
-<section id="assembly-graph" class="level2">
-<h2 class="anchored" data-anchor-id="assembly-graph">Assembly graph</h2>
-<p>One of the files produced by <strong>Unicycler</strong> is an assembly graph (gfa file extension). This file details the links between contigs that were produced during the assembly and can provide valuable information on the difficult-to-assemble regions of the genome. As the mitochondrial genomes are small and assembly well, there is a bacterial genome assembly graph to visualise with <strong>Bandage</strong>.</p>
-</section>
-</section>
-<section id="data" class="level1">
-<h1>Data</h1>
-<section id="sequence-data-and-files-available-for-mitochondrial-assembly" class="level2">
-<h2 class="anchored" data-anchor-id="sequence-data-and-files-available-for-mitochondrial-assembly"><strong>Sequence data and files available for mitochondrial assembly</strong></h2>
-<p><br></p>
-<ul>
-<li><p>Each group will have access to a set of <strong>paired fastq reads: R1 and R2 files.</strong></p></li>
-<li><p>There is also a representative bacterial genome assembly with a graphical assembly file and <strong>quast</strong> output as an example of a more complicated assembly.</p></li>
-</ul>
-</section>
-</section>
-<section id="tools-and-usage" class="level1">
-<h1>Tools and Usage</h1>
-<section id="bioinformatic-software-and-tools" class="level2">
-<h2 class="anchored" data-anchor-id="bioinformatic-software-and-tools"><strong>Bioinformatic software and tools</strong></h2>
+<p>We will now assemble the genomes for the mystery prokaryotes in the datasets folder. You can either copy them over to <code>mydata/Session2</code> or work directly from <code>mydata/datasets/prokaryotes</code> (I suggest sticking with whichever approach you used for QC and trimming). Whichever you choose to do, always remember to keep your folder system tidy. If you are struggling to remember how it’s arranged, grab some paper and sketch it out as a visual reminder.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you’re feeling confident
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>As you go through each step of the assembly process, use loops to apply it to <em>all</em> the prokaryote genomes you’ve been given.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you’re not feeling confident
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Pick one prokaryote genome and work through assembling it. Use the time later in the extension session to use loops to apply the process to all the prokaryote genomes.</p>
+</div>
+</div>
+</div>
+<p><strong>Either way, write scripts rather than running the programmes by typing directly into the terminal</strong>. This means you have every step saved so it can be revisited whenever you need.</p>
+<section id="the-bioinformatic-process-to-assemble-a-genome" class="level1">
+<h1>The bioinformatic process to assemble a genome</h1>
+<p>Below is a walkthrough on the steps necessary to assemble a mitochondrial or bacterial genome. Don’t get lost in the terminal with typing commands meaninglessly: step back and think about the bioinformatic process to get to the end goal.</p>
 <p>We will use multiple bioinformatic packages to assemble a genome and provide assembly statistics</p>
-<p>tmux – terminal multiplexer<br>
-Fastqc – Quality control of reads<br>
-Fastp – adapter removal and trimming tool<br>
-Unicycler – genome assembler<br>
-Quast – genome assembly statistics<br>
-Bandage- view graphical fragment assembly (gfa) files</p>
-<p><br></p>
-<p><strong>Remember that you can access the “help” option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or –help. After using a program, dont forget to unload the module.</strong></p>
-<p><br></p>
-</section>
-<section id="software-usage" class="level2">
-<h2 class="anchored" data-anchor-id="software-usage">Software usage</h2>
-<section id="tmux" class="level3">
-<h3 class="anchored" data-anchor-id="tmux">tmux</h3>
+<p>fastQC – Quality control of reads</p>
+<p>fastp – adapter removal and trimming tool</p>
+<p>Unicycler – genome assembler</p>
+<p>Quast – genome assembly statistics</p>
+<p>Bandage (optional) – view graphical fragment assembly (gfa) files</p>
+<p><strong>Remember that you can access the “help” option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or –help. After using a program, don’t forget to unload the module.</strong></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Optional extra software: tmux
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. If you run a script in the terminal and then close the session/turn off the laptop, the script will be cancelled. To avoid this, we use tmux. This will allow you to run scripts and programs in the terminal, close the terminal/turn off your laptop, and the script will continue to run.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load tmux/3.2a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
 <p>Basic usage cheatsheet: https://tmuxcheatsheet.com/</p>
 <p>Start a new session:</p>
 <div class="cell">
@@ -505,82 +460,127 @@ Bandage- view graphical fragment assembly (gfa) files</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> kill-session <span class="at">-t</span> [session name]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A reminder of the steps you’ve already completed
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="quality-checking-data" class="level3">
+<h3 class="anchored" data-anchor-id="quality-checking-data">1. Quality checking data</h3>
+<p>You will often start with <strong>raw sequence</strong> data in FASTQ format. You first need to check the quality of the data before proceeding with the assembly; this can be achieved using <strong>fastQC</strong>.</p>
 </section>
-<section id="fastqc" class="level3">
-<h3 class="anchored" data-anchor-id="fastqc">Fastqc</h3>
-<p>A quality control tool for high throughput sequence data.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/0.11.9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><br> Basic usage:</p>
-<p>Create the output directory before running the command.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--threads</span> [thread number] [input fastq file] <span class="at">--outdir</span> [output directory]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Check out the html files created for a report of the fastq file read quality</p>
-<p><br></p>
+<section id="trimming-and-adapter-removal" class="level3">
+<h3 class="anchored" data-anchor-id="trimming-and-adapter-removal">2. Trimming and adapter removal</h3>
+<p>Raw sequence data may still contain fragments of the adapter sequences from the sequencing process; these artificial sequences need to be removed. Low quality bases that may occur toward the end of reads can also be trimmed to improve the overall sequence quality. These steps will be carried out using <strong>fastp</strong>. After this step you will have <strong>processed reads</strong>.</p>
 </section>
-<section id="fastp" class="level3">
-<h3 class="anchored" data-anchor-id="fastp">Fastp</h3>
-<p>A tool designed to provide fast all-in-one preprocessing for FastQ files. This tool is developed in C++ with multithreading supported to afford high performance.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastp/0.20.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><br></p>
-<p>Basic usage: Create the output directory before running the command.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-w</span> [thread number] <span class="at">-i</span> [input fastq R1] <span class="at">-I</span> [input fastq R2] <span class="at">-o</span> [output fastq R1] <span class="at">-O</span> [output fastq R2] <span class="at">-h</span> <span class="pp">[</span><span class="ss">trimming_report.html</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Check out the html report for a summary of the trimming process – the adaptors have already been removed, and reads are high quality so no trimming should have been performed.</p>
-<p><br></p>
+<section id="re-assessing-data-quality" class="level3">
+<h3 class="anchored" data-anchor-id="re-assessing-data-quality">3. Re-assessing data quality</h3>
+<p>Following adaptor removal and trimming, we need to repeat the quality checking with fastQC, but this time using the <strong>processed reads</strong>.</p>
 </section>
-<section id="unicycler" class="level3">
-<h3 class="anchored" data-anchor-id="unicycler">Unicycler</h3>
-<p>Unicycler is an assembly pipeline for bacterial genomes. It can assemble Illumina-only read sets where it functions as a SPAdes-optimiser.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load unicycler/v0.5.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
+</div>
+</div>
+<section id="genome-assembly" class="level2">
+<h2 class="anchored" data-anchor-id="genome-assembly">Genome assembly</h2>
+<p>We will assemble the processed reads into an assembly using the assembler <strong>Unicycler</strong>. Unicycler is an assembly pipeline for bacterial (and mitochondrial) genomes. It can assemble Illumina-only read sets where it functions as a SPAdes-optimiser.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load unicycler/v0.5.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Basic usage:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">unicycler</span> <span class="at">-1</span> [processed fastq R1] <span class="at">-2</span> [processed fastq R2]  <span class="at">-t</span> [thread number] <span class="at">-o</span> [output directory]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">unicycler</span> <span class="at">-1</span> [processed fastq R1] <span class="at">-2</span> [processed fastq R2]  <span class="at">-t</span> [thread number] <span class="at">-o</span> [output directory]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Each assembly will be located in a different directory within the parent directory indicated by the <em>-o</em> option</p>
-<p><br></p>
-</section>
-<section id="quast" class="level3">
-<h3 class="anchored" data-anchor-id="quast">Quast</h3>
-<p>QUAST stands for QUality ASsessment Tool. It evaluates genome/metagenome assemblies by computing various metrics.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load quast/5.2.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p><br></p>
+<div class="callout-title-container flex-fill">
+Exercise: Unicycler
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Write a script to assemble your genome(s) with Unicycler.</p>
+<p><strong>If working on more than one genome: rename assembly files and copy to new directory</strong></p>
+<p>A big part of bioinformatics is maintaining directory and file organisation. Each mitochondrial genome assembly output by Unicycler will have the same generic name, <em>assembly.fasta</em>, albeit located in a different folder. We need to rename these files to reflect the input data. Compose a loop to <strong>copy and rename</strong> these files to a new directory.</p>
+</div>
+</div>
+</section>
+<section id="assembly-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="assembly-statistics">Assembly statistics</h2>
+<p>Once our assembly files have been renamed and copied to a single location, we can analyse them for quality statistics. Use <strong>Quast</strong> to report useful metrics such as assembly length, GC content, contig number, and N50 value. QUAST stands for QUality ASsessment Tool. It evaluates genome/metagenome assemblies by computing various metrics.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load quast/5.2.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Basic usage:</p>
-<pre><code>quast.py -t [thread number] -o [output directory] [input fasta file]</code></pre>
-<p>Output directory contains the report in multiple formats. To view the report on the terminal use the <strong>cat</strong> command which prints the contents of a file to the terminal (don’t forget to navigate to the file first as it’s in a different directory!):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="pp">[</span><span class="ss">report.txt</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quast.py</span> <span class="at">-t</span> [thread number] <span class="at">-o</span> [output directory] [input fasta file]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
-</section>
-<section id="bandage" class="level3">
-<h3 class="anchored" data-anchor-id="bandage">Bandage</h3>
-<p>Bandage is a program for visualising de novo assembly graphs. By displaying connections which are not present in the contigs file, Bandage opens up new possibilities for analysing de novo assemblies. Download to your local laptop from the link: https://rrwick.github.io/Bandage/ or access through Guacamole.</p>
-</section>
+<p>The output directory contains the report in multiple formats. To view the report on the terminal use the <code>cat</code> command which prints the contents of a file to the terminal (don’t forget to navigate to the file first as it’s in a different directory!):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="pp">[</span><span class="ss">report.txt</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise: Quast
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Write a script to assess your genome assembly with Quast.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Optional: assembly graph
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>One of the files produced by <strong>Unicycler</strong> is an assembly graph (.gfa file extension). This file details the links between contigs that were produced during the assembly and can provide valuable information on the difficult-to-assemble regions of the genome. Bandage is a program for visualising <em>de novo</em> assembly graphs. By displaying connections which are not present in the contigs file, Bandage opens up new possibilities for analysing de novo assemblies. Download to your local laptop from the link: https://rrwick.github.io/Bandage/.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="worked-example-of-assembly" class="level1">
-<h1>Worked Example of assembly</h1>
-<section id="assembly-walk-through-v1" class="level2">
-<h2 class="anchored" data-anchor-id="assembly-walk-through-v1">Assembly Walk Through V1</h2>
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=cacd5bf0-99f8-4020-95af-af630098df69&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+<h1>Worked Example of Assembly</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example - Prokayote Assembly Loop
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5b72e9a8-5336-47b7-a1ee-b094015e42f9&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
 </iframe>
-</section>
-<section id="assembly-walk-through-v2" class="level2">
-<h2 class="anchored" data-anchor-id="assembly-walk-through-v2">Assembly Walk Through V2</h2>
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=90c0321a-2043-4b2e-b5d1-af6a01420b85&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
-</iframe>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -591,32 +591,11 @@ Extension Work
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For your two datasets: mitochondrial and prokaryote attempt the following process.</p>
-<ol type="1">
-<li>assembly your genomes using a loop</li>
-</ol>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Worked Example - Prokayote: assembly loop
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5b72e9a8-5336-47b7-a1ee-b094015e42f9&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
-</iframe>
-</div>
+<p>Go to the mitochondrial files and apply the same process to them, using a loop.</p>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
