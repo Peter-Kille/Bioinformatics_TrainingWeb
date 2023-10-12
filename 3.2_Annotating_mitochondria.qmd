@@ -13,49 +13,36 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+#Congratulations!
 
-# Mitos2 - Only use for Mitochondrial annotation
+### You have made it to the mid-point of the course.
 
-## Data
+Now is a good opportunity to look back over anything you're unclear on and would like to go over again. If you haven't already annotated all your prokaryote genomes with Prokka, now is the time to do so. If you've done all that and are chomping at the bit for more, read on for a tutorial on how to annotate your mitochondrial assemblies.
 
-1)  Use the assembled contig from your last session (contigs.fasta)
 
-## Software
+# Mitos2 for mitochondrial annotation
 
-\[mitos2 source\](https://gitlab.com/Bernt/MITOS), \[mitos browser version\](http://mitos2.bioinf.uni-leipzig.de/)
+[MITOS](https://gitlab.com/Bernt/MITOS) is a [web server](http://mitos2.bioinf.uni-leipzig.de/) for the automatic annotation of metazoan mitochondrial genomes. MITOS allows a reliable and consistent annotation of proteins and non-coding RNAs. The analysis steps are as follows:
 
-```         
-module load mitos/2.0.4
-```
+• Candidate protein coding genes are found by detecting congruences in the results of blastx searches against the amino acid sequences of the annotated proteins of metazoan mitochondrial genomes found in the NCBI RefSeq 81. A post-processing step detects start and stop codons, duplicates, and hits belonging to the same transcript, e.g. frame shift or splicing.
 
-bioperl-live/release-1-7-2
+• tRNAs are annotated using MITFI, i.e. novel structure-based covariance models as described in Jühling, et al. Nucleic Acids Research, 2012, 40(7):2833-2845. This approach was shown to have an unmatched sensitivity (outperforming ARWEN and tRNAscan-SE, respectively) and a precision higher than ARWEN and equivalent to tRNAscan-SE.
 
-```         
-module load bioperl-live/release-1-7-2
-```
+• rRNA annotation is performed using structure-based covariance models that have been developed similarly to the tRNA models. Structural considerations improve 5' and 3' end predictions of the rRNAs.
 
-selectSeqsAboveMinLength
+• In a final step, conflicts are resolved and the outcome is prepared for visualization.
 
-```{bash}
-    ~/classdata/REFS/script/selectSeqsAboveMinLength.pl
-```
-
-bedtools
-
-```         
-module load bedtools2/2.31.0
-```
-
-## Workshop
 
 ### Ensure you have a single contig
+
+MITOS will only work on a single contig. If your genome has assembled into multiple contigs, you have two choices: either pick the biggest, or artificially join the contigs together.
 
 ::: {.callout-note collapse="true"}
 ## Option 1: extract out your longest contig
 
-This code will extract your longest contig - if single contig no need to perform this step.,
+This code will extract your longest contig - if the assembly is a single contig there is no need to perform this step. It uses a script in a language called perl, so you will need to load the perl module.
 
-**The risk associated with this option is that the gene you are intersted is not in the longest contig**
+**The risk associated with this option is that the gene you are interested in may not be in the longest contig.**
 
 ```{bash}
 
@@ -64,12 +51,13 @@ module load bioperl-live/release-1-7-2
 perl ~/classdata/REFS/script/selectSeqsAboveMinLength.pl <your_assembly.fasta> <largest_contig.fasta> 8000
 
 ```
+
 :::
 
 ::: {.callout-note collapse="true"}
 ## Option 2: Artificially merge your contigs
 
-This code will remove the contig names (as long as they are named 2-9) for all accept the first contig and then remove any line breaks to ensure correct base nukbering for the annotation.
+This code will remove the contig names (as long as they are named 2-9) for all except the first contig, and then remove any line breaks to ensure correct base numbering for the annotation.
 
 ```{bash}
 module load seqtk/1.3
@@ -81,28 +69,22 @@ sed -i '/^>[2-9].*$/d' mito_assemblies/${base}.fasta
 seqtk seq -l [assembly].fasta > [assembly_NLB.fasta]
 
 ```
+
 :::
 
 ### Annotate with MITOS2
 
-MITOS is a web server for the automatic annotation of metazoan mitochondrial genomes. MITOS allows a reliable and consistent annotation of proteins and non-coding RNAs. The analysis steps are as follows:
-
-• Candidate protein coding genes are found by detecting congruences in the results of blastx searches against the amino acid sequences of the annotated proteins of metazoan mitochondrial genomes found in the NCBI RefSeq 81. A postprocessing step detects start and stop codons, duplicates, and hits belonging to the same transcript, e.g. frame shift or splicing.
-
-• tRNAs are annotated using MITFI, i.e. novel structure-based covariance models as described in Jühling, et al. Nucleic Acids Research, 2012, 40(7):2833-2845. This approach was shown to have an unmatched sensitivity (outperforming ARWEN and tRNAscan-SE, respectively) and a precision higher than ARWEN and equivalent to tRNAscan-SE.
-
-• rRNA annotation is performed using structure-based covariance \# models that have been developed similarly to the tRNA models. Structural considerations improve 5' and 3' end predictions of the rRNAs.
-
-• In a final step, conflicts are resolved and the outcome is prepared for visualization.
-
-NB ensure you create you output folder before you run mitos
+**N.B. Ensure you create your output folder before you run mitos**
 
 ```{bash}
+module load mitos/2.0.4
+
 mkdir mitos_annot
+
 runmitos.py  -i contigs.fasta -c 2 -o mitos_annot -R ~/classdata/REFS/mitos/ -r refseq81m --rrna 0 --trna 0 --intron 0 --debug --noplot
 ```
 
-loop would be something like this (remember to edit loop for your files)
+A loop would be something like this (remember to edit loop for your files)
 
 ```{bash}
 #!/bin/bash
@@ -115,7 +97,7 @@ for i in {1..3}; do
 
 mkdir grp${i}_mitos_annot
 
-runmitos.py -i "${workdir}/group${i}_unknown_cetacean_assembly.fasta" \
+runmitos.py -i "${workdir}/group${i}_unknown_assembly.fasta" \
             -c 2 \
             -o grp${i}_mitos_annot \
             -R ~/classdata/REFS/mitos/ \
@@ -129,21 +111,26 @@ runmitos.py -i "${workdir}/group${i}_unknown_cetacean_assembly.fasta" \
 done
 
 module unload mitos/2.0.4
+
 ```
 
-## Worked Mitoss Loop example
+::: {.callout-note collapse="true"}
+## Worked Examaple -- Mitos loop
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=257ce45d-7a81-4c25-91b8-af6a01422c39&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
 
 </iframe>
 
-### Extract Fasta sequence for genes in Bed file
+:::
+
+## Extract Fasta sequence for genes in Bed file
 
 You can extract the fasta sequence for the genes in the bed file using bedtools getfasta:
 
 ```{bash}
 module load bedtools2/2.31.0
-bedtools getfasta –fi contigs.fasta -bed result.bed -name >result.fasta
+
+bedtools getfasta –fi contigs.fasta -bed result.bed -name > result.fasta
 ```
 
 Or using a loop
@@ -156,24 +143,25 @@ done
 ```
 
 ::: callout-important
-## mitos2 Excersises
+## Exercises: Annotate your mitochondria with mitos2 
 
-We will now annotate your genome using mitos:
+Follow these steps to annotate your mitochondrial genome using mitos:
 
 1.  Use seqtk seq to select only the largest contig into a new file
 
 2.  Use mitos to annotate the contig, and visualize it with Artemis
 
-3.  Create a loop to generate the output for all canidiea assembiles
+3.  Create a loop to generate the output for all mitochondrial assemblies
 
 4.  \[Extension\] Use the BEDtools to extract the sequence of the annotated genes
 
 5.  \[Extension\] Use seqtk to extract just the COX1 gene
+
 :::
 
 
 ::: callout-important
-## Exercises: Annotate your mitochondria
+## Extension: Annotate your mitochondria with BLAST
 
 Take your assembled mitochondrial genome and identify mitochondrial orthologues using blast.
 

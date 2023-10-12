@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof.&nbsp;Peter Kille &amp; Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2023-10-11">
+<meta name="author" content="Prof Peter Kille">
+<meta name="dcterms.date" content="2023-10-12">
 
-<title>Genome Assembly</title>
+<title>RNAseq Processing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -125,7 +91,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="2.1_NGS_Quality_Control.html">Session 2. NGS data</a></li><li class="breadcrumb-item"><a href="2.2_genome_assembly.html">Genome Assembly</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.1_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.2_RNAseq_processing.html">RNAseq Processing</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,8 +104,8 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Genome Assembly</h1>
-            <p class="subtitle lead">Putting the pieces together</p>
+      <h1 class="title">RNAseq Processing</h1>
+            <p class="subtitle lead">From Reads to Counts</p>
                       </div>
   </div>
     
@@ -149,14 +115,14 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Prof.&nbsp;Peter Kille &amp; Dr.&nbsp;Sarah Christofides </p>
+               <p>Prof Peter Kille </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 11, 2023</p>
+        <p class="date">October 12, 2023</p>
       </div>
     </div>
     
@@ -185,7 +151,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Big Data Biology and Bioinformatics</span></a>
   </div>
 </li>
@@ -202,7 +168,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
+  <a href="./0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Personal Cloud</span></a>
   </div>
 </li>
@@ -219,19 +185,19 @@ background: darkred;
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="1.1_Introduction%20to%20Linux.html" class="sidebar-item-text sidebar-link">
+  <a href="./1.1_Introduction to Linux.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Linux</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
+  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loading Software and Accessing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
+  <a href="./1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Commandline Tools and Scripting</span></a>
   </div>
 </li>
@@ -248,19 +214,19 @@ background: darkred;
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="2.1_NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">
+  <a href="./2.1_NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">NGS Quality Control</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="2.2_genome_assembly.html" class="sidebar-item-text sidebar-link active">
+  <a href="./2.2_genome_assembly.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Genome Assembly</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="2.3_hybrid_assemblies.html" class="sidebar-item-text sidebar-link">
+  <a href="./2.3_hybrid_assemblies.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Hybrid Assemblies</span></a>
   </div>
 </li>
@@ -277,13 +243,13 @@ background: darkred;
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link">
+  <a href="./3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Genome Visualisation and Annotation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
+  <a href="./3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Annotating Mitochondrial Genomes</span></a>
   </div>
 </li>
@@ -300,7 +266,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link">
+  <a href="./4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Phylogenomics and Phylogeneomics</span></a>
   </div>
 </li>
@@ -317,25 +283,25 @@ background: darkred;
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="5.1_Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.1_Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Transcritomics An Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="5.2_RNAseq_processing.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.2_RNAseq_processing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">RNAseq Processing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="5.3_DEG_analysis.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.3_DEG_analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Differential Gene Expression Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="5.4_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.4_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DEG Functional Interpretation</span></a>
   </div>
 </li>
@@ -352,7 +318,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="6.1_metabarcoding.html" class="sidebar-item-text sidebar-link">
+  <a href="./6.1_metabarcoding.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Metagenomics</span></a>
   </div>
 </li>
@@ -368,12 +334,23 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-bioinformatic-process-to-assemble-a-genome" id="toc-the-bioinformatic-process-to-assemble-a-genome" class="nav-link active" data-scroll-target="#the-bioinformatic-process-to-assemble-a-genome">The bioinformatic process to assemble a genome</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#genome-assembly" id="toc-genome-assembly" class="nav-link" data-scroll-target="#genome-assembly">Genome assembly</a></li>
-  <li><a href="#assembly-statistics" id="toc-assembly-statistics" class="nav-link" data-scroll-target="#assembly-statistics">Assembly statistics</a></li>
+  <li><a href="#alignment" id="toc-alignment" class="nav-link" data-scroll-target="#alignment">Alignment</a></li>
+  <li><a href="#counting" id="toc-counting" class="nav-link" data-scroll-target="#counting">Counting</a></li>
+  <li><a href="#differential-gene-analysis" id="toc-differential-gene-analysis" class="nav-link" data-scroll-target="#differential-gene-analysis">Differential Gene Analysis</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
   </ul></li>
-  <li><a href="#worked-example-of-assembly" id="toc-worked-example-of-assembly" class="nav-link" data-scroll-target="#worked-example-of-assembly">Worked Example of Assembly</a></li>
+  <li><a href="#excercises" id="toc-excercises" class="nav-link" data-scroll-target="#excercises">Excercises</a></li>
+  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a>
+  <ul class="collapse">
+  <li><a href="#qc.sh" id="toc-qc.sh" class="nav-link" data-scroll-target="#qc.sh"></a><a id="qc" class="nav-link" data-scroll-target="undefined"></a>1-QC.sh</li>
+  <li><a href="#star_index_genome.sh" id="toc-star_index_genome.sh" class="nav-link" data-scroll-target="#star_index_genome.sh">2-star_index_genome.sh</a></li>
+  <li><a href="#star.sh" id="toc-star.sh" class="nav-link" data-scroll-target="#star.sh">3-star.sh</a></li>
+  <li><a href="#markduplicates.sh" id="toc-markduplicates.sh" class="nav-link" data-scroll-target="#markduplicates.sh">4-markduplicates.sh</a></li>
+  <li><a href="#featurecounts.sh" id="toc-featurecounts.sh" class="nav-link" data-scroll-target="#featurecounts.sh">5-featurecounts.sh</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -383,225 +360,230 @@ background: darkred;
 
 
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3d87d25f-bc34-448a-a65e-af630098e01b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=33753314-378f-47fe-9c2e-af630098dbaf&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
-<p>We will now assemble the genomes for the mystery prokaryotes in the datasets folder. You can either copy them over to <code>mydata/Session2</code> or work directly from <code>mydata/datasets/prokaryotes</code> (I suggest sticking with whichever approach you used for QC and trimming). Whichever you choose to do, always remember to keep your folder system tidy. If you are struggling to remember how it’s arranged, grab some paper and sketch it out as a visual reminder.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-If you’re feeling confident
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>As you go through each step of the assembly process, use loops to apply it to <em>all</em> the prokaryote genomes you’ve been given.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-If you’re not feeling confident
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Pick one prokaryote genome and work through assembling it. Use the time later in the extension session to use loops to apply the process to all the prokaryote genomes.</p>
-</div>
-</div>
-</div>
-<p><strong>Either way, write scripts rather than running the programmes by typing directly into the terminal</strong>. This means you have every step saved so it can be revisited whenever you need.</p>
-<section id="the-bioinformatic-process-to-assemble-a-genome" class="level1">
-<h1>The bioinformatic process to assemble a genome</h1>
-<p>Below is a walkthrough on the steps necessary to assemble a mitochondrial or bacterial genome. Don’t get lost in the terminal with typing commands meaninglessly: step back and think about the bioinformatic process to get to the end goal.</p>
-<p>We will use multiple bioinformatic packages to assemble a genome and provide assembly statistics</p>
-<p>fastQC – Quality control of reads</p>
-<p>fastp – adapter removal and trimming tool</p>
-<p>Unicycler – genome assembler</p>
-<p>Quast – genome assembly statistics</p>
-<p>Bandage (optional) – view graphical fragment assembly (gfa) files</p>
-<p><strong>Remember that you can access the “help” option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or –help. After using a program, don’t forget to unload the module.</strong></p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Optional extra software: tmux
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. If you run a script in the terminal and then close the session/turn off the laptop, the script will be cancelled. To avoid this, we use tmux. This will allow you to run scripts and programs in the terminal, close the terminal/turn off your laptop, and the script will continue to run.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load tmux/3.2a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Basic usage cheatsheet: https://tmuxcheatsheet.com/</p>
-<p>Start a new session:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> new <span class="at">-s</span> [session name]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Close a session:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Ctrl</span> + b, then d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>List available sessions:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Re-join an existing session:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> a <span class="at">-t</span> [session name]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Delete a session:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> kill-session <span class="at">-t</span> [session name]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-A reminder of the steps you’ve already completed
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<section id="quality-checking-data" class="level3">
-<h3 class="anchored" data-anchor-id="quality-checking-data">1. Quality checking data</h3>
-<p>You will often start with <strong>raw sequence</strong> data in FASTQ format. You first need to check the quality of the data before proceeding with the assembly; this can be achieved using <strong>fastQC</strong>.</p>
+<p><a href="https://cf.sharepoint.com/:p:/t/BigDataTeaching/ERuWEMFBHFxBhmhas2ISPEgB_suG7fDzPfcL7s_wed8WVQ?e=BKZElX">RNAseq Processing Powerpoint</a></p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Three main steps are taken to analyse a series of RNAseq fastq sample files (following quality filtering):</p>
+<section id="alignment" class="level2">
+<h2 class="anchored" data-anchor-id="alignment">Alignment</h2>
+<p>STAR – (Spliced Transcript Alignments to a Reference) is an alignment package which functions similarly to standard genome alignments but is designed for short regions of RNA that could span intron-exon junctions and with low compute requirements. STAR outputs a bam format file which contains the locations where all the reads in your dataset have aligned and the genes they cover.</p>
 </section>
-<section id="trimming-and-adapter-removal" class="level3">
-<h3 class="anchored" data-anchor-id="trimming-and-adapter-removal">2. Trimming and adapter removal</h3>
-<p>Raw sequence data may still contain fragments of the adapter sequences from the sequencing process; these artificial sequences need to be removed. Low quality bases that may occur toward the end of reads can also be trimmed to improve the overall sequence quality. These steps will be carried out using <strong>fastp</strong>. After this step you will have <strong>processed reads</strong>.</p>
+<section id="counting" class="level2">
+<h2 class="anchored" data-anchor-id="counting">Counting</h2>
+<p>FeatureCounts is a simple package that takes the positions of mapped reads and outputs a file quantifying the expression of each gene or exon (based on parameter choices). At this point raw read counts are hard to interpret due to likely different levels of sequencing achieved per sample and methodological biases.</p>
+<p>One common step prior to counting is marking duplicates that arise from data generation for further information, or so that they can be removed. Here we’ll use the imaginatively named MarkDuplicates from GATK.</p>
 </section>
-<section id="re-assessing-data-quality" class="level3">
-<h3 class="anchored" data-anchor-id="re-assessing-data-quality">3. Re-assessing data quality</h3>
-<p>Following adaptor removal and trimming, we need to repeat the quality checking with fastQC, but this time using the <strong>processed reads</strong>.</p>
+<section id="differential-gene-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="differential-gene-analysis">Differential Gene Analysis</h2>
+<p>Contrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.</p>
+<p>Following these three steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.</p>
 </section>
-</div>
-</div>
-</div>
-<section id="genome-assembly" class="level2">
-<h2 class="anchored" data-anchor-id="genome-assembly">Genome assembly</h2>
-<p>We will assemble the processed reads into an assembly using the assembler <strong>Unicycler</strong>. Unicycler is an assembly pipeline for bacterial (and mitochondrial) genomes. It can assemble Illumina-only read sets where it functions as a SPAdes-optimiser.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load unicycler/v0.5.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Basic usage:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">unicycler</span> <span class="at">-1</span> [processed fastq R1] <span class="at">-2</span> [processed fastq R2]  <span class="at">-t</span> [thread number] <span class="at">-o</span> [output directory]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Each assembly will be located in a different directory within the parent directory indicated by the <em>-o</em> option</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise: Unicycler
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Write a script to assemble your genome(s) with Unicycler.</p>
-<p><strong>If working on more than one genome: rename assembly files and copy to new directory</strong></p>
-<p>A big part of bioinformatics is maintaining directory and file organisation. Each mitochondrial genome assembly output by Unicycler will have the same generic name, <em>assembly.fasta</em>, albeit located in a different folder. We need to rename these files to reflect the input data. Compose a loop to <strong>copy and rename</strong> these files to a new directory.</p>
-</div>
-</div>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>The data you will need for this exercise are:</p>
+<pre><code>~/classdata/Bioinformatics/Day4/ RNAseq-Processing/fastq
+SRR5222797_1.fastq    SRR5222797_2.fastq
+SRR5222798_1.fastq    SRR5222798_2.fastq
+SRR5222799_1.fastq    SRR5222799_2.fastq
+
+~/classdata/Bioinformatics/STAR/REFS
+Arabidopsis_thaliana.TAIR10.47.gtf
+Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa</code></pre>
+<p><strong>This folder contains lots of other index files for star to function that you don’t need to touch!</strong> Note: most programs will accept fastq or fastq.gz without any changes however star requires you to include the <code>--readFilesCommand zcat</code> parameter.</p>
 </section>
-<section id="assembly-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="assembly-statistics">Assembly statistics</h2>
-<p>Once our assembly files have been renamed and copied to a single location, we can analyse them for quality statistics. Use <strong>Quast</strong> to report useful metrics such as assembly length, GC content, contig number, and N50 value. QUAST stands for QUality ASsessment Tool. It evaluates genome/metagenome assemblies by computing various metrics.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load quast/5.2.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Basic usage:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quast.py</span> <span class="at">-t</span> [thread number] <span class="at">-o</span> [output directory] [input fasta file]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The output directory contains the report in multiple formats. To view the report on the terminal use the <code>cat</code> command which prints the contents of a file to the terminal (don’t forget to navigate to the file first as it’s in a different directory!):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="pp">[</span><span class="ss">report.txt</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise: Quast
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Write a script to assess your genome assembly with Quast.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Optional: assembly graph
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>One of the files produced by <strong>Unicycler</strong> is an assembly graph (.gfa file extension). This file details the links between contigs that were produced during the assembly and can provide valuable information on the difficult-to-assemble regions of the genome. Bandage is a program for visualising <em>de novo</em> assembly graphs. By displaying connections which are not present in the contigs file, Bandage opens up new possibilities for analysing de novo assemblies. Download to your local laptop from the link: https://rrwick.github.io/Bandage/.</p>
-</div>
-</div>
-</div>
+<section id="software" class="level2">
+<h2 class="anchored" data-anchor-id="software">Software</h2>
+<p>We will be using scripts to run these steps. In the classdata/Day4/scripts folder you will find the following that you can use to base your analysis, however make sure you’re tuning it to your own file structure and file names.</p>
+<p>So far we have used only a small dataset to quickly practice the steps but now we’ll be using a full sized RNAseq sample otherwise it causes the programs to think it’s bad data. In the classdata/Day3 folder there four pairs of RNAseq files from an Arabidopsis RNAseq study. In the folder classdata/REFS there is a reference genome, and a gtf file. <strong>The step 2 “star index genome” has already been ran for you (you don’t need to do this!)</strong></p>
+<pre><code>~/classdata/Bioinformatics/Day4/RNAseq-Processing</code></pre>
+<p><a href="#scripts">Scripts</a></p>
+<ul>
+<li>1-QC.sh</li>
+<li>2-star_index_genome.sh (already done, don’t repeat!)</li>
+<li>3-star.sh<br>
+</li>
+<li>4-markduplicates.sh<br>
+</li>
+<li>5-featurecounts.sh</li>
+</ul>
 </section>
 </section>
-<section id="worked-example-of-assembly" class="level1">
-<h1>Worked Example of Assembly</h1>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="excercises" class="level1">
+<h1>Excercises</h1>
+<p>Using the premade scripts perform the steps on four pairs of fastq files. There are examples of all of these files in the classdata/Day4 directory which you should copy into your own folder. You may need to edit them to represent your own working folder and filenames:</p>
+<ol type="1">
+<li>QC and trim your sample data</li>
+<li>Use the outputs from your QC script as inputs to run star.</li>
+<li>Use the outputs from star to run mark duplicates to both remove and keep duplicates (two outputs)</li>
+<li>Use the outputs to each of these to run featureCounts on the data.</li>
+<li>Run multiQC on the processed directory and observe the summary</li>
+</ol>
+<p>These outputs are now ready to put into R and perform Differential Gene Expression Analysis. Things to remember:</p>
+<ul>
+<li><p>Load any modules you will need!</p></li>
+<li><p>Use the full path any time it could be ambiguous.</p></li>
+</ul>
+</section>
+<section id="scripts" class="level1">
+<h1>Scripts</h1>
+<section id="qc.sh" class="level2">
+<h2 class="anchored" data-anchor-id="qc.sh"><a id="qc"></a>1-QC.sh</h2>
+<div class="cell">
+<pre class="bash_ cell-code"><code>#!/bin/bash
+
+## Load some Modules
+module load fastqc/0.11.9
+module load trimmomatic/0.39
+
+## Useful shortcuts
+export workingdir=~/mydata/Session5/RNAseq-Processing
+
+#list=("sample1" "sample2" "sample3")
+list=("SRR5222797" "SRR5222798" "SRR5222799")
+
+for i in ${list[@]}
+do
+## The commands you want to run
+
+# fastqc the raw data
+fastqc -t 4 $workingdir/fastq/${i}_1.fastq
+fastqc -t 4 $workingdir/fastq/${i}_2.fastq
+
+# Run trimmomatic
+trimmomatic PE $workingdir/fastq/${i}_1.fastq $workingdir/fastq/${i}_2.fastq  -baseout $workingdir/fastq/${i}-trim.fastq ILLUMINACLIP:/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15
+
+# fastqc the outputs
+fastqc -t 4 $workingdir/fastq/${i}-trim_1P.fastq
+fastqc -t 4 $workingdir/fastq/${i}-trim_2P.fastq
+
+done</code></pre>
 </div>
-<div class="callout-title-container flex-fill">
-Worked Example - Prokayote Assembly Loop
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5b72e9a8-5336-47b7-a1ee-b094015e42f9&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
-</iframe>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Extension Work
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Go to the mitochondrial files and apply the same process to them, using a loop.</p>
-</div>
-</div>
+</section>
+<section id="star_index_genome.sh" class="level2">
+<h2 class="anchored" data-anchor-id="star_index_genome.sh">2-star_index_genome.sh</h2>
+<pre><code>#!/bin/bash
+
+# Load some modules
+module load star/2.7.6a
+ 
+## Useful shortcuts
+export refdir=~/classdata/REFS
+
+## Change --sjdbOverhang to length of your sequence data /2 minus 1
 
 
+echo "\n\n I TOLD YOU NOT TO RUN THIS ONE NOW! \n\n (unless you're in the future and trying to run this for real, in which case you need to edit this script and remove the # characters from the command)"
+
+STAR    --runThreadN 8 \
+        --limitGenomeGenerateRAM 321563573 \
+        --runMode genomeGenerate \
+        --genomeDir  $refdir/ \
+        --genomeFastaFiles $refdir/Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa \
+        --sjdbGTFfile $refdir/Arabidopsis_thaliana.TAIR10.47.gtf \
+        --sjdbOverhang 49</code></pre>
+</section>
+<section id="star.sh" class="level2">
+<h2 class="anchored" data-anchor-id="star.sh">3-star.sh</h2>
+<pre><code>#!/bin/bash
+
+## Load some Modules
+module load star/2.7.6a
+
+## Useful shortcuts
+export workingdir=~/mydata/Session5/RNAseq-Processing
+export refdir=~/classdata/Bioinformatics/REFS/STAR/
+
+## The commands you want to run
+mkdir $workingdir/star
+
+#list=("sample1" "sample2" "sample3")
+list=("SRR5222797" "SRR5222798" "SRR5222799")
+
+for i in ${list[@]}
+do
+# map forward and reverse reads to genome
+# If input data is gzipped (.fastq.gz) inculde the additional parameter:   --readFilesCommand zcat
+STAR   --outMultimapperOrder Random \
+       --outSAMmultNmax 1 \
+       --runThreadN 4  \
+       --runMode alignReads \
+       --outSAMtype BAM Unsorted \
+       --quantMode GeneCounts \
+       --outFileNamePrefix $workingdir/star/${i}-unsort. \
+       --genomeDir $refdir \
+       --readFilesIn $workingdir/fastq/${i}-trim_1P.fastq $workingdir/fastq/${i}-trim_2P.fastq
+done</code></pre>
+</section>
+<section id="markduplicates.sh" class="level2">
+<h2 class="anchored" data-anchor-id="markduplicates.sh">4-markduplicates.sh</h2>
+<pre><code>#!/bin/bash
+
+#load some modules
+module load picard/2.26.2
+module load samtools/1.15.1
+
+## Useful shortcuts
+export workingdir=~/mydata/Session5/RNAseq-Processing
+
+mkdir markdup
+
+#list=("sample1" "sample2" "sample3")
+list=("SRR5222797" "SRR5222798" "SRR5222799")
+
+for i in ${list[@]}
+do
+samtools index $workingdir/star/${i}-unsort.Aligned.out.bam
+samtools sort -@ 4 -o $workingdir/star/${i}.sorted.bam $workingdir/star/${i}-unsort.Aligned.out.bam
+
+##  MARK DUPLICATES  ##
+picard MarkDuplicates I=$workingdir/star/${i}.sorted.bam O=$workingdir/markdup/${i}.markdup.bam M=$workingdir/markdup/${i}.metrics.markdup.txt REMOVE_DUPLICATES=false VALIDATION_STRINGENCY=SILENT
+
+
+## REMOVE DUPLICATES ##
+picard MarkDuplicates I=$workingdir/star/${i}.sorted.bam O=$workingdir/markdup/${i}.rmdup.bam M=$workingdir/markdup/${i}.metrics.rmdup.txt REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT
+
+done</code></pre>
+</section>
+<section id="featurecounts.sh" class="level2">
+<h2 class="anchored" data-anchor-id="featurecounts.sh">5-featurecounts.sh</h2>
+<pre><code>#!/bin/bash
+
+# Load some modules
+module load subread/2.0.2
+
+## Useful shortcuts
+export workingdir=~/mydata/Session5/RNAseq-Processing
+export refdir=~/classdata/Bioinformatics/REFS/STAR/
+
+
+mkdir $workingdir/featureCounts
+
+#list=("sample1" "sample2" "sample3")
+list=("SRR5222797" "SRR5222798" "SRR5222799")
+
+
+
+for i in ${list[@]}
+do
+
+featureCounts \
+        -T 4 -p -F GTF -t exon -g gene_id \
+        -a $refdir/Arabidopsis_thaliana.TAIR10.47.gtf \
+        -o $workingdir/featureCounts/${i}.markdup.featurecount \
+        $workingdir/markdup/${i}.markdup.bam
+
+featureCounts \
+        -T 4 -p -F GTF -t exon -g gene_id \
+        -a $refdir/Arabidopsis_thaliana.TAIR10.47.gtf \
+        -o $workingdir/featureCounts/${i}.rmdup.featurecount \
+        $workingdir/markdup/${i}.rmdup.bam
+
+done</code></pre>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -6,10 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Professor Peter Kille">
+<meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
 <meta name="dcterms.date" content="2023-10-12">
+<meta name="description" content="Course contributions are provided by Prof.&nbsp;Pete Kille and Dr Sarah Christofides but draw significantly on training material developed by Dr Daniel Pass (Compass Bioinformatics), Dr Alex Mullins and those involved with Biolinux project. Many thanks to all.">
 
-<title>Loading Software and Accessing Data</title>
+<title>Introduction to Big Data Biology and Bioinformatics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -116,7 +83,7 @@ background: darkred;
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body style="background-color:gray99;" class="nav-sidebar docked">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -125,7 +92,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1.1_Introduction to Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="./1.2_Loading_Software_Accessing_Data.html">Loading Software and Accessing Data</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome to Bioinformatics!</a></li><li class="breadcrumb-item"><a href="./index.html">Introduction to Big Data Biology and Bioinformatics</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,9 +105,14 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Loading Software and Accessing Data</h1>
-            <p class="subtitle lead">It’s all there if you know where to look</p>
-                      </div>
+      <h1 class="title">Introduction to Big Data Biology and Bioinformatics</h1>
+            <p class="subtitle lead">A guide to unlocking your inner bioinformatician</p>
+                  <div>
+        <div class="description">
+          Course contributions are provided by Prof.&nbsp;Pete Kille and Dr Sarah Christofides but draw significantly on training material developed by Dr Daniel Pass (Compass Bioinformatics), Dr Alex Mullins and those involved with Biolinux project. Many thanks to all.
+        </div>
+      </div>
+                </div>
   </div>
     
   
@@ -149,7 +121,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Professor Peter Kille </p>
+               <p>Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides </p>
             </div>
     </div>
       
@@ -185,7 +157,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Introduction to Big Data Biology and Bioinformatics</span></a>
   </div>
 </li>
@@ -225,7 +197,7 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link active">
+  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loading Software and Accessing Data</span></a>
   </div>
 </li>
@@ -368,18 +340,22 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#software" id="toc-software" class="nav-link active" data-scroll-target="#software">Software</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#visualising-text-files" id="toc-visualising-text-files" class="nav-link" data-scroll-target="#visualising-text-files">Visualising text files</a></li>
-  <li><a href="#using-text-editors" id="toc-using-text-editors" class="nav-link" data-scroll-target="#using-text-editors">Using text editors</a>
+  <li><a href="#bioinformatics-teaching-material" id="toc-bioinformatics-teaching-material" class="nav-link active" data-scroll-target="#bioinformatics-teaching-material">Bioinformatics Teaching Material</a>
   <ul class="collapse">
-  <li><a href="#text-files-word-processors-and-bioinformatics" id="toc-text-files-word-processors-and-bioinformatics" class="nav-link" data-scroll-target="#text-files-word-processors-and-bioinformatics">Text files, Word Processors and Bioinformatics</a>
+  <li><a href="#artifical-intelligence-ai-and-writing-code" id="toc-artifical-intelligence-ai-and-writing-code" class="nav-link" data-scroll-target="#artifical-intelligence-ai-and-writing-code">Artifical intelligence (AI) and Writing Code</a></li>
+  </ul></li>
+  <li><a href="#course-handbooks" id="toc-course-handbooks" class="nav-link" data-scroll-target="#course-handbooks">Course Handbooks</a></li>
+  <li><a href="#bioinformatics-road-map" id="toc-bioinformatics-road-map" class="nav-link" data-scroll-target="#bioinformatics-road-map">Bioinformatics Road-Map</a></li>
+  <li><a href="#course-components" id="toc-course-components" class="nav-link" data-scroll-target="#course-components">Course components</a>
   <ul class="collapse">
-  <li><a href="#nano" id="toc-nano" class="nav-link" data-scroll-target="#nano">Nano</a></li>
-  <li><a href="#vi-or-vim" id="toc-vi-or-vim" class="nav-link" data-scroll-target="#vi-or-vim">Vi (or Vim)</a></li>
+  <li><a href="#session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision" id="toc-session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision" class="nav-link" data-scroll-target="#session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision">Session 0. Basics of HPC and HPC vs Personal Cloud provision</a></li>
+  <li><a href="#session-1.-linux-the-basics" id="toc-session-1.-linux-the-basics" class="nav-link" data-scroll-target="#session-1.-linux-the-basics">Session 1. Linux: The basics</a></li>
+  <li><a href="#session-2.-ngs-data-manipulation-from-seqences-to-assemblies." id="toc-session-2.-ngs-data-manipulation-from-seqences-to-assemblies." class="nav-link" data-scroll-target="#session-2.-ngs-data-manipulation-from-seqences-to-assemblies.">Session 2. NGS Data Manipulation: From seqences to assemblies.</a></li>
+  <li><a href="#session-3.-genome-visualisation-and-annotation" id="toc-session-3.-genome-visualisation-and-annotation" class="nav-link" data-scroll-target="#session-3.-genome-visualisation-and-annotation">Session 3. Genome visualisation and annotation</a></li>
+  <li><a href="#session-4.-building-phylogenies" id="toc-session-4.-building-phylogenies" class="nav-link" data-scroll-target="#session-4.-building-phylogenies">Session 4. Building phylogenies</a></li>
+  <li><a href="#session-5.-transcriptomics" id="toc-session-5.-transcriptomics" class="nav-link" data-scroll-target="#session-5.-transcriptomics">Session 5. Transcriptomics</a></li>
+  <li><a href="#session-6.-microbial-community-analysis" id="toc-session-6.-microbial-community-analysis" class="nav-link" data-scroll-target="#session-6.-microbial-community-analysis">Session 6. Microbial community analysis</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#end-of-session-1.-go-and-relax" id="toc-end-of-session-1.-go-and-relax" class="nav-link" data-scroll-target="#end-of-session-1.-go-and-relax">End of Session 1. Go and relax!</a></li>
   </ul>
 </nav>
     </div>
@@ -389,188 +365,122 @@ background: darkred;
 
 
 
-
-<p>Now that you’re (hopefully) re-caffeinated and have stretched your legs and cleared your brain, let’s have a look at some more need-to-know information.</p>
-<section id="software" class="level1">
-<h1>Software</h1>
-<p>The linux OS has some really powerful utilities but these are not truly bioinformatics software. We have to ‘install’ or ‘load’ software. We do not want tp have all our software loaded all the time, as many informatic tools are very complex i.e.&nbsp;requiring different versions of python or java to run. Having software that requires conflicting versions loaded at the same time can cause a malfunction.</p>
-<p>Most managed HPC systems (not your own personal computer) manage this by using modules. These are preconfigured installers for your software packages. Cardiff systems use modules - if this is the case you can see the software that is available try the following command:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>this will bring up a software list that looks like the following:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">abyss/2.3.1</span>        caliper/2.8.0    fastx-toolkit/0.0.14  mcl/14-137          racon/1.4.3      tbl2asn/2022-04-26</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">alan/2.1.1</span>         cdhit/4.8.1      figtree/1.4.3         minimap2/2.14       raxml-ng/1.0.2   tmux/3.2a</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">barrnap/0.8</span>        dos2unix/7.4.2   freebayes/1.3.6       ncurses/6.3         samtools/1.15.1  trimmomatic/0.39</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">bcftools/1.14</span>      emboss/6.6.0     gdbm/1.23             perl-bioperl/1.7.6  seqtk/1.3        velvet/1.2.10</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools2/2.30.0</span>   fastp/0.20.0     hmmer/3.3.2           picard/2.26.2       spades/3.15.5    vt/0.5772</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">blast-plus/2.13.0</span>  fastqc/0.11.9    igv/2.12.3            pilon/1.22          star/2.7.6a      wtdbg2/2.3</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2/2.4.2</span>      fasttree/2.1.11  mafft/7.481           prokka/1.14.6       subread/2.0.2</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">.......</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Any of these software packages can be loaded by simply using the module load command, e.g.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/0.11.9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Remember to unload the module when you are finished so it does not conflict with the next piece of software, or if you want to unload all modules, use the module purge command.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload fastqc/0.11.9</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">or</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> purge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="data" class="level1">
-<h1>Data</h1>
-<p>The data for your course is available to you on a pre-mapped drive location. You can see and list the folders it contains using the following simple command:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ~/classdata/</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#this should yield the following list of folders</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">REFS</span>  Session1  Session2  Session3  Session4  Session5  Session6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You can <strong>see these folders but not write to them</strong>! Before each session, copy the corresponding folder to your mydata directory using <code>cp</code>.</p>
-<p>Note the inclusion of the ‘-r’ flag to allow you to copy the folder ‘recursively’: this will copy all the folders and files inside.</p>
-</section>
-<section id="visualising-text-files" class="level1">
-<h1>Visualising text files</h1>
-<p>There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but not edit them. Among the most common of these commands are <code>cat</code>, <code>more</code>, <code>less</code>, <code>head</code> and <code>tail</code>.</p>
-<p><code>cat</code> streams the entire contents of a file to your terminal and is thus not that useful for reading long files as the text streams past too quickly to read. It is a very useful facility for reading files into other programs.</p>
-<p><code>head</code> and <code>tail</code> show the beginning and end 10 lines of a document, respectively. <code>head</code> in particular is useful for taking a quick peek inside a file. You can use the argument -n [number] to change the number of lines displayed. For example, to see the first 20 lines of a file:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 20 file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><code>more</code> and <code>less</code> are commands that show the contents of a file one page at a time, but <code>less</code> has more functionality than <code>more</code> (doh)! With both <code>more</code> and <code>less</code>, you can use the space bar to scroll down the page, and typing the letter q causes the program to quit – returning you to your command line prompt.</p>
-<p>Once you are reading a document with <code>more</code> or <code>less</code>, typing a forward slash / will start a prompt at the bottom of the page, and you can then type in text that is searched for below the point in the document you were at. Typing in a ? also searches for a text string you enter, but it searches in the document above the point you were at. Hitting the n key during a search looks for the next instance of that text in the file.</p>
-<p>With <code>less</code> (but not <code>more</code>), you can use the arrow keys to scroll up and down the page, and the b key to move back up the document if you wish to.</p>
-<p>Remember these are just for reading the files. If you want to edit them you’ll need a text editor like nano or vi (see below).</p>
-<p>There are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise: looking at text files
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Move into mydata/Session1</p>
-<p>Explore the file O97435.txt by using the commands <code>cat</code>, <code>more</code>, <code>less</code>, <code>head</code> and <code>tail</code>. (Note that the file name starts with a capital O, rather than a zero.)</p>
-<p>Don’t forget that tab completion can save you typing effort!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> O97435.txt</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">more</span> O97435.txt <span class="co"># Use the spacebar to scroll down</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Press</span> q to quit.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now try <code>less</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> O97435.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Use the spacebar to scroll down, b to go up a page, and the up and down arrow keys to move up and down the file line by line.</p>
-<p>Press the / key and search for the letters sequence in the file. Press the ? key and search for the letters gene in the file.</p>
-<p>Press the n key to search for other instances of gene in the file.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> O97435.txt</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> O97435.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>For reading files yourself, we recommend the command <code>less.</code> The command <code>cat</code> is more usually used in conjunction with other commands when you wish to process text from within a file in some way.</p>
-<p>Remember the man pages</p>
-<p>There are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> cat</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> more</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> less</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> head</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> tail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Visualising files using less, cat, head and tail
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=94ba890f-5ad3-447b-871e-b09400e844d5&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=65b33cd7-3caa-45f5-8ca5-af800109ea98&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
-</div>
-</div>
-</div>
-</section>
-<section id="using-text-editors" class="level1">
-<h1>Using text editors</h1>
-<p>Plain text files are important, both as input to bioinformatics programs and as input or configuration files for system programs. We highly recommend that you learn to use a text editor to prepare and edit plain text files.</p>
-<section id="text-files-word-processors-and-bioinformatics" class="level2">
-<h2 class="anchored" data-anchor-id="text-files-word-processors-and-bioinformatics">Text files, Word Processors and Bioinformatics</h2>
-<p>Documents written using a word processor such as Microsoft Word or OpenOffice Write are not plain text documents and will not work in either a text editor or if used as a script. If your filename has an extension such as .doc or .odt, it is unlikely to be a plain text document. (Try opening a Word document in notepad or another text editor on Windows if you want proof of this.)</p>
-<p>Word processors are very useful for preparing documents, but do not use them for working with bioinformatics-related files. We recommend that you prepare text files for bioinformatics analyses using Linux-based text editors and not Windows- or Mac-based text editors. This is because Windows- or Mac-based text editors may insert hidden characters that are not handled properly by Linux-based programs. There are endless posts on bioinformatics forums bemoaning the problems that arise from this!</p>
-<p>There are a number of different text editors available on Bio-Linux. These range in ease of use, and each has its pros and cons. In this practical we will briefly look at two editors, <strong><em>nano and vi</em></strong>. Vi is an extremely powerful text editor and popular with many professionals, as it is installed on almost every Linux system. However, it is also notoriously frustrating to get to grips with. For this reason, you are probably better starting off with nano, which is very easy to use and displays instructions at the bottom of the screen.</p>
-<section id="nano" class="level3">
-<h3 class="anchored" data-anchor-id="nano">Nano</h3>
-<p><strong><em>Pros:</em></strong></p>
-<p>Very easy – For example, command options are visible at the bottom of the window, it can be used when logged in without graphical support, and is fast to start up and use</p>
-<p><strong><em>Cons:</em></strong></p>
-<p>By default it puts return characters into lines too long for the screen (i.e.&nbsp;using nano for system administration can be dangerous!) This behavior can be changed by setting different defaults for the program or running it with the –w option. It is not completely intuitive for people who are used to graphical word processors.</p>
-</section>
-<section id="vi-or-vim" class="level3">
-<h3 class="anchored" data-anchor-id="vi-or-vim">Vi (or Vim)</h3>
-<p><strong><em>Pros:</em></strong></p>
-<p>Appears on nearly every Unix system. Can be very powerful if you take the time to know the key-short cuts.</p>
-<p><strong><em>Cons:</em></strong></p>
-<p>You have to know the shortcuts!! There’s no menus and no on screen prompts</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Note that unlike most graphical programmes, where you write a document and then name it at the end, command-line text editors require you to name a file when you create it.</p>
-<section id="create-a-file-with-nano" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-file-with-nano">Create a file with nano</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> test_nano.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Type some text, exit ctrl X, save and return to command line now list the contents of the file you created</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> test_nano.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="create-a-file-with-vi" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-file-with-vi">Create a file with vi</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vi</span> test_vi.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Vi has two separate modes: ‘input’ mode, where you can type and edit text, and ‘control’ mode where you can do things such as save, search and exit the programme.</p>
-<p>Type ‘i’ to enter input mode, and add some text.</p>
-<p>Press [esc] to enter control mode.</p>
-<p>Exit, saving your edits, by typing <code>:wq</code> - this stands for write and quit! If you wanted to exit without saving the edits, typing <code>:q!</code> will force vi to exit without saving.</p>
-<p>Now list the contents of the file you created</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> test_vi.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</div>
-</div>
+<section id="bioinformatics-teaching-material" class="level1">
+<h1>Bioinformatics Teaching Material</h1>
+<p>This training material is aimed at the novice with no experience of high performance computing (HPC) or bioinformatics. You could be a biologist who wants to up their bioinformatics skills or a physical scientist (trained in computer science, maths or physics) interested in applying your skills to the biological arena - this is where the journey starts.</p>
+<p>Big data is a fact of life for biologists whether they are reconstructing ecosystems from fragments of DNA found in the environment (eDNA) or reconstructing neural systems from MRI scans of brains - all walks of biology are exploiting larger and larger data sets. To access these data sets you will need a new set of skills - <strong><em>the time of big data biology is now</em></strong>.</p>
+<p>This is a challenging but ultimately exciting and productive area of training, so before we start here are a few pieces of important advice to carry with you on the journey:</p>
+<ul>
+<li><strong><em>RTFM: Read The - Fantastic - Manual</em></strong></li>
+</ul>
+<p>You will be using very complex software which will (mostly) generate some type of output - you need to know that output is valid and makes sense. By reading the manual and understanding the concepts and theory behind what you are doing you will find it not only easier to use the software but also ensure that your results make sense. Most software comes with a GitHub page, an online guide, a README file, help (accessed via the -h or -help flags) or a manual (man [command]). Sometimes these can be very technical, so don’t be discouraged if you don’t understand it all: just looking through and gleaning bits of information will make a huge difference to your understanding and confidence. These resources have taken a huge amount of effort to generate - look through them, get to know the options, it will really help.</p>
+<ul>
+<li><strong><em>Keep a notebook and annotate your code</em></strong></li>
+</ul>
+<p>Bioinformatic analyses are <em>in silico</em> experiments, and just as you would not perform an experiment in the lab without making appropriate notes you should always make notes relating to your computational processing. I suggest creating a text file as a note book and use it to record what you did along with the final code/commands you used and any thoughts/ ideas/ pitfalls you had along the way. Lots of informaticians use <a href="https://en.wikipedia.org/wiki/Markdown">‘markdown’</a> which is a simple text based system which means your logbooks/notes can easily be rendered to provide structure and formatting. Also always add comments to your code so that you (or anyone else) using the code can follow what you did. In nearly all coding platforms if you put a <code>#</code> in front of a line of text, that line will be ignored and not ‘executed’ as code.</p>
+<ul>
+<li><strong><em>Be part of the wider bioinformatics community</em></strong></li>
+</ul>
+<p>There is a global bioinformatics community on-line and actively posting in chat rooms. Often the technical problem you are having or error code that has appeared has been seen before and you can find people have posted solution in old threads. <a href="https://stackoverflow.com/">Stack Overflow</a> is a great place to start. You can post questions yourself and when you get more experienced find some time to contribute and help others.</p>
+<p>Get to know other people on your course/ in your department who do bioinformatics. Having a buddy to discuss ideas and troubleshoot problems with makes a huge difference. Don’t underestimate the value of a fresh pair of eyes when looking for bugs in code! We are all perpetually learning, and even the most experienced bioinformatician can pick up helpful tips and new ideas from talking to others.</p>
+<p>From chat rooms to human conversations with your colleagues, I have always gained more by contributing than trying to do things on my own. If you have time to develop your knowledge more formally I highly recommend lab exchanges or attending conferences or ‘hack-a-thons’ - it is fun to meet/learn from the people that develop the amazing code we use (and maybe buy them beer to say thank you!).</p>
+<ul>
+<li><strong><em>Google is your friend</em></strong></li>
+</ul>
+<p>Other search engines are also available… whether you are looking for code, troubleshooting a problem or looking for new software, a five-minute web search can save a huge amount of time and/or reveal new exciting solutions/software. There are lots of tools on the internet that can help you with coding from YouTube videos to AI chat bots like <a href="https://openai.com/blog/chatgpt/">ChatGPT</a> (see section below). These are all part of the solution - find what works for you but always try and understand what you are doing (you don’t want to find that that great bit of code you copied is actually doing something you didn’t want it to).</p>
+<ul>
+<li><strong><em>Solving problems is fun but do not forget the question</em></strong></li>
+</ul>
+<p>The coding and problem-solving aspects of bioinformatics can be really seductive and fun (or frustrating and exasperating) and can draw you in so all you are focused on is solving a gnarly problem with your code or writing a complex workflow. (Who needs Sudoku?) However, DO NOT FORGET the question you started with!!</p>
+<p>It often helps to step back (Pete has a coffee, Sarah goes for a walk), get some perspective and think about what you are trying to achieve: you could find a new way forward or find what you are doing is not needed. Always keep the big picture in mind of what you want to achieve and how each step will get you towards that goal. It’s easy to get lost in the code, but ultimately it is there to address a biological question - target your analysis to ensure it addressing the answers you seek. I suggest doodling a flow diagram on a physical sheet of paper before you even attempt to wade into typing commands.</p>
+<p>And above all - have some fun doing science!!</p>
+<section id="artifical-intelligence-ai-and-writing-code" class="level2">
+<h2 class="anchored" data-anchor-id="artifical-intelligence-ai-and-writing-code">Artifical intelligence (AI) and Writing Code</h2>
+<p>There has been a recent explosion in the quality and availability of large language models (LLM), colloquially referred to simply as AI, of which ChatGPT remains the most famous. One of their much-vaunted features is the ability to write code, which begs the question: should I use AI to help me write my bioinformatics scripts? The answer is… it depends how you use it. LLMs will quickly churn out code which is (mostly) runnable. However, there is no guarantee that the code does exactly what you think it does. If you want to use AI-generated code, you will need to go through it line by line, checking and testing exactly what is happening; this, obviously, still requires you to understand the code in detail.</p>
+<p>One area is which LLMs are likely to prove very useful is in debugging. Error messages usually contain useful information, but not necessarily in a wording accessible to a beginner. LLMs are showing promise for helping to identify and diagnose bugs in code.</p>
+<p>If you want some tips for using LLMs to write code, <a href="https://www.nature.com/articles/d41586-023-01833-0">this article</a> from <em>Nature</em> provides some guidance.</p>
 </section>
 </section>
+<section id="course-handbooks" class="level1">
+<h1>Course Handbooks</h1>
+<p>This training material, or elements of it, are used across a number of courses. The specific handbook for your course will have been provided to you by email. However, if you have been directed to these web pages because you are interested in developing your bioinformatics skills, or come come across them by chance, you should be able to follow the exercises independently without reference to the handbooks.</p>
 </section>
-<section id="end-of-session-1.-go-and-relax" class="level1">
-<h1>End of Session 1. Go and relax!</h1>
-<p>Or if you’re a total nerd and can’t leave the command line, go ahead and have a look at <em>Extension: Commandline Tools and Scripting</em>. This contains more Linux-related tidbits and a sneak preview of some material we’ll cover in Session 2.</p>
+<section id="bioinformatics-road-map" class="level1">
+<h1><a href="https://prezi.com/view/PJXGFaOeSh7r9EsmBCD1/">Bioinformatics Road-Map</a></h1>
+<p>Different people learn in different ways and sometimes it is good to see a wider perspective of where the concept or challenge you are facing fits into the wide field. To aid this I have generated a interactive course guide using a tool call ‘prezi’. This is just one way you can navigate the material - it may not work for you or it may be the life-line that helps you navigate your way through !! You can view the course from an overview perspective then click on the relevant element and zoom in to see additional resources.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://prezi.com/view/PJXGFaOeSh7r9EsmBCD1/"><img src="images/Prezi_Overview.png" class="img-fluid figure-img" alt="Prezi Overview"></a></p>
+<figcaption class="figure-caption">Prezi Overview</figcaption>
+</figure>
+</div>
+<p>When you are zoomed in, the resources appear in colour coded spheres - red are lectures, purples are workshop materials and light green web-resources. If you click again you will zoom in to see specific links to the relevant training material.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Prezi_zoom.png" class="img-fluid figure-img" alt="Prezi Zooming In for Resources and Links"></p>
+<figcaption class="figure-caption">Prezi Zooming In for Resources and Links</figcaption>
+</figure>
+</div>
+</section>
+<section id="course-components" class="level1">
+<h1>Course components</h1>
+<p>If you are following this course as part of a taught module, Session 0 will be covered in the preliminary session to get you online and set up. Apart from Session 1 (which is a single 3-hour session), all the subsequent sessions will be allocated two 3-hour slots. The first will cover new material and the core workshop exercises. The second will be an opportunity for you to finish off/revisit any material you want to; if you’re happy with what you’ve done so far, there are extension exercises provided for the second session that allow you to practise your skills and take them further.</p>
+<section id="session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision" class="level2">
+<h2 class="anchored" data-anchor-id="session-0.-basics-of-hpc-and-hpc-vs-personal-cloud-provision">Session 0. Basics of HPC and HPC vs Personal Cloud provision</h2>
+<p>This element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to logging in to the research platforms at Cardiff School of Biosciences. If you are a researcher at Cardiff wanting to gain access to HPC please contact our <a href="http://hpc.bios.cf.ac.uk/contacts/">Biocompute team</a> and join the bioinformatics Teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google …. many of these provide limited free options which can help you to learn.</p>
+</section>
+<section id="session-1.-linux-the-basics" class="level2">
+<h2 class="anchored" data-anchor-id="session-1.-linux-the-basics">Session 1. Linux: The basics</h2>
+<p>This introduces you to the command line - yes, no more clicking on icons as it is all about writing commands !!</p>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.1_Introduction%20to%20Linux.html">Introduction to Linux</a></p>
+<p>This represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you started quickly.</p>
+<p>This session gives more detail about the Linux basics, covering navigating around your Linux system (it has some graphical representations of your file system), auto-completion, file permissions and the fundamental anatomy of a linux command. We cover simple commands (copy/move ect.), how to preview files (less/cat/head/tail) and how to edit files (we use Nano but touch on using Vi).</p>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.2_Loading_Software_Accessing_Data.html">Loading Software and Accessing Data</a></p>
+<p>A guide to how to access the software and data you will need for the rest of the course, plus more useful Linux commands.</p>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.3_Commandline_Tools_and_Scripting.html">Extension: Commandline Tools and Scripting</a></p>
+<p>From querying files with grep, running scripts and using loops, this material provides some more exercises to develop your skills.</p>
+</section>
+<section id="session-2.-ngs-data-manipulation-from-seqences-to-assemblies." class="level2">
+<h2 class="anchored" data-anchor-id="session-2.-ngs-data-manipulation-from-seqences-to-assemblies.">Session 2. NGS Data Manipulation: From seqences to assemblies.</h2>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/2.1_NGS_Quality_Control.html">An Introduction to NGS Data and Quality Control</a></p>
+<p>Most of our training material focuses on bioinformatics application in the area of genomics. This section introduces the fundamental concepts of Next Generation Sequencing (NGS) and the basic file types (fasta / fastq) and approaches to quality control and initial data processing.</p>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/2.2_genome_assembly.html">Genome Assembly</a></p>
+<p>Approaches to genome assembly vary hugely depending on what you are assembling and what type of data you have available to you. This course introduces the fundamental concepts of assembly and how you evaluate the quality of your assemblies. It provides examples and approaches that are good for small genomes - like organelles (15-200 kb) and bacterial genomes (1-5 Mb). The primary examples use short read (Illumina) have be customised to exploit long read (Nanopore / Pacbio) or combinations of short and long read data.</p>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/2.3_hybrid_assemblies.html">Extension: Hybrid Assemblies</a></p>
+<p>Often the best way to get a high-quality genome is by a hybrid assembly: combining short-read (Illumina) and long-read (Nanopore/PacBio) data. This session will guide you through the principles of hybrid assembly.</p>
+</section>
+<section id="session-3.-genome-visualisation-and-annotation" class="level2">
+<h2 class="anchored" data-anchor-id="session-3.-genome-visualisation-and-annotation">Session 3. Genome visualisation and annotation</h2>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/3.1_Genome_visualisation_and_annotation.html">Genome Annotation and Visualisation</a></p>
+<p>A genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results. We primarily use Artemis (Sanger Centre) but also introduce Integrated Genome Viewer (IGV) from the Broad Institute.</p>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/3.2_Annotating_mitochondria.html">Extension: Annotating Mitochodria</a></p>
+<p>Annotating a mitochrondrial genome requires some different software to a bacterial genome. Here we walk you through using it.</p>
+</section>
+<section id="session-4.-building-phylogenies" class="level2">
+<h2 class="anchored" data-anchor-id="session-4.-building-phylogenies">Session 4. Building phylogenies</h2>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/4.1_phylogentics_phylogenomics.html">Phylogenetics and Phylogenomics</a></p>
+<p>The taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual.</p>
+</section>
+<section id="session-5.-transcriptomics" class="level2">
+<h2 class="anchored" data-anchor-id="session-5.-transcriptomics">Session 5. Transcriptomics</h2>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.1_Transcriptomics_Introduction.html">Transcriptomics Introduction</a></p>
+<p>An introductory lecture on RNA sequencing. The subsequent workshop has been divided into three parts each targeted at different aspects of the process.</p>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.2_RNAseq_processing.html">RNAseq Data Processing</a></p>
+<p>Transcriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to transcript counts for an organism with an existing genome. We include approaches to identify and evaluate technical duplication, although be aware this may not be relevant to your analytical approach.</p>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.3_DEG_analysis.html">Generation of Differentially Expressed Gene (DEG) Lists</a></p>
+<p>Performing quality control and provisional data visualisation (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use <a href="https://github.com/PF2-pasteur-fr/SARTools">SARTools</a> developed at the Pasteur Institute to illustrate best practice in transcriptome analysis. We also include multivariate approaches to data visualization such as PCA and HCA (hierarchical clustering analysis).</p>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.4_DEG_Functional_Interpretation.html">Functional Interpretation of DEGs</a></p>
+<p>Interpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks.</p>
+</section>
+<section id="session-6.-microbial-community-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="session-6.-microbial-community-analysis">Session 6. Microbial community analysis</h2>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/6.1_metabarcoding.html">Metabarcoding</a></p>
+<p>Amplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, <em>RbcL</em> for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)[https://qiime2.org/] to navigate you through preliminary metabarcoding data analysis.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
