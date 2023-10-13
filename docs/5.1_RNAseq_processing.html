@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof Peter Kille">
+<meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
 <meta name="dcterms.date" content="2023-10-13">
 
 <title>RNAseq Processing</title>
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -91,7 +125,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.1_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.2_RNAseq_processing.html">RNAseq Processing</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.1_RNAseq_processing.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.1_RNAseq_processing.html">RNAseq Processing</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -115,7 +149,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Prof Peter Kille </p>
+               <p>Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides </p>
             </div>
     </div>
       
@@ -283,25 +317,19 @@ background: darkred;
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.1_Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Transcritomics An Introduction</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5.2_RNAseq_processing.html" class="sidebar-item-text sidebar-link active">
+  <a href="./5.1_RNAseq_processing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">RNAseq Processing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.3_DEG_analysis.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.2_DEG_analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Differential Gene Expression Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.4_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.3_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DEG Functional Interpretation</span></a>
   </div>
 </li>
@@ -334,15 +362,19 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#trancriptomics-an-introduction" id="toc-trancriptomics-an-introduction" class="nav-link active" data-scroll-target="#trancriptomics-an-introduction">Trancriptomics: an introduction</a></li>
+  <li><a href="#rnaseq-processing" id="toc-rnaseq-processing" class="nav-link" data-scroll-target="#rnaseq-processing">RNASeq processing</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
   <li><a href="#alignment" id="toc-alignment" class="nav-link" data-scroll-target="#alignment">Alignment</a></li>
   <li><a href="#counting" id="toc-counting" class="nav-link" data-scroll-target="#counting">Counting</a></li>
   <li><a href="#differential-gene-analysis" id="toc-differential-gene-analysis" class="nav-link" data-scroll-target="#differential-gene-analysis">Differential Gene Analysis</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
   </ul></li>
-  <li><a href="#excercises" id="toc-excercises" class="nav-link" data-scroll-target="#excercises">Excercises</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#software-and-scripts" id="toc-software-and-scripts" class="nav-link" data-scroll-target="#software-and-scripts">Software and scripts</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a>
   <ul class="collapse">
   <li><a href="#qc.sh" id="toc-qc.sh" class="nav-link" data-scroll-target="#qc.sh"></a><a id="qc" class="nav-link" data-scroll-target="undefined"></a>1-QC.sh</li>
@@ -360,15 +392,22 @@ background: darkred;
 
 
 
+<section id="trancriptomics-an-introduction" class="level1">
+<h1>Trancriptomics: an introduction</h1>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3c57884e-a916-4241-9d54-af7d0117a8fc&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+</section>
+<section id="rnaseq-processing" class="level1">
+<h1>RNASeq processing</h1>
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=33753314-378f-47fe-9c2e-af630098dbaf&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
-<p><a href="https://cf.sharepoint.com/:p:/t/BigDataTeaching/ERuWEMFBHFxBhmhas2ISPEgB_suG7fDzPfcL7s_wed8WVQ?e=BKZElX">RNAseq Processing Powerpoint</a></p>
+</section>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>Three main steps are taken to analyse a series of RNAseq fastq sample files (following quality filtering):</p>
 <section id="alignment" class="level2">
 <h2 class="anchored" data-anchor-id="alignment">Alignment</h2>
-<p>STAR – (Spliced Transcript Alignments to a Reference) is an alignment package which functions similarly to standard genome alignments but is designed for short regions of RNA that could span intron-exon junctions and with low compute requirements. STAR outputs a bam format file which contains the locations where all the reads in your dataset have aligned and the genes they cover.</p>
+<p>STAR – (Spliced Transcript Alignments to a Reference) is an alignment package which functions similarly to standard genome alignments, but is designed for short regions of RNA that could span intron-exon junctions and with low compute requirements. STAR outputs a bam format file which contains the locations where all the reads in your dataset have aligned and which genes they cover.</p>
 </section>
 <section id="counting" class="level2">
 <h2 class="anchored" data-anchor-id="counting">Counting</h2>
@@ -380,24 +419,25 @@ background: darkred;
 <p>Contrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.</p>
 <p>Following these three steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.</p>
 </section>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>The data you will need for this exercise are:</p>
-<pre><code>~/classdata/Bioinformatics/Day4/ RNAseq-Processing/fastq
-SRR5222797_1.fastq    SRR5222797_2.fastq
-SRR5222798_1.fastq    SRR5222798_2.fastq
-SRR5222799_1.fastq    SRR5222799_2.fastq
-
-~/classdata/Bioinformatics/STAR/REFS
-Arabidopsis_thaliana.TAIR10.47.gtf
-Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa</code></pre>
-<p><strong>This folder contains lots of other index files for star to function that you don’t need to touch!</strong> Note: most programs will accept fastq or fastq.gz without any changes however star requires you to include the <code>--readFilesCommand zcat</code> parameter.</p>
 </section>
-<section id="software" class="level2">
-<h2 class="anchored" data-anchor-id="software">Software</h2>
-<p>We will be using scripts to run these steps. In the classdata/Day4/scripts folder you will find the following that you can use to base your analysis, however make sure you’re tuning it to your own file structure and file names.</p>
-<p>So far we have used only a small dataset to quickly practice the steps but now we’ll be using a full sized RNAseq sample otherwise it causes the programs to think it’s bad data. In the classdata/Day3 folder there four pairs of RNAseq files from an Arabidopsis RNAseq study. In the folder classdata/REFS there is a reference genome, and a gtf file. <strong>The step 2 “star index genome” has already been ran for you (you don’t need to do this!)</strong></p>
-<pre><code>~/classdata/Bioinformatics/Day4/RNAseq-Processing</code></pre>
+<section id="data" class="level1">
+<h1>Data</h1>
+<p>The data you will need for this exercise are:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/Bioinformatics/Day4/</span> RNAseq-Processing/fastq</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">SRR5222797_1.fastq</span>    SRR5222797_2.fastq</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">SRR5222798_1.fastq</span>    SRR5222798_2.fastq</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">SRR5222799_1.fastq</span>    SRR5222799_2.fastq</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/Bioinformatics/STAR/REFS</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Arabidopsis_thaliana.TAIR10.47.gtf</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>This folder contains lots of other index files for star to function that you don’t need to touch!</strong> Note: most programs will accept fastq or fastq.gz without any changes however star requires you to include the <code>--readFilesCommand zcat</code> parameter.</p>
+<section id="software-and-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="software-and-scripts">Software and scripts</h2>
+<p>We will be using scripts to run these steps. In the <code>classdata/Session5/scripts</code> folder you will find the following that you can use as a basis for your analysis, however make sure you’re tuning it to your own file structure and file names.</p>
+<p>So far we have used only a small dataset to quickly practice the steps but now we’ll be using a full sized RNAseq sample otherwise it causes the programs to think it’s bad data. In the classdata/Day3 folder there four pairs of RNAseq files from an Arabidopsis RNAseq study. In the folder classdata/REFS there is a reference genome, and a gtf file. <strong>The step 2 “star index genome” has already been run for you (you don’t need to do this!)</strong></p>
 <p><a href="#scripts">Scripts</a></p>
 <ul>
 <li>1-QC.sh</li>
@@ -410,9 +450,9 @@ Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa</code></pre>
 </ul>
 </section>
 </section>
-<section id="excercises" class="level1">
-<h1>Excercises</h1>
-<p>Using the premade scripts perform the steps on four pairs of fastq files. There are examples of all of these files in the classdata/Day4 directory which you should copy into your own folder. You may need to edit them to represent your own working folder and filenames:</p>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<p>Using the pre-made scripts provided, perform the steps on four pairs of fastq files. There are examples of all of these files in the <code>classdata/Session5</code> directory which you should copy into your own folder. You will need to edit them to represent your own working folder and filenames:</p>
 <ol type="1">
 <li>QC and trim your sample data</li>
 <li>Use the outputs from your QC script as inputs to run star.</li>
@@ -463,124 +503,132 @@ done</code></pre>
 </section>
 <section id="star_index_genome.sh" class="level2">
 <h2 class="anchored" data-anchor-id="star_index_genome.sh">2-star_index_genome.sh</h2>
-<pre><code>#!/bin/bash
-
-# Load some modules
-module load star/2.7.6a
- 
-## Useful shortcuts
-export refdir=~/classdata/REFS
-
-## Change --sjdbOverhang to length of your sequence data /2 minus 1
-
-
-echo "\n\n I TOLD YOU NOT TO RUN THIS ONE NOW! \n\n (unless you're in the future and trying to run this for real, in which case you need to edit this script and remove the # characters from the command)"
-
-STAR    --runThreadN 8 \
-        --limitGenomeGenerateRAM 321563573 \
-        --runMode genomeGenerate \
-        --genomeDir  $refdir/ \
-        --genomeFastaFiles $refdir/Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa \
-        --sjdbGTFfile $refdir/Arabidopsis_thaliana.TAIR10.47.gtf \
-        --sjdbOverhang 49</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load some modules</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load star/2.7.6a</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Useful shortcuts</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">refdir</span><span class="op">=</span>~/classdata/REFS</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Change --sjdbOverhang to length of your sequence data /2 minus 1</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"\n\n I TOLD YOU NOT TO RUN THIS ONE NOW! \n\n (unless you're in the future and trying to run this for real, in which case you need to edit this script and remove the # characters from the command)"</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ex">STAR</span>    <span class="at">--runThreadN</span> 8 <span class="dt">\</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">--limitGenomeGenerateRAM</span> 321563573 <span class="dt">\</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">--runMode</span> genomeGenerate <span class="dt">\</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">--genomeDir</span>  <span class="va">$refdir</span>/ <span class="dt">\</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">--genomeFastaFiles</span> <span class="va">$refdir</span>/Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa <span class="dt">\</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">--sjdbGTFfile</span> <span class="va">$refdir</span>/Arabidopsis_thaliana.TAIR10.47.gtf <span class="dt">\</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">--sjdbOverhang</span> 49</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="star.sh" class="level2">
 <h2 class="anchored" data-anchor-id="star.sh">3-star.sh</h2>
-<pre><code>#!/bin/bash
-
-## Load some Modules
-module load star/2.7.6a
-
-## Useful shortcuts
-export workingdir=~/mydata/Session5/RNAseq-Processing
-export refdir=~/classdata/Bioinformatics/REFS/STAR/
-
-## The commands you want to run
-mkdir $workingdir/star
-
-#list=("sample1" "sample2" "sample3")
-list=("SRR5222797" "SRR5222798" "SRR5222799")
-
-for i in ${list[@]}
-do
-# map forward and reverse reads to genome
-# If input data is gzipped (.fastq.gz) inculde the additional parameter:   --readFilesCommand zcat
-STAR   --outMultimapperOrder Random \
-       --outSAMmultNmax 1 \
-       --runThreadN 4  \
-       --runMode alignReads \
-       --outSAMtype BAM Unsorted \
-       --quantMode GeneCounts \
-       --outFileNamePrefix $workingdir/star/${i}-unsort. \
-       --genomeDir $refdir \
-       --readFilesIn $workingdir/fastq/${i}-trim_1P.fastq $workingdir/fastq/${i}-trim_2P.fastq
-done</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Load some Modules</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load star/2.7.6a</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Useful shortcuts</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">workingdir</span><span class="op">=</span>~/mydata/Session5/RNAseq-Processing</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">refdir</span><span class="op">=</span>~/classdata/Bioinformatics/REFS/STAR/</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">## The commands you want to run</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="va">$workingdir</span>/star</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#list=("sample1" "sample2" "sample3")</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="va">list</span><span class="op">=</span><span class="va">(</span><span class="st">"SRR5222797"</span> <span class="st">"SRR5222798"</span> <span class="st">"SRR5222799"</span><span class="va">)</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="va">${list</span><span class="op">[@]</span><span class="va">}</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># map forward and reverse reads to genome</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># If input data is gzipped (.fastq.gz) inculde the additional parameter:   --readFilesCommand zcat</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="ex">STAR</span>   <span class="at">--outMultimapperOrder</span> Random <span class="dt">\</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">--outSAMmultNmax</span> 1 <span class="dt">\</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">--runThreadN</span> 4  <span class="dt">\</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">--runMode</span> alignReads <span class="dt">\</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">--outSAMtype</span> BAM Unsorted <span class="dt">\</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">--quantMode</span> GeneCounts <span class="dt">\</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">--outFileNamePrefix</span> <span class="va">$workingdir</span>/star/<span class="va">${i}</span>-unsort. <span class="dt">\</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">--genomeDir</span> <span class="va">$refdir</span> <span class="dt">\</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">--readFilesIn</span> <span class="va">$workingdir</span>/fastq/<span class="va">${i}</span>-trim_1P.fastq <span class="va">$workingdir</span>/fastq/<span class="va">${i}</span>-trim_2P.fastq</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="markduplicates.sh" class="level2">
 <h2 class="anchored" data-anchor-id="markduplicates.sh">4-markduplicates.sh</h2>
-<pre><code>#!/bin/bash
-
-#load some modules
-module load picard/2.26.2
-module load samtools/1.15.1
-
-## Useful shortcuts
-export workingdir=~/mydata/Session5/RNAseq-Processing
-
-mkdir markdup
-
-#list=("sample1" "sample2" "sample3")
-list=("SRR5222797" "SRR5222798" "SRR5222799")
-
-for i in ${list[@]}
-do
-samtools index $workingdir/star/${i}-unsort.Aligned.out.bam
-samtools sort -@ 4 -o $workingdir/star/${i}.sorted.bam $workingdir/star/${i}-unsort.Aligned.out.bam
-
-##  MARK DUPLICATES  ##
-picard MarkDuplicates I=$workingdir/star/${i}.sorted.bam O=$workingdir/markdup/${i}.markdup.bam M=$workingdir/markdup/${i}.metrics.markdup.txt REMOVE_DUPLICATES=false VALIDATION_STRINGENCY=SILENT
-
-
-## REMOVE DUPLICATES ##
-picard MarkDuplicates I=$workingdir/star/${i}.sorted.bam O=$workingdir/markdup/${i}.rmdup.bam M=$workingdir/markdup/${i}.metrics.rmdup.txt REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT
-
-done</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#load some modules</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load picard/2.26.2</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load samtools/1.15.1</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Useful shortcuts</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">workingdir</span><span class="op">=</span>~/mydata/Session5/RNAseq-Processing</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> markdup</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#list=("sample1" "sample2" "sample3")</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="va">list</span><span class="op">=</span><span class="va">(</span><span class="st">"SRR5222797"</span> <span class="st">"SRR5222798"</span> <span class="st">"SRR5222799"</span><span class="va">)</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="va">${list</span><span class="op">[@]</span><span class="va">}</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index <span class="va">$workingdir</span>/star/<span class="va">${i}</span>-unsort.Aligned.out.bam</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort <span class="at">-@</span> 4 <span class="at">-o</span> <span class="va">$workingdir</span>/star/<span class="va">${i}</span>.sorted.bam <span class="va">$workingdir</span>/star/<span class="va">${i}</span>-unsort.Aligned.out.bam</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">##  MARK DUPLICATES  ##</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ex">picard</span> MarkDuplicates I=<span class="va">$workingdir</span>/star/<span class="va">${i}</span>.sorted.bam O=<span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.markdup.bam M=<span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.metrics.markdup.txt REMOVE_DUPLICATES=false VALIDATION_STRINGENCY=SILENT</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">## REMOVE DUPLICATES ##</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="ex">picard</span> MarkDuplicates I=<span class="va">$workingdir</span>/star/<span class="va">${i}</span>.sorted.bam O=<span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.rmdup.bam M=<span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.metrics.rmdup.txt REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="featurecounts.sh" class="level2">
 <h2 class="anchored" data-anchor-id="featurecounts.sh">5-featurecounts.sh</h2>
-<pre><code>#!/bin/bash
-
-# Load some modules
-module load subread/2.0.2
-
-## Useful shortcuts
-export workingdir=~/mydata/Session5/RNAseq-Processing
-export refdir=~/classdata/Bioinformatics/REFS/STAR/
-
-
-mkdir $workingdir/featureCounts
-
-#list=("sample1" "sample2" "sample3")
-list=("SRR5222797" "SRR5222798" "SRR5222799")
-
-
-
-for i in ${list[@]}
-do
-
-featureCounts \
-        -T 4 -p -F GTF -t exon -g gene_id \
-        -a $refdir/Arabidopsis_thaliana.TAIR10.47.gtf \
-        -o $workingdir/featureCounts/${i}.markdup.featurecount \
-        $workingdir/markdup/${i}.markdup.bam
-
-featureCounts \
-        -T 4 -p -F GTF -t exon -g gene_id \
-        -a $refdir/Arabidopsis_thaliana.TAIR10.47.gtf \
-        -o $workingdir/featureCounts/${i}.rmdup.featurecount \
-        $workingdir/markdup/${i}.rmdup.bam
-
-done</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load some modules</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load subread/2.0.2</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Useful shortcuts</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">workingdir</span><span class="op">=</span>~/mydata/Session5/RNAseq-Processing</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">refdir</span><span class="op">=</span>~/classdata/Bioinformatics/REFS/STAR/</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="va">$workingdir</span>/featureCounts</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#list=("sample1" "sample2" "sample3")</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="va">list</span><span class="op">=</span><span class="va">(</span><span class="st">"SRR5222797"</span> <span class="st">"SRR5222798"</span> <span class="st">"SRR5222799"</span><span class="va">)</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="va">${list</span><span class="op">[@]</span><span class="va">}</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="ex">featureCounts</span> <span class="dt">\</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">-T</span> 4 <span class="at">-p</span> <span class="at">-F</span> GTF <span class="at">-t</span> exon <span class="at">-g</span> gene_id <span class="dt">\</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">-a</span> <span class="va">$refdir</span>/Arabidopsis_thaliana.TAIR10.47.gtf <span class="dt">\</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">-o</span> <span class="va">$workingdir</span>/featureCounts/<span class="va">${i}</span>.markdup.featurecount <span class="dt">\</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.markdup.bam</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="ex">featureCounts</span> <span class="dt">\</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">-T</span> 4 <span class="at">-p</span> <span class="at">-F</span> GTF <span class="at">-t</span> exon <span class="at">-g</span> gene_id <span class="dt">\</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">-a</span> <span class="va">$refdir</span>/Arabidopsis_thaliana.TAIR10.47.gtf <span class="dt">\</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">-o</span> <span class="va">$workingdir</span>/featureCounts/<span class="va">${i}</span>.rmdup.featurecount <span class="dt">\</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.rmdup.bam</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>

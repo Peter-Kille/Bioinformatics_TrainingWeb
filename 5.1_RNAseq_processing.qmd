@@ -4,7 +4,7 @@ title-block-banner: darkred
 title-block-banner-color: white
 title: "RNAseq Processing"
 subtitle: "From Reads to Counts"
-author: "Prof Peter Kille"
+author: "Prof. Peter Kille and Dr. Sarah Christofides"
 date: today
 affiliation: "Cardiff University"
 ---
@@ -13,11 +13,17 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=33753314-378f-47fe-9c2e-af630098dbaf&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+# Trancriptomics: an introduction
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3c57884e-a916-4241-9d54-af7d0117a8fc&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
 
 </iframe>
 
-[RNAseq Processing Powerpoint](https://cf.sharepoint.com/:p:/t/BigDataTeaching/ERuWEMFBHFxBhmhas2ISPEgB_suG7fDzPfcL7s_wed8WVQ?e=BKZElX)
+# RNASeq processing
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=33753314-378f-47fe-9c2e-af630098dbaf&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
 
 # Introduction
 
@@ -25,7 +31,7 @@ Three main steps are taken to analyse a series of RNAseq fastq sample files (fol
 
 ## Alignment
 
-STAR -- (Spliced Transcript Alignments to a Reference) is an alignment package which functions similarly to standard genome alignments but is designed for short regions of RNA that could span intron-exon junctions and with low compute requirements. STAR outputs a bam format file which contains the locations where all the reads in your dataset have aligned and the genes they cover.
+STAR -- (Spliced Transcript Alignments to a Reference) is an alignment package which functions similarly to standard genome alignments, but is designed for short regions of RNA that could span intron-exon junctions and with low compute requirements. STAR outputs a bam format file which contains the locations where all the reads in your dataset have aligned and which genes they cover.
 
 ## Counting
 
@@ -39,11 +45,11 @@ Contrasting the expression profile of the samples is typically done with one of 
 
 Following these three steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.
 
-## Data
+# Data
 
 The data you will need for this exercise are:
 
-```         
+```{bash}     
 ~/classdata/Bioinformatics/Day4/ RNAseq-Processing/fastq
 SRR5222797_1.fastq    SRR5222797_2.fastq
 SRR5222798_1.fastq    SRR5222798_2.fastq
@@ -56,15 +62,11 @@ Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa
 
 **This folder contains lots of other index files for star to function that you don't need to touch!** Note: most programs will accept fastq or fastq.gz without any changes however star requires you to include the `--readFilesCommand zcat` parameter.
 
-## Software
+## Software and scripts
 
-We will be using scripts to run these steps. In the classdata/Day4/scripts folder you will find the following that you can use to base your analysis, however make sure you're tuning it to your own file structure and file names.
+We will be using scripts to run these steps. In the `classdata/Session5/scripts` folder you will find the following that you can use as a basis for your analysis, however make sure you're tuning it to your own file structure and file names.
 
-So far we have used only a small dataset to quickly practice the steps but now we'll be using a full sized RNAseq sample otherwise it causes the programs to think it's bad data. In the classdata/Day3 folder there four pairs of RNAseq files from an Arabidopsis RNAseq study. In the folder classdata/REFS there is a reference genome, and a gtf file. **The step 2 "star index genome" has already been ran for you (you don't need to do this!)**
-
-```         
-~/classdata/Bioinformatics/Day4/RNAseq-Processing
-```
+So far we have used only a small dataset to quickly practice the steps but now we'll be using a full sized RNAseq sample otherwise it causes the programs to think it's bad data. In the classdata/Day3 folder there four pairs of RNAseq files from an Arabidopsis RNAseq study. In the folder classdata/REFS there is a reference genome, and a gtf file. **The step 2 "star index genome" has already been run for you (you don't need to do this!)**
 
 [Scripts](#scripts)
 
@@ -74,9 +76,9 @@ So far we have used only a small dataset to quickly practice the steps but now w
 -   4-markduplicates.sh\
 -   5-featurecounts.sh
 
-# Excercises
+# Exercises
 
-Using the premade scripts perform the steps on four pairs of fastq files. There are examples of all of these files in the classdata/Day4 directory which you should copy into your own folder. You may need to edit them to represent your own working folder and filenames:
+Using the pre-made scripts provided, perform the steps on four pairs of fastq files. There are examples of all of these files in the `classdata/Session5` directory which you should copy into your own folder. You will need to edit them to represent your own working folder and filenames:
 
 1.  QC and trim your sample data
 2.  Use the outputs from your QC script as inputs to run star.
@@ -127,7 +129,7 @@ done
 
 ## 2-star_index_genome.sh
 
-```         
+```{bash}    
 #!/bin/bash
 
 # Load some modules
@@ -152,7 +154,7 @@ STAR    --runThreadN 8 \
 
 ## 3-star.sh
 
-```         
+```{bash}
 #!/bin/bash
 
 ## Load some Modules
@@ -186,7 +188,7 @@ done
 
 ## 4-markduplicates.sh
 
-```         
+```{bash}
 #!/bin/bash
 
 #load some modules
@@ -218,7 +220,7 @@ done
 
 ## 5-featurecounts.sh
 
-```         
+```{bash}
 #!/bin/bash
 
 # Load some modules

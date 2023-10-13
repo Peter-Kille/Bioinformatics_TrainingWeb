@@ -9,7 +9,7 @@
 <meta name="author" content="Prof Peter Kille">
 <meta name="dcterms.date" content="2023-10-13">
 
-<title>Transcritomics An Introduction</title>
+<title>Differential Gene Expression Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -91,7 +125,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.1_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.1_Transcriptomics_Introduction.html">Transcritomics An Introduction</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.1_RNAseq_processing.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.2_DEG_analysis.html">Differential Gene Expression Analysis</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -104,8 +138,8 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Transcritomics An Introduction</h1>
-            <p class="subtitle lead">From Spots to Sequences</p>
+      <h1 class="title">Differential Gene Expression Analysis</h1>
+            <p class="subtitle lead">SarTools for DEG list generation and downstream analysis</p>
                       </div>
   </div>
     
@@ -283,25 +317,19 @@ background: darkred;
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.1_Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Transcritomics An Introduction</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5.2_RNAseq_processing.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.1_RNAseq_processing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RNAseq Processing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.3_DEG_analysis.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.2_DEG_analysis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Differential Gene Expression Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.4_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.3_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DEG Functional Interpretation</span></a>
   </div>
 </li>
@@ -334,8 +362,21 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#transcripromics-data-an-introduction" id="toc-transcripromics-data-an-introduction" class="nav-link active" data-scroll-target="#transcripromics-data-an-introduction">Transcripromics Data: An Introduction</a></li>
-  <li><a href="#deriving-differential-gene-expression" id="toc-deriving-differential-gene-expression" class="nav-link" data-scroll-target="#deriving-differential-gene-expression">Deriving Differential Gene Expression</a></li>
+  <li><a href="#introduction-to-process" id="toc-introduction-to-process" class="nav-link active" data-scroll-target="#introduction-to-process">Introduction to Process</a>
+  <ul class="collapse">
+  <li><a href="#alignment" id="toc-alignment" class="nav-link" data-scroll-target="#alignment">Alignment</a></li>
+  <li><a href="#counting" id="toc-counting" class="nav-link" data-scroll-target="#counting">Counting</a></li>
+  <li><a href="#differential-gene-analysis" id="toc-differential-gene-analysis" class="nav-link" data-scroll-target="#differential-gene-analysis">Differential Gene Analysis</a></li>
+  </ul></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#downstream-analysis-packages" id="toc-downstream-analysis-packages" class="nav-link" data-scroll-target="#downstream-analysis-packages">Downstream Analysis Packages</a>
+  <ul class="collapse">
+  <li><a href="#converting-between-common-gene-ids" id="toc-converting-between-common-gene-ids" class="nav-link" data-scroll-target="#converting-between-common-gene-ids">Converting between common gene IDs</a></li>
+  <li><a href="#whole-dataset-annotation-and-ontologies" id="toc-whole-dataset-annotation-and-ontologies" class="nav-link" data-scroll-target="#whole-dataset-annotation-and-ontologies">Whole dataset annotation (and ontologies)</a></li>
+  <li><a href="#interaction-networks" id="toc-interaction-networks" class="nav-link" data-scroll-target="#interaction-networks">Interaction Networks</a></li>
+  <li><a href="#other-visualisation-tools" id="toc-other-visualisation-tools" class="nav-link" data-scroll-target="#other-visualisation-tools">Other visualisation tools</a></li>
+  <li><a href="#whole-packages" id="toc-whole-packages" class="nav-link" data-scroll-target="#whole-packages">Whole packages</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -345,17 +386,109 @@ background: darkred;
 
 
 
-<section id="transcripromics-data-an-introduction" class="level2">
-<h2 class="anchored" data-anchor-id="transcripromics-data-an-introduction">Transcripromics Data: An Introduction</h2>
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3c57884e-a916-4241-9d54-af7d0117a8fc&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2a1422b-b0e3-4a42-ac71-af630098d97d&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
-<p><a href="Transcripromics Data: An Introduction">Transcripromics Data: An Introduction powerpoint</a></p>
+<p><a href="https://tinyurl.com/2xuhh5t4">DEG Analysis Powerpoint</a></p>
+<section id="introduction-to-process" class="level1">
+<h1>Introduction to Process</h1>
+<p>RNAseq or transcriptomics is a method for quantifying the expression rate for all genes simultaneously. Analogous to a quantitative PCR of one gene, it comes with its advantages and drawbacks, with special statistical measures developed over years to make the results as accurate as possible.</p>
+<p>Three main steps are taken to analyse a series of RNAseq fastq sample files (omitting quality filtering steps for now):</p>
+<section id="alignment" class="level2">
+<h2 class="anchored" data-anchor-id="alignment">Alignment</h2>
+<p>STAR – (Spliced Transcript Alignments to a Reference) is a pseudo-alignment package which functions similarly to standard genome alignments but is designed for short regions of RNA that could span intron-exon junctions and with low compute requirements. STAR outputs a bam format file which contains the locations where all the reads in your dataset have aligned and the genes they cover.</p>
 </section>
-<section id="deriving-differential-gene-expression" class="level2">
-<h2 class="anchored" data-anchor-id="deriving-differential-gene-expression">Deriving Differential Gene Expression</h2>
-<p><a href="https://tinyurl.com/ewjv2huy">Deriving Differential Gene Expression</a></p>
+<section id="counting" class="level2">
+<h2 class="anchored" data-anchor-id="counting">Counting</h2>
+<p>FeatureCounts is a simple package that takes the positions of mapped reads and outputs a file quantifying the expression of each gene or exon (based on parameter choices). At this point raw read counts are hard to interpret due to likely different levels of sequencing achieved per sample and methodological biases.</p>
+</section>
+<section id="differential-gene-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="differential-gene-analysis">Differential Gene Analysis</h2>
+<p>Contrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.</p>
+<p>Following these three steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.</p>
+</section>
+</section>
+<section id="data" class="level1">
+<h1>Data</h1>
+<p>An R script template, and a folder of pre-computed FeatureCounts outputs are at:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">~/classdata/Bioinformatics/Day4/RNAseq-Analysis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A set of nine Human neuronal differential RNAseq samples have been sequenced, consisting of 6x control samples (3x two different individuals) and 3x a deletion mutant of the 1q21.1 cytogenetic region of the human genome, and 3x of a duplication of this region.</p>
+<p>Deletions and alterations to this region has a range of impacts on neuropsychiatric disorders and is under active study. See the <a href="https://www.omim.org/entry/612474">omim</a> and the Wikipedia page is remarkably informative! <a href="https://en.wikipedia.org/wiki/1q21.1_deletion_syndrome">1q21.1_deletion_syndrome</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Picture1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">1q21.1 cytogenetic region of the human genome</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Excercises - Differnetial Gene Analysis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We will be using the script <code>'template_script_DESeq2.r'</code> provided on the server and github pages.</p>
+<p>We will use the server Rstudio to do the analysis.</p>
+<ol type="1">
+<li><p>Copy either the FeatureCounts/markdup or rmdup, and targets.txt data to your local directory</p></li>
+<li><p>Inside of Rstudio, edit the sartools script in the fields highlighted with ” * * * ” for your data</p></li>
+<li><p>Explore the html report generated and the differentiation of the sample types</p></li>
+<li><p>Look at the most differentially expressed genes in the outputted tables (excel)</p></li>
+<li><p>[extension] Use the list of ~200 most differentially expressed genes in gProfiler, or other online databases to investigate the functional connotations.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="downstream-analysis-packages" class="level1">
+<h1>Downstream Analysis Packages</h1>
+<section id="converting-between-common-gene-ids" class="level2">
+<h2 class="anchored" data-anchor-id="converting-between-common-gene-ids">Converting between common gene IDs</h2>
+<ul>
+<li><a href="https://biodbnet-abcc.ncifcrf.gov/db/db2db.php">biodbnet</a></li>
+<li><a href="https://biit.cs.ut.ee/gprofiler/convert">gprofiler convert</a></li>
+</ul>
+</section>
+<section id="whole-dataset-annotation-and-ontologies" class="level2">
+<h2 class="anchored" data-anchor-id="whole-dataset-annotation-and-ontologies">Whole dataset annotation (and ontologies)</h2>
+<ul>
+<li><a href="https://biit.cs.ut.ee/gprofiler/">gProfiler</a></li>
+<li><a href="https://www.genome.jp/kegg/">KEGG</a></li>
+<li>NeVOmics</li>
+</ul>
+</section>
+<section id="interaction-networks" class="level2">
+<h2 class="anchored" data-anchor-id="interaction-networks">Interaction Networks</h2>
+<ul>
+<li><a href="https://string-db.org/">StringDB</a></li>
+<li><a href="https://tools.dice-database.org/GOnet/">GOnet</a></li>
+<li>Cytoscape
+<ul>
+<li><a href="http://apps.cytoscape.org/apps/bingo">bingo plugin</a></li>
+<li><a href="http://apps.cytoscape.org/apps/enrichmentmap">EnrichmentMap plugin</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="other-visualisation-tools" class="level2">
+<h2 class="anchored" data-anchor-id="other-visualisation-tools">Other visualisation tools</h2>
+<ul>
+<li><a href="https://software.broadinstitute.org/morpheus/">Morpheus</a></li>
+<li><a href="http://www.interactivenn.net/">Complex venn</a></li>
+</ul>
+</section>
+<section id="whole-packages" class="level2">
+<h2 class="anchored" data-anchor-id="whole-packages">Whole packages</h2>
+<ul>
+<li><a href="https://digitalinsights.qiagen.com/products-overview/discovery-insights-portfolio/analysis-and-visualization/qiagen-ipa/">IPA</a></li>
+<li><a href="https://szenitha.shinyapps.io/shiny-seq3/">Shiny-Seq</a></li>
+<li><a href="https://github.com/developerpiru/BEAVR#loading-your-data-into-beavr">BeavR</a></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
