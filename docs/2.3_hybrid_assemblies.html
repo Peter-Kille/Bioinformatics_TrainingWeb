@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -324,23 +358,7 @@ background: darkred;
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#hybrid-assembly-with-spades" id="toc-hybrid-assembly-with-spades" class="nav-link active" data-scroll-target="#hybrid-assembly-with-spades">Hybrid Assembly with SPades</a>
-  <ul class="collapse">
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools">Tools</a>
-  <ul class="collapse">
-  <li><a href="#basic-options" id="toc-basic-options" class="nav-link" data-scroll-target="#basic-options">Basic options:</a></li>
-  <li><a href="#input-data" id="toc-input-data" class="nav-link" data-scroll-target="#input-data">Input data:</a></li>
-  <li><a href="#pipeline-options" id="toc-pipeline-options" class="nav-link" data-scroll-target="#pipeline-options">Pipeline options:</a></li>
-  <li><a href="#advanced-options" id="toc-advanced-options" class="nav-link" data-scroll-target="#advanced-options">Advanced options:</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -348,81 +366,8 @@ background: darkred;
 
 
 
-<section id="hybrid-assembly-with-spades" class="level1">
-<h1>Hybrid Assembly with SPades</h1>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<pre><code>Illumina Data 
-bug_illumina_reads_1.fastq   
-bug_illumina_reads_2.fastq 
-Nanopore Reads (corrected) 
-bug_nanopore_reads_corrected.fasta (you shoould have generated these from previously)</code></pre>
-</section>
-<section id="tools" class="level2">
-<h2 class="anchored" data-anchor-id="tools">Tools</h2>
-<p>SPAdes – install using module load</p>
-<pre><code>Usage: spades.py [options\ -o &lt;output_dir&gt;</code></pre>
-<section id="basic-options" class="level3">
-<h3 class="anchored" data-anchor-id="basic-options">Basic options:</h3>
-<pre><code>-o &lt;output_dir&gt; directory to store all the resulting files (required) 
---sc                this flag is required for MDA (single-cell) data 
---meta          this flag is required for metagenomic sample data 
---rna               this flag is required for RNA-Seq data 
---plasmid           runs plasmidSPAdes pipeline for plasmid detection 
---iontorrent        this flag is required for IonTorrent data 
---test          runs SPAdes on toy dataset 
--h/--help           prints this usage message 
--v/--version        prints version </code></pre>
-</section>
-<section id="input-data" class="level3">
-<h3 class="anchored" data-anchor-id="input-data">Input data:</h3>
-<pre><code>--12 &lt;filename&gt; file with interlaced forward and reverse paired-end reads 
--1 &lt;filename&gt;       file with forward paired-end reads 
--2 &lt;filename&gt;       file with reverse paired-end reads 
--s &lt;filename&gt;       file with unpaired reads 
---pe&lt;#&gt;-12 &lt;filename&gt;   file with interlaced reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
---pe&lt;#&gt;-1  &lt;filename&gt;   file with forward reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
---pe&lt;#&gt;-2  &lt;filename&gt;   file with reverse reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
---pe&lt;#&gt;-s  &lt;filename&gt;   file with unpaired reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
---pe&lt;#&gt;-&lt;or&gt;    orientation of reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff) 
---s&lt;#&gt;  &lt;filename&gt;  file with unpaired reads for single reads library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)     --mp&lt;#&gt;-12  &lt;filename&gt;  file with interlaced reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
---mp&lt;#&gt;-1  &lt;filename&gt;   file with forward reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)     --mp&lt;#&gt;-2  &lt;filename&gt;   file with reverse reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)     --mp&lt;#&gt;-s  &lt;filename&gt;   file with unpaired reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
---mp&lt;#&gt;-&lt;or&gt;    orientation of reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff) 
---hqmp&lt;#&gt;-12  &lt;filename&gt;    file with interlaced reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
---hqmp&lt;#&gt;-1  &lt;filename&gt; file with forward reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
---hqmp&lt;#&gt;-2  &lt;filename&gt; file with reverse reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
---hqmp&lt;#&gt;-s  &lt;filename&gt; file with unpaired reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
---hqmp&lt;#&gt;-&lt;or&gt;  orientation of reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff) 
---nxmate&lt;#&gt;-1  &lt;filename&gt;   file with forward reads for Lucigen NxMate library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
---nxmate&lt;#&gt;-2  &lt;filename&gt;   file with reverse reads for Lucigen NxMate library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9) 
---sanger  &lt;filename&gt;    file with Sanger reads 
---pacbio  &lt;filename&gt;    file with PacBio reads 
---nanopore  &lt;filename&gt;  file with Nanopore reads 
---tslr  &lt;filename&gt;  file with TSLR-contigs 
---trusted-contigs  &lt;filename&gt;   file with trusted contigs 
---untrusted-contigs  &lt;filename&gt; file with untrusted contigs </code></pre>
-</section>
-<section id="pipeline-options" class="level3">
-<h3 class="anchored" data-anchor-id="pipeline-options">Pipeline options:</h3>
-<pre><code>--only-error-correction runs only read error correction (without assembling) 
---only-assembler    runs only assembling (without read error correction) 
---careful   tries to reduce number of mismatches and short indels 
---continue  continue run from the last available check-point 
---restart-from  &lt;cp&gt;    restart run with updated options and from the specified check-point ('ec', 'as', 'k&lt;int&gt;', 'mc') 
---disable-gzip-output   forces error correction not to compress the corrected reads 
---disable-rr    disables repeat resolution stage of assembling </code></pre>
-</section>
-<section id="advanced-options" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-options">Advanced options:</h3>
-<pre><code>    --dataset  &lt;filename&gt;   file with dataset description in YAML format 
-    -t/--threads &lt;int&gt;  number of threads 
-    [default: 16] 
-    -m/--memory &lt;int&gt;   RAM limit for SPAdes in Gb (terminates if exceeded) [default: 250] 
-    --tmp-dir &lt;dirname&gt;     directory for temporary files [default: &lt;output_dir&gt;/tmp] 
-    -k &lt;int,int,...&gt;        comma-separated list of k-mer sizes (must be odd and less than 128) [default: 'auto'] 
-    --cov-cutoff &lt;float&gt;    coverage cutoff value (a positive float number, or 'auto', or 'off') [default: 'off'] 
-    --phred-offset  &lt;33 or 64&gt;  PHRED quality offset in the input reads (33 or 64) [default: auto-detect] 
-    </code></pre>
+<p>So far, you have been assembling genomes just using Illumina short reads. However, as discussed in the lecture, sometimes there are areas of genome that can’t be resolved with short reads, meaning the assembly produces more contigs. This can be improved by adding in long reads to scaffold the contigs. The short reads provide high quality detail, while the long reads provide the big-picture context.</p>
+<p>Unicycler provides the option to add in long-read information very simply by using the <code>-l</code> flag to direct it to a file of long reads.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -433,16 +378,23 @@ Excercise: SPades Hybrid
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Try and run spades with both the short reads on there own and then using a hybrid assembly with nanopore data, evaluate the resulting assemblies.</p>
+<p>We have provided you with Nanopore long-read data for your prokaryote genomes in <code>~/classdata/datasets/prokayote/prokaryote_NP/</code>.</p>
+<ol type="1">
+<li>Run a hybrid assembly with Nanopore data, then use Quast to compare the results to short-read-only assembly.</li>
+</ol>
 <p>Hybrid assembly example command line:</p>
-<pre><code>spades.py -1 Illumina_1.fastq -2 Illumina_2.fastq --nanopore bug_nanopore_reads_corrected.fasta -o assembly_name</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">unicycler</span> <span class="at">-1</span> [processed fastq R1] <span class="at">-2</span> [processed fastq R2] <span class="at">-l</span> [nanopore fastq] <span class="at">-t</span> [thread number] <span class="at">-o</span> [output directory] <span class="dv">1</span><span class="op">&gt;</span> <span class="pp">[</span><span class="ss">file_name</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notice that at the end of the command I’ve added <code>1&gt; [file_name]</code>. This tells bash that instead of just spitting messages onto the screen as the command runs, it should write them to a file. Unicycler produces some useful and informative output while running hybrid assembly, which it is helpful to keep.</p>
+<ol start="2" type="1">
+<li><p>Have a read through Unicycler’s <a href="https://github.com/rrwick/Unicycler#method-hybrid-assembly">information page on hybrid assembly</a>. How does it use the long reads to bring gaps in the short-read assembly?</p></li>
+<li><p>Use <code>less</code> to look at the log file you’ve produced. Can you use the Unicycler page above to interpret what it’s telling you?</p></li>
+</ol>
 </div>
 </div>
 
 
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

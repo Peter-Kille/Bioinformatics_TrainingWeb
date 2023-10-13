@@ -259,6 +259,7 @@ snp-sites -cb -o [alignment file name] [prefix for snp output].full.aln
 4.  Construct a phylogeny with **RAxML-NG**, using 1000 bootstraps.
 
 5.  Visualize your tree.
+
 :::
 
 # Walk throughs

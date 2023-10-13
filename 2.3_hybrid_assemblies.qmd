@@ -13,105 +13,27 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+So far, you have been assembling genomes just using Illumina short reads. However, as discussed in the lecture, sometimes there are areas of genome that can't be resolved with short reads, meaning the assembly produces more contigs. This can be improved by adding in long reads to scaffold the contigs. The short reads provide high quality detail, while the long reads provide the big-picture context.
 
-# Hybrid Assembly with SPades
-
-## Data
-
-```         
-Illumina Data 
-bug_illumina_reads_1.fastq   
-bug_illumina_reads_2.fastq 
-Nanopore Reads (corrected) 
-bug_nanopore_reads_corrected.fasta (you shoould have generated these from previously)
-```
-
-## Tools
-
-SPAdes -- install using module load
-
-```         
-Usage: spades.py [options\ -o <output_dir>
-```
-
-### Basic options:
-
-```         
--o <output_dir> directory to store all the resulting files (required) 
---sc                this flag is required for MDA (single-cell) data 
---meta          this flag is required for metagenomic sample data 
---rna               this flag is required for RNA-Seq data 
---plasmid           runs plasmidSPAdes pipeline for plasmid detection 
---iontorrent        this flag is required for IonTorrent data 
---test          runs SPAdes on toy dataset 
--h/--help           prints this usage message 
--v/--version        prints version 
-```
-
-### Input data:
-
-```         
---12 <filename> file with interlaced forward and reverse paired-end reads 
--1 <filename>       file with forward paired-end reads 
--2 <filename>       file with reverse paired-end reads 
--s <filename>       file with unpaired reads 
---pe<#>-12 <filename>   file with interlaced reads for paired-end library number <#> (<#> = 1,2,..,9) 
---pe<#>-1  <filename>   file with forward reads for paired-end library number <#> (<#> = 1,2,..,9) 
---pe<#>-2  <filename>   file with reverse reads for paired-end library number <#> (<#> = 1,2,..,9) 
---pe<#>-s  <filename>   file with unpaired reads for paired-end library number <#> (<#> = 1,2,..,9) 
---pe<#>-<or>    orientation of reads for paired-end library number <#> (<#> = 1,2,..,9; <or> = fr, rf, ff) 
---s<#>  <filename>  file with unpaired reads for single reads library number <#> (<#> = 1,2,..,9)     --mp<#>-12  <filename>  file with interlaced reads for mate-pair library number <#> (<#> = 1,2,..,9) 
---mp<#>-1  <filename>   file with forward reads for mate-pair library number <#> (<#> = 1,2,..,9)     --mp<#>-2  <filename>   file with reverse reads for mate-pair library number <#> (<#> = 1,2,..,9)     --mp<#>-s  <filename>   file with unpaired reads for mate-pair library number <#> (<#> = 1,2,..,9) 
---mp<#>-<or>    orientation of reads for mate-pair library number <#> (<#> = 1,2,..,9; <or> = fr, rf, ff) 
---hqmp<#>-12  <filename>    file with interlaced reads for high-quality mate-pair library number <#> (<#> = 1,2,..,9) 
---hqmp<#>-1  <filename> file with forward reads for high-quality mate-pair library number <#> (<#> = 1,2,..,9) 
---hqmp<#>-2  <filename> file with reverse reads for high-quality mate-pair library number <#> (<#> = 1,2,..,9) 
---hqmp<#>-s  <filename> file with unpaired reads for high-quality mate-pair library number <#> (<#> = 1,2,..,9) 
---hqmp<#>-<or>  orientation of reads for high-quality mate-pair library number <#> (<#> = 1,2,..,9; <or> = fr, rf, ff) 
---nxmate<#>-1  <filename>   file with forward reads for Lucigen NxMate library number <#> (<#> = 1,2,..,9) 
---nxmate<#>-2  <filename>   file with reverse reads for Lucigen NxMate library number <#> (<#> = 1,2,..,9) 
---sanger  <filename>    file with Sanger reads 
---pacbio  <filename>    file with PacBio reads 
---nanopore  <filename>  file with Nanopore reads 
---tslr  <filename>  file with TSLR-contigs 
---trusted-contigs  <filename>   file with trusted contigs 
---untrusted-contigs  <filename> file with untrusted contigs 
-```
-
-### Pipeline options:
-
-```         
---only-error-correction runs only read error correction (without assembling) 
---only-assembler    runs only assembling (without read error correction) 
---careful   tries to reduce number of mismatches and short indels 
---continue  continue run from the last available check-point 
---restart-from  <cp>    restart run with updated options and from the specified check-point ('ec', 'as', 'k<int>', 'mc') 
---disable-gzip-output   forces error correction not to compress the corrected reads 
---disable-rr    disables repeat resolution stage of assembling 
-```
-
-### Advanced options:
-
-```         
-    --dataset  <filename>   file with dataset description in YAML format 
-    -t/--threads <int>  number of threads 
-    [default: 16] 
-    -m/--memory <int>   RAM limit for SPAdes in Gb (terminates if exceeded) [default: 250] 
-    --tmp-dir <dirname>     directory for temporary files [default: <output_dir>/tmp] 
-    -k <int,int,...>        comma-separated list of k-mer sizes (must be odd and less than 128) [default: 'auto'] 
-    --cov-cutoff <float>    coverage cutoff value (a positive float number, or 'auto', or 'off') [default: 'off'] 
-    --phred-offset  <33 or 64>  PHRED quality offset in the input reads (33 or 64) [default: auto-detect] 
-    
-```
+Unicycler provides the option to add in long-read information very simply by using the `-l` flag to direct it to a file of long reads. 
 
 ::: callout-important
 ## Excercise: SPades Hybrid
 
-Try and run spades with both the short reads on there own and then using a hybrid assembly with nanopore data, evaluate the resulting assemblies.
+We have provided you with Nanopore long-read data for your prokaryote genomes in `~/classdata/datasets/prokayote/prokaryote_NP/`.
+
+1. Run a hybrid assembly with Nanopore data, then use Quast to compare the results to short-read-only assembly.
 
 Hybrid assembly example command line:
 
-```         
-spades.py -1 Illumina_1.fastq -2 Illumina_2.fastq --nanopore bug_nanopore_reads_corrected.fasta -o assembly_name
+```{bash}
+unicycler -1 [processed fastq R1] -2 [processed fastq R2] -l [nanopore fastq] -t [thread number] -o [output directory] 1> [file_name]
 ```
+
+Notice that at the end of the command I've added `1> [file_name]`. This tells bash that instead of just spitting messages onto the screen as the command runs, it should write them to a file. Unicycler produces some useful and informative output while running hybrid assembly, which it is helpful to keep.
+
+2. Have a read through Unicycler's [information page on hybrid assembly](https://github.com/rrwick/Unicycler#method-hybrid-assembly). How does it use the long reads to bring gaps in the short-read assembly? 
+
+3. Use `less` to look at the log file you've produced. Can you use the Unicycler page above to interpret what it's telling you?
+
 :::

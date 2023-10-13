@@ -17,21 +17,18 @@ knitr::opts_chunk$set(eval = FALSE)
 
 </iframe>
 
-
 We will now assemble the genomes for the mystery prokaryotes in the datasets folder. You can either copy them over to `mydata/Session2` or work directly from `mydata/datasets/prokaryotes` (I suggest sticking with whichever approach you used for QC and trimming). Whichever you choose to do, always remember to keep your folder system tidy. If you are struggling to remember how it's arranged, grab some paper and sketch it out as a visual reminder.
 
 ::: {.callout-note collapse="true"}
 ## If you're feeling confident
 
 As you go through each step of the assembly process, use loops to apply it to *all* the prokaryote genomes you've been given.
-
 :::
 
 ::: {.callout-note collapse="true"}
 ## If you're not feeling confident
 
 Pick one prokaryote genome and work through assembling it. Use the time later in the extension session to use loops to apply the process to all the prokaryote genomes.
-
 :::
 
 **Either way, write scripts rather than running the programmes by typing directly into the terminal**. This means you have every step saved so it can be revisited whenever you need.
@@ -94,7 +91,6 @@ Delete a session:
 ```{bash}
 tmux kill-session -t [session name]
 ```
-
 :::
 
 ::: {.callout-note collapse="true"}
@@ -111,8 +107,7 @@ Raw sequence data may still contain fragments of the adapter sequences from the 
 ### 3. Re-assessing data quality
 
 Following adaptor removal and trimming, we need to repeat the quality checking with fastQC, but this time using the **processed reads**.
-
-::: 
+:::
 
 ## Genome assembly
 
@@ -138,7 +133,6 @@ Write a script to assemble your genome(s) with Unicycler.
 **If working on more than one genome: rename assembly files and copy to new directory**
 
 A big part of bioinformatics is maintaining directory and file organisation. Each mitochondrial genome assembly output by Unicycler will have the same generic name, *assembly.fasta*, albeit located in a different folder. We need to rename these files to reflect the input data. Compose a loop to **copy and rename** these files to a new directory.
-
 :::
 
 ## Assembly statistics
@@ -165,14 +159,12 @@ cat [report.txt]
 ### Exercise: Quast
 
 Write a script to assess your genome assembly with Quast.
-
 :::
 
 ::: {.callout-warning collapse="true"}
 ## Optional: assembly graph
 
 One of the files produced by **Unicycler** is an assembly graph (.gfa file extension). This file details the links between contigs that were produced during the assembly and can provide valuable information on the difficult-to-assemble regions of the genome. Bandage is a program for visualising *de novo* assembly graphs. By displaying connections which are not present in the contigs file, Bandage opens up new possibilities for analysing de novo assemblies. Download to your local laptop from the link: https://rrwick.github.io/Bandage/.
-
 :::
 
 # Worked Example of Assembly
@@ -189,6 +181,4 @@ One of the files produced by **Unicycler** is an assembly graph (.gfa file exten
 ## Extension Work
 
 Go to the mitochondrial files and apply the same process to them, using a loop.
-
 :::
-
