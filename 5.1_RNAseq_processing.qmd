@@ -13,7 +13,7 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-# Trancriptomics: an introduction
+# Transcriptomics: an introduction
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3c57884e-a916-4241-9d54-af7d0117a8fc&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
 
@@ -27,7 +27,9 @@ knitr::opts_chunk$set(eval = FALSE)
 
 # Introduction
 
-Three main steps are taken to analyse a series of RNAseq fastq sample files (following quality filtering):
+RNAseq, or transcriptomics, is a method for quantifying the expression rate for all genes simultaneously. Analogous to a quantitative PCR of one gene, it comes with its advantages and drawbacks, with special statistical measures developed over years to make the results as accurate as possible.
+
+There are three main steps to analyse a series of RNAseq fastq sample files (following quality filtering):
 
 ## Alignment
 
@@ -46,6 +48,8 @@ Contrasting the expression profile of the samples is typically done with one of 
 Following these three steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.
 
 # Data
+
+We will start with the aligning and counting steps.
 
 The data you will need for this exercise are:
 
@@ -66,7 +70,7 @@ Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa
 
 We will be using scripts to run these steps. In the `classdata/Session5/scripts` folder you will find the following that you can use as a basis for your analysis, however make sure you're tuning it to your own file structure and file names.
 
-So far we have used only a small dataset to quickly practice the steps but now we'll be using a full sized RNAseq sample otherwise it causes the programs to think it's bad data. In the classdata/Day3 folder there four pairs of RNAseq files from an Arabidopsis RNAseq study. In the folder classdata/REFS there is a reference genome, and a gtf file. **The step 2 "star index genome" has already been run for you (you don't need to do this!)**
+We'll be using a full sized RNAseq sample otherwise it causes the programs to think it's bad data. In the classdata/Day3 folder there four pairs of RNAseq files from an Arabidopsis RNAseq study. In the folder classdata/REFS there is a reference genome, and a gtf file. **The step 2 "star index genome" has already been run for you (you don't need to do this!)**
 
 [Scripts](#scripts)
 
@@ -76,15 +80,20 @@ So far we have used only a small dataset to quickly practice the steps but now w
 -   4-markduplicates.sh\
 -   5-featurecounts.sh
 
-# Exercises
+::: callout-important
+# Exercises: RNAseq processing
 
 Using the pre-made scripts provided, perform the steps on four pairs of fastq files. There are examples of all of these files in the `classdata/Session5` directory which you should copy into your own folder. You will need to edit them to represent your own working folder and filenames:
 
 1.  QC and trim your sample data
+
 2.  Use the outputs from your QC script as inputs to run star.
-3.  Use the outputs from star to run mark duplicates to both remove and keep duplicates (two outputs)
+
+3.  Use the outputs from star to run mark duplicates to both remove and keep duplicates (this will generate two outputs).
+
 4.  Use the outputs to each of these to run featureCounts on the data.
-5.  Run multiQC on the processed directory and observe the summary
+
+5.  Run multiQC on the processed directory and observe the summary.
 
 These outputs are now ready to put into R and perform Differential Gene Expression Analysis. Things to remember:
 
@@ -92,9 +101,9 @@ These outputs are now ready to put into R and perform Differential Gene Expressi
 
 -   Use the full path any time it could be ambiguous.
 
-# Scripts {#scripts}
+:::
 
-## <a id="qc"></a>1-QC.sh
+# Scripts {#scripts}
 
 ```{bash_}
 #!/bin/bash
