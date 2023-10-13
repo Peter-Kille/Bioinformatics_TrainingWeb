@@ -1,0 +1,23 @@
+---
+title-block-style: default
+title-block-banner: darkred
+title-block-banner-color: white
+title: "Phylogenetics and Phylogeneomics"
+subtitle: "Deriving phylogenies from single genes to whole genomes"
+author: "Prof. Peter Kille and Dr. Sarah Christofides"
+date: today
+affiliation: "Cardiff University"
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+The previous session covered a lot of material! Now is your chance to finish up anything you didn't have time for and go over anything you weren't clear on. If you're still after more to do, you can...
+
+::: callout-important
+## Exercise: Mitochondrial phylogeny
+
+Go through the same steps with your mitochondrial data!
+
+:::

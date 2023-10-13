@@ -30,6 +30,7 @@ website:
       - section: "Session 4. Building phylogenies"
         contents:
           - 4.1_phylogentics_phylogenomics.qmd
+          - 4.2_phylogentics_phylogenomics_extension.qmd
       - section: "Session 5. Transcriptomics"
         contents:
           - 5.1_RNAseq_processing.qmd

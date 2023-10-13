@@ -277,7 +277,7 @@
     "href": "2.3_hybrid_assemblies.html",
     "title": "Extension: Hybrid Assemblies",
     "section": "",
-    "text": "So far, you have been assembling genomes just using Illumina short reads. However, as discussed in the lecture, sometimes there are areas of genome that can’t be resolved with short reads, meaning the assembly produces more contigs. This can be improved by adding in long reads to scaffold the contigs. The short reads provide high quality detail, while the long reads provide the big-picture context.\nUnicycler provides the option to add in long-read information very simply by using the -l flag to direct it to a file of long reads.\n\n\n\n\n\n\nExcercise: SPades Hybrid\n\n\n\nWe have provided you with Nanopore long-read data for your prokaryote genomes in ~/classdata/datasets/prokayote/prokaryote_NP/.\n\nRun a hybrid assembly with Nanopore data, then use Quast to compare the results to short-read-only assembly.\n\nHybrid assembly example command line:\n\nunicycler -1 [processed fastq R1] -2 [processed fastq R2] -l [nanopore fastq] -t [thread number] -o [output directory] 1&gt; [file_name]\n\nNotice that at the end of the command I’ve added 1&gt; [file_name]. This tells bash that instead of just spitting messages onto the screen as the command runs, it should write them to a file. Unicycler produces some useful and informative output while running hybrid assembly, which it is helpful to keep.\n\nHave a read through Unicycler’s information page on hybrid assembly. How does it use the long reads to bring gaps in the short-read assembly?\nUse less to look at the log file you’ve produced. Can you use the Unicycler page above to interpret what it’s telling you?"
+    "text": "So far, you have been assembling genomes just using Illumina short reads. However, as discussed in the lecture, sometimes there are areas of genome that can’t be resolved with short reads, meaning the assembly produces more contigs. This can be improved by adding in long reads to scaffold the contigs. The short reads provide high quality detail, while the long reads provide the big-picture context.\nUnicycler provides the option to add in long-read information very simply by using the -l flag to direct it to a file of long reads.\n\n\n\n\n\n\nExercise: Hybrid assembly\n\n\n\nWe have provided you with Nanopore long-read data for your prokaryote genomes in ~/classdata/datasets/prokayote/prokaryote_NP/.\n\nRun a hybrid assembly with Nanopore data, then use Quast to compare the results to short-read-only assembly.\n\nHybrid assembly example command line:\n\nunicycler -1 [processed fastq R1] -2 [processed fastq R2] -l [nanopore fastq] -t [thread number] -o [output directory] 1&gt; [file_name]\n\nNotice that at the end of the command I’ve added 1&gt; [file_name]. This tells bash that instead of just spitting messages onto the screen as the command runs, it should write them to a file. Unicycler produces some useful and informative output while running hybrid assembly, which it is helpful to keep.\n\nHave a read through Unicycler’s information page on hybrid assembly. How does it use the long reads to bring gaps in the short-read assembly?\nUse less to look at the log file you’ve produced. Can you use the Unicycler page above to interpret what it’s telling you?"
   },
   {
     "objectID": "3.1_Genome_visualisation_and_annotation.html#use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome.",
@@ -369,6 +369,13 @@
     "title": "Phylogenetics and Phylogeneomics",
     "section": "Whole Genome SNP",
     "text": "Whole Genome SNP"
+  },
+  {
+    "objectID": "4.2_phylogentics_phylogenomics_extension.html",
+    "href": "4.2_phylogentics_phylogenomics_extension.html",
+    "title": "Phylogenetics and Phylogeneomics",
+    "section": "",
+    "text": "The previous session covered a lot of material! Now is your chance to finish up anything you didn’t have time for and go over anything you weren’t clear on. If you’re still after more to do, you can…\n\n\n\n\n\n\nExercise: Mitochondrial phylogeny\n\n\n\nGo through the same steps with your mitochondrial data!"
   },
   {
     "objectID": "5.1_RNAseq_processing.html#alignment",
@@ -802,7 +809,7 @@
     "href": "index.html#session-4.-building-phylogenies",
     "title": "Introduction to Big Data Biology and Bioinformatics",
     "section": "Session 4. Building phylogenies",
-    "text": "Session 4. Building phylogenies\nPhylogenetics and Phylogenomics\nThe taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual."
+    "text": "Session 4. Building phylogenies\nPhylogenetics and Phylogenomics\nThe taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual.\nPhylogenetics and Phylogenomics\nMore practice at building phylogenies."
   },
   {
     "objectID": "index.html#session-5.-transcriptomics",

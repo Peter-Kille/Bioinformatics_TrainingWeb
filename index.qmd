@@ -128,6 +128,10 @@ Annotating a mitochrondrial genome requires some different software to a bacteri
 
 The taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual.
 
+[Phylogenetics and Phylogenomics](https://peter-kille.github.io/Bioinformatics_TrainingWeb/4.2_phylogentics_phylogenomics_extension.html)
+
+More practice at building phylogenies.
+
 ## Session 5. Transcriptomics
 
 [RNAseq Data Processing](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.1_RNAseq_processing.html)
