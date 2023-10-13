@@ -275,17 +275,63 @@ Options:
 Use Barrnap to generate a GFF file predicting the position of any ribosomal sequences -- remember to customize the 'Kingdom' parameter to reflect the source of the genome you are using.
 :::
 
-# NCBI Blast+
+# Assigning taxonomy with NCBI BLAST
+
+You now have good-quality assembled, annotated genomes... but what organisms are they from?! It's time to put some names to genomes. We're going to extract the 16S rRNA gene from the prokaryotes and BLAST them against a 16S database.
+
+## Use bedtools to extract out your phylogenetic marker sequence (e.g. 16S or *CoI*) from your assembled and annotated genome.
+
+Collectively, the bedtools utilities are a Swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF. While each individual tool is designed to do a relatively simple task (e.g., intersect two interval files), quite sophisticated analyses can be conducted by combining multiple bedtools operations on the UNIX command line.
+
+```{bash}
+module load bedtools2/2.31.0
+```
+
+We can use bedtools to extract gene/protein sequences from annotation files:
+
+1. Navigate to either the **Prokka** annotation output directory or the **Barrnap** output file
+
+2. Create a sub-gff file that contains the annotation information of only the 16 rRNA gene
+
+```{bash}
+# For bacterial sequences
+grep "product=16S ribosomal RNA" [gff annotation file]  > [subset_16S.gff]
+
+# For mitochondrial sequences
+grep "ID=gene_cox1" [gff annotation file]  > [subset_coi.gff]
+```
+
+3. Extract the 16S rRNA gene from the mitochondrial genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the -s option.
+
+```{bash}
+bedtools getfasta -fi [input fasta file] -bed [subset_gff file] -s > [output 16S file.fasta]
+```
+
+The fasta sequence will be given a numeric nonsensical name (what comes after the \>). Change this for the name of the source sequence.
+
+```{bash}
+sed -i "s/>.*/>[sequence name]/g" [output 16S file.fasta]
+```
+
+
+::: callout-important
+### Exercise: Extracting 16S genes
+
+Write a loop that uses the bedtools steps to extract the 16S sequence from all your prokaryote genomes.
+
+:::
+
+## BLAST
 
 BLAST is old-school sequence searching! You will probably have BLASTed things before via their [web interface](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome). However, for something as big as a genome you will need to run BLAST locally (i.e. on the server rather than via the web). This requires having a database downloaded to search against. The teaching servers have a choice of databases downloaded in `~/classdata/REFS/blastdb/`.
 
-• swissprot \-- Uniprot annotated protein database
+• swissprot -- Uniprot annotated protein database
 
-• mito_pro \-- metazoan mitochondrial database
+• mito_pro -- metazoan mitochondrial database
 
-• 16S_ribosomal_RNA \-- 16S ribosomal database
+• 16S_ribosomal_RNA -- 16S ribosomal database
 
-• hum_mt_pep \-- human mitochondrial
+• hum_mt_pep -- human mitochondrial
 
 Don't forget to load BLAST and any other modules you need!
 
@@ -317,6 +363,8 @@ blastx –db /home/db/fish –query contigs.fasta –out contigs_blx.txt
 
 This example uses blastx to match a DNA query against protein database, targets a (fictional) protein database named 'fish' stored at /home/db/, blasts the file contig.fasta and puts the output in contig_blx.txt
 
+Given that you will be searching a nucleotide query against a nucleotide database, which BLAST command do you think you need?
+
 ::: {.callout-warning collapse="true"}
 ## Extension:Making your own BLAST databases
 
@@ -336,25 +384,25 @@ There are also many other options to explore if you so desire!
 :::
 
 ::: callout-important
-## Exercise: Annotating with BLAST
+## Exercise: Searching with BLAST
 
-Take one of your assembled genomes and identify orthologues using blast.
+1.  Perform BLAST analysis of one of your extracted 16S genes against the 16S_ribosomal_RNA database. Interrogate the output using 'less'.
 
-1.  Perform blastx analysis of your sequence against the swissprot protein database. Interrogate the output using 'less'.
-
-2.  Re-run the blastx analysis with the output format parameter set to a cutomised `-outfmt 6`, which will output the data into a tablular format compatible with Artemis.
+2.  Re-run the BLAST analysis with the output format parameter set to a customised `-outfmt 6`, which will output the data into a tablular format (often useful for subsequent analyses). Call the output something different so as not to overwrite the previous one. Interrogate the output using 'less'. Can you see the difference to previously? How easy do you find it to read and interpret?
 
 ```{bash}
     blastx -query [contigs.fasta] -db ~/classdata/REFS/blastdb/hum_mt_pep -out [output.txt] -outfmt "6 qseqid sseqid pident length mismatch gapopen sstart send qstart qend evalue bitscore"
 ```
 
-You can now open the FASTA sequence you have used in the blast with Artemis and then overlay with the BLAST output file.
+3.  Have a look at [this guide](https://www.metagenomics.wiki/tools/blast/blastn-output-format-6) to further customising your output table. Can you get it to return a table that just contains the query ID, the subject (match) ID, the species name and the E value? **N.B. To get BLAST to return taxonomic information, you need to copy the taxonomy database into your working directory.**
 
-3.  Repeat the blastx analysis of your sequence only returning blast matches with an E value lower that 1E-10 and using all 4 threads.
+```{bash}
+cp ~/classdata/REFS/blastdb/taxdb.* .
+```
 
-4.  Repeat the blastx analysis of your sequence, only returning blast matches with an E value lower that 1E-10, using all 4 threads, limiting the outputs so that you keep to 100 and putting the outputs into the tabular format compatible with Artemis.
+4. Look at the BLAST options using `blastn -help`. Can you find one that will allow you to choose how many hits it returns?
 
-5.  \[Extension\] Produce a loop to annotate all assembled contigs using blast
+5. Extension: Produce a loop to get identities for all your prokaryotes.
 :::
 
 ::: {.callout-warning collapse="true"}

@@ -19,7 +19,6 @@ knitr::opts_chunk$set(eval = FALSE)
 
 Now is a good opportunity to look back over anything you're unclear on and would like to go over again. If you haven't already annotated all your prokaryote genomes with Prokka, now is the time to do so. If you've done all that and are chomping at the bit for more, read on for a tutorial on how to annotate your mitochondrial assemblies.
 
-
 # Mitos2 for mitochondrial annotation
 
 [MITOS](https://gitlab.com/Bernt/MITOS) is a [web server](http://mitos2.bioinf.uni-leipzig.de/) for the automatic annotation of metazoan mitochondrial genomes. MITOS allows a reliable and consistent annotation of proteins and non-coding RNAs. The analysis steps are as follows:
@@ -31,7 +30,6 @@ Now is a good opportunity to look back over anything you're unclear on and would
 • rRNA annotation is performed using structure-based covariance models that have been developed similarly to the tRNA models. Structural considerations improve 5' and 3' end predictions of the rRNAs.
 
 • In a final step, conflicts are resolved and the outcome is prepared for visualization.
-
 
 ### Ensure you have a single contig
 
@@ -51,7 +49,6 @@ module load bioperl-live/release-1-7-2
 perl ~/classdata/REFS/script/selectSeqsAboveMinLength.pl <your_assembly.fasta> <largest_contig.fasta> 8000
 
 ```
-
 :::
 
 ::: {.callout-note collapse="true"}
@@ -69,7 +66,6 @@ sed -i '/^>[2-9].*$/d' mito_assemblies/${base}.fasta
 seqtk seq -l [assembly].fasta > [assembly_NLB.fasta]
 
 ```
-
 :::
 
 ### Annotate with MITOS2
@@ -120,7 +116,6 @@ module unload mitos/2.0.4
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=257ce45d-7a81-4c25-91b8-af6a01422c39&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
 
 </iframe>
-
 :::
 
 ## Extract Fasta sequence for genes in Bed file
@@ -143,7 +138,7 @@ done
 ```
 
 ::: callout-important
-## Exercises: Annotate your mitochondria with mitos2 
+## Exercises: Annotate your mitochondria with mitos2
 
 Follow these steps to annotate your mitochondrial genome using mitos:
 
@@ -156,9 +151,7 @@ Follow these steps to annotate your mitochondrial genome using mitos:
 4.  \[Extension\] Use the BEDtools to extract the sequence of the annotated genes
 
 5.  \[Extension\] Use seqtk to extract just the COX1 gene
-
 :::
-
 
 ::: callout-important
 ## Extension: Annotate your mitochondria with BLAST

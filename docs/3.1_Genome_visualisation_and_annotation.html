@@ -364,8 +364,10 @@ background: darkred;
   <ul>
   <li><a href="#visualising-genomes-using-artemis" id="toc-visualising-genomes-using-artemis" class="nav-link active" data-scroll-target="#visualising-genomes-using-artemis">Visualising genomes using Artemis</a></li>
   <li><a href="#prokka---bacterial-genome-annotation" id="toc-prokka---bacterial-genome-annotation" class="nav-link" data-scroll-target="#prokka---bacterial-genome-annotation">Prokka - bacterial genome annotation</a></li>
-  <li><a href="#ncbi-blast" id="toc-ncbi-blast" class="nav-link" data-scroll-target="#ncbi-blast">NCBI Blast+</a>
+  <li><a href="#assigning-taxonomy-with-ncbi-blast" id="toc-assigning-taxonomy-with-ncbi-blast" class="nav-link" data-scroll-target="#assigning-taxonomy-with-ncbi-blast">Assigning taxonomy with NCBI BLAST</a>
   <ul class="collapse">
+  <li><a href="#use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome." id="toc-use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome." class="nav-link" data-scroll-target="#use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome.">Use bedtools to extract out your phylogenetic marker sequence (e.g.&nbsp;16S or <em>CoI</em>) from your assembled and annotated genome.</a></li>
+  <li><a href="#blast" id="toc-blast" class="nav-link" data-scroll-target="#blast">BLAST</a></li>
   <li><a href="#blast-programs" id="toc-blast-programs" class="nav-link" data-scroll-target="#blast-programs">BLAST Programs</a></li>
   <li><a href="#anatomy-of-the-blast-command" id="toc-anatomy-of-the-blast-command" class="nav-link" data-scroll-target="#anatomy-of-the-blast-command">Anatomy of the BLAST command</a></li>
   </ul></li>
@@ -689,17 +691,63 @@ Extension: BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR
 </div>
 </div>
 </section>
-<section id="ncbi-blast" class="level1">
-<h1>NCBI Blast+</h1>
+<section id="assigning-taxonomy-with-ncbi-blast" class="level1">
+<h1>Assigning taxonomy with NCBI BLAST</h1>
+<p>You now have good-quality assembled, annotated genomes… but what organisms are they from?! It’s time to put some names to genomes. We’re going to extract the 16S rRNA gene from the prokaryotes and BLAST them against a 16S database.</p>
+<section id="use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome." class="level2">
+<h2 class="anchored" data-anchor-id="use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome.">Use bedtools to extract out your phylogenetic marker sequence (e.g.&nbsp;16S or <em>CoI</em>) from your assembled and annotated genome.</h2>
+<p>Collectively, the bedtools utilities are a Swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF. While each individual tool is designed to do a relatively simple task (e.g., intersect two interval files), quite sophisticated analyses can be conducted by combining multiple bedtools operations on the UNIX command line.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.31.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can use bedtools to extract gene/protein sequences from annotation files:</p>
+<ol type="1">
+<li><p>Navigate to either the <strong>Prokka</strong> annotation output directory or the <strong>Barrnap</strong> output file</p></li>
+<li><p>Create a sub-gff file that contains the annotation information of only the 16 rRNA gene</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For bacterial sequences</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"product=16S ribosomal RNA"</span> [gff annotation file]  <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">subset_16S.gff</span><span class="pp">]</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># For mitochondrial sequences</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"ID=gene_cox1"</span> [gff annotation file]  <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">subset_coi.gff</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Extract the 16S rRNA gene from the mitochondrial genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the -s option.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta <span class="at">-fi</span> [input fasta file] <span class="at">-bed</span> [subset_gff file] <span class="at">-s</span> <span class="op">&gt;</span> [output 16S file.fasta]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The fasta sequence will be given a numeric nonsensical name (what comes after the &gt;). Change this for the name of the source sequence.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">"s/&gt;.*/&gt;[sequence name]/g"</span> [output 16S file.fasta]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise: Extracting 16S genes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Write a loop that uses the bedtools steps to extract the 16S sequence from all your prokaryote genomes.</p>
+</div>
+</div>
+</section>
+<section id="blast" class="level2">
+<h2 class="anchored" data-anchor-id="blast">BLAST</h2>
 <p>BLAST is old-school sequence searching! You will probably have BLASTed things before via their <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">web interface</a>. However, for something as big as a genome you will need to run BLAST locally (i.e.&nbsp;on the server rather than via the web). This requires having a database downloaded to search against. The teaching servers have a choice of databases downloaded in <code>~/classdata/REFS/blastdb/</code>.</p>
-<p>• swissprot -- Uniprot annotated protein database</p>
-<p>• mito_pro -- metazoan mitochondrial database</p>
-<p>• 16S_ribosomal_RNA -- 16S ribosomal database</p>
-<p>• hum_mt_pep -- human mitochondrial</p>
+<p>• swissprot – Uniprot annotated protein database</p>
+<p>• mito_pro – metazoan mitochondrial database</p>
+<p>• 16S_ribosomal_RNA – 16S ribosomal database</p>
+<p>• hum_mt_pep – human mitochondrial</p>
 <p>Don’t forget to load BLAST and any other modules you need!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load blast-plus/2.13.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load blast-plus/2.13.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="blast-programs" class="level2">
 <h2 class="anchored" data-anchor-id="blast-programs">BLAST Programs</h2>
 <p>BLAST comes in a variety of flavours, depending on what you want to search and what you want to search it against. The first thing you need to decide when BLASTing is which one you want.</p>
@@ -759,11 +807,12 @@ Extension: BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR
 <h2 class="anchored" data-anchor-id="anatomy-of-the-blast-command">Anatomy of the BLAST command</h2>
 <p>A basic BLAST command states your reference database, your query, and an output file, for example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastx</span> –db /home/db/fish –query contigs.fasta –out contigs_blx.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastx</span> –db /home/db/fish –query contigs.fasta –out contigs_blx.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This example uses blastx to match a DNA query against protein database, targets a (fictional) protein database named ‘fish’ stored at /home/db/, blasts the file contig.fasta and puts the output in contig_blx.txt</p>
+<p>Given that you will be searching a nucleotide query against a nucleotide database, which BLAST command do you think you need?</p>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -772,17 +821,17 @@ Extension:Making your own BLAST databases
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You already have the databases you require today, but sometimes you will need to create a custom database based on some collection of sequences dear to your heart! It’s not as simple as just creating a FASTA of sequences to search against: in order for BLAST to use them, it has to convert them into BLAST database format. The command to do so is <code>makeblastdb</code>. To create a new database:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">makeblastdb</span> <span class="at">-in</span> nucleotide_seq.fa –dbtype nucl –title my_db <span class="at">-out</span> my_seq</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Command line options</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-in</span>         <span class="pp">[</span><span class="ss">input_file</span><span class="pp">]</span> </span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-dbtype</span>     <span class="pp">[</span><span class="ss">molecule_type</span><span class="pp">]</span>, nucl – nucleotide or prot <span class="at">-</span> protein</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-title</span>  <span class="pp">[</span><span class="ss">database_title</span><span class="pp">]</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-out</span>        <span class="pp">[</span><span class="ss">database_name</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">makeblastdb</span> <span class="at">-in</span> nucleotide_seq.fa –dbtype nucl –title my_db <span class="at">-out</span> my_seq</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Command line options</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-in</span>         <span class="pp">[</span><span class="ss">input_file</span><span class="pp">]</span> </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-dbtype</span>     <span class="pp">[</span><span class="ss">molecule_type</span><span class="pp">]</span>, nucl – nucleotide or prot <span class="at">-</span> protein</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-title</span>  <span class="pp">[</span><span class="ss">database_title</span><span class="pp">]</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-out</span>        <span class="pp">[</span><span class="ss">database_name</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There are also many other options to explore if you so desire!</p>
 </div>
@@ -794,28 +843,31 @@ Extension:Making your own BLAST databases
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise: Annotating with BLAST
+Exercise: Searching with BLAST
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Take one of your assembled genomes and identify orthologues using blast.</p>
 <ol type="1">
-<li><p>Perform blastx analysis of your sequence against the swissprot protein database. Interrogate the output using ‘less’.</p></li>
-<li><p>Re-run the blastx analysis with the output format parameter set to a cutomised <code>-outfmt 6</code>, which will output the data into a tablular format compatible with Artemis.</p></li>
+<li><p>Perform BLAST analysis of one of your extracted 16S genes against the 16S_ribosomal_RNA database. Interrogate the output using ‘less’.</p></li>
+<li><p>Re-run the BLAST analysis with the output format parameter set to a customised <code>-outfmt 6</code>, which will output the data into a tablular format (often useful for subsequent analyses). Call the output something different so as not to overwrite the previous one. Interrogate the output using ‘less’. Can you see the difference to previously? How easy do you find it to read and interpret?</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">blastx</span> <span class="at">-query</span> <span class="pp">[</span><span class="ss">contigs.fasta</span><span class="pp">]</span> <span class="at">-db</span> ~/classdata/REFS/blastdb/hum_mt_pep <span class="at">-out</span> <span class="pp">[</span><span class="ss">output.txt</span><span class="pp">]</span> <span class="at">-outfmt</span> <span class="st">"6 qseqid sseqid pident length mismatch gapopen sstart send qstart qend evalue bitscore"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">blastx</span> <span class="at">-query</span> <span class="pp">[</span><span class="ss">contigs.fasta</span><span class="pp">]</span> <span class="at">-db</span> ~/classdata/REFS/blastdb/hum_mt_pep <span class="at">-out</span> <span class="pp">[</span><span class="ss">output.txt</span><span class="pp">]</span> <span class="at">-outfmt</span> <span class="st">"6 qseqid sseqid pident length mismatch gapopen sstart send qstart qend evalue bitscore"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can now open the FASTA sequence you have used in the blast with Artemis and then overlay with the BLAST output file.</p>
 <ol start="3" type="1">
-<li><p>Repeat the blastx analysis of your sequence only returning blast matches with an E value lower that 1E-10 and using all 4 threads.</p></li>
-<li><p>Repeat the blastx analysis of your sequence, only returning blast matches with an E value lower that 1E-10, using all 4 threads, limiting the outputs so that you keep to 100 and putting the outputs into the tabular format compatible with Artemis.</p></li>
-<li><p>[Extension] Produce a loop to annotate all assembled contigs using blast</p></li>
+<li>Have a look at <a href="https://www.metagenomics.wiki/tools/blast/blastn-output-format-6">this guide</a> to further customising your output table. Can you get it to return a table that just contains the query ID, the subject (match) ID, the species name and the E value? <strong>N.B. To get BLAST to return taxonomic information, you need to copy the taxonomy database into your working directory.</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/classdata/REFS/blastdb/taxdb.<span class="pp">*</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><p>Look at the BLAST options using <code>blastn -help</code>. Can you find one that will allow you to choose how many hits it returns?</p></li>
+<li><p>Extension: Produce a loop to get identities for all your prokaryotes.</p></li>
 </ol>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -824,29 +876,29 @@ Extension: mapping reads with minimap2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>[Minimap](https://github.com/lh3/minimap2) is a mapping software. It maps (aligns) sequencing reads to an assembled genome, so that it’s possible to see where in the genome each read originated from. We can use to see how the individual reads contributed to the assembled genome, and how deep the coverage is at each point along the genome.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load minimap2/2.14</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load minimap2/2.14</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Samtools - BAM/SAM tool utilities (for handling the alignment files minimap produces). BAM and SAM are file formats for storing reads alongside lots of information about how each read maps to the genome. They are very similar, but BAM files are more compact and not human-readable (if you try to open one if looks like gobbledygook), whereas SAM files are larger but human-readable (at least to a certain type of nerd).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load samtools/1.16.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load samtools/1.16.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Align read sequences to your assemblies and create a BAM file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">minimap2</span> <span class="at">-ax</span> sr [your contigs.fasta] <span class="pp">[</span><span class="ss">forward_read.fastq</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">reverse_read.fastq</span><span class="pp">]</span> <span class="op">&gt;</span> aln.sam</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-S</span> aln.sam <span class="op">&gt;</span> aln.bam</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort aln.bam <span class="op">&gt;</span> aln_sorted.bam</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index aln_sorted.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">minimap2</span> <span class="at">-ax</span> sr [your contigs.fasta] <span class="pp">[</span><span class="ss">forward_read.fastq</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">reverse_read.fastq</span><span class="pp">]</span> <span class="op">&gt;</span> aln.sam</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-S</span> aln.sam <span class="op">&gt;</span> aln.bam</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort aln.bam <span class="op">&gt;</span> aln_sorted.bam</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index aln_sorted.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Overlay the BAM file you have generated into your assembly using Artemis.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -855,7 +907,7 @@ Worked Example - Prokayote annotation loop
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=df930bd2-5f91-4151-9866-b09500b7390c&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
 </iframe>

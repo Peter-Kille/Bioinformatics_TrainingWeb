@@ -41,45 +41,18 @@ If a outgroup is not provided, use NCBI Genbank or the European Nucleotide Archi
 
 ## Use bedtools to extract out your phylogenetic marker sequence (e.g. 16S or *CoI*) from your assembled and annotated genome.
 
-Collectively, the bedtools utilities are a Swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF. While each individual tool is designed to do a relatively simple task (e.g., intersect two interval files), quite sophisticated analyses can be conducted by combining multiple bedtools operations on the UNIX command line.
-
-```{bash}
-module load bedtools2/2.31.0
-```
-
-We can use bedtools to extract gene/protein sequences from annotation files:
-
-1)  Navigate to either the **Prokka** annotation output directory or the **Barrnap** output file
-2)  Create a sub-gff file that contains the annotation information of only the 16 rRNA gene
-
-```{bash}
-# For bacterial sequences
-grep "product=16S ribosomal RNA" [gff annotation file]  > [subset_16S.gff]
-
-# For mitochondrial sequences
-grep "ID=gene_cox1" [gff annotation file]  > [subset_coi.gff]
-```
-
-The fasta sequence will be given a numeric nonsensical name (what comes after the >). Change this for the name of the source sequence.
-
-```{bash}
-sed -i "s/>.*/>[sequence name]/g" [output 16S file.fasta]
-```
-
-4)  Move your extracted 16S rRNA gene sequence into the directory of 16S rRNA reference genes provided.
-
-5)  Combine all the 16S rRNA gene fasta files into a single fasta file
-
-```{bash}
-cat [*.fasta] > [output multifasta file]
-```
+Yesterday you used bedtools to extract the 16S rRNA gene sequences from your prokaryote genomes (and maybe also to extract the CO1 genes from your mitochondria).
 
 ::: callout-important
 ### Exercise: Extracting 16S genes
 
-Write a loop that uses the bedtools steps to extract the 16S sequence from all your prokaryote genomes.
+1)  Move your extracted 16S rRNA gene sequence into the directory of 16S rRNA reference genes provided.
 
-Combine the 16S rRNA gene fasta files into a single fasta file.
+2)  Combine all the 16S rRNA gene fasta files into a single fasta file
+
+```{bash}
+cat [*.fasta] > [output multifasta file]
+```
 
 :::
 
@@ -101,7 +74,6 @@ mafft [input multifasta] > [output alignment multifasta]
 ### Exercise: Aligning sequences
 
 Use MAFFT to align the 16S sequences you have extracted.
-
 :::
 
 ## Construct a phylogeny with **RAxML-NG**
@@ -128,14 +100,13 @@ RAxML-NG produces multiple output files. The file we are interested in has the e
 Use RAxML-NG to create a tree from your aligned sequences. Start with a bootstrap value of 100.
 
 Re-run the tree with 500 and then 1000 bootstraps and compare the results. What do they tell you about the phylogeny?
-
 :::
 
 ## Visualize your tree with Figtree
 
 FigTree is designed as a graphical viewer of phylogenetic trees and as a program for producing publication-ready figures.
 
-Download locally to your laptop: https://github.com/rambaut/figtree/releases / or access through Guacamole graphical user interface
+Download locally to your laptop: https://github.com/rambaut/figtree/releases / or access by logging into the server using `-X`
 
 ```{base}
 module load figtree/1.4.4
@@ -149,14 +120,12 @@ When you open your newick if you will be asked about node labeling. You should i
 
 Labeling Fig Tree Branches ![](images/fig_tree_lables.png){width="40%" fig-align="center"}
 
-
 ::: {.callout-note collapse="true"}
 ## Worked Example: creating a 16S prokayote phylogeny
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=344ff837-6338-4bd2-9638-b09500f3f29d&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
-
 :::
 
 # Multiple gene plylogenys: MLST
@@ -210,14 +179,13 @@ Check the website for details of all the files produced: https://gtonkinhill.git
 ::: callout-important
 ### Exercise: Pangenome phylogeny
 
-1. Use panaroo to create a core gene alignment from your Prokka-annotated prokaryote genomes. 
+1.  Use panaroo to create a core gene alignment from your Prokka-annotated prokaryote genomes.
 
-2. Construct a phylogeny with **RAxML-NG**, using 1000 bootstraps.
+2.  Construct a phylogeny with **RAxML-NG**, using 1000 bootstraps.
 
-3. Visualize your tree.
+3.  Visualize your tree.
 
 If you were to repeat this analysis without the designated outgroup, which strain/s would be the outgroup of the phylogeny? (Check the lecture for guidance).
-
 :::
 
 ::: {.callout-note collapse="true"}
@@ -250,7 +218,6 @@ One significant advantage of performing a SNP phylogeny is it can be performed w
 
 7)  Visualize your tree with **Figtree**
 
-
 snippy is a tool to identify variations between a reference genome in fasta format and genome sequence data in read format (fastq)
 
 ```{bash}
@@ -271,15 +238,15 @@ You will need a loop to call SNPs for multiple genomes.
 ::: callout-important
 ### Exercise: SNP-based phylogeny
 
-1. Write a loop to call SNPs on all your prokaryote genomes using snippy. 
+1.  Write a loop to call SNPs on all your prokaryote genomes using snippy.
 
-2. To produce an alignment from SNPs, navigate to the snippy output directory and run **snippy-core**. The wildcard will extract the necessary SNP data from all the genomes analysed by snippy (directory for each genome in output directory).
+2.  To produce an alignment from SNPs, navigate to the snippy output directory and run **snippy-core**. The wildcard will extract the necessary SNP data from all the genomes analysed by snippy (directory for each genome in output directory).
 
 ```{bash}
 snippy-core -ref [same reference sequence] -prefix [prefix for snp output] [snippy output directory]/*
 ```
 
-3. Generate an alignment of the SNP sites:
+3.  Generate an alignment of the SNP sites:
 
 ```{bash}
 module load snp-sites/2.5.1
@@ -289,10 +256,9 @@ module load snp-sites/2.5.1
 snp-sites -cb -o [alignment file name] [prefix for snp output].full.aln
 ```
 
-4. Construct a phylogeny with **RAxML-NG**, using 1000 bootstraps.
+4.  Construct a phylogeny with **RAxML-NG**, using 1000 bootstraps.
 
-5. Visualize your tree.
-
+5.  Visualize your tree.
 :::
 
 # Walk throughs
