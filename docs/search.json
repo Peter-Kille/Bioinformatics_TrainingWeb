@@ -471,147 +471,140 @@
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html",
     "href": "5.3_DEG_Functional_Interpretation.html",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "",
     "text": "Workshop Recording to come"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#processing-rnaseq-data",
     "href": "5.3_DEG_Functional_Interpretation.html#processing-rnaseq-data",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "Processing RNAseq Data",
     "text": "Processing RNAseq Data\nConverting RNASeq data into gene counts is the first-step prior to analysis of the biological function and networks revealed through the subsequent transcription analysis. This process is outside the scope of this workshop but if you are interested Andres et al 2013 Provides an excellent overview of the processes involved.\n Figure 1. Process overview"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#dataset-to-use---geogds2565",
     "href": "5.3_DEG_Functional_Interpretation.html#dataset-to-use---geogds2565",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "Dataset to use - Geo:GDS2565",
     "text": "Dataset to use - Geo:GDS2565"
   },
   {
-    "objectID": "5.3_DEG_Functional_Interpretation.html#panopto_walk_through",
-    "href": "5.3_DEG_Functional_Interpretation.html#panopto_walk_through",
-    "title": "DEG Functional Interpretation",
-    "section": "Panopto_walk_through",
-    "text": "Panopto_walk_through"
-  },
-  {
-    "objectID": "5.3_DEG_Functional_Interpretation.html#false-discover-rate",
-    "href": "5.3_DEG_Functional_Interpretation.html#false-discover-rate",
-    "title": "DEG Functional Interpretation",
-    "section": "False Discover Rate",
-    "text": "False Discover Rate"
+    "objectID": "5.3_DEG_Functional_Interpretation.html#false-discovery-rate",
+    "href": "5.3_DEG_Functional_Interpretation.html#false-discovery-rate",
+    "title": "Extension: DEG Functional Interpretation",
+    "section": "False Discovery Rate",
+    "text": "False Discovery Rate"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#fishers-exact-test-and-enrichment-analysis",
     "href": "5.3_DEG_Functional_Interpretation.html#fishers-exact-test-and-enrichment-analysis",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "Fisher’s Exact Test and Enrichment Analysis",
     "text": "Fisher’s Exact Test and Enrichment Analysis"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#geo-workshop",
     "href": "5.3_DEG_Functional_Interpretation.html#geo-workshop",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "Geo Workshop",
-    "text": "Geo Workshop\n\nSearch for you dataset\n\nGo to Geo DataSets: (https://www.ncbi.nlm.nih.gov/gds/)[https://www.ncbi.nlm.nih.gov/gds/]\n GEO_DataSet Search\nnow select \n\nRefine search to only show ‘DataSets’ and ‘Series’\n\nSelect &lt; DataSets and Series &gt; from the left hand menu.\n Refine to DataSets\n3A. Select procesed dataset (should be number 3 in list and have a heat map icon to the right)\nClick on title &lt; Endothelial cell response to ultrafine particles &gt; to select DataSet\n Entry Page\nTake notes off all pertinent information about the experiment, including species and what microarray platform was used. In this case experiment was conducted on rats and analysed on an Affymetrix Human Genome U133 Plus 2.0 Array. Download any publication available. Also, if you are interested you could have a look at the cluster analysis on the right hand site. This will show you how the relationship of the expression profiles from each sample relative to each other. If the experiment was successful, all samples of a certain treatment should cluster together.\n4A. Compare experiment samples\nClick &lt;Compare 2 sets of sample&gt;\nChoose &lt;test e.g. One-tailed t-test (A &gt; B)&gt;\nChoose _ e.g. 0.001\nClick on: Step 2: Select which Samples to put in Group A and Group B\n Select Groups to compare\nChoose &lt; Query Group A vs B &gt;\nYou should now see a list of the following DEGS\n DEG List\n5A. Download DEGs\nYou have &gt;100 DEGs but the page only displays the first 20. Before downloading DEGS change the items per page from 20 to 500.\n Items Per Page\nSelect &lt; Download profile data &gt;\nand you will be prompted to save the profiling of the DEGs displayed as default file name &lt;profile_data.txt&gt;\nSave to appropriate location. If needed Select Page 2…. of the DEGS and repeat the download process.\nRepeat this process for &lt;test e.g. One-tailed t-test (B &gt; A) significance level 0.001 &gt;_\n6A. Open and Merge DEG lists in Excel\nThe DEG lists show the gene list with there relative expression level (normalised) and annotation for the genes involved (annotation shown in columns BG -&gt;). For Our next steps we will use the Gene symbol that is in Column BH.\n3B. Select un-processed series (should be number 2 - it will have icon &lt; Analyze with GEO2R &gt; at the end of the entry)\nClick on &lt; Analyze with GEO2R &gt;\nNow Define groups by click clicking the &lt; Define Group pull &gt; down and create groups ‘control’ and ‘Treatment’ (enter group name and press enter). Click on each sample in list and associated it with one of your group (you can hold ctrl down to select multiple entry before associating them with the group).\n Select Groups to compare\n4B. Customise the Option and Analyse\nSelect &lt; Options &gt; and customise as shown below:\n Geo2R Options\nSelect &lt; reanalyze &gt;\nWill will now see a Processing icon - this may take a minute or two.\n5B. DEGs\nYou will now see a table and a series of Visualisations - review the visualisation taking note of what each are showing you.\n Geo2R results\nVenn diagram showing GSE4567: Limma, Padj&lt;0.05 - 704 genes - this is the set we will use\nClick on &lt; Explore and download, control vs treatment and Download Significant genes &gt;\nThis will give you a Tsv you can open in excel\n6B DEG TSV\nOpen the DEG TSV - you will have ID (Affymetrix), Gene Symbol, Description and Log2(fold Change) and Adjusted p-value. The Gene.symbol can have multiple symonyms for each gene - this can bias future analsyis. Copy/paste gene symbol column to rught hand column (so no other data is on right), and use &lt; Data &gt; Text to Columns &gt; Delimited &gt; Other &gt; ‘/’ &gt; Finish &gt;_ to push secondary symbols into other columns."
+    "text": "Geo Workshop\n\nSearch for your dataset\n\nGo to Geo DataSets: (https://www.ncbi.nlm.nih.gov/gds/)[https://www.ncbi.nlm.nih.gov/gds/]\n GEO_DataSet Search\nnow select \n\nRefine search to only show ‘DataSets’ and ‘Series’\n\nSelect &lt; DataSets and Series &gt; from the left hand menu.\n Refine to DataSets\n3A. Select procesed dataset (should be number 3 in list and have a heat map icon to the right)\nClick on title &lt; Endothelial cell response to ultrafine particles &gt; to select DataSet\n Entry Page\nTake notes off all pertinent information about the experiment, including species and what microarray platform was used. In this case experiment was conducted on rats and analysed on an Affymetrix Human Genome U133 Plus 2.0 Array. Download any publication available. Also, if you are interested you could have a look at the cluster analysis on the right hand site. This will show you how the relationship of the expression profiles from each sample relative to each other. If the experiment was successful, all samples of a certain treatment should cluster together.\n4A. Compare experiment samples\nClick &lt;Compare 2 sets of sample&gt;\nChoose &lt;test e.g. One-tailed t-test (A &gt; B)&gt;\nChoose _ e.g. 0.001\nClick on: Step 2: Select which Samples to put in Group A and Group B\n Select Groups to compare\nChoose &lt; Query Group A vs B &gt;\nYou should now see a list of the following DEGS\n DEG List\n5A. Download DEGs\nYou have &gt;100 DEGs but the page only displays the first 20. Before downloading DEGS change the items per page from 20 to 500.\n Items Per Page\nSelect &lt; Download profile data &gt;\nand you will be prompted to save the profiling of the DEGs displayed as default file name &lt;profile_data.txt&gt;\nSave to appropriate location. If needed Select Page 2…. of the DEGS and repeat the download process.\nRepeat this process for &lt;test e.g. One-tailed t-test (B &gt; A) significance level 0.001 &gt;_\n6A. Open and Merge DEG lists in Excel\nThe DEG lists show the gene list with there relative expression level (normalised) and annotation for the genes involved (annotation shown in columns BG -&gt;). For Our next steps we will use the Gene symbol that is in Column BH.\n3B. Select un-processed series (should be number 2 - it will have icon &lt; Analyze with GEO2R &gt; at the end of the entry)\nClick on &lt; Analyze with GEO2R &gt;\nNow Define groups by click clicking the &lt; Define Group pull &gt; down and create groups ‘control’ and ‘Treatment’ (enter group name and press enter). Click on each sample in list and associated it with one of your group (you can hold ctrl down to select multiple entry before associating them with the group).\n Select Groups to compare\n4B. Customise the Option and Analyse\nSelect &lt; Options &gt; and customise as shown below:\n Geo2R Options\nSelect &lt; reanalyze &gt;\nWill will now see a Processing icon - this may take a minute or two.\n5B. DEGs\nYou will now see a table and a series of Visualisations - review the visualisation taking note of what each are showing you.\n Geo2R results\nVenn diagram showing GSE4567: Limma, Padj&lt;0.05 - 704 genes - this is the set we will use\nClick on &lt; Explore and download, control vs treatment and Download Significant genes &gt;\nThis will give you a Tsv you can open in excel\n6B DEG TSV\nOpen the DEG TSV - you will have ID (Affymetrix), Gene Symbol, Description and Log2(fold Change) and Adjusted p-value. The Gene.symbol can have multiple symonyms for each gene - this can bias future analsyis. Copy/paste gene symbol column to rught hand column (so no other data is on right), and use &lt; Data &gt; Text to Columns &gt; Delimited &gt; Other &gt; ‘/’ &gt; Finish &gt;_ to push secondary symbols into other columns."
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#geo-database-panopto",
     "href": "5.3_DEG_Functional_Interpretation.html#geo-database-panopto",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "GEO Database Panopto",
     "text": "GEO Database Panopto"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#gprofiler-panopto",
     "href": "5.3_DEG_Functional_Interpretation.html#gprofiler-panopto",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "gprofiler panopto",
     "text": "gprofiler panopto"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#gene-enrichment-analysis-with-david",
     "href": "5.3_DEG_Functional_Interpretation.html#gene-enrichment-analysis-with-david",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "Gene Enrichment Analysis with David",
     "text": "Gene Enrichment Analysis with David\n[David - Database for Annotation, Visualization and Integrated Discovery] (https://david.ncifcrf.gov/) was the tool to use for gene enrichment from 2005 - 2016 but the database it hosted became out of date due to a break in the research groups funding. From 2016 (gprofiler)[https://biit.cs.ut.ee/gprofiler/gost] and (stringdb)[https://string-db.org/] have been prefered because they have been kept upto date. However, DAVID was refunded and a 2021 update means it is back to being maintained. Although there will not be time to explore it in our workshop the following workshop and video is there to support anyone wanting to explore its functionality."
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#start-analysis-and-upload-you-data",
     "href": "5.3_DEG_Functional_Interpretation.html#start-analysis-and-upload-you-data",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "1. Start analysis and upload you data",
     "text": "1. Start analysis and upload you data\nSelect &lt; start analysis &gt;\nPaste in you gene list (1) in box (A) and, select identifier (2), and identify as a Gene List (3). Select your species (2a) . In more nuanced analysis you may wish to define your own background - this is useful when working with non-model organisms or if your starting population does not represent the entire genome.\n DAVID Upload\nnow select &lt; Submit List &gt;"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#generate-functional-analysis-of-gene-list",
     "href": "5.3_DEG_Functional_Interpretation.html#generate-functional-analysis-of-gene-list",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "2. Generate Functional Analysis of gene list",
     "text": "2. Generate Functional Analysis of gene list\nIf you have used a non-regulate gene identifier or it does not recognize the identifier type you have used it may ask you to convert the identifiers - check the programs suggestion - it is usually good but you should check.\nSelect &lt; Functional Annotation Tool &gt;\nYou will now be give a annotation summary as shown below:\n Annotation Summary\nYou will see a range of categories for which the functional annotation has been performed. The analysis told has not only cross referenced the gene list against a range of functional databases it has also analysed the gene co-appearance in citations (Literature), links to disease (Disease) and Interactions agonist other linkages."
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#review-gene-ontology-enrichment",
     "href": "5.3_DEG_Functional_Interpretation.html#review-gene-ontology-enrichment",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "3. Review Gene Ontology Enrichment",
     "text": "3. Review Gene Ontology Enrichment\nLet us consider the functional enrichment using (Gene Ontology)[http://geneontology.org/]. Gene Ontology categorizes gene products using three distinct characteristics - Molecular Function (biochemistry of the product), Cellular Component (where it appears in the cell), and the Biological Processes - see more about these classification by reviewing the (Gene Ontology Overview documentation)[http://geneontology.org/docs/ontology-documentation/]. Although ontologies are hierarchical, they are not a simple classification system, they not only allow for gene products to be involved with multiple processes the relationship between elements in the hierarchy are closely defined. The ontology also allows for classification to be as specific or detailed as knowledge allows ie if a protein is a transporter but what it transports is not known it will be defined by a mid-level term ‘transporter’ but if it is known to transport Zn it will be classified at a ‘Zinc transport’ as well as a ‘transporter’. Enrichment analysis uses fisher exact test (see about) to calculate the enrichment at each of these ‘levels’ - although I usually choose to look at the integrated data summarized under the ‘GOTERM_[BP/CC/MF]_DIRECT’.\nclick on the + next too the &lt; Gene_Ontology &gt; category\nSelect &lt; Chart &gt; right of the GOTERM_BP_DIRECT\n BP Enrichment\nNote the P-value and benjamini correct p-value displaying the like hood that those specific Go terms are represented by random - i.e. lost the P-value the less likely the representation of the term is a random select , therefore the more likely the term is enriched.\nTo see the list of gene involved in for instance ‘positive regulation of osteoblast differentiation’ click on the blue bar under the ‘Genes’ column.\nThis is the list you will see:\n positive regulation of osteoblast differentiation\nNow review enrichment for Cell Component and Molecular Function."
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#pathway-analysis",
     "href": "5.3_DEG_Functional_Interpretation.html#pathway-analysis",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "4. Pathway analysis",
     "text": "4. Pathway analysis\nclick on the + next too the &lt; Pathways &gt; category\n Pathway Options\nSelect &lt; Chart &gt; right of the KEGG\n KEGG Enrichment\nYou will see a list of enriched pathways - Note the P-value and benjamini correct p-value displaying the like hood that those specific pathways are represented by random - i.e. lost the P-value the less likely the representation of the pathway is a random select, therefore the more likely the pathways is enriched.\nclick on the &lt; TNF Signalling Pathway &gt;_ in the term column\nThis will display the pathway with the terms that are present in the list shown with red stars or highlight by redtext below the figure.\n TNF Signalling Pathway\nExplore some more pathways"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#functional-annotation-clustering",
     "href": "5.3_DEG_Functional_Interpretation.html#functional-annotation-clustering",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "5. Functional Annotation Clustering",
     "text": "5. Functional Annotation Clustering\nDAVID attempts to summarise enrichment between categorization systems using a tool it terms - Functional annotation clustering. If you select this for you current data set. you will be provided with the following clusters:\n Functional Annotation Clustering\nEach cluster is assigned an enrichment score under which ‘terms’ that are enriched under different classification systems are displayed grouped together. Each ‘grouping’ is given a ‘Enrichment Score’ the larger the enrichment score the higher the score the more likely that cluster is being enriched. Note that the is a ‘Classification Stringency’ pull down menu that allows you to define the strength of associated of the term being grouped together.\nFor annotation Cluster 6 (which contains lots of Metallothionein/cadimum associated terms) there is a small green and black box - after the Enrichment Score and the ‘G’ - click on this box. This brings up a cluster matrix showing the gene gene products on the Y-axis and the classification ‘vlasses’ on the X-axis.\n Cluster Matrix\nDavid Workshop\n\nEnrichment with David Panopto"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#string-panopto",
     "href": "5.3_DEG_Functional_Interpretation.html#string-panopto",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "STRING Panopto",
     "text": "STRING Panopto"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#export-go-terms-and-p-values",
     "href": "5.3_DEG_Functional_Interpretation.html#export-go-terms-and-p-values",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "1. Export GO terms and P-values",
     "text": "1. Export GO terms and P-values\n\n1A. gprofiler\nUnder the detailed results menu there is a CSV icon which when clicked can be used to export your enriched terms as a CSV which can then be imported into excel. You can use the associated setting button (the cog symbol next toi the CSV) to select only GO terms to export for this exercise.\n gprofiler export\nYou will then need to copy column C and D into Revigo\n\n\n1B. DAVID\nAfter you have completed the functional analysis select &lt; Gene_ontology &gt; GOTERM_BP_DIRECT &gt; Chart &gt;\nnow Select &lt; Download File &gt;\n DAVID Go Download\nThis will either display the enrichment table into the browser window or ask for a save location depending on your browser settings. If you are not asked for a save location right hand click the displayed table and select Save as and save to a appropriate location as a text file. This text file can be opened/imported into excel. You will file the GO term is concatenated with the GO description in Column B. To split this insert a blank column after column B, then select column B and select menu option &lt; Data &gt; Test to columns &gt;. Select &lt; Delimited &gt; Next &gt;_ and use the radio button to select other and add a ~_ to the box directly to the right of this option. Now click &lt; Next and Finish &gt;. You will see the GO term in now in Column B and the P-value in column F. Select these columns and paste them into Revigo.\nYou should now repeat this process for Molecular Function and Cell Component Terms.When all the data is merged you can paste the GO term and P value into Revigo."
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#revigo-data-entry",
     "href": "5.3_DEG_Functional_Interpretation.html#revigo-data-entry",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "2. Revigo data entry",
     "text": "2. Revigo data entry\nEnter GO terms and P-values into Revigo - they should be in format\nTerm    PValue\nGO:0045892  7.75E-06\nGO:0006694  3.29E-04\nLeave the default settings and select &lt; Start Revigo &gt;"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#review-revigo-results",
     "href": "5.3_DEG_Functional_Interpretation.html#review-revigo-results",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "3. Review Revigo Results",
     "text": "3. Review Revigo Results\nFor each GO term category Revigo will generate a Scatterplot, Table, 3D scatter plot, interactive Graph and Tree Map. Note: at the bottom of each plot there are export options for R and other formats _.\nThe most intuitive format is are the Tree Maps (see below) whilst the Scatterplot output table, which include terms like ‘Frequency and Uniqueness’ can be used to create networks in Cytoscape.\n Revigo BP TreeMap"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#revigo-workshop",
     "href": "5.3_DEG_Functional_Interpretation.html#revigo-workshop",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "Revigo Workshop",
     "text": "Revigo Workshop"
   },
   {
     "objectID": "5.3_DEG_Functional_Interpretation.html#revigo-panopto",
     "href": "5.3_DEG_Functional_Interpretation.html#revigo-panopto",
-    "title": "DEG Functional Interpretation",
+    "title": "Extension: DEG Functional Interpretation",
     "section": "Revigo Panopto",
     "text": "Revigo Panopto"
   },
@@ -802,21 +795,21 @@
     "href": "index.html#session-3.-genome-visualisation-and-annotation",
     "title": "Introduction to Big Data Biology and Bioinformatics",
     "section": "Session 3. Genome visualisation and annotation",
-    "text": "Session 3. Genome visualisation and annotation\nGenome Annotation and Visualisation\nA genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results. We primarily use Artemis (Sanger Centre) but also introduce Integrated Genome Viewer (IGV) from the Broad Institute.\nExtension: Annotating Mitochodria\nAnnotating a mitochrondrial genome requires some different software to a bacterial genome. Here we walk you through using it."
+    "text": "Session 3. Genome visualisation and annotation\nGenome Annotation and Visualisation\nA genome or transcript assembly means little until you overlay it with biological information. Here we introduce you to software to generate that biological information as well as visualize the results.\nExtension: Annotating Mitochodria\nAnnotating a mitochrondrial genome requires some different software to a bacterial genome. Here we walk you through using it."
   },
   {
     "objectID": "index.html#session-4.-building-phylogenies",
     "href": "index.html#session-4.-building-phylogenies",
     "title": "Introduction to Big Data Biology and Bioinformatics",
     "section": "Session 4. Building phylogenies",
-    "text": "Session 4. Building phylogenies\nPhylogenetics and Phylogenomics\nThe taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual.\nPhylogenetics and Phylogenomics\nMore practice at building phylogenies."
+    "text": "Session 4. Building phylogenies\nPhylogenetics and Phylogenomics\nThe taxonomic relationships between organisms can be derived through the genetic differences between them. This workshop provides a refresher of the basic principles and then provides examples of how to derive phylogenetic trees from single gene trees to whole genomes. Ultimately, the more global the information used to generate a phylogeny the more resolution / understanding you have about the relationship between organism at the level of the population or individual.\nExtension: more phylogenetics and phylogenomics\nMore practice at building phylogenies."
   },
   {
     "objectID": "index.html#session-5.-transcriptomics",
     "href": "index.html#session-5.-transcriptomics",
     "title": "Introduction to Big Data Biology and Bioinformatics",
     "section": "Session 5. Transcriptomics",
-    "text": "Session 5. Transcriptomics\nRNAseq Data Processing\nTranscriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to transcript counts for an organism with an existing genome. We include approaches to identify and evaluate technical duplication, although be aware this may not be relevant to your analytical approach.\nGeneration of Differentially Expressed Gene (DEG) Lists\nPerforming quality control and provisional data visualisation (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use SARTools developed at the Pasteur Institute to illustrate best practice in transcriptome analysis. We also include multivariate approaches to data visualization such as PCA and HCA (hierarchical clustering analysis).\nFunctional Interpretation of DEGs\nInterpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks."
+    "text": "Session 5. Transcriptomics\nRNAseq Data Processing\nTranscriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to transcript counts for an organism with an existing genome. We include approaches to identify and evaluate technical duplication, although be aware this may not be relevant to your analytical approach.\nGeneration of Differentially Expressed Gene (DEG) Lists\nPerforming quality control and provisional data visualisation (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use SARTools developed at the Pasteur Institute to illustrate best practice in transcriptome analysis. We also include multivariate approaches to data visualization such as PCA and HCA (hierarchical clustering analysis).\nExtension: Functional Interpretation of DEGs\nInterpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks."
   },
   {
     "objectID": "index.html#session-6.-microbial-community-analysis",

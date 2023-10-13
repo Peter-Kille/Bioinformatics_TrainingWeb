@@ -2,7 +2,7 @@
 title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
-title: "DEG Functional Interpretation"
+title: "Extension: DEG Functional Interpretation"
 subtitle: "From Gene Lists to Biological Meansing"
 author: "Prof Peter Kille"
 date: today
@@ -21,13 +21,11 @@ Converting RNASeq data into gene counts is the first-step prior to analysis of t
 
 ## [Dataset to use - Geo:GDS2565](https://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2565)
 
-## [Panopto_walk_through](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9d81b942-6a9a-42e5-8fd8-ac7401144342)
-
 # Key Statistical Concepts
 
-The workshop will use tools that exploit statistical approaches to identify differential expressed genes (DEGs) and subsequently identify the biological pathways or processes that are over represented (some time refereed to as enriched) within the DEGs. You will not need to derive the mathematical formula underpinning these concepts or deploy the algorithums from first principles since the software you will use does this for you but it is worth knowing the background. There is an excellent academic from Stanford University Name Prof Josh Starmer who runs a youtube channel called [StatQuest](https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw) this deal with a large range of biological stats and has some great annotations to explain them, I am going to suggest you watch two of his videos to orientate you about the key statistical concepts for this session:
+The workshop will use tools that exploit statistical approaches to identify differential expressed genes (DEGs) and subsequently identify the biological pathways or processes that are over represented (some time refereed to as enriched) within the DEGs. You will not need to derive the mathematical formula underpinning these concepts or deploy the algorithums from first principles since the software you will use does this for you but it is worth knowing the background. There is an excellent academic from Stanford University, Prof Josh Starmer, who runs a youtube channel called [StatQuest](https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw) this deal with a large range of biological stats and has some great annotations to explain them, I am going to suggest you watch two of his videos to orientate you about the key statistical concepts for this session:
 
-## False Discover Rate
+## False Discovery Rate
 
 ```{r FDR, echo=FALSE, warning=FALSE}
 library("vembedr")
@@ -45,7 +43,7 @@ embed_url("https://www.youtube.com/watch?v=udyAvvaMjfM")
 
 ## [Geo Workshop](https://cf.sharepoint.com/:b:/t/SystemsBiology/ESRyTPUlb_dJgpHLXUbYk2wBO_SyL9gXhOXOs-BpHFSPsw?e=FXrOLC)
 
-1.  Search for you dataset
+1.  Search for your dataset
 
 Go to Geo DataSets: (https://www.ncbi.nlm.nih.gov/gds/)\[https://www.ncbi.nlm.nih.gov/gds/\]
 

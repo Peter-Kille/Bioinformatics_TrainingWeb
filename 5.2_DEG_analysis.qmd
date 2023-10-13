@@ -17,12 +17,12 @@ knitr::opts_chunk$set(eval = FALSE)
 
 </iframe>
 
-# Data
+# Differential Expression Analysis
 
 An R script template, and a folder of pre-computed FeatureCounts outputs are at:
 
 ```{bash}
-    ~/classdata/Session5/RNAseq-Analysis
+~/classdata/Session5/RNAseq-Analysis
 ```
 
 A set of nine human neuronal differential RNAseq samples have been sequenced, consisting of 6x control samples (3x two different individuals) and 3x a deletion mutant of the 1q21.1 cytogenetic region of the human genome, and 3x of a duplication of this region.
@@ -32,9 +32,9 @@ Deletions and alterations to this region has a range of impacts on neuropsychiat
 ![1q21.1 cytogenetic region of the human genome](images/Picture1.png){width="50%"}
 
 ::: callout-important
-## Excercises - Differential Gene Analysis
+## Exercises: Differential Gene Analysis
 
-We will be using the script `'template_script_DESeq2.r'` provided on the server and github pages.
+We will be using the script `Sartools-template-deseq2.r` provided on the server and github pages.
 
 We will use the server Rstudio to do the analysis.
 
@@ -44,13 +44,26 @@ We will use the server Rstudio to do the analysis.
 
 3.  Explore the html report generated and the differentiation of the sample types
 
-4.  Look at the most differentially expressed genes in the outputted tables (excel)
+4.  Look at the most differentially expressed genes (DEGs) in the outputted tables (excel)
 
-5.  \[extension\] Use the list of \~200 most differentially expressed genes in gProfiler, or other online databases to investigate the functional connotations.
 :::
 
-::: callout-warning 
-# Extension: Useful Packages Downstream Analysis
+# Visualising Expression Patterns
+
+Once an analysis has yielded a list of DEGs, it's common to visualise them in a heatmap. There is a wonderful R package called [ComplexHeatmap](https://jokergoo.github.io/ComplexHeatmap-reference/book/), which will do almost anything you can think of to a heatmap.
+
+::: callout-important
+## Exercises: Differential Gene Analysis
+
+We will be using the script `Heatmaps.r` provided on the server and github pages. We will use the server Rstudio to do the analysis.
+
+Explore the heatmap code provided in the script, and then try customising it.
+
+:::
+
+::: callout-warning
+# Extension: Useful Packages for Downstream Analysis
+Use the list of \~200 most differentially expressed genes in gProfiler, or other online resources below, to investigate the functional connotations (More on this in the extension session).
 
 ## Converting between common gene IDs
 

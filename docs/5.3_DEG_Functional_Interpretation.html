@@ -9,7 +9,7 @@
 <meta name="author" content="Prof Peter Kille">
 <meta name="dcterms.date" content="2023-10-13">
 
-<title>DEG Functional Interpretation</title>
+<title>Extension: DEG Functional Interpretation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,7 +92,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.1_RNAseq_processing.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.3_DEG_Functional_Interpretation.html">DEG Functional Interpretation</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.1_RNAseq_processing.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.3_DEG_Functional_Interpretation.html">Extension: DEG Functional Interpretation</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -105,7 +105,7 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">DEG Functional Interpretation</h1>
+      <h1 class="title">Extension: DEG Functional Interpretation</h1>
             <p class="subtitle lead">From Gene Lists to Biological Meansing</p>
                       </div>
   </div>
@@ -303,7 +303,7 @@ background: darkred;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./5.3_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">DEG Functional Interpretation</span></a>
+ <span class="menu-text">Extension: DEG Functional Interpretation</span></a>
   </div>
 </li>
       </ul>
@@ -339,11 +339,10 @@ background: darkred;
   <ul class="collapse">
   <li><a href="#processing-rnaseq-data" id="toc-processing-rnaseq-data" class="nav-link" data-scroll-target="#processing-rnaseq-data">Processing RNAseq Data</a></li>
   <li><a href="#dataset-to-use---geogds2565" id="toc-dataset-to-use---geogds2565" class="nav-link" data-scroll-target="#dataset-to-use---geogds2565">Dataset to use - Geo:GDS2565</a></li>
-  <li><a href="#panopto_walk_through" id="toc-panopto_walk_through" class="nav-link" data-scroll-target="#panopto_walk_through">Panopto_walk_through</a></li>
   </ul></li>
   <li><a href="#key-statistical-concepts" id="toc-key-statistical-concepts" class="nav-link" data-scroll-target="#key-statistical-concepts">Key Statistical Concepts</a>
   <ul class="collapse">
-  <li><a href="#false-discover-rate" id="toc-false-discover-rate" class="nav-link" data-scroll-target="#false-discover-rate">False Discover Rate</a></li>
+  <li><a href="#false-discovery-rate" id="toc-false-discovery-rate" class="nav-link" data-scroll-target="#false-discovery-rate">False Discovery Rate</a></li>
   <li><a href="#fishers-exact-test-and-enrichment-analysis" id="toc-fishers-exact-test-and-enrichment-analysis" class="nav-link" data-scroll-target="#fishers-exact-test-and-enrichment-analysis">Fisher’s Exact Test and Enrichment Analysis</a></li>
   </ul></li>
   <li><a href="#mining-geo-database" id="toc-mining-geo-database" class="nav-link" data-scroll-target="#mining-geo-database">Mining GEO database</a>
@@ -407,15 +406,12 @@ background: darkred;
 <section id="dataset-to-use---geogds2565" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-to-use---geogds2565"><a href="https://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2565">Dataset to use - Geo:GDS2565</a></h2>
 </section>
-<section id="panopto_walk_through" class="level2">
-<h2 class="anchored" data-anchor-id="panopto_walk_through"><a href="https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9d81b942-6a9a-42e5-8fd8-ac7401144342">Panopto_walk_through</a></h2>
-</section>
 </section>
 <section id="key-statistical-concepts" class="level1">
 <h1>Key Statistical Concepts</h1>
-<p>The workshop will use tools that exploit statistical approaches to identify differential expressed genes (DEGs) and subsequently identify the biological pathways or processes that are over represented (some time refereed to as enriched) within the DEGs. You will not need to derive the mathematical formula underpinning these concepts or deploy the algorithums from first principles since the software you will use does this for you but it is worth knowing the background. There is an excellent academic from Stanford University Name Prof Josh Starmer who runs a youtube channel called <a href="https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw">StatQuest</a> this deal with a large range of biological stats and has some great annotations to explain them, I am going to suggest you watch two of his videos to orientate you about the key statistical concepts for this session:</p>
-<section id="false-discover-rate" class="level2">
-<h2 class="anchored" data-anchor-id="false-discover-rate">False Discover Rate</h2>
+<p>The workshop will use tools that exploit statistical approaches to identify differential expressed genes (DEGs) and subsequently identify the biological pathways or processes that are over represented (some time refereed to as enriched) within the DEGs. You will not need to derive the mathematical formula underpinning these concepts or deploy the algorithums from first principles since the software you will use does this for you but it is worth knowing the background. There is an excellent academic from Stanford University, Prof Josh Starmer, who runs a youtube channel called <a href="https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw">StatQuest</a> this deal with a large range of biological stats and has some great annotations to explain them, I am going to suggest you watch two of his videos to orientate you about the key statistical concepts for this session:</p>
+<section id="false-discovery-rate" class="level2">
+<h2 class="anchored" data-anchor-id="false-discovery-rate">False Discovery Rate</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div class="vembedr">
@@ -444,7 +440,7 @@ background: darkred;
 <section id="geo-workshop" class="level2">
 <h2 class="anchored" data-anchor-id="geo-workshop"><a href="https://cf.sharepoint.com/:b:/t/SystemsBiology/ESRyTPUlb_dJgpHLXUbYk2wBO_SyL9gXhOXOs-BpHFSPsw?e=FXrOLC">Geo Workshop</a></h2>
 <ol type="1">
-<li>Search for you dataset</li>
+<li>Search for your dataset</li>
 </ol>
 <p>Go to Geo DataSets: (https://www.ncbi.nlm.nih.gov/gds/)[https://www.ncbi.nlm.nih.gov/gds/]</p>
 <p><img src="images/GEO_DataSets.png" class="img-fluid" alt="GEO_DataSet Search"> <strong><em>GEO_DataSet Search</em></strong></p>

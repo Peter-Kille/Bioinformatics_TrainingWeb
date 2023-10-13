@@ -336,7 +336,7 @@ background: darkred;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./5.3_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">DEG Functional Interpretation</span></a>
+ <span class="menu-text">Extension: DEG Functional Interpretation</span></a>
   </div>
 </li>
       </ul>
@@ -368,7 +368,8 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a></li>
+  <li><a href="#differential-expression-analysis" id="toc-differential-expression-analysis" class="nav-link active" data-scroll-target="#differential-expression-analysis">Differential Expression Analysis</a></li>
+  <li><a href="#visualising-expression-patterns" id="toc-visualising-expression-patterns" class="nav-link" data-scroll-target="#visualising-expression-patterns">Visualising Expression Patterns</a></li>
   </ul>
 </nav>
     </div>
@@ -380,11 +381,11 @@ background: darkred;
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2a1422b-b0e3-4a42-ac71-af630098d97d&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
-<section id="data" class="level1">
-<h1>Data</h1>
+<section id="differential-expression-analysis" class="level1">
+<h1>Differential Expression Analysis</h1>
 <p>An R script template, and a folder of pre-computed FeatureCounts outputs are at:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">~/classdata/Session5/RNAseq-Analysis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/Session5/RNAseq-Analysis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>A set of nine human neuronal differential RNAseq samples have been sequenced, consisting of 6x control samples (3x two different individuals) and 3x a deletion mutant of the 1q21.1 cytogenetic region of the human genome, and 3x of a duplication of this region.</p>
 <p>Deletions and alterations to this region has a range of impacts on neuropsychiatric disorders and is under active study. See the <a href="https://www.omim.org/entry/612474">omim</a> and the Wikipedia page is remarkably informative! <a href="https://en.wikipedia.org/wiki/1q21.1_deletion_syndrome">1q21.1_deletion_syndrome</a>.</p>
@@ -400,19 +401,36 @@ background: darkred;
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Excercises - Differential Gene Analysis
+Exercises: Differential Gene Analysis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We will be using the script <code>'template_script_DESeq2.r'</code> provided on the server and github pages.</p>
+<p>We will be using the script <code>Sartools-template-deseq2.r</code> provided on the server and github pages.</p>
 <p>We will use the server Rstudio to do the analysis.</p>
 <ol type="1">
 <li><p>Copy either the FeatureCounts/markdup or rmdup, and targets.txt data to your local directory</p></li>
 <li><p>Inside of Rstudio, edit the sartools script in the fields highlighted with ” * * * ” for your data</p></li>
 <li><p>Explore the html report generated and the differentiation of the sample types</p></li>
-<li><p>Look at the most differentially expressed genes in the outputted tables (excel)</p></li>
-<li><p>[extension] Use the list of ~200 most differentially expressed genes in gProfiler, or other online databases to investigate the functional connotations.</p></li>
+<li><p>Look at the most differentially expressed genes (DEGs) in the outputted tables (excel)</p></li>
 </ol>
+</div>
+</div>
+</section>
+<section id="visualising-expression-patterns" class="level1">
+<h1>Visualising Expression Patterns</h1>
+<p>Once an analysis has yielded a list of DEGs, it’s common to visualise them in a heatmap. There is a wonderful R package called <a href="https://jokergoo.github.io/ComplexHeatmap-reference/book/">ComplexHeatmap</a>, which will do almost anything you can think of to a heatmap.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercises: Differential Gene Analysis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We will be using the script <code>Heatmaps.r</code> provided on the server and github pages. We will use the server Rstudio to do the analysis.</p>
+<p>Explore the heatmap code provided in the script, and then try customising it.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -421,10 +439,11 @@ Excercises - Differential Gene Analysis
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Extension: Useful Packages Downstream Analysis
+Extension: Useful Packages for Downstream Analysis
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Use the list of ~200 most differentially expressed genes in gProfiler, or other online resources below, to investigate the functional connotations (More on this in the extension session).</p>
 <section id="converting-between-common-gene-ids" class="level2">
 <h2 class="anchored" data-anchor-id="converting-between-common-gene-ids">Converting between common gene IDs</h2>
 <ul>
