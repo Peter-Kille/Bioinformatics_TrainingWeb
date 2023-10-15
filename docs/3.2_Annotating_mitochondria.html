@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2023-10-13">
+<meta name="dcterms.date" content="2023-10-15">
 
 <title>Extension: Annotating Mitochondrial Genomes</title>
 <style>
@@ -156,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 13, 2023</p>
+        <p class="date">October 15, 2023</p>
       </div>
     </div>
     
@@ -307,7 +307,7 @@ background: darkred;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4.2_phylogentics_phylogenomics_extension.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Phylogenetics and Phylogeneomics</span></a>
+ <span class="menu-text">Extension: Phylogenetics and Phylogeneomics</span></a>
   </div>
 </li>
       </ul>
@@ -447,7 +447,7 @@ Option 2: Artificially merge your contigs
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'/^&gt;[2-9].*$/d'</span> mito_assemblies/<span class="va">${base}</span>.fasta</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#This seqtk utility removes any line breaks from the sequences ensuring correct base numbering for the annotation</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">seqtk</span> seq <span class="at">-l</span> <span class="pp">[</span><span class="ss">assembly</span><span class="pp">]</span>.fasta <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">assembly_NLB.fasta</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">seqtk</span> seq <span class="at">-l</span> 0 <span class="pp">[</span><span class="ss">assembly</span><span class="pp">]</span>.fasta <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">assembly_NLB.fasta</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>

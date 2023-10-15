@@ -4,7 +4,7 @@ title-block-banner: darkred
 title-block-banner-color: white
 title: "Metagenomics"
 subtitle: "Community Aanalysis"
-author: "Dr Sarah Christofides"
+author: "Dr. Sarah Christofides and Prof. Peter Kille"
 date: today
 affiliation: "Cardiff University"
 ---
@@ -17,15 +17,14 @@ knitr::opts_chunk$set(eval = FALSE)
 
 </iframe>
 
-[Metabarcoding Powerpoint](https://tinyurl.com/4bm3fvjm)
 
 This workshop is based heavily on QIIME's own tutorial, [Moving Pictures of the Human Microbiome](https://docs.qiime2.org/2022.8/tutorials/moving-pictures/). I have just modified this tutorial slightly to tailor it to our context and computer system.
 
 # Accessing the data
 
-Copy the Session6 directory across from classdata into your mydata directory. List the contents
+Copy the `Session6` directory across from `classdata` into your `mydata` directory. List the contents.
 
-#### The study system
+## The study system
 
 The data you will be using comes from a landmark study on the human microbiome (Caporaso *et al.*, 2011. *Genome Biol.* 12(5):R50. doi: 10.1186/gb-2011-12-5-r50.). It followed two individuals over time, sampling the microbiota present on four body sites: each hand, the gut and the tongue.
 
@@ -33,17 +32,17 @@ You will see the letters EMP crop up repeatedly throughout the tutorial. This st
 
 Of particular note is the EMP primer set, 515F-806R. Also known as the Caporaso primers after the first author of the paper that described them, they have been tweaked over the years but remain the most commonly-used primer set for microbial community sequencing. Mention "515-806" to a microbial ecologist and they will nod sagely.
 
-#### Metadata
+## Metadata
 
 You will see a file called metadata.txt. Metadata is 'data about the data' and usually includes information on what each sample is, when and where it was collected, what index tag was assigned to it, and anything else you need to know to make sense of it. Do *less* on the metadata file to see the contents. QIIME requires its metadata to follow a particular format and this file has been formatted to conform to that.
 
-#### Sequences
+## Sequences
 
 Inside Session6 is a sub-directory called emp-single-end-sequences. This contains two FASTQ files - sequences.fastq.gz has the sequence reads in it, and barcodes.fastq.gz has the barcodes (index tags) needed for demultiplexing. This is a giveaway that this data was produced quite some time ago! These days it would be extremely rare to get sequence data that hadn't already been demultiplexed by the provider.
 
 Notice that the files end with the extension .gz. This indicates that they have been gzipped: compressed to take up less space. If you try to read a gzipped file with *less*, *head*, etc., you will just see gobbledegook, but many bioinformatics programmes are capable of reading in gzipped files directly. Most real-life FASTQ files spend most of their time gzipped, simply to make them manageable.
 
-## Importing data in QIIME
+# Importing data in QIIME
 
 QIIME handles data by importing it into its own file format, called a QIIME artefact. This contains not only the data itself but a record of all the processes that it has gone through. Start by loading up QIIME.
 
@@ -74,7 +73,7 @@ qiime tools import \
 
 Henceforth, I have removed some parts of the script! Every time you see **YOURFILE**, it's up to you to replace it with the correct file name.
 
-## Demultiplexing
+# Demultiplexing
 
 As mentioned above, this step would normally be done automatically be the sequencing centre. However, it's good to have a go at demultiplexing as there are still occasions when it needs to be done manually.
 
@@ -99,7 +98,7 @@ qiime demux summarize \
 
 Have a look at the qzv file. What does it tell you about the data?
 
-## Quality filtering and counting
+# Quality filtering and counting
 
 The next step in the process does two things at once. Firstly, it quality checks the data. It removes any PhiX reads leftover from the sequencing, checks for low quality reads, and removes chimeras (hybrid reads created when two PCR products get erroneously stuck together). Secondly, it counts how many times each unique sequence (ASV) occurs in each sample.
 
@@ -136,7 +135,7 @@ qiime feature-table tabulate-seqs \
 
 Look at these qzv files. What information does each give you?
 
-## Taxonomy assignment
+# Taxonomy assignment
 
 Having counted the number of times each sequence occurs in each sample, we really want to know what organism that sequence came from. QIIME uses a machine learning tool (a Naive Bayes classifier, if you're into that kind of thing) to assign a taxonomic identity to each sequence. The classifier is trained by giving it a database of sequences of known identity. This approach is endlessly flexible, as you can train the classifier to any type of sequence you are interested in. However, we will be using a pre-trained classifier as our data relates to a commonly-used 16S rRNA region. This classifier has been trained on the Silva database of 16S rRNA genes, focussing in just on the 515-806 region targeted by our primers.
 
@@ -151,7 +150,7 @@ qiime metadata tabulate \
   --o-visualization taxonomy.qzv
 ```
 
-## Barplots
+# Barplots
 
 Now we can get QIIME to make its famous barplots! You will see these in many, many microbiome papers.
 
@@ -165,7 +164,7 @@ qiime taxa barplot \
 
 Download the qzv and have a play with the options!
 
-## Diversity exploration
+# Diversity exploration
 
 QIIME will also compute a lot of other statistics on your data. I personally prefer to do this in R, but for the sake of completeness let's also look at the QIIME output (I admit, some of it is quite pretty).
 
@@ -185,7 +184,17 @@ qiime emperor plot \
   --o-visualization core-metrics-results/bray-curtis-emperor-days-since-experiment-start.qzv
 ```
 
-## References
+
+::: {.callout-note collapse="true"}
+## Worked Example - QIIME
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e02310ee-3ab6-4f5c-93c4-af6d00cd7cb8&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+
+</iframe>
+
+:::
+
+# References
 
 Bokulich NA, Kaehler BD, Rideout JR, et al. Optimizing taxonomic classification of marker‐gene amplicon sequences with QIIME 2's q2‐feature‐classifier plug. *Microbiome*. 2018a;6:90
 
@@ -198,9 +207,3 @@ Caporaso JG, Lauber CL, Costello EK, Berg-Lyons D, Gonzalez A, Stombaugh J, Knig
 Caporaso, J. G., Lauber, C. L., Walters, W. A., Berg-Lyons, D., Lozupone, C. A., Turnbaugh, P. J., Noah Fierer, N., & Knight, R. (2011). Global patterns of 16S rRNA diversity at a depth of millions of sequences per sample. *Proceedings of the Natural Academy of Sciences* USA 108, 4516--4522. http://doi.org/10.1073/pnas.1000080107
 
 Caporaso, J. G., Lauber, C. L., Walters, W. A., Berg-Lyons, D., Huntley, J., Fierer, N., Owens, S. M., Betley, J., Fraser, L., Bauer, M., Gormley, N., Gilbert, J. A., Smith, G., & Knight, R. (2012). Ultra-high-throughput microbial community analysis on the Illumina HiSeq and MiSeq platforms. *ISME Journal* 6, 1621--1624. http://doi.org/10.1038/ismej.2012.8
-
-## Workshop Run-Through
-
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e02310ee-3ab6-4f5c-93c4-af6d00cd7cb8&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
-
-</iframe>

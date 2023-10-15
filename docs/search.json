@@ -373,7 +373,7 @@
   {
     "objectID": "4.2_phylogentics_phylogenomics_extension.html",
     "href": "4.2_phylogentics_phylogenomics_extension.html",
-    "title": "Phylogenetics and Phylogeneomics",
+    "title": "Extension: Phylogenetics and Phylogeneomics",
     "section": "",
     "text": "The previous session covered a lot of material! Now is your chance to finish up anything you didn’t have time for and go over anything you weren’t clear on. If you’re still after more to do, you can…\n\n\n\n\n\n\nExercise: Mitochondrial phylogeny\n\n\n\nGo through the same steps with your mitochondrial data!"
   },
@@ -613,7 +613,7 @@
     "href": "6.1_metabarcoding.html",
     "title": "Metagenomics",
     "section": "",
-    "text": "Metabarcoding Powerpoint\nThis workshop is based heavily on QIIME’s own tutorial, Moving Pictures of the Human Microbiome. I have just modified this tutorial slightly to tailor it to our context and computer system."
+    "text": "This workshop is based heavily on QIIME’s own tutorial, Moving Pictures of the Human Microbiome. I have just modified this tutorial slightly to tailor it to our context and computer system."
   },
   {
     "objectID": "6.1_metabarcoding.html#importing-data-in-qiime",
@@ -817,5 +817,26 @@
     "title": "Introduction to Big Data Biology and Bioinformatics",
     "section": "Session 6. Microbial community analysis",
     "text": "Session 6. Microbial community analysis\nMetabarcoding\nAmplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, RbcL for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)[https://qiime2.org/] to navigate you through preliminary metabarcoding data analysis."
+  },
+  {
+    "objectID": "6.1_metabarcoding.html#the-study-system",
+    "href": "6.1_metabarcoding.html#the-study-system",
+    "title": "Metagenomics",
+    "section": "The study system",
+    "text": "The study system\nThe data you will be using comes from a landmark study on the human microbiome (Caporaso et al., 2011. Genome Biol. 12(5):R50. doi: 10.1186/gb-2011-12-5-r50.). It followed two individuals over time, sampling the microbiota present on four body sites: each hand, the gut and the tongue.\nYou will see the letters EMP crop up repeatedly throughout the tutorial. This stands for Earth Microbiome Project (https://earthmicrobiome.org/), which this data comes from. The EMP was set up in 2010 with the modest (!) aim of sequencing the microbiome of everything. It produced a large number of valuable datasets, but even more usefully it produced a set of standard protocols which are still used in producing microbiome data. QIIME includes a number of options specifically for handling data produced using EMP methods (it helps that the people who wrote QIIME were also behind the EMP).\nOf particular note is the EMP primer set, 515F-806R. Also known as the Caporaso primers after the first author of the paper that described them, they have been tweaked over the years but remain the most commonly-used primer set for microbial community sequencing. Mention “515-806” to a microbial ecologist and they will nod sagely."
+  },
+  {
+    "objectID": "6.1_metabarcoding.html#metadata",
+    "href": "6.1_metabarcoding.html#metadata",
+    "title": "Metagenomics",
+    "section": "Metadata",
+    "text": "Metadata\nYou will see a file called metadata.txt. Metadata is ‘data about the data’ and usually includes information on what each sample is, when and where it was collected, what index tag was assigned to it, and anything else you need to know to make sense of it. Do less on the metadata file to see the contents. QIIME requires its metadata to follow a particular format and this file has been formatted to conform to that."
+  },
+  {
+    "objectID": "6.1_metabarcoding.html#sequences",
+    "href": "6.1_metabarcoding.html#sequences",
+    "title": "Metagenomics",
+    "section": "Sequences",
+    "text": "Sequences\nInside Session6 is a sub-directory called emp-single-end-sequences. This contains two FASTQ files - sequences.fastq.gz has the sequence reads in it, and barcodes.fastq.gz has the barcodes (index tags) needed for demultiplexing. This is a giveaway that this data was produced quite some time ago! These days it would be extremely rare to get sequence data that hadn’t already been demultiplexed by the provider.\nNotice that the files end with the extension .gz. This indicates that they have been gzipped: compressed to take up less space. If you try to read a gzipped file with less, head, etc., you will just see gobbledegook, but many bioinformatics programmes are capable of reading in gzipped files directly. Most real-life FASTQ files spend most of their time gzipped, simply to make them manageable."
   }
 ]
