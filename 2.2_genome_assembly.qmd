@@ -182,3 +182,11 @@ One of the files produced by **Unicycler** is an assembly graph (.gfa file exten
 
 Go to the mitochondrial files and apply the same process to them, using a loop.
 :::
+
+::: {.callout-note collapse="true"}
+## Worked Example - Mitochondrial Assembly Loop
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=98f6c333-4bd4-40c9-8753-b09c014514c7&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
+:::

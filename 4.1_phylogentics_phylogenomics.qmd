@@ -13,7 +13,7 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7996f42d-c454-4329-8235-af630098de06&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=de5450a2-8926-4ea6-bd3e-b09c00e8c4f8&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
 
@@ -259,6 +259,15 @@ snp-sites -cb -o [alignment file name] [prefix for snp output].full.aln
 4.  Construct a phylogeny with **RAxML-NG**, using 1000 bootstraps.
 
 5.  Visualize your tree.
+
+:::
+
+::: {.callout-note collapse="true"}
+## Worked Example: creating a prokayote snp phylogeny
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ee35ac69-5bad-4fdd-af17-b09c00df9087&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
 
 :::
 

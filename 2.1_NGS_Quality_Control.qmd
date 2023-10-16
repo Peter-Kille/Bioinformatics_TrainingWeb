@@ -266,7 +266,7 @@ use the -h flag to see what option multiqc provides.
 ::: {.callout-note collapse="true"}
 ## Worked Example: Fastqc interactive loop
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e591c923-11fc-4a04-9272-b09400e8d1bc&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e591c923-11fc-4a04-9272-b09400e8d1bc&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
 :::
@@ -274,7 +274,7 @@ use the -h flag to see what option multiqc provides.
 ::: {.callout-note collapse="true"}
 ## Worked Example: Fastqc bash loop
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=894c4cd6-2f3e-40a3-934d-b09400e7fcb2&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=894c4cd6-2f3e-40a3-934d-b09400e7fcb2&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
 :::
@@ -290,47 +290,49 @@ use the -h flag to see what option multiqc provides.
 ::: callout-important
 ### Exercise: the main event!
 
-You are now going to meet the dataset we'll be exploring for the next few days. In ~/classdata there is a folder called datasets.  Copy this folder across to your ~/mydata directory
+You are now going to meet the dataset we'll be exploring for the next few days. In \~/classdata there is a folder called datasets. Copy this folder across to your \~/mydata directory
 
 ```{bash}
 cp -r ~/classdata/datasets ~/mydata/datasets
 ```
 
-Inside this folder you will find two data sets: prokaryote and mitochondrial. We will be using the prokaryote dataset to clean, assemble, annotate and analyse genomes over the next few days. The mitochondrial dataset will be for you to play with in the extension sessions. 
+Inside this folder you will find two data sets: prokaryote and mitochondrial. We will be using the prokaryote dataset to clean, assemble, annotate and analyse genomes over the next few days. The mitochondrial dataset will be for you to play with in the extension sessions.
 
 Your challenge now is to write script(s) to run fastQC, fastp, fastQC (again!) and multiqc on the prokaryote files. You can either copy them over to `mydata/Session2` or work directly from `mydata/datasets/prokaryotes`. There are multiple prokaryote files, so you will need to use loops!
 
 If you are feeling confident, try creating one script that will carry out all the processes on all the files. *Remember to keep your file names and output directories tidy!*
-
 :::
 
 ::: {.callout-note collapse="true"}
 ## Worked Example - Prokayote: rawdata fastqc loop
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ba22f2db-e320-4bd4-9516-b094011020df&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ba22f2db-e320-4bd4-9516-b094011020df&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
-
 :::
 
 ::: {.callout-note collapse="true"}
 ## Worked Example - Prokayote: rawdata QC triming and post trim QC
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=95ed97fe-fffa-46bf-956c-b094010bfa4e&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=95ed97fe-fffa-46bf-956c-b094010bfa4e&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
-
 :::
 
 ::: callout-warning
 ## Extension Work
 
 Do the same for the mitochondrial data!
+:::
 
+::: {.callout-note collapse="true"}
+## Worked Example - Mitochondrial: rawdata QC triming and post trim QC
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=6c3304e8-f8d6-4ad4-8983-b09c0115f946&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
 :::
 
 # End of NGS QC.
 
 ## Time for coffee. You have earned yourselves cake!
-
-

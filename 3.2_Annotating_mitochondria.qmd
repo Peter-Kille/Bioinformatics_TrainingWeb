@@ -176,3 +176,11 @@ You can now open the fasta sequence you have used in the blast with Artemis and 
 
 6.  \[Extension\] You can try repeating this exercise with swisprot and note the differences
 :::
+
+::: {.callout-note collapse="true"}
+## Worked Example - Mitochondrial Annotation Loop
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3dfd4d79-d891-4993-9e51-b09c01526845&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>
+:::
