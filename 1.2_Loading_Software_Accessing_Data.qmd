@@ -63,7 +63,7 @@ ls ~/classdata/
 
 #this should yield the following list of folders
 
-REFS  Session1  Session2  Session3  Session4  Session5  Session6
+datasets REFS  Session1  Session2  Session3  Session4  Session5  Session6
 
 ```
 
@@ -143,7 +143,7 @@ man tail
 ::: {.callout-note collapse="true"}
 ## Visualising files using less, cat, head and tail
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=94ba890f-5ad3-447b-871e-b09400e844d5&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=94ba890f-5ad3-447b-871e-b09400e844d5&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
 :::
