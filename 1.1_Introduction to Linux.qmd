@@ -252,7 +252,7 @@ ls b*.txt
 
 1.  List all the files in the directory Session1 that start with the letters sub
 
-2.  List all the files in the directory Session1 that start with the letters sub
+2.  List all the files in the directory Session1 that end with the letters fasta
 
 3.  List all the files in your directory that start with sub, and end in fasta
 

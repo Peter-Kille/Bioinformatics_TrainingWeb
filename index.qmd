@@ -151,3 +151,20 @@ Interpreting the biological significance of a list of gene IDs or gene symbols r
 [Metabarcoding](https://peter-kille.github.io/Bioinformatics_TrainingWeb/6.1_metabarcoding.html)
 
 Amplification of short, phylogenetically informative sections of DNA can be used to generate community profiles. This course introduces the concepts of metabarcoding the targets that are used for different phylogenetic groups (16S for bacteria, ITS for fungal, *RbcL* for algae and COI/18S for other eukaryotes). Data analysis uses (QIIME2)\[https://qiime2.org/\] to navigate you through preliminary metabarcoding data analysis.
+
+# Useful resources
+
+Essential reading for the budding bioinformatician:
+
+Loman & Watson, 2013. [So you want to be a computational biologist?](https://www.nature.com/articles/nbt.2740/) *Nature Biotechnology* 31: 996-998
+
+Schnell, 2015. [Ten simple rules for a computational biologist's laboratory notebook.](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004385) *PLoS Computational Biology* 11(9): e1004385
+
+A few good tutorials for the keen beans who want to go further:
+
+More detail can be found at http://linuxcommand.org/lc3_learning_the_shell.php
+
+For a more in depth tutorial with exercises, see https://swcarpentry.github.io/shell-novice/01-intro/ 
+
+Good cheat sheet to refer to http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/
+
