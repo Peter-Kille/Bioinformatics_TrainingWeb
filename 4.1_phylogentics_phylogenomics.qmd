@@ -13,7 +13,7 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=de5450a2-8926-4ea6-bd3e-b09c00e8c4f8&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=de5450a2-8926-4ea6-bd3e-b09c00e8c4f8&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
 
@@ -48,17 +48,41 @@ Yesterday you used bedtools to extract the 16S rRNA gene sequences from your pro
 
 1)  Move your extracted 16S rRNA gene sequence into the directory of 16S rRNA reference genes provided.
 
+Here's a revision of how you extract you 16S rRNA sequence:
+```{bash}
+# For bacterial sequences
+grep "product=16S ribosomal RNA" [gff annotation file]  > [subset_16S.gff]
+
+# Select first 16S annotation
+head -n 1 [subset_16S.gff] > [subset_first_16S.gff]
+
+# For mitochondrial sequences
+grep "ID=gene_cox1" [gff annotation file]  > [subset_coi.gff]
+```
+
+Extract the 16S rRNA gene from the genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the -s option. **If you are performing this for Mitochondria using the subset_coi.gff file and replace 16S with coi**
+
+```{bash}
+bedtools getfasta -fi [input fasta file] -bed [subset_first_gff file] -s > [output 16S file.fasta]
+```
+
+The fasta sequence will be given a numeric nonsensical name (what comes after the \>). Change this for the name of the source sequence.
+
+```{bash}
+sed -i "s/>.*/>[sequence name]/g" [output 16S file.fasta]
+```
+
+
 2)  Combine all the 16S rRNA gene fasta files into a single fasta file
 
 ```{bash}
 cat [*.fasta] > [output multifasta file]
 ```
-
 :::
 
 ## Use MAFFT to create an alignment of your phylogenetic marker.
 
-MAFFT is a multiple sequence alignment program for Unix-like operating systems.
+3) MAFFT is a multiple sequence alignment program for Unix-like operating systems.
 
 ```{bash}
 module load mafft/7.505
@@ -78,7 +102,7 @@ Use MAFFT to align the 16S sequences you have extracted.
 
 ## Construct a phylogeny with **RAxML-NG**
 
-RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.
+4) RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.
 
 ```{bash}
 module load RAxML-NG/v1.2.0
@@ -259,16 +283,14 @@ snp-sites -cb -o [alignment file name] [prefix for snp output].full.aln
 4.  Construct a phylogeny with **RAxML-NG**, using 1000 bootstraps.
 
 5.  Visualize your tree.
-
 :::
 
 ::: {.callout-note collapse="true"}
 ## Worked Example: creating a prokayote snp phylogeny
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ee35ac69-5bad-4fdd-af17-b09c00df9087&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ee35ac69-5bad-4fdd-af17-b09c00df9087&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
-
 :::
 
 # Walk throughs
