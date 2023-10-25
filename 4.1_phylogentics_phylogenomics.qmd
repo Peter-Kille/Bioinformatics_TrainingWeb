@@ -49,6 +49,7 @@ Yesterday you used bedtools to extract the 16S rRNA gene sequences from your pro
 1)  Move your extracted 16S rRNA gene sequence into the directory of 16S rRNA reference genes provided.
 
 Here's a revision of how you extract you 16S rRNA sequence:
+
 ```{bash}
 # For bacterial sequences
 grep "product=16S ribosomal RNA" [gff annotation file]  > [subset_16S.gff]
@@ -72,7 +73,6 @@ The fasta sequence will be given a numeric nonsensical name (what comes after th
 sed -i "s/>.*/>[sequence name]/g" [output 16S file.fasta]
 ```
 
-
 2)  Combine all the 16S rRNA gene fasta files into a single fasta file
 
 ```{bash}
@@ -82,7 +82,7 @@ cat [*.fasta] > [output multifasta file]
 
 ## Use MAFFT to create an alignment of your phylogenetic marker.
 
-3) MAFFT is a multiple sequence alignment program for Unix-like operating systems.
+3)  MAFFT is a multiple sequence alignment program for Unix-like operating systems.
 
 ```{bash}
 module load mafft/7.505
@@ -102,7 +102,7 @@ Use MAFFT to align the 16S sequences you have extracted.
 
 ## Construct a phylogeny with **RAxML-NG**
 
-4) RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.
+4)  RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.
 
 ```{bash}
 module load RAxML-NG/v1.2.0
