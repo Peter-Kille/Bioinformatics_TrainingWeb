@@ -53,13 +53,13 @@ We will start with the aligning and counting steps.
 
 The data you will need for this exercise are:
 
-```{bash}     
-~/classdata/Bioinformatics/Day4/ RNAseq-Processing/fastq
+```{bash}
+~/classdata/Session5/ RNAseq-Processing/fastq
 SRR5222797_1.fastq    SRR5222797_2.fastq
 SRR5222798_1.fastq    SRR5222798_2.fastq
 SRR5222799_1.fastq    SRR5222799_2.fastq
 
-~/classdata/Bioinformatics/STAR/REFS
+~/classdata/REFS/STAR
 Arabidopsis_thaliana.TAIR10.47.gtf
 Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa
 ```
@@ -100,7 +100,6 @@ These outputs are now ready to put into R and perform Differential Gene Expressi
 -   Load any modules you will need!
 
 -   Use the full path any time it could be ambiguous.
-
 :::
 
 # Scripts {#scripts}
@@ -127,7 +126,7 @@ fastqc -t 4 $workingdir/fastq/${i}_1.fastq
 fastqc -t 4 $workingdir/fastq/${i}_2.fastq
 
 # Run trimmomatic
-trimmomatic PE $workingdir/fastq/${i}_1.fastq $workingdir/fastq/${i}_2.fastq  -baseout $workingdir/fastq/${i}-trim.fastq ILLUMINACLIP:/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15
+trimmomatic PE $workingdir/fastq/${i}_1.fastq $workingdir/fastq/${i}_2.fastq  -baseout $workingdir/fastq/${i}-trim.fastq ILLUMINACLIP:/mnt/clusters/sponsa/data/classdata/REFS/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15
 
 # fastqc the outputs
 fastqc -t 4 $workingdir/fastq/${i}-trim_1P.fastq
@@ -138,7 +137,7 @@ done
 
 ## 2-star_index_genome.sh
 
-```{bash}    
+```{bash}
 #!/bin/bash
 
 # Load some modules
@@ -171,7 +170,7 @@ module load star/2.7.6a
 
 ## Useful shortcuts
 export workingdir=~/mydata/Session5/RNAseq-Processing
-export refdir=~/classdata/Bioinformatics/REFS/STAR/
+export refdir=~/classdata/REFS/STAR/
 
 ## The commands you want to run
 mkdir $workingdir/star
@@ -214,8 +213,9 @@ list=("SRR5222797" "SRR5222798" "SRR5222799")
 
 for i in ${list[@]}
 do
-samtools index $workingdir/star/${i}-unsort.Aligned.out.bam
 samtools sort -@ 4 -o $workingdir/star/${i}.sorted.bam $workingdir/star/${i}-unsort.Aligned.out.bam
+
+samtools index $workingdir/star/${i}-unsort.Aligned.out.bam
 
 ##  MARK DUPLICATES  ##
 picard MarkDuplicates I=$workingdir/star/${i}.sorted.bam O=$workingdir/markdup/${i}.markdup.bam M=$workingdir/markdup/${i}.metrics.markdup.txt REMOVE_DUPLICATES=false VALIDATION_STRINGENCY=SILENT
@@ -237,7 +237,7 @@ module load subread/2.0.2
 
 ## Useful shortcuts
 export workingdir=~/mydata/Session5/RNAseq-Processing
-export refdir=~/classdata/Bioinformatics/REFS/STAR/
+export refdir=~/classdata/REFS/STAR/
 
 
 mkdir $workingdir/featureCounts

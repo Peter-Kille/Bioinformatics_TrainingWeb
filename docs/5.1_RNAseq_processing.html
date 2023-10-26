@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2023-10-25">
+<meta name="dcterms.date" content="2023-10-26">
 
 <title>RNAseq Processing</title>
 <style>
@@ -156,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 25, 2023</p>
+        <p class="date">October 26, 2023</p>
       </div>
     </div>
     
@@ -430,12 +430,12 @@ background: darkred;
 <p>We will start with the aligning and counting steps.</p>
 <p>The data you will need for this exercise are:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/Bioinformatics/Day4/</span> RNAseq-Processing/fastq</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/Session5/</span> RNAseq-Processing/fastq</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">SRR5222797_1.fastq</span>    SRR5222797_2.fastq</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">SRR5222798_1.fastq</span>    SRR5222798_2.fastq</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">SRR5222799_1.fastq</span>    SRR5222799_2.fastq</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/Bioinformatics/STAR/REFS</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/REFS/STAR</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Arabidopsis_thaliana.TAIR10.47.gtf</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -505,7 +505,7 @@ fastqc -t 4 $workingdir/fastq/${i}_1.fastq
 fastqc -t 4 $workingdir/fastq/${i}_2.fastq
 
 # Run trimmomatic
-trimmomatic PE $workingdir/fastq/${i}_1.fastq $workingdir/fastq/${i}_2.fastq  -baseout $workingdir/fastq/${i}-trim.fastq ILLUMINACLIP:/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15
+trimmomatic PE $workingdir/fastq/${i}_1.fastq $workingdir/fastq/${i}_2.fastq  -baseout $workingdir/fastq/${i}-trim.fastq ILLUMINACLIP:/mnt/clusters/sponsa/data/classdata/REFS/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15
 
 # fastqc the outputs
 fastqc -t 4 $workingdir/fastq/${i}-trim_1P.fastq
@@ -548,7 +548,7 @@ done</code></pre>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Useful shortcuts</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">workingdir</span><span class="op">=</span>~/mydata/Session5/RNAseq-Processing</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">refdir</span><span class="op">=</span>~/classdata/Bioinformatics/REFS/STAR/</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">refdir</span><span class="op">=</span>~/classdata/REFS/STAR/</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">## The commands you want to run</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="va">$workingdir</span>/star</span>
@@ -591,17 +591,18 @@ done</code></pre>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="va">${list</span><span class="op">[@]</span><span class="va">}</span></span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index <span class="va">$workingdir</span>/star/<span class="va">${i}</span>-unsort.Aligned.out.bam</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort <span class="at">-@</span> 4 <span class="at">-o</span> <span class="va">$workingdir</span>/star/<span class="va">${i}</span>.sorted.bam <span class="va">$workingdir</span>/star/<span class="va">${i}</span>-unsort.Aligned.out.bam</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">##  MARK DUPLICATES  ##</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ex">picard</span> MarkDuplicates I=<span class="va">$workingdir</span>/star/<span class="va">${i}</span>.sorted.bam O=<span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.markdup.bam M=<span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.metrics.markdup.txt REMOVE_DUPLICATES=false VALIDATION_STRINGENCY=SILENT</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort <span class="at">-@</span> 4 <span class="at">-o</span> <span class="va">$workingdir</span>/star/<span class="va">${i}</span>.sorted.bam <span class="va">$workingdir</span>/star/<span class="va">${i}</span>-unsort.Aligned.out.bam</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index <span class="va">$workingdir</span>/star/<span class="va">${i}</span>-unsort.Aligned.out.bam</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">##  MARK DUPLICATES  ##</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="ex">picard</span> MarkDuplicates I=<span class="va">$workingdir</span>/star/<span class="va">${i}</span>.sorted.bam O=<span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.markdup.bam M=<span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.metrics.markdup.txt REMOVE_DUPLICATES=false VALIDATION_STRINGENCY=SILENT</span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co">## REMOVE DUPLICATES ##</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="ex">picard</span> MarkDuplicates I=<span class="va">$workingdir</span>/star/<span class="va">${i}</span>.sorted.bam O=<span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.rmdup.bam M=<span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.metrics.rmdup.txt REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">## REMOVE DUPLICATES ##</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="ex">picard</span> MarkDuplicates I=<span class="va">$workingdir</span>/star/<span class="va">${i}</span>.sorted.bam O=<span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.rmdup.bam M=<span class="va">$workingdir</span>/markdup/<span class="va">${i}</span>.metrics.rmdup.txt REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="featurecounts.sh" class="level2">
@@ -614,7 +615,7 @@ done</code></pre>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Useful shortcuts</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">workingdir</span><span class="op">=</span>~/mydata/Session5/RNAseq-Processing</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">refdir</span><span class="op">=</span>~/classdata/Bioinformatics/REFS/STAR/</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">refdir</span><span class="op">=</span>~/classdata/REFS/STAR/</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="va">$workingdir</span>/featureCounts</span>
