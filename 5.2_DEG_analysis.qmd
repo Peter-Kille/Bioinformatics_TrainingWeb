@@ -45,7 +45,6 @@ We will use the server Rstudio to do the analysis.
 3.  Explore the html report generated and the differentiation of the sample types
 
 4.  Look at the most differentially expressed genes (DEGs) in the outputted tables (excel)
-
 :::
 
 # Visualising Expression Patterns
@@ -58,11 +57,11 @@ Once an analysis has yielded a list of DEGs, it's common to visualise them in a 
 We will be using the script `Heatmaps.r` provided on the server and github pages. We will use the server Rstudio to do the analysis.
 
 Explore the heatmap code provided in the script, and then try customising it.
-
 :::
 
 ::: callout-warning
 # Extension: Useful Packages for Downstream Analysis
+
 Use the list of \~200 most differentially expressed genes in gProfiler, or other online resources below, to investigate the functional connotations (More on this in the extension session).
 
 ## Converting between common gene IDs
@@ -94,5 +93,4 @@ Use the list of \~200 most differentially expressed genes in gProfiler, or other
 -   [IPA](https://digitalinsights.qiagen.com/products-overview/discovery-insights-portfolio/analysis-and-visualization/qiagen-ipa/)
 -   [Shiny-Seq](https://szenitha.shinyapps.io/shiny-seq3/)
 -   [BeavR](https://github.com/developerpiru/BEAVR#loading-your-data-into-beavr)
-
 :::
