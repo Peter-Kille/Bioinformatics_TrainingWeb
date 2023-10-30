@@ -74,7 +74,16 @@ or
 iago.bios.cf.ac.uk
 ```
 
-With standard HPC the port number is always 22
+With standard HPC the port number is always 22.
+
+***IMPORTANT*** Unlike the virtual machines, gomphus and iago both use slurm job scheduling software to manage access to resources in a fair  and equitable manner. For running full-scale jobs you will need to learn [how to interact with slurm correctly](http://hpc.bios.cf.ac.uk/docs/documentation/slurm). However, for the purposes of playing around whilst learning, it is better to create a virutal session by running the command 
+
+```{bash}
+srun --pty bash -i
+```
+
+You will need to run this every time that you log it. It will carve you out a little bit of space to interact freely with the machine whilst not interfering with others' work.
+
 :::
 
 # Virtual Private Networks
