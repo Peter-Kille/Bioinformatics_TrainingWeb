@@ -154,7 +154,7 @@ fastqc -o output_dir file.fastq
 
 Reminder: if using FileZilla, the details are:
 
--   Host: sponsa.bios.cf.ac.uk
+-   Host: sponsa.bios.cf.ac.uk (for masters students) or hawker.bios.cf.ac.uk (for Y3 students)
 -   Username: your username
 -   Password: your three word password
 -   Port: Your assigned port number

@@ -121,7 +121,10 @@ export JAVA_HOME=$(/usr/libexec/java_home - v16)
 To use Artemis via your Linux desktop on the server, you need to enable it to use a visual interface. Open a new tab in MobaXterm and log in using the slightly modified command:
 
 ```{bash}
+#For masters' students
 ssh [your username]@sponsa.bios.cf.ac.uk -X -p [your port number]
+#For Y3 students
+ssh [your username]@hawker.bios.cf.ac.uk -X -p [your port number]
 ```
 
 Use the three-word passphrase you were assigned.

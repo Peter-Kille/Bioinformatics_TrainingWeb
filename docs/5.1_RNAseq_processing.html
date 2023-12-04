@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2023-10-30">
+<meta name="dcterms.date" content="2023-12-04">
 
 <title>RNAseq Processing</title>
 <style>
@@ -156,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 30, 2023</p>
+        <p class="date">December 4, 2023</p>
       </div>
     </div>
     
@@ -492,6 +492,7 @@ module load trimmomatic/0.39
 
 ## Useful shortcuts
 export workingdir=~/mydata/Session5/RNAseq-Processing
+export classdir=~/classdata
 
 #list=("sample1" "sample2" "sample3")
 list=("SRR5222797" "SRR5222798" "SRR5222799")
@@ -505,7 +506,7 @@ fastqc -t 4 $workingdir/fastq/${i}_1.fastq
 fastqc -t 4 $workingdir/fastq/${i}_2.fastq
 
 # Run trimmomatic
-trimmomatic PE $workingdir/fastq/${i}_1.fastq $workingdir/fastq/${i}_2.fastq  -baseout $workingdir/fastq/${i}-trim.fastq ILLUMINACLIP:/mnt/clusters/sponsa/data/classdata/REFS/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15
+trimmomatic PE $workingdir/fastq/${i}_1.fastq $workingdir/fastq/${i}_2.fastq  -baseout $workingdir/fastq/${i}-trim.fastq ILLUMINACLIP:$classdir/REFS/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15
 
 # fastqc the outputs
 fastqc -t 4 $workingdir/fastq/${i}-trim_1P.fastq
