@@ -9,6 +9,10 @@ date: today
 affiliation: "Cardiff University"
 ---
 
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
 # Basics of HPC and HPC vs Personal Cloud provision
 
 High performance computing (HPC) systems are large, multi-processor, large RAM 'computers' that are installed in data centres. Usually users are provided with a login to a shared HPC system with strictly controlled access and defined quotas. To run your informatic tasks, you write a script that sends your job to a 'queuing' program which coordinates the processing requests of all the users on the system. In this way the system can support large numbers of users, but you need to wait for your place in the queue before your task can be performed. Although you can do the very lightest tasks - copy small files, rename etc. - without sending them to the queue, most tasks need to go through the queue. This can be very tedious when learning to code, as if your script creates an error you won't know until it has waited its turn in the queue.
@@ -76,14 +80,13 @@ iago.bios.cf.ac.uk
 
 With standard HPC the port number is always 22.
 
-***IMPORTANT*** Unlike the virtual machines, gomphus and iago both use slurm job scheduling software to manage access to resources in a fair  and equitable manner. For running full-scale jobs you will need to learn [how to interact with slurm correctly](http://hpc.bios.cf.ac.uk/docs/documentation/slurm). However, for the purposes of playing around whilst learning, it is better to create a virutal session by running the command 
+***IMPORTANT*** Unlike the virtual machines, gomphus and iago both use slurm job scheduling software to manage access to resources in a fair and equitable manner. For running full-scale jobs you will need to learn [how to interact with slurm correctly](http://hpc.bios.cf.ac.uk/docs/documentation/slurm). However, for the purposes of playing around whilst learning, it is better to create a virutal session by running the command
 
 ```{bash}
 srun --pty bash -i
 ```
 
 You will need to run this every time that you log it. It will carve you out a little bit of space to interact freely with the machine whilst not interfering with others' work.
-
 :::
 
 # Virtual Private Networks
@@ -162,12 +165,12 @@ To connect your local computer to a remote server, we use a technology called SS
 
 ## SSH using MobaXterm - connecting to the server on a PC
 
-MobaXterm is a free piece of software called an SSH client, which enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the free version of [MobaXTerm](https://mobaxterm.mobatek.net/download.html) from their website.
+MobaXterm is an excellent piece of software that supports SSH which enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the [MobaXTerm](https://mobaxterm.mobatek.net/download.html) from their website.
 
 ::: {.callout-note collapse="true"}
 ### Using MobaXterm on your personal PC
 
-I suggest downloading and installing the 'Installer Addition' as it will fully install on your system - the portable version provide a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.
+I suggest downloading and installing the 'Installer Addition' as it will fully install on your system - the portable version provides a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.
 :::
 
 ::: {.callout-note collapse="true"}
@@ -176,13 +179,13 @@ I suggest downloading and installing the 'Installer Addition' as it will fully i
 You will not have administrator privileges to install the 'Installer Addition' on a University-managed machine. Instead, download the portable version which provides a simple executable (.exe) that can used on a machine where you do not have administrator privileges to install software.
 :::
 
-Once your download is complete, you will need to unzip the folder (extract files) before you can run the installer. Then follow the installation instructions and you should be faced with the follow window:
+Once your download is complete, you will need to unzip the folder (extract files) before you can run the installer. Then follow the installation instructions and you should be faced with the following window:
 
 ![MobaXterm Interface](images/MobaXterm.png){width="60%"}
 
 *N.B. The first time you open MobaXterm, Windows security may pop up saying that some features are blocked by the firewall. Click 'Cancel' and the message will go away without preventing MobaXterm from doing its thing.*
 
-Now you want to create a session, this can be done following these easy steps:
+Now you want to create a session, this can be done by following these easy steps:
 
 1.  Select *Session* icon
 

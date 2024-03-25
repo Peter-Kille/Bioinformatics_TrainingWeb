@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Professor Peter Kille">
-<meta name="dcterms.date" content="2023-12-04">
+<meta name="dcterms.date" content="2024-03-25">
 
 <title>Personal Cloud</title>
 <style>
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -122,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 4, 2023</p>
+        <p class="date">March 25, 2024</p>
       </div>
     </div>
     
@@ -419,7 +453,9 @@ or
 iago.bios.cf.ac.uk</code></pre>
 <p>With standard HPC the port number is always 22.</p>
 <p><strong><em>IMPORTANT</em></strong> Unlike the virtual machines, gomphus and iago both use slurm job scheduling software to manage access to resources in a fair and equitable manner. For running full-scale jobs you will need to learn <a href="http://hpc.bios.cf.ac.uk/docs/documentation/slurm">how to interact with slurm correctly</a>. However, for the purposes of playing around whilst learning, it is better to create a virutal session by running the command</p>
-<pre class="{bash}"><code>srun --pty bash -i</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">--pty</span> bash <span class="at">-i</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>You will need to run this every time that you log it. It will carve you out a little bit of space to interact freely with the machine whilst not interfering with others’ work.</p>
 </div>
 </div>
@@ -509,7 +545,7 @@ iago.bios.cf.ac.uk</code></pre>
 <p>To connect your local computer to a remote server, we use a technology called SSH: Secure Shell Protocol (I know, the acronym doesn’t really match the name). This is a way of establishing a secure connection between your computer and the server. In effect, your computer becomes a remote control, sending instructions to be carried out on the server.</p>
 <section id="ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" class="level2">
 <h2 class="anchored" data-anchor-id="ssh-using-mobaxterm---connecting-to-the-server-on-a-pc">SSH using MobaXterm - connecting to the server on a PC</h2>
-<p>MobaXterm is a free piece of software called an SSH client, which enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the free version of <a href="https://mobaxterm.mobatek.net/download.html">MobaXTerm</a> from their website.</p>
+<p>MobaXterm is an excellent piece of software that supports SSH which enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the <a href="https://mobaxterm.mobatek.net/download.html">MobaXTerm</a> from their website.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -522,7 +558,7 @@ Using MobaXterm on your personal PC
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>I suggest downloading and installing the ‘Installer Addition’ as it will fully install on your system - the portable version provide a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.</p>
+<p>I suggest downloading and installing the ‘Installer Addition’ as it will fully install on your system - the portable version provides a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.</p>
 </div>
 </div>
 </div>
@@ -542,7 +578,7 @@ Using MobaXterm on a University-networked PC
 </div>
 </div>
 </div>
-<p>Once your download is complete, you will need to unzip the folder (extract files) before you can run the installer. Then follow the installation instructions and you should be faced with the follow window:</p>
+<p>Once your download is complete, you will need to unzip the folder (extract files) before you can run the installer. Then follow the installation instructions and you should be faced with the following window:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/MobaXterm.png" class="img-fluid figure-img" style="width:60.0%"></p>
@@ -550,7 +586,7 @@ Using MobaXterm on a University-networked PC
 </figure>
 </div>
 <p><em>N.B. The first time you open MobaXterm, Windows security may pop up saying that some features are blocked by the firewall. Click ‘Cancel’ and the message will go away without preventing MobaXterm from doing its thing.</em></p>
-<p>Now you want to create a session, this can be done following these easy steps:</p>
+<p>Now you want to create a session, this can be done by following these easy steps:</p>
 <ol type="1">
 <li>Select <em>Session</em> icon</li>
 </ol>
