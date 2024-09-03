@@ -38,7 +38,7 @@ Pick one prokaryote genome and work through annotating it. Use the time later in
 ::: {.callout-note collapse="true"}
 ## Artemis Mac Install
 
-Additional Sanger Centre training material can be downloaded using the following link - [Sanger center training](https://tinyurl.com/4dzbj9nk)
+Additional Sanger Centre training material can be downloaded using the following link - [Sanger center training](https://tinyurl.com/5.zbj9nk)
 
 1.  download latest version of Artemis from https://github.com/sanger-pathogens/Artemis/releases/download/v18.2.0/artemis-macosx-release-18.2.0.dmg.gz
 

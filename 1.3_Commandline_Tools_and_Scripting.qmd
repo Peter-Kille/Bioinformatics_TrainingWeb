@@ -4,7 +4,7 @@ title-block-banner: darkred
 title-block-banner-color: white
 title: "Extension: Commandline Tools and Scripting"
 subtitle: "Loads more tricks and tips"
-author: "Professor Peter Kille"
+author: "Prof. Peter Kille"
 date: today
 affiliation: "Cardiff University"
 ---
@@ -12,7 +12,6 @@ affiliation: "Cardiff University"
 ```{r include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 ```
-
 
 # Querying files with grep
 
@@ -94,13 +93,12 @@ Now try this:
 cat *.fasta | grep "^>" | wc -l 
 ```
 
-Remember that * means any pattern, and that `cat` will concatentate all the files given as input. Therefore, a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.
+Remember that \* means any pattern, and that `cat` will concatentate all the files given as input. Therefore, a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.
 :::
 
 ## Use zgrep with compressed files
 
 You can use all of grep functionality with a compressed file by adding a 'z' - just replace grep with zgrep and you can directly query that .gz files.
-
 
 # Running and rerunning scripts
 

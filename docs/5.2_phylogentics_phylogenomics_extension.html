@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2024-03-25">
+<meta name="dcterms.date" content="2024-09-03">
 
-<title>Extension: Hybrid Assemblies</title>
+<title>Extension: Phylogenetics and Phylogeneomics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -125,7 +91,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2.1_NGS_Quality_Control.html">Session 2. NGS data</a></li><li class="breadcrumb-item"><a href="./2.3_hybrid_assemblies.html">Extension: Hybrid Assemblies</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Extension: Phylogenetics and Phylogeneomics</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,8 +104,8 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Extension: Hybrid Assemblies</h1>
-            <p class="subtitle lead">When short-read just doesn’t cut it</p>
+      <h1 class="title">Extension: Phylogenetics and Phylogeneomics</h1>
+            <p class="subtitle lead">Deriving phylogenies from single genes to whole genomes</p>
                       </div>
   </div>
     
@@ -156,7 +122,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 25, 2024</p>
+        <p class="date">September 3, 2024</p>
       </div>
     </div>
     
@@ -185,7 +151,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Big Data Biology and Bioinformatics</span></a>
   </div>
 </li>
@@ -202,7 +168,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
+  <a href="0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Personal Cloud</span></a>
   </div>
 </li>
@@ -218,20 +184,17 @@ background: darkred;
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./1.1_Introduction to Linux.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Linux</span></a>
-  </div>
-</li>
+ <span class="menu-text">1.1_Introduction to Linux.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
+  <a href="1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loading Software and Accessing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
+  <a href="1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Commandline Tools and Scripting</span></a>
   </div>
 </li>
@@ -248,22 +211,16 @@ background: darkred;
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2.1_NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">
+  <a href="2.1_NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">NGS Quality Control</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./2.2_genome_assembly.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Genome Assembly</span></a>
-  </div>
-</li>
+ <span class="menu-text">2.2_genome_assembly.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./2.3_hybrid_assemblies.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Extension: Hybrid Assemblies</span></a>
-  </div>
-</li>
+ <span class="menu-text">2.3_hybrid_assemblies.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -276,17 +233,11 @@ background: darkred;
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Genome Visualisation and Annotation</span></a>
-  </div>
-</li>
+ <span class="menu-text">3.1_Genome_visualisation_and_annotation.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Extension: Annotating Mitochondrial Genomes</span></a>
-  </div>
-</li>
+ <span class="menu-text">3.2_Annotating_mitochondria.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -299,17 +250,11 @@ background: darkred;
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Phylogenetics and Phylogeneomics</span></a>
-  </div>
-</li>
+ <span class="menu-text">4.1_phylogentics_phylogenomics.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./4.2_phylogentics_phylogenomics_extension.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Extension: Phylogenetics and Phylogeneomics</span></a>
-  </div>
-</li>
+ <span class="menu-text">4.2_phylogentics_phylogenomics_extension.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -322,23 +267,14 @@ background: darkred;
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5.1_RNAseq_processing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">RNAseq Processing</span></a>
-  </div>
-</li>
+ <span class="menu-text">5.1_RNAseq_processing.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5.2_DEG_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Differential Gene Expression Analysis</span></a>
-  </div>
-</li>
+ <span class="menu-text">5.2_DEG_analysis.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5.3_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Extension: DEG Functional Interpretation</span></a>
-  </div>
-</li>
+ <span class="menu-text">5.3_DEG_Functional_Interpretation.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -351,11 +287,8 @@ background: darkred;
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./6.1_metabarcoding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Metagenomics</span></a>
-  </div>
-</li>
+ <span class="menu-text">6.1_metabarcoding.qmd</span>
+  </li>
       </ul>
   </li>
     </ul>
@@ -372,31 +305,53 @@ background: darkred;
 
 
 
-<p>So far, you have been assembling genomes just using Illumina short reads. However, as discussed in the lecture, sometimes there are areas of genome that can’t be resolved with short reads, meaning the assembly produces more contigs. This can be improved by adding in long reads to scaffold the contigs. The short reads provide high quality detail, while the long reads provide the big-picture context.</p>
-<p>Unicycler provides the option to add in long-read information very simply by using the <code>-l</code> flag to direct it to a file of long reads.</p>
+<p>The previous session covered a lot of material! Now is your chance to finish up anything you didn’t have time for and go over anything you weren’t clear on. If you’re still after more to do, you can…</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise: Hybrid assembly
+Exercise: Mitochondrial phylogeny
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We have provided you with Nanopore long-read data for your prokaryote genomes in <code>~/classdata/datasets/prokayote/prokaryote_NP/</code>.</p>
-<ol type="1">
-<li>Run a hybrid assembly with Nanopore data, then use Quast to compare the results to short-read-only assembly.</li>
-</ol>
-<p>Hybrid assembly example command line:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">unicycler</span> <span class="at">-1</span> [processed fastq R1] <span class="at">-2</span> [processed fastq R2] <span class="at">-l</span> [nanopore fastq] <span class="at">-t</span> [thread number] <span class="at">-o</span> [output directory] <span class="dv">1</span><span class="op">&gt;</span> <span class="pp">[</span><span class="ss">file_name</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Go through the same steps with your mitochondrial data!</p>
 </div>
-<p>Notice that at the end of the command I’ve added <code>1&gt; [file_name]</code>. This tells bash that instead of just spitting messages onto the screen as the command runs, it should write them to a file. Unicycler produces some useful and informative output while running hybrid assembly, which it is helpful to keep.</p>
-<ol start="2" type="1">
-<li><p>Have a read through Unicycler’s <a href="https://github.com/rrwick/Unicycler#method-hybrid-assembly">information page on hybrid assembly</a>. How does it use the long reads to bring gaps in the short-read assembly?</p></li>
-<li><p>Use <code>less</code> to look at the log file you’ve produced. Can you use the Unicycler page above to interpret what it’s telling you?</p></li>
-</ol>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example - Mitochondrial CoI Tree
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=38f6477d-3143-45f9-8876-b09d008dd522&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
+</div>
+</div>
+<p><strong>Mitochondrial Mitos Annotation is NOT compatible with Panaroo so you can genetrated a Mitocondrial Pan genome</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example - Mitochondrial SNP Tree
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=9ea4f21a-f15d-4901-839c-b09d00ad281e&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
 </div>
 </div>
 

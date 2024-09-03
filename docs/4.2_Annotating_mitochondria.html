@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Professor Peter Kille and Dr.&nbsp;Sarah Christofides">
+<meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
 <meta name="dcterms.date" content="2024-09-03">
 
-<title>Linux the fundamentals</title>
+<title>Extension: Annotating Mitochondrial Genomes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,10 +113,10 @@ background: darkred;
 </style>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body style="background-color:gray99;" class="nav-sidebar docked">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -125,7 +125,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Linux the fundamentals</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Extension: Annotating Mitochondrial Genomes</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,8 +138,8 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Linux the fundamentals</h1>
-            <p class="subtitle lead">Command line rocks</p>
+      <h1 class="title">Extension: Annotating Mitochondrial Genomes</h1>
+            <p class="subtitle lead">Annotation for a different type of genome</p>
                       </div>
   </div>
     
@@ -149,7 +149,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Professor Peter Kille and Dr.&nbsp;Sarah Christofides </p>
+               <p>Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides </p>
             </div>
     </div>
       
@@ -185,7 +185,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Big Data Biology and Bioinformatics</span></a>
   </div>
 </li>
@@ -335,14 +335,16 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#anatomy-of-a-command" id="toc-anatomy-of-a-command" class="nav-link active" data-scroll-target="#anatomy-of-a-command">Anatomy of a Command</a></li>
-  <li><a href="#file-permisions" id="toc-file-permisions" class="nav-link" data-scroll-target="#file-permisions">File permisions</a></li>
-  <li><a href="#learning-about-linux-commands" id="toc-learning-about-linux-commands" class="nav-link" data-scroll-target="#learning-about-linux-commands">Learning about Linux commands</a></li>
-  <li><a href="#changing-directories-and-tab-completion" id="toc-changing-directories-and-tab-completion" class="nav-link" data-scroll-target="#changing-directories-and-tab-completion">Changing directories and tab completion</a>
+  <li><a href="#congratulations" id="toc-congratulations" class="nav-link active" data-scroll-target="#congratulations">Congratulations!</a>
   <ul class="collapse">
-  <li><a href="#changing-directories" id="toc-changing-directories" class="nav-link" data-scroll-target="#changing-directories">Changing Directories</a></li>
+  <li><a href="#you-have-made-it-to-the-mid-point-of-the-course." id="toc-you-have-made-it-to-the-mid-point-of-the-course." class="nav-link" data-scroll-target="#you-have-made-it-to-the-mid-point-of-the-course.">You have made it to the mid-point of the course.</a></li>
   </ul></li>
-  <li><a href="#tab-completion" id="toc-tab-completion" class="nav-link" data-scroll-target="#tab-completion">Tab completion</a></li>
+  <li><a href="#mitos2-for-mitochondrial-annotation" id="toc-mitos2-for-mitochondrial-annotation" class="nav-link" data-scroll-target="#mitos2-for-mitochondrial-annotation">Mitos2 for mitochondrial annotation</a>
+  <ul class="collapse">
+  <li><a href="#ensure-you-have-a-single-contig" id="toc-ensure-you-have-a-single-contig" class="nav-link" data-scroll-target="#ensure-you-have-a-single-contig">Ensure you have a single contig</a></li>
+  <li><a href="#annotate-with-mitos2" id="toc-annotate-with-mitos2" class="nav-link" data-scroll-target="#annotate-with-mitos2">Annotate with MITOS2</a></li>
+  <li><a href="#extract-fasta-sequence-for-genes-in-bed-file" id="toc-extract-fasta-sequence-for-genes-in-bed-file" class="nav-link" data-scroll-target="#extract-fasta-sequence-for-genes-in-bed-file">Extract Fasta sequence for genes in Bed file</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -352,152 +354,141 @@ background: darkred;
 
 
 
-
-<section id="anatomy-of-a-command" class="level1">
-<h1>Anatomy of a Command</h1>
-<p>Linux/Unix commands usually take the form shown below</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Command</span>       parameters      agguments</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">^</span>              ^               ^</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">what</span> I         how I want     on what do</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">want</span> to do     to do it       I want to do it</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>NB usually each element is separated by only <strong><em>one space</em></strong></p>
-<p>The first item you supply on the command line is interpreted by the system as a command; that is – something the system should do. Items that appear after that on the same line are separated by spaces. The additional input on the command line indicates to the system how the command should work. For example, what file you want the command to work on, or the format for the information that should be returned to you.</p>
-<p>Most commands have options available that will alter the way they function. You make use of these options by providing the command with parameters, some of which will take arguments. Examples in the following sections should make it clear how this works. With some commands you don’t need to issue any parameters or arguments. Occasionally this is because there are none available, but usually this is because the command will use default settings if nothing is specified.</p>
-<p>If a command runs successfully, it will usually not report anything back to you, unless reporting to you was the purpose of the command. If the command does not execute properly, you will often see an error message returned. Whether or not the error is meaningful to you depends on your experience with Linux/Unix and how user-friendly the errors generated were designed to be.</p>
-<p>Note: Items supplied on the command line separated by spaces are interpreted as individual pieces of information for the system. <strong><em>For this reason, a filename with a space in it will be interpreted as two filenames by default.</em></strong></p>
+<section id="congratulations" class="level1">
+<h1>Congratulations!</h1>
+<section id="you-have-made-it-to-the-mid-point-of-the-course." class="level3">
+<h3 class="anchored" data-anchor-id="you-have-made-it-to-the-mid-point-of-the-course.">You have made it to the mid-point of the course.</h3>
+<p>Now is a good opportunity to look back over anything you’re unclear on and would like to go over again. If you haven’t already annotated all your prokaryote genomes with Prokka, now is the time to do so. If you’ve done all that and are chomping at the bit for more, read on for a tutorial on how to annotate your mitochondrial assemblies.</p>
 </section>
-<section id="file-permisions" class="level1">
-<h1>File permisions</h1>
-<p>The command <code>ls</code> lists files in a directory.</p>
-<p>By default, the command will list the filenames of the files in your current working directory. At the moment, this is probably your home directory.</p>
-<p>If you add a space followed by a <code>-l</code> (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. Information about this is shown in the code block below.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 6    manager users   4096    2008-08-21  09:26  twilliams</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   9784    2007-03-19  14:09  hybInfo.txt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   9784    2007-03-19  14:09  targets_v1.txt</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   7793    2007-03-19  14:14  targets_v2.txt</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">^</span>      ^        ^       ^    ^         ^                ^</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">File</span>  File    User    Group Size   Date/Time         Filename</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>  Permission</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The File permissions are given in triplets <code>rwx</code> which represent write - read - execute permissions. The first triplet are the permission associated with the user, the second three defined group and the last three the world.</p>
-<p>You can also use <strong>glob patterns</strong> to limit the files you wish to list.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span>   an asterisk means any string of characters</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span>   a question mark means a single character</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">[</span> <span class="bu">]</span> <span class="ex">square</span> brackets can be used to designate a group of characters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout-Exercise">
-<p>Open your terminal and use <code>ls -l</code> command to interrogate the files in your directories.</p>
-</div>
 </section>
-<section id="learning-about-linux-commands" class="level1">
-<h1>Learning about Linux commands</h1>
-<p>Most Linux commands have a manual page that provides information about the command and options that can alter its behaviour. Many tasks can be made easier by using command options. A good rule of thumb is to ask yourself whether what you want to do is something many others may have wanted to do. If the answer is yes, then there may well be commands and options available to do that task.</p>
-<p>Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard. If you do not know the name of a command to use for a particular job, you can search using <code>man –k</code> followed by the type of thing you are trying to do. An example of this is in exercise below).</p>
-<div class="callout-Exercise">
-<p>Look up the manual information for the <code>ls</code> command by typing the following in a terminal:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Read through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the <code>b</code> key.</p>
-<p>What does the <code>-m</code> option do? What about the <code>-a</code> option? What would running <code>ls -lrt</code> do?</p>
-<p>Press the <code>q</code> key when you want to quit reading the man page.</p>
-<p>Try running <code>ls</code> using some of the options mentioned above.</p>
-<p>Look up some programs with man pages with the keywords “list directory”</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> <span class="at">--k</span> <span class="st">"list directory"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
+<section id="mitos2-for-mitochondrial-annotation" class="level1">
+<h1>Mitos2 for mitochondrial annotation</h1>
+<p><a href="https://gitlab.com/Bernt/MITOS">MITOS</a> is a <a href="http://mitos2.bioinf.uni-leipzig.de/">web server</a> for the automatic annotation of metazoan mitochondrial genomes. MITOS allows a reliable and consistent annotation of proteins and non-coding RNAs. The analysis steps are as follows:</p>
+<p>• Candidate protein coding genes are found by detecting congruences in the results of blastx searches against the amino acid sequences of the annotated proteins of metazoan mitochondrial genomes found in the NCBI RefSeq 81. A post-processing step detects start and stop codons, duplicates, and hits belonging to the same transcript, e.g.&nbsp;frame shift or splicing.</p>
+<p>• tRNAs are annotated using MITFI, i.e.&nbsp;novel structure-based covariance models as described in Jühling, et al.&nbsp;Nucleic Acids Research, 2012, 40(7):2833-2845. This approach was shown to have an unmatched sensitivity (outperforming ARWEN and tRNAscan-SE, respectively) and a precision higher than ARWEN and equivalent to tRNAscan-SE.</p>
+<p>• rRNA annotation is performed using structure-based covariance models that have been developed similarly to the tRNA models. Structural considerations improve 5’ and 3’ end predictions of the rRNAs.</p>
+<p>• In a final step, conflicts are resolved and the outcome is prepared for visualization.</p>
+<section id="ensure-you-have-a-single-contig" class="level3">
+<h3 class="anchored" data-anchor-id="ensure-you-have-a-single-contig">Ensure you have a single contig</h3>
+<p>MITOS will only work on a single contig. If your genome has assembled into multiple contigs, you have two choices: either pick the biggest, or artificially join the contigs together.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Option 1: extract out your longest contig
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Programs rather than core linux commends often have help pages that can be access in the same manner as a linux command manual but using <code>-h</code> or <code>-help</code>. Other will provide you a help is you run the program with no arguments.</p>
+<p>This code will extract your longest contig - if the assembly is a single contig there is no need to perform this step. It uses a script in a language called perl, so you will need to load the perl module.</p>
+<p><strong>The risk associated with this option is that the gene you are interested in may not be in the longest contig.</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">program</span> <span class="at">-h</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">program</span> <span class="at">-help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bioperl-live/release-1-7-2</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">perl</span> ~/classdata/REFS/script/selectSeqsAboveMinLength.pl <span class="op">&lt;</span>your_assembly.fasta<span class="op">&gt;</span> <span class="op">&lt;</span>largest_contig.fasta<span class="op">&gt;</span> 8000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Option 2: Artificially merge your contigs
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This code will remove the contig names (as long as they are named 2-9) for all except the first contig, and then remove any line breaks to ensure correct base numbering for the annotation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load seqtk/1.3</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#This sed removes any contigs where the name start '&gt;[any digit between 2-9]'</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'/^&gt;[2-9].*$/d'</span> mito_assemblies/<span class="va">${base}</span>.fasta</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#This seqtk utility removes any line breaks from the sequences ensuring correct base numbering for the annotation</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">seqtk</span> seq <span class="at">-l</span> 0 <span class="pp">[</span><span class="ss">assembly</span><span class="pp">]</span>.fasta <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">assembly_NLB.fasta</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="changing-directories-and-tab-completion" class="level1">
-<h1>Changing directories and tab completion</h1>
-<section id="changing-directories" class="level2">
-<h2 class="anchored" data-anchor-id="changing-directories">Changing Directories</h2>
-<p>The command used to change directories is <code>cd</code></p>
-<p>If you think of your directory structure, (i.e.&nbsp;this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Images/Linux_General_File_structure.png" class="img-fluid figure-img" alt="Linux general file structure"></p>
-<figcaption class="figure-caption">Linux general file structure</figcaption>
-</figure>
-</div>
-<p>If you are using a Cardiff personal cloud qubernetes container you will have access to the following additional file structure.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Images/CU_perosnal_cloud.png" class="img-fluid figure-img" alt="Cardiff University Personal Cloud File Structure"></p>
-<figcaption class="figure-caption">Cardiff University Personal Cloud File Structure</figcaption>
-</figure>
-</div>
-<div class="callout-Exercise">
+<section id="annotate-with-mitos2" class="level3">
+<h3 class="anchored" data-anchor-id="annotate-with-mitos2">Annotate with MITOS2</h3>
+<p><strong>N.B. Ensure you create your output folder before you run mitos</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to a directory to your home directory use</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Now move into teh bioinformmatics Session1 of classdata </span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/classdata/Bioinformatics/Session1</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Go down a directory</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># you can review where you are at any time using the print working directory command</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load mitos/2.0.4</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> mitos_annot</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">runmitos.py</span>  <span class="at">-i</span> contigs.fasta <span class="at">-c</span> 2 <span class="at">-o</span> mitos_annot <span class="at">-R</span> ~/classdata/REFS/mitos/ <span class="at">-r</span> refseq81m <span class="at">--rrna</span> 0 <span class="at">--trna</span> 0 <span class="at">--intron</span> 0 <span class="at">--debug</span> <span class="at">--noplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A loop would be something like this (remember to edit loop for your files)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="va">workdir</span><span class="op">=</span>~/mydata/Session3/</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load mitos/2.0.4</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">3</span><span class="dt">}</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> grp<span class="va">${i}</span>_mitos_annot</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ex">runmitos.py</span> <span class="at">-i</span> <span class="st">"</span><span class="va">${workdir}</span><span class="st">/group</span><span class="va">${i}</span><span class="st">_unknown_assembly.fasta"</span> <span class="dt">\</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">-c</span> 2 <span class="dt">\</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">-o</span> grp<span class="va">${i}</span>_mitos_annot <span class="dt">\</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">-R</span> ~/classdata/REFS/mitos/ <span class="dt">\</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">-r</span> refseq81m <span class="dt">\</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">--rrna</span> 0 <span class="dt">\</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">--trna</span> 0 <span class="dt">\</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">--intron</span> 0 <span class="dt">\</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">--debug</span> <span class="dt">\</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">--noplot</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload mitos/2.0.4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Examaple – Mitos loop
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=257ce45d-7a81-4c25-91b8-af6a01422c39&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+</div>
 </div>
 </div>
 </section>
-</section>
-<section id="tab-completion" class="level1">
-<h1>Tab completion</h1>
-<p>Tab completion is an incredibly useful facility for working on the command line.</p>
-<p>One thing tab completion does is complete the filename or program name you want, saving huge amounts of typing time. It also ensures that there are no errors in what you typed, which is easy to do with long filenames or paths</p>
-<p>For example, from the <code>classdata</code> directory, you could type:</p>
+<section id="extract-fasta-sequence-for-genes-in-bed-file" class="level2">
+<h2 class="anchored" data-anchor-id="extract-fasta-sequence-for-genes-in-bed-file">Extract Fasta sequence for genes in Bed file</h2>
+<p>You can extract the fasta sequence for the genes in the bed file using bedtools getfasta:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#navigate to classdata folder</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># now start to type Bioinformatics</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Bio </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.31.0</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta –fi contigs.fasta <span class="at">-bed</span> result.bed <span class="at">-name</span> <span class="op">&gt;</span> result.fasta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>now hit the tab key.</p>
-<p>If there is only one directory with a name starting with the letters “Bio”, the rest of the name will be completed for you. Here this would give you:</p>
+<p>Or using a loop</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Bioinformatics </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>User accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.</p>
-<div class="callout-Exercises">
-<p>Return to your home directory if you are not already there by typing <code>cd ~/</code></p>
-<p>Type <code>cd cl</code> and use tab completion for the rest of the command. Then press the return key.</p>
-<p>You will now be in your ~/classdata directory.</p>
-<p>Type <code>cd Bio</code> and use tab completion for the rest of the command. Then press the return key.</p>
-<p>You will now be in your ~/classdata/Bioinformatics directory</p>
-<p>Type <code>l Ses</code> and hit tab twice to view the files available.</p>
-<p>Now press the tab key again. You can gradually add extra letters and use the tab key to limit the options available.</p>
-<p>As you get faster with this, it will save you a lot of typing effort.</p>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">3</span><span class="dt">}</span><span class="kw">;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta <span class="at">-fi</span> spades_output_<span class="va">${i}</span>/before_rr.fasta <span class="at">-bed</span> mitos_<span class="va">${i}</span>/result.bed <span class="at">-name</span> <span class="op">&gt;</span>mitos_<span class="va">${i}</span>_result.fasta</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -505,15 +496,67 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Auto completion for programs
+Exercises: Annotate your mitochondria with mitos2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Auto completion works when you are calling programs that are available (where you have installed or loaded them with module load) and when you are constructing command. However, auto completion does NOT work if you are in a text editor constructing a script.</p>
+<p>Follow these steps to annotate your mitochondrial genome using mitos:</p>
+<ol type="1">
+<li><p>Use seqtk seq to select only the largest contig into a new file</p></li>
+<li><p>Use mitos to annotate the contig, and visualize it with Artemis</p></li>
+<li><p>Create a loop to generate the output for all mitochondrial assemblies</p></li>
+<li><p>[Extension] Use the BEDtools to extract the sequence of the annotated genes</p></li>
+<li><p>[Extension] Use seqtk to extract just the COX1 gene</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extension: Annotate your mitochondria with BLAST
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Take your assembled mitochondrial genome and identify mitochondrial orthologues using blast.</p>
+<ol type="1">
+<li><p>Perform blastx analysis of your sequence against the mitochondrial protein database. Interrogate the using ‘less’.</p></li>
+<li><p>Re-run the blastx analysis with the output format parameter set to a cutomised <code>-outfmt 6</code>, which will output the data into a tablular format compatible with Artemis.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">blastx</span> <span class="at">-query</span> <span class="pp">[</span><span class="ss">contigs.fasta</span><span class="pp">]</span> <span class="at">-db</span> ~/classdata/REFS/blastdb/hum_mt_pep <span class="at">-out</span> <span class="pp">[</span><span class="ss">output.txt</span><span class="pp">]</span> <span class="at">-outfmt</span> <span class="st">"6 qseqid sseqid pident length mismatch gapopen sstart send qstart qend evalue bitscore"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can now open the fasta sequence you have used in the blast with Artemis and then overlay with the clast output file.</p>
+<ol start="3" type="1">
+<li><p>Repeat the blastx analysis of your sequence against the mitochondrial protein database [mito_pro] only returning blast matches with an E value lower that 1E-10 and using all 4 threads.</p></li>
+<li><p>Repeat the blastx analysis of your sequence against the mitochondrial protein database, only returning blast matches with an E value lower that 1E-10, using all 4 threads, limiting the outputs so that you keep to 100 and putting the outputs into the tabular format compatible with Artemis.</p></li>
+<li><p>[Extension] Produce a loop to annotate all assembled contigs using blast</p></li>
+<li><p>[Extension] You can try repeating this exercise with swisprot and note the differences</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example - Mitochondrial Annotation Loop
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3dfd4d79-d891-4993-9e51-b09c01526845&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
