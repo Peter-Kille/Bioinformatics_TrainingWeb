@@ -1,0 +1,38 @@
+---
+title-block-style: default
+title-block-banner: darkred
+title-block-banner-color: white
+title: "Extension: Hybrid Assemblies"
+subtitle: "When short-read just doesn't cut it"
+author: "Prof. Peter Kille and Dr. Sarah Christofides"
+date: today
+affiliation: "Cardiff University"
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+So far, you have been assembling genomes just using Illumina short reads. However, as discussed in the lecture, sometimes there are areas of genome that can't be resolved with short reads, meaning the assembly produces more contigs. This can be improved by adding in long reads to scaffold the contigs. The short reads provide high quality detail, while the long reads provide the big-picture context.
+
+Unicycler provides the option to add in long-read information very simply by using the `-l` flag to direct it to a file of long reads.
+
+::: callout-important
+## Exercise: Hybrid assembly
+
+We have provided you with Nanopore long-read data for your prokaryote genomes in `~/classdata/datasets/prokayote/prokaryote_NP/`.
+
+1.  Run a hybrid assembly with Nanopore data, then use Quast to compare the results to short-read-only assembly.
+
+Hybrid assembly example command line:
+
+```{bash}
+unicycler -1 [processed fastq R1] -2 [processed fastq R2] -l [nanopore fastq] -t [thread number] -o [output directory] 1> [file_name]
+```
+
+Notice that at the end of the command I've added `1> [file_name]`. This tells bash that instead of just spitting messages onto the screen as the command runs, it should write them to a file. Unicycler produces some useful and informative output while running hybrid assembly, which it is helpful to keep.
+
+2.  Have a read through Unicycler's [information page on hybrid assembly](https://github.com/rrwick/Unicycler#method-hybrid-assembly). How does it use the long reads to bring gaps in the short-read assembly?
+
+3.  Use `less` to look at the log file you've produced. Can you use the Unicycler page above to interpret what it's telling you?
+:::

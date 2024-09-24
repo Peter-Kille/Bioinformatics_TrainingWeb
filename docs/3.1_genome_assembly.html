@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
+<meta name="author" content="Prof.&nbsp;Peter Kille &amp; Dr.&nbsp;Sarah Christofides">
 <meta name="dcterms.date" content="2024-09-24">
 
-<title>Differential Gene Expression Analysis</title>
+<title>Genome Assembly</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.1_RNAseq_processing.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.2_DEG_analysis.html">Differential Gene Expression Analysis</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Genome Assembly</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,8 +138,8 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Differential Gene Expression Analysis</h1>
-            <p class="subtitle lead">SarTools for DEG list generation and downstream analysis</p>
+      <h1 class="title">Genome Assembly</h1>
+            <p class="subtitle lead">Putting the pieces together</p>
                       </div>
   </div>
     
@@ -149,7 +149,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides </p>
+               <p>Prof.&nbsp;Peter Kille &amp; Dr.&nbsp;Sarah Christofides </p>
             </div>
     </div>
       
@@ -329,7 +329,7 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.2_DEG_analysis.html" class="sidebar-item-text sidebar-link active">
+  <a href="./5.2_DEG_analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Differential Gene Expression Analysis</span></a>
   </div>
 </li>
@@ -368,8 +368,12 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#differential-expression-analysis" id="toc-differential-expression-analysis" class="nav-link active" data-scroll-target="#differential-expression-analysis">Differential Expression Analysis</a></li>
-  <li><a href="#visualising-expression-patterns" id="toc-visualising-expression-patterns" class="nav-link" data-scroll-target="#visualising-expression-patterns">Visualising Expression Patterns</a></li>
+  <li><a href="#the-bioinformatic-process-to-assemble-a-genome" id="toc-the-bioinformatic-process-to-assemble-a-genome" class="nav-link active" data-scroll-target="#the-bioinformatic-process-to-assemble-a-genome">The bioinformatic process to assemble a genome</a>
+  <ul class="collapse">
+  <li><a href="#genome-assembly" id="toc-genome-assembly" class="nav-link" data-scroll-target="#genome-assembly">Genome assembly</a></li>
+  <li><a href="#assembly-statistics" id="toc-assembly-statistics" class="nav-link" data-scroll-target="#assembly-statistics">Assembly statistics</a></li>
+  </ul></li>
+  <li><a href="#worked-example-of-assembly" id="toc-worked-example-of-assembly" class="nav-link" data-scroll-target="#worked-example-of-assembly">Worked Example of Assembly</a></li>
   </ul>
 </nav>
     </div>
@@ -379,58 +383,208 @@ background: darkred;
 
 
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2a1422b-b0e3-4a42-ac71-af630098d97d&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3d87d25f-bc34-448a-a65e-af630098e01b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
-<section id="differential-expression-analysis" class="level1">
-<h1>Differential Expression Analysis</h1>
-<p>An R script template, and a folder of pre-computed FeatureCounts outputs are at:</p>
+<p>We will now assemble the genomes for the mystery prokaryotes in the datasets folder. You can either copy them over to <code>mydata/Session2</code> or work directly from <code>mydata/datasets/prokaryotes</code> (I suggest sticking with whichever approach you used for QC and trimming). Whichever you choose to do, always remember to keep your folder system tidy. If you are struggling to remember how it’s arranged, grab some paper and sketch it out as a visual reminder.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you’re feeling confident
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>As you go through each step of the assembly process, use loops to apply it to <em>all</em> the prokaryote genomes you’ve been given.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you’re not feeling confident
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Pick one prokaryote genome and work through assembling it. Use the time later in the extension session to use loops to apply the process to all the prokaryote genomes.</p>
+</div>
+</div>
+</div>
+<p><strong>Either way, write scripts rather than running the programmes by typing directly into the terminal</strong>. This means you have every step saved so it can be revisited whenever you need.</p>
+<section id="the-bioinformatic-process-to-assemble-a-genome" class="level1">
+<h1>The bioinformatic process to assemble a genome</h1>
+<p>Below is a walkthrough on the steps necessary to assemble a mitochondrial or bacterial genome. Don’t get lost in the terminal with typing commands meaninglessly: step back and think about the bioinformatic process to get to the end goal.</p>
+<p>We will use multiple bioinformatic packages to assemble a genome and provide assembly statistics</p>
+<p>fastQC – Quality control of reads</p>
+<p>fastp – adapter removal and trimming tool</p>
+<p>Unicycler – genome assembler</p>
+<p>Quast – genome assembly statistics</p>
+<p>Bandage (optional) – view graphical fragment assembly (gfa) files</p>
+<p><strong>Remember that you can access the “help” option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or –help. After using a program, don’t forget to unload the module.</strong></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Optional extra software: tmux
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. If you run a script in the terminal and then close the session/turn off the laptop, the script will be cancelled. To avoid this, we use tmux. This will allow you to run scripts and programs in the terminal, close the terminal/turn off your laptop, and the script will continue to run.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/Session5/RNAseq-Analysis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load tmux/4.2a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>A set of nine human neuronal differential RNAseq samples have been sequenced, consisting of 6x control samples (3x two different individuals) and 3x a deletion mutant of the 1q21.1 cytogenetic region of the human genome, and 3x of a duplication of this region.</p>
-<p>Deletions and alterations to this region has a range of impacts on neuropsychiatric disorders and is under active study. See the <a href="https://www.omim.org/entry/612474">omim</a> and the Wikipedia page is remarkably informative! <a href="https://en.wikipedia.org/wiki/1q21.1_deletion_syndrome">1q21.1_deletion_syndrome</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Picture1.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption class="figure-caption">1q21.1 cytogenetic region of the human genome</figcaption>
-</figure>
+<p>Basic usage cheatsheet: https://tmuxcheatsheet.com/</p>
+<p>Start a new session:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> new <span class="at">-s</span> [session name]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Close a session:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Ctrl</span> + b, then d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>List available sessions:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Re-join an existing session:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> a <span class="at">-t</span> [session name]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Delete a session:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> kill-session <span class="at">-t</span> [session name]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A reminder of the steps you’ve already completed
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="quality-checking-data" class="level3">
+<h3 class="anchored" data-anchor-id="quality-checking-data">1. Quality checking data</h3>
+<p>You will often start with <strong>raw sequence</strong> data in FASTQ format. You first need to check the quality of the data before proceeding with the assembly; this can be achieved using <strong>fastQC</strong>.</p>
+</section>
+<section id="trimming-and-adapter-removal" class="level3">
+<h3 class="anchored" data-anchor-id="trimming-and-adapter-removal">2. Trimming and adapter removal</h3>
+<p>Raw sequence data may still contain fragments of the adapter sequences from the sequencing process; these artificial sequences need to be removed. Low quality bases that may occur toward the end of reads can also be trimmed to improve the overall sequence quality. These steps will be carried out using <strong>fastp</strong>. After this step you will have <strong>processed reads</strong>.</p>
+</section>
+<section id="re-assessing-data-quality" class="level3">
+<h3 class="anchored" data-anchor-id="re-assessing-data-quality">3. Re-assessing data quality</h3>
+<p>Following adaptor removal and trimming, we need to repeat the quality checking with fastQC, but this time using the <strong>processed reads</strong>.</p>
+</section>
+</div>
+</div>
+</div>
+<section id="genome-assembly" class="level2">
+<h2 class="anchored" data-anchor-id="genome-assembly">Genome assembly</h2>
+<p>We will assemble the processed reads into an assembly using the assembler <strong>Unicycler</strong>. Unicycler is an assembly pipeline for bacterial (and mitochondrial) genomes. It can assemble Illumina-only read sets where it functions as a SPAdes-optimiser.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load unicycler/v0.5.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Basic usage:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">unicycler</span> <span class="at">-1</span> [processed fastq R1] <span class="at">-2</span> [processed fastq R2]  <span class="at">-t</span> [thread number] <span class="at">-o</span> [output directory]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Each assembly will be located in a different directory within the parent directory indicated by the <em>-o</em> option</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercises: Differential Gene Analysis
+Exercise: Unicycler
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We will be using the script <code>Sartools-template-deseq2.r</code> provided on the server and github pages.</p>
-<p>We will use the server Rstudio to do the analysis.</p>
-<ol type="1">
-<li><p>Copy either the FeatureCounts/markdup or rmdup, and targets.txt data to your local directory</p></li>
-<li><p>Inside of Rstudio, edit the sartools script in the fields highlighted with ” * * * ” for your data</p></li>
-<li><p>Explore the html report generated and the differentiation of the sample types</p></li>
-<li><p>Look at the most differentially expressed genes (DEGs) in the outputted tables (excel)</p></li>
-</ol>
+<p>Write a script to assemble your genome(s) with Unicycler.</p>
+<p><strong>If working on more than one genome: rename assembly files and copy to new directory</strong></p>
+<p>A big part of bioinformatics is maintaining directory and file organisation. Each mitochondrial genome assembly output by Unicycler will have the same generic name, <em>assembly.fasta</em>, albeit located in a different folder. We need to rename these files to reflect the input data. Compose a loop to <strong>copy and rename</strong> these files to a new directory.</p>
 </div>
 </div>
 </section>
-<section id="visualising-expression-patterns" class="level1">
-<h1>Visualising Expression Patterns</h1>
-<p>Once an analysis has yielded a list of DEGs, it’s common to visualise them in a heatmap. There is a wonderful R package called <a href="https://jokergoo.github.io/ComplexHeatmap-reference/book/">ComplexHeatmap</a>, which will do almost anything you can think of to a heatmap.</p>
+<section id="assembly-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="assembly-statistics">Assembly statistics</h2>
+<p>Once our assembly files have been renamed and copied to a single location, we can analyse them for quality statistics. Use <strong>Quast</strong> to report useful metrics such as assembly length, GC content, contig number, and N50 value. QUAST stands for QUality ASsessment Tool. It evaluates genome/metagenome assemblies by computing various metrics.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load quast/6.2.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Basic usage:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quast.py</span> <span class="at">-t</span> [thread number] <span class="at">-o</span> [output directory] [input fasta file]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The output directory contains the report in multiple formats. To view the report on the terminal use the <code>cat</code> command which prints the contents of a file to the terminal (don’t forget to navigate to the file first as it’s in a different directory!):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="pp">[</span><span class="ss">report.txt</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercises: Differential Gene Analysis
+Exercise: Quast
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We will be using the script <code>Heatmaps.r</code> provided on the server and github pages. We will use the server Rstudio to do the analysis.</p>
-<p>Explore the heatmap code provided in the script, and then try customising it.</p>
+<p>Write a script to assess your genome assembly with Quast.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Optional: assembly graph
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>One of the files produced by <strong>Unicycler</strong> is an assembly graph (.gfa file extension). This file details the links between contigs that were produced during the assembly and can provide valuable information on the difficult-to-assemble regions of the genome. Bandage is a program for visualising <em>de novo</em> assembly graphs. By displaying connections which are not present in the contigs file, Bandage opens up new possibilities for analysing de novo assemblies. Download to your local laptop from the link: https://rrwick.github.io/Bandage/.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="worked-example-of-assembly" class="level1">
+<h1>Worked Example of Assembly</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example - Prokayote Assembly Loop
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5b72e9a8-5336-47b7-a1ee-b094015e42f9&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -439,53 +593,28 @@ Exercises: Differential Gene Analysis
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Extension: Useful Packages for Downstream Analysis
+Extension Work
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Use the list of ~200 most differentially expressed genes in gProfiler, or other online resources below, to investigate the functional connotations (More on this in the extension session).</p>
-<section id="converting-between-common-gene-ids" class="level2">
-<h2 class="anchored" data-anchor-id="converting-between-common-gene-ids">Converting between common gene IDs</h2>
-<ul>
-<li><a href="https://biodbnet-abcc.ncifcrf.gov/db/db2db.php">biodbnet</a></li>
-<li><a href="https://biit.cs.ut.ee/gprofiler/convert">gprofiler convert</a></li>
-</ul>
-</section>
-<section id="whole-dataset-annotation-and-ontologies" class="level2">
-<h2 class="anchored" data-anchor-id="whole-dataset-annotation-and-ontologies">Whole dataset annotation (and ontologies)</h2>
-<ul>
-<li><a href="https://biit.cs.ut.ee/gprofiler/">gProfiler</a></li>
-<li><a href="https://www.genome.jp/kegg/">KEGG</a></li>
-<li>NeVOmics</li>
-</ul>
-</section>
-<section id="interaction-networks" class="level2">
-<h2 class="anchored" data-anchor-id="interaction-networks">Interaction Networks</h2>
-<ul>
-<li><a href="https://string-db.org/">StringDB</a></li>
-<li><a href="https://tools.dice-database.org/GOnet/">GOnet</a></li>
-<li>Cytoscape
-<ul>
-<li><a href="http://apps.cytoscape.org/apps/bingo">bingo plugin</a></li>
-<li><a href="http://apps.cytoscape.org/apps/enrichmentmap">EnrichmentMap plugin</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="other-visualisation-tools" class="level2">
-<h2 class="anchored" data-anchor-id="other-visualisation-tools">Other visualisation tools</h2>
-<ul>
-<li><a href="https://software.broadinstitute.org/morpheus/">Morpheus</a></li>
-<li><a href="http://www.interactivenn.net/">Complex venn</a></li>
-</ul>
-</section>
-<section id="whole-packages" class="level2">
-<h2 class="anchored" data-anchor-id="whole-packages">Whole packages</h2>
-<ul>
-<li><a href="https://digitalinsights.qiagen.com/products-overview/discovery-insights-portfolio/analysis-and-visualization/qiagen-ipa/">IPA</a></li>
-<li><a href="https://szenitha.shinyapps.io/shiny-seq3/">Shiny-Seq</a></li>
-<li><a href="https://github.com/developerpiru/BEAVR#loading-your-data-into-beavr">BeavR</a></li>
-</ul>
-</section>
+<p>Go to the mitochondrial files and apply the same process to them, using a loop.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example - Mitochondrial Assembly Loop
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=98f6c333-4bd4-40c9-8753-b09c014514c7&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
 </div>
 </div>
 

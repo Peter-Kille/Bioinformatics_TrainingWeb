@@ -38,7 +38,7 @@ Pick one prokaryote genome and work through annotating it. Use the time later in
 ::: {.callout-note collapse="true"}
 ## Artemis Mac Install
 
-Additional Sanger Centre training material can be downloaded using the following link - [Sanger center training](https://tinyurl.com/4dzbj9nk)
+Additional Sanger Centre training material can be downloaded using the following link - [Sanger center training](https://tinyurl.com/5.zbj9nk)
 
 1.  download latest version of Artemis from https://github.com/sanger-pathogens/Artemis/releases/download/v18.2.0/artemis-macosx-release-18.2.0.dmg.gz
 
@@ -331,22 +331,11 @@ BLAST is old-school sequence searching! You will probably have BLASTed things be
 
 • swissprot -- Uniprot annotated protein database
 
-• mito_pro -- metazoan mitochondrial database protein
+• mito_pro -- metazoan mitochondrial database
 
-• mito - metazoan mitochondrial database polynucleotide
+• 16S_ribosomal_RNA -- 16S ribosomal database
 
-• 16S_ribosomal_RNA - 16S ribosomal database
-
-• hum_mt_pep - human mitochondrial
-
-• taxdb - taxonomy database containing links to the full taxonomy linked to a search result
-
-To make things easier before you start add the location of these databases to your path by running the following command.This will mean you don't have to add full path of database to your commands and ensure the taxdb used to link to taxonomy is available to the blast command.
-
-```{bash}
-export BLASTDB=$BLASTDB:~/classdata/REFS/blastdb/
-```
-
+• hum_mt_pep -- human mitochondrial
 
 Don't forget to load BLAST and any other modules you need!
 
