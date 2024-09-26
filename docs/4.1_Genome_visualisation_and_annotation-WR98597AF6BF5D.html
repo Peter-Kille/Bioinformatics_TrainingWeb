@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
+<meta name="dcterms.date" content="2024-09-26">
+
+<title>Genome Visualisation and Annotation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: white;
+background: darkred;
+      }
+</style>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Genome Visualisation and Annotation</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Genome Visualisation and Annotation</h1>
+            <p class="subtitle lead">Layering information onto your sequences</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 26, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Welcome to Bioinformatics!</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Big Data Biology and Bioinformatics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Session 0. HPC and Personal Cloud</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Personal Cloud</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Session 1. Linux: The basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.1_Introduction to Linux.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Linux</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Loading Software and Accessing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extension: Commandline Tools and Scripting</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Session 2. NGS data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2.1_NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NGS Quality Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2.2_genome_assembly.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genome Assembly</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2.3_hybrid_assemblies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extension: Hybrid Assemblies</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Session 3. Genomics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genome Visualisation and Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extension: Annotating Mitochondrial Genomes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">Session 4. Building phylogenies</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phylogenetics and Phylogeneomics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4.2_phylogentics_phylogenomics_extension.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extension: Phylogenetics and Phylogeneomics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">Session 5. Transcriptomics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.1_RNAseq_processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RNAseq Processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.2_DEG_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Gene Expression Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.3_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extension: DEG Functional Interpretation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+ <span class="menu-text">Session 6. Microbial community analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6.1_metabarcoding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metagenomics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#visualising-genomes-using-artemis" id="toc-visualising-genomes-using-artemis" class="nav-link active" data-scroll-target="#visualising-genomes-using-artemis">Visualising genomes using Artemis</a></li>
+  <li><a href="#prokka---bacterial-genome-annotation" id="toc-prokka---bacterial-genome-annotation" class="nav-link" data-scroll-target="#prokka---bacterial-genome-annotation">Prokka - bacterial genome annotation</a></li>
+  <li><a href="#assigning-taxonomy-with-ncbi-blast" id="toc-assigning-taxonomy-with-ncbi-blast" class="nav-link" data-scroll-target="#assigning-taxonomy-with-ncbi-blast">Assigning taxonomy with NCBI BLAST</a>
+  <ul class="collapse">
+  <li><a href="#use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome." id="toc-use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome." class="nav-link" data-scroll-target="#use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome.">Use bedtools to extract out your phylogenetic marker sequence (e.g.&nbsp;16S or <em>CoI</em>) from your assembled and annotated genome.</a></li>
+  <li><a href="#blast" id="toc-blast" class="nav-link" data-scroll-target="#blast">BLAST</a></li>
+  <li><a href="#blast-programs" id="toc-blast-programs" class="nav-link" data-scroll-target="#blast-programs">BLAST Programs</a></li>
+  <li><a href="#anatomy-of-the-blast-command" id="toc-anatomy-of-the-blast-command" class="nav-link" data-scroll-target="#anatomy-of-the-blast-command">Anatomy of the BLAST command</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=35fe879e-58e9-4141-a49a-af630098dee1&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you’re feeling confident
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>As you go through each step of the annotation process, use loops to apply it to <em>all</em> the prokaryote genomes you’ve assembled.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If you’re not feeling confident
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Pick one prokaryote genome and work through annotating it. Use the time later in the extension session to use loops to apply the process to all the prokaryote genomes.</p>
+</div>
+</div>
+</div>
+<section id="visualising-genomes-using-artemis" class="level1">
+<h1>Visualising genomes using Artemis</h1>
+<p><a href="https://www.sanger.ac.uk/tool/artemis/">Artemis</a> is a rather old but very elegant genome visualisation tool. To get you used to using it, we will try it out using an example genome that’s already been annotated.</p>
+<p><strong><em>Artemis can be installed locally <a href="http://sanger-pathogens.github.io/Artemis/">local install instructions</a>. Warning: this can take time, so please do not do it during teaching session.</em></strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Artemis Mac Install
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Additional Sanger Centre training material can be downloaded using the following link - <a href="https://tinyurl.com/5.zbj9nk">Sanger center training</a></p>
+<ol type="1">
+<li><p>download latest version of Artemis from https://github.com/sanger-pathogens/Artemis/releases/download/v18.2.0/artemis-macosx-release-18.2.0.dmg.gz</p></li>
+<li><p>download java from Latest Releases - must be jdk v11 or above, from <a href="https://www.techspot.com/downloads/7407-java-se-16.html">TechSpot</a> or <a href="https://adoptium.net/en-GB/temurin/releases/?version=16&amp;os=mac&amp;arch=x64&amp;package=jdk">Adoptium</a></p></li>
+<li><p>unpack Artemis - and move the files to a folder somewhere … i.e to an Artemis directory you’ve made somewhere.</p></li>
+<li><p>find out what version of java is currently on your system</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">-version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>or you can see the java versions you have available using</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/libexec/java_home</span> <span class="at">-V</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>then depending on your shell - edit the relevant rc file</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> ~/.zshrc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and add a line …. change the -v1.8 to -vXX depending on the version of java you have as default.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">JAVA_HOME</span><span class="op">=</span><span class="va">$(</span><span class="ex">/usr/libexec/java_home</span> <span class="at">-</span> v1.8<span class="va">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li>now install the version of java you have just downloaded - this will install and make the default java change to this version. You should also see a new line appear when you run this command.</li>
+</ol>
+<div class="cell">
+<pre class="bbash cell-code"><code>/usr/libexec/java_home -V</code></pre>
+</div>
+<ol start="7" type="1">
+<li>now run Artemis - use terminal to change to the directory you put the apps in in step 3</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Artemis/</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Artemis.app/Contents/art</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>will run Artemis - or alternatively you should be able to click on the icons in finder to run.</p></li>
+<li><p>If there is a security issue - go … File – System Settings – Privacy &amp; Security .. and then look for a statement that says “Artemis” was blocked from use because it is not from an identified developer …. and click Open Anyway - you need to have admin/sudo privileges to do this.</p></li>
+<li><p>Artemis should run</p></li>
+</ul>
+<ol start="8" type="1">
+<li>the next time you log into your mac - the default java will be the default one and not the one required to use Artemis … so to the terminal and type (change -v flag depending on jvm version)</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">JAVA_HOME</span><span class="op">=</span><span class="va">$(</span><span class="ex">/usr/libexec/java_home</span> <span class="at">-v16</span><span class="va">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>and now you should be able to run Artemis again</p></li>
+<li><p>if you want to keep use this java as default - edit your .zshrc file</p></li>
+<li><p>if you don’t want to type in that command all the time, add this to your .zshrc file</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> javaart=<span class="st">'export JAVA_HOME=$(/usr/libexec/java_home -v16)'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>and then type <code>javaart</code> into a terminal to change to the version of java required for Artemis</p></li>
+<li><p>alternatively you should be able to edit the</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Artemis.app/Contents/art</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#script and add</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">JAVA_HOME</span><span class="op">=</span><span class="va">$(</span><span class="ex">/usr/libexec/java_home</span> <span class="at">-</span> v16<span class="va">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>at the top somewhere - haven’t tested this to force the right version of java to be used.</li>
+</ul>
+</div>
+</div>
+</div>
+<p>To use Artemis via your Linux desktop on the server, you need to enable it to use a visual interface. Open a new tab in MobaXterm and log in using the slightly modified command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#For masters' students</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> [your username]@sponsa.bios.cf.ac.uk <span class="at">-X</span> <span class="at">-p</span> [your port number]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#For Y3 students</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> [your username]@hawker.bios.cf.ac.uk <span class="at">-X</span> <span class="at">-p</span> [your port number]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Use the three-word passphrase you were assigned.</p>
+<p>The <code>-X</code> enables the graphical interface.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise: Loading a Genome into Artemis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Load the Artemis module and initiate Artemis with command <code>art</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load artemis/18.2.0</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">art</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Artemis Opening Screen</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Artemis_Open_window.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>Open Genbank File</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>File <span class="op">&gt;</span>Open</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Navigate to your Session3 folder and select the genbank file (<code>NC_003428.gb</code>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Select_Genbank_file.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>Cancel any warnings you should see the following window;</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Artemis_genbank_file_wrong_codon_table.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>The blue highlighted area should highlight open reading frames (ORFs) and the vertical lines stop codons - notice that there are vertical line in the middle of ORFs this indicates that we are using the wrong codon table. Arrange your graphics windows so you can see the Opening window which will be hidden behind the gene display window - you should see something like this.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Art_open_window_gene_window.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>Now change the codon table by selecting</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> Options <span class="op">&gt;</span> Genetic <span class="ex">Code</span> Tables</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">selecet</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Vertebrate</span> Mitochondrial</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Your gene visualisation should now look like this</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Artemis_genbank_file_correct_codon_table.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As we create our annotations, you will be able to visualise the various outputs using Artemis.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extension Work
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I have included a range of extension exercises / guides generated by the Sanger Centre (the people who wrote Artemis) these are included in your Session3 folder under <code>Artemis_Sanger_Center</code></p>
+</div>
+</div>
+</section>
+<section id="prokka---bacterial-genome-annotation" class="level1">
+<h1>Prokka - bacterial genome annotation</h1>
+<p><a href="https://github.com/tseemann/prokka">Prokka</a> is a piece of software that is designed to identify genes from sequence data. It works best on prokaryotes. Once it identifies genes, it creates a file including the sequence for the sample, along with a set of annotations to that sequence, which identify the locations of genes. The annotation is written to a GFF3 file: a GFF file is a type of specialised table that lists the ‘features’ (genes, rRNAs, tRNAs etc.) in an assembly and where to find them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka_mambaforge/1.14.6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong><em>Check which version you have installed with <code>module avail</code></em></strong></p>
+<p>Basic commands / usage: To run prokka on an assembly (with an example filename of ‘contigs.fa’ use the command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka_mambaforge/1.14.6</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> contigs.fa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you want to view the names of output files, you need to provide a name for the files and a directory where they should be saved:</p>
+<p>Choose the names of the output files with --outdir and --prefix</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka_mambaforge/1.14.6</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> <span class="at">--outdir</span> mydir <span class="at">--prefix</span> mygenome contigs.fa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>NOTE: Prokka defaults to analyzing Bacteria. Think about what your sample is and what codon table you should use (This is also important for Artemis)!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prokka for mitochondrial annotation (Not recommended! See next workshop for how to annotate mitochondria)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you’re working on mitochondria include --kingdom mito and the relevant --gcode. Some examples:</p>
+<pre><code>1.  The Standard Code
+2.  The Vertebrate Mitochondrial Code
+3.  The Yeast Mitochondrial Code
+4.  The Invertebrate Mitochondrial Code
+5.  The Echinoderm and Flatworm Mitochondrial Code</code></pre>
+<p>A full command for mitochondrial annotation would look like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka_mambaforge/1.14.6</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> <span class="at">--outdir</span> prokka <span class="at">--kingdom</span> Mitochondria <span class="at">--gcode</span> 2 assembly/contigs.fasta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise: Running PROKKA and checking annotations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Take your assembled genome(s) and run Prokka to annotate the genome. Open this in Artemis.</p>
+<p>What do you see as you move along the genome? Are there regions where genes should be that Prokka has not annotated? How would you work out if a gene should be there?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example - Prokka Loop
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=4fb71dc3-818c-4317-ab92-af6a0141efbd&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extension: BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="https://github.com/tseemann/barrnap">Barrnap</a> predicts the location of ribosomal RNA genes in genomes. It supports bacteria (5S,23S,16S), archaea (5S,5.8S,23S,16S), metazoan mitochondria (12S,16S) and eukaryotes (5S,5.8S,28S,18S). Prokka will run Barrnap as part of its workflow, but if you fancy you can try running it as a standalone application, too.</p>
+<p>Barrnap takes FASTA file of assembled DNA sequences as input, and writes a GFF3 as output. Barrnap uses the new NHMMER tool that comes with HMMER 3.1 for HMM searching in RNA:DNA style. NHMMER binaries for 64-bit Linux and Mac OS X are included and will be auto-detected. Multithreading is supported and one can expect roughly linear speed-ups with more CPUs.</p>
+<p>Basic command usage:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load barrnap/0.9</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">barrnap</span> <span class="pp">[</span><span class="ss">options</span><span class="pp">]</span> Your_contigs.fasta <span class="op">&gt;</span> outfile.gff</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Options:</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ex">--help</span>            This help</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ex">--version</span>         Print version and exit</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="ex">--citation</span>        Print citation for referencing barrnap</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="ex">--kingdom</span> <span class="pp">[</span><span class="ss">X</span><span class="pp">]</span>     Kingdom: arc mito euk bac <span class="er">(</span><span class="ex">default</span> <span class="st">'bac'</span><span class="kw">)</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="ex">--quiet</span>           No screen output <span class="er">(</span><span class="ex">default</span> OFF<span class="kw">)</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="ex">--threads</span> <span class="pp">[</span><span class="ss">N</span><span class="pp">]</span>     Number of threads/cores/CPUs to use <span class="er">(</span><span class="ex">default</span> <span class="st">'8'</span><span class="kw">)</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="ex">--lencutoff</span> <span class="pp">[</span><span class="ss">n.n</span><span class="pp">]</span> Proportional length threshold to label as partial <span class="er">(</span><span class="ex">default</span> <span class="st">'0.8'</span><span class="kw">)</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="ex">--reject</span> <span class="pp">[</span><span class="ss">n.n</span><span class="pp">]</span>    Proportional length threshold to reject prediction <span class="er">(</span><span class="ex">default</span> <span class="st">'0.5'</span><span class="kw">)</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="ex">--evalue</span> <span class="pp">[</span><span class="ss">n.n</span><span class="pp">]</span>    Similarity e-value cut-off <span class="er">(</span><span class="ex">default</span> <span class="st">'1e-06'</span><span class="kw">)</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="ex">--incseq</span>          Include FASTA input sequences in GFF3 output <span class="er">(</span><span class="ex">default</span> OFF<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Use Barrnap to generate a GFF file predicting the position of any ribosomal sequences – remember to customize the ‘Kingdom’ parameter to reflect the source of the genome you are using.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="assigning-taxonomy-with-ncbi-blast" class="level1">
+<h1>Assigning taxonomy with NCBI BLAST</h1>
+<p>You now have good-quality assembled, annotated genomes… but what organisms are they from?! It’s time to put some names to genomes. We’re going to extract the 16S rRNA gene from the prokaryotes and BLAST them against a 16S database.</p>
+<section id="use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome." class="level2">
+<h2 class="anchored" data-anchor-id="use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome.">Use bedtools to extract out your phylogenetic marker sequence (e.g.&nbsp;16S or <em>CoI</em>) from your assembled and annotated genome.</h2>
+<p>Collectively, the bedtools utilities are a Swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF. While each individual tool is designed to do a relatively simple task (e.g., intersect two interval files), quite sophisticated analyses can be conducted by combining multiple bedtools operations on the UNIX command line.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.31.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can use bedtools to extract gene/protein sequences from annotation files:</p>
+<ol type="1">
+<li><p>Navigate to either the <strong>Prokka</strong> annotation output directory or the <strong>Barrnap</strong> output file</p></li>
+<li><p>Create a sub-gff file that contains the annotation information of only the 16 rRNA gene</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For bacterial sequences</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"product=16S ribosomal RNA"</span> [gff annotation file]  <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">subset_16S.gff</span><span class="pp">]</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Select first 16S annotation</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 1 <span class="pp">[</span><span class="ss">subset_16S.gff</span><span class="pp">]</span> <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">subset_first_16S.gff</span><span class="pp">]</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For mitochondrial sequences</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"ID=gene_cox1"</span> [gff annotation file]  <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">subset_coi.gff</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Extract the 16S rRNA gene from the genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the -s option. <strong>If you are performing this for Mitochondria using the subset_coi.gff file and replace 16S with coi</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta <span class="at">-fi</span> [input fasta file] <span class="at">-bed</span> [subset_first_gff file] <span class="at">-s</span> <span class="op">&gt;</span> [output 16S file.fasta]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The fasta sequence will be given a numeric nonsensical name (what comes after the &gt;). Change this for the name of the source sequence.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">"s/&gt;.*/&gt;[sequence name]/g"</span> [output 16S file.fasta]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise: Extracting 16S genes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Write a loop that uses the bedtools steps to extract the 16S sequence from all your prokaryote genomes.</p>
+</div>
+</div>
+</section>
+<section id="blast" class="level2">
+<h2 class="anchored" data-anchor-id="blast">BLAST</h2>
+<p>BLAST is old-school sequence searching! You will probably have BLASTed things before via their <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">web interface</a>. However, for something as big as a genome you will need to run BLAST locally (i.e.&nbsp;on the server rather than via the web). This requires having a database downloaded to search against. The teaching servers have a choice of databases downloaded in <code>~/classdata/REFS/blastdb/</code>.</p>
+<p>• swissprot – Uniprot annotated protein database</p>
+<p>• mito_pro – metazoan mitochondrial database</p>
+<p>• 16S_ribosomal_RNA – 16S ribosomal database</p>
+<p>• hum_mt_pep – human mitochondrial</p>
+<p>Don’t forget to load BLAST and any other modules you need!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load blast-plus/2.13.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="blast-programs" class="level2">
+<h2 class="anchored" data-anchor-id="blast-programs">BLAST Programs</h2>
+<p>BLAST comes in a variety of flavours, depending on what you want to search and what you want to search it against. The first thing you need to decide when BLASTing is which one you want.</p>
+<table class="table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Program</th>
+<th style="text-align: right;">Input-Output</th>
+<th style="text-align: right;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>blastn</td>
+<td style="text-align: right;">nucleotide-nucleotide</td>
+<td style="text-align: right;">This program, given a DNA query, returns the most similar DNA sequences from the DNA database that the user specifies.</td>
+</tr>
+<tr class="even">
+<td>blastp</td>
+<td style="text-align: right;">protein-protein</td>
+<td style="text-align: right;">This program, given a protein query, returns the most similar protein sequences from the protein database that the user specifies.</td>
+</tr>
+<tr class="odd">
+<td>blastx</td>
+<td style="text-align: right;">nucleotide</td>
+<td style="text-align: right;">6-frame translation-protein This program compares the six-frame conceptual translation products of a nucleotide query sequence (both strands) against a protein sequence database.</td>
+</tr>
+<tr class="even">
+<td>tblastx</td>
+<td style="text-align: right;">nucleotide</td>
+<td style="text-align: right;">6-frame translation-nucleotide 6-frame translation This program is the slowest of the BLAST family. It translates the query nucleotide sequence in all six possible frames and compares it against the six-frame translations of a nucleotide sequence database. The purpose of tblastx is to find very distant relationships between nucleotide sequences.</td>
+</tr>
+<tr class="odd">
+<td>tblastn</td>
+<td style="text-align: right;">protein-nucleotide</td>
+<td style="text-align: right;">6-frame translation This program compares a protein query against the all six reading frames of a nucleotide sequence database.</td>
+</tr>
+<tr class="even">
+<td>psi-blast</td>
+<td style="text-align: right;">position-specific</td>
+<td style="text-align: right;">This program is used to find distant relatives of a protein. First, a list of all closely related proteins is created. These proteins are combined into a general “profile” sequence, which summarises significant features present in these sequences. A query against the protein database is then run using this profile, and a larger group of proteins is found. This larger group is used to construct another profile, and the process is repeated. By including related proteins in the search, PSI-BLAST is much more sensitive in picking up distant evolutionary relationships than a standard protein-protein BLAST.</td>
+</tr>
+<tr class="odd">
+<td>megablast</td>
+<td style="text-align: right;">large queries seqs</td>
+<td style="text-align: right;">When comparing large numbers of input sequences via the command-line BLAST, “megablast” is much faster than running BLAST multiple times. It concatenates many input sequences together to form a large sequence before searching the BLAST database, then post-analyze the search results to glean individual alignments and statistical values</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="anatomy-of-the-blast-command" class="level2">
+<h2 class="anchored" data-anchor-id="anatomy-of-the-blast-command">Anatomy of the BLAST command</h2>
+<p>A basic BLAST command states your reference database, your query, and an output file, for example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastx</span> –db /home/db/fish –query contigs.fasta –out contigs_blx.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This example uses blastx to match a DNA query against protein database, targets a (fictional) protein database named ‘fish’ stored at /home/db/, blasts the file contig.fasta and puts the output in contig_blx.txt</p>
+<p>Given that you will be searching a nucleotide query against a nucleotide database, which BLAST command do you think you need?</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extension:Making your own BLAST databases
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You already have the databases you require today, but sometimes you will need to create a custom database based on some collection of sequences dear to your heart! It’s not as simple as just creating a FASTA of sequences to search against: in order for BLAST to use them, it has to convert them into BLAST database format. The command to do so is <code>makeblastdb</code>. To create a new database:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">makeblastdb</span> <span class="at">-in</span> nucleotide_seq.fa –dbtype nucl –title my_db <span class="at">-out</span> my_seq</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Command line options</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-in</span>         <span class="pp">[</span><span class="ss">input_file</span><span class="pp">]</span> </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-dbtype</span>     <span class="pp">[</span><span class="ss">molecule_type</span><span class="pp">]</span>, nucl – nucleotide or prot <span class="at">-</span> protein</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-title</span>  <span class="pp">[</span><span class="ss">database_title</span><span class="pp">]</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-out</span>        <span class="pp">[</span><span class="ss">database_name</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There are also many other options to explore if you so desire!</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise: Searching with BLAST
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Perform BLAST analysis of one of your extracted 16S genes against the 16S_ribosomal_RNA database. Interrogate the output using ‘less’.</p></li>
+<li><p>Re-run the BLAST analysis with the output format parameter set to a customised <code>-outfmt 6</code>, which will output the data into a tablular format (often useful for subsequent analyses). Call the output something different so as not to overwrite the previous one. Interrogate the output using ‘less’. Can you see the difference to previously? How easy do you find it to read and interpret?</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">blastx</span> <span class="at">-query</span> <span class="pp">[</span><span class="ss">contigs.fasta</span><span class="pp">]</span> <span class="at">-db</span> ~/classdata/REFS/blastdb/hum_mt_pep <span class="at">-out</span> <span class="pp">[</span><span class="ss">output.txt</span><span class="pp">]</span> <span class="at">-outfmt</span> <span class="st">"6 qseqid sseqid pident length mismatch gapopen sstart send qstart qend evalue bitscore"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Have a look at <a href="https://www.metagenomics.wiki/tools/blast/blastn-output-format-6">this guide</a> to further customising your output table. Can you get it to return a table that just contains the query ID, the subject (match) ID, the species name and the E value? <strong>N.B. To get BLAST to return taxonomic information, you need to copy the taxonomy database into your working directory.</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/classdata/REFS/blastdb/taxdb.<span class="pp">*</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><p>Look at the BLAST options using <code>blastn -help</code>. Can you find one that will allow you to choose how many hits it returns?</p></li>
+<li><p>Extension: Produce a loop to get identities for all your prokaryotes.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extension: mapping reads with minimap2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>[Minimap](https://github.com/lh3/minimap2) is a mapping software. It maps (aligns) sequencing reads to an assembled genome, so that it’s possible to see where in the genome each read originated from. We can use to see how the individual reads contributed to the assembled genome, and how deep the coverage is at each point along the genome.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load minimap2/2.14</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Samtools - BAM/SAM tool utilities (for handling the alignment files minimap produces). BAM and SAM are file formats for storing reads alongside lots of information about how each read maps to the genome. They are very similar, but BAM files are more compact and not human-readable (if you try to open one if looks like gobbledygook), whereas SAM files are larger but human-readable (at least to a certain type of nerd).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load samtools/1.16.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Align read sequences to your assemblies and create a BAM file.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">minimap2</span> <span class="at">-ax</span> sr [your contigs.fasta] <span class="pp">[</span><span class="ss">forward_read.fastq</span><span class="pp">]</span> <span class="pp">[</span><span class="ss">reverse_read.fastq</span><span class="pp">]</span> <span class="op">&gt;</span> aln.sam</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-S</span> aln.sam <span class="op">&gt;</span> aln.bam</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort aln.bam <span class="op">&gt;</span> aln_sorted.bam</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index aln_sorted.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Overlay the BAM file you have generated into your assembly using Artemis.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Worked Example - Prokayote annotation loop
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=df930bd2-5f91-4151-9866-b09500b7390c&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
