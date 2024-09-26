@@ -218,6 +218,19 @@ less test_vi.txt
 ```
 :::
 
-# End of Session 1. Go and relax!
+# Runnign code when you need to have a coffee
+
+Often you have some code or script that will take some time to run and you want to shut down your computer and go for coffee or sleep (yes even informaticians sleep) but you want the code to continue to run.  To make this work use the command ```nohup```. The syntax is simple - here are 2 simple examples.
+
+```{bash}
+#run this and you can close session and enjoy relax time
+nohup [command/script] &
+
+# this command will write any output or logs to a file called - logfile.txt
+nohup [command/script] > logfile.txt 2>&1 &
+```
+
+
+# End of Session 1. Go and relax....and have a coffee!
 
 Or if you're a total nerd and can't leave the command line, go ahead and have a look at *Extension: Commandline Tools and Scripting*. This contains more Linux-related tidbits and a sneak preview of some material we'll cover in Session 2.

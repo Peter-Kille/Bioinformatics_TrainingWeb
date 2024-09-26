@@ -13,7 +13,6 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-
 # Querying files with grep
 
 grep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.
@@ -94,13 +93,12 @@ Now try this:
 cat *.fasta | grep "^>" | wc -l 
 ```
 
-Remember that * means any pattern, and that `cat` will concatentate all the files given as input. Therefore, a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.
+Remember that \* means any pattern, and that `cat` will concatentate all the files given as input. Therefore, a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.
 :::
 
 ## Use zgrep with compressed files
 
 You can use all of grep functionality with a compressed file by adding a 'z' - just replace grep with zgrep and you can directly query that .gz files.
-
 
 # Running and rerunning scripts
 

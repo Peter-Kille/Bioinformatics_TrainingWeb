@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Professor Peter Kille">
-<meta name="dcterms.date" content="2024-09-24">
+<meta name="dcterms.date" content="2024-09-26">
 
 <title>Loading Software and Accessing Data</title>
 <style>
@@ -156,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 24, 2024</p>
+        <p class="date">September 26, 2024</p>
       </div>
     </div>
     
@@ -379,7 +379,8 @@ background: darkred;
   <li><a href="#vi-or-vim" id="toc-vi-or-vim" class="nav-link" data-scroll-target="#vi-or-vim">Vi (or Vim)</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#end-of-session-1.-go-and-relax" id="toc-end-of-session-1.-go-and-relax" class="nav-link" data-scroll-target="#end-of-session-1.-go-and-relax">End of Session 1. Go and relax!</a></li>
+  <li><a href="#runnign-code-when-you-need-to-have-a-coffee" id="toc-runnign-code-when-you-need-to-have-a-coffee" class="nav-link" data-scroll-target="#runnign-code-when-you-need-to-have-a-coffee">Runnign code when you need to have a coffee</a></li>
+  <li><a href="#end-of-session-1.-go-and-relax.and-have-a-coffee" id="toc-end-of-session-1.-go-and-relax.and-have-a-coffee" class="nav-link" data-scroll-target="#end-of-session-1.-go-and-relax.and-have-a-coffee">End of Session 1. Go and relax….and have a coffee!</a></li>
   </ul>
 </nav>
     </div>
@@ -566,8 +567,19 @@ Exercise
 </section>
 </section>
 </section>
-<section id="end-of-session-1.-go-and-relax" class="level1">
-<h1>End of Session 1. Go and relax!</h1>
+<section id="runnign-code-when-you-need-to-have-a-coffee" class="level1">
+<h1>Runnign code when you need to have a coffee</h1>
+<p>Often you have some code or script that will take some time to run and you want to shut down your computer and go for coffee or sleep (yes even informaticians sleep) but you want the code to continue to run. To make this work use the command <code>nohup</code>. The syntax is simple - here are 2 simple examples.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#run this and you can close session and enjoy relax time</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> <span class="pp">[</span><span class="ss">command/script</span><span class="pp">]</span> <span class="kw">&amp;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># this command will write any output or logs to a file called - logfile.txt</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> <span class="pp">[</span><span class="ss">command/script</span><span class="pp">]</span> <span class="op">&gt;</span> logfile.txt <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">&amp;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="end-of-session-1.-go-and-relax.and-have-a-coffee" class="level1">
+<h1>End of Session 1. Go and relax….and have a coffee!</h1>
 <p>Or if you’re a total nerd and can’t leave the command line, go ahead and have a look at <em>Extension: Commandline Tools and Scripting</em>. This contains more Linux-related tidbits and a sneak preview of some material we’ll cover in Session 2.</p>
 
 
