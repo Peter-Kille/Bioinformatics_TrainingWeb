@@ -347,7 +347,6 @@ To make things easier before you start add the location of these databases to yo
 export BLASTDB=$BLASTDB:~/classdata/REFS/blastdb/
 ```
 
-
 Don't forget to load BLAST and any other modules you need!
 
 ```{bash}
