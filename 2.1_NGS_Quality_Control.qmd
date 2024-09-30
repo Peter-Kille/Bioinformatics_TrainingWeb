@@ -121,10 +121,10 @@ To use FastQC on the server, we will first need to load the module. This is the 
 module avail
 ```
 
-You should see that the list includes fastqc/0.11.9. To load this module, simply type
+You should see that the list includes fastqc/v0.12.1. To load this module, simply type
 
 ```{bash}
-module load fastqc/0.11.9
+module load fastqc/v0.12.1
 ```
 
 Try this out now!
@@ -231,9 +231,9 @@ Script:
 ```{bash}
 #!/usr/bin/bash
 
-module load fastp/0.20.0
+module load fastp/0.23.4-mr6qifo
 
-fastp -q 20 -u 10 --cut_right -i Illumina_1.fastq -I Illumina_2.fastq -o Illumina_1trimmed.fastq -O Illumina_2trimmed.fastq
+fastp -q 20 -u 10 --cut_right -i Illumina_1.fastq -I Illumina_2.fastq -o Illumina_1trimmed.fastq -O Illumina_2trimmed.fastq -
 ```
 
 Look up the [help page for fastp](https://github.com/OpenGene/fastp). What does each of the options given above mean?
@@ -254,7 +254,7 @@ Use ls to look at the output. How could the script be improved to make it tidier
 Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.
 
 ```{bash}
- module load multiqc/1.16
+ module load py-multiqc/1.15-mqimc53
  
  #run multiqc on all files in the current working directory
  multiqc .

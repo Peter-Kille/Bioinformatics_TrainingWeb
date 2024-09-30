@@ -43,9 +43,9 @@ You will be provided with three pieces of information the host (or server) name,
 Host Names:
 
 ```         
-hawker.bios.cf.ac.uk
+darter.bios.cf.ac.uk
 or
-sponsa.bios.cf.ac.uk
+anax.bios.cf.ac.uk
 ```
 
 Username (student numbers usually have a small letter and 7 digits): c9999999 or sbixxx
@@ -57,7 +57,7 @@ Password: hard_phase_remember
 You may have received an email where the information is presented as a code block:
 
 ```         
-ssh c9999999@sponsa.bios.cf.ac.uk -P 32222
+ssh c9999999@anax.bios.cf.ac.uk -P 32222
        ^              ^                ^
     username        host              port
 ```

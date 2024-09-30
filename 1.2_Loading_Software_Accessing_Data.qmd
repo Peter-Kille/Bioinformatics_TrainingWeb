@@ -30,29 +30,51 @@ module avail
 this will bring up a software list that looks like the following:
 
 ```{bash}
-abyss/2.3.1        caliper/2.8.0    fastx-toolkit/0.0.14  mcl/14-137          racon/1.4.3      tbl2asn/2022-04-26
-alan/2.1.1         cdhit/4.8.1      figtree/1.4.3         minimap2/2.14       raxml-ng/1.0.2   tmux/3.2a
-barrnap/0.8        dos2unix/7.4.2   freebayes/1.3.6       ncurses/6.3         samtools/1.15.1  trimmomatic/0.39
-bcftools/1.14      emboss/6.6.0     gdbm/1.23             perl-bioperl/1.7.6  seqtk/1.3        velvet/1.2.10
-bedtools2/2.30.0   fastp/0.20.0     hmmer/3.3.2           picard/2.26.2       spades/3.15.5    vt/0.5772
-blast-plus/2.13.0  fastqc/0.11.9    igv/2.12.3            pilon/1.22          star/2.7.6a      wtdbg2/2.3
-bowtie2/2.4.2      fasttree/2.1.11  mafft/7.481           prokka/1.14.6       subread/2.0.2
-.......
+------------ /mnt/clusters/darter/software/spack/share/spack/modules/linux-rocky8-zen -------------
+abricate/1.0.0-qk6snru        freebayes/1.3.6-l3l4sxc                 py-panaroo/1.2.10-fukmiob
+abyss/2.3.5-b76h5om           gatk/4.5.0.0-riltjjd                    py-quast/5.2.0-hgcvroq
+alan/2.1.1-izjr2po            gdbm/1.23-n6o3b5r                       py-unicycler/0.5.0-d6k3wzh
+augustus/3.5.0-qinnslv        grace/5.1.25-gukphap                    python/3.7.4-ftvphto
+barrnap/0.9-kewos3t           gromacs/2022.6-3xkd27n                  python/3.10.5-fsxphqu
+bcftools/1.19-d7iukuu         hmmer/3.4-yak3kcd                       python/3.11.7-d2ytb5r
+bedtools2/2.31.1-7imv7b4      igv/2.16.2-qiah4ab                      qualimap/2.2.1-c5hghxs
+blast-plus/2.14.1-eqbljdp     kraken2/2.1.2-lam4dbm                   r/4.4.1-5jt6lfe
+bowtie/1.3.1-zgreifk          mafft/7.505-beg3hnq                     racon/1.4.3-qpn4rnq
+bowtie2/2.5.2-4j3lpsk         mcl/14-137-hetggoi                      raxml-ng/1.1.0-3gc6hnr
+busco/5.4.3-av4kf4t           minimap2/2.28-w7jvpwe                   samtools/1.19.2-m76oqh7
+bwa/0.7.17-kikwf2c            ncurses/6.5-yhetvhq                     seqtk/1.4-l7d6lqn
+caliper/2.11.0-774rsmi        perl-bioperl/1.7.6-semipod              spades/3.15.5-4zo7gyg
+cdhit/4.8.1-z4h4fo5           perl/5.34.0-hvoyvlh                     star/2.7.11a-cbbjioq
+dos2unix/7.4.4-scyfkh5        picard/3.1.1-peglbgr                    subread/2.0.6-abbqxcc
+dyninst/13.0.0-ssbc5ep        pilon/1.22-hoz46gi                      tbl2asn/2022-04-26-mogg2jy
+emboss/6.6.0-mlzei3k          prodigal/2.6.3-o4shfn4                  tmux/3.4-pp5yxaf
+fastp/0.23.4-mr6qifo          prokka/1.14.6-barrnap-bedtools-5z4fskk  trimmomatic/0.39-erd3ktn
+fasttree/2.1.11-x2xclli       prokka/1.14.6-mqcdb45                   velvet/1.2.10-rryts6f
+fastx-toolkit/0.0.14-gp27cub  py-macs3/3.0.0b3-w77yz26                vt/0.5772-d76l4yn
+figtree/1.4.4-knoy37j         py-multiqc/1.15-mqimc53                 wtdbg2/2.3-iy52ckp
+
+------------------------ /mnt/clusters/darter/software/nospack/modulefiles ------------------------
+apptainer/1.3.3       fmlrc/v1.0.0  MAGScoT/1.0.0-conda  qiime2/2024.5-conda  star/2.7.11b-conda
+artemis/18.2.0-conda  go/1.22.4     maxbin2/2.2.7-conda  reportseff/v2.7.6
+coverm/0.7.0-conda    java/11.0.2   metabat2/2.17-conda  snippy/v4.6.0
+fastqc/v0.12.1        java/17.0.1   mitos/2.0.4-conda    snp-sites/2.5.1
 ```
 
 Any of these software packages can be loaded by simply using the module load command, e.g.
 
 ```{bash}
-module load fastqc/0.11.9
+module load fastqc/v0.12.1
 ```
 
 Remember to unload the module when you are finished so it does not conflict with the next piece of software, or if you want to unload all modules, use the module purge command.
 
 ```{bash}
-module unload fastqc/0.11.9
+module unload fastqc/v0.12.1
 or
 module purge
 ```
+
+**Module versions can change so check they are correct with `module avail` rather than just copy and pasting from the guide.**
 
 # Data
 
@@ -220,7 +242,7 @@ less test_vi.txt
 
 # Runnign code when you need to have a coffee
 
-Often you have some code or script that will take some time to run and you want to shut down your computer and go for coffee or sleep (yes even informaticians sleep) but you want the code to continue to run.  To make this work use the command ```nohup```. The syntax is simple - here are 2 simple examples.
+Often you have some code or script that will take some time to run and you want to shut down your computer and go for coffee or sleep (yes even informaticians sleep) but you want the code to continue to run. To make this work use the command `nohup`. The syntax is simple - here are 2 simple examples.
 
 ```{bash}
 #run this and you can close session and enjoy relax time
@@ -229,7 +251,6 @@ nohup [command/script] &
 # this command will write any output or logs to a file called - logfile.txt
 nohup [command/script] > logfile.txt 2>&1 &
 ```
-
 
 # End of Session 1. Go and relax....and have a coffee!
 

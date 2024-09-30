@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2024-09-26">
+<meta name="dcterms.date" content="2024-09-30">
 
 <title>Extension: Annotating Mitochondrial Genomes</title>
 <style>
@@ -156,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 26, 2024</p>
+        <p class="date">September 30, 2024</p>
       </div>
     </div>
     
@@ -420,7 +420,7 @@ Option 1: extract out your longest contig
 <p><strong>The risk associated with this option is that the gene you are interested in may not be in the longest contig.</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bioperl-live/release-1-7-2</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load perl-bioperl/1.7.6-semipod</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">perl</span> ~/classdata/REFS/script/selectSeqsAboveMinLength.pl <span class="op">&lt;</span>your_assembly.fasta<span class="op">&gt;</span> <span class="op">&lt;</span>largest_contig.fasta<span class="op">&gt;</span> 8000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -441,7 +441,7 @@ Option 2: Artificially merge your contigs
 <div class="callout-body-container callout-body">
 <p>This code will remove the contig names (as long as they are named 2-9) for all except the first contig, and then remove any line breaks to ensure correct base numbering for the annotation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load seqtk/1.3</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load seqtk/1.4-l7d6lqn</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#This sed removes any contigs where the name start '&gt;[any digit between 2-9]'</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'/^&gt;[2-9].*$/d'</span> mito_assemblies/<span class="va">${base}</span>.fasta</span>
@@ -457,7 +457,7 @@ Option 2: Artificially merge your contigs
 <h3 class="anchored" data-anchor-id="annotate-with-mitos2">Annotate with MITOS2</h3>
 <p><strong>N.B. Ensure you create your output folder before you run mitos</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load mitos/2.0.4</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load mitos/2.0.4-conda</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> mitos_annot</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -480,7 +480,7 @@ Option 2: Artificially merge your contigs
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">-o</span> grp<span class="va">${i}</span>_mitos_annot <span class="dt">\</span></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">-R</span> ~/classdata/REFS/mitos/ <span class="dt">\</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">-r</span> refseq81m <span class="dt">\</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">--rrna</span> 0 <span class="dt">\</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">--rrna</span> 1 <span class="dt">\</span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">--trna</span> 0 <span class="dt">\</span></span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">--intron</span> 0 <span class="dt">\</span></span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">--debug</span> <span class="dt">\</span></span>
@@ -512,7 +512,7 @@ Worked Examaple – Mitos loop
 <h2 class="anchored" data-anchor-id="extract-fasta-sequence-for-genes-in-bed-file">Extract Fasta sequence for genes in Bed file</h2>
 <p>You can extract the fasta sequence for the genes in the bed file using bedtools getfasta:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.31.0</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.31.1-7imv7b4</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta –fi contigs.fasta <span class="at">-bed</span> result.bed <span class="at">-name</span> <span class="op">&gt;</span> result.fasta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

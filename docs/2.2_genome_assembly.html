@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Peter Kille &amp; Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2024-09-26">
+<meta name="dcterms.date" content="2024-09-30">
 
 <title>Genome Assembly</title>
 <style>
@@ -156,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 26, 2024</p>
+        <p class="date">September 30, 2024</p>
       </div>
     </div>
     
@@ -443,7 +443,7 @@ Optional extra software: tmux
 <div class="callout-body-container callout-body">
 <p>tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. If you run a script in the terminal and then close the session/turn off the laptop, the script will be cancelled. To avoid this, we use tmux. This will allow you to run scripts and programs in the terminal, close the terminal/turn off your laptop, and the script will continue to run.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load tmux/3.2a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load tmux/3.4-pp5yxaf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Basic usage cheatsheet: https://tmuxcheatsheet.com/</p>
 <p>Start a new session:</p>
@@ -500,7 +500,7 @@ A reminder of the steps you’ve already completed
 <h2 class="anchored" data-anchor-id="genome-assembly">Genome assembly</h2>
 <p>We will assemble the processed reads into an assembly using the assembler <strong>Unicycler</strong>. Unicycler is an assembly pipeline for bacterial (and mitochondrial) genomes. It can assemble Illumina-only read sets where it functions as a SPAdes-optimiser.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load unicycler/v0.5.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load py-unicycler/0.5.0-d6k3wzh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Basic usage:</p>
 <div class="cell">
@@ -527,7 +527,7 @@ Exercise: Unicycler
 <h2 class="anchored" data-anchor-id="assembly-statistics">Assembly statistics</h2>
 <p>Once our assembly files have been renamed and copied to a single location, we can analyse them for quality statistics. Use <strong>Quast</strong> to report useful metrics such as assembly length, GC content, contig number, and N50 value. QUAST stands for QUality ASsessment Tool. It evaluates genome/metagenome assemblies by computing various metrics.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load quast/5.2.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load py-quast/5.2.0-hgcvroq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Basic usage:</p>
 <div class="cell">

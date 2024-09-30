@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2024-09-26">
+<meta name="dcterms.date" content="2024-09-30">
 
 <title>NGS Quality Control</title>
 <style>
@@ -156,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 26, 2024</p>
+        <p class="date">September 30, 2024</p>
       </div>
     </div>
     
@@ -500,9 +500,9 @@ Exercise: using loops
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You should see that the list includes fastqc/0.11.9. To load this module, simply type</p>
+<p>You should see that the list includes fastqc/v0.12.1. To load this module, simply type</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/0.11.9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/v0.12.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Try this out now!</p>
 <p>As mentioned before, FastQC is very easy to run. At its most basic (without any extra options), you simply type (substituting file.fastq for the name of the FASTQ file you want to check):</p>
@@ -623,9 +623,9 @@ Exercise: fastp
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/bash</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastp/0.20.0</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastp/0.23.4-mr6qifo</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-q</span> 20 <span class="at">-u</span> 10 <span class="at">--cut_right</span> <span class="at">-i</span> Illumina_1.fastq <span class="at">-I</span> Illumina_2.fastq <span class="at">-o</span> Illumina_1trimmed.fastq <span class="at">-O</span> Illumina_2trimmed.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-q</span> 20 <span class="at">-u</span> 10 <span class="at">--cut_right</span> <span class="at">-i</span> Illumina_1.fastq <span class="at">-I</span> Illumina_2.fastq <span class="at">-o</span> Illumina_1trimmed.fastq <span class="at">-O</span> Illumina_2trimmed.fastq <span class="at">-</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Look up the <a href="https://github.com/OpenGene/fastp">help page for fastp</a>. What does each of the options given above mean?</p>
 <p>Use ls to look at the output. How could the script be improved to make it tidier?</p>
@@ -652,7 +652,7 @@ Exercise: checking it worked!
 <h2 class="anchored" data-anchor-id="creating-a-quality-summary-with-multiqc">Creating a quality summary with multiqc</h2>
 <p>Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">module</span> load multiqc/1.16</span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">module</span> load py-multiqc/1.15-mqimc53</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a> <span class="co">#run multiqc on all files in the current working directory</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">multiqc</span> .</span>
