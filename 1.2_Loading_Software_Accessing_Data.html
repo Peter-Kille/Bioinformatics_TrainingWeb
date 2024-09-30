@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Professor Peter Kille">
-<meta name="dcterms.date" content="2024-09-30">
+<meta name="dcterms.date" content="2024-09-26">
 
 <title>Loading Software and Accessing Data</title>
 <style>
@@ -59,22 +59,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
+<script src="docs/site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="docs/site_libs/quarto-nav/headroom.min.js"></script>
+<script src="docs/site_libs/clipboard/clipboard.min.js"></script>
+<script src="docs/site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="docs/site_libs/quarto-search/fuse.min.js"></script>
+<script src="docs/site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="docs/site_libs/quarto-html/quarto.js"></script>
+<script src="docs/site_libs/quarto-html/popper.min.js"></script>
+<script src="docs/site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="docs/site_libs/quarto-html/anchor.min.js"></script>
+<link href="docs/site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="docs/site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="docs/site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="docs/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="docs/site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -156,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 30, 2024</p>
+        <p class="date">September 26, 2024</p>
       </div>
     </div>
     
@@ -283,7 +283,7 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
+  <a href="docs/3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Annotating Mitochondrial Genomes</span></a>
   </div>
 </li>
@@ -300,13 +300,13 @@ background: darkred;
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link">
+  <a href="docs/4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Phylogenetics and Phylogeneomics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="4.2_phylogentics_phylogenomics_extension.html" class="sidebar-item-text sidebar-link">
+  <a href="docs/4.2_phylogentics_phylogenomics_extension.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Phylogenetics and Phylogeneomics</span></a>
   </div>
 </li>
@@ -401,46 +401,25 @@ background: darkred;
 </div>
 <p>this will bring up a software list that looks like the following:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">------------</span> /mnt/clusters/darter/software/spack/share/spack/modules/linux-rocky8-zen <span class="at">-------------</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">abricate/1.0.0-qk6snru</span>        freebayes/1.3.6-l3l4sxc                 py-panaroo/1.2.10-fukmiob</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">abyss/2.3.5-b76h5om</span>           gatk/4.5.0.0-riltjjd                    py-quast/5.2.0-hgcvroq</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">alan/2.1.1-izjr2po</span>            gdbm/1.23-n6o3b5r                       py-unicycler/0.5.0-d6k3wzh</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">augustus/3.5.0-qinnslv</span>        grace/5.1.25-gukphap                    python/3.7.4-ftvphto</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">barrnap/0.9-kewos3t</span>           gromacs/2022.6-3xkd27n                  python/3.10.5-fsxphqu</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">bcftools/1.19-d7iukuu</span>         hmmer/3.4-yak3kcd                       python/3.11.7-d2ytb5r</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools2/2.31.1-7imv7b4</span>      igv/2.16.2-qiah4ab                      qualimap/2.2.1-c5hghxs</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">blast-plus/2.14.1-eqbljdp</span>     kraken2/2.1.2-lam4dbm                   r/4.4.1-5jt6lfe</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie/1.3.1-zgreifk</span>          mafft/7.505-beg3hnq                     racon/1.4.3-qpn4rnq</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2/2.5.2-4j3lpsk</span>         mcl/14-137-hetggoi                      raxml-ng/1.1.0-3gc6hnr</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">busco/5.4.3-av4kf4t</span>           minimap2/2.28-w7jvpwe                   samtools/1.19.2-m76oqh7</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa/0.7.17-kikwf2c</span>            ncurses/6.5-yhetvhq                     seqtk/1.4-l7d6lqn</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">caliper/2.11.0-774rsmi</span>        perl-bioperl/1.7.6-semipod              spades/3.15.5-4zo7gyg</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">cdhit/4.8.1-z4h4fo5</span>           perl/5.34.0-hvoyvlh                     star/2.7.11a-cbbjioq</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ex">dos2unix/7.4.4-scyfkh5</span>        picard/3.1.1-peglbgr                    subread/2.0.6-abbqxcc</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ex">dyninst/13.0.0-ssbc5ep</span>        pilon/1.22-hoz46gi                      tbl2asn/2022-04-26-mogg2jy</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ex">emboss/6.6.0-mlzei3k</span>          prodigal/2.6.3-o4shfn4                  tmux/3.4-pp5yxaf</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp/0.23.4-mr6qifo</span>          prokka/1.14.6-barrnap-bedtools-5z4fskk  trimmomatic/0.39-erd3ktn</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ex">fasttree/2.1.11-x2xclli</span>       prokka/1.14.6-mqcdb45                   velvet/1.2.10-rryts6f</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ex">fastx-toolkit/0.0.14-gp27cub</span>  py-macs3/3.0.0b3-w77yz26                vt/0.5772-d76l4yn</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ex">figtree/1.4.4-knoy37j</span>         py-multiqc/1.15-mqimc53                 wtdbg2/2.3-iy52ckp</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="ex">------------------------</span> /mnt/clusters/darter/software/nospack/modulefiles <span class="at">------------------------</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer/1.3.3</span>       fmlrc/v1.0.0  MAGScoT/1.0.0-conda  qiime2/2024.5-conda  star/2.7.11b-conda</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ex">artemis/18.2.0-conda</span>  go/1.22.4     maxbin2/2.2.7-conda  reportseff/v2.7.6</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ex">coverm/0.7.0-conda</span>    java/11.0.2   metabat2/2.17-conda  snippy/v4.6.0</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc/v0.12.1</span>        java/17.0.1   mitos/2.0.4-conda    snp-sites/2.5.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">abyss/2.3.1</span>        caliper/2.8.0    fastx-toolkit/0.0.14  mcl/14-137          racon/1.4.3      tbl2asn/2022-04-26</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">alan/2.1.1</span>         cdhit/4.8.1      figtree/1.4.3         minimap2/2.14       raxml-ng/1.0.2   tmux/3.2a</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">barrnap/0.8</span>        dos2unix/7.4.2   freebayes/1.3.6       ncurses/6.3         samtools/1.15.1  trimmomatic/0.39</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">bcftools/1.14</span>      emboss/6.6.0     gdbm/1.23             perl-bioperl/1.7.6  seqtk/1.3        velvet/1.2.10</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools2/2.30.0</span>   fastp/0.20.0     hmmer/3.3.2           picard/2.26.2       spades/3.15.5    vt/0.5772</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">blast-plus/2.13.0</span>  fastqc/0.11.9    igv/2.12.3            pilon/1.22          star/2.7.6a      wtdbg2/2.3</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2/2.4.2</span>      fasttree/2.1.11  mafft/7.481           prokka/1.14.6       subread/2.0.2</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">.......</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Any of these software packages can be loaded by simply using the module load command, e.g.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/v0.12.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/0.11.9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Remember to unload the module when you are finished so it does not conflict with the next piece of software, or if you want to unload all modules, use the module purge command.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload fastqc/v0.12.1</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload fastqc/0.11.9</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">or</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> purge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Module versions can change so check they are correct with <code>module avail</code> rather than just copy and pasting from the guide.</strong></p>
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>

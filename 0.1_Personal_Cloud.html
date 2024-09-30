@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2024-09-30">
+<meta name="author" content="Professor Peter Kille">
+<meta name="dcterms.date" content="2024-09-26">
 
-<title>Extension: Annotating Mitochondrial Genomes</title>
+<title>Personal Cloud</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="3.1_Genome_visualisation_and_annotation.html">Session 3. Genomics</a></li><li class="breadcrumb-item"><a href="3.2_Annotating_mitochondria.html">Extension: Annotating Mitochondrial Genomes</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="0.1_Personal_Cloud.html">Session 0. HPC and Personal Cloud</a></li><li class="breadcrumb-item"><a href="0.1_Personal_Cloud.html">Personal Cloud</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,8 +138,8 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Extension: Annotating Mitochondrial Genomes</h1>
-            <p class="subtitle lead">Annotation for a different type of genome</p>
+      <h1 class="title">Personal Cloud</h1>
+            <p class="subtitle lead">Getting Connected</p>
                       </div>
   </div>
     
@@ -149,14 +149,14 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides </p>
+               <p>Professor Peter Kille </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 30, 2024</p>
+        <p class="date">September 26, 2024</p>
       </div>
     </div>
     
@@ -202,7 +202,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
+  <a href="0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Personal Cloud</span></a>
   </div>
 </li>
@@ -283,7 +283,7 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link active">
+  <a href="docs/3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Annotating Mitochondrial Genomes</span></a>
   </div>
 </li>
@@ -368,15 +368,20 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#congratulations" id="toc-congratulations" class="nav-link active" data-scroll-target="#congratulations">Congratulations!</a>
+  <li><a href="#basics-of-hpc-and-hpc-vs-personal-cloud-provision" id="toc-basics-of-hpc-and-hpc-vs-personal-cloud-provision" class="nav-link active" data-scroll-target="#basics-of-hpc-and-hpc-vs-personal-cloud-provision">Basics of HPC and HPC vs Personal Cloud provision</a></li>
+  <li><a href="#personal-hpc-and-hpc-clusters" id="toc-personal-hpc-and-hpc-clusters" class="nav-link" data-scroll-target="#personal-hpc-and-hpc-clusters">Personal HPC and HPC clusters</a></li>
+  <li><a href="#virtual-private-networks" id="toc-virtual-private-networks" class="nav-link" data-scroll-target="#virtual-private-networks">Virtual Private Networks</a></li>
+  <li><a href="#rstudio-and-jupyter-notebook-through-posit" id="toc-rstudio-and-jupyter-notebook-through-posit" class="nav-link" data-scroll-target="#rstudio-and-jupyter-notebook-through-posit">RStudio (and Jupyter notebook) Through Posit</a></li>
+  <li><a href="#ssh-connecting-to-the-server" id="toc-ssh-connecting-to-the-server" class="nav-link" data-scroll-target="#ssh-connecting-to-the-server">SSH: connecting to the server</a>
   <ul class="collapse">
-  <li><a href="#you-have-made-it-to-the-mid-point-of-the-course." id="toc-you-have-made-it-to-the-mid-point-of-the-course." class="nav-link" data-scroll-target="#you-have-made-it-to-the-mid-point-of-the-course.">You have made it to the mid-point of the course.</a></li>
+  <li><a href="#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" id="toc-ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" class="nav-link" data-scroll-target="#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc">SSH using MobaXterm - connecting to the server on a PC</a></li>
+  <li><a href="#ssh-using-a-terminal---connecting-to-the-server-on-a-mac" id="toc-ssh-using-a-terminal---connecting-to-the-server-on-a-mac" class="nav-link" data-scroll-target="#ssh-using-a-terminal---connecting-to-the-server-on-a-mac">SSH using a terminal - connecting to the server on a Mac</a></li>
   </ul></li>
-  <li><a href="#mitos2-for-mitochondrial-annotation" id="toc-mitos2-for-mitochondrial-annotation" class="nav-link" data-scroll-target="#mitos2-for-mitochondrial-annotation">Mitos2 for mitochondrial annotation</a>
+  <li><a href="#sfpt-transferring-files-to-and-from-the-server" id="toc-sfpt-transferring-files-to-and-from-the-server" class="nav-link" data-scroll-target="#sfpt-transferring-files-to-and-from-the-server">SFPT: transferring files to and from the server</a>
   <ul class="collapse">
-  <li><a href="#ensure-you-have-a-single-contig" id="toc-ensure-you-have-a-single-contig" class="nav-link" data-scroll-target="#ensure-you-have-a-single-contig">Ensure you have a single contig</a></li>
-  <li><a href="#annotate-with-mitos2" id="toc-annotate-with-mitos2" class="nav-link" data-scroll-target="#annotate-with-mitos2">Annotate with MITOS2</a></li>
-  <li><a href="#extract-fasta-sequence-for-genes-in-bed-file" id="toc-extract-fasta-sequence-for-genes-in-bed-file" class="nav-link" data-scroll-target="#extract-fasta-sequence-for-genes-in-bed-file">Extract Fasta sequence for genes in Bed file</a></li>
+  <li><a href="#sftp-using-mobaxterm-on-a-pc" id="toc-sftp-using-mobaxterm-on-a-pc" class="nav-link" data-scroll-target="#sftp-using-mobaxterm-on-a-pc">SFTP using MobaXterm on a PC</a></li>
+  <li><a href="#sftp-using-filezilla" id="toc-sftp-using-filezilla" class="nav-link" data-scroll-target="#sftp-using-filezilla">SFTP using FileZilla</a></li>
+  <li><a href="#sftp-using-cyberduck" id="toc-sftp-using-cyberduck" class="nav-link" data-scroll-target="#sftp-using-cyberduck">SFTP using Cyberduck</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -387,44 +392,45 @@ background: darkred;
 
 
 
-<section id="congratulations" class="level1">
-<h1>Congratulations!</h1>
-<section id="you-have-made-it-to-the-mid-point-of-the-course." class="level3">
-<h3 class="anchored" data-anchor-id="you-have-made-it-to-the-mid-point-of-the-course.">You have made it to the mid-point of the course.</h3>
-<p>Now is a good opportunity to look back over anything you’re unclear on and would like to go over again. If you haven’t already annotated all your prokaryote genomes with Prokka, now is the time to do so. If you’ve done all that and are chomping at the bit for more, read on for a tutorial on how to annotate your mitochondrial assemblies.</p>
+<section id="basics-of-hpc-and-hpc-vs-personal-cloud-provision" class="level1">
+<h1>Basics of HPC and HPC vs Personal Cloud provision</h1>
+<p>High performance computing (HPC) systems are large, multi-processor, large RAM ‘computers’ that are installed in data centres. Usually users are provided with a login to a shared HPC system with strictly controlled access and defined quotas. To run your informatic tasks, you write a script that sends your job to a ‘queuing’ program which coordinates the processing requests of all the users on the system. In this way the system can support large numbers of users, but you need to wait for your place in the queue before your task can be performed. Although you can do the very lightest tasks - copy small files, rename etc. - without sending them to the queue, most tasks need to go through the queue. This can be very tedious when learning to code, as if your script creates an error you won’t know until it has waited its turn in the queue.</p>
+<p>To avoid the queues we provide personal cloud systems to each person on the course, allowing them to interactively use the HPC system. To do this we create a container which has the equivalent of a ‘virtual machine’ (VM) in the cloud; we use a system called Kubernetes to create these container-based virtual machines. Each user has dedicated processors, RAM, storage and their own environment so they can interactively learn to use a Linux system. Because we are having to reserve a proportion of the server for each user we can only allocate a limited number of processors and RAM to each user - usually this is 8 processors and 16 Gb RAM, but check with your course organiser.</p>
+<p>Similar ‘containers’ can be accessed using <a href="https://aws.amazon.com/health/genomics/">AWS cloud services</a> or through academic services such as <a href="https://www.climb.ac.uk/">CLIMB</a>. AWS cloud does provide some educational free cloud processing but when these free credits are over you would need to pay for processing and storage, and this can very quickly get expensive. CLIMB provides academic registration if you are supported by specific research council funding.</p>
+<p>This information below is aimed at students and staff in Cardiff University’s School of Biosciences, and will guide you through accessing the computing resources provided.</p>
 </section>
-</section>
-<section id="mitos2-for-mitochondrial-annotation" class="level1">
-<h1>Mitos2 for mitochondrial annotation</h1>
-<p><a href="https://gitlab.com/Bernt/MITOS">MITOS</a> is a <a href="http://mitos2.bioinf.uni-leipzig.de/">web server</a> for the automatic annotation of metazoan mitochondrial genomes. MITOS allows a reliable and consistent annotation of proteins and non-coding RNAs. The analysis steps are as follows:</p>
-<p>• Candidate protein coding genes are found by detecting congruences in the results of blastx searches against the amino acid sequences of the annotated proteins of metazoan mitochondrial genomes found in the NCBI RefSeq 81. A post-processing step detects start and stop codons, duplicates, and hits belonging to the same transcript, e.g.&nbsp;frame shift or splicing.</p>
-<p>• tRNAs are annotated using MITFI, i.e.&nbsp;novel structure-based covariance models as described in Jühling, et al.&nbsp;Nucleic Acids Research, 2012, 40(7):2833-2845. This approach was shown to have an unmatched sensitivity (outperforming ARWEN and tRNAscan-SE, respectively) and a precision higher than ARWEN and equivalent to tRNAscan-SE.</p>
-<p>• rRNA annotation is performed using structure-based covariance models that have been developed similarly to the tRNA models. Structural considerations improve 5’ and 3’ end predictions of the rRNAs.</p>
-<p>• In a final step, conflicts are resolved and the outcome is prepared for visualization.</p>
-<section id="ensure-you-have-a-single-contig" class="level3">
-<h3 class="anchored" data-anchor-id="ensure-you-have-a-single-contig">Ensure you have a single contig</h3>
-<p>MITOS will only work on a single contig. If your genome has assembled into multiple contigs, you have two choices: either pick the biggest, or artificially join the contigs together.</p>
+<section id="personal-hpc-and-hpc-clusters" class="level1">
+<h1>Personal HPC and HPC clusters</h1>
+<p><strong><em>To access any Cardiff University HPC or personal Cloud resources you will need to install and login to the University VPN - see instructions below.</em></strong></p>
+<p>As part of the teaching provision at Cardiff University you will be provided with a specific ‘login’ to your own Kubernete VM. You may also be given access to our teaching HPC cluster or our research HPC system.</p>
+<p>Staff or postgraduate research students at Cardiff School of Biosciences can request access to our research HPC system by emailing <a href="mailto:biosi-biocomputinghub@cardiff.ac.uk">biosi-biocomputinghub@cardiff.ac.uk</a> with your University username and the name of your PI.</p>
+<p><strong><em>Check with your instructors which systems are available to you.</em></strong></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Option 1: extract out your longest contig
+Cardiff University Taught Modules - Masters or Undergraduate
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>This code will extract your longest contig - if the assembly is a single contig there is no need to perform this step. It uses a script in a language called perl, so you will need to load the perl module.</p>
-<p><strong>The risk associated with this option is that the gene you are interested in may not be in the longest contig.</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load perl-bioperl/1.7.6-semipod</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">perl</span> ~/classdata/REFS/script/selectSeqsAboveMinLength.pl <span class="op">&lt;</span>your_assembly.fasta<span class="op">&gt;</span> <span class="op">&lt;</span>largest_contig.fasta<span class="op">&gt;</span> 8000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
+<section id="logging-into-your-person-kubernetes-virtual-machine" class="level3 callout-body-container callout-body">
+<h3 class="anchored" data-anchor-id="logging-into-your-person-kubernetes-virtual-machine">Logging into your person Kubernetes virtual machine</h3>
+<p>You will be provided with three pieces of information the host (or server) name, your user name (usually your staff ID or your student ID including the the ‘small letter’ prefix), a port number and a randomly generated pass phase. Here are some examples (user names and pass phases are fictitious).</p>
+<p>Host Names:</p>
+<pre><code>hawker.bios.cf.ac.uk
+or
+sponsa.bios.cf.ac.uk</code></pre>
+<p>Username (student numbers usually have a small letter and 7 digits): c9999999 or sbixxx</p>
+<p>Port (5 digit number): 32222</p>
+<p>Password: hard_phase_remember</p>
+<p>You may have received an email where the information is presented as a code block:</p>
+<pre><code>ssh c9999999@sponsa.bios.cf.ac.uk -P 32222
+       ^              ^                ^
+    username        host              port</code></pre>
+</section>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -433,159 +439,296 @@ Option 1: extract out your longest contig
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Option 2: Artificially merge your contigs
+HPC cluster access: MSc Big Data students (part 2 of the course), postgraduate researchers or staff
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>This code will remove the contig names (as long as they are named 2-9) for all except the first contig, and then remove any line breaks to ensure correct base numbering for the annotation.</p>
+<p>If you are provided with access to either teaching or research HPC systems you will only be provided with a host or server name - you username and password will be your Single Sign-On (SO) for the University - your student/staff number and your standard password.</p>
+<p>server currently used include:</p>
+<p>Host Names:</p>
+<pre><code>gomphus.bios.cf.ac.uk
+or
+iago.bios.cf.ac.uk</code></pre>
+<p>With standard HPC the port number is always 22.</p>
+<p><strong><em>IMPORTANT</em></strong> Unlike the virtual machines, gomphus and iago both use slurm job scheduling software to manage access to resources in a fair and equitable manner. For running full-scale jobs you will need to learn <a href="http://hpc.bios.cf.ac.uk/docs/documentation/slurm">how to interact with slurm correctly</a>. However, for the purposes of playing around whilst learning, it is better to create a virutal session by running the command</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load seqtk/1.4-l7d6lqn</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#This sed removes any contigs where the name start '&gt;[any digit between 2-9]'</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'/^&gt;[2-9].*$/d'</span> mito_assemblies/<span class="va">${base}</span>.fasta</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#This seqtk utility removes any line breaks from the sequences ensuring correct base numbering for the annotation</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">seqtk</span> seq <span class="at">-l</span> 0 <span class="pp">[</span><span class="ss">assembly</span><span class="pp">]</span>.fasta <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">assembly_NLB.fasta</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">--pty</span> bash <span class="at">-i</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>You will need to run this every time that you log it. It will carve you out a little bit of space to interact freely with the machine whilst not interfering with others’ work.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="annotate-with-mitos2" class="level3">
-<h3 class="anchored" data-anchor-id="annotate-with-mitos2">Annotate with MITOS2</h3>
-<p><strong>N.B. Ensure you create your output folder before you run mitos</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load mitos/2.0.4-conda</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> mitos_annot</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">runmitos.py</span>  <span class="at">-i</span> contigs.fasta <span class="at">-c</span> 2 <span class="at">-o</span> mitos_annot <span class="at">-R</span> ~/classdata/REFS/mitos/ <span class="at">-r</span> refseq81m <span class="at">--rrna</span> 0 <span class="at">--trna</span> 0 <span class="at">--intron</span> 0 <span class="at">--debug</span> <span class="at">--noplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="virtual-private-networks" class="level1">
+<h1>Virtual Private Networks</h1>
+<p>A virtual private network allows you to access the internet as though you were in a different physical location. In a university context, it allows you to access resources that are only available on campus, not matter where you: are far as the internet is concerned, you are on the university campus.</p>
+<p>Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or the connection will not work: the VPN software will install and you will think all is good but then it will not connect. To find the correct instructions, log in to the <a href="https://intranet.cf.ac.uk">intranet</a> and search for VPN. Here are the current links which have installation instructions:</p>
+<p><strong><em>Student VPN</em></strong></p>
+<p><a href="https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network" class="uri">https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network</a></p>
+<p><strong><em>Staff VPN</em></strong></p>
+<p><a href="https://intranet.cardiff.ac.uk/staff/supporting-your-work/it-support/wireless-and-remote-access/off-campus-access/virtual-private-network-vpn" class="uri">https://intranet.cardiff.ac.uk/staff/supporting-your-work/it-support/wireless-and-remote-access/off-campus-access/virtual-private-network-vpn</a></p>
+<p>Once you have installed the VPN and connected test it by going to this site:</p>
+<p><a href="http://hpc.bios.cf.ac.uk" class="uri">http://hpc.bios.cf.ac.uk</a></p>
+<p>If all is working, you will see this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/good_VPN.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Sucessful VPN</figcaption>
+</figure>
 </div>
-<p>A loop would be something like this (remember to edit loop for your files)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="va">workdir</span><span class="op">=</span>~/mydata/Session3/</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load mitos/2.0.4</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">3</span><span class="dt">}</span><span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> grp<span class="va">${i}</span>_mitos_annot</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ex">runmitos.py</span> <span class="at">-i</span> <span class="st">"</span><span class="va">${workdir}</span><span class="st">/group</span><span class="va">${i}</span><span class="st">_unknown_assembly.fasta"</span> <span class="dt">\</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">-c</span> 2 <span class="dt">\</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">-o</span> grp<span class="va">${i}</span>_mitos_annot <span class="dt">\</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">-R</span> ~/classdata/REFS/mitos/ <span class="dt">\</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">-r</span> refseq81m <span class="dt">\</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">--rrna</span> 1 <span class="dt">\</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">--trna</span> 0 <span class="dt">\</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">--intron</span> 0 <span class="dt">\</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">--debug</span> <span class="dt">\</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">--noplot</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload mitos/2.0.4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If not, you will see this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/bad_vpn.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Unsucessful VPN</figcaption>
+</figure>
 </div>
+</section>
+<section id="rstudio-and-jupyter-notebook-through-posit" class="level1">
+<h1>RStudio (and Jupyter notebook) Through Posit</h1>
+<p><a href="https://cran.r-project.org/">R</a>, and its trusty companion <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, are essential parts of any bioinformatician’s toolbox. Both can be easily downloaded and run on your local computer, but for the taught courses we provide you with a browser-based Rstudio interface as part of your virtual machine. The reasons for this are twofold: 1) it allows you to easily load data from your virtual machine into RStudio, and 2) it allows us to pre-install the packages you need, saving time in class.</p>
+<p>I would suggest testing your virtual machine login by connecting to the browser-based Rstudio, as this provides a straightforward test without the need for any software installs.</p>
+<p><strong><em>To access any Cardiff University cloud based RStudio you will need to install and login to the University VPN - see instructions above</em></strong></p>
+<p>Enter your cloud host name and username name in you browser navigation bar e.g.:</p>
+<pre><code>https//posit.sponsa.bios.cf.ac.uk/
+         ^                     
+      Host/server</code></pre>
+<p>You should now see the following screen:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/posit_login.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Posit Login</figcaption>
+</figure>
+</div>
+<p>Use your normal normal University username/password to logon, and the following page should be displayed.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/posit_session.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Posit Session</figcaption>
+</figure>
+</div>
+<p>Click on the + to create a new session.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/posit_newsession.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Posit New Session</figcaption>
+</figure>
+</div>
+<p>Selection the session you wish to create - for this example we will create a RstudioPro Session</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Rstudio_pro.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Rstudio Pro</figcaption>
+</figure>
+</div>
+<p>Leave the default parameters as they are and start the session.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Rstudio_dashboard.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Rstudio_dashboard</figcaption>
+</figure>
+</div>
+<p>To enter the session click on the right arrow —&gt;</p>
+<p>You should now see the standard RStudio interface.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Rstudio_interface.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Rstudio Interface</figcaption>
+</figure>
+</div>
+<p>You are now successful logged on to the server - so you know that your account and password work!!</p>
+</section>
+<section id="ssh-connecting-to-the-server" class="level1">
+<h1>SSH: connecting to the server</h1>
+<p>To connect your local computer to a remote server, we use a technology called SSH: Secure Shell Protocol (I know, the acronym doesn’t really match the name). This is a way of establishing a secure connection between your computer and the server. In effect, your computer becomes a remote control, sending instructions to be carried out on the server.</p>
+<section id="ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" class="level2">
+<h2 class="anchored" data-anchor-id="ssh-using-mobaxterm---connecting-to-the-server-on-a-pc">SSH using MobaXterm - connecting to the server on a PC</h2>
+<p>MobaXterm is an excellent piece of software that supports SSH which enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the <a href="https://mobaxterm.mobatek.net/download.html">MobaXTerm</a> from their website.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Worked Examaple – Mitos loop
+Using MobaXterm on your personal PC
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=257ce45d-7a81-4c25-91b8-af6a01422c39&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
-</iframe>
+<p>I suggest downloading and installing the ‘Installer Addition’ as it will fully install on your system - the portable version provides a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.</p>
 </div>
-</div>
-</div>
-</section>
-<section id="extract-fasta-sequence-for-genes-in-bed-file" class="level2">
-<h2 class="anchored" data-anchor-id="extract-fasta-sequence-for-genes-in-bed-file">Extract Fasta sequence for genes in Bed file</h2>
-<p>You can extract the fasta sequence for the genes in the bed file using bedtools getfasta:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.31.1-7imv7b4</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta –fi contigs.fasta <span class="at">-bed</span> result.bed <span class="at">-name</span> <span class="op">&gt;</span> result.fasta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Or using a loop</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="dt">{</span><span class="dv">1</span><span class="dt">..</span><span class="dv">3</span><span class="dt">}</span><span class="kw">;</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta <span class="at">-fi</span> spades_output_<span class="va">${i}</span>/before_rr.fasta <span class="at">-bed</span> mitos_<span class="va">${i}</span>/result.bed <span class="at">-name</span> <span class="op">&gt;</span>mitos_<span class="va">${i}</span>_result.fasta</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercises: Annotate your mitochondria with mitos2
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Follow these steps to annotate your mitochondrial genome using mitos:</p>
-<ol type="1">
-<li><p>Use seqtk seq to select only the largest contig into a new file</p></li>
-<li><p>Use mitos to annotate the contig, and visualize it with Artemis</p></li>
-<li><p>Create a loop to generate the output for all mitochondrial assemblies</p></li>
-<li><p>[Extension] Use the BEDtools to extract the sequence of the annotated genes</p></li>
-<li><p>[Extension] Use seqtk to extract just the COX1 gene</p></li>
-</ol>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Extension: Annotate your mitochondria with BLAST
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Take your assembled mitochondrial genome and identify mitochondrial orthologues using blast.</p>
-<ol type="1">
-<li><p>Perform blastx analysis of your sequence against the mitochondrial protein database. Interrogate the using ‘less’.</p></li>
-<li><p>Re-run the blastx analysis with the output format parameter set to a cutomised <code>-outfmt 6</code>, which will output the data into a tablular format compatible with Artemis.</p></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">blastx</span> <span class="at">-query</span> <span class="pp">[</span><span class="ss">contigs.fasta</span><span class="pp">]</span> <span class="at">-db</span> ~/classdata/REFS/blastdb/hum_mt_pep <span class="at">-out</span> <span class="pp">[</span><span class="ss">output.txt</span><span class="pp">]</span> <span class="at">-outfmt</span> <span class="st">"6 qseqid sseqid pident length mismatch gapopen sstart send qstart qend evalue bitscore"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You can now open the fasta sequence you have used in the blast with Artemis and then overlay with the clast output file.</p>
-<ol start="3" type="1">
-<li><p>Repeat the blastx analysis of your sequence against the mitochondrial protein database [mito_pro] only returning blast matches with an E value lower that 1E-10 and using all 4 threads.</p></li>
-<li><p>Repeat the blastx analysis of your sequence against the mitochondrial protein database, only returning blast matches with an E value lower that 1E-10, using all 4 threads, limiting the outputs so that you keep to 100 and putting the outputs into the tabular format compatible with Artemis.</p></li>
-<li><p>[Extension] Produce a loop to annotate all assembled contigs using blast</p></li>
-<li><p>[Extension] You can try repeating this exercise with swisprot and note the differences</p></li>
-</ol>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Worked Example - Mitochondrial Annotation Loop
+Using MobaXterm on a University-networked PC
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3dfd4d79-d891-4993-9e51-b09c01526845&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
-</iframe>
+<p>You will not have administrator privileges to install the ‘Installer Addition’ on a University-managed machine. Instead, download the portable version which provides a simple executable (.exe) that can used on a machine where you do not have administrator privileges to install software.</p>
 </div>
 </div>
+</div>
+<p>Once your download is complete, you will need to unzip the folder (extract files) before you can run the installer. Then follow the installation instructions and you should be faced with the following window:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MobaXterm.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">MobaXterm Interface</figcaption>
+</figure>
+</div>
+<p><em>N.B. The first time you open MobaXterm, Windows security may pop up saying that some features are blocked by the firewall. Click ‘Cancel’ and the message will go away without preventing MobaXterm from doing its thing.</em></p>
+<p>Now you want to create a session, this can be done by following these easy steps:</p>
+<ol type="1">
+<li>Select <em>Session</em> icon</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MobXaterm_session.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">MobaXterm session</figcaption>
+</figure>
+</div>
+<ol start="2" type="1">
+<li>Select <em>SSH</em> icon</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MobaXterm_SSH.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">MobaXterm SSH</figcaption>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>Configure your SSH connection by filling in boxes for -Host -User and -Port</li>
+</ol>
+<p>N.B. - the three elements you need to complete are underlined in red in the image.</p>
+<p>N.B. - for standard HPC the port leave the port at the default value of 22</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MobaXterm_config.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">MobaXterm Configure</figcaption>
+</figure>
+</div>
+<ol start="4" type="1">
+<li>Enter your passphase</li>
+</ol>
+<p><strong><em>You will NOT see any typing - this is a security feature, just continue typing</em></strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MobaXterm_password.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">MobaXterm Password</figcaption>
+</figure>
+</div>
+<p>Once you have entered your password and it has been accepted you <strong><em>MAY</em></strong> be asked to save a master password - this you can set to whatever you wish, if you want to save yourself the trouble of typing your pass phrase every time you connect.</p>
+<p>Once created, your ‘session’ will be saved in the left hand menu and in future you just have to click on it to connect.</p>
+</section>
+<section id="ssh-using-a-terminal---connecting-to-the-server-on-a-mac" class="level2">
+<h2 class="anchored" data-anchor-id="ssh-using-a-terminal---connecting-to-the-server-on-a-mac">SSH using a terminal - connecting to the server on a Mac</h2>
+<p>HPC servers - both your personal cloud as well as HPC systems - are based on a Unix Operating System called Linux. Mac OS is also based on this system, so connecting on a Mac is very simple. First you have to find and open your Terminal - I think the easiest way is to search for it in finder but if you don’t find this easy there’s a wiki entitled - <a href="https://www.wikihow.com/Open-a-Terminal-Window-in-Mac">Open-a-Terminal-Window-in-Mac</a>.</p>
+<p>Once you have your terminal open simply type:</p>
+<pre><code>ssh [user]@[host] -P [Port]
+
+#a fictious example would be
+
+ssh c99999@sponsa.bios.cf.ac.uk -P 32222</code></pre>
+<p><strong><em>For standard HPC (i.e.&nbsp;not Kubernetes) there is no need to define the port with -P</em></strong></p>
+<p>Then enter your password and you are in - you can tell it has worked because the text preceding your cursor changes and should look something like (the numbers will probably be different for you):</p>
+<pre><code>[user@ssh-user-894cfb776-88kzg ~]$</code></pre>
+<p>Unfortunately the standard SSH interface does not support X-forwarding for graphical applications. There is a mac application called (Xquartz)[https://www.xquartz.org/] that you can install, and when it is running you can create a X-11 session by simply adding -X to your login so your login would be:</p>
+<pre><code>ssh -X [user]@[host] -P [Port]
+
+#a fictious example work be
+
+ssh -X c99999@sponsa.bios.cf.ac.uk -P 32222</code></pre>
+<p>Don’t worry if you don’t understand the bit about Xquartz - it’s not essential, just know that it’s here for future reference if needed. Xquartz is open source software and Mac <strong><em>DO NOT SUPPORT</em></strong> it, so it can be challenging to get working. Newer Macs often do not support it as the open source developers haven’t kept up with changes in the OS. Play if you want too, but be warned that it can be frustrating.</p>
+</section>
+</section>
+<section id="sfpt-transferring-files-to-and-from-the-server" class="level1">
+<h1>SFPT: transferring files to and from the server</h1>
+<p>You will often want/need to transfer files between the server and your local computer. We can do this using SFTP (Secure File Transfer Protocol), for which there are multiple software options. If you have a PC and are using MobaXterm to access the server, it’s easiest to use MobaXterm’s built-in SFTP function. If you are connecting via the terminal on a Mac, you’ll need to install either FileZilla or Cyberduck (you can also install these on a PC if you want to) .</p>
+<section id="sftp-using-mobaxterm-on-a-pc" class="level2">
+<h2 class="anchored" data-anchor-id="sftp-using-mobaxterm-on-a-pc">SFTP using MobaXterm on a PC</h2>
+<p>MobaXterm has a built in SFTP function. When you open your session, a folder structure appears down the left hand side of the screen. This can be useful for navigating and for opening files without the need to download them.</p>
+<p>Use the arrows above the SFTP windows to upload/download files - you can also drag and drop files using this. window.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MobaXterm_SFTP.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">MobaXterm SFTP</figcaption>
+</figure>
+</div>
+</section>
+<section id="sftp-using-filezilla" class="level2">
+<h2 class="anchored" data-anchor-id="sftp-using-filezilla">SFTP using FileZilla</h2>
+<p>(FileZilla)[https://filezilla-project.org/] is a open source program that works on all platforms and supports multiple upload and download options including SFTP.</p>
+<p>To configure FileZilla follow the steps below and this will create a saved profile you can go back to:</p>
+<ol type="1">
+<li>Open and select profile icon</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Filezilla_session.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Filezilla profile</figcaption>
+</figure>
+</div>
+<ol start="2" type="1">
+<li>Configure your SFTP profile</li>
+</ol>
+<p>Remember for standard HPC the SFTP port will default to 22; if you are working on a Kubernetes virtual machine you will need to change it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Filezilla_configure.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Filezilla profile</figcaption>
+</figure>
+</div>
+<p>Select Connect and you are done - you can return to this session next time you want to transfer</p>
+<ol start="3" type="1">
+<li>Drag and drop your files from local to server (remote host) system</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Filezilla_main.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Filezilla drag and drop</figcaption>
+</figure>
+</div>
+</section>
+<section id="sftp-using-cyberduck" class="level2">
+<h2 class="anchored" data-anchor-id="sftp-using-cyberduck">SFTP using Cyberduck</h2>
+<p>[Cyberduck][https://cyberduck.io/download/] is another free file transfer application that supports all type of file transfer including SFTP, and some people prefer it to FileZilla as it has a very simple interface.</p>
+<p>After downloading and installing the application open the transfer window by using the following steps:</p>
+<ol type="1">
+<li>Open a Cyberduck connection</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Cyberduck_open.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Cyberduck Open a Connection</figcaption>
+</figure>
+</div>
+<ol start="2" type="1">
+<li>Configure the connection - complete all the things underlined here.</li>
+</ol>
+<p>Use your port number provided for Kubernetes, or if using standard HPC use port 22.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Cyberduck_config.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Cyberduck configuration</figcaption>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>You can now navigate around the server and drag and drop files to and from server.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Cyberduck_connect.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Cyberduck drag and drop window</figcaption>
+</figure>
 </div>
 
 
