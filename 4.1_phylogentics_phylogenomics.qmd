@@ -146,7 +146,70 @@ An interactive window will now open for you to use if you are using X11 enabled 
 
 When you open your newick if you will be asked about node labeling. You should identify that your node labeling is you bootstrap values:
 
-Labeling Fig Tree Branches ![](images/fig_tree_lables.png){width="40%" fig-align="center"}
+Labeling Fig Tree nodes
+
+![](images/fig_tree_lables.png){width="40%" fig-align="center"}
+
+Here is an example of a cox1 mtDNA tree
+
+![](images/Figtree_title.png){width="40%" fig-align="center"}
+
+Note the branches are labeled with the sequence names - this gives there relationship but is not very biologically informative. You may want to display the species name on the branches rather than the sequence title. To do this use you blast skills to retrieve the query name, subject name, subject scientific name and subject taxid for each sequence in a tab delimited (punctuated) format, concatenated these files and add a header row describing the elements of the .
+
+::: {.callout-note collapse="true"}
+## An example script for cox1
+
+```{bash}
+#!/bin/bash
+
+
+workdir=$(pwd)
+export BLASTDB=$BLASTDB:~/classdata/REFS/blastdb/
+
+#this script assumes that you original fastq.gz sequences are rawdata directory and your extracted cox1 files are in directory labeled cox1.
+
+rawdir=${workdir}/rawdata
+mkdir ${workdir}/blast
+dircox1=${workdir}/cox1
+dirblast=${workdir}/blast
+
+#load program
+module load blast-plus/2.14.1-eqbljdp
+
+touch ${dirblast}/annotation_labels.tsv
+
+echo "Label     Title   Scientific Name Taxid" > ${dirblast}/annotation_labels.tsv
+
+for f in ${rawdir}/*_R1.fastq.gz
+do
+R1=$(basename $f | cut -f1 -d.)
+base=$(echo $R1 | sed 's/_R1//')
+
+
+blastn -db mito \
+       -query ${dircox1}/${base}_cox1.fasta \
+       -out ${dirblast}/${base}_cox1_blastn.tsv \
+       -outfmt "6 qseqid stitle sscinames staxids" \
+       -num_threads 8 \
+       -max_target_seqs 1
+
+sed -i 's/|/\t/g' ${dirblast}/${base}_cox1_blastn.tsv
+
+done
+
+cat ${dirblast}/*.tsv > ${dirblast}/all_blast_annotation.tsv
+
+```
+:::
+
+Once you have this file open your bootstrap supported tree file then select `file >Import annotations...`and select you tab separated file you have created.
+
+Now select tip label menu.
+![](images/figtree_display_Name.png){width="20%" fig-align="center"}
+
+Select Scientific Name - now your tree should be labeled with the genus and species name for the tree branches.
+
+![](images/Figtree_scientifictree.png){width="40%" fig-align="center"}
 
 ::: {.callout-note collapse="true"}
 ## Worked Example: creating a 16S prokayote phylogeny
