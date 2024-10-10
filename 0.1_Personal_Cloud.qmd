@@ -4,7 +4,7 @@ title-block-banner: darkred
 title-block-banner-color: white
 title: "Personal Cloud"
 subtitle: "Getting Connected"
-author: "Professor Peter Kille"
+author: "Prof. Peter Kille"
 date: today
 affiliation: "Cardiff University"
 ---
@@ -25,7 +25,7 @@ This information below is aimed at students and staff in Cardiff University's Sc
 
 # Personal HPC and HPC clusters
 
-***To access any Cardiff University HPC or personal Cloud resources you will need to install and login to the University VPN - see instructions below.***
+***To access any Cardiff University HPC or personal Cloud resources you will need to install and log in to the University VPN - see instructions below.***
 
 As part of the teaching provision at Cardiff University you will be provided with a specific 'login' to your own Kubernete VM. You may also be given access to our teaching HPC cluster or our research HPC system.
 
@@ -38,21 +38,19 @@ Staff or postgraduate research students at Cardiff School of Biosciences can req
 
 ### Logging into your person Kubernetes virtual machine
 
-You will be provided with three pieces of information the host (or server) name, your user name (usually your staff ID or your student ID including the the 'small letter' prefix), a port number and a randomly generated pass phase. Here are some examples (user names and pass phases are fictitious).
+You will be provided with three pieces of information the host (or server) name, your user name (usually your staff ID or your student ID including the 'small letter' prefix), and a port number. Here are some examples (user names are fictitious). You will also need your standard University password.
 
 Host Names:
 
 ```         
-darter.bios.cf.ac.uk
+sponsa.bios.cf.ac.uk
 or
-anax.bios.cf.ac.uk
+hawker.bios.cf.ac.uk
 ```
 
 Username (student numbers usually have a small letter and 7 digits): c9999999 or sbixxx
 
 Port (5 digit number): 32222
-
-Password: hard_phase_remember
 
 You may have received an email where the information is presented as a code block:
 
@@ -66,9 +64,9 @@ ssh c9999999@anax.bios.cf.ac.uk -P 32222
 ::: {.callout-note collapse="true"}
 ## HPC cluster access: MSc Big Data students (part 2 of the course), postgraduate researchers or staff
 
-If you are provided with access to either teaching or research HPC systems you will only be provided with a host or server name - you username and password will be your Single Sign-On (SO) for the University - your student/staff number and your standard password.
+If you are provided with access to either teaching or research HPC systems you will only be provided with a host or server name - your username and password will be your Single Sign-On (SO) for the University - your student/staff number and your standard password.
 
-server currently used include:
+Servers currently used include:
 
 Host Names:
 
@@ -86,14 +84,14 @@ With standard HPC the port number is always 22.
 srun --pty bash -i
 ```
 
-You will need to run this every time that you log it. It will carve you out a little bit of space to interact freely with the machine whilst not interfering with others' work.
+You will need to run this every time that you log it. It will carve you out a little bit of space to interact freely with the machine whilst not interfering with others' work or crashing the whole system!
 :::
 
 # Virtual Private Networks
 
 A virtual private network allows you to access the internet as though you were in a different physical location. In a university context, it allows you to access resources that are only available on campus, not matter where you: are far as the internet is concerned, you are on the university campus.
 
-Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or the connection will not work: the VPN software will install and you will think all is good but then it will not connect. To find the correct instructions, log in to the [intranet](https://intranet.cf.ac.uk) and search for VPN. Here are the current links which have installation instructions:
+Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or the connection will not work: the VPN software will install and you will think all is well until it will not connect. To find the correct instructions, log in to the [intranet](https://intranet.cf.ac.uk) and search for VPN. Here are the current links which have installation instructions:
 
 ***Student VPN***
 
@@ -115,27 +113,29 @@ If not, you will see this:
 
 ![Unsucessful VPN](images/bad_vpn.png){width="60%"}
 
+Once you have installed the VPN, you will need to connect to it every time you want to access the server from off-campus.
+
 # RStudio (and Jupyter notebook) Through Posit
 
 [R](https://cran.r-project.org/), and its trusty companion [RStudio](https://posit.co/download/rstudio-desktop/), are essential parts of any bioinformatician's toolbox. Both can be easily downloaded and run on your local computer, but for the taught courses we provide you with a browser-based Rstudio interface as part of your virtual machine. The reasons for this are twofold: 1) it allows you to easily load data from your virtual machine into RStudio, and 2) it allows us to pre-install the packages you need, saving time in class.
 
-I would suggest testing your virtual machine login by connecting to the browser-based Rstudio, as this provides a straightforward test without the need for any software installs.
+We suggest testing your virtual machine login by connecting to the browser-based Rstudio, as this provides a straightforward test without the need for any software installs.
 
 ***To access any Cardiff University cloud based RStudio you will need to install and login to the University VPN - see instructions above***
 
 Enter your cloud host name and username name in you browser navigation bar e.g.:
 
 ```         
-https//posit.sponsa.bios.cf.ac.uk/
-         ^                     
-      Host/server
+https://posit.sponsa.bios.cf.ac.uk/
+               ^                     
+          Host/server
 ```
 
 You should now see the following screen:
 
 ![Posit Login](images/posit_login.png){width="60%"}
 
-Use your normal normal University username/password to logon, and the following page should be displayed.
+Use your normal normal University username/password to log on, and the following page should be displayed.
 
 ![Posit Session](images/posit_session.png){width="\"60%"}
 
@@ -143,7 +143,7 @@ Click on the + to create a new session.
 
 ![Posit New Session](images/posit_newsession.png){width="\"60%"}
 
-Selection the session you wish to create - for this example we will create a RstudioPro Session
+Select the session you wish to create - for this example we will create a RstudioPro Session
 
 ![Rstudio Pro](images/Rstudio_pro.png){width="\"60%"}
 
@@ -165,12 +165,12 @@ To connect your local computer to a remote server, we use a technology called SS
 
 ## SSH using MobaXterm - connecting to the server on a PC
 
-MobaXterm is an excellent piece of software that supports SSH which enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the [MobaXTerm](https://mobaxterm.mobatek.net/download.html) from their website.
+MobaXterm is an excellent piece of software that supports SSH and enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the [MobaXTerm](https://mobaxterm.mobatek.net/download.html) from their website.
 
 ::: {.callout-note collapse="true"}
 ### Using MobaXterm on your personal PC
 
-I suggest downloading and installing the 'Installer Addition' as it will fully install on your system - the portable version provides a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.
+I suggest downloading and installing the 'Installer Addition' as it will fully install on your system. In contrast, the portable version provides a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.
 :::
 
 ::: {.callout-note collapse="true"}
@@ -229,7 +229,7 @@ ssh c99999@sponsa.bios.cf.ac.uk -P 32222
 
 ***For standard HPC (i.e. not Kubernetes) there is no need to define the port with -P***
 
-Then enter your password and you are in - you can tell it has worked because the text preceding your cursor changes and should look something like (the numbers will probably be different for you):
+Then enter your password and you are in - you can tell it has worked because the text preceding your cursor changes and should look something like this (the numbers will probably be different for you):
 
 ```         
 [user@ssh-user-894cfb776-88kzg ~]$

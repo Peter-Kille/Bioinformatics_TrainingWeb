@@ -15,7 +15,7 @@ website:
           - 0.1_Personal_Cloud.qmd
       - section: "Session 1. Linux: The basics"
         contents:
-          - 1.1_Introduction to Linux.qmd
+          - 1.1_Introduction_to_Linux.qmd
           - 1.2_Loading_Software_Accessing_Data.qmd
           - 1.3_Commandline_Tools_and_Scripting.qmd
       - section: "Session 2. NGS data"

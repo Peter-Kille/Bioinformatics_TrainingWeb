@@ -4,7 +4,7 @@ title-block-banner: darkred
 title-block-banner-color: white
 title: "Extension: Commandline Tools and Scripting"
 subtitle: "Loads more tricks and tips"
-author: "Professor Peter Kille"
+author: "Prof. Peter Kille"
 date: today
 affiliation: "Cardiff University"
 ---

@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Professor Peter Kille">
-<meta name="dcterms.date" content="2024-10-01">
+<meta name="author" content="Prof.&nbsp;Peter Kille">
+<meta name="dcterms.date" content="2024-10-10">
 
 <title>Personal Cloud</title>
 <style>
@@ -149,14 +149,14 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Professor Peter Kille </p>
+               <p>Prof.&nbsp;Peter Kille </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 1, 2024</p>
+        <p class="date">October 10, 2024</p>
       </div>
     </div>
     
@@ -219,7 +219,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1.1_Introduction to Linux.html" class="sidebar-item-text sidebar-link">
+  <a href="./1.1_Introduction_to_Linux.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Linux</span></a>
   </div>
 </li>
@@ -401,7 +401,7 @@ background: darkred;
 </section>
 <section id="personal-hpc-and-hpc-clusters" class="level1">
 <h1>Personal HPC and HPC clusters</h1>
-<p><strong><em>To access any Cardiff University HPC or personal Cloud resources you will need to install and login to the University VPN - see instructions below.</em></strong></p>
+<p><strong><em>To access any Cardiff University HPC or personal Cloud resources you will need to install and log in to the University VPN - see instructions below.</em></strong></p>
 <p>As part of the teaching provision at Cardiff University you will be provided with a specific ‘login’ to your own Kubernete VM. You may also be given access to our teaching HPC cluster or our research HPC system.</p>
 <p>Staff or postgraduate research students at Cardiff School of Biosciences can request access to our research HPC system by emailing <a href="mailto:biosi-biocomputinghub@cardiff.ac.uk">biosi-biocomputinghub@cardiff.ac.uk</a> with your University username and the name of your PI.</p>
 <p><strong><em>Check with your instructors which systems are available to you.</em></strong></p>
@@ -418,14 +418,13 @@ Cardiff University Taught Modules - Masters or Undergraduate
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <section id="logging-into-your-person-kubernetes-virtual-machine" class="level3 callout-body-container callout-body">
 <h3 class="anchored" data-anchor-id="logging-into-your-person-kubernetes-virtual-machine">Logging into your person Kubernetes virtual machine</h3>
-<p>You will be provided with three pieces of information the host (or server) name, your user name (usually your staff ID or your student ID including the the ‘small letter’ prefix), a port number and a randomly generated pass phase. Here are some examples (user names and pass phases are fictitious).</p>
+<p>You will be provided with three pieces of information the host (or server) name, your user name (usually your staff ID or your student ID including the ‘small letter’ prefix), and a port number. Here are some examples (user names are fictitious). You will also need your standard University password.</p>
 <p>Host Names:</p>
-<pre><code>darter.bios.cf.ac.uk
+<pre><code>sponsa.bios.cf.ac.uk
 or
-anax.bios.cf.ac.uk</code></pre>
+hawker.bios.cf.ac.uk</code></pre>
 <p>Username (student numbers usually have a small letter and 7 digits): c9999999 or sbixxx</p>
 <p>Port (5 digit number): 32222</p>
-<p>Password: hard_phase_remember</p>
 <p>You may have received an email where the information is presented as a code block:</p>
 <pre><code>ssh c9999999@anax.bios.cf.ac.uk -P 32222
        ^              ^                ^
@@ -445,8 +444,8 @@ HPC cluster access: MSc Big Data students (part 2 of the course), postgraduate r
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you are provided with access to either teaching or research HPC systems you will only be provided with a host or server name - you username and password will be your Single Sign-On (SO) for the University - your student/staff number and your standard password.</p>
-<p>server currently used include:</p>
+<p>If you are provided with access to either teaching or research HPC systems you will only be provided with a host or server name - your username and password will be your Single Sign-On (SO) for the University - your student/staff number and your standard password.</p>
+<p>Servers currently used include:</p>
 <p>Host Names:</p>
 <pre><code>gomphus.bios.cf.ac.uk
 or
@@ -456,7 +455,7 @@ iago.bios.cf.ac.uk</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">--pty</span> bash <span class="at">-i</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You will need to run this every time that you log it. It will carve you out a little bit of space to interact freely with the machine whilst not interfering with others’ work.</p>
+<p>You will need to run this every time that you log it. It will carve you out a little bit of space to interact freely with the machine whilst not interfering with others’ work or crashing the whole system!</p>
 </div>
 </div>
 </div>
@@ -464,7 +463,7 @@ iago.bios.cf.ac.uk</code></pre>
 <section id="virtual-private-networks" class="level1">
 <h1>Virtual Private Networks</h1>
 <p>A virtual private network allows you to access the internet as though you were in a different physical location. In a university context, it allows you to access resources that are only available on campus, not matter where you: are far as the internet is concerned, you are on the university campus.</p>
-<p>Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or the connection will not work: the VPN software will install and you will think all is good but then it will not connect. To find the correct instructions, log in to the <a href="https://intranet.cf.ac.uk">intranet</a> and search for VPN. Here are the current links which have installation instructions:</p>
+<p>Cardiff University uses different VPNs for staff and students. You need to use the correct VPN or the connection will not work: the VPN software will install and you will think all is well until it will not connect. To find the correct instructions, log in to the <a href="https://intranet.cf.ac.uk">intranet</a> and search for VPN. Here are the current links which have installation instructions:</p>
 <p><strong><em>Student VPN</em></strong></p>
 <p><a href="https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network" class="uri">https://intranet.cardiff.ac.uk/students/it-support/wireless-and-remote-access/remote-access/vpn-virtual-private-network</a></p>
 <p><strong><em>Staff VPN</em></strong></p>
@@ -485,16 +484,17 @@ iago.bios.cf.ac.uk</code></pre>
 <figcaption class="figure-caption">Unsucessful VPN</figcaption>
 </figure>
 </div>
+<p>Once you have installed the VPN, you will need to connect to it every time you want to access the server from off-campus.</p>
 </section>
 <section id="rstudio-and-jupyter-notebook-through-posit" class="level1">
 <h1>RStudio (and Jupyter notebook) Through Posit</h1>
 <p><a href="https://cran.r-project.org/">R</a>, and its trusty companion <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, are essential parts of any bioinformatician’s toolbox. Both can be easily downloaded and run on your local computer, but for the taught courses we provide you with a browser-based Rstudio interface as part of your virtual machine. The reasons for this are twofold: 1) it allows you to easily load data from your virtual machine into RStudio, and 2) it allows us to pre-install the packages you need, saving time in class.</p>
-<p>I would suggest testing your virtual machine login by connecting to the browser-based Rstudio, as this provides a straightforward test without the need for any software installs.</p>
+<p>We suggest testing your virtual machine login by connecting to the browser-based Rstudio, as this provides a straightforward test without the need for any software installs.</p>
 <p><strong><em>To access any Cardiff University cloud based RStudio you will need to install and login to the University VPN - see instructions above</em></strong></p>
 <p>Enter your cloud host name and username name in you browser navigation bar e.g.:</p>
-<pre><code>https//posit.sponsa.bios.cf.ac.uk/
-         ^                     
-      Host/server</code></pre>
+<pre><code>https://posit.sponsa.bios.cf.ac.uk/
+               ^                     
+          Host/server</code></pre>
 <p>You should now see the following screen:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -502,7 +502,7 @@ iago.bios.cf.ac.uk</code></pre>
 <figcaption class="figure-caption">Posit Login</figcaption>
 </figure>
 </div>
-<p>Use your normal normal University username/password to logon, and the following page should be displayed.</p>
+<p>Use your normal normal University username/password to log on, and the following page should be displayed.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/posit_session.png" class="img-fluid figure-img"></p>
@@ -516,7 +516,7 @@ iago.bios.cf.ac.uk</code></pre>
 <figcaption class="figure-caption">Posit New Session</figcaption>
 </figure>
 </div>
-<p>Selection the session you wish to create - for this example we will create a RstudioPro Session</p>
+<p>Select the session you wish to create - for this example we will create a RstudioPro Session</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/Rstudio_pro.png" class="img-fluid figure-img"></p>
@@ -545,7 +545,7 @@ iago.bios.cf.ac.uk</code></pre>
 <p>To connect your local computer to a remote server, we use a technology called SSH: Secure Shell Protocol (I know, the acronym doesn’t really match the name). This is a way of establishing a secure connection between your computer and the server. In effect, your computer becomes a remote control, sending instructions to be carried out on the server.</p>
 <section id="ssh-using-mobaxterm---connecting-to-the-server-on-a-pc" class="level2">
 <h2 class="anchored" data-anchor-id="ssh-using-mobaxterm---connecting-to-the-server-on-a-pc">SSH using MobaXterm - connecting to the server on a PC</h2>
-<p>MobaXterm is an excellent piece of software that supports SSH which enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the <a href="https://mobaxterm.mobatek.net/download.html">MobaXTerm</a> from their website.</p>
+<p>MobaXterm is an excellent piece of software that supports SSH and enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the <a href="https://mobaxterm.mobatek.net/download.html">MobaXTerm</a> from their website.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -558,7 +558,7 @@ Using MobaXterm on your personal PC
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>I suggest downloading and installing the ‘Installer Addition’ as it will fully install on your system - the portable version provides a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.</p>
+<p>I suggest downloading and installing the ‘Installer Addition’ as it will fully install on your system. In contrast, the portable version provides a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.</p>
 </div>
 </div>
 </div>
@@ -639,7 +639,7 @@ Using MobaXterm on a University-networked PC
 
 ssh c99999@sponsa.bios.cf.ac.uk -P 32222</code></pre>
 <p><strong><em>For standard HPC (i.e.&nbsp;not Kubernetes) there is no need to define the port with -P</em></strong></p>
-<p>Then enter your password and you are in - you can tell it has worked because the text preceding your cursor changes and should look something like (the numbers will probably be different for you):</p>
+<p>Then enter your password and you are in - you can tell it has worked because the text preceding your cursor changes and should look something like this (the numbers will probably be different for you):</p>
 <pre><code>[user@ssh-user-894cfb776-88kzg ~]$</code></pre>
 <p>Unfortunately the standard SSH interface does not support X-forwarding for graphical applications. There is a mac application called (Xquartz)[https://www.xquartz.org/] that you can install, and when it is running you can create a X-11 session by simply adding -X to your login so your login would be:</p>
 <pre><code>ssh -X [user]@[host] -P [Port]
