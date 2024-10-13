@@ -51,33 +51,36 @@ Following these three steps, there are an almost infinite number of tools and pa
 
 We will start with the aligning and counting steps.
 
-The data you will need for this exercise are:
+The data you will need for this exercise is derived from NCBI Bioproject [PRJNA658134](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA658134) Geo dataset [GSE156507](https://www.ncbi.nlm.nih.gov/gds/?term=GSE156507%5BAccession%5D). I have selected only those L3 stage samples and sub-sampled the data from the 60M reads deposited to \~10M reads so that it can be processed with the workshop. Samples included are:
 
 ```{bash}
-~/classdata/Session5/ RNAseq-Processing/fastq
-SRR5222797_1.fastq    SRR5222797_2.fastq
-SRR5222798_1.fastq    SRR5222798_2.fastq
-SRR5222799_1.fastq    SRR5222799_2.fastq
+~/classdata/Session5/ RNAseq-Processing/rawdata
+SRR12478185_1.fastq.gz    SRR12478185_2.fastq.gz
+SRR12478186_1.fastq.gz    SRR12478186_2.fastq.gz
+SRR12478187_1.fastq.gz    SRR12478187_2.fastq.gz
+SRR12478191_1.fastq.gz    SRR12478191_2.fastq.gz
+SRR12478192_1.fastq.gz    SRR12478192_2.fastq.gz
+SRR12478193_1.fastq.gz    SRR12478193_2.fastq.gz
 
-~/classdata/REFS/STAR
-Arabidopsis_thaliana.TAIR10.47.gtf
-Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa
+~/classdata/REFS/Celegens_genome_star/
+Caenorhabditis_elegans.WBcel235.112.gtf
+Caenorhabditis_elegans.WBcel235.dna_sm.toplevel.fa
 ```
 
 **This folder contains lots of other index files for star to function that you don't need to touch!** Note: most programs will accept fastq or fastq.gz without any changes however star requires you to include the `--readFilesCommand zcat` parameter.
 
 ## Software and scripts
 
-We will be using scripts to run these steps. In the `classdata/Session5/scripts` folder you will find the following that you can use as a basis for your analysis, however make sure you're tuning it to your own file structure and file names.
+We will be using scripts to run these steps. In the `classdata/Session5/RNAseq-Processing/instance_scripts` folder you will find the following that you can use as a basis for your analysis, however, make sure you're tuning it to your own file structure and file names.
 
-We'll be using a full sized RNAseq sample otherwise it causes the programs to think it's bad data. In the classdata/Day3 folder there four pairs of RNAseq files from an Arabidopsis RNAseq study. In the folder classdata/REFS there is a reference genome, and a gtf file. **The step 2 "star index genome" has already been run for you (you don't need to do this!)**
+We'll be using a full sized RNAseq sample otherwise it causes the programs to think it's bad data. In the classdata/Session3/RNAseq-Processing/rawdata folder there four pairs of RNAseq files from an *C. elegans* RNAseq study. In the folder classdata/REFS there is a reference genome, and a gtf file. **The step 2 "star index genome" has already been run for you (you don't need to do this!)**
 
 [Scripts](#scripts)
 
 -   1-QC.sh
 -   2-star_index_genome.sh (already done, don't repeat!)
--   3-star.sh\
--   4-markduplicates.sh\
+-   3-star.sh
+-   4-markduplicates.sh
 -   5-featurecounts.sh
 
 ::: callout-important
@@ -102,62 +105,109 @@ These outputs are now ready to put into R and perform Differential Gene Expressi
 -   Use the full path any time it could be ambiguous.
 :::
 
-# Scripts {#scripts}
+::: {.callout-note collapse="true"}
+## Scripts {#scripts}
 
-```{bash_}
+## 1-QC.sh
+
+```{bash}
 #!/bin/bash
 
-## Load some Modules
-module load fastqc/0.11.9
-module load trimmomatic/0.39
+#varibles
+workdir=$(pwd)
 
-## Useful shortcuts
-export workingdir=~/mydata/Session5/RNAseq-Processing
-export classdir=~/classdata
+rawdir=${workdir}/rawdata
+#create directory for qc output
+mkdir ${workdir}/rawqc
+rawqcdir=${workdir}/rawqc
+mkdir ${workdir}/trimdata
+trimdir=${workdir}/trimdata
+mkdir ${workdir}/trimqc
+trimqcdir=${workdir}/trimqc
 
-#list=("sample1" "sample2" "sample3")
-list=("SRR5222797" "SRR5222798" "SRR5222799")
+#load program
+module load fastqc
 
-for i in ${list[@]}
+for f in ${rawdir}/*_1.fastq.gz
 do
-## The commands you want to run
 
-# fastqc the raw data
-fastqc -t 4 $workingdir/fastq/${i}_1.fastq
-fastqc -t 4 $workingdir/fastq/${i}_2.fastq
+R1=$(basename $f | cut -f1 -d.)
+base=$(echo $R1 | sed 's/_1//')
 
-# Run trimmomatic
-trimmomatic PE $workingdir/fastq/${i}_1.fastq $workingdir/fastq/${i}_2.fastq  -baseout $workingdir/fastq/${i}-trim.fastq ILLUMINACLIP:$classdir/REFS/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15
-
-# fastqc the outputs
-fastqc -t 4 $workingdir/fastq/${i}-trim_1P.fastq
-fastqc -t 4 $workingdir/fastq/${i}-trim_2P.fastq
+fastqc -t 2 ${rawdir}/${base}_1.fastq.gz ${rawdir}/${base}_2.fastq.gz -o ${rawqcdir}
 
 done
+#unload program
+module unload fastqc
+
+
+#load program - fastp
+module load fastp
+
+#create loop
+for f in ${rawdir}/*_1.fastq.gz
+do
+
+R1=$(basename $f | cut -f1 -d.)
+base=$(echo $R1 | sed 's/_1//')
+
+fastp -q 20 -u 10 --cut_right \
+      -i ${rawdir}/${base}_1.fastq.gz \
+      -I ${rawdir}/${base}_2.fastq.gz \
+      -o ${trimdir}/${base}_trim_R1.fastq.gz \
+      -O ${trimdir}/${base}_trim_R2.fastq.gz \
+      -j ${trimdir}/${base}_trim.json \
+      -h ${trimdir}/${base}_trim.html
+
+done
+
+#unload program
+module unload fastp
+
+
+#load program - fastp
+module load fastqc
+
+#create loop
+for f in ${rawdir}/*_1.fastq.gz
+do
+
+R1=$(basename $f | cut -f1 -d.)
+base=$(echo $R1 | sed 's/_1//')
+
+fastqc -t 2 ${trimdir}/${base}_trim_R1.fastq.gz ${trimdir}/${base}_trim_R2.fastq.gz -o ${trimqcdir}
+
+done
+
+#unload  program
+module unload fastqc
+
+module load py-multiqc
+
+multiqc ${workdir}
+
+module unload py-multiqc
 ```
 
 ## 2-star_index_genome.sh
 
 ```{bash}
-#!/bin/bash
 
 # Load some modules
-module load star/2.7.6a
- 
-## Useful shortcuts
-export refdir=~/classdata/REFS
+module load star/2.7.11a-cbbjioq
+
+workdir=$(pwd)
 
 ## Change --sjdbOverhang to length of your sequence data /2 minus 1
-
 
 echo "\n\n I TOLD YOU NOT TO RUN THIS ONE NOW! \n\n (unless you're in the future and trying to run this for real, in which case you need to edit this script and remove the # characters from the command)"
 
 STAR    --runThreadN 8 \
         --limitGenomeGenerateRAM 321563573 \
         --runMode genomeGenerate \
-        --genomeDir  $refdir/ \
-        --genomeFastaFiles $refdir/Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa \
-        --sjdbGTFfile $refdir/Arabidopsis_thaliana.TAIR10.47.gtf \
+        --genomeDir  ~/classdata/REFS/Celegens_genome_star \
+        --genomeFastaFiles ~/classdata/REFS/Celegens_genome_star/Caenorhabditis_elegans.WBcel235.dna_sm.toplevel.fa \
+        --sjdbGTFfile ~/classdata/REFS/Celegens_genome_star/Caenorhabditis_elegans.WBcel235.112.gtf \
         --sjdbOverhang 49
 ```
 
@@ -167,31 +217,35 @@ STAR    --runThreadN 8 \
 #!/bin/bash
 
 ## Load some Modules
-module load star/2.7.6a
+module load star/2.7.11b-conda
 
 ## Useful shortcuts
-export workingdir=~/mydata/Session5/RNAseq-Processing
-export refdir=~/classdata/REFS/STAR/
+#varibles
+workdir=$(pwd)
 
-## The commands you want to run
-mkdir $workingdir/star
+rawdir=${workdir}/rawdata
+trimdir=${workdir}/trimdata
+mkdir ${workdir}/star
+stardir=${workdir}/star
+genomedir=~/classdata/REFS/Celegens_genome_star
 
-#list=("sample1" "sample2" "sample3")
-list=("SRR5222797" "SRR5222798" "SRR5222799")
-
-for i in ${list[@]}
+for f in ${workdir}/rawdata/*_1.fastq.gz
 do
+R1=$(basename $f | cut -f1 -d.)
+base=$(echo $R1 | sed 's/_1//')
+
 # map forward and reverse reads to genome
-# If input data is gzipped (.fastq.gz) inculde the additional parameter:   --readFilesCommand zcat
 STAR   --outMultimapperOrder Random \
        --outSAMmultNmax 1 \
-       --runThreadN 4  \
+       --runThreadN 8 \
        --runMode alignReads \
        --outSAMtype BAM Unsorted \
        --quantMode GeneCounts \
-       --outFileNamePrefix $workingdir/star/${i}-unsort. \
-       --genomeDir $refdir \
-       --readFilesIn $workingdir/fastq/${i}-trim_1P.fastq $workingdir/fastq/${i}-trim_2P.fastq
+       --readFilesCommand zcat \
+       --outFileNamePrefix ${stardir}/${base}-unsort. \
+       --genomeDir ${genomedir} \
+       --readFilesIn ${trimdir}/${base}_trim_R1.fastq.gz ${trimdir}/${base}_trim_R2.fastq.gz
+
 done
 ```
 
@@ -201,31 +255,38 @@ done
 #!/bin/bash
 
 #load some modules
-module load picard/2.26.2
-module load samtools/1.15.1
+module load picard/3.1.1-peglbgr
+module load samtools/1.19.2-m76oqh7
 
 ## Useful shortcuts
-export workingdir=~/mydata/Session5/RNAseq-Processing
+workdir=$(pwd)
 
-mkdir markdup
+rawdir=${workdir}/rawdata
+trimdir=${workdir}/trimdata
+stardir=${workdir}/star
+genomedir=~/classdata/REFS/Celegens_genome_star
+mkdir ${workdir}/markdup
+markdir=${workdir}/markdup
 
-#list=("sample1" "sample2" "sample3")
-list=("SRR5222797" "SRR5222798" "SRR5222799")
 
-for i in ${list[@]}
+for f in ${workdir}/rawdata/*_1.fastq.gz
 do
-samtools sort -@ 4 -o $workingdir/star/${i}.sorted.bam $workingdir/star/${i}-unsort.Aligned.out.bam
+R1=$(basename $f | cut -f1 -d.)
+base=$(echo $R1 | sed 's/_1//')
 
-samtools index $workingdir/star/${i}-unsort.Aligned.out.bam
+samtools sort -@ 8 -o $stardir/${base}.sorted.bam $stardir/${base}-unsort.Aligned.out.bam
+samtools index $stardir/${base}.sorted.bam
 
 ##  MARK DUPLICATES  ##
-picard MarkDuplicates I=$workingdir/star/${i}.sorted.bam O=$workingdir/markdup/${i}.markdup.bam M=$workingdir/markdup/${i}.metrics.markdup.txt REMOVE_DUPLICATES=false VALIDATION_STRINGENCY=SILENT
+picard MarkDuplicates I=$stardir/${base}.sorted.bam O=$markdir/${base}.markdup.bam M=$markdir/${base}.metrics.markdup.txt REMOVE_DUPLICATES=false VALIDATION_STRINGENCY=SILENT
+
 
 
 ## REMOVE DUPLICATES ##
-picard MarkDuplicates I=$workingdir/star/${i}.sorted.bam O=$workingdir/markdup/${i}.rmdup.bam M=$workingdir/markdup/${i}.metrics.rmdup.txt REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT
+picard MarkDuplicates I=${stardir}/${base}.sorted.bam O=${markdir}/${base}.rmdup.bam M=${markdir}/${base}.metrics.rmdup.txt REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT
 
 done
+
 ```
 
 ## 5-featurecounts.sh
@@ -234,34 +295,54 @@ done
 #!/bin/bash
 
 # Load some modules
-module load subread/2.0.2
+module load subread/2.0.6-abbqxcc
 
 ## Useful shortcuts
-export workingdir=~/mydata/Session5/RNAseq-Processing
-export refdir=~/classdata/REFS/STAR/
+workdir=$(pwd)
 
+rawdir=${workdir}/rawdata
+trimdir=${workdir}/trimdata
+stardir=${workdir}/star
+genomedir=~/classdata/REFS/Celegens_genome_star
+markdir=${workdir}/markdup
+mkdir ${workdir}/featureCounts
+fcdir=${workdir}/featureCounts
 
-mkdir $workingdir/featureCounts
-
-#list=("sample1" "sample2" "sample3")
-list=("SRR5222797" "SRR5222798" "SRR5222799")
-
-
-
-for i in ${list[@]}
+for f in ${workdir}/rawdata/*_1.fastq.gz
 do
+R1=$(basename $f | cut -f1 -d.)
+base=$(echo $R1 | sed 's/_1//')
 
 featureCounts \
         -T 4 -p -F GTF -t exon -g gene_id \
-        -a $refdir/Arabidopsis_thaliana.TAIR10.47.gtf \
-        -o $workingdir/featureCounts/${i}.markdup.featurecount \
-        $workingdir/markdup/${i}.markdup.bam
+        -a ${genomedir}/Caenorhabditis_elegans.WBcel235.112.gtf \
+        -o ${fcdir}/${base}.markdup.featurecount \
+        ${markdir}/${base}.markdup.bam
 
 featureCounts \
         -T 4 -p -F GTF -t exon -g gene_id \
-        -a $refdir/Arabidopsis_thaliana.TAIR10.47.gtf \
-        -o $workingdir/featureCounts/${i}.rmdup.featurecount \
-        $workingdir/markdup/${i}.rmdup.bam
+        -a ${genomedir}/Caenorhabditis_elegans.WBcel235.112.gtf \
+        -o ${fcdir}/${base}.rmdup.featurecount \
+        ${markdir}/${base}.rmdup.bam
 
 done
 ```
+:::
+
+::: {.callout-note collapse="true"}
+## Analyse your RNSseq Data with Sartools
+
+Once you have looked at the RNAseq-Analysis workshop apply this Knowedge to the analyse your *C. elegans* RNAseq data. In the RNAseq-Processing folder your are surplied with an Rstudio script for Sartools `Sartools-template-deseq2.r` and a metadata file `C_elegansL3_Cd_metadata.txt`
+
+the Metadata file describes teh various parameters of the experiment:
+
+```         
+Sample_ID       Files   SRA     Stage   Chemical        Dose    StageDose       Replicate
+L3_Cd_0_rep1    SRR12478185.markdup.featurecount        SRR12478185     L3      Cd      0       L3dose0 rep1
+L3_Cd_0_rep2    SRR12478186.markdup.featurecount        SRR12478186     L3      Cd      0       L3dose0 rep2
+L3_Cd_0_rep3    SRR12478187.markdup.featurecount        SRR12478187     L3      Cd      0       L3dose0 rep3
+L3_Cd_20_rep1   SRR12478191.markdup.featurecount        SRR12478191     L3      Cd      20      L3dose20        rep1
+L3_Cd_20_rep2   SRR12478192.markdup.featurecount        SRR12478192     L3      Cd      20      L3dose20        rep2
+L3_Cd_20_rep3   SRR12478193.markdup.featurecount        SRR12478193     L3      Cd      20      L3dose20        rep3
+```
+:::

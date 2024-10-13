@@ -204,8 +204,7 @@ cat ${dirblast}/*.tsv > ${dirblast}/all_blast_annotation.tsv
 
 Once you have this file open your bootstrap supported tree file then select `file >Import annotations...`and select you tab separated file you have created.
 
-Now select tip label menu.
-![](images/figtree_display_Name.png){width="20%" fig-align="center"}
+Now select tip label menu. ![](images/figtree_display_Name.png){width="20%" fig-align="center"}
 
 Select Scientific Name - now your tree should be labeled with the genus and species name for the tree branches.
 
