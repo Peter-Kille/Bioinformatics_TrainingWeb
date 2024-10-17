@@ -56,7 +56,7 @@ GTACTTAACCTAAACTGGACTAA
 
 2.  Read the file subsample_Ill1.fasta using one (or more!) of the commands `cat`, `less`, `head` and `tail`.
 
-3.  Using your method of choice, look at Illumina_1.fastq. Can you see the difference?
+3.  Using your method of choice, look at Illumina_R1.fastq. Can you see the difference?
 
 Don't forget to use tab completion!
 :::
@@ -146,7 +146,7 @@ fastqc -o output_dir file.fastq
 
 1.  Make a directory called fastqc inside your Session2 folder.
 
-2.  Try running FastQC on Illumina_1.fastq, using your fastqc directory for the output.
+2.  Try running FastQC on Illumina_R1.fastq, using your fastqc directory for the output.
 
 3.  Use *ls* to see what output it has created.
 
@@ -233,7 +233,7 @@ Script:
 
 module load fastp/0.23.4-mr6qifo
 
-fastp -q 20 -u 10 --cut_right -i Illumina_1.fastq -I Illumina_2.fastq -o Illumina_1trimmed.fastq -O Illumina_2trimmed.fastq -
+fastp -q 20 -u 10 --cut_right -i Illumina_R1.fastq -I Illumina_R2.fastq -o Illumina_trim_R1.fastq -O Illumina_trim_R2.fastq -
 ```
 
 Look up the [help page for fastp](https://github.com/OpenGene/fastp). What does each of the options given above mean?
@@ -244,7 +244,7 @@ Use ls to look at the output. How could the script be improved to make it tidier
 ::: callout-important
 ### Exercise: checking it worked!
 
-1.  Run FastQC on your trimmed Illumina_1 file and compare it to the original. Can you see the difference?
+1.  Run FastQC on your trimmed Illumina_R1 file and compare it to the original. Can you see the difference?
 
 2.  In the Session2 directory there is a sub-directory called looping, with five single-end Illumina samples in it. Can you write a script which will use loop over those files to do QC on them, then trim them and re-run the QC? Extra brownie points for keeping the output directories nice and tidy!
 :::
