@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2024-10-17">
+<meta name="dcterms.date" content="2024-10-18">
 
 <title>Genome Visualisation and Annotation</title>
 <style>
@@ -156,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 17, 2024</p>
+        <p class="date">October 18, 2024</p>
       </div>
     </div>
     
@@ -369,7 +369,7 @@ background: darkred;
    
   <ul>
   <li><a href="#visualising-genomes-using-artemis" id="toc-visualising-genomes-using-artemis" class="nav-link active" data-scroll-target="#visualising-genomes-using-artemis">Visualising genomes using Artemis</a></li>
-  <li><a href="#prokka---bacterial-genome-annotation" id="toc-prokka---bacterial-genome-annotation" class="nav-link" data-scroll-target="#prokka---bacterial-genome-annotation">Prokka - bacterial genome annotation</a></li>
+  <li><a href="#prokka---genome-annotation" id="toc-prokka---genome-annotation" class="nav-link" data-scroll-target="#prokka---genome-annotation">Prokka - genome annotation</a></li>
   <li><a href="#assigning-taxonomy-with-ncbi-blast" id="toc-assigning-taxonomy-with-ncbi-blast" class="nav-link" data-scroll-target="#assigning-taxonomy-with-ncbi-blast">Assigning taxonomy with NCBI BLAST</a>
   <ul class="collapse">
   <li><a href="#use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome." id="toc-use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome." class="nav-link" data-scroll-target="#use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome.">Use bedtools to extract out your phylogenetic marker sequence (e.g.&nbsp;16S or <em>CoI</em>) from your assembled and annotated genome.</a></li>
@@ -400,7 +400,7 @@ If you’re feeling confident
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>As you go through each step of the annotation process, use loops to apply it to <em>all</em> the prokaryote genomes you’ve assembled.</p>
+<p>As you go through each step of the annotation process, use loops to apply it to <em>all</em> the virus genomes you’ve assembled.</p>
 </div>
 </div>
 </div>
@@ -416,7 +416,7 @@ If you’re not feeling confident
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Pick one prokaryote genome and work through annotating it. Use the time later in the extension session to use loops to apply the process to all the prokaryote genomes.</p>
+<p>Pick one virus genome and work through annotating it. Use the time later in the extension session to use loops to apply the process to all the virus genomes.</p>
 </div>
 </div>
 </div>
@@ -588,17 +588,18 @@ Extension Work
 </div>
 </div>
 </section>
-<section id="prokka---bacterial-genome-annotation" class="level1">
-<h1>Prokka - bacterial genome annotation</h1>
+<section id="prokka---genome-annotation" class="level1">
+<h1>Prokka - genome annotation</h1>
 <p><a href="https://github.com/tseemann/prokka">Prokka</a> is a piece of software that is designed to identify genes from sequence data. It works best on prokaryotes. Once it identifies genes, it creates a file including the sequence for the sample, along with a set of annotations to that sequence, which identify the locations of genes. The annotation is written to a GFF3 file: a GFF file is a type of specialised table that lists the ‘features’ (genes, rRNAs, tRNAs etc.) in an assembly and where to find them.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka/1.14.6-barrnap-bedtools-5z4fskk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong><em>Check which version you have installed with <code>module avail</code></em></strong></p>
-<p>Basic commands / usage: To run prokka on an assembly (with an example filename of ‘contigs.fa’ use the command:</p>
+<p>Prokka defaults to analyzing bacteria. Think about what your sample is and what codon table you should use (This is also important for Artemis)! As we are assembling viruses, we will need to tell Prokka what kingdom to use.</p>
+<p>Basic commands / usage: To run prokka on a virus assembly (with an example filename of ‘contigs.fa’ use the command:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka/1.14.6-barrnap-bedtools-5z4fskk</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> contigs.fa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> <span class="at">--Kingdom</span> Virus contigs.fa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you want to view the names of output files, you need to provide a name for the files and a directory where they should be saved:</p>
 <p>Choose the names of the output files with --outdir and --prefix</p>
@@ -606,7 +607,6 @@ Extension Work
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka/1.14.6-barrnap-bedtools-5z4fskk</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> <span class="at">--outdir</span> mydir <span class="at">--prefix</span> mygenome contigs.fa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>NOTE: Prokka defaults to analyzing Bacteria. Think about what your sample is and what codon table you should use (This is also important for Artemis)!</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -702,7 +702,7 @@ Extension: BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR
 </section>
 <section id="assigning-taxonomy-with-ncbi-blast" class="level1">
 <h1>Assigning taxonomy with NCBI BLAST</h1>
-<p>You now have good-quality assembled, annotated genomes… but what organisms are they from?! It’s time to put some names to genomes. We’re going to extract the 16S rRNA gene from the prokaryotes and BLAST them against a 16S database.</p>
+<p>You now have good-quality assembled, annotated genomes… but what organisms are they from?! It’s time to put some names to genomes. We’re going to extract the a marker gene from the assemblies and BLAST them against a database.</p>
 <section id="use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome." class="level2">
 <h2 class="anchored" data-anchor-id="use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome.">Use bedtools to extract out your phylogenetic marker sequence (e.g.&nbsp;16S or <em>CoI</em>) from your assembled and annotated genome.</h2>
 <p>Collectively, the bedtools utilities are a Swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF. While each individual tool is designed to do a relatively simple task (e.g., intersect two interval files), quite sophisticated analyses can be conducted by combining multiple bedtools operations on the UNIX command line.</p>
@@ -712,7 +712,7 @@ Extension: BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR
 <p>We can use bedtools to extract gene/protein sequences from annotation files:</p>
 <ol type="1">
 <li><p>Navigate to either the <strong>Prokka</strong> annotation output directory or the <strong>Barrnap</strong> output file</p></li>
-<li><p>Create a sub-gff file that contains the annotation information of only the 16 rRNA gene</p></li>
+<li><p>Create a sub-gff file that contains the annotation information of only the marker gene</p></li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For bacterial sequences</span></span>
@@ -722,17 +722,20 @@ Extension: BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 1 <span class="pp">[</span><span class="ss">subset_16S.gff</span><span class="pp">]</span> <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">subset_first_16S.gff</span><span class="pp">]</span></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For mitochondrial sequences</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"ID=gene_cox1"</span> [gff annotation file]  <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">subset_coi.gff</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"ID=gene_cox1"</span> [gff annotation file]  <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">subset_coi.gff</span><span class="pp">]</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># For coronavirus sequences</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"product=Spike glycoprotein"</span> [gff annotation file]  <span class="op">&gt;</span> <span class="pp">[</span><span class="ss">subset_spike.gff</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
-<li>Extract the 16S rRNA gene from the genome assembly using the subset_16S.gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the -s option. <strong>If you are performing this for Mitochondria using the subset_coi.gff file and replace 16S with coi</strong></li>
+<li>Extract the marker gene from the genome assembly using the subset gff annotation file (contains the co-ordinates for the start/stop positions). Depending on how the assembly graph was made, the sequence may be in the opposite orientation (reverse complement). To account for this we need to extract based on the strandedness using the -s option. <strong>If you are performing this for Mitochondria using the subset_coi.gff file and replace 16S with coi</strong></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta <span class="at">-fi</span> [input fasta file] <span class="at">-bed</span> [subset_first_gff file] <span class="at">-s</span> <span class="op">&gt;</span> [output 16S file.fasta]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta <span class="at">-fi</span> [input fasta file] <span class="at">-bed</span> [subset_first_gff file] <span class="at">-s</span> <span class="op">&gt;</span> [output file.fasta]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The fasta sequence will be given a numeric nonsensical name (what comes after the &gt;). Change this for the name of the source sequence.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">"s/&gt;.*/&gt;[sequence name]/g"</span> [output 16S file.fasta]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">"s/&gt;.*/&gt;[sequence name]/g"</span> [output file.fasta]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -740,11 +743,11 @@ Extension: BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise: Extracting 16S genes
+Exercise: Extracting marker genes
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Write a loop that uses the bedtools steps to extract the 16S sequence from all your prokaryote genomes.</p>
+<p>Write a loop that uses the bedtools steps to extract the marker sequence from all your prokaryote genomes.</p>
 </div>
 </div>
 </section>
@@ -774,7 +777,7 @@ Exercise: Extracting 16S genes
 <colgroup>
 <col style="width: 27%">
 <col style="width: 27%">
-<col style="width: 45%">
+<col style="width: 44%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -867,7 +870,7 @@ Exercise: Searching with BLAST
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Perform BLAST analysis of one of your extracted 16S genes against the 16S_ribosomal_RNA database. Interrogate the output using ‘less’.</p></li>
+<li><p>Perform BLAST analysis of one of your extracted marker genes against the relevant database. Interrogate the output using ‘less’.</p></li>
 <li><p>Re-run the BLAST analysis with the output format parameter set to a customised <code>-outfmt 6</code>, which will output the data into a tablular format (often useful for subsequent analyses). Call the output something different so as not to overwrite the previous one. Interrogate the output using ‘less’. Can you see the difference to previously? How easy do you find it to read and interpret?</p></li>
 </ol>
 <div class="cell">
