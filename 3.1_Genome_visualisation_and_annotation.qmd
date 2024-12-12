@@ -194,7 +194,6 @@ module load prokka/1.14.6-barrnap-bedtools-5z4fskk
 
 ***Check which version you have installed with `module avail`***
 
-
 Prokka defaults to analyzing bacteria. Think about what your sample is and what codon table you should use (This is also important for Artemis)! As we are assembling viruses, we will need to tell Prokka what kingdom to use.
 
 Basic commands / usage: To run prokka on a virus assembly (with an example filename of 'contigs.fa' use the command:
@@ -204,7 +203,6 @@ module load prokka/1.14.6-barrnap-bedtools-5z4fskk
 prokka --Kingdom Virus contigs.fa
 ```
 
-
 If you want to view the names of output files, you need to provide a name for the files and a directory where they should be saved:
 
 Choose the names of the output files with \--outdir and \--prefix
@@ -213,7 +211,6 @@ Choose the names of the output files with \--outdir and \--prefix
 module load prokka/1.14.6-barrnap-bedtools-5z4fskk
 prokka --outdir mydir --prefix mygenome contigs.fa
 ```
-
 
 ::: {.callout-note collapse="true"}
 ## Prokka for mitochondrial annotation (Not recommended! See next workshop for how to annotate mitochondria)
@@ -380,7 +377,7 @@ BLAST comes in a variety of flavours, depending on what you want to search and w
 A basic BLAST command states your reference database, your query, and an output file, for example:
 
 ```{bash}
-blastx –db /home/db/fish –query contigs.fasta –out contigs_blx.txt
+blastx -db /home/db/fish -query contigs.fasta -out contigs_blx.txt
 ```
 
 This example uses blastx to match a DNA query against protein database, targets a (fictional) protein database named 'fish' stored at /home/db/, blasts the file contig.fasta and puts the output in contig_blx.txt

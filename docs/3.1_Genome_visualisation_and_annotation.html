@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2024-10-18">
+<meta name="dcterms.date" content="2024-12-12">
 
 <title>Genome Visualisation and Annotation</title>
 <style>
@@ -156,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 18, 2024</p>
+        <p class="date">December 12, 2024</p>
       </div>
     </div>
     
@@ -829,7 +829,7 @@ Exercise: Extracting marker genes
 <h2 class="anchored" data-anchor-id="anatomy-of-the-blast-command">Anatomy of the BLAST command</h2>
 <p>A basic BLAST command states your reference database, your query, and an output file, for example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastx</span> –db /home/db/fish –query contigs.fasta –out contigs_blx.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastx</span> <span class="at">-db</span> /home/db/fish <span class="at">-query</span> contigs.fasta <span class="at">-out</span> contigs_blx.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This example uses blastx to match a DNA query against protein database, targets a (fictional) protein database named ‘fish’ stored at /home/db/, blasts the file contig.fasta and puts the output in contig_blx.txt</p>
 <p>Given that you will be searching a nucleotide query against a nucleotide database, which BLAST command do you think you need?</p>
@@ -847,7 +847,7 @@ Extension:Making your own BLAST databases
 <div class="callout-body-container callout-body">
 <p>You already have the databases you require today, but sometimes you will need to create a custom database based on some collection of sequences dear to your heart! It’s not as simple as just creating a FASTA of sequences to search against: in order for BLAST to use them, it has to convert them into BLAST database format. The command to do so is <code>makeblastdb</code>. To create a new database:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">makeblastdb</span> <span class="at">-in</span> nucleotide_seq.fa –dbtype nucl –title my_db <span class="at">-out</span> my_seq</span>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">makeblastdb</span> <span class="at">-in</span> nucleotide_seq.fa <span class="at">-dbtype</span> nucl <span class="at">-title</span> my_db <span class="at">-out</span> my_seq</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Command line options</span></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-in</span>         <span class="pp">[</span><span class="ss">input_file</span><span class="pp">]</span> </span>
