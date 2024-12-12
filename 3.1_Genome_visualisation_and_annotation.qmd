@@ -393,7 +393,7 @@ Given that you will be searching a nucleotide query against a nucleotide databas
 You already have the databases you require today, but sometimes you will need to create a custom database based on some collection of sequences dear to your heart! It's not as simple as just creating a FASTA of sequences to search against: in order for BLAST to use them, it has to convert them into BLAST database format. The command to do so is `makeblastdb`. To create a new database:
 
 ```{bash}
-    makeblastdb -in nucleotide_seq.fa –dbtype nucl –title my_db -out my_seq
+    makeblastdb -in nucleotide_seq.fa -dbtype nucl -title my_db -out my_seq
 
 # Command line options
 -in         [input_file] 
