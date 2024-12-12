@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2024-10-18">
+<meta name="dcterms.date" content="2024-12-12">
 
 <title>Phylogenetics and Phylogeneomics</title>
 <style>
@@ -156,7 +156,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 18, 2024</p>
+        <p class="date">December 12, 2024</p>
       </div>
     </div>
     
@@ -495,7 +495,7 @@ Exercise: Aligning sequences
 <p>RAxML-NG outputs files to your current location. Create a directory and run RAxML from the directory to keep files organised</p>
 <p>Basic usage for nucleotide alignment with GTR model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">raxml-ng-mpiq</span> <span class="at">--all</span> <span class="at">--msa</span> [input alignment] <span class="at">--model</span> GTR <span class="at">--bs-tree</span> [bootstrap replicate number e.g. 100] <span class="at">--prefix</span> [prefix for output files] <span class="at">--threads</span> [number of threads/cpus]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">raxml-ng-mpi</span> <span class="at">--all</span> <span class="at">--msa</span> [input alignment] <span class="at">--model</span> GTR <span class="at">--bs-tree</span> [bootstrap replicate number e.g. 100] <span class="at">--prefix</span> [prefix for output files] <span class="at">--threads</span> [number of threads/cpus]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>RAxML-NG produces multiple output files. The file we are interested in has the extension <strong>.support</strong>. Use <code>mv</code> to change the extension <strong>.nwk</strong> on this file to indicate it is a phylogeny.</p>
 <div class="callout callout-style-default callout-important callout-titled">

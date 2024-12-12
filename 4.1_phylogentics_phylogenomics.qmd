@@ -117,7 +117,7 @@ RAxML-NG outputs files to your current location. Create a directory and run RAxM
 Basic usage for nucleotide alignment with GTR model:
 
 ```{bash}
-raxml-ng-mpiq --all --msa [input alignment] --model GTR --bs-tree [bootstrap replicate number e.g. 100] --prefix [prefix for output files] --threads [number of threads/cpus]
+raxml-ng-mpi --all --msa [input alignment] --model GTR --bs-tree [bootstrap replicate number e.g. 100] --prefix [prefix for output files] --threads [number of threads/cpus]
 ```
 
 RAxML-NG produces multiple output files. The file we are interested in has the extension **.support**. Use `mv` to change the extension **.nwk** on this file to indicate it is a phylogeny.
