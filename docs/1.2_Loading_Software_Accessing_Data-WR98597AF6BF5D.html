@@ -9,7 +9,7 @@
 <meta name="author" content="Prof.&nbsp;Peter Kille">
 <meta name="dcterms.date" content="2025-01-01">
 
-<title>Extension: Commandline Tools and Scripting</title>
+<title>Loading Software and Accessing Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,7 +124,7 @@ background: darkred;
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body style="background-color:gray99;" class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -133,7 +133,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="1.1_Introduction_to_Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="1.3_Commandline_Tools_and_Scripting.html">Extension: Commandline Tools and Scripting</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="1.1_Introduction_to_Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="1.2_Loading_Software_Accessing_Data.html">Loading Software and Accessing Data</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -145,9 +145,9 @@ background: darkred;
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="1.1_Introduction_to_Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="1.3_Commandline_Tools_and_Scripting.html">Extension: Commandline Tools and Scripting</a></li></ol></nav>
-      <h1 class="title">Extension: Commandline Tools and Scripting</h1>
-            <p class="subtitle lead">Loads more tricks and tips</p>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="1.1_Introduction_to_Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="1.2_Loading_Software_Accessing_Data.html">Loading Software and Accessing Data</a></li></ol></nav>
+      <h1 class="title">Loading Software and Accessing Data</h1>
+            <p class="subtitle lead">It’s all there if you know where to look</p>
                       </div>
   </div>
     
@@ -233,13 +233,13 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
+  <a href="1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Loading Software and Accessing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link active">
+  <a href="docs/1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Commandline Tools and Scripting</span></a>
   </div>
 </li>
@@ -394,27 +394,19 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#querying-files-with-grep" id="toc-querying-files-with-grep" class="nav-link active" data-scroll-target="#querying-files-with-grep">Querying files with grep</a>
+  <li><a href="#software" id="toc-software" class="nav-link active" data-scroll-target="#software">Software</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#visualising-text-files" id="toc-visualising-text-files" class="nav-link" data-scroll-target="#visualising-text-files">Visualising text files</a></li>
+  <li><a href="#using-text-editors" id="toc-using-text-editors" class="nav-link" data-scroll-target="#using-text-editors">Using text editors</a>
   <ul class="collapse">
-  <li><a href="#use-zgrep-with-compressed-files" id="toc-use-zgrep-with-compressed-files" class="nav-link" data-scroll-target="#use-zgrep-with-compressed-files">Use zgrep with compressed files</a></li>
-  </ul></li>
-  <li><a href="#running-and-rerunning-scripts" id="toc-running-and-rerunning-scripts" class="nav-link" data-scroll-target="#running-and-rerunning-scripts">Running and rerunning scripts</a>
+  <li><a href="#text-files-word-processors-and-bioinformatics" id="toc-text-files-word-processors-and-bioinformatics" class="nav-link" data-scroll-target="#text-files-word-processors-and-bioinformatics">Text files, Word Processors and Bioinformatics</a>
   <ul class="collapse">
-  <li><a href="#step-1-create-your-script" id="toc-step-1-create-your-script" class="nav-link" data-scroll-target="#step-1-create-your-script">Step 1: Create your Script</a></li>
-  <li><a href="#step-2-make-your-script-executable" id="toc-step-2-make-your-script-executable" class="nav-link" data-scroll-target="#step-2-make-your-script-executable">Step 2: Make your script executable</a></li>
-  <li><a href="#step-3-run-your-script" id="toc-step-3-run-your-script" class="nav-link" data-scroll-target="#step-3-run-your-script">Step 3: Run your script</a></li>
+  <li><a href="#nano" id="toc-nano" class="nav-link" data-scroll-target="#nano">Nano</a></li>
+  <li><a href="#vi-or-vim" id="toc-vi-or-vim" class="nav-link" data-scroll-target="#vi-or-vim">Vi (or Vim)</a></li>
   </ul></li>
-  <li><a href="#fordone-loops-when-processing-lots-of-data" id="toc-fordone-loops-when-processing-lots-of-data" class="nav-link" data-scroll-target="#fordone-loops-when-processing-lots-of-data">For…Done Loops – When Processing Lots of Data</a>
-  <ul class="collapse">
-  <li><a href="#loops-using-numerical-variables" id="toc-loops-using-numerical-variables" class="nav-link" data-scroll-target="#loops-using-numerical-variables">Loops using numerical variables</a></li>
-  <li><a href="#loops-using-strings-lists-as-variables" id="toc-loops-using-strings-lists-as-variables" class="nav-link" data-scroll-target="#loops-using-strings-lists-as-variables">Loops using Strings (lists) as variables</a></li>
-  <li><a href="#loops-using-directory-listings" id="toc-loops-using-directory-listings" class="nav-link" data-scroll-target="#loops-using-directory-listings">Loops using directory listings</a></li>
   </ul></li>
-  <li><a href="#decompressing-tar.gz-and-.gz-files" id="toc-decompressing-tar.gz-and-.gz-files" class="nav-link" data-scroll-target="#decompressing-tar.gz-and-.gz-files">Decompressing tar.gz and .gz files</a>
-  <ul class="collapse">
-  <li><a href="#gz-files" id="toc-gz-files" class="nav-link" data-scroll-target="#gz-files">gz files</a></li>
-  <li><a href="#how-to-extract-a-.tar.gz-file-on-linux" id="toc-how-to-extract-a-.tar.gz-file-on-linux" class="nav-link" data-scroll-target="#how-to-extract-a-.tar.gz-file-on-linux">How to extract a .tar.gz file on Linux</a></li>
-  </ul></li>
+  <li><a href="#runnign-code-when-you-need-to-have-a-coffee" id="toc-runnign-code-when-you-need-to-have-a-coffee" class="nav-link" data-scroll-target="#runnign-code-when-you-need-to-have-a-coffee">Runnign code when you need to have a coffee</a></li>
+  <li><a href="#end-of-session-1.-go-and-relax.and-have-a-coffee" id="toc-end-of-session-1.-go-and-relax.and-have-a-coffee" class="nav-link" data-scroll-target="#end-of-session-1.-go-and-relax.and-have-a-coffee">End of Session 1. Go and relax….and have a coffee!</a></li>
   </ul>
 </nav>
     </div>
@@ -425,18 +417,164 @@ background: darkred;
 
 
 
-<section id="querying-files-with-grep" class="level1">
-<h1>Querying files with grep</h1>
-<p>grep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.</p>
+
+<p>Now that you’re (hopefully) re-caffeinated and have stretched your legs and cleared your brain, let’s have a look at some more need-to-know information.</p>
+<section id="software" class="level1">
+<h1>Software</h1>
+<p>The linux OS has some really powerful utilities but these are not truly bioinformatics software. We have to ‘install’ or ‘load’ software. We do not want to have all our software loaded all the time, as many informatic tools are very complex i.e.&nbsp;requiring different versions of python or java to run. Having software that requires conflicting versions loaded at the same time can cause a malfunction.</p>
+<p>Most managed HPC systems (not your own personal computer) manage this by using modules. These are preconfigured installers for your software packages. Cardiff systems use modules - if this is the case you can see the software that is available try the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"ency"</span> ~/mydata/Session1/subsample.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can also use flexible search terms, known as regular expressions, in your grep searches. You have already used glob pattern expressions in this practical, but regular expressions are somewhat different and more powerful. For example, when you listed all files with the pattern tes<em>txt</em> you were using a glob pattern comprising explicit characters (e.g.&nbsp;tes) and special symbols (* meaning any character or characters). The equivalent in grep would be “tes.<em>txt.</em>” where the period signifies any single character and the * signifies any number of repeats.</p>
-<p>Therefore to get from a shell glob pattern to a regular expression replace each * with .* and each ? with . . You also need to enclose the expression in quotes to tell the shell not to try and interpret it as a glob.</p>
-<p>Unmodified glob patterns will be accepted by grep but will not work as intended. For example the pattern tes* in grep means te followed by any number of s characters in sequence (te, tes, tess, tesss, …). The question mark now signifies optionality – so tes? means te followed by zero or one s character (te, tes). Regular expressions are found in several places other than grep, most notably in the Perl scripting language. The full syntax is extensive and powerful but is beyond the scope of this course, so back to the command itself…</p>
-<p>grep requires a regular expression as input, and returns all the lines containing that pattern to you as output.</p>
-<p>grep is especially useful in combination with pipes as you can filter the results of other commands.</p>
-<p>For example, perhaps you only want to see only the information in an txt file relating to the origin of the sequence, that is, the DE line. You do not need to search the file in an editor, you can just grep for lines beginning in DE, as in the next exercise.</p>
+<p>this will bring up a software list that looks like the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">------------</span> /mnt/clusters/darter/software/spack/share/spack/modules/linux-rocky8-zen <span class="at">-------------</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">abricate/1.0.0-qk6snru</span>        freebayes/1.3.6-l3l4sxc                 py-panaroo/1.2.10-fukmiob</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">abyss/2.3.5-b76h5om</span>           gatk/4.5.0.0-riltjjd                    py-quast/5.2.0-hgcvroq</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">alan/2.1.1-izjr2po</span>            gdbm/1.23-n6o3b5r                       py-unicycler/0.5.0-d6k3wzh</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">augustus/3.5.0-qinnslv</span>        grace/5.1.25-gukphap                    python/3.7.4-ftvphto</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">barrnap/0.9-kewos3t</span>           gromacs/2022.6-3xkd27n                  python/3.10.5-fsxphqu</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">bcftools/1.19-d7iukuu</span>         hmmer/3.4-yak3kcd                       python/3.11.7-d2ytb5r</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools2/2.31.1-7imv7b4</span>      igv/2.16.2-qiah4ab                      qualimap/2.2.1-c5hghxs</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">blast-plus/2.14.1-eqbljdp</span>     kraken2/2.1.2-lam4dbm                   r/4.4.1-5jt6lfe</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie/1.3.1-zgreifk</span>          mafft/7.505-beg3hnq                     racon/1.4.3-qpn4rnq</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2/2.5.2-4j3lpsk</span>         mcl/14-137-hetggoi                      raxml-ng/1.1.0-3gc6hnr</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">busco/5.4.3-av4kf4t</span>           minimap2/2.28-w7jvpwe                   samtools/1.19.2-m76oqh7</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ex">bwa/0.7.17-kikwf2c</span>            ncurses/6.5-yhetvhq                     seqtk/1.4-l7d6lqn</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">caliper/2.11.0-774rsmi</span>        perl-bioperl/1.7.6-semipod              spades/3.15.5-4zo7gyg</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">cdhit/4.8.1-z4h4fo5</span>           perl/5.34.0-hvoyvlh                     star/2.7.11a-cbbjioq</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ex">dos2unix/7.4.4-scyfkh5</span>        picard/3.1.1-peglbgr                    subread/2.0.6-abbqxcc</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ex">dyninst/13.0.0-ssbc5ep</span>        pilon/1.22-hoz46gi                      tbl2asn/2022-04-26-mogg2jy</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ex">emboss/6.6.0-mlzei3k</span>          prodigal/2.6.3-o4shfn4                  tmux/3.4-pp5yxaf</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp/0.23.4-mr6qifo</span>          prokka/1.14.6-barrnap-bedtools-5z4fskk  trimmomatic/0.39-erd3ktn</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ex">fasttree/2.1.11-x2xclli</span>       prokka/1.14.6-mqcdb45                   velvet/1.2.10-rryts6f</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ex">fastx-toolkit/0.0.14-gp27cub</span>  py-macs3/3.0.0b3-w77yz26                vt/0.5772-d76l4yn</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ex">figtree/1.4.4-knoy37j</span>         py-multiqc/1.15-mqimc53                 wtdbg2/2.3-iy52ckp</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="ex">------------------------</span> /mnt/clusters/darter/software/nospack/modulefiles <span class="at">------------------------</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer/1.3.3</span>       fmlrc/v1.0.0  MAGScoT/1.0.0-conda  qiime2/2024.5-conda  star/2.7.11b-conda</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ex">artemis/18.2.0-conda</span>  go/1.22.4     maxbin2/2.2.7-conda  reportseff/v2.7.6</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ex">coverm/0.7.0-conda</span>    java/11.0.2   metabat2/2.17-conda  snippy/v4.6.0</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc/v0.12.1</span>        java/17.0.1   mitos/2.0.4-conda    snp-sites/2.5.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Any of these software packages can be loaded by simply using the module load command, e.g.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/v0.12.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Remember to unload the module when you are finished so it does not conflict with the next piece of software, or if you want to unload all modules, use the module purge command.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload fastqc/v0.12.1</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">or</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> purge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Module versions can change so check they are correct with <code>module avail</code> rather than just copy and pasting from the guide.</strong></p>
+</section>
+<section id="data" class="level1">
+<h1>Data</h1>
+<p>The data for your course is available to you on a pre-mapped drive location. You can see and list the folders it contains using the following simple command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ~/classdata/</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#this should yield the following list of folders</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">datasets</span> REFS  Session1  Session2  Session3  Session4  Session5  Session6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can <strong>see these folders but not write to them</strong>! Before each session, copy the corresponding folder to your mydata directory using <code>cp</code>.</p>
+<p>Note the inclusion of the ‘-r’ flag to allow you to copy the folder ‘recursively’: this will copy all the folders and files inside.</p>
+</section>
+<section id="visualising-text-files" class="level1">
+<h1>Visualising text files</h1>
+<p>There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but not edit them. Among the most common of these commands are <code>cat</code>, <code>more</code>, <code>less</code>, <code>head</code> and <code>tail</code>.</p>
+<p><code>cat</code> streams the entire contents of a file to your terminal and is thus not that useful for reading long files as the text streams past too quickly to read. It is a very useful facility for reading files into other programs.</p>
+<p><code>head</code> and <code>tail</code> show the beginning and end 10 lines of a document, respectively. <code>head</code> in particular is useful for taking a quick peek inside a file. You can use the argument -n [number] to change the number of lines displayed. For example, to see the first 20 lines of a file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 20 file.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>more</code> and <code>less</code> are commands that show the contents of a file one page at a time, but <code>less</code> has more functionality than <code>more</code> (doh)! With both <code>more</code> and <code>less</code>, you can use the space bar to scroll down the page, and typing the letter q causes the program to quit – returning you to your command line prompt.</p>
+<p>Once you are reading a document with <code>more</code> or <code>less</code>, typing a forward slash / will start a prompt at the bottom of the page, and you can then type in text that is searched for below the point in the document you were at. Typing in a ? also searches for a text string you enter, but it searches in the document above the point you were at. Hitting the n key during a search looks for the next instance of that text in the file.</p>
+<p>With <code>less</code> (but not <code>more</code>), you can use the arrow keys to scroll up and down the page, and the b key to move back up the document if you wish to.</p>
+<p>Remember these are just for reading the files. If you want to edit them you’ll need a text editor like nano or vi (see below).</p>
+<p>There are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise: looking at text files
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Move into mydata/Session1</p>
+<p>Explore the file O97435.txt by using the commands <code>cat</code>, <code>more</code>, <code>less</code>, <code>head</code> and <code>tail</code>. (Note that the file name starts with a capital O, rather than a zero.)</p>
+<p>Don’t forget that tab completion can save you typing effort!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> O97435.txt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">more</span> O97435.txt <span class="co"># Use the spacebar to scroll down</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Press</span> q to quit.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now try <code>less</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> O97435.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Use the spacebar to scroll down, b to go up a page, and the up and down arrow keys to move up and down the file line by line.</p>
+<p>Press the / key and search for the letters sequence in the file. Press the ? key and search for the letters gene in the file.</p>
+<p>Press the n key to search for other instances of gene in the file.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> O97435.txt</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> O97435.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For reading files yourself, we recommend the command <code>less.</code> The command <code>cat</code> is more usually used in conjunction with other commands when you wish to process text from within a file in some way.</p>
+<p>Remember the man pages</p>
+<p>There are many command line options available for each of the above commands, as well as functionality we do not cover here. To read more about them, consult the manual pages:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> cat</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> more</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> less</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> head</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> tail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Visualising files using less, cat, head and tail
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=94ba890f-5ad3-447b-871e-b09400e844d5&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+<section id="using-text-editors" class="level1">
+<h1>Using text editors</h1>
+<p>Plain text files are important, both as input to bioinformatics programs and as input or configuration files for system programs. We highly recommend that you learn to use a text editor to prepare and edit plain text files.</p>
+<section id="text-files-word-processors-and-bioinformatics" class="level2">
+<h2 class="anchored" data-anchor-id="text-files-word-processors-and-bioinformatics">Text files, Word Processors and Bioinformatics</h2>
+<p>Documents written using a word processor such as Microsoft Word or OpenOffice Write are not plain text documents and will not work in either a text editor or if used as a script. If your filename has an extension such as .doc or .odt, it is unlikely to be a plain text document. (Try opening a Word document in Notepad or another text editor on Windows if you want proof of this.)</p>
+<p>Word processors are very useful for preparing documents, but do not use them for working with bioinformatics-related files. We recommend that you prepare text files for bioinformatics analyses using Linux-based text editors and not Windows- or Mac-based text editors. This is because Windows- or Mac-based text editors may insert hidden characters that are not handled properly by Linux-based programs. There are endless posts on bioinformatics forums bemoaning the problems that arise from this!</p>
+<p>There are a number of different text editors available on Linux. These range in ease of use, and each has its pros and cons. In this practical we will briefly look at two editors, <strong><em>nano and vi</em></strong>. Vi is an extremely powerful text editor and popular with many professionals, as it is installed on almost every Linux system. However, it is also notoriously frustrating to get to grips with. For this reason, you are probably better starting off with nano, which is very easy to use and displays instructions at the bottom of the screen.</p>
+<section id="nano" class="level3">
+<h3 class="anchored" data-anchor-id="nano">Nano</h3>
+<p><strong><em>Pros:</em></strong></p>
+<p>Very easy – For example, command options are visible at the bottom of the window, it can be used when logged in without graphical support, and is fast to start up and use</p>
+<p><strong><em>Cons:</em></strong></p>
+<p>By default it puts return characters into lines too long for the screen (i.e.&nbsp;using nano for system administration can be dangerous!) This behavior can be changed by setting different defaults for the program or running it with the –w option. It is not completely intuitive for people who are used to graphical word processors.</p>
+</section>
+<section id="vi-or-vim" class="level3">
+<h3 class="anchored" data-anchor-id="vi-or-vim">Vi (or Vim)</h3>
+<p><strong><em>Pros:</em></strong></p>
+<p>Appears on nearly every Unix system. Can be very powerful if you take the time to know the key-short cuts.</p>
+<p><strong><em>Cons:</em></strong></p>
+<p>You have to know the shortcuts!! There’s no menus and no on screen prompts</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -447,211 +585,52 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Move into <code>mydata/Session1</code></p>
-<p>Type the command:</p>
+<p>Note that unlike most graphical programmes, where you write a document and then name it at the end, command-line text editors require you to name a file when you create it.</p>
+<section id="create-a-file-with-nano" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-file-with-nano">Create a file with nano</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"DE"</span> O97435.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> test_nano.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>What is this command doing?</p>
-<p>Can you see why the above command results in the output you see? An explanation of this command can be found below this exercise box.</p>
-<p>Try the commands:</p>
+<p>Type some text, exit ctrl X, save and return to command line now list the contents of the file you created</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"^DE"</span> O97435.txt</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-x</span> <span class="st">"DE.*"</span> O97435.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>What are the ^ symbol and the -x parameter in these commands doing? Check the man page for grep to be sure.</p>
-<p>Try the command:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> O97435.txt <span class="kw">|</span> <span class="fu">grep</span> <span class="st">"^DE"</span>. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Does that do what you expected?</p>
-<p>Use the above command with a pipe and a grep command to search for files created or modified today.</p>
-<p>The first command in the above exercise searches all the text in the O97435.txt file and returns the lines in which it finds the letter D followed by the letter E.</p>
-<p>The second command in the exercise also returns lines in the file that have a letter D followed by a letter E, but only where DE is found at the beginning of a line. This is because the ^ symbol means “match at the beginning of a line”. The $ symbol can be used similarly to mean “at the end of a line”. These are known as anchors. Passing the -x flag to grep tells it to automatically anchor both ends of the search pattern.</p>
-<p>What this anchoring does in the example above is return to you just the organism information in the txt file. This is because none of the other lines returned in the previous command started with DE, they just contained DE somewhere in them. This is an example where knowing how information is stored in an given file, along with a few basic Linux commands, allows you to retrieve information quickly.</p>
-<p>Another common example is counting how many sequences are in a set of multi-fasta files. We can do this with pipes between the commands <code>cat</code>, <code>grep</code> and the handy <code>wc</code> (word count) utility, which here we use to count lines found by grep.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> subsample_Ill1.fasta <span class="kw">|</span> <span class="fu">grep</span> <span class="st">"^&gt;"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"^&gt;"</span> subsample_Ill1.fasta </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Each sequence in a fasta file starts with a header line that begins with a &gt; . The above command streams the contents of all files matching the glob pattern *seqs.fasta through a search with grep looking for lines that start with the symbol &gt; . The quotes around the pattern ^&gt; are necessary, as otherwise it is interpreted as a request for redirection of output to a file, rather than as a character to look for. As before, the ^ symbol means “match only at the beginning of the line”.</p>
-<p>The output of this grep search is sent to the <code>wc</code> command, with the -l indicating that you want to know the number of lines – ie. the number of headers and by implication the number of sequences.</p>
-<p>An easier version of this shown as the second example uses the <code>grep</code> -c argument that return the number of matches found.</p>
-<p>Now try this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="pp">*</span>.fasta <span class="kw">|</span> <span class="fu">grep</span> <span class="st">"^&gt;"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Remember that * means any pattern, and that <code>cat</code> will concatentate all the files given as input. Therefore, a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.</p>
-</div>
-</div>
-<section id="use-zgrep-with-compressed-files" class="level2">
-<h2 class="anchored" data-anchor-id="use-zgrep-with-compressed-files">Use zgrep with compressed files</h2>
-<p>You can use all of grep functionality with a compressed file by adding a ‘z’ - just replace grep with zgrep and you can directly query that .gz files.</p>
-</section>
-</section>
-<section id="running-and-rerunning-scripts" class="level1">
-<h1>Running and rerunning scripts</h1>
-<p>Bioinformatic is full of altruistic people who share their skills by share their scripts. Most scripts you find on the internet are written in () or (). There are a few simple steps to making use of this fantastic resource.</p>
-<section id="step-1-create-your-script" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-create-your-script">Step 1: Create your Script</h2>
-<p>Make a text file containing the script in question. This can be achieved by downloading or transferring the scripts as a file in the correct format. Sometimes the scripts are posted as part of a website such as a web-post in a discussion forum. To use these scripts, create a file using vi or nano and copy into the test file the script in question ensuring you save it with an appropriate name.</p>
-<p>Here’s a script you can try</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="dt">{</span><span class="dv">10</span><span class="dt">..</span><span class="dv">1</span><span class="dt">}</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'Blast off'</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> test_nano.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-2-make-your-script-executable" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-make-your-script-executable">Step 2: Make your script executable</h2>
-<p>Make the file executable. Before you can run the script you must make it executable. This is done by changing its property using</p>
+<section id="create-a-file-with-vi" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-file-with-vi">Create a file with vi</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> a+x [script name] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vi</span> test_vi.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>this is shorthand for chmod (change modify) a(all)+(add)execute(e) [script name] – thus changing the permission to allow everyone to execute a script. For more guide to chmod see https://en.wikipedia.org/wiki/Chmod</p>
-</section>
-<section id="step-3-run-your-script" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-run-your-script">Step 3: Run your script</h2>
-<p>Run the program. This should be easy but there are a few ways of doing this.</p>
-<p>Place the program into the directory where you want to use it and type</p>
+<p>Vi has two separate modes: ‘input’ mode, where you can type and edit text, and ‘control’ mode where you can do things such as save, search and exit the programme.</p>
+<p>Type ‘i’ to enter input mode, and add some text.</p>
+<p>Press [esc] to enter control mode.</p>
+<p>Exit, saving your edits, by typing <code>:wq</code> - this stands for write and quit! If you wanted to exit without saving the edits, typing <code>:q!</code> will force vi to exit without saving.</p>
+<p>Now list the contents of the file you created</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./[script</span> name] parameters arguments </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>On first use try to run with no parameters or arguments or with -h and -help to see the manual for the script. Some poorly written scripts will need you to define the program you need to use them, i.e.&nbsp;for a bash script :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> [script name] parameters arguments </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Run from your current location using the script’s full path.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/full</span> path/[script name] parameters arguments </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Place the script into your ‘PATH’ – this means that the computer automatically knows about the script and will run it from any location just given the program name. I suggest that if you want to do this ask the demonstrators and they can show you……this is advanced as if you put two scripts with the same name into the PATH you can cause issues.</p>
-</section>
-</section>
-<section id="fordone-loops-when-processing-lots-of-data" class="level1">
-<h1>For…Done Loops – When Processing Lots of Data</h1>
-<section id="loops-using-numerical-variables" class="level2">
-<h2 class="anchored" data-anchor-id="loops-using-numerical-variables">Loops using numerical variables</h2>
-<p>Creating a Loop</p>
-<p>Invoke a text editor such as nano, then type</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> {1..<span class="pp">[</span><span class="ss">number</span><span class="pp">]</span>}<span class="kw">;</span> <span class="cf">do</span> </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># use hash to include some level of documentation so when you get to script in a few months time </span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># you can remember what it was all about.  ${i} = number which increment by 1 each time the loop runs</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[your</span> commands]<span class="va">${i}</span> </span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>save.</p>
-<p>now make the program executable</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x <span class="pp">[</span><span class="ss">program_name</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>run</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./[program_name]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> test_vi.txt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="loops-using-strings-lists-as-variables" class="level2">
-<h2 class="anchored" data-anchor-id="loops-using-strings-lists-as-variables">Loops using Strings (lists) as variables</h2>
-<p>Invoke a text editor such as nano, then type</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> sampleA sampleB sampleC sampleD<span class="kw">;</span> <span class="cf">do</span> </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># use hash to include some level of documentation so when you get to script in a few months time</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># you can remember what it was all about.  ${i} = the list of strings given at the start of the for loop </span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[your</span> commands]<span class="va">${i}</span> </span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>save</p>
-<p>now make the program executable</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x <span class="pp">[</span><span class="ss">program_name</span><span class="pp">]</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>run</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./[program_name]</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="loops-using-directory-listings" class="level2">
-<h2 class="anchored" data-anchor-id="loops-using-directory-listings">Loops using directory listings</h2>
-<p>This is a great method if you want to execute a series of command on a set of data files contained in a specific directory, for instance a series of sequence files.</p>
-<p>Invoke a text editor such as nano, then type</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="va">sequence_dir</span><span class="op">=</span>[location <span class="ex">of</span> folder containing paired end sequence files]</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#*_R1.fastq - lists all files ending in _R1.fastq</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> <span class="va">${sequence_dir}</span>/<span class="pp">*</span>_R1.fastq</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#the file name are placed in variable $f - we can separate the name of the file away from the suffix (.fastq) using this simple cut expression - the variable 'R1' now contains the file name with no suffix </span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="va">R1</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="va">$f</span> <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-f1</span> <span class="at">-d.</span><span class="va">)</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Sometimes we want the 'base' name of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed </span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="va">base</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="va">$R1</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s/_R1//'</span><span class="va">)</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">${base}</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>save</p>
-<p>now make the program executable</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x <span class="pp">[</span><span class="ss">program_name</span><span class="pp">]</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>run</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./[program_name]</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="decompressing-tar.gz-and-.gz-files" class="level1">
-<h1>Decompressing tar.gz and .gz files</h1>
-<p>You will commonly come across 2 type of compressed files in Linux .gz and tar.gz. The gz are equivalent to a ‘zip’ file in windows, whilst a tar.gz represent a compressed archive - that means it will contain multiple files and folders. Here’s how to handle these file:</p>
-<section id="gz-files" class="level2">
-<h2 class="anchored" data-anchor-id="gz-files">gz files</h2>
-<p>….wait a minute do you really need to decompress this file !! Many programs will happily use a .gz file directly, this a win for your file space so check out if you really need to decompress the file. Unfortunate some utilits like ‘sed’ require files to be unzipped, it that case:</p>
+</section>
+<section id="runnign-code-when-you-need-to-have-a-coffee" class="level1">
+<h1>Runnign code when you need to have a coffee</h1>
+<p>Often you have some code or script that will take some time to run and you want to shut down your computer and go for coffee or sleep (yes even informaticians sleep) but you want the code to continue to run. To make this work use the command <code>nohup</code>. The syntax is simple - here are 2 simple examples.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#to decompress</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> <span class="pp">[</span><span class="ss">filename</span><span class="pp">]</span>.gz</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#to recompress</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">gzip</span> <span class="pp">[</span><span class="ss">filename</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#run this and you can close session and enjoy relax time</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> <span class="pp">[</span><span class="ss">command/script</span><span class="pp">]</span> <span class="kw">&amp;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># this command will write any output or logs to a file called - logfile.txt</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nohup</span> <span class="pp">[</span><span class="ss">command/script</span><span class="pp">]</span> <span class="op">&gt;</span> logfile.txt <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="kw">&amp;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="how-to-extract-a-.tar.gz-file-on-linux" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-extract-a-.tar.gz-file-on-linux">How to extract a .tar.gz file on Linux</h2>
-<p>To extract a .tar.gz file on Linux, you can use the “tar” command in the terminal. Here is the general syntax:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xvzf</span> filename.tar.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Here is a brief explanation of the options used:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-x:</span> This option tells tar to extract the contents of the archive.</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-v:</span> This option is for verbose output, which means that tar will display a list of the files being extracted as it does so.</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-z:</span> This option tells tar to decompress the archive using gzip.</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-f:</span> This option is used to specify the archive file to extract.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="end-of-session-1.-go-and-relax.and-have-a-coffee" class="level1">
+<h1>End of Session 1. Go and relax….and have a coffee!</h1>
+<p>Or if you’re a total nerd and can’t leave the command line, go ahead and have a look at <em>Extension: Commandline Tools and Scripting</em>. This contains more Linux-related tidbits and a sneak preview of some material we’ll cover in Session 2.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
