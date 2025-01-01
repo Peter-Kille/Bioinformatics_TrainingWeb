@@ -33,9 +33,12 @@ website:
           - 4.2_phylogentics_phylogenomics_extension.qmd
       - section: "Session 5. Transcriptomics"
         contents:
+          - 5.0_Transcriptomics_Introduction.qmd
           - 5.1_RNAseq_processing.qmd
-          - 5.2_DEG_analysis.qmd
-          - 5.3_DEG_Functional_Interpretation.qmd
+          - 5.2_GEO_Open_Data_Archive.qmd
+          - 5.3_DEG_Generation.qmd
+          - 5.4_DEG_Functional_Interpretation.qmd
+          - 5.5_Refined_Data_Representations.qmd
       - section: "Session 6. Microbial community analysis"
         contents:
           - 6.1_metabarcoding.qmd

@@ -1,0 +1,20 @@
+---
+title-block-style: default
+title-block-banner: darkred
+title-block-banner-color: white
+title: "Transcriptomics: An Introduction"
+subtitle: "From Reads to Biological Insight"
+author: "Prof. Peter Kille and Dr. Sarah Christofides"
+date: today
+affiliation: "Cardiff University"
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+# Transcriptomics: an introduction
+
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e9593f8c-cc05-40e2-b06d-b0a700978ec3&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+
+</iframe>

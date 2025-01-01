@@ -61,7 +61,7 @@ head -n 1 [subset_16S.gff] > [subset_first_16S.gff]
 grep "ID=gene_cox1" [gff annotation file]  > [subset_coi.gff]
 
 # For viral genome choose a gene encodig a structural protein - e.g. for SARS-CoV2 Spike protein.
-grep "Spike"[gff annotation file]  > [subset_coi.gff]
+grep "Spike" [gff annotation file]  > [subset_coi.gff]
 
 ```
 
