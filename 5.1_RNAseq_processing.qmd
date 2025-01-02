@@ -13,35 +13,78 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-# RNASeq processing
+# 1. RNASeq processing
+
+This presentation outlines the RNA sequencing (RNAseq) data analysis process starting from raw pair end sequence reads (fastq files). The scripts can be refined to work with single end data, key notes are provided how this adaptation can be done. Key steps include read trimming, aligning sequencing reads to a reference genome using STAR, quantifying read counts (being respectful of intron/exon boundaries), marking up potential duplicate reads and generation of feature counts. The count data thus generated can be used for generating Differential Expressed Gene (DEG) lists by analsyis with R packages such as DESeq2 or edgeR. Finally, differential gene expression analysis employs statistical tests and visualisations to identify genes with significantly altered expression levels.
+
+If you are interested [Andres et al 2013](https://cf.sharepoint.com/:b:/t/SystemsBiology/EQ_8U8YJ9i9Fg0bKPo6PmO4Bec8KxoXp6zIco-L5z-_55g?e=Hme6hj0) Provides an excellent overview of the processes involved.
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=33753314-378f-47fe-9c2e-af630098dbaf&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
 
 </iframe>
 
-# Introduction
+[Lecture slides for RNASeq Processing](pdfs/Processing_RNAseq.pdf)
+
+# 1. Introduction
 
 RNAseq, or transcriptomics, is a method for quantifying the expression rate for all genes simultaneously. Analogous to a quantitative PCR of one gene, it comes with its advantages and drawbacks, with special statistical measures developed over years to make the results as accurate as possible.
 
 There are three main steps to analyse a series of RNAseq fastq sample files (following quality filtering):
 
-## Alignment
+## 1.1 QC and Trimming
+
+As with all Next Generation Sequencing (NGS) informatic processes the first step in data analysis is to remove any poor quality bases and any experimentally introduced sequences (adapters or primers). This workflow uses Fastp, although programs such as trimmomatic or trimgalore would also do teh job well. It is recommended to check the data quality and quantity before and after trimming - runnign fastqc on each read file before and after trimming then generating a summary with multiqc provides a great combination.
+
+## 1.2 Formatting Target Genome
+
+When aligning to genomes the target genome needs to be formatted it to reflect the mapper being used, read length and genome annotation (using a GTF or GFF file) so that the mapper knows where the intron-exon junctions are. You also should ideally use a 'soft masked' genom so that common repeats are avalible to map to.
+
+This is a RAM intensive process and can take some time for larger genomes - for main stream mappers, such as STAR and Bowtie, and for routine genomes such as human and mouse there are downloaded approriate formatted genomes (just search the web to find) this can save you alot of time and computational resources. If you need to download and format your own genomes here are some sites that are useful to download genomes from in order of 'usability':
+
+### Main steam and model genomes
+
+Ensembl 
+current_fasta -``` https://ftp.ensembl.org/pub/current_fasta/```
+
+Ensembl current_gtf - ```https://ftp.ensembl.org/pub/current_gtf/```
+
+### UK Darwin Tree of life Genomes
+
+Genomes and annotations (gtf)
+```https://projects.ensembl.org/darwin-tree-of-life/```
+
+### NCBI genomes
+
+Genomes and annotations
+```https://www.ncbi.nlm.nih.gov/datasets/genome/```
+
+NCBI currently supports FTP, and API to allow wget or curl to be used to download genomes or a piece of software - a small local binary (this does not need to be installed just download - [datasets](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/reference-docs/command-line/datasets/) ). Examples of how to sue these are given below:
+
+FTP site: ```https://ftp.ncbi.nlm.nih.gov/genomes/```
+```
+wget https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_945859605.1/download?include_annotation_type=GENOME_FASTA&include_annotation_type=GENOME_GFF&include_annotation_type=RNA_FASTA&include_annotation_type=CDS_FASTA&include_annotation_type=PROT_FASTA&include_annotation_type=SEQUENCE_REPORT&hydrated=FULLY_HYDRATED
+
+#download datasets software from NCBI - https://www.ncbi.nlm.nih.gov/datasets/docs/v2/command-line-tools/download-and-install/
+# Now you can uses datasets to download your data
+datasets download genome accession GCA_945859605.1 --include gff3,rna,cds,protein,genome,seq-report
+```
+
+## 1.3 Alignment (STAR)
 
 STAR -- (Spliced Transcript Alignments to a Reference) is an alignment package which functions similarly to standard genome alignments, but is designed for short regions of RNA that could span intron-exon junctions and with low compute requirements. STAR outputs a bam format file which contains the locations where all the reads in your dataset have aligned and which genes they cover.
 
-## Counting
+## 1.4 Marking Duplicates
+
+Duplicate reads can be generated by both library preparation methods and by over-clustering on the Illumina read bed. The latter was more common with older Illumina platforms are rarely seen in newer platforms that have been loaded at the correct concentration but as the library preparation uses lower input the read duplicate is becoming more common from this stage of the process. 'False' duplicates can be observed in libraries that are very deeply sequenced and contain limited cellular diversity - cell lines or tissue isolates as abundant genes will be over-represented. If you want to check the most robust way is to visualise the read coverage for a range of abundant genes - if the coverage is consistent then duplicates are not an issue but if you observe specific amplicons which or over-represented (looking like stacks) then this is an issue you need to address. DO NOT use duplicate removal for 3' UTR library methods.Here we'll use the imaginatively named MarkDuplicates from GATK.
+
+## 1.5 Feature Counting
 
 FeatureCounts is a simple package that takes the positions of mapped reads and outputs a file quantifying the expression of each gene or exon (based on parameter choices). At this point raw read counts are hard to interpret due to likely different levels of sequencing achieved per sample and methodological biases.
 
-One common step prior to counting is marking duplicates that arise from data generation for further information, or so that they can be removed. Here we'll use the imaginatively named MarkDuplicates from GATK.
+# Workshop Example
 
-## Differential Gene Analysis
-
-Contrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.
-
-Following these three steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.
-
-# Data
+::: callout-important
+## Workshop Example: Raw Data
 
 We will start with the aligning and counting steps.
 
@@ -78,19 +121,21 @@ We'll be using a full sized RNAseq sample otherwise it causes the programs to th
 -   5-featurecounts.sh
 
 ::: callout-important
-# Exercises: RNAseq processing
+## Exercises: RNAseq processing
 
 Using the pre-made scripts provided, perform the steps on four pairs of fastq files. There are examples of all of these files in the `classdata/Session5` directory which you should copy into your own folder. You will need to edit them to represent your own working folder and filenames:
 
-1.  QC and trim your sample data
+1.1  QC and trim your sample data
 
-2.  Use the outputs from your QC script as inputs to run star.
+1.2 Format Genome (THIS HAS BEEN DONE FOR YOU)
 
-3.  Use the outputs from star to run mark duplicates to both remove and keep duplicates (this will generate two outputs).
+1.3  Use the outputs from your QC script as inputs to run star.
 
-4.  Use the outputs to each of these to run featureCounts on the data.
+1.4  Use the outputs from star to run mark duplicates to both remove and keep duplicates (this will generate two outputs).
 
-5.  Run multiQC on the processed directory and observe the summary.
+1.5  Use the outputs to each of these to run featureCounts on the data.
+
+Run multiQC on the processed directory and observe the summary.
 
 These outputs are now ready to put into R and perform Differential Gene Expression Analysis. Things to remember:
 
@@ -98,6 +143,8 @@ These outputs are now ready to put into R and perform Differential Gene Expressi
 
 -   Use the full path any time it could be ambiguous.
 :::
+
+# Scripts
 
 ::: {.callout-note collapse="true"}
 ## Scripts {#scripts}
@@ -320,23 +367,5 @@ featureCounts \
         ${markdir}/${base}.rmdup.bam
 
 done
-```
-:::
-
-::: {.callout-note collapse="true"}
-## Analyse your RNSseq Data with Sartools
-
-Once you have looked at the RNAseq-Analysis workshop apply this Knowedge to the analyse your *C. elegans* RNAseq data. In the RNAseq-Processing folder your are surplied with an Rstudio script for Sartools `Sartools-template-deseq2.r` and a metadata file `C_elegansL3_Cd_metadata.txt`
-
-the Metadata file describes teh various parameters of the experiment:
-
-```         
-Sample_ID       Files   SRA     Stage   Chemical        Dose    StageDose       Replicate
-L3_Cd_0_rep1    SRR12478185.markdup.featurecount        SRR12478185     L3      Cd      0       L3dose0 rep1
-L3_Cd_0_rep2    SRR12478186.markdup.featurecount        SRR12478186     L3      Cd      0       L3dose0 rep2
-L3_Cd_0_rep3    SRR12478187.markdup.featurecount        SRR12478187     L3      Cd      0       L3dose0 rep3
-L3_Cd_20_rep1   SRR12478191.markdup.featurecount        SRR12478191     L3      Cd      20      L3dose20        rep1
-L3_Cd_20_rep2   SRR12478192.markdup.featurecount        SRR12478192     L3      Cd      20      L3dose20        rep2
-L3_Cd_20_rep3   SRR12478193.markdup.featurecount        SRR12478193     L3      Cd      20      L3dose20        rep3
 ```
 :::

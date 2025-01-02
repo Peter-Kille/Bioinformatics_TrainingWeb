@@ -9,17 +9,32 @@ date: today
 affiliation: "Cardiff University"
 ---
 
-Workshop Recording to come
+## Differential Gene Analysis
 
-# Workshop Overview
+Contrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.
 
-## Processing RNAseq Data
-
-Converting RNASeq data into gene counts is the first-step prior to analysis of the biological function and networks revealed through the subsequent transcription analysis. This process is outside the scope of this workshop but if you are interested [Andres et al 2013](https://cf.sharepoint.com/:b:/t/SystemsBiology/EQ_8U8YJ9i9Fg0bKPo6PmO4Bec8KxoXp6zIco-L5z-_55g?e=Hme6hj0) Provides an excellent overview of the processes involved.
-
-![Process Overview](images/Process_Overview.png) Figure 1. Process overview
+Following these three steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.
 
 ## [Dataset to use - Geo:GDS2565](https://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2565)
+
+::: {.callout-note collapse="true"}
+## Analyse your RNSseq Data with Sartools
+
+Once you have looked at the RNAseq-Analysis workshop apply this Knowedge to the analyse your *C. elegans* RNAseq data. In the RNAseq-Processing folder your are surplied with an Rstudio script for Sartools `Sartools-template-deseq2.r` and a metadata file `C_elegansL3_Cd_metadata.txt`
+
+the Metadata file describes teh various parameters of the experiment:
+
+```         
+Sample_ID       Files   SRA     Stage   Chemical        Dose    StageDose       Replicate
+L3_Cd_0_rep1    SRR12478185.markdup.featurecount        SRR12478185     L3      Cd      0       L3dose0 rep1
+L3_Cd_0_rep2    SRR12478186.markdup.featurecount        SRR12478186     L3      Cd      0       L3dose0 rep2
+L3_Cd_0_rep3    SRR12478187.markdup.featurecount        SRR12478187     L3      Cd      0       L3dose0 rep3
+L3_Cd_20_rep1   SRR12478191.markdup.featurecount        SRR12478191     L3      Cd      20      L3dose20        rep1
+L3_Cd_20_rep2   SRR12478192.markdup.featurecount        SRR12478192     L3      Cd      20      L3dose20        rep2
+L3_Cd_20_rep3   SRR12478193.markdup.featurecount        SRR12478193     L3      Cd      20      L3dose20        rep3
+```
+:::
+
 
 # Key Statistical Concepts
 
