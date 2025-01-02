@@ -2,8 +2,8 @@
 title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
-title: "Differential Gene Expression Analysis"
-subtitle: "SarTools for DEG list generation and downstream analysis"
+title: "Refined Data Representation"
+subtitle: "Venn Diagrams and More"
 author: "Prof. Peter Kille and Dr. Sarah Christofides"
 date: today
 affiliation: "Cardiff University"
@@ -94,3 +94,13 @@ Use the list of \~200 most differentially expressed genes in gProfiler, or other
 -   [Shiny-Seq](https://szenitha.shinyapps.io/shiny-seq3/)
 -   [BeavR](https://github.com/developerpiru/BEAVR#loading-your-data-into-beavr)
 :::
+
+# Other Tools
+
+### [Venn Diagram Maker - Venn](https://bioinfogp.cnb.csic.es/tools/venny/)
+
+### [Divenny Diagram - intersections showing up and down regulation](https://divenn.noble.org/)
+
+### [Pathway analysis - GOnet](https://tools.dice-database.org/GOnet/)
+
+### [GeneCard - Gene function repository](https://www.genecards.org/)

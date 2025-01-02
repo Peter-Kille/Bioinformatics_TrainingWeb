@@ -23,11 +23,11 @@ This presentation introduces transcriptomics, a field of biology focused on the 
 
 [Lecture slides for Transcriptomics an Introduction](pdfs/Transcriptomics_An_Introduction.pdf)
 
-# Transciptimics Analystical Workflow
+# Transcriptomics Analytical Workflow
 
-I have created a graphical overview of the data anlytical workflow needed to analyse Transcriptomic data either perfroming RNASeq analysis from from your own raw sequence reads or through RNASeq or microarray data deposited in NCBI Gene Expression Omnibus (GEO) data repository. All research articles published in perr review journals must submit the data (raw or processes) to a accessible data archive - the most commonly used being NCBI GEO which allows you to reannalyse data that has been previously publish and perffrom larger metadata studies using multiple data sources.
+I have created a graphical overview of the data analytical workflow needed to analyse Transcriptomic data either by perfroming RNASeq analysis from your own raw sequence reads or through RNASeq or microarray data deposited in NCBI Gene Expression Omnibus (GEO) data repository. All research articles published in peer-reviewed journals must submit the data (raw or processed) to an accessible data archive - the most commonly used being NCBI GEO which allows you to reanalyse data that has been previously published and perform larger metadata studies using multiple data sources.
 
-I have provided both a graphics version of the workflow but also a downloadable pdf which has live hyperlinks to software sources and instructions. Many new software packages are being developed and you should use these instrctions as a framework adding new innovations as they become avalible.
+I have provided both a graphics version of the workflow but also a downloadable PDF which has live hyperlinks to software sources and instructions. Many new software packages are being developed and you should use these instructions as a framework adding new innovations as they become available.
 
 ![Transcriptomic Workflow](images/Transcriptomics_Workflow.png)
 

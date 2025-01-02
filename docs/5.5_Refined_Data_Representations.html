@@ -9,7 +9,7 @@
 <meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
 <meta name="dcterms.date" content="2025-01-02">
 
-<title>Differential Gene Expression Analysis</title>
+<title>Refined Data Representation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.5_Refined_Data_Representations.html">Differential Gene Expression Analysis</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.5_Refined_Data_Representations.html">Refined Data Representation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -145,9 +145,9 @@ background: darkred;
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.5_Refined_Data_Representations.html">Differential Gene Expression Analysis</a></li></ol></nav>
-      <h1 class="title">Differential Gene Expression Analysis</h1>
-            <p class="subtitle lead">SarTools for DEG list generation and downstream analysis</p>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.5_Refined_Data_Representations.html">Refined Data Representation</a></li></ol></nav>
+      <h1 class="title">Refined Data Representation</h1>
+            <p class="subtitle lead">Venn Diagrams and More</p>
                       </div>
   </div>
     
@@ -350,7 +350,7 @@ background: darkred;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./5.3_DEG_Generation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Extension: DEG Functional Interpretation</span></a>
+ <span class="menu-text">Data Processing: Generation of Differentially Expressed Genes (DEGS)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -362,7 +362,7 @@ background: darkred;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./5.5_Refined_Data_Representations.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Differential Gene Expression Analysis</span></a>
+ <span class="menu-text">Refined Data Representation</span></a>
   </div>
 </li>
       </ul>
@@ -396,6 +396,13 @@ background: darkred;
   <ul>
   <li><a href="#differential-expression-analysis" id="toc-differential-expression-analysis" class="nav-link active" data-scroll-target="#differential-expression-analysis">Differential Expression Analysis</a></li>
   <li><a href="#visualising-expression-patterns" id="toc-visualising-expression-patterns" class="nav-link" data-scroll-target="#visualising-expression-patterns">Visualising Expression Patterns</a></li>
+  <li><a href="#other-tools" id="toc-other-tools" class="nav-link" data-scroll-target="#other-tools">Other Tools</a>
+  <ul class="collapse">
+  <li><a href="#venn-diagram-maker---venn" id="toc-venn-diagram-maker---venn" class="nav-link" data-scroll-target="#venn-diagram-maker---venn">Venn Diagram Maker - Venn</a></li>
+  <li><a href="#divenny-diagram---intersections-showing-up-and-down-regulation" id="toc-divenny-diagram---intersections-showing-up-and-down-regulation" class="nav-link" data-scroll-target="#divenny-diagram---intersections-showing-up-and-down-regulation">Divenny Diagram - intersections showing up and down regulation</a></li>
+  <li><a href="#pathway-analysis---gonet" id="toc-pathway-analysis---gonet" class="nav-link" data-scroll-target="#pathway-analysis---gonet">Pathway analysis - GOnet</a></li>
+  <li><a href="#genecard---gene-function-repository" id="toc-genecard---gene-function-repository" class="nav-link" data-scroll-target="#genecard---gene-function-repository">GeneCard - Gene function repository</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -515,8 +522,23 @@ Extension: Useful Packages for Downstream Analysis
 </section>
 </div>
 </div>
+</section>
+<section id="other-tools" class="level1">
+<h1>Other Tools</h1>
+<section id="venn-diagram-maker---venn" class="level3">
+<h3 class="anchored" data-anchor-id="venn-diagram-maker---venn"><a href="https://bioinfogp.cnb.csic.es/tools/venny/">Venn Diagram Maker - Venn</a></h3>
+</section>
+<section id="divenny-diagram---intersections-showing-up-and-down-regulation" class="level3">
+<h3 class="anchored" data-anchor-id="divenny-diagram---intersections-showing-up-and-down-regulation"><a href="https://divenn.noble.org/">Divenny Diagram - intersections showing up and down regulation</a></h3>
+</section>
+<section id="pathway-analysis---gonet" class="level3">
+<h3 class="anchored" data-anchor-id="pathway-analysis---gonet"><a href="https://tools.dice-database.org/GOnet/">Pathway analysis - GOnet</a></h3>
+</section>
+<section id="genecard---gene-function-repository" class="level3">
+<h3 class="anchored" data-anchor-id="genecard---gene-function-repository"><a href="https://www.genecards.org/">GeneCard - Gene function repository</a></h3>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

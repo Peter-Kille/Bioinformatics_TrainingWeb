@@ -3,7 +3,7 @@ title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
 title: "Extension: DEG Functional Interpretation"
-subtitle: "From Gene Lists to Biological Meansing"
+subtitle: "From Gene Lists to Biological Meaning"
 author: "Prof Peter Kille"
 date: today
 affiliation: "Cardiff University"
@@ -13,24 +13,9 @@ Workshop Recording to come
 
 # Workshop Overview
 
-## Processing RNAseq Data
-
-Converting RNASeq data into gene counts is the first-step prior to analysis of the biological function and networks revealed through the subsequent transcription analysis. This process is outside the scope of this workshop but if you are interested [Andres et al 2013](https://cf.sharepoint.com/:b:/t/SystemsBiology/EQ_8U8YJ9i9Fg0bKPo6PmO4Bec8KxoXp6zIco-L5z-_55g?e=Hme6hj0) Provides an excellent overview of the processes involved.
-
-![Process Overview](images/Process_Overview.png) Figure 1. Process overview
-
-## [Dataset to use - Geo:GDS2565](https://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2565)
-
 # Key Statistical Concepts
 
 The workshop will use tools that exploit statistical approaches to identify differential expressed genes (DEGs) and subsequently identify the biological pathways or processes that are over represented (some time refereed to as enriched) within the DEGs. You will not need to derive the mathematical formula underpinning these concepts or deploy the algorithums from first principles since the software you will use does this for you but it is worth knowing the background. There is an excellent academic from Stanford University, Prof Josh Starmer, who runs a youtube channel called [StatQuest](https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw) this deal with a large range of biological stats and has some great annotations to explain them, I am going to suggest you watch two of his videos to orientate you about the key statistical concepts for this session:
-
-## False Discovery Rate
-
-```{r FDR, echo=FALSE, warning=FALSE}
-library("vembedr")
-embed_url("https://www.youtube.com/watch?v=K8LQSvtjcEo&t=404svem")
-```
 
 ## Fisher's Exact Test and Enrichment Analysis
 
@@ -39,143 +24,11 @@ library("vembedr")
 embed_url("https://www.youtube.com/watch?v=udyAvvaMjfM")
 ```
 
-# Mining GEO database
+# 4.2A ClusterProflier
 
-## [Geo Workshop](https://cf.sharepoint.com/:b:/t/SystemsBiology/ESRyTPUlb_dJgpHLXUbYk2wBO_SyL9gXhOXOs-BpHFSPsw?e=FXrOLC)
+# 4.2B DAVID
 
-1.  Search for your dataset
-
-Go to Geo DataSets: (https://www.ncbi.nlm.nih.gov/gds/)\[https://www.ncbi.nlm.nih.gov/gds/\]
-
-![GEO_DataSet Search](images/GEO_DataSets.png) ***GEO_DataSet Search***
-
-now select <Search>
-
-2.  Refine search to only show 'DataSets' and 'Series'
-
-Select ***\< DataSets and Series \>*** from the left hand menu.
-
-![Refine to DataSets](images/DataSet_Selection.png) ***Refine to DataSets***
-
-3A. Select procesed dataset (should be number 3 in list and have a heat map icon to the right)
-
-Click on title ***\< Endothelial cell response to ultrafine particles \>*** to select DataSet
-
-![Entry Page](images/GDS2565.png) ***Entry Page***
-
-Take notes off all pertinent information about the experiment, including species and what microarray platform was used. In this case experiment was conducted on rats and analysed on an Affymetrix Human Genome U133 Plus 2.0 Array. Download any publication available. Also, if you are interested you could have a look at the cluster analysis on the right hand site. This will show you how the relationship of the expression profiles from each sample relative to each other. If the experiment was successful, all samples of a certain treatment should cluster together.
-
-4A. Compare experiment samples
-
-Click ***\<Compare 2 sets of sample\>***
-
-Choose ***\<test e.g. One-tailed t-test (A \> B)\>***
-
-Choose <significance level>\_ e.g. 0.001
-
-Click on: Step 2: Select which Samples to put in Group A and Group B
-
-![Select Groups to Comnpare](images/group_compare.png) ***Select Groups to compare***
-
-Choose ***\< Query Group A vs B \>***
-
-You should now see a list of the following DEGS
-
-![DEG list](images/DEGs.png) ***DEG List***
-
-5A. Download DEGs
-
-You have \>100 DEGs but the page only displays the first 20. Before downloading DEGS change the items per page from 20 to 500.
-
-![Items Per Page](images/Items_per_page.png) ***Items Per Page***
-
-Select ***\< Download profile data \>***
-
-and you will be prompted to save the profiling of the DEGs displayed as default file name ***\<profile_data.txt\>***
-
-Save to appropriate location. If needed Select Page 2.... of the DEGS and repeat the download process.
-
-Repeat this process for ***\<test e.g. One-tailed t-test (B \> A) significance level 0.001 \>***\_
-
-6A. Open and Merge DEG lists in Excel
-
-The DEG lists show the gene list with there relative expression level (normalised) and annotation for the genes involved (annotation shown in columns BG -\>). For Our next steps we will use the Gene symbol that is in Column BH.
-
-3B. Select un-processed series (should be number 2 - it will have icon ***\< Analyze with GEO2R \>*** at the end of the entry)
-
-Click on ***\< Analyze with GEO2R \>***
-
-Now Define groups by click clicking the ***\< Define Group pull \>*** down and create groups 'control' and 'Treatment' (enter group name and press enter). Click on each sample in list and associated it with one of your group (you can hold ctrl down to select multiple entry before associating them with the group).
-
-![Select Groups to Compare](images/compare_groups_geo2R.png) ***Select Groups to compare***
-
-4B. Customise the Option and Analyse
-
-Select ***\< Options \>*** and customise as shown below:
-
-![Geo2R Options](images/Geo2R_Options.png) ***Geo2R Options***
-
-Select ***\< reanalyze \>***
-
-Will will now see a Processing icon - this may take a minute or two.
-
-5B. DEGs
-
-You will now see a table and a series of Visualisations - review the visualisation taking note of what each are showing you.
-
-![Geo2R results](images/GEO2R_results.png) ***Geo2R results***
-
-Venn diagram showing GSE4567: Limma, Padj\<0.05 - 704 genes - this is the set we will use
-
-Click on ***\< Explore and download, control vs treatment and Download Significant genes \>***
-
-This will give you a Tsv you can open in excel
-
-6B DEG TSV
-
-Open the DEG TSV - you will have ID (Affymetrix), Gene Symbol, Description and Log2(fold Change) and Adjusted p-value. The Gene.symbol can have multiple symonyms for each gene - this can bias future analsyis. Copy/paste gene symbol column to rught hand column (so no other data is on right), and use ***\< Data \> Text to Columns \> Delimited \> Other \> '/' \> Finish \>***\_ to push secondary symbols into other columns.
-
-## [GEO Database Panopto](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=fc9e75dd-2cad-4c45-9c90-ab6b00bf41e2)
-
-# Enrichment Analysis - gprofiler
-
-[gprofiler](https://biit.cs.ut.ee/gprofiler/gost) provide a great tool for performing enrichment analysis, it also has associated tools for ID conversations and Orthology searching. As well as interrogating enrichment for (Gene Ontology)\[http://geneontology.org/\] terms and pathways (it uses (reactome)\[https://reactome.org/\] it also exploits physical position linked properties such as transcription factor binding sites and miRNSA binding to provide additional evidence of linkages between DEGs. Another function that is exceptionally useful is the ability to provided two gene lists and compare the enrichment side-by-side. To do this place '\> title of list 1' before the first list and '\> title of list 2' (and so on for as many list as you want) before submitting your enrichment analysis ***Note*** the essential element is the '\>' sign but also remember to select ***\< Run as multiquery \>*** if you want this option..
-
-1.  Load you DEG list
-
-Paste you DEG list into the box and click on ***\< Run query \>*** (I suggest you select Benjamin-Hochberg FDR under Advanced options)
-
-![gprofiler upload data](images/gprofiler_upload.png) ***gprofiler upload data***
-
-You may be asked if you wish to confirm gene identified - if you are accept the selected options.
-
-2.  Review Enrichment
-
-You will be presented with and enrichment summary.
-
-![Enrichment Summary](images/Enrichment_summary.png) ***Enrichment Summary***
-
-Here the y-axis is -log10(adjPValue) - so the larger the number the more improbably the functional representation is there by random. The size of the symbols represent the number of genes in each category.
-
-Now select ***\< Detailed Results \>*** this is a tab that is displayed about halfway down the page
-
-![gprofiler detailed results](images/gprofiler_detailed_results.png) ***gprofiler detailed results***
-
-Note:
-
-Adjusted p-value if give next to each term
-
-Top of the detailed results page there is 'CSV' option to download the data into a spreadsheet format.
-
-3.  Consider the Transcription Factor enrichment.
-
-Gene regulation is at the heart of DEGs - co-regulated gene should should have direct or indirect regulatory network moderated through conserved transcription factor binding sites.
-
-![Transcription Factor enrichment](images/TF_enrichment.png) ***Transcription Factor enrichment***
-
-## [gprofiler panopto](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5cebe4ce-805f-4d72-bf17-ab6b01103ae5)
-
-# Database for Annotation, Visualization and Integrated Discovery - DAVID
+Database for Annotation, Visualization and Integrated Discovery - DAVID
 
 David Web site - https://david.ncifcrf.gov/
 
@@ -261,7 +114,44 @@ For annotation Cluster 6 (which contains lots of Metallothionein/cadimum associa
 
 #### [Enrichment with David Panopto](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=e714981c-6144-49f5-9d24-ab6b00d22977)
 
-# [STRING](https://string-db.org/)
+# 4.2C gPofiler
+
+1.  Load you DEG list
+
+Paste you DEG list into the box and click on ***\< Run query \>*** (I suggest you select Benjamin-Hochberg FDR under Advanced options)
+
+![gprofiler upload data](images/gprofiler_upload.png) ***gprofiler upload data***
+
+You may be asked if you wish to confirm gene identified - if you are accept the selected options.
+
+2.  Review Enrichment
+
+You will be presented with and enrichment summary.
+
+![Enrichment Summary](images/Enrichment_summary.png) ***Enrichment Summary***
+
+Here the y-axis is -log10(adjPValue) - so the larger the number the more improbably the functional representation is there by random. The size of the symbols represent the number of genes in each category.
+
+Now select ***\< Detailed Results \>*** this is a tab that is displayed about halfway down the page
+
+![gprofiler detailed results](images/gprofiler_detailed_results.png) ***gprofiler detailed results***
+
+Note:
+
+Adjusted p-value if give next to each term
+
+Top of the detailed results page there is 'CSV' option to download the data into a spreadsheet format.
+
+3.  Consider the Transcription Factor enrichment.
+
+Gene regulation is at the heart of DEGs - co-regulated gene should should have direct or indirect regulatory network moderated through conserved transcription factor binding sites.
+
+![Transcription Factor enrichment](images/TF_enrichment.png) ***Transcription Factor enrichment***
+
+[gprofiler panopto](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5cebe4ce-805f-4d72-bf17-ab6b01103ae5)
+
+# 4.2D String DB
+[STRING](https://string-db.org/)
 
 1.  Login to String-db
 
@@ -291,25 +181,7 @@ Review Enrichment analysis
 
 ![Enrichment analysis in STRING-db](images/String-db_enrichment.png) ***Enrichment analysis in STRING-db***
 
-4.  Create you Gene Network
-
-Return to you dataset and now select ***\< show \>***
-
-Select ***\< view as a interactive network \>***
-
-You will now see a very large and detailed network - go to bottom on page and select settings and change to match the following settings. The select ***\< update \>***
-
-![STRING-db Settings](images/String_db_settings.png) ***STRING-db Settings***
-
-First_network
-
-![STRING-db Network](images/First_network.png) ***STRING-db Network***
-
-Now play and refine your network - try clusting using 3 clusters
-
-## [STRING Panopto](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=edfe7653-7e16-45b0-8e1e-ac7401079592)
-
-# Semantic similarity with Revigo
+# 4.3 Semantic similarity with Revigo
 
 Revigo can take long lists of Gene Ontology terms and summarize them by removing redundant GO terms using semantic similarity. The input you need is a list of GO terms in the format `GO:[NUMBER]` a tab and the associated p-value.
 
@@ -355,16 +227,33 @@ The most intuitive format is are the Tree Maps (see below) whilst the Scatterplo
 
 ![Revigo BP TreeMap](images/Revigo_BP_TreeMap.png) ***Revigo BP TreeMap***
 
-## [Revigo Workshop](https://cf.sharepoint.com/:b:/t/SystemsBiology/EX0QBkPbAUpGoWALa5uyXFQBmvxV5yTI5aYOq3f5pI1W2w?e=cBpqbh)
+[Revigo Workshop](https://cf.sharepoint.com/:b:/t/SystemsBiology/EX0QBkPbAUpGoWALa5uyXFQBmvxV5yTI5aYOq3f5pI1W2w?e=cBpqbh)
 
-## [Revigo Panopto](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f3a44879-12cc-406d-bb95-ab6b00e23416)
+[Revigo Panopto](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f3a44879-12cc-406d-bb95-ab6b00e23416)
 
-# Other Tools
+# 4.4 Gene Networks in Stringdb
+[STRING](https://string-db.org/)
 
-### [Venn Diagram Maker - Venn](https://bioinfogp.cnb.csic.es/tools/venny/)
+1.  Login to String-db
 
-### [Divenny Diagram - intersections showing up and down regulation](https://divenn.noble.org/)
+Open String-db and login using an appropriate account
 
-### [Pathway analysis - GOnet](https://tools.dice-database.org/GOnet/)
+2. Review your datauploads
 
-### [GeneCard - Gene function repository](https://www.genecards.org/)
+select one of your dataset and now select ***\< show \>***
+
+Select ***\< view as a interactive network \>***
+
+You will now see a very large and detailed network - go to bottom on page and select settings and change to match the following settings. The select ***\< update \>***
+
+![STRING-db Settings](images/String_db_settings.png) ***STRING-db Settings***
+
+First_network
+
+![STRING-db Network](images/First_network.png) ***STRING-db Network***
+
+Now play and refine your network - try clusting using 3 clusters
+
+[STRING Panopto](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=edfe7653-7e16-45b0-8e1e-ac7401079592
+
+
