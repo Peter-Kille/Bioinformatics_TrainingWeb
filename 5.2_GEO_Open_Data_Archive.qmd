@@ -15,13 +15,39 @@ All research articles published in peer-reviewed journals must submit the data (
 
 # 2.1A SRA - Fastq and Annotation (Serise Matrix Files)
 
-Provision of SRA and annotation files in teh forms of a 'Serise Matrix Files' requires you to download the data and create count file by mapping as described in [tutorial 5.1] (). Additionally you will need to reconfigure the annotation provided in the Serise Matrix Files into a metadata file format that can be used for SARTools (DESeq2) pipeline for DEG generation [tutorial 5.3]() 
+Provision of SRA and annotation files in teh forms of a 'Serise Matrix Files' requires you to download the data and create count file by mapping as described in [tutorial 5.1] (https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.1_RNAseq_processing.html). Additionally you will need to reconfigure the annotation provided in the Serise Matrix Files into a metadata file format that can be used for SARTools (DESeq2) pipeline for DEG generation [tutorial 5.3](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.3_DEG_Generation.html).
+
+## SRA NCBI download
+
+Approaches to downloading SRA data and annotation is documented in [NCBI Guide](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#download-sequence-data-from-the-) and there is a relatively straightforward read [achive website](https://www.ncbi.nlm.nih.gov/Traces/index.html?view=run_browser) to make this very easy through a browser interface.
+
+## ENA as an alternative portal to SRA
+
+The [European Nucleotide Archive (ENA)](https://www.ebi.ac.uk/ena/browser/home) provides a mirror of the SRA and sometimes both teh serach functions and the download can be easier. If you have a list of accession numbers you can calculate the download addresses for the accession using a simple [FTP guide](https://www.ebi.ac.uk/ena/browser/downloading-data). 
+
+## Extracting metadata
+
+Metadata is contained with the 'Serise Matrix Files' - key annotation parameters are usually found under the '!Sample_characteristics_ch1' or '!Sample_treatment_protocol_ch1' with the SRA code under '!Sample_relation'. However, both the NCBI and SRA dowbload tools provide the ability to download annotations as a TSV - but sadly sometimes you have to go digging into the 'Serise Matrix Files' or even the papers !!
+
+::: {.callout-important collapse="true"}
+## Workshop Example: Raw Data
+
+This example is used as the data for [workshop 5.1](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.1_RNAseq_processing.html)
+
+The data is derived from NCBI Bioproject [PRJNA658134](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA658134) Geo dataset [GSE156507](https://www.ncbi.nlm.nih.gov/gds/?term=GSE156507%5BAccession%5D). For workshop 5.1 I have selected only those L3 stage samples and sub-sampled the data from the 60M reads deposited to \~10M reads so that it can be processed with the workshop but if you want you could download and try and use the full dataset
+:::
 
 # 2.1B Raw Count matrix (CSV/TSV) and Annotation (Serise Matrix Files)
 
-Open the DEG TSV - you will have ID (Affymetrix), Gene Symbol, Description and Log2(fold Change) and Adjusted p-value. The Gene.symbol can have multiple symonyms for each gene - this can bias future analsyis. Copy/paste gene symbol column to rught hand column (so no other data is on right), and use ***\< Data \> Text to Columns \> Delimited \> Other \> '/' \> Finish \>***\_ to push secondary symbols into other columns.
+Many upload now contain a count file and the annotation contained within the 'Serise Matrix Files'.  In this case you can extract the metadata from the annotation file as described above - [## Extracting metadata](## Extracting metadata).
+
+To use the count file TSV matrix file you will need to split it into separate files and save it to a folder called 'FeatureCounts'.  Each file needs to be named by the sample name - usually given as the header for the count column and contain 2 tab deliminated columns the gene ID and the count - no headers. You then need to encorperate these file names into your metadata file for SARTools (DESeq2) and you can run generate DEGs as descrived in [tutorial 5.3](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.3_DEG_Generation.html). 
 
 # 2.1C Geo2R configured unprocessed raw counts and group metadata
+
+Some data has been uploaded into GEO in a form that allows it to be analysed with a web-based R script based on DESeq2 - called Geo2R. The metadata for these data sets have been extracted and can be used to 'define' groups for subsequent DEG generation.
+
+## 1. Identify a Geo2R compatible dataset
 
 Select un-processed series (should be number 2 - it will have icon ***\< Analyze with GEO2R \>*** at the end of the entry)
 
@@ -31,7 +57,7 @@ Now Define groups by click clicking the ***\< Define Group pull \>*** down and c
 
 ![Select Groups to Compare](images/compare_groups_geo2R.png) ***Select Groups to compare***
 
-4B. Customise the Option and Analyse
+## 2. Customise the Option and Analyse
 
 Select ***\< Options \>*** and customise as shown below:
 
@@ -41,7 +67,7 @@ Select ***\< reanalyze \>***
 
 Will will now see a Processing icon - this may take a minute or two.
 
-5B. DEGs
+## 3. Generate a DEG list
 
 You will now see a table and a series of Visualisations - review the visualisation taking note of what each are showing you.
 
@@ -59,19 +85,23 @@ This will give you a Tsv you can open in excel
 
 # 2.1D Processed dataset
 
+Original microarray data and early RNAseq data were upload as fully processed datasets allowing easy (albeit simple) webased analysis.  You can identify tehse both as they display a heatmap icon but also because they are listed as 'datasets' by GEO.
+
+## 1. Search for data of intereste
+
 Go to Geo DataSets: (https://www.ncbi.nlm.nih.gov/gds/)\[https://www.ncbi.nlm.nih.gov/gds/\]
 
 ![GEO_DataSet Search](images/GEO_DataSets.png) ***GEO_DataSet Search***
 
 now select <Search>
 
-2.  Refine search to only show 'DataSets' and 'Series'
+## 2.  Refine search to only show 'DataSets' and 'Series'
 
 Select ***\< DataSets and Series \>*** from the left hand menu.
 
 ![Refine to DataSets](images/DataSet_Selection.png) ***Refine to DataSets***
 
-3A. Select procesed dataset (should be number 3 in list and have a heat map icon to the right)
+## 3. Select procesed dataset (should be number 3 in list and have a heat map icon to the right)
 
 Click on title ***\< Endothelial cell response to ultrafine particles \>*** to select DataSet
 
@@ -79,7 +109,7 @@ Click on title ***\< Endothelial cell response to ultrafine particles \>*** to s
 
 Take notes off all pertinent information about the experiment, including species and what microarray platform was used. In this case experiment was conducted on rats and analysed on an Affymetrix Human Genome U133 Plus 2.0 Array. Download any publication available. Also, if you are interested you could have a look at the cluster analysis on the right hand site. This will show you how the relationship of the expression profiles from each sample relative to each other. If the experiment was successful, all samples of a certain treatment should cluster together.
 
-4A. Compare experiment samples
+## 4. Compare experiment samples
 
 Click ***\<Compare 2 sets of sample\>***
 
@@ -97,7 +127,7 @@ You should now see a list of the following DEGS
 
 ![DEG list](images/DEGs.png) ***DEG List***
 
-5A. Download DEGs
+## 5. Download DEGs
 
 You have \>100 DEGs but the page only displays the first 20. Before downloading DEGS change the items per page from 20 to 500.
 
@@ -111,7 +141,7 @@ Save to appropriate location. If needed Select Page 2.... of the DEGS and repeat
 
 Repeat this process for ***\<test e.g. One-tailed t-test (B \> A) significance level 0.001 \>***\_
 
-6A. Open and Merge DEG lists in Excel
+## 6. Open and Merge DEG lists in Excel
 
 The DEG lists show the gene list with there relative expression level (normalised) and annotation for the genes involved (annotation shown in columns BG -\>). For Our next steps we will use the Gene symbol that is in Column BH.
 

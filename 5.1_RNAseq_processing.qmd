@@ -13,7 +13,7 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-# 1. RNASeq processing
+# RNASeq processing - The Theory
 
 This presentation outlines the RNA sequencing (RNAseq) data analysis process starting from raw pair end sequence reads (fastq files). The scripts can be refined to work with single end data, key notes are provided how this adaptation can be done. Key steps include read trimming, aligning sequencing reads to a reference genome using STAR, quantifying read counts (being respectful of intron/exon boundaries), marking up potential duplicate reads and generation of feature counts. The count data thus generated can be used for generating Differential Expressed Gene (DEG) lists by analsyis with R packages such as DESeq2 or edgeR. Finally, differential gene expression analysis employs statistical tests and visualisations to identify genes with significantly altered expression levels.
 
@@ -31,37 +31,35 @@ RNAseq, or transcriptomics, is a method for quantifying the expression rate for 
 
 There are three main steps to analyse a series of RNAseq fastq sample files (following quality filtering):
 
-## 1.1 QC and Trimming
+# 1.1 QC and Trimming
 
 As with all Next Generation Sequencing (NGS) informatic processes the first step in data analysis is to remove any poor quality bases and any experimentally introduced sequences (adapters or primers). This workflow uses Fastp, although programs such as trimmomatic or trimgalore would also do teh job well. It is recommended to check the data quality and quantity before and after trimming - runnign fastqc on each read file before and after trimming then generating a summary with multiqc provides a great combination.
 
-## 1.2 Formatting Target Genome
+# 1.2 Formatting Target Genome
 
 When aligning to genomes the target genome needs to be formatted it to reflect the mapper being used, read length and genome annotation (using a GTF or GFF file) so that the mapper knows where the intron-exon junctions are. You also should ideally use a 'soft masked' genom so that common repeats are avalible to map to.
 
 This is a RAM intensive process and can take some time for larger genomes - for main stream mappers, such as STAR and Bowtie, and for routine genomes such as human and mouse there are downloaded approriate formatted genomes (just search the web to find) this can save you alot of time and computational resources. If you need to download and format your own genomes here are some sites that are useful to download genomes from in order of 'usability':
 
-### Main steam and model genomes
+## Main steam and model genomes
 
-Ensembl 
-current_fasta -``` https://ftp.ensembl.org/pub/current_fasta/```
+Ensembl current_fasta -`https://ftp.ensembl.org/pub/current_fasta/`
 
-Ensembl current_gtf - ```https://ftp.ensembl.org/pub/current_gtf/```
+Ensembl current_gtf - `https://ftp.ensembl.org/pub/current_gtf/`
 
-### UK Darwin Tree of life Genomes
+## UK Darwin Tree of life Genomes
 
-Genomes and annotations (gtf)
-```https://projects.ensembl.org/darwin-tree-of-life/```
+Genomes and annotations (gtf) `https://projects.ensembl.org/darwin-tree-of-life/`
 
-### NCBI genomes
+## NCBI genomes
 
-Genomes and annotations
-```https://www.ncbi.nlm.nih.gov/datasets/genome/```
+Genomes and annotations `https://www.ncbi.nlm.nih.gov/datasets/genome/`
 
 NCBI currently supports FTP, and API to allow wget or curl to be used to download genomes or a piece of software - a small local binary (this does not need to be installed just download - [datasets](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/reference-docs/command-line/datasets/) ). Examples of how to sue these are given below:
 
-FTP site: ```https://ftp.ncbi.nlm.nih.gov/genomes/```
-```
+FTP site: `https://ftp.ncbi.nlm.nih.gov/genomes/`
+
+```         
 wget https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_945859605.1/download?include_annotation_type=GENOME_FASTA&include_annotation_type=GENOME_GFF&include_annotation_type=RNA_FASTA&include_annotation_type=CDS_FASTA&include_annotation_type=PROT_FASTA&include_annotation_type=SEQUENCE_REPORT&hydrated=FULLY_HYDRATED
 
 #download datasets software from NCBI - https://www.ncbi.nlm.nih.gov/datasets/docs/v2/command-line-tools/download-and-install/
@@ -69,15 +67,15 @@ wget https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_945859605.1/d
 datasets download genome accession GCA_945859605.1 --include gff3,rna,cds,protein,genome,seq-report
 ```
 
-## 1.3 Alignment (STAR)
+# 1.3 Alignment (STAR)
 
 STAR -- (Spliced Transcript Alignments to a Reference) is an alignment package which functions similarly to standard genome alignments, but is designed for short regions of RNA that could span intron-exon junctions and with low compute requirements. STAR outputs a bam format file which contains the locations where all the reads in your dataset have aligned and which genes they cover.
 
-## 1.4 Marking Duplicates
+# 1.4 Marking Duplicates
 
 Duplicate reads can be generated by both library preparation methods and by over-clustering on the Illumina read bed. The latter was more common with older Illumina platforms are rarely seen in newer platforms that have been loaded at the correct concentration but as the library preparation uses lower input the read duplicate is becoming more common from this stage of the process. 'False' duplicates can be observed in libraries that are very deeply sequenced and contain limited cellular diversity - cell lines or tissue isolates as abundant genes will be over-represented. If you want to check the most robust way is to visualise the read coverage for a range of abundant genes - if the coverage is consistent then duplicates are not an issue but if you observe specific amplicons which or over-represented (looking like stacks) then this is an issue you need to address. DO NOT use duplicate removal for 3' UTR library methods.Here we'll use the imaginatively named MarkDuplicates from GATK.
 
-## 1.5 Feature Counting
+# 1.5 Feature Counting
 
 FeatureCounts is a simple package that takes the positions of mapped reads and outputs a file quantifying the expression of each gene or exon (based on parameter choices). At this point raw read counts are hard to interpret due to likely different levels of sequencing achieved per sample and methodological biases.
 
@@ -106,7 +104,7 @@ Caenorhabditis_elegans.WBcel235.dna_sm.toplevel.fa
 
 **This folder contains lots of other index files for star to function that you don't need to touch!** Note: most programs will accept fastq or fastq.gz without any changes however star requires you to include the `--readFilesCommand zcat` parameter.
 
-## Software and scripts
+# Software and scripts
 
 We will be using scripts to run these steps. In the `classdata/Session5/RNAseq-Processing/instance_scripts` folder you will find the following that you can use as a basis for your analysis, however, make sure you're tuning it to your own file structure and file names.
 
@@ -119,21 +117,22 @@ We'll be using a full sized RNAseq sample otherwise it causes the programs to th
 -   3-star.sh
 -   4-markduplicates.sh
 -   5-featurecounts.sh
+:::
 
 ::: callout-important
 ## Exercises: RNAseq processing
 
 Using the pre-made scripts provided, perform the steps on four pairs of fastq files. There are examples of all of these files in the `classdata/Session5` directory which you should copy into your own folder. You will need to edit them to represent your own working folder and filenames:
 
-1.1  QC and trim your sample data
+1.1 QC and trim your sample data
 
 1.2 Format Genome (THIS HAS BEEN DONE FOR YOU)
 
-1.3  Use the outputs from your QC script as inputs to run star.
+1.3 Use the outputs from your QC script as inputs to run star.
 
-1.4  Use the outputs from star to run mark duplicates to both remove and keep duplicates (this will generate two outputs).
+1.4 Use the outputs from star to run mark duplicates to both remove and keep duplicates (this will generate two outputs).
 
-1.5  Use the outputs to each of these to run featureCounts on the data.
+1.5 Use the outputs to each of these to run featureCounts on the data.
 
 Run multiQC on the processed directory and observe the summary.
 
@@ -144,7 +143,7 @@ These outputs are now ready to put into R and perform Differential Gene Expressi
 -   Use the full path any time it could be ambiguous.
 :::
 
-# Scripts
+# Scripts {#scripts}
 
 ::: {.callout-note collapse="true"}
 ## Scripts {#scripts}
@@ -369,3 +368,4 @@ featureCounts \
 done
 ```
 :::
+:::::

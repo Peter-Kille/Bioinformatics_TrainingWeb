@@ -9,13 +9,13 @@ date: today
 affiliation: "Cardiff University"
 ---
 
-Workshop Recording to come
-
 # Workshop Overview
+
+
 
 # Key Statistical Concepts
 
-The workshop will use tools that exploit statistical approaches to identify differential expressed genes (DEGs) and subsequently identify the biological pathways or processes that are over represented (some time refereed to as enriched) within the DEGs. You will not need to derive the mathematical formula underpinning these concepts or deploy the algorithums from first principles since the software you will use does this for you but it is worth knowing the background. There is an excellent academic from Stanford University, Prof Josh Starmer, who runs a youtube channel called [StatQuest](https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw) this deal with a large range of biological stats and has some great annotations to explain them, I am going to suggest you watch two of his videos to orientate you about the key statistical concepts for this session:
+The workshop will use tools that exploit statistical approaches to identify the biological pathways or processes that are over represented (some time refereed to as enriched) within the DEGs. You will not need to derive the mathematical formula underpinning these concepts or deploy the algorithums from first principles since the software you will use does this for you but it is worth knowing the background. There is an excellent academic from UNC-Chapel Hill, Prof Josh Starmer, who runs a youtube channel called [StatQuest](https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw) this deal with a large range of biological stats and has some great annotations to explain them, I am going to suggest you watch two of his videos to orientate you about the key statistical concepts for this session:
 
 ## Fisher's Exact Test and Enrichment Analysis
 
@@ -24,7 +24,12 @@ library("vembedr")
 embed_url("https://www.youtube.com/watch?v=udyAvvaMjfM")
 ```
 
+# 4.1 Filtering Gene Lists
+
+
 # 4.2A ClusterProflier
+
+
 
 # 4.2B DAVID
 

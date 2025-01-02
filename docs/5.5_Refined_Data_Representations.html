@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -133,7 +99,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.5_Refined_Data_Representations.html">Refined Data Representation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="5.5_Refined_Data_Representations.html">Refined Data Representation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -145,7 +111,7 @@ background: darkred;
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.5_Refined_Data_Representations.html">Refined Data Representation</a></li></ol></nav>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="5.5_Refined_Data_Representations.html">Refined Data Representation</a></li></ol></nav>
       <h1 class="title">Refined Data Representation</h1>
             <p class="subtitle lead">Venn Diagrams and More</p>
                       </div>
@@ -193,7 +159,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Big Data Biology and Bioinformatics</span></a>
   </div>
 </li>
@@ -210,7 +176,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
+  <a href="0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Personal Cloud</span></a>
   </div>
 </li>
@@ -227,19 +193,19 @@ background: darkred;
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1.1_Introduction_to_Linux.html" class="sidebar-item-text sidebar-link">
+  <a href="1.1_Introduction_to_Linux.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Linux</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
+  <a href="1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loading Software and Accessing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
+  <a href="1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Commandline Tools and Scripting</span></a>
   </div>
 </li>
@@ -256,19 +222,19 @@ background: darkred;
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2.1_NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">
+  <a href="2.1_NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">NGS Quality Control</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2.2_genome_assembly.html" class="sidebar-item-text sidebar-link">
+  <a href="2.2_genome_assembly.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Genome Assembly</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2.3_hybrid_assemblies.html" class="sidebar-item-text sidebar-link">
+  <a href="2.3_hybrid_assemblies.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Hybrid Assemblies</span></a>
   </div>
 </li>
@@ -285,13 +251,13 @@ background: darkred;
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link">
+  <a href="3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Genome Visualisation and Annotation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
+  <a href="3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Annotating Mitochondrial Genomes</span></a>
   </div>
 </li>
@@ -308,13 +274,13 @@ background: darkred;
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link">
+  <a href="4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Phylogenetics and Phylogeneomics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4.2_phylogentics_phylogenomics_extension.html" class="sidebar-item-text sidebar-link">
+  <a href="4.2_phylogentics_phylogenomics_extension.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Phylogenetics and Phylogeneomics</span></a>
   </div>
 </li>
@@ -331,37 +297,37 @@ background: darkred;
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.0_Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="5.0_Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Transcriptomics: An Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.1_RNAseq_processing.html" class="sidebar-item-text sidebar-link">
+  <a href="5.1_RNAseq_processing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RNAseq Processing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.2_GEO_Open_Data_Archive.html" class="sidebar-item-text sidebar-link">
+  <a href="5.2_GEO_Open_Data_Archive.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gene Expression Omnibus (GEO)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.3_DEG_Generation.html" class="sidebar-item-text sidebar-link">
+  <a href="5.3_DEG_Generation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Processing: Generation of Differentially Expressed Genes (DEGS)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.4_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
+  <a href="5.4_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: DEG Functional Interpretation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.5_Refined_Data_Representations.html" class="sidebar-item-text sidebar-link active">
+  <a href="5.5_Refined_Data_Representations.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Refined Data Representation</span></a>
   </div>
 </li>
@@ -378,7 +344,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6.1_metabarcoding.html" class="sidebar-item-text sidebar-link">
+  <a href="6.1_metabarcoding.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Metagenomics</span></a>
   </div>
 </li>
@@ -394,12 +360,20 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#differential-expression-analysis" id="toc-differential-expression-analysis" class="nav-link active" data-scroll-target="#differential-expression-analysis">Differential Expression Analysis</a></li>
-  <li><a href="#visualising-expression-patterns" id="toc-visualising-expression-patterns" class="nav-link" data-scroll-target="#visualising-expression-patterns">Visualising Expression Patterns</a></li>
-  <li><a href="#other-tools" id="toc-other-tools" class="nav-link" data-scroll-target="#other-tools">Other Tools</a>
+  <li><a href="#ven-diagranms" id="toc-ven-diagranms" class="nav-link active" data-scroll-target="#ven-diagranms">5.1 Ven diagranms</a>
   <ul class="collapse">
   <li><a href="#venn-diagram-maker---venn" id="toc-venn-diagram-maker---venn" class="nav-link" data-scroll-target="#venn-diagram-maker---venn">Venn Diagram Maker - Venn</a></li>
   <li><a href="#divenny-diagram---intersections-showing-up-and-down-regulation" id="toc-divenny-diagram---intersections-showing-up-and-down-regulation" class="nav-link" data-scroll-target="#divenny-diagram---intersections-showing-up-and-down-regulation">Divenny Diagram - intersections showing up and down regulation</a></li>
+  </ul></li>
+  <li><a href="#visualising-expression-patterns" id="toc-visualising-expression-patterns" class="nav-link" data-scroll-target="#visualising-expression-patterns">5.2 Visualising Expression Patterns</a></li>
+  <li><a href="#pcaexplorer" id="toc-pcaexplorer" class="nav-link" data-scroll-target="#pcaexplorer">5.3 PCAexplorer</a></li>
+  <li><a href="#extension-useful-packages-for-downstream-analysis" id="toc-extension-useful-packages-for-downstream-analysis" class="nav-link" data-scroll-target="#extension-useful-packages-for-downstream-analysis">5.4 Extension: Useful Packages for Downstream Analysis</a>
+  <ul class="collapse">
+  <li><a href="#converting-between-common-gene-ids" id="toc-converting-between-common-gene-ids" class="nav-link" data-scroll-target="#converting-between-common-gene-ids">Converting between common gene IDs</a></li>
+  <li><a href="#whole-dataset-annotation-and-ontologies" id="toc-whole-dataset-annotation-and-ontologies" class="nav-link" data-scroll-target="#whole-dataset-annotation-and-ontologies">Whole dataset annotation (and ontologies)</a></li>
+  <li><a href="#interaction-networks" id="toc-interaction-networks" class="nav-link" data-scroll-target="#interaction-networks">Interaction Networks</a></li>
+  <li><a href="#other-visualisation-tools" id="toc-other-visualisation-tools" class="nav-link" data-scroll-target="#other-visualisation-tools">Other visualisation tools</a></li>
+  <li><a href="#whole-packages" id="toc-whole-packages" class="nav-link" data-scroll-target="#whole-packages">Whole packages</a></li>
   <li><a href="#pathway-analysis---gonet" id="toc-pathway-analysis---gonet" class="nav-link" data-scroll-target="#pathway-analysis---gonet">Pathway analysis - GOnet</a></li>
   <li><a href="#genecard---gene-function-repository" id="toc-genecard---gene-function-repository" class="nav-link" data-scroll-target="#genecard---gene-function-repository">GeneCard - Gene function repository</a></li>
   </ul></li>
@@ -413,45 +387,17 @@ background: darkred;
 
 
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2a1422b-b0e3-4a42-ac71-af630098d97d&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
-</iframe>
-<section id="differential-expression-analysis" class="level1">
-<h1>Differential Expression Analysis</h1>
-<p>An R script template, and a folder of pre-computed FeatureCounts outputs are at:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/Session5/RNAseq-Analysis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>A set of nine human neuronal differential RNAseq samples have been sequenced, consisting of 6x control samples (3x two different individuals) and 3x a deletion mutant of the 1q21.1 cytogenetic region of the human genome, and 3x of a duplication of this region.</p>
-<p>Deletions and alterations to this region has a range of impacts on neuropsychiatric disorders and is under active study. See the <a href="https://www.omim.org/entry/612474">omim</a> and the Wikipedia page is remarkably informative! <a href="https://en.wikipedia.org/wiki/1q21.1_deletion_syndrome">1q21.1_deletion_syndrome</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Picture1.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>1q21.1 cytogenetic region of the human genome</figcaption>
-</figure>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercises: Differential Gene Analysis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>We will be using the script <code>Sartools-template-deseq2.r</code> provided on the server and github pages.</p>
-<p>We will use the server Rstudio to do the analysis.</p>
-<ol type="1">
-<li><p>Copy either the FeatureCounts/markdup or rmdup, and targets.txt data to your local directory</p></li>
-<li><p>Inside of Rstudio, edit the sartools script in the fields highlighted with ” * * * ” for your data</p></li>
-<li><p>Explore the html report generated and the differentiation of the sample types</p></li>
-<li><p>Look at the most differentially expressed genes (DEGs) in the outputted tables (excel)</p></li>
-</ol>
-</div>
-</div>
+<section id="ven-diagranms" class="level1">
+<h1>5.1 Ven diagranms</h1>
+<section id="venn-diagram-maker---venn" class="level2">
+<h2 class="anchored" data-anchor-id="venn-diagram-maker---venn"><a href="https://bioinfogp.cnb.csic.es/tools/venny/">Venn Diagram Maker - Venn</a></h2>
+</section>
+<section id="divenny-diagram---intersections-showing-up-and-down-regulation" class="level2">
+<h2 class="anchored" data-anchor-id="divenny-diagram---intersections-showing-up-and-down-regulation"><a href="https://divenn.noble.org/">Divenny Diagram - intersections showing up and down regulation</a></h2>
+</section>
 </section>
 <section id="visualising-expression-patterns" class="level1">
-<h1>Visualising Expression Patterns</h1>
+<h1>5.2 Visualising Expression Patterns</h1>
 <p>Once an analysis has yielded a list of DEGs, it’s common to visualise them in a heatmap. There is a wonderful R package called <a href="https://jokergoo.github.io/ComplexHeatmap-reference/book/">ComplexHeatmap</a>, which will do almost anything you can think of to a heatmap.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -467,16 +413,13 @@ Exercises: Differential Gene Analysis
 <p>Explore the heatmap code provided in the script, and then try customising it.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Extension: Useful Packages for Downstream Analysis
-</div>
-</div>
-<div class="callout-body-container callout-body">
+</section>
+<section id="pcaexplorer" class="level1">
+<h1>5.3 PCAexplorer</h1>
+<p><a href="https://federicomarini.github.io/pcaExplorer/articles/pcaExplorer.html">PCAexplorer</a></p>
+</section>
+<section id="extension-useful-packages-for-downstream-analysis" class="level1">
+<h1>5.4 Extension: Useful Packages for Downstream Analysis</h1>
 <p>Use the list of ~200 most differentially expressed genes in gProfiler, or other online resources below, to investigate the functional connotations (More on this in the extension session).</p>
 <section id="converting-between-common-gene-ids" class="level2">
 <h2 class="anchored" data-anchor-id="converting-between-common-gene-ids">Converting between common gene IDs</h2>
@@ -520,22 +463,11 @@ Extension: Useful Packages for Downstream Analysis
 <li><a href="https://github.com/developerpiru/BEAVR#loading-your-data-into-beavr">BeavR</a></li>
 </ul>
 </section>
-</div>
-</div>
+<section id="pathway-analysis---gonet" class="level2">
+<h2 class="anchored" data-anchor-id="pathway-analysis---gonet"><a href="https://tools.dice-database.org/GOnet/">Pathway analysis - GOnet</a></h2>
 </section>
-<section id="other-tools" class="level1">
-<h1>Other Tools</h1>
-<section id="venn-diagram-maker---venn" class="level3">
-<h3 class="anchored" data-anchor-id="venn-diagram-maker---venn"><a href="https://bioinfogp.cnb.csic.es/tools/venny/">Venn Diagram Maker - Venn</a></h3>
-</section>
-<section id="divenny-diagram---intersections-showing-up-and-down-regulation" class="level3">
-<h3 class="anchored" data-anchor-id="divenny-diagram---intersections-showing-up-and-down-regulation"><a href="https://divenn.noble.org/">Divenny Diagram - intersections showing up and down regulation</a></h3>
-</section>
-<section id="pathway-analysis---gonet" class="level3">
-<h3 class="anchored" data-anchor-id="pathway-analysis---gonet"><a href="https://tools.dice-database.org/GOnet/">Pathway analysis - GOnet</a></h3>
-</section>
-<section id="genecard---gene-function-repository" class="level3">
-<h3 class="anchored" data-anchor-id="genecard---gene-function-repository"><a href="https://www.genecards.org/">GeneCard - Gene function repository</a></h3>
+<section id="genecard---gene-function-repository" class="level2">
+<h2 class="anchored" data-anchor-id="genecard---gene-function-repository"><a href="https://www.genecards.org/">GeneCard - Gene function repository</a></h2>
 
 
 </section>

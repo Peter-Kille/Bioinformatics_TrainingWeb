@@ -150,33 +150,33 @@
     ]
   },
   {
+    "objectID": "5.5_Refined_Data_Representations.html#pathway-analysis---gonet",
+    "href": "5.5_Refined_Data_Representations.html#pathway-analysis---gonet",
+    "title": "Refined Data Representation",
+    "section": "Pathway analysis - GOnet",
+    "text": "Pathway analysis - GOnet",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Refined Data Representation"
+    ]
+  },
+  {
+    "objectID": "5.5_Refined_Data_Representations.html#genecard---gene-function-repository",
+    "href": "5.5_Refined_Data_Representations.html#genecard---gene-function-repository",
+    "title": "Refined Data Representation",
+    "section": "GeneCard - Gene function repository",
+    "text": "GeneCard - Gene function repository",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Refined Data Representation"
+    ]
+  },
+  {
     "objectID": "5.3_DEG_Generation.html",
     "href": "5.3_DEG_Generation.html",
     "title": "Data Processing: Generation of Differentially Expressed Genes (DEGS)",
     "section": "",
-    "text": "Contrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.\nFollowing these three steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.\n\n\n\n\n\n\n\n\n\nAnalyse your RNSseq Data with Sartools\n\n\n\n\n\nOnce you have looked at the RNAseq-Analysis workshop apply this Knowedge to the analyse your C. elegans RNAseq data. In the RNAseq-Processing folder your are surplied with an Rstudio script for Sartools Sartools-template-deseq2.r and a metadata file C_elegansL3_Cd_metadata.txt\nthe Metadata file describes teh various parameters of the experiment:\nSample_ID       Files   SRA     Stage   Chemical        Dose    StageDose       Replicate\nL3_Cd_0_rep1    SRR12478185.markdup.featurecount        SRR12478185     L3      Cd      0       L3dose0 rep1\nL3_Cd_0_rep2    SRR12478186.markdup.featurecount        SRR12478186     L3      Cd      0       L3dose0 rep2\nL3_Cd_0_rep3    SRR12478187.markdup.featurecount        SRR12478187     L3      Cd      0       L3dose0 rep3\nL3_Cd_20_rep1   SRR12478191.markdup.featurecount        SRR12478191     L3      Cd      20      L3dose20        rep1\nL3_Cd_20_rep2   SRR12478192.markdup.featurecount        SRR12478192     L3      Cd      20      L3dose20        rep2\nL3_Cd_20_rep3   SRR12478193.markdup.featurecount        SRR12478193     L3      Cd      20      L3dose20        rep3",
-    "crumbs": [
-      "Session 5. Transcriptomics",
-      "Data Processing: Generation of Differentially Expressed Genes (DEGS)"
-    ]
-  },
-  {
-    "objectID": "5.3_DEG_Generation.html#differential-gene-analysis",
-    "href": "5.3_DEG_Generation.html#differential-gene-analysis",
-    "title": "Data Processing: Generation of Differentially Expressed Genes (DEGS)",
-    "section": "",
     "text": "Contrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.\nFollowing these three steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.",
-    "crumbs": [
-      "Session 5. Transcriptomics",
-      "Data Processing: Generation of Differentially Expressed Genes (DEGS)"
-    ]
-  },
-  {
-    "objectID": "5.3_DEG_Generation.html#dataset-to-use---geogds2565",
-    "href": "5.3_DEG_Generation.html#dataset-to-use---geogds2565",
-    "title": "Data Processing: Generation of Differentially Expressed Genes (DEGS)",
-    "section": "",
-    "text": "Analyse your RNSseq Data with Sartools\n\n\n\n\n\nOnce you have looked at the RNAseq-Analysis workshop apply this Knowedge to the analyse your C. elegans RNAseq data. In the RNAseq-Processing folder your are surplied with an Rstudio script for Sartools Sartools-template-deseq2.r and a metadata file C_elegansL3_Cd_metadata.txt\nthe Metadata file describes teh various parameters of the experiment:\nSample_ID       Files   SRA     Stage   Chemical        Dose    StageDose       Replicate\nL3_Cd_0_rep1    SRR12478185.markdup.featurecount        SRR12478185     L3      Cd      0       L3dose0 rep1\nL3_Cd_0_rep2    SRR12478186.markdup.featurecount        SRR12478186     L3      Cd      0       L3dose0 rep2\nL3_Cd_0_rep3    SRR12478187.markdup.featurecount        SRR12478187     L3      Cd      0       L3dose0 rep3\nL3_Cd_20_rep1   SRR12478191.markdup.featurecount        SRR12478191     L3      Cd      20      L3dose20        rep1\nL3_Cd_20_rep2   SRR12478192.markdup.featurecount        SRR12478192     L3      Cd      20      L3dose20        rep2\nL3_Cd_20_rep3   SRR12478193.markdup.featurecount        SRR12478193     L3      Cd      20      L3dose20        rep3",
     "crumbs": [
       "Session 5. Transcriptomics",
       "Data Processing: Generation of Differentially Expressed Genes (DEGS)"
@@ -194,6 +194,72 @@
     ]
   },
   {
+    "objectID": "5.3_DEG_Generation.html#download-or-copy-the-sartools-template-script",
+    "href": "5.3_DEG_Generation.html#download-or-copy-the-sartools-template-script",
+    "title": "Data Processing: Generation of Differentially Expressed Genes (DEGS)",
+    "section": "1. Download or copy the SARTools template script",
+    "text": "1. Download or copy the SARTools template script\n#Download\nwget https://github.com/PF2-pasteur-fr/SARTools/blob/master/template_script_DESeq2.r\n# an example metadata file can be viewed in workshop example below\n\n# copy script, metadata and feature counts from classdata\nmkdir \ncp -R ~/classdata/Session5/RNAseq-Analysis/Sartools-template-deseq2.r ~/mydata/",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Data Processing: Generation of Differentially Expressed Genes (DEGS)"
+    ]
+  },
+  {
+    "objectID": "5.3_DEG_Generation.html#download-workshop-data",
+    "href": "5.3_DEG_Generation.html#download-workshop-data",
+    "title": "Data Processing: Generation of Differentially Expressed Genes (DEGS)",
+    "section": "2. Download Workshop data",
+    "text": "2. Download Workshop data\nEnsure you analysis folder has a sub-folder which is callled FeatureCounts that contains individual files containing your data and these are referenced in your metadata file - you do not need a subdirectory location as we will add this to the script.\nYour data represents a set of nine human neuronal differential RNAseq samples have been sequenced, consisting of 6x control samples (3x two different individuals) and 3x a deletion mutant of the 1q21.1 cytogenetic region of the human genome, and 3x of a duplication of this region.\nDeletions and alterations to this region has a range of impacts on neuropsychiatric disorders and is under active study. See the omim and the Wikipedia page is remarkably informative! 1q21.1_deletion_syndrome.\n\n\n\n1q21.1 cytogenetic region of the human genome",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Data Processing: Generation of Differentially Expressed Genes (DEGS)"
+    ]
+  },
+  {
+    "objectID": "5.3_DEG_Generation.html#open-your-posit-r-studio-session",
+    "href": "5.3_DEG_Generation.html#open-your-posit-r-studio-session",
+    "title": "Data Processing: Generation of Differentially Expressed Genes (DEGS)",
+    "section": "3. Open your POSIT R-studio session",
+    "text": "3. Open your POSIT R-studio session\nWe recommend using R-studio either on your local machine or using the POSIT based server option for reproducibility.\nOpen SARTools script and edit the areas highlighted in red.\n\n\n\nSARTools\n\n\nThese parameters are:\nworkDir - location of your working directory (easy way of identifying this in Rstudio is to navigate to your working directory in the files tab and then use More&gt;Set As Working Directory to show your workdir in the console window).\nprojectName - Your choosen name for you output files\nauthor - Your Name\ntargetFile - metadata file name\nrawDir - Directory containing your count files\nVarInt - The parameter you wish you analyse\nconRef - The description within your choosen parameter that you wish to use as your control\nN.B. Line 39 there is a parameter for your level is statistical significance - this is by default 0.5 you can chnage this if you need.",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Data Processing: Generation of Differentially Expressed Genes (DEGS)"
+    ]
+  },
+  {
+    "objectID": "5.3_DEG_Generation.html#now-run-the-script",
+    "href": "5.3_DEG_Generation.html#now-run-the-script",
+    "title": "Data Processing: Generation of Differentially Expressed Genes (DEGS)",
+    "section": "4. Now run the script",
+    "text": "4. Now run the script\nAt the top right of your R script window there is a ‘Run’ pull down list - select this and highlight ‘Run all’.",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Data Processing: Generation of Differentially Expressed Genes (DEGS)"
+    ]
+  },
+  {
+    "objectID": "5.3_DEG_Generation.html#review-outputs",
+    "href": "5.3_DEG_Generation.html#review-outputs",
+    "title": "Data Processing: Generation of Differentially Expressed Genes (DEGS)",
+    "section": "5. Review Outputs",
+    "text": "5. Review Outputs\nHTML file - this contains your data analsyis with comprehensive explainatory text. It provides key plots, parameters and summary data.\ntable - this folder contains tab separated varible files of your results (these can be downloaded and explored in excel), both as a complete list but also separate files for up and down regulated gens passing the parameter you defined.\nfigures - this folder contains the images used in the generation of the html output.\nNB - if you change parameters and rerun the script it will overwrite the table and image directories so if you want to keep these make sure you rename name them before rerunning the script.\nout.DEseq2/dds Object - This is a very useful object as many secondary analysis steps can use this object for further analysis.\nWe strongly recommend you save your R session when finished so you do not need to recalulate the dds object.\n\n\n\n\n\n\nExtension Workshop analsyis of RNAseq Data with SARtools\n\n\n\n\n\nDataset to use - Geo:GDS2565\nOnce you have looked at the RNAseq-Analysis workshop apply this Knowedge to the analyse your C. elegans RNAseq data. In the RNAseq-Processing folder your are surplied with an Rstudio script for Sartools Sartools-template-deseq2.r and a metadata file C_elegansL3_Cd_metadata.txt\nthe Metadata file describes the various parameters of the experiment:\nSample_ID       Files   SRA     Stage   Chemical        Dose    StageDose       Replicate\nL3_Cd_0_rep1    SRR12478185.markdup.featurecount        SRR12478185     L3      Cd      0       L3dose0 rep1\nL3_Cd_0_rep2    SRR12478186.markdup.featurecount        SRR12478186     L3      Cd      0       L3dose0 rep2\nL3_Cd_0_rep3    SRR12478187.markdup.featurecount        SRR12478187     L3      Cd      0       L3dose0 rep3\nL3_Cd_20_rep1   SRR12478191.markdup.featurecount        SRR12478191     L3      Cd      20      L3dose20        rep1\nL3_Cd_20_rep2   SRR12478192.markdup.featurecount        SRR12478192     L3      Cd      20      L3dose20        rep2\nL3_Cd_20_rep3   SRR12478193.markdup.featurecount        SRR12478193     L3      Cd      20      L3dose20        rep3",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Data Processing: Generation of Differentially Expressed Genes (DEGS)"
+    ]
+  },
+  {
+    "objectID": "5.3_DEG_Generation.html#dataset-to-use---geogds2565",
+    "href": "5.3_DEG_Generation.html#dataset-to-use---geogds2565",
+    "title": "Data Processing: Generation of Differentially Expressed Genes (DEGS)",
+    "section": "Dataset to use - Geo:GDS2565",
+    "text": "Dataset to use - Geo:GDS2565\nOnce you have looked at the RNAseq-Analysis workshop apply this Knowedge to the analyse your C. elegans RNAseq data. In the RNAseq-Processing folder your are surplied with an Rstudio script for Sartools Sartools-template-deseq2.r and a metadata file C_elegansL3_Cd_metadata.txt\nthe Metadata file describes the various parameters of the experiment:\nSample_ID       Files   SRA     Stage   Chemical        Dose    StageDose       Replicate\nL3_Cd_0_rep1    SRR12478185.markdup.featurecount        SRR12478185     L3      Cd      0       L3dose0 rep1\nL3_Cd_0_rep2    SRR12478186.markdup.featurecount        SRR12478186     L3      Cd      0       L3dose0 rep2\nL3_Cd_0_rep3    SRR12478187.markdup.featurecount        SRR12478187     L3      Cd      0       L3dose0 rep3\nL3_Cd_20_rep1   SRR12478191.markdup.featurecount        SRR12478191     L3      Cd      20      L3dose20        rep1\nL3_Cd_20_rep2   SRR12478192.markdup.featurecount        SRR12478192     L3      Cd      20      L3dose20        rep2\nL3_Cd_20_rep3   SRR12478193.markdup.featurecount        SRR12478193     L3      Cd      20      L3dose20        rep3",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Data Processing: Generation of Differentially Expressed Genes (DEGS)"
+    ]
+  },
+  {
     "objectID": "5.1_RNAseq_processing.html",
     "href": "5.1_RNAseq_processing.html",
     "title": "RNAseq Processing",
@@ -205,66 +271,33 @@
     ]
   },
   {
-    "objectID": "5.1_RNAseq_processing.html#qc-and-trimming",
-    "href": "5.1_RNAseq_processing.html#qc-and-trimming",
+    "objectID": "5.1_RNAseq_processing.html#main-steam-and-model-genomes",
+    "href": "5.1_RNAseq_processing.html#main-steam-and-model-genomes",
     "title": "RNAseq Processing",
-    "section": "1.1 QC and Trimming",
-    "text": "1.1 QC and Trimming\nAs with all Next Generation Sequencing (NGS) informatic processes the first step in data analysis is to remove any poor quality bases and any experimentally introduced sequences (adapters or primers). This workflow uses Fastp, although programs such as trimmomatic or trimgalore would also do teh job well. It is recommended to check the data quality and quantity before and after trimming - runnign fastqc on each read file before and after trimming then generating a summary with multiqc provides a great combination.",
+    "section": "Main steam and model genomes",
+    "text": "Main steam and model genomes\nEnsembl current_fasta -https://ftp.ensembl.org/pub/current_fasta/\nEnsembl current_gtf - https://ftp.ensembl.org/pub/current_gtf/",
     "crumbs": [
       "Session 5. Transcriptomics",
       "RNAseq Processing"
     ]
   },
   {
-    "objectID": "5.1_RNAseq_processing.html#formatting-target-genome",
-    "href": "5.1_RNAseq_processing.html#formatting-target-genome",
+    "objectID": "5.1_RNAseq_processing.html#uk-darwin-tree-of-life-genomes",
+    "href": "5.1_RNAseq_processing.html#uk-darwin-tree-of-life-genomes",
     "title": "RNAseq Processing",
-    "section": "1.2 Formatting Target Genome",
-    "text": "1.2 Formatting Target Genome\nWhen aligning to genomes the target genome needs to be formatted it to reflect the mapper being used, read length and genome annotation (using a GTF or GFF file) so that the mapper knows where the intron-exon junctions are. You also should ideally use a ‘soft masked’ genom so that common repeats are avalible to map to.\nThis is a RAM intensive process and can take some time for larger genomes - for main stream mappers, such as STAR and Bowtie, and for routine genomes such as human and mouse there are downloaded approriate formatted genomes (just search the web to find) this can save you alot of time and computational resources. If you need to download and format your own genomes here are some sites that are useful to download genomes from in order of ‘usability’:\n\nMain steam and model genomes\nEnsembl current_fasta -https://ftp.ensembl.org/pub/current_fasta/\nEnsembl current_gtf - https://ftp.ensembl.org/pub/current_gtf/\n\n\nUK Darwin Tree of life Genomes\nGenomes and annotations (gtf) https://projects.ensembl.org/darwin-tree-of-life/\n\n\nNCBI genomes\nGenomes and annotations https://www.ncbi.nlm.nih.gov/datasets/genome/\nNCBI currently supports FTP, and API to allow wget or curl to be used to download genomes or a piece of software - a small local binary (this does not need to be installed just download - datasets ). Examples of how to sue these are given below:\nFTP site: https://ftp.ncbi.nlm.nih.gov/genomes/\nwget https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_945859605.1/download?include_annotation_type=GENOME_FASTA&include_annotation_type=GENOME_GFF&include_annotation_type=RNA_FASTA&include_annotation_type=CDS_FASTA&include_annotation_type=PROT_FASTA&include_annotation_type=SEQUENCE_REPORT&hydrated=FULLY_HYDRATED\n\n#download datasets software from NCBI - https://www.ncbi.nlm.nih.gov/datasets/docs/v2/command-line-tools/download-and-install/\n# Now you can uses datasets to download your data\ndatasets download genome accession GCA_945859605.1 --include gff3,rna,cds,protein,genome,seq-report",
+    "section": "UK Darwin Tree of life Genomes",
+    "text": "UK Darwin Tree of life Genomes\nGenomes and annotations (gtf) https://projects.ensembl.org/darwin-tree-of-life/",
     "crumbs": [
       "Session 5. Transcriptomics",
       "RNAseq Processing"
     ]
   },
   {
-    "objectID": "5.1_RNAseq_processing.html#alignment-star",
-    "href": "5.1_RNAseq_processing.html#alignment-star",
+    "objectID": "5.1_RNAseq_processing.html#ncbi-genomes",
+    "href": "5.1_RNAseq_processing.html#ncbi-genomes",
     "title": "RNAseq Processing",
-    "section": "1.3 Alignment (STAR)",
-    "text": "1.3 Alignment (STAR)\nSTAR – (Spliced Transcript Alignments to a Reference) is an alignment package which functions similarly to standard genome alignments, but is designed for short regions of RNA that could span intron-exon junctions and with low compute requirements. STAR outputs a bam format file which contains the locations where all the reads in your dataset have aligned and which genes they cover.",
-    "crumbs": [
-      "Session 5. Transcriptomics",
-      "RNAseq Processing"
-    ]
-  },
-  {
-    "objectID": "5.1_RNAseq_processing.html#marking-duplicates",
-    "href": "5.1_RNAseq_processing.html#marking-duplicates",
-    "title": "RNAseq Processing",
-    "section": "1.4 Marking Duplicates",
-    "text": "1.4 Marking Duplicates\nDuplicate reads can be generated by both library preparation methods and by over-clustering on the Illumina read bed. The latter was more common with older Illumina platforms are rarely seen in newer platforms that have been loaded at the correct concentration but as the library preparation uses lower input the read duplicate is becoming more common from this stage of the process. ‘False’ duplicates can be observed in libraries that are very deeply sequenced and contain limited cellular diversity - cell lines or tissue isolates as abundant genes will be over-represented. If you want to check the most robust way is to visualise the read coverage for a range of abundant genes - if the coverage is consistent then duplicates are not an issue but if you observe specific amplicons which or over-represented (looking like stacks) then this is an issue you need to address. DO NOT use duplicate removal for 3’ UTR library methods.Here we’ll use the imaginatively named MarkDuplicates from GATK.",
-    "crumbs": [
-      "Session 5. Transcriptomics",
-      "RNAseq Processing"
-    ]
-  },
-  {
-    "objectID": "5.1_RNAseq_processing.html#feature-counting",
-    "href": "5.1_RNAseq_processing.html#feature-counting",
-    "title": "RNAseq Processing",
-    "section": "1.5 Feature Counting",
-    "text": "1.5 Feature Counting\nFeatureCounts is a simple package that takes the positions of mapped reads and outputs a file quantifying the expression of each gene or exon (based on parameter choices). At this point raw read counts are hard to interpret due to likely different levels of sequencing achieved per sample and methodological biases.",
-    "crumbs": [
-      "Session 5. Transcriptomics",
-      "RNAseq Processing"
-    ]
-  },
-  {
-    "objectID": "5.1_RNAseq_processing.html#software-and-scripts",
-    "href": "5.1_RNAseq_processing.html#software-and-scripts",
-    "title": "RNAseq Processing",
-    "section": "Software and scripts",
-    "text": "Software and scripts\nWe will be using scripts to run these steps. In the classdata/Session5/RNAseq-Processing/instance_scripts folder you will find the following that you can use as a basis for your analysis, however, make sure you’re tuning it to your own file structure and file names.\nWe’ll be using a full sized RNAseq sample otherwise it causes the programs to think it’s bad data. In the classdata/Session3/RNAseq-Processing/rawdata folder there four pairs of RNAseq files from an C. elegans RNAseq study. In the folder classdata/REFS there is a reference genome, and a gtf file. The step 2 “star index genome” has already been run for you (you don’t need to do this!)\nScripts\n\n1-QC.sh\n2-star_index_genome.sh (already done, don’t repeat!)\n3-star.sh\n4-markduplicates.sh\n5-featurecounts.sh\n\n\n\n\n\n\n\nExercises: RNAseq processing\n\n\n\nUsing the pre-made scripts provided, perform the steps on four pairs of fastq files. There are examples of all of these files in the classdata/Session5 directory which you should copy into your own folder. You will need to edit them to represent your own working folder and filenames:\n1.1 QC and trim your sample data\n1.2 Format Genome (THIS HAS BEEN DONE FOR YOU)\n1.3 Use the outputs from your QC script as inputs to run star.\n1.4 Use the outputs from star to run mark duplicates to both remove and keep duplicates (this will generate two outputs).\n1.5 Use the outputs to each of these to run featureCounts on the data.\nRun multiQC on the processed directory and observe the summary.\nThese outputs are now ready to put into R and perform Differential Gene Expression Analysis. Things to remember:\n\nLoad any modules you will need!\nUse the full path any time it could be ambiguous.",
+    "section": "NCBI genomes",
+    "text": "NCBI genomes\nGenomes and annotations https://www.ncbi.nlm.nih.gov/datasets/genome/\nNCBI currently supports FTP, and API to allow wget or curl to be used to download genomes or a piece of software - a small local binary (this does not need to be installed just download - datasets ). Examples of how to sue these are given below:\nFTP site: https://ftp.ncbi.nlm.nih.gov/genomes/\nwget https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/GCA_945859605.1/download?include_annotation_type=GENOME_FASTA&include_annotation_type=GENOME_GFF&include_annotation_type=RNA_FASTA&include_annotation_type=CDS_FASTA&include_annotation_type=PROT_FASTA&include_annotation_type=SEQUENCE_REPORT&hydrated=FULLY_HYDRATED\n\n#download datasets software from NCBI - https://www.ncbi.nlm.nih.gov/datasets/docs/v2/command-line-tools/download-and-install/\n# Now you can uses datasets to download your data\ndatasets download genome accession GCA_945859605.1 --include gff3,rna,cds,protein,genome,seq-report",
     "crumbs": [
       "Session 5. Transcriptomics",
       "RNAseq Processing"
@@ -948,21 +981,142 @@
     "href": "5.2_GEO_Open_Data_Archive.html",
     "title": "Gene Expression Omnibus (GEO)",
     "section": "",
-    "text": "Mining Gene Expression Omnibus (GEO)\nAll research articles published in peer-reviewed journals must submit the data (raw or processed) to an accessible data archive - the most commonly used being NCBI GEO. Unfortunately the standards and types of data acceptable for submission to GEO have changed over the years from microarray datasets that were uploaded fully processed and ready to analyse - Processed Datasets to current practices where links are provided to the raw fastq file deposited within the Short Read Archive (SRA). Below I have provided instructions of how to create gene lists from each data type provided by GEO (I am sure I would have missed one but hopefully the list cover the majority of the options).\n\n\n2.1A SRA - Fastq and Annotation (Serise Matrix Files)\nProvision of SRA and annotation files in teh forms of a ‘Serise Matrix Files’ requires you to download the data and create count file by mapping as described in [tutorial 5.1] (). Additionally you will need to reconfigure the annotation provided in the Serise Matrix Files into a metadata file format that can be used for SARTools (DESeq2) pipeline for DEG generation tutorial 5.3\n\n\n2.1B Raw Count matrix (CSV/TSV) and Annotation (Serise Matrix Files)\nOpen the DEG TSV - you will have ID (Affymetrix), Gene Symbol, Description and Log2(fold Change) and Adjusted p-value. The Gene.symbol can have multiple symonyms for each gene - this can bias future analsyis. Copy/paste gene symbol column to rught hand column (so no other data is on right), and use &lt; Data &gt; Text to Columns &gt; Delimited &gt; Other &gt; ‘/’ &gt; Finish &gt;_ to push secondary symbols into other columns.\n\n\n2.1C Geo2R configured unprocessed raw counts and group metadata\nSelect un-processed series (should be number 2 - it will have icon &lt; Analyze with GEO2R &gt; at the end of the entry)\nClick on &lt; Analyze with GEO2R &gt;\nNow Define groups by click clicking the &lt; Define Group pull &gt; down and create groups ‘control’ and ‘Treatment’ (enter group name and press enter). Click on each sample in list and associated it with one of your group (you can hold ctrl down to select multiple entry before associating them with the group).\n Select Groups to compare\n4B. Customise the Option and Analyse\nSelect &lt; Options &gt; and customise as shown below:\n Geo2R Options\nSelect &lt; reanalyze &gt;\nWill will now see a Processing icon - this may take a minute or two.\n5B. DEGs\nYou will now see a table and a series of Visualisations - review the visualisation taking note of what each are showing you.\n Geo2R results\nVenn diagram showing GSE4567: Limma, Padj&lt;0.05 - 704 genes - this is the set we will use\nClick on &lt; Explore and download, control vs treatment and Download Significant genes &gt;\nThis will give you a Tsv you can open in excel\nDataset to use - Geo:GDS2565\nGeo Workshop\n\n\n2.1D Processed dataset\nGo to Geo DataSets: (https://www.ncbi.nlm.nih.gov/gds/)[https://www.ncbi.nlm.nih.gov/gds/]\n GEO_DataSet Search\nnow select \n\nRefine search to only show ‘DataSets’ and ‘Series’\n\nSelect &lt; DataSets and Series &gt; from the left hand menu.\n Refine to DataSets\n3A. Select procesed dataset (should be number 3 in list and have a heat map icon to the right)\nClick on title &lt; Endothelial cell response to ultrafine particles &gt; to select DataSet\n Entry Page\nTake notes off all pertinent information about the experiment, including species and what microarray platform was used. In this case experiment was conducted on rats and analysed on an Affymetrix Human Genome U133 Plus 2.0 Array. Download any publication available. Also, if you are interested you could have a look at the cluster analysis on the right hand site. This will show you how the relationship of the expression profiles from each sample relative to each other. If the experiment was successful, all samples of a certain treatment should cluster together.\n4A. Compare experiment samples\nClick &lt;Compare 2 sets of sample&gt;\nChoose &lt;test e.g. One-tailed t-test (A &gt; B)&gt;\nChoose _ e.g. 0.001\nClick on: Step 2: Select which Samples to put in Group A and Group B\n Select Groups to compare\nChoose &lt; Query Group A vs B &gt;\nYou should now see a list of the following DEGS\n DEG List\n5A. Download DEGs\nYou have &gt;100 DEGs but the page only displays the first 20. Before downloading DEGS change the items per page from 20 to 500.\n Items Per Page\nSelect &lt; Download profile data &gt;\nand you will be prompted to save the profiling of the DEGs displayed as default file name &lt;profile_data.txt&gt;\nSave to appropriate location. If needed Select Page 2…. of the DEGS and repeat the download process.\nRepeat this process for &lt;test e.g. One-tailed t-test (B &gt; A) significance level 0.001 &gt;_\n6A. Open and Merge DEG lists in Excel\nThe DEG lists show the gene list with there relative expression level (normalised) and annotation for the genes involved (annotation shown in columns BG -&gt;). For Our next steps we will use the Gene symbol that is in Column BH.\nGEO Database Panopto",
+    "text": "All research articles published in peer-reviewed journals must submit the data (raw or processed) to an accessible data archive - the most commonly used being NCBI GEO. Unfortunately the standards and types of data acceptable for submission to GEO have changed over the years from microarray datasets that were uploaded fully processed and ready to analyse - Processed Datasets to current practices where links are provided to the raw fastq file deposited within the Short Read Archive (SRA). Below I have provided instructions of how to create gene lists from each data type provided by GEO (I am sure I would have missed one but hopefully the list cover the majority of the options).",
     "crumbs": [
       "Session 5. Transcriptomics",
       "Gene Expression Omnibus (GEO)"
     ]
   },
   {
-    "objectID": "5.4_DEG_Functional_Interpretation.html",
-    "href": "5.4_DEG_Functional_Interpretation.html",
-    "title": "Extension: DEG Functional Interpretation",
-    "section": "",
-    "text": "Workshop Recording to come",
+    "objectID": "5.2_GEO_Open_Data_Archive.html#sra-ncbi-download",
+    "href": "5.2_GEO_Open_Data_Archive.html#sra-ncbi-download",
+    "title": "Gene Expression Omnibus (GEO)",
+    "section": "SRA NCBI download",
+    "text": "SRA NCBI download\nApproaches to downloading SRA data and annotation is documented in NCBI Guide and there is a relatively straightforward read achive website to make this very easy through a browser interface.",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Gene Expression Omnibus (GEO)"
+    ]
+  },
+  {
+    "objectID": "5.2_GEO_Open_Data_Archive.html#ena-as-an-alternative-portal-to-sra",
+    "href": "5.2_GEO_Open_Data_Archive.html#ena-as-an-alternative-portal-to-sra",
+    "title": "Gene Expression Omnibus (GEO)",
+    "section": "ENA as an alternative portal to SRA",
+    "text": "ENA as an alternative portal to SRA\nThe European Nucleotide Archive (ENA) provides a mirror of the SRA and sometimes both teh serach functions and the download can be easier. If you have a list of accession numbers you can calculate the download addresses for the accession using a simple FTP guide.",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Gene Expression Omnibus (GEO)"
+    ]
+  },
+  {
+    "objectID": "5.2_GEO_Open_Data_Archive.html#extracting-metadata",
+    "href": "5.2_GEO_Open_Data_Archive.html#extracting-metadata",
+    "title": "Gene Expression Omnibus (GEO)",
+    "section": "Extracting metadata",
+    "text": "Extracting metadata\nMetadata is contained with the ‘Serise Matrix Files’ - key annotation parameters are usually found under the ‘!Sample_characteristics_ch1’ or ‘!Sample_treatment_protocol_ch1’ with the SRA code under ‘!Sample_relation’. However, both the NCBI and SRA dowbload tools provide the ability to download annotations as a TSV - but sadly sometimes you have to go digging into the ‘Serise Matrix Files’ or even the papers !!\n\n\n\n\n\n\nWorkshop Example: Raw Data\n\n\n\n\n\nThis example is used as the data for workshop 5.1\nThe data is derived from NCBI Bioproject PRJNA658134 Geo dataset GSE156507. For workshop 5.1 I have selected only those L3 stage samples and sub-sampled the data from the 60M reads deposited to ~10M reads so that it can be processed with the workshop but if you want you could download and try and use the full dataset",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Gene Expression Omnibus (GEO)"
+    ]
+  },
+  {
+    "objectID": "5.2_GEO_Open_Data_Archive.html#identify-a-geo2r-compatible-dataset",
+    "href": "5.2_GEO_Open_Data_Archive.html#identify-a-geo2r-compatible-dataset",
+    "title": "Gene Expression Omnibus (GEO)",
+    "section": "1. Identify a Geo2R compatible dataset",
+    "text": "1. Identify a Geo2R compatible dataset\nSelect un-processed series (should be number 2 - it will have icon &lt; Analyze with GEO2R &gt; at the end of the entry)\nClick on &lt; Analyze with GEO2R &gt;\nNow Define groups by click clicking the &lt; Define Group pull &gt; down and create groups ‘control’ and ‘Treatment’ (enter group name and press enter). Click on each sample in list and associated it with one of your group (you can hold ctrl down to select multiple entry before associating them with the group).\n Select Groups to compare",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Gene Expression Omnibus (GEO)"
+    ]
+  },
+  {
+    "objectID": "5.2_GEO_Open_Data_Archive.html#customise-the-option-and-analyse",
+    "href": "5.2_GEO_Open_Data_Archive.html#customise-the-option-and-analyse",
+    "title": "Gene Expression Omnibus (GEO)",
+    "section": "2. Customise the Option and Analyse",
+    "text": "2. Customise the Option and Analyse\nSelect &lt; Options &gt; and customise as shown below:\n Geo2R Options\nSelect &lt; reanalyze &gt;\nWill will now see a Processing icon - this may take a minute or two.",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Gene Expression Omnibus (GEO)"
+    ]
+  },
+  {
+    "objectID": "5.2_GEO_Open_Data_Archive.html#generate-a-deg-list",
+    "href": "5.2_GEO_Open_Data_Archive.html#generate-a-deg-list",
+    "title": "Gene Expression Omnibus (GEO)",
+    "section": "3. Generate a DEG list",
+    "text": "3. Generate a DEG list\nYou will now see a table and a series of Visualisations - review the visualisation taking note of what each are showing you.\n Geo2R results\nVenn diagram showing GSE4567: Limma, Padj&lt;0.05 - 704 genes - this is the set we will use\nClick on &lt; Explore and download, control vs treatment and Download Significant genes &gt;\nThis will give you a Tsv you can open in excel\nDataset to use - Geo:GDS2565\nGeo Workshop",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Gene Expression Omnibus (GEO)"
+    ]
+  },
+  {
+    "objectID": "5.2_GEO_Open_Data_Archive.html#search-for-data-of-intereste",
+    "href": "5.2_GEO_Open_Data_Archive.html#search-for-data-of-intereste",
+    "title": "Gene Expression Omnibus (GEO)",
+    "section": "1. Search for data of intereste",
+    "text": "1. Search for data of intereste\nGo to Geo DataSets: (https://www.ncbi.nlm.nih.gov/gds/)[https://www.ncbi.nlm.nih.gov/gds/]\n GEO_DataSet Search\nnow select",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Gene Expression Omnibus (GEO)"
+    ]
+  },
+  {
+    "objectID": "5.2_GEO_Open_Data_Archive.html#refine-search-to-only-show-datasets-and-series",
+    "href": "5.2_GEO_Open_Data_Archive.html#refine-search-to-only-show-datasets-and-series",
+    "title": "Gene Expression Omnibus (GEO)",
+    "section": "2. Refine search to only show ‘DataSets’ and ‘Series’",
+    "text": "2. Refine search to only show ‘DataSets’ and ‘Series’\nSelect &lt; DataSets and Series &gt; from the left hand menu.\n Refine to DataSets",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Gene Expression Omnibus (GEO)"
+    ]
+  },
+  {
+    "objectID": "5.2_GEO_Open_Data_Archive.html#select-procesed-dataset-should-be-number-3-in-list-and-have-a-heat-map-icon-to-the-right",
+    "href": "5.2_GEO_Open_Data_Archive.html#select-procesed-dataset-should-be-number-3-in-list-and-have-a-heat-map-icon-to-the-right",
+    "title": "Gene Expression Omnibus (GEO)",
+    "section": "3. Select procesed dataset (should be number 3 in list and have a heat map icon to the right)",
+    "text": "3. Select procesed dataset (should be number 3 in list and have a heat map icon to the right)\nClick on title &lt; Endothelial cell response to ultrafine particles &gt; to select DataSet\n Entry Page\nTake notes off all pertinent information about the experiment, including species and what microarray platform was used. In this case experiment was conducted on rats and analysed on an Affymetrix Human Genome U133 Plus 2.0 Array. Download any publication available. Also, if you are interested you could have a look at the cluster analysis on the right hand site. This will show you how the relationship of the expression profiles from each sample relative to each other. If the experiment was successful, all samples of a certain treatment should cluster together.",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Gene Expression Omnibus (GEO)"
+    ]
+  },
+  {
+    "objectID": "5.2_GEO_Open_Data_Archive.html#compare-experiment-samples",
+    "href": "5.2_GEO_Open_Data_Archive.html#compare-experiment-samples",
+    "title": "Gene Expression Omnibus (GEO)",
+    "section": "4. Compare experiment samples",
+    "text": "4. Compare experiment samples\nClick &lt;Compare 2 sets of sample&gt;\nChoose &lt;test e.g. One-tailed t-test (A &gt; B)&gt;\nChoose _ e.g. 0.001\nClick on: Step 2: Select which Samples to put in Group A and Group B\n Select Groups to compare\nChoose &lt; Query Group A vs B &gt;\nYou should now see a list of the following DEGS\n DEG List",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Gene Expression Omnibus (GEO)"
+    ]
+  },
+  {
+    "objectID": "5.2_GEO_Open_Data_Archive.html#download-degs",
+    "href": "5.2_GEO_Open_Data_Archive.html#download-degs",
+    "title": "Gene Expression Omnibus (GEO)",
+    "section": "5. Download DEGs",
+    "text": "5. Download DEGs\nYou have &gt;100 DEGs but the page only displays the first 20. Before downloading DEGS change the items per page from 20 to 500.\n Items Per Page\nSelect &lt; Download profile data &gt;\nand you will be prompted to save the profiling of the DEGs displayed as default file name &lt;profile_data.txt&gt;\nSave to appropriate location. If needed Select Page 2…. of the DEGS and repeat the download process.\nRepeat this process for &lt;test e.g. One-tailed t-test (B &gt; A) significance level 0.001 &gt;_",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Gene Expression Omnibus (GEO)"
+    ]
+  },
+  {
+    "objectID": "5.2_GEO_Open_Data_Archive.html#open-and-merge-deg-lists-in-excel",
+    "href": "5.2_GEO_Open_Data_Archive.html#open-and-merge-deg-lists-in-excel",
+    "title": "Gene Expression Omnibus (GEO)",
+    "section": "6. Open and Merge DEG lists in Excel",
+    "text": "6. Open and Merge DEG lists in Excel\nThe DEG lists show the gene list with there relative expression level (normalised) and annotation for the genes involved (annotation shown in columns BG -&gt;). For Our next steps we will use the Gene symbol that is in Column BH.\nGEO Database Panopto",
+    "crumbs": [
+      "Session 5. Transcriptomics",
+      "Gene Expression Omnibus (GEO)"
     ]
   },
   {

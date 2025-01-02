@@ -13,41 +13,13 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d2a1422b-b0e3-4a42-ac71-af630098d97d&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+# 5.1 Ven diagranms
 
-</iframe>
+## [Venn Diagram Maker - Venn](https://bioinfogp.cnb.csic.es/tools/venny/)
 
-# Differential Expression Analysis
+## [Divenny Diagram - intersections showing up and down regulation](https://divenn.noble.org/)
 
-An R script template, and a folder of pre-computed FeatureCounts outputs are at:
-
-```{bash}
-~/classdata/Session5/RNAseq-Analysis
-```
-
-A set of nine human neuronal differential RNAseq samples have been sequenced, consisting of 6x control samples (3x two different individuals) and 3x a deletion mutant of the 1q21.1 cytogenetic region of the human genome, and 3x of a duplication of this region.
-
-Deletions and alterations to this region has a range of impacts on neuropsychiatric disorders and is under active study. See the [omim](https://www.omim.org/entry/612474) and the Wikipedia page is remarkably informative! [1q21.1_deletion_syndrome](https://en.wikipedia.org/wiki/1q21.1_deletion_syndrome).
-
-![1q21.1 cytogenetic region of the human genome](images/Picture1.png){width="50%"}
-
-::: callout-important
-## Exercises: Differential Gene Analysis
-
-We will be using the script `Sartools-template-deseq2.r` provided on the server and github pages.
-
-We will use the server Rstudio to do the analysis.
-
-1.  Copy either the FeatureCounts/markdup or rmdup, and targets.txt data to your local directory
-
-2.  Inside of Rstudio, edit the sartools script in the fields highlighted with " \* \* \* " for your data
-
-3.  Explore the html report generated and the differentiation of the sample types
-
-4.  Look at the most differentially expressed genes (DEGs) in the outputted tables (excel)
-:::
-
-# Visualising Expression Patterns
+# 5.2 Visualising Expression Patterns
 
 Once an analysis has yielded a list of DEGs, it's common to visualise them in a heatmap. There is a wonderful R package called [ComplexHeatmap](https://jokergoo.github.io/ComplexHeatmap-reference/book/), which will do almost anything you can think of to a heatmap.
 
@@ -59,8 +31,11 @@ We will be using the script `Heatmaps.r` provided on the server and github pages
 Explore the heatmap code provided in the script, and then try customising it.
 :::
 
-::: callout-warning
-# Extension: Useful Packages for Downstream Analysis
+# 5.3 PCAexplorer
+
+[PCAexplorer](https://federicomarini.github.io/pcaExplorer/articles/pcaExplorer.html)
+
+# 5.4 Extension: Useful Packages for Downstream Analysis
 
 Use the list of \~200 most differentially expressed genes in gProfiler, or other online resources below, to investigate the functional connotations (More on this in the extension session).
 
@@ -93,14 +68,7 @@ Use the list of \~200 most differentially expressed genes in gProfiler, or other
 -   [IPA](https://digitalinsights.qiagen.com/products-overview/discovery-insights-portfolio/analysis-and-visualization/qiagen-ipa/)
 -   [Shiny-Seq](https://szenitha.shinyapps.io/shiny-seq3/)
 -   [BeavR](https://github.com/developerpiru/BEAVR#loading-your-data-into-beavr)
-:::
 
-# Other Tools
+## [Pathway analysis - GOnet](https://tools.dice-database.org/GOnet/)
 
-### [Venn Diagram Maker - Venn](https://bioinfogp.cnb.csic.es/tools/venny/)
-
-### [Divenny Diagram - intersections showing up and down regulation](https://divenn.noble.org/)
-
-### [Pathway analysis - GOnet](https://tools.dice-database.org/GOnet/)
-
-### [GeneCard - Gene function repository](https://www.genecards.org/)
+## [GeneCard - Gene function repository](https://www.genecards.org/)
