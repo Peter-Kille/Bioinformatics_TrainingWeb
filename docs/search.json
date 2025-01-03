@@ -185,78 +185,78 @@
   {
     "objectID": "5.3_DEG_Generation.html",
     "href": "5.3_DEG_Generation.html",
-    "title": "Data Processing: Generation of DEG Lists",
+    "title": "Data Processing : Generation of DEG Lists",
     "section": "",
     "text": "Contrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.\nFollowing these steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Data Processing: Generation of DEG Lists"
+      "Data Processing : Generation of DEG Lists"
     ]
   },
   {
     "objectID": "5.3_DEG_Generation.html#download-or-copy-the-sartools-template-script",
     "href": "5.3_DEG_Generation.html#download-or-copy-the-sartools-template-script",
-    "title": "Data Processing: Generation of DEG Lists",
+    "title": "Data Processing : Generation of DEG Lists",
     "section": "1. Download or copy the SARTools template script",
     "text": "1. Download or copy the SARTools template script\n\n#Download\nwget https://github.com/PF2-pasteur-fr/SARTools/blob/master/template_script_DESeq2.r\n# an example metadata file can be viewed in workshop example below\n\n# copy script, metadata and feature counts from classdata\nmkdir \ncp -R ~/classdata/Session5/RNAseq-Analysis/ ~/mydata/",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Data Processing: Generation of DEG Lists"
+      "Data Processing : Generation of DEG Lists"
     ]
   },
   {
     "objectID": "5.3_DEG_Generation.html#download-workshop-data",
     "href": "5.3_DEG_Generation.html#download-workshop-data",
-    "title": "Data Processing: Generation of DEG Lists",
+    "title": "Data Processing : Generation of DEG Lists",
     "section": "2. Download Workshop data",
     "text": "2. Download Workshop data\nEnsure you analysis folder has a sub-folder which is callled FeatureCounts that contains individual files containing your data and these are referenced in your metadata file - you do not need a subdirectory location as we will add this to the script.\nYour data represents a set of nine human neuronal differential RNAseq samples have been sequenced, consisting of 6x control samples (3x two different individuals) and 3x a deletion mutant of the 1q21.1 cytogenetic region of the human genome, and 3x of a duplication of this region.\nDeletions and alterations to this region has a range of impacts on neuropsychiatric disorders and is under active study. See the omim and the Wikipedia page is remarkably informative! 1q21.1_deletion_syndrome.\n\n\n\n1q21.1 cytogenetic region of the human genome",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Data Processing: Generation of DEG Lists"
+      "Data Processing : Generation of DEG Lists"
     ]
   },
   {
     "objectID": "5.3_DEG_Generation.html#open-your-posit-r-studio-session",
     "href": "5.3_DEG_Generation.html#open-your-posit-r-studio-session",
-    "title": "Data Processing: Generation of DEG Lists",
+    "title": "Data Processing : Generation of DEG Lists",
     "section": "3. Open your POSIT R-studio session",
     "text": "3. Open your POSIT R-studio session\nWe recommend using R-studio either on your local machine or using the POSIT based server option for reproducibility.\nOpen SARTools script and edit the areas highlighted in red.\n\n\n\nSARTools\n\n\nThese parameters are:\nworkDir - location of your working directory (easy way of identifying this in Rstudio is to navigate to your working directory in the files tab and then use More&gt;Set As Working Directory to show your workdir in the console window).\nprojectName - Your choosen name for you output files\nauthor - Your Name\ntargetFile - metadata file name\nrawDir - Directory containing your count files\nVarInt - The parameter you wish you analyse\nconRef - The description within your choosen parameter that you wish to use as your control\nN.B. Line 39 there is a parameter for your level is statistical significance - this is by default 0.5 you can chnage this if you need.",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Data Processing: Generation of DEG Lists"
+      "Data Processing : Generation of DEG Lists"
     ]
   },
   {
     "objectID": "5.3_DEG_Generation.html#now-run-the-script",
     "href": "5.3_DEG_Generation.html#now-run-the-script",
-    "title": "Data Processing: Generation of DEG Lists",
+    "title": "Data Processing : Generation of DEG Lists",
     "section": "4. Now run the script",
     "text": "4. Now run the script\nAt the top right of your R script window there is a ‘Run’ pull down list - select this and highlight ‘Run all’.",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Data Processing: Generation of DEG Lists"
+      "Data Processing : Generation of DEG Lists"
     ]
   },
   {
     "objectID": "5.3_DEG_Generation.html#review-outputs",
     "href": "5.3_DEG_Generation.html#review-outputs",
-    "title": "Data Processing: Generation of DEG Lists",
+    "title": "Data Processing : Generation of DEG Lists",
     "section": "5. Review Outputs",
     "text": "5. Review Outputs\nHTML file - this contains your data analsyis with comprehensive explainatory text. It provides key plots, parameters and summary data.\ntable - this folder contains tab separated varible files of your results (these can be downloaded and explored in excel), both as a complete list but also separate files for up and down regulated gens passing the parameter you defined.\nfigures - this folder contains the images used in the generation of the html output.\nNB - if you change parameters and rerun the script it will overwrite the table and image directories so if you want to keep these make sure you rename name them before rerunning the script.\nout.DEseq2/dds Object - This is a very useful object as many secondary analysis steps can use this object for further analysis.\nWe strongly recommend you save your R session when finished so you do not need to recalulate the dds object.\n\n\n\n\n\n\nExtension Workshop analsyis of RNAseq Data with SARtools\n\n\n\n\n\nDataset to use - Geo:GDS2565\nOnce you have looked at the RNAseq-Analysis workshop apply this Knowedge to the analyse your C. elegans RNAseq data. In the RNAseq-Processing folder your are surplied with an Rstudio script for Sartools Sartools-template-deseq2.r and a metadata file C_elegansL3_Cd_metadata.txt\nthe Metadata file describes the various parameters of the experiment:\nSample_ID       Files   SRA     Stage   Chemical        Dose    StageDose       Replicate\nL3_Cd_0_rep1    SRR12478185.markdup.featurecount        SRR12478185     L3      Cd      0       L3dose0 rep1\nL3_Cd_0_rep2    SRR12478186.markdup.featurecount        SRR12478186     L3      Cd      0       L3dose0 rep2\nL3_Cd_0_rep3    SRR12478187.markdup.featurecount        SRR12478187     L3      Cd      0       L3dose0 rep3\nL3_Cd_20_rep1   SRR12478191.markdup.featurecount        SRR12478191     L3      Cd      20      L3dose20        rep1\nL3_Cd_20_rep2   SRR12478192.markdup.featurecount        SRR12478192     L3      Cd      20      L3dose20        rep2\nL3_Cd_20_rep3   SRR12478193.markdup.featurecount        SRR12478193     L3      Cd      20      L3dose20        rep3",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Data Processing: Generation of DEG Lists"
+      "Data Processing : Generation of DEG Lists"
     ]
   },
   {
     "objectID": "5.3_DEG_Generation.html#dataset-to-use---geogds2565",
     "href": "5.3_DEG_Generation.html#dataset-to-use---geogds2565",
-    "title": "Data Processing: Generation of DEG Lists",
+    "title": "Data Processing : Generation of DEG Lists",
     "section": "Dataset to use - Geo:GDS2565",
     "text": "Dataset to use - Geo:GDS2565\nOnce you have looked at the RNAseq-Analysis workshop apply this Knowedge to the analyse your C. elegans RNAseq data. In the RNAseq-Processing folder your are surplied with an Rstudio script for Sartools Sartools-template-deseq2.r and a metadata file C_elegansL3_Cd_metadata.txt\nthe Metadata file describes the various parameters of the experiment:\nSample_ID       Files   SRA     Stage   Chemical        Dose    StageDose       Replicate\nL3_Cd_0_rep1    SRR12478185.markdup.featurecount        SRR12478185     L3      Cd      0       L3dose0 rep1\nL3_Cd_0_rep2    SRR12478186.markdup.featurecount        SRR12478186     L3      Cd      0       L3dose0 rep2\nL3_Cd_0_rep3    SRR12478187.markdup.featurecount        SRR12478187     L3      Cd      0       L3dose0 rep3\nL3_Cd_20_rep1   SRR12478191.markdup.featurecount        SRR12478191     L3      Cd      20      L3dose20        rep1\nL3_Cd_20_rep2   SRR12478192.markdup.featurecount        SRR12478192     L3      Cd      20      L3dose20        rep2\nL3_Cd_20_rep3   SRR12478193.markdup.featurecount        SRR12478193     L3      Cd      20      L3dose20        rep3",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Data Processing: Generation of DEG Lists"
+      "Data Processing : Generation of DEG Lists"
     ]
   },
   {
@@ -1122,155 +1122,155 @@
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html",
     "href": "5.4_DEG_Functional_Interpretation.html",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "",
     "text": "You have generated a list of Differentially Expressed Genes (DEGs) passing a inital set of criteria you have defined. There are 2 criteria that are commonly used; 1) Statistical = filtered on PAdj (FDR adjusted p-value); and, 2) Level of response, fold change (FC) - filtered on log2FC (log 2 Fold Change).\nFor SARTools & Geo2R data both of these parameters are in you output file but GEO Dataset ‘analsyis ’profile_data.txt’ output only provides normalised counts with full metadata provided in dedicated row along the top. You can manually reformat this data to generate Log2FC but without access to the original raw data PAdj cannot be calculated. You can refilter your list to increase or decrease you stringency. Also you may want to expoloit venn diagram approaches to generate a DEG list that are common to specific treatments or timepoints. These refined gene lists may provide increased insight to the biology than just a binary comparison.\n\n\nOne of the most sigificant challenges for functional interpretation is navigating from what seems to be uninteligable codes associated with your DEGs to informative biological functions. The tools achive this by linking the Gene ID, Gene Symbol or Probe ID you provide with know functional descriptions. Some IDs are easier to link than others, for instance StringDB and gProfiler Ensembl Gene ID and Uniprot IDs link to the Uniprot ‘data warehouse’ that integrates lots of data sources to provide rich functional information. In contrast DAVID also uses Entrez gene IDs as well and specific species ID - flybase ect as well as links to many array IDs (Affymetric and Agilent). There are ID converts - Uniprot Retrieve/IDs requires you to know the ID you are mapping whilst DAVID’s converter tool will try and identify the best match from the IDs you provide - this can be very useful if you dont know where the IDs are you are using. The most robust but hardest to configure is ClusterProfiler because you provide the mapping file - this can very chanllenging to crfeate but once done you are in control and know specifically how the mapping is happening.",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#gene-ids-gene-symbols-or-probe-ids",
     "href": "5.4_DEG_Functional_Interpretation.html#gene-ids-gene-symbols-or-probe-ids",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "",
     "text": "One of the most sigificant challenges for functional interpretation is navigating from what seems to be uninteligable codes associated with your DEGs to informative biological functions. The tools achive this by linking the Gene ID, Gene Symbol or Probe ID you provide with know functional descriptions. Some IDs are easier to link than others, for instance StringDB and gProfiler Ensembl Gene ID and Uniprot IDs link to the Uniprot ‘data warehouse’ that integrates lots of data sources to provide rich functional information. In contrast DAVID also uses Entrez gene IDs as well and specific species ID - flybase ect as well as links to many array IDs (Affymetric and Agilent). There are ID converts - Uniprot Retrieve/IDs requires you to know the ID you are mapping whilst DAVID’s converter tool will try and identify the best match from the IDs you provide - this can be very useful if you dont know where the IDs are you are using. The most robust but hardest to configure is ClusterProfiler because you provide the mapping file - this can very chanllenging to crfeate but once done you are in control and know specifically how the mapping is happening.",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#excel",
     "href": "5.4_DEG_Functional_Interpretation.html#excel",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "Excel",
     "text": "Excel\nAll of the DEG outputs we have discussed can be imported into Excel and filtered and maniputated. However, there are a couple of potential pits falls you want to avoid especially linked to data import; 1) Scientific Numbers, and; 2) NA or empty cells. The first is relative straightforward - the DEG lists you have generated will have Padj expressed as an scientific number 2.7445146621638e-07 if you drag-and-drop the DEG list into excel or just try to open the file you will be asked the question Convert Digits surrounding the letter “E” into scientific notation - you much agree to convert these so they will be recognised as true numbers. R also may generate spreadsheets which contain NA entries, usually indicating an error in calculation for instance a number result from dividing by zero or log(0). On import the columns that contain NAs will not be treated as numbers therefore preventing you filtering - this means when you import these columns you should replace the NA with an number that removes them from analysis (ie pAdj=1 or Log2FC=0) or remove the entire row.\nTo import into excel, Open Blank Workbook in Excel Data &gt; Get Data &gt; From File &gt; Text/CSV. Now Navigate and select file to open. At the bottom right of window look for icons ‘load’, Transform Data’ and ‘Cancel’, select Tranform Data. This menu allows you to configure your spreadsheet - you can remove unwanted columns ect at this point. However, the main issue is to check that Excel us importing the numbers correctly. If you navigate to the top of the Log2FC column you may see a icon ABC icon as seen in the following.",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#excel-data-convert-menu",
     "href": "5.4_DEG_Functional_Interpretation.html#excel-data-convert-menu",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "",
     "text": "This indicates that excel has not correctly identified the column as a Decimal Number - click on teh icon and correct it to a Decimal Number. You will be presented wiyth an option asking you to confirm the ‘type conversion’ - select replace current. Now repreat the processes for the other columns that you will be filtering on. When you are finish select Close and Load Data - it is the Icon at the top left of the window. The speadsheet will now open - not that the NA has been replaced by a blank. Finally to ensure correct filtering - navigate to the columns reprresenting Log2FC and search and replace all blanks with 0 and for pAdj search and replace all blanks with 1. Now if you select the down arrows that have appear in the column heads you can select numeric filetring and apply your filtering criteria. When I have filtered I will copy the filtered gene list into a new worksheet labeled with the criterion I have used - this allows me to keep track of things.\n** As you can see Excel is not the easy choice**",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#r",
     "href": "5.4_DEG_Functional_Interpretation.html#r",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "R",
     "text": "R\nFor SARTools outputs we have configured a Filtering.r script - copy this into work workdir and open it through your POSIT R studio (or loacl Rstudio interface).\n\ncp ~/classdata/Session5/RNAseq-Analysis/Filtering.r ~/mydata/[workdir]\n\nIf you have generated output from Geo2R you will need to input this into R by adding the following code at the beinign of the script:\ndeData &lt;- read.table(file = '[Geo2R_output.tsv]', sep = '\\t', header = TRUE)\n\n\n\n\n\n\nFiltering Script\n\n\n\n\n\n\n##Mark genes that are differentially expressed and filter to just look at those\n\n#Read in your Rdata that you saved previously\nload(\"projectName.RData\")\n\n#Put the DESeq2 results objects into a list called deData\ndeData&lt;-out.DESeq2$results\n\n#Create a factor indicating which genes are DE\n#For a gene to be DE in a pairwise comparison it needs to be a) significant overall and b) have a log2FC &gt;1\nindicateDEGS&lt;-function(deData){\n  DE&lt;-deData$padj &lt;= 0.05 #Set P (adjusted) cut off\n  DE[is.na(DE)]&lt;-FALSE\n  DE[deData$log2FoldChange &lt; 1 & deData$log2FoldChange &gt; -1]&lt;-FALSE #Set fold change cut off\n  return(DE)\n}\n\nfor (i in names(deData)){\n  deData[[i]]$DE&lt;-indicateDEGS(deData[[i]])\n}\n\n#Filter the Deletion_vs_Control to just see DE genes \nView(as.data.frame(deData$Deletion_vs_Control[deData$Deletion_vs_Control$DE==T,]))\n\n\n\n\nAlso on line 12 and 14 make the following chnages\n\n# line 14\nDE&lt;-deData$padj &lt;= 0.05 #replace with\nDE&lt;-deData$adj.P.Val\n# line 16\nDE[deData$log2FoldChange &lt; 1 & deData$log2FoldChange &gt; -1] # replace with DE[deData$logFC &lt; 1 & deData@logFC &gt; -1]",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#gene-enrichment-analysis-with-david",
     "href": "5.4_DEG_Functional_Interpretation.html#gene-enrichment-analysis-with-david",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "Gene Enrichment Analysis with David",
     "text": "Gene Enrichment Analysis with David\n[David - Database for Annotation, Visualization and Integrated Discovery] (https://david.ncifcrf.gov/) was the tool to use for gene enrichment from 2005 - 2016 but the database it hosted became out of date due to a break in the research groups funding. From 2016 (gprofiler)[https://biit.cs.ut.ee/gprofiler/gost] and (stringdb)[https://string-db.org/] have been prefered because they have been kept upto date. However, DAVID was refunded and a 2021 update means it is back to being maintained. Although there will not be time to explore it in our workshop the following workshop and video is there to support anyone wanting to explore its functionality.",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#start-analysis-and-upload-you-data",
     "href": "5.4_DEG_Functional_Interpretation.html#start-analysis-and-upload-you-data",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "1. Start analysis and upload you data",
     "text": "1. Start analysis and upload you data\nSelect &lt; start analysis &gt;\nPaste in you gene list (1) in box (A) and, select identifier (2), and identify as a Gene List (3). Select your species (2a) . In more nuanced analysis you may wish to define your own background - this is useful when working with non-model organisms or if your starting population does not represent the entire genome.\n DAVID Upload\nnow select &lt; Submit List &gt;",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#generate-functional-analysis-of-gene-list",
     "href": "5.4_DEG_Functional_Interpretation.html#generate-functional-analysis-of-gene-list",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "2. Generate Functional Analysis of gene list",
     "text": "2. Generate Functional Analysis of gene list\nIf you have used a non-regulate gene identifier or it does not recognize the identifier type you have used it may ask you to convert the identifiers - check the programs suggestion - it is usually good but you should check.\nSelect &lt; Functional Annotation Tool &gt;\nYou will now be give a annotation summary as shown below:\n Annotation Summary\nYou will see a range of categories for which the functional annotation has been performed. The analysis told has not only cross referenced the gene list against a range of functional databases it has also analysed the gene co-appearance in citations (Literature), links to disease (Disease) and Interactions agonist other linkages.",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#review-gene-ontology-enrichment",
     "href": "5.4_DEG_Functional_Interpretation.html#review-gene-ontology-enrichment",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "3. Review Gene Ontology Enrichment",
     "text": "3. Review Gene Ontology Enrichment\nLet us consider the functional enrichment using (Gene Ontology)[http://geneontology.org/]. Gene Ontology categorizes gene products using three distinct characteristics - Molecular Function (biochemistry of the product), Cellular Component (where it appears in the cell), and the Biological Processes - see more about these classification by reviewing the (Gene Ontology Overview documentation)[http://geneontology.org/docs/ontology-documentation/]. Although ontologies are hierarchical, they are not a simple classification system, they not only allow for gene products to be involved with multiple processes the relationship between elements in the hierarchy are closely defined. The ontology also allows for classification to be as specific or detailed as knowledge allows ie if a protein is a transporter but what it transports is not known it will be defined by a mid-level term ‘transporter’ but if it is known to transport Zn it will be classified at a ‘Zinc transport’ as well as a ‘transporter’. Enrichment analysis uses fisher exact test (see about) to calculate the enrichment at each of these ‘levels’ - although I usually choose to look at the integrated data summarized under the ‘GOTERM_[BP/CC/MF]_DIRECT’.\nclick on the + next too the &lt; Gene_Ontology &gt; category\nSelect &lt; Chart &gt; right of the GOTERM_BP_DIRECT\n BP Enrichment\nNote the P-value and benjamini correct p-value displaying the like hood that those specific Go terms are represented by random - i.e. lost the P-value the less likely the representation of the term is a random select , therefore the more likely the term is enriched.\nTo see the list of gene involved in for instance ‘positive regulation of osteoblast differentiation’ click on the blue bar under the ‘Genes’ column.\nThis is the list you will see:\n positive regulation of osteoblast differentiation\nNow review enrichment for Cell Component and Molecular Function.",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#pathway-analysis",
     "href": "5.4_DEG_Functional_Interpretation.html#pathway-analysis",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "4. Pathway analysis",
     "text": "4. Pathway analysis\nclick on the + next too the &lt; Pathways &gt; category\n Pathway Options\nSelect &lt; Chart &gt; right of the KEGG\n KEGG Enrichment\nYou will see a list of enriched pathways - Note the P-value and benjamini correct p-value displaying the like hood that those specific pathways are represented by random - i.e. lost the P-value the less likely the representation of the pathway is a random select, therefore the more likely the pathways is enriched.\nclick on the &lt; TNF Signalling Pathway &gt;_ in the term column\nThis will display the pathway with the terms that are present in the list shown with red stars or highlight by redtext below the figure.\n TNF Signalling Pathway\nExplore some more pathways",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#functional-annotation-clustering",
     "href": "5.4_DEG_Functional_Interpretation.html#functional-annotation-clustering",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "5. Functional Annotation Clustering",
     "text": "5. Functional Annotation Clustering\nDAVID attempts to summarise enrichment between categorization systems using a tool it terms - Functional annotation clustering. If you select this for you current data set. you will be provided with the following clusters:\n Functional Annotation Clustering\nEach cluster is assigned an enrichment score under which ‘terms’ that are enriched under different classification systems are displayed grouped together. Each ‘grouping’ is given a ‘Enrichment Score’ the larger the enrichment score the higher the score the more likely that cluster is being enriched. Note that the is a ‘Classification Stringency’ pull down menu that allows you to define the strength of associated of the term being grouped together.\nFor annotation Cluster 6 (which contains lots of Metallothionein/cadimum associated terms) there is a small green and black box - after the Enrichment Score and the ‘G’ - click on this box. This brings up a cluster matrix showing the gene gene products on the Y-axis and the classification ‘vlasses’ on the X-axis.\n Cluster Matrix\nDavid Workshop\n\nEnrichment with David Panopto",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#export-go-terms-and-p-values",
     "href": "5.4_DEG_Functional_Interpretation.html#export-go-terms-and-p-values",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "1. Export GO terms and P-values",
     "text": "1. Export GO terms and P-values\n\n1A. gprofiler\nUnder the detailed results menu there is a CSV icon which when clicked can be used to export your enriched terms as a CSV which can then be imported into excel. You can use the associated setting button (the cog symbol next toi the CSV) to select only GO terms to export for this exercise.\n gprofiler export\nYou will then need to copy column C and D into Revigo\n\n\n1B. DAVID\nAfter you have completed the functional analysis select &lt; Gene_ontology &gt; GOTERM_BP_DIRECT &gt; Chart &gt;\nnow Select &lt; Download File &gt;\n DAVID Go Download\nThis will either display the enrichment table into the browser window or ask for a save location depending on your browser settings. If you are not asked for a save location right hand click the displayed table and select Save as and save to a appropriate location as a text file. This text file can be opened/imported into excel. You will file the GO term is concatenated with the GO description in Column B. To split this insert a blank column after column B, then select column B and select menu option &lt; Data &gt; Test to columns &gt;. Select &lt; Delimited &gt; Next &gt;_ and use the radio button to select other and add a ~_ to the box directly to the right of this option. Now click &lt; Next and Finish &gt;. You will see the GO term in now in Column B and the P-value in column F. Select these columns and paste them into Revigo.\nYou should now repeat this process for Molecular Function and Cell Component Terms.When all the data is merged you can paste the GO term and P value into Revigo.",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#revigo-data-entry",
     "href": "5.4_DEG_Functional_Interpretation.html#revigo-data-entry",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "2. Revigo data entry",
     "text": "2. Revigo data entry\nEnter GO terms and P-values into Revigo - they should be in format\nTerm    PValue\nGO:0045892  7.75E-06\nGO:0006694  3.29E-04\nLeave the default settings and select &lt; Start Revigo &gt;",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {
     "objectID": "5.4_DEG_Functional_Interpretation.html#review-revigo-results",
     "href": "5.4_DEG_Functional_Interpretation.html#review-revigo-results",
-    "title": "Extension: DEG Functional Interpretation",
+    "title": "Functional Interpretation of DEG Lists",
     "section": "3. Review Revigo Results",
     "text": "3. Review Revigo Results\nFor each GO term category Revigo will generate a Scatterplot, Table, 3D scatter plot, interactive Graph and Tree Map. Note: at the bottom of each plot there are export options for R and other formats _.\nThe most intuitive format is are the Tree Maps (see below) whilst the Scatterplot output table, which include terms like ‘Frequency and Uniqueness’ can be used to create networks in Cytoscape.\n Revigo BP TreeMap\nRevigo Workshop\nRevigo Panopto",
     "crumbs": [
       "Session 5. Transcriptomics",
-      "Extension: DEG Functional Interpretation"
+      "Functional Interpretation of DEG Lists"
     ]
   },
   {

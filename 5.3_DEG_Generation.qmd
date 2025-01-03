@@ -2,7 +2,7 @@
 title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
-title: "Data Processing: Generation of DEG Lists"
+title: "Data Processing : Generation of DEG Lists"
 subtitle: "From Counts to Gene Lists"
 author: "Prof Peter Kille"
 date: today

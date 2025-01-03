@@ -2,8 +2,8 @@
 title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
-title: "Extension: DEG Functional Interpretation"
-subtitle: "From Gene Lists to Biological Meaning"
+title: "Functional Interpretation of DEG Lists"
+subtitle: "Genes to Biology"
 author: "Prof Peter Kille"
 date: today
 affiliation: "Cardiff University"
