@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof Peter Kille">
-<meta name="dcterms.date" content="2025-01-02">
+<meta name="dcterms.date" content="2025-01-03">
 
 <title>Extension: DEG Functional Interpretation</title>
 <style>
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -101,7 +135,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="5.4_DEG_Functional_Interpretation.html">Extension: DEG Functional Interpretation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.4_DEG_Functional_Interpretation.html">Extension: DEG Functional Interpretation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -113,7 +147,7 @@ background: darkred;
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="5.4_DEG_Functional_Interpretation.html">Extension: DEG Functional Interpretation</a></li></ol></nav>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.4_DEG_Functional_Interpretation.html">Extension: DEG Functional Interpretation</a></li></ol></nav>
       <h1 class="title">Extension: DEG Functional Interpretation</h1>
             <p class="subtitle lead">From Gene Lists to Biological Meaning</p>
                       </div>
@@ -132,7 +166,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 2, 2025</p>
+        <p class="date">January 3, 2025</p>
       </div>
     </div>
     
@@ -161,7 +195,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Big Data Biology and Bioinformatics</span></a>
   </div>
 </li>
@@ -178,7 +212,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
+  <a href="./0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Personal Cloud</span></a>
   </div>
 </li>
@@ -195,19 +229,19 @@ background: darkred;
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="1.1_Introduction_to_Linux.html" class="sidebar-item-text sidebar-link">
+  <a href="./1.1_Introduction_to_Linux.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Linux</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
+  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loading Software and Accessing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
+  <a href="./1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Commandline Tools and Scripting</span></a>
   </div>
 </li>
@@ -224,19 +258,19 @@ background: darkred;
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="2.1_NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">
+  <a href="./2.1_NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">NGS Quality Control</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="2.2_genome_assembly.html" class="sidebar-item-text sidebar-link">
+  <a href="./2.2_genome_assembly.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Genome Assembly</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="2.3_hybrid_assemblies.html" class="sidebar-item-text sidebar-link">
+  <a href="./2.3_hybrid_assemblies.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Hybrid Assemblies</span></a>
   </div>
 </li>
@@ -253,13 +287,13 @@ background: darkred;
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link">
+  <a href="./3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Genome Visualisation and Annotation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
+  <a href="./3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Annotating Mitochondrial Genomes</span></a>
   </div>
 </li>
@@ -276,13 +310,13 @@ background: darkred;
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link">
+  <a href="./4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Phylogenetics and Phylogeneomics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="4.2_phylogentics_phylogenomics_extension.html" class="sidebar-item-text sidebar-link">
+  <a href="./4.2_phylogentics_phylogenomics_extension.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Phylogenetics and Phylogeneomics</span></a>
   </div>
 </li>
@@ -299,37 +333,37 @@ background: darkred;
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="5.0_Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.0_Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Transcriptomics: An Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="5.1_RNAseq_processing.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.1_RNAseq_processing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RNAseq Processing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="5.2_GEO_Open_Data_Archive.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.2_GEO_Open_Data_Archive.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gene Expression Omnibus (GEO)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="5.3_DEG_Generation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Processing: Generation of Differentially Expressed Genes (DEGS)</span></a>
+  <a href="./5.3_DEG_Generation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Processing: Generation of DEG Lists</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="5.4_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link active">
+  <a href="./5.4_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Extension: DEG Functional Interpretation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="5.5_Refined_Data_Representations.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.5_Refined_Data_Representations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Refined Data Representation</span></a>
   </div>
 </li>
@@ -346,7 +380,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="6.1_metabarcoding.html" class="sidebar-item-text sidebar-link">
+  <a href="./6.1_metabarcoding.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Metagenomics</span></a>
   </div>
 </li>
@@ -362,13 +396,18 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#workshop-overview" id="toc-workshop-overview" class="nav-link active" data-scroll-target="#workshop-overview">Workshop Overview</a></li>
-  <li><a href="#key-statistical-concepts" id="toc-key-statistical-concepts" class="nav-link" data-scroll-target="#key-statistical-concepts">Key Statistical Concepts</a>
+  <li><a href="#workshop-overview" id="toc-workshop-overview" class="nav-link active" data-scroll-target="#workshop-overview">Workshop Overview</a>
   <ul class="collapse">
-  <li><a href="#fishers-exact-test-and-enrichment-analysis" id="toc-fishers-exact-test-and-enrichment-analysis" class="nav-link" data-scroll-target="#fishers-exact-test-and-enrichment-analysis">Fisher’s Exact Test and Enrichment Analysis</a></li>
+  <li><a href="#gene-ids-gene-symbols-or-probe-ids" id="toc-gene-ids-gene-symbols-or-probe-ids" class="nav-link" data-scroll-target="#gene-ids-gene-symbols-or-probe-ids">Gene IDs, Gene Symbols or Probe IDs</a></li>
   </ul></li>
-  <li><a href="#filtering-gene-lists" id="toc-filtering-gene-lists" class="nav-link" data-scroll-target="#filtering-gene-lists">4.1 Filtering Gene Lists</a></li>
-  <li><a href="#a-clusterproflier" id="toc-a-clusterproflier" class="nav-link" data-scroll-target="#a-clusterproflier">4.2A ClusterProflier</a></li>
+  <li><a href="#key-statistical-concept---fishers-exact-test-and-enrichment-analysis" id="toc-key-statistical-concept---fishers-exact-test-and-enrichment-analysis" class="nav-link" data-scroll-target="#key-statistical-concept---fishers-exact-test-and-enrichment-analysis">Key Statistical Concept - Fisher’s Exact Test and Enrichment Analysis</a></li>
+  <li><a href="#filtering-gene-lists" id="toc-filtering-gene-lists" class="nav-link" data-scroll-target="#filtering-gene-lists">4.1 Filtering Gene Lists</a>
+  <ul class="collapse">
+  <li><a href="#excel" id="toc-excel" class="nav-link" data-scroll-target="#excel">Excel</a></li>
+  <li><a href="#excel-data-convert-menu" id="toc-excel-data-convert-menu" class="nav-link" data-scroll-target="#excel-data-convert-menu"><img src="images/Excel_convert_menu.png" class="img-fluid" width="150" alt="Excel Data Convert Menu"></a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
+  </ul></li>
+  <li><a href="#a-clusterprofiler" id="toc-a-clusterprofiler" class="nav-link" data-scroll-target="#a-clusterprofiler">4.2A ClusterProfiler</a></li>
   <li><a href="#b-david" id="toc-b-david" class="nav-link" data-scroll-target="#b-david">4.2B DAVID</a>
   <ul class="collapse">
   <li><a href="#gene-enrichment-analysis-with-david" id="toc-gene-enrichment-analysis-with-david" class="nav-link" data-scroll-target="#gene-enrichment-analysis-with-david">Gene Enrichment Analysis with David</a></li>
@@ -379,7 +418,7 @@ background: darkred;
   <li><a href="#functional-annotation-clustering" id="toc-functional-annotation-clustering" class="nav-link" data-scroll-target="#functional-annotation-clustering">5. Functional Annotation Clustering</a></li>
   </ul></li>
   <li><a href="#c-gpofiler" id="toc-c-gpofiler" class="nav-link" data-scroll-target="#c-gpofiler">4.2C gPofiler</a></li>
-  <li><a href="#d-string-db" id="toc-d-string-db" class="nav-link" data-scroll-target="#d-string-db">4.2D String DB</a></li>
+  <li><a href="#d-string-db" id="toc-d-string-db" class="nav-link" data-scroll-target="#d-string-db">4.2D String-db</a></li>
   <li><a href="#semantic-similarity-with-revigo" id="toc-semantic-similarity-with-revigo" class="nav-link" data-scroll-target="#semantic-similarity-with-revigo">4.3 Semantic similarity with Revigo</a>
   <ul class="collapse">
   <li><a href="#export-go-terms-and-p-values" id="toc-export-go-terms-and-p-values" class="nav-link" data-scroll-target="#export-go-terms-and-p-values">1. Export GO terms and P-values</a>
@@ -403,12 +442,16 @@ background: darkred;
 
 <section id="workshop-overview" class="level1">
 <h1>Workshop Overview</h1>
+<p>You have generated a list of Differentially Expressed Genes (DEGs) passing a inital set of criteria you have defined. There are 2 criteria that are commonly used; 1) Statistical = filtered on PAdj (FDR adjusted p-value); and, 2) Level of response, fold change (FC) - filtered on log2FC (log 2 Fold Change).</p>
+<p>For SARTools &amp; Geo2R data both of these parameters are in you output file but GEO Dataset ‘analsyis ’profile_data.txt’ output only provides normalised counts with full metadata provided in dedicated row along the top. You can manually reformat this data to generate Log2FC but without access to the original raw data PAdj cannot be calculated. You can <a href="#%204.1%20Filtering%20Gene%20Lists">refilter your list</a> to increase or decrease you stringency. Also you may want to expoloit <a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.5_Refined_Data_Representations.html#venn-diagrams">venn diagram</a> approaches to generate a DEG list that are common to specific treatments or timepoints. These refined gene lists may provide increased insight to the biology than just a binary comparison.</p>
+<section id="gene-ids-gene-symbols-or-probe-ids" class="level2">
+<h2 class="anchored" data-anchor-id="gene-ids-gene-symbols-or-probe-ids">Gene IDs, Gene Symbols or Probe IDs</h2>
+<p>One of the most sigificant challenges for functional interpretation is navigating from what seems to be uninteligable codes associated with your DEGs to informative biological functions. The tools achive this by linking the Gene ID, Gene Symbol or Probe ID you provide with know functional descriptions. Some IDs are easier to link than others, for instance <a href="#%204.2D%20String-db">StringDB</a> and <a href="#%204.2C%20gPofiler">gProfiler</a> Ensembl Gene ID and Uniprot IDs link to the Uniprot ‘data warehouse’ that integrates lots of data sources to provide rich functional information. In contrast <a href="#%204.2B%20DAVID">DAVID</a> also uses Entrez gene IDs as well and specific species ID - flybase ect as well as links to many array IDs (Affymetric and Agilent). There are ID converts - <a href="https://www.uniprot.org/id-mapping">Uniprot Retrieve/IDs</a> requires you to know the ID you are mapping whilst <a href="https://davidbioinformatics.nih.gov/conversion.jsp">DAVID’s converter tool</a> will try and identify the best match from the IDs you provide - this can be very useful if you dont know where the IDs are you are using. The most robust but hardest to configure is <a href="#%204.2A%20ClusterProfiler">ClusterProfiler</a> because you provide the mapping file - this can very chanllenging to crfeate but once done you are in control and know specifically how the mapping is happening.</p>
 </section>
-<section id="key-statistical-concepts" class="level1">
-<h1>Key Statistical Concepts</h1>
+</section>
+<section id="key-statistical-concept---fishers-exact-test-and-enrichment-analysis" class="level1">
+<h1>Key Statistical Concept - Fisher’s Exact Test and Enrichment Analysis</h1>
 <p>The workshop will use tools that exploit statistical approaches to identify the biological pathways or processes that are over represented (some time refereed to as enriched) within the DEGs. You will not need to derive the mathematical formula underpinning these concepts or deploy the algorithums from first principles since the software you will use does this for you but it is worth knowing the background. There is an excellent academic from UNC-Chapel Hill, Prof Josh Starmer, who runs a youtube channel called <a href="https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw">StatQuest</a> this deal with a large range of biological stats and has some great annotations to explain them, I am going to suggest you watch two of his videos to orientate you about the key statistical concepts for this session:</p>
-<section id="fishers-exact-test-and-enrichment-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="fishers-exact-test-and-enrichment-analysis">Fisher’s Exact Test and Enrichment Analysis</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div class="vembedr">
@@ -419,12 +462,154 @@ background: darkred;
 </div>
 </div>
 </section>
-</section>
 <section id="filtering-gene-lists" class="level1">
 <h1>4.1 Filtering Gene Lists</h1>
+<section id="excel" class="level2">
+<h2 class="anchored" data-anchor-id="excel">Excel</h2>
+<p>All of the DEG outputs we have discussed can be imported into Excel and filtered and maniputated. However, there are a couple of potential pits falls you want to avoid especially linked to data import; 1) Scientific Numbers, and; 2) NA or empty cells. The first is relative straightforward - the DEG lists you have generated will have Padj expressed as an scientific number <code>2.7445146621638e-07</code> if you drag-and-drop the DEG list into excel or just try to open the file you will be asked the question <strong>Convert Digits surrounding the letter “E” into scientific notation</strong> - you much agree to convert these so they will be recognised as true numbers. R also may generate spreadsheets which contain <strong>NA</strong> entries, usually indicating an error in calculation for instance a number result from dividing by zero or log(0). On import the columns that contain NAs will not be treated as numbers therefore preventing you filtering - this means when you import these columns you should replace the NA with an number that removes them from analysis (ie pAdj=1 or Log2FC=0) or remove the entire row.</p>
+<p>To import into excel, Open Blank Workbook in Excel <code>Data &gt; Get Data &gt; From File &gt; Text/CSV</code>. Now Navigate and select file to open. At the bottom right of window look for icons ‘load’, Transform Data’ and ‘Cancel’, select <strong>Tranform Data</strong>. This menu allows you to configure your spreadsheet - you can remove unwanted columns ect at this point. However, the main issue is to check that Excel us importing the numbers correctly. If you navigate to the top of the Log2FC column you may see a icon ABC icon as seen in the following.</p>
 </section>
-<section id="a-clusterproflier" class="level1">
-<h1>4.2A ClusterProflier</h1>
+<section id="excel-data-convert-menu" class="level2">
+<h2 class="anchored" data-anchor-id="excel-data-convert-menu"><img src="images/Excel_convert_menu.png" class="img-fluid" width="150" alt="Excel Data Convert Menu"></h2>
+<p>This indicates that excel has not correctly identified the column as a <strong>Decimal Number</strong> - click on teh icon and correct it to a <strong>Decimal Number</strong>. You will be presented wiyth an option asking you to confirm the ‘type conversion’ - select <code>replace current</code>. Now repreat the processes for the other columns that you will be filtering on. When you are finish select <code>Close and Load Data</code> - it is the Icon at the top left of the window. The speadsheet will now open - not that the <strong>NA</strong> has been replaced by a blank. Finally to ensure correct filtering - navigate to the columns reprresenting Log2FC and search and replace all <strong>blanks</strong> with <strong>0</strong> and for pAdj search and replace all <strong>blanks</strong> with <strong>1</strong>. Now if you select the down arrows that have appear in the column heads you can select numeric filetring and apply your filtering criteria. When I have filtered I will copy the filtered gene list into a new worksheet labeled with the criterion I have used - this allows me to keep track of things.</p>
+<p>** As you can see Excel is not the easy choice**</p>
+</section>
+<section id="r" class="level2">
+<h2 class="anchored" data-anchor-id="r">R</h2>
+<p>For <strong>SARTools</strong> outputs we have configured a <code>Filtering.r</code> script - copy this into work workdir and open it through your POSIT R studio (or loacl Rstudio interface).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/classdata/Session5/RNAseq-Analysis/Filtering.r ~/mydata/<span class="pp">[</span><span class="ss">workdir</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you have generated output from <strong>Geo2R</strong> you will need to input this into R by adding the following code at the beinign of the script:</p>
+<pre><code>deData &lt;- read.table(file = '[Geo2R_output.tsv]', sep = '\t', header = TRUE)</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Filtering Script
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Mark genes that are differentially expressed and filter to just look at those</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Read in your Rdata that you saved previously</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"projectName.RData"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Put the DESeq2 results objects into a list called deData</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>deData<span class="ot">&lt;-</span>out.DESeq2<span class="sc">$</span>results</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a factor indicating which genes are DE</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#For a gene to be DE in a pairwise comparison it needs to be a) significant overall and b) have a log2FC &gt;1</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>indicateDEGS<span class="ot">&lt;-</span><span class="cf">function</span>(deData){</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  DE<span class="ot">&lt;-</span>deData<span class="sc">$</span>padj <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="co">#Set P (adjusted) cut off</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  DE[<span class="fu">is.na</span>(DE)]<span class="ot">&lt;-</span><span class="cn">FALSE</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  DE[deData<span class="sc">$</span>log2FoldChange <span class="sc">&lt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> deData<span class="sc">$</span>log2FoldChange <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="cn">FALSE</span> <span class="co">#Set fold change cut off</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(DE)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">names</span>(deData)){</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  deData[[i]]<span class="sc">$</span>DE<span class="ot">&lt;-</span><span class="fu">indicateDEGS</span>(deData[[i]])</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter the Deletion_vs_Control to just see DE genes </span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(<span class="fu">as.data.frame</span>(deData<span class="sc">$</span>Deletion_vs_Control[deData<span class="sc">$</span>Deletion_vs_Control<span class="sc">$</span>DE<span class="sc">==</span>T,]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Also on line 12 and 14 make the following chnages</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># line 14</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">DE</span><span class="op">&lt;</span>-deData<span class="va">$padj</span> <span class="op">&lt;</span>= 0.05 <span class="co">#replace with</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">DE</span><span class="op">&lt;</span>-deData<span class="va">$adj</span>.P.Val</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># line 16</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="va">DE</span><span class="op">[</span>deData<span class="va">$log2FoldChange</span> &lt; 1 &amp; deData<span class="va">$log2FoldChange</span> &gt; -1<span class="op">]</span> <span class="co"># replace with DE[deData$logFC &lt; 1 &amp; deData@logFC &gt; -1]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="a-clusterprofiler" class="level1">
+<h1>4.2A ClusterProfiler</h1>
+<p>We have configured a <code>GOenrichment.r</code> script - copy this into work workdir and open it through your POSIT R studio (or loacl Rstudio interface).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/classdata/Session5/RNAseq-Analysis/GOenrichment.r ~/mydata/<span class="pp">[</span><span class="ss">workdir</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Follow the instructions in the script.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+GOenrichment
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">###Over-representation analysis</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## You will need to have already fun the filtering script to mark which genes in the DESeq results are differentially expressed</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Install packages</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#BiocManager::install("GO.db", lib.loc="/home/sbi9srj/mydata/Rpackages")</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#BiocManager::install("clusterProfiler", lib.loc="/home/sbi9srj/mydata/Rpackages")</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#BiocManager::install("AnnotationDbi", lib.loc="/home/sbi9srj/mydata/Rpackages")</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GO.db)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clusterProfiler)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Get GO terms for each gene from ensembl</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Select your genome and download the fields Gene.stable.ID, Transcript.stable.ID, GO.term.accession, GO.term.name and Gene.name </span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#Downloaded from http://www.ensembl.org/biomart/martview/6207f5f59f2bbb4ec6a6fdc752f28c1e</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>go<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">"~/classdata/go_map.csv"</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>fullgo<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">as.list</span>(GOTERM),<span class="fu">as.list</span>(GOOBSOLETE))</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#Add in the gene IDs to the DESeq results</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">names</span>(deData)){</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  deData[[i]]<span class="sc">$</span>ID<span class="ot">&lt;-</span>go<span class="sc">$</span>Transcript.stable.ID[<span class="fu">match</span>(<span class="fu">rownames</span>(deData[[i]]), go<span class="sc">$</span>Gene.stable.ID)]</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">#Create some plotting functions</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>mod.barplot<span class="ot">&lt;-</span><span class="cf">function</span>(obj, ont, ...){</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  obj<span class="sc">@</span>result<span class="ot">&lt;-</span>obj<span class="sc">@</span>result[obj<span class="sc">@</span>result<span class="sc">$</span>Ontology<span class="sc">==</span>ont,]</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">barplot</span>(obj, ...)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="co">#Only DEGs in each comparison at P &lt;= 0.05</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="co">#Enrichment relative to annotated genes present in transcriptome</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="co">#Make a list for outputs</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>GO.out<span class="ot">&lt;-</span><span class="fu">list</span>()</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">names</span>(deData)){</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  GO.out[[i]]<span class="ot">&lt;-</span><span class="fu">enricher</span>(deData[[i]][,<span class="st">"ID"</span>][deData[[i]][,<span class="st">"DE"</span>]<span class="sc">==</span><span class="st">"TRUE"</span>], </span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>                              <span class="at">universe =</span> deData[[i]][,<span class="st">"ID"</span>], </span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>                              <span class="at">TERM2GENE=</span>go[,<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>)], <span class="at">TERM2NAME=</span>go[,<span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>)],</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>                              <span class="at">pvalueCutoff =</span> <span class="dv">1</span>, <span class="at">qvalueCutoff    =</span> <span class="dv">1</span>)</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>  GO.out[[i]]<span class="sc">@</span>result[GO.out[[i]]<span class="sc">@</span>result<span class="sc">$</span>p.adjust <span class="sc">&lt;=</span> <span class="fl">0.05</span>,]</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualise one of them</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(GO.out<span class="sc">$</span>Deletion_vs_Control)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="co">#Add in ontology info (BP, CC or MF)</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">names</span>(GO.out)){</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>  GO.out[[i]]<span class="sc">@</span>result<span class="sc">$</span>Ontology<span class="ot">&lt;-</span><span class="fu">as.factor</span>(<span class="fu">sapply</span>(<span class="fu">match</span>(GO.out[[i]]<span class="sc">@</span>result<span class="sc">$</span>ID,<span class="fu">names</span>(fullgo)), <span class="cf">function</span>(x) <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(x)) {<span class="fu">Ontology</span>(fullgo[[x]])} <span class="cf">else</span> {<span class="cn">NA</span>}))</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot barplots for each separately</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="fu">mod.barplot</span>(GO.out<span class="sc">$</span>Deletion_vs_Control, <span class="at">ont =</span> <span class="st">"BP"</span>, <span class="at">title =</span> <span class="st">"BP Enrichment"</span>, <span class="at">showCategory =</span> <span class="dv">15</span>, <span class="at">font.size =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="b-david" class="level1">
 <h1>4.2B DAVID</h1>
@@ -513,7 +698,7 @@ background: darkred;
 <p><a href="https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5cebe4ce-805f-4d72-bf17-ab6b01103ae5">gprofiler panopto</a></p>
 </section>
 <section id="d-string-db" class="level1">
-<h1>4.2D String DB</h1>
+<h1>4.2D String-db</h1>
 <p><a href="https://string-db.org/">STRING</a></p>
 <ol type="1">
 <li>Login to String-db</li>

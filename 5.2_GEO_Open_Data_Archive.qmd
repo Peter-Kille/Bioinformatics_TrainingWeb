@@ -11,19 +11,19 @@ affiliation: "Cardiff University"
 
 # Mining Gene Expression Omnibus (GEO)
 
-All research articles published in peer-reviewed journals must submit the data (raw or processed) to an accessible data archive - the most commonly used being NCBI GEO. Unfortunately the standards and types of data acceptable for submission to GEO have changed over the years from microarray datasets that were uploaded fully processed and ready to analyse - [Processed Datasets](#2.1D Processed dataset) to current practices where links are provided to the raw fastq file deposited within the Short Read Archive (SRA).  Below I have provided instructions of how to create gene lists from each data type provided by GEO (I am sure I would have missed one but hopefully the list cover the majority of the options).
+All research articles published in peer-reviewed journals must submit the data (raw or processed) to an accessible data archive - the most commonly used being NCBI GEO. Unfortunately the standards and types of data acceptable for submission to GEO have changed over the years from microarray datasets that were uploaded fully processed and ready to analyse - [Processed Datasets](#2.1D%20Processed%20dataset) to current practices where links are provided to the raw fastq file deposited within the Short Read Archive (SRA). Below I have provided instructions of how to create gene lists from each data type provided by GEO (I am sure I would have missed one but hopefully the list cover the majority of the options).
 
 # 2.1A SRA - Fastq and Annotation (Serise Matrix Files)
 
-Provision of SRA and annotation files in teh forms of a 'Serise Matrix Files' requires you to download the data and create count file by mapping as described in [tutorial 5.1] (https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.1_RNAseq_processing.html). Additionally you will need to reconfigure the annotation provided in the Serise Matrix Files into a metadata file format that can be used for SARTools (DESeq2) pipeline for DEG generation [tutorial 5.3](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.3_DEG_Generation.html).
+Provision of SRA and annotation files in teh forms of a 'Serise Matrix Files' requires you to download the data and create count file by mapping as described in \[tutorial 5.1\] (https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.1_RNAseq_processing.html). Additionally you will need to reconfigure the annotation provided in the Serise Matrix Files into a metadata file format that can be used for SARTools (DESeq2) pipeline for DEG generation [tutorial 5.3](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.3_DEG_Generation.html).
 
 ## SRA NCBI download
 
-Approaches to downloading SRA data and annotation is documented in [NCBI Guide](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#download-sequence-data-from-the-) and there is a relatively straightforward read [achive website](https://www.ncbi.nlm.nih.gov/Traces/index.html?view=run_browser) to make this very easy through a browser interface.
+Samples preconfigured for SRA download ofen have ```SRA Run Selector``` as a link at the bottom of the entry. Approaches to downloading SRA data and annotation is documented in [NCBI Guide](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#download-sequence-data-from-the-) and there is a relatively straightforward read [achive website](https://www.ncbi.nlm.nih.gov/Traces/index.html?view=run_browser) to make this very easy through a browser interface.
 
 ## ENA as an alternative portal to SRA
 
-The [European Nucleotide Archive (ENA)](https://www.ebi.ac.uk/ena/browser/home) provides a mirror of the SRA and sometimes both teh serach functions and the download can be easier. If you have a list of accession numbers you can calculate the download addresses for the accession using a simple [FTP guide](https://www.ebi.ac.uk/ena/browser/downloading-data). 
+The [European Nucleotide Archive (ENA)](https://www.ebi.ac.uk/ena/browser/home) provides a mirror of the SRA and sometimes both teh serach functions and the download can be easier. If you have a list of accession numbers you can calculate the download addresses for the accession using a simple [FTP guide](https://www.ebi.ac.uk/ena/browser/downloading-data).
 
 ## Extracting metadata
 
@@ -39,9 +39,9 @@ The data is derived from NCBI Bioproject [PRJNA658134](https://www.ncbi.nlm.nih.
 
 # 2.1B Raw Count matrix (CSV/TSV) and Annotation (Serise Matrix Files)
 
-Many upload now contain a count file and the annotation contained within the 'Serise Matrix Files'.  In this case you can extract the metadata from the annotation file as described above - [## Extracting metadata](## Extracting metadata).
+Many upload now contain a count file and the annotation contained within the 'Serise Matrix Files'. In this case you can extract the metadata from the annotation file as described above - [\## Extracting metadata](##%20Extracting%20metadata).
 
-To use the count file TSV matrix file you will need to split it into separate files and save it to a folder called 'FeatureCounts'.  Each file needs to be named by the sample name - usually given as the header for the count column and contain 2 tab deliminated columns the gene ID and the count - no headers. You then need to encorperate these file names into your metadata file for SARTools (DESeq2) and you can run generate DEGs as descrived in [tutorial 5.3](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.3_DEG_Generation.html). 
+To use the count file TSV matrix file you will need to split it into separate files and save it to a folder called 'FeatureCounts'. Each file needs to be named by the sample name - usually given as the header for the count column and contain 2 tab deliminated columns the gene ID and the count - no headers. You then need to encorperate these file names into your metadata file for SARTools (DESeq2) and you can run generate DEGs as descrived in [tutorial 5.3](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.3_DEG_Generation.html).
 
 # 2.1C Geo2R configured unprocessed raw counts and group metadata
 
@@ -85,7 +85,7 @@ This will give you a Tsv you can open in excel
 
 # 2.1D Processed dataset
 
-Original microarray data and early RNAseq data were upload as fully processed datasets allowing easy (albeit simple) webased analysis.  You can identify tehse both as they display a heatmap icon but also because they are listed as 'datasets' by GEO.
+Original microarray data and early RNAseq data were upload as fully processed datasets allowing easy (albeit simple) webased analysis. You can identify tehse both as they display a heatmap icon but also because they are listed as 'datasets' by GEO.
 
 ## 1. Search for data of intereste
 
@@ -95,7 +95,7 @@ Go to Geo DataSets: (https://www.ncbi.nlm.nih.gov/gds/)\[https://www.ncbi.nlm.ni
 
 now select <Search>
 
-## 2.  Refine search to only show 'DataSets' and 'Series'
+## 2. Refine search to only show 'DataSets' and 'Series'
 
 Select ***\< DataSets and Series \>*** from the left hand menu.
 
