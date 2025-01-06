@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof Peter Kille">
-<meta name="dcterms.date" content="2025-01-03">
+<meta name="dcterms.date" content="2025-01-06">
 
 <title>Functional Interpretation of DEG Lists</title>
 <style>
@@ -166,7 +166,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 3, 2025</p>
+        <p class="date">January 6, 2025</p>
       </div>
     </div>
     
@@ -480,8 +480,6 @@ background: darkred;
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/classdata/Session5/RNAseq-Analysis/Filtering.r ~/mydata/<span class="pp">[</span><span class="ss">workdir</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If you have generated output from <strong>Geo2R</strong> you will need to input this into R by adding the following code at the beinign of the script:</p>
-<pre><code>deData &lt;- read.table(file = '[Geo2R_output.tsv]', sep = '\t', header = TRUE)</code></pre>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -495,40 +493,57 @@ Filtering Script
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Mark genes that are differentially expressed and filter to just look at those</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Read in your Rdata that you saved previously</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"projectName.RData"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Put the DESeq2 results objects into a list called deData</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>deData<span class="ot">&lt;-</span>out.DESeq2<span class="sc">$</span>results</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a factor indicating which genes are DE</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#For a gene to be DE in a pairwise comparison it needs to be a) significant overall and b) have a log2FC &gt;1</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>indicateDEGS<span class="ot">&lt;-</span><span class="cf">function</span>(deData){</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  DE<span class="ot">&lt;-</span>deData<span class="sc">$</span>padj <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="co">#Set P (adjusted) cut off</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  DE[<span class="fu">is.na</span>(DE)]<span class="ot">&lt;-</span><span class="cn">FALSE</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  DE[deData<span class="sc">$</span>log2FoldChange <span class="sc">&lt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> deData<span class="sc">$</span>log2FoldChange <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="cn">FALSE</span> <span class="co">#Set fold change cut off</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(DE)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">names</span>(deData)){</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  deData[[i]]<span class="sc">$</span>DE<span class="ot">&lt;-</span><span class="fu">indicateDEGS</span>(deData[[i]])</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter the Deletion_vs_Control to just see DE genes </span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(<span class="fu">as.data.frame</span>(deData<span class="sc">$</span>Deletion_vs_Control[deData<span class="sc">$</span>Deletion_vs_Control<span class="sc">$</span>DE<span class="sc">==</span>T,]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">##Mark genes that are differentially expressed and filter to just look at those</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Read in your Rdata that you saved previously</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"projectName.RData"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Put the DESeq2 results objects into a list called deData</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>deData<span class="ot">&lt;-</span>out.DESeq2<span class="sc">$</span>results</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a factor indicating which genes are DE</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#For a gene to be DE in a pairwise comparison it needs to be a) significant overall and b) have a log2FC &gt;1</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>indicateDEGS<span class="ot">&lt;-</span><span class="cf">function</span>(deData){</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  DE<span class="ot">&lt;-</span>deData<span class="sc">$</span>padj <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="co">#Set P (adjusted) cut off</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  DE[<span class="fu">is.na</span>(DE)]<span class="ot">&lt;-</span><span class="cn">FALSE</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  DE[deData<span class="sc">$</span>log2FoldChange <span class="sc">&lt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> deData<span class="sc">$</span>log2FoldChange <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="cn">FALSE</span> <span class="co">#Set fold change cut off</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(DE)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">names</span>(deData)){</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  deData[[i]]<span class="sc">$</span>DE<span class="ot">&lt;-</span><span class="fu">indicateDEGS</span>(deData[[i]])</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter the Deletion_vs_Control to just see DE genes </span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(<span class="fu">as.data.frame</span>(deData<span class="sc">$</span>Deletion_vs_Control[deData<span class="sc">$</span>Deletion_vs_Control<span class="sc">$</span>DE<span class="sc">==</span>T,]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
-<p>Also on line 12 and 14 make the following chnages</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Adpation of filtering for Geo2R
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If you have generated output from <strong>Geo2R</strong> you will need to input this into R by adding the following code at the beinign of the script:</p>
+<pre><code>deData &lt;- read.table(file = '[Geo2R_output.tsv]', sep = '\t', header = TRUE)</code></pre>
+<p>Also on line 12 and 14 make the following changes</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># line 14</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">DE</span><span class="op">&lt;</span>-deData<span class="va">$padj</span> <span class="op">&lt;</span>= 0.05 <span class="co">#replace with</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">DE</span><span class="op">&lt;</span>-deData<span class="va">$adj</span>.P.Val</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># line 16</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="va">DE</span><span class="op">[</span>deData<span class="va">$log2FoldChange</span> &lt; 1 &amp; deData<span class="va">$log2FoldChange</span> &gt; -1<span class="op">]</span> <span class="co"># replace with DE[deData$logFC &lt; 1 &amp; deData@logFC &gt; -1]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -540,7 +555,7 @@ Filtering Script
 </div>
 <p>Follow the instructions in the script.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -549,7 +564,7 @@ GOenrichment
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">###Over-representation analysis</span></span>

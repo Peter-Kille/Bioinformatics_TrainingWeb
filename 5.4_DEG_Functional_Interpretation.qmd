@@ -42,22 +42,21 @@ To import into excel, Open Blank Workbook in Excel `Data > Get Data > From File 
 
 ## ![Excel Data Convert Menu](images/Excel_convert_menu.png){width="150"}
 
-This indicates that excel has not correctly identified the column as a **Decimal Number** - click on teh icon and correct it to a **Decimal Number**. You will be presented wiyth an option asking you to confirm the 'type conversion' - select ```replace current```.  Now repreat the processes for the other columns that you will be filtering on. When you are finish select ```Close and Load Data``` - it is the Icon at the top left of the window. The speadsheet will now open - not that the **NA** has been replaced by a blank.  Finally to ensure correct filtering - navigate to the columns reprresenting Log2FC and search and replace all **blanks** with **0** and for pAdj search and replace all **blanks** with **1**. Now if you select the down arrows that have appear in the column heads you can select numeric filetring and apply your filtering criteria. When I have filtered I will copy the filtered gene list into a new worksheet labeled with the criterion I have used - this allows me to keep track of things.
+This indicates that excel has not correctly identified the column as a **Decimal Number** - click on teh icon and correct it to a **Decimal Number**. You will be presented wiyth an option asking you to confirm the 'type conversion' - select `replace current`. Now repreat the processes for the other columns that you will be filtering on. When you are finish select `Close and Load Data` - it is the Icon at the top left of the window. The speadsheet will now open - not that the **NA** has been replaced by a blank. Finally to ensure correct filtering - navigate to the columns reprresenting Log2FC and search and replace all **blanks** with **0** and for pAdj search and replace all **blanks** with **1**. Now if you select the down arrows that have appear in the column heads you can select numeric filetring and apply your filtering criteria. When I have filtered I will copy the filtered gene list into a new worksheet labeled with the criterion I have used - this allows me to keep track of things.
 
-** As you can see Excel is not the easy choice**
+\*\* As you can see Excel is not the easy choice\*\*
 
 ## R
 
-For **SARTools** outputs we have configured a ```Filtering.r``` script - copy this into work workdir and open it through your POSIT R studio (or loacl Rstudio interface).  
+For **SARTools** outputs we have configured a `Filtering.r` script - copy this into work workdir and open it through your POSIT R studio (or loacl Rstudio interface).
+
 ```{bash}
 cp ~/classdata/Session5/RNAseq-Analysis/Filtering.r ~/mydata/[workdir]
 ```
-If you have generated output from **Geo2R** you will need to input this into R by adding the following code at the beinign of the script:
-```
-deData <- read.table(file = '[Geo2R_output.tsv]', sep = '\t', header = TRUE)
-```
+
 ::: {.callout-note collapse="true"}
 ## Filtering Script
+
 ```{R}
 ##Mark genes that are differentially expressed and filter to just look at those
 
@@ -85,7 +84,17 @@ View(as.data.frame(deData$Deletion_vs_Control[deData$Deletion_vs_Control$DE==T,]
 ```
 :::
 
-Also on line 12 and 14 make the following chnages
+::: {.callout-note collapse="true"}
+## Adpation of filtering for Geo2R
+
+If you have generated output from **Geo2R** you will need to input this into R by adding the following code at the beinign of the script:
+
+```         
+deData <- read.table(file = '[Geo2R_output.tsv]', sep = '\t', header = TRUE)
+```
+
+Also on line 12 and 14 make the following changes
+
 ```{bash}
 # line 14
 DE<-deData$padj <= 0.05 #replace with
@@ -93,17 +102,21 @@ DE<-deData$adj.P.Val
 # line 16
 DE[deData$log2FoldChange < 1 & deData$log2FoldChange > -1] # replace with DE[deData$logFC < 1 & deData@logFC > -1]
 ```
+:::
 
 # 4.2A ClusterProfiler
 
-We have configured a ```GOenrichment.r``` script - copy this into work workdir and open it through your POSIT R studio (or loacl Rstudio interface).  
+We have configured a `GOenrichment.r` script - copy this into work workdir and open it through your POSIT R studio (or loacl Rstudio interface).
+
 ```{bash}
 cp ~/classdata/Session5/RNAseq-Analysis/GOenrichment.r ~/mydata/[workdir]
 ```
+
 Follow the instructions in the script.
 
 ::: {.callout-note collapse="true"}
 ## GOenrichment
+
 ```{R}
 ###Over-representation analysis
 ## You will need to have already fun the filtering script to mark which genes in the DESeq results are differentially expressed
