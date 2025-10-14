@@ -27,6 +27,8 @@ Start by logging into your virtual machine on the server. You are now ready to s
 
 • You don't need to type the \$ at the beginning of a command. That's a linux convention to indicate a command line
 
+• Code is indicated throughout the tutorials by appearing in a grey box. Within the code, any text in \\[square brackets\\] indicates a placeholder you will need to replace with your own username, file name etc.
+
 • **Always tab-complete**! Pressing tab will auto-complete a file name or program. If you're writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just 'myF' and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and **if it won't tab-complete then it doesn't exist**!
 
 • If you still have a 'file not found' error, do ls to see if you can see it.
@@ -311,6 +313,8 @@ cd REFS
 ```
 
 User accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.
+
+If you tap the tab key multiple times and nothing happens, there is one simple reason why: the file you are trying to refer to **is not there**. It may be that a) you are not in the correct directory; b) the file in question is not the directory you thought it was; c) you have not typed the file name correctly (remember it is case sensitive)! If you tab and it does not complete, stop and work out which of these is the case!
 
 ::: callout-Exercises
 ### Exercises: practise tab completion

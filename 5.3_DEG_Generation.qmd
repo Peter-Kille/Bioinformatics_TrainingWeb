@@ -32,12 +32,11 @@ Processing data from counts to DEG lists requires a number of complex steps - ra
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-
 # A simple Guide to SARTools
 
 ## 1. Download or copy the SARTools template script
 
-```{bash}         
+```{bash}
 #Download
 wget https://github.com/PF2-pasteur-fr/SARTools/blob/master/template_script_DESeq2.r
 # an example metadata file can be viewed in workshop example below
