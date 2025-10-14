@@ -45,7 +45,7 @@ Start by logging into your virtual machine on the server. You are now ready to s
 cd ~/mydata
 ```
 
-• Once more, tab-complete is your friend! It'll stop most typos from happening and save you the pain of writing a command for a file that's not there. It's worth re-iterating for the amount of time and pain it will save you.
+• Once more, tab-complete is your friend! It'll stop most typos from happening and save you the pain of writing a command for a file that's not there. It's hard to overstate the amount of time and pain it will save you.
 
 ## Anatomy of a Command
 
@@ -111,7 +111,7 @@ nothing will change. Later, when we want to run scripts or copy to the same fold
 cd ..
 ```
 
-For example, if you are in 'mydata', this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, because a forward slash indicates the very top of the file tree:
+For example, if you are in 'mydata', this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, because *a forward slash indicates the very top of the file tree*:
 
 ```{bash}
 cd /usr/local/bin
@@ -220,7 +220,7 @@ and
 ~/classdata/Session1
 ```
 
-2.  Copy the file CopyExercise.txt into `mydata`
+2.  Copy the file CopyExercise.txt from `classdata` into `mydata`
 
 3.  Copy the `classdata` folder named 'Session1' to your `mydata` folder \[IMPORTANT! You need this for the following exercises!\]
 
@@ -321,7 +321,7 @@ Type `cd cl` and use tab completion for the rest of the command. Then press the 
 
 You will now be in your \~/classdata directory.
 
-Type `l Ses` and hit tab twice to view the files available.
+Type `ls Ses` and hit tab twice to view the files available.
 
 Now press the tab key again. You can gradually add extra letters and use the tab key to limit the options available.
 

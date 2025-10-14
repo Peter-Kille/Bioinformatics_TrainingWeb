@@ -27,7 +27,7 @@ Most managed HPC systems (not your own personal computer) manage this by using m
 module avail
 ```
 
-this will bring up a software list that looks like the following:
+this will bring up a software list that looks something like the following:
 
 ```{bash}
 ------------ /mnt/clusters/darter/software/spack/share/spack/modules/linux-rocky8-zen -------------
@@ -120,20 +120,20 @@ There are many command line options available for each of the above commands, as
 
 Move into mydata/Session1
 
-Explore the file O97435.txt by using the commands `cat`, `more`, `less`, `head` and `tail`. (Note that the file name starts with a capital O, rather than a zero.)
+Explore the file protein.txt by using the commands `cat`, `more`, `less`, `head` and `tail`. (Note that the file name starts with a capital O, rather than a zero.)
 
 Don't forget that tab completion can save you typing effort!
 
 ```{bash}
-cat O97435.txt
-more O97435.txt # Use the spacebar to scroll down
+cat protein.txt
+more protein.txt # Use the spacebar to scroll down
 Press q to quit.
 ```
 
 Now try `less`
 
 ```{bash}
-less O97435.txt
+less protein.txt
 ```
 
 Use the spacebar to scroll down, b to go up a page, and the up and down arrow keys to move up and down the file line by line.
@@ -143,8 +143,8 @@ Press the / key and search for the letters sequence in the file. Press the ? key
 Press the n key to search for other instances of gene in the file.
 
 ```{bash}
-head O97435.txt
-tail O97435.txt
+head protein.txt
+tail protein.txt
 ```
 
 For reading files yourself, we recommend the command `less.` The command `cat` is more usually used in conjunction with other commands when you wish to process text from within a file in some way.
@@ -240,7 +240,7 @@ less test_vi.txt
 ```
 :::
 
-# Runnign code when you need to have a coffee
+# Running code when you need to have a coffee
 
 Often you have some code or script that will take some time to run and you want to shut down your computer and go for coffee or sleep (yes even informaticians sleep) but you want the code to continue to run. To make this work use the command `nohup`. The syntax is simple - here are 2 simple examples.
 

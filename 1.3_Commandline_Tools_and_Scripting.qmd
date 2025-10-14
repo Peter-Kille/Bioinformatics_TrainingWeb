@@ -41,7 +41,7 @@ Move into `mydata/Session1`
 Type the command:
 
 ```{bash}
-grep "DE" O97435.txt 
+grep "DE" protein.txt 
 ```
 
 What is this command doing?
@@ -51,8 +51,8 @@ Can you see why the above command results in the output you see? An explanation 
 Try the commands:
 
 ```{bash}
-grep "^DE" O97435.txt
-grep -x "DE.*" O97435.txt 
+grep "^DE" protein.txt
+grep -x "DE.*" protein.txt 
 ```
 
 What are the \^ symbol and the -x parameter in these commands doing? Check the man page for grep to be sure.
@@ -60,14 +60,14 @@ What are the \^ symbol and the -x parameter in these commands doing? Check the m
 Try the command:
 
 ```{bash}
-cat O97435.txt | grep "^DE". 
+cat protein.txt | grep "^DE". 
 ```
 
 Does that do what you expected?
 
 Use the above command with a pipe and a grep command to search for files created or modified today.
 
-The first command in the above exercise searches all the text in the O97435.txt file and returns the lines in which it finds the letter D followed by the letter E.
+The first command in the above exercise searches all the text in the protein.txt file and returns the lines in which it finds the letter D followed by the letter E.
 
 The second command in the exercise also returns lines in the file that have a letter D followed by a letter E, but only where DE is found at the beginning of a line. This is because the \^ symbol means "match at the beginning of a line". The \$ symbol can be used similarly to mean "at the end of a line". These are known as anchors. Passing the -x flag to grep tells it to automatically anchor both ends of the search pattern.
 

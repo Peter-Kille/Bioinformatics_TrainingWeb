@@ -78,13 +78,13 @@ If you are following this course as part of a taught module, Session 0 will be c
 
 ## Session 0. Basics of HPC and HPC vs Personal Cloud provision
 
-This element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to logging in to the research platforms at Cardiff School of Biosciences. If you are a researcher at Cardiff wanting to gain access to HPC please contact our [Biocompute team](http://hpc.bios.cf.ac.uk/contacts/) and join the bioinformatics Teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google .... many of these provide limited free options which can help you to learn.
+This element of the course introduces you the the computational resources that have been provided for you to perform the training. It also covers a light guide to logging in to the research platforms at Cardiff School of Biosciences. If you are a researcher at Cardiff wanting to gain access to HPC please contact our [Biocompute team](http://hpc.bios.cf.ac.uk/) and join the bioinformatics Teams community. If you are outside Cardiff - find out about your local HPC provision. If there is none locally look into cloud service such as AWS and Google .... many of these provide limited free options which can help you to learn.
 
 ## Session 1. Linux: The basics
 
 This introduces you to the command line - yes, no more clicking on icons as it is all about writing commands !!
 
-[Introduction to Linux](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.1_Introduction%20to%20Linux.html)
+[Introduction to Linux](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.1_Introduction_to_Linux.html)
 
 This represent a rapid run through of the basics you need to get going on the command line, with lots of useful information and some basic exercises - copying / moving and learning about your Linux environment. This workshop is designed to get you started quickly.
 
@@ -138,11 +138,11 @@ More practice at building phylogenies.
 
 Transcriptomics is all about counting - this workshop cover how we get from raw RNAseq reads to transcript counts for an organism with an existing genome. We include approaches to identify and evaluate technical duplication, although be aware this may not be relevant to your analytical approach.
 
-[Generation of Differentially Expressed Gene (DEG) Lists](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.2_DEG_analysis.html)
+[Generation of Differentially Expressed Gene (DEG) Lists](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.3_DEG_Generation.html)
 
 Performing quality control and provisional data visualisation (Volcano plots and MA) are all essential steps on before generating differential gene lists. Here we use [SARTools](https://github.com/PF2-pasteur-fr/SARTools) developed at the Pasteur Institute to illustrate best practice in transcriptome analysis. We also include multivariate approaches to data visualization such as PCA and HCA (hierarchical clustering analysis).
 
-[Extension: Functional Interpretation of DEGs](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.3_DEG_Functional_Interpretation.html)
+[Extension: Functional Interpretation of DEGs](https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.4_DEG_Functional_Interpretation.html)
 
 Interpreting the biological significance of a list of gene IDs or gene symbols representing your DEGs can be a substantial but fun challenge. This course shows a selection of tools that allow you to go from DEG to functional networks.
 
@@ -162,9 +162,11 @@ Schnell, 2015. [Ten simple rules for a computational biologist's laboratory note
 
 A few good tutorials for the keen beans who want to go further:
 
-More detail can be found at http://linuxcommand.org/lc3_learning_the_shell.php
+More detail on coding in Linux can be found at http://linuxcommand.org/lc3_learning_the_shell.php
 
-For a more in depth tutorial with exercises, see https://swcarpentry.github.io/shell-novice/01-intro/ 
+For a more in depth Linux tutorial with exercises, see https://swcarpentry.github.io/shell-novice/01-intro/ 
 
 Good cheat sheet to refer to http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/
+
+Lots of interactive bioinformatics tutorials can be found at https://sandbox.bio/
 

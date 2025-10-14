@@ -2,7 +2,7 @@
 title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
-title: "Metagenomics"
+title: "Metabarcoding"
 subtitle: "Community Aanalysis"
 author: "Dr. Sarah Christofides and Prof. Peter Kille"
 date: today
@@ -13,9 +13,9 @@ affiliation: "Cardiff University"
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=db71339b-c4ad-481a-9468-b0a4009686d2&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" >
-</iframe>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=db71339b-c4ad-481a-9468-b0a4009686d2&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
 
+</iframe>
 
 This workshop is based heavily on QIIME's own tutorial, [Moving Pictures of the Human Microbiome](https://docs.qiime2.org/2022.8/tutorials/moving-pictures/). I have just modified this tutorial slightly to tailor it to our context and computer system.
 
