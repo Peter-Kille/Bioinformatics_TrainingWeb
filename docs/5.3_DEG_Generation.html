@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
+<meta name="author" content="Prof Peter Kille">
 <meta name="dcterms.date" content="2025-10-15">
 
-<title>Extension: Hybrid Assemblies</title>
+<title>Data Processing : Generation of DEG Lists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,6 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 background: darkred;
       }
 </style>
+<link href="site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -125,7 +126,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Extension: Hybrid Assemblies</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.3_DEG_Generation.html">Data Processing : Generation of DEG Lists</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,8 +139,8 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Extension: Hybrid Assemblies</h1>
-            <p class="subtitle lead">When short-read just doesn’t cut it</p>
+      <h1 class="title">Data Processing : Generation of DEG Lists</h1>
+            <p class="subtitle lead">From Counts to Gene Lists</p>
                       </div>
   </div>
     
@@ -149,7 +150,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides </p>
+               <p>Prof Peter Kille </p>
             </div>
     </div>
       
@@ -341,7 +342,7 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.3_DEG_Generation.html" class="sidebar-item-text sidebar-link">
+  <a href="./5.3_DEG_Generation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Data Processing : Generation of DEG Lists</span></a>
   </div>
 </li>
@@ -382,7 +383,23 @@ background: darkred;
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#differential-gene-analysis" id="toc-differential-gene-analysis" class="nav-link active" data-scroll-target="#differential-gene-analysis">Differential Gene Analysis</a></li>
+  <li><a href="#key-statistical-concepts---flase-discovery-rate-fdr" id="toc-key-statistical-concepts---flase-discovery-rate-fdr" class="nav-link" data-scroll-target="#key-statistical-concepts---flase-discovery-rate-fdr">Key Statistical Concepts - Flase Discovery Rate (FDR)</a></li>
+  <li><a href="#deg-pipelines" id="toc-deg-pipelines" class="nav-link" data-scroll-target="#deg-pipelines">3.1-3.5 DEG pipelines</a></li>
+  <li><a href="#a-simple-guide-to-sartools" id="toc-a-simple-guide-to-sartools" class="nav-link" data-scroll-target="#a-simple-guide-to-sartools">A simple Guide to SARTools</a>
+  <ul class="collapse">
+  <li><a href="#download-or-copy-the-sartools-template-script" id="toc-download-or-copy-the-sartools-template-script" class="nav-link" data-scroll-target="#download-or-copy-the-sartools-template-script">1. Download or copy the SARTools template script</a></li>
+  <li><a href="#download-workshop-data" id="toc-download-workshop-data" class="nav-link" data-scroll-target="#download-workshop-data">2. Download Workshop data</a></li>
+  <li><a href="#open-your-posit-r-studio-session" id="toc-open-your-posit-r-studio-session" class="nav-link" data-scroll-target="#open-your-posit-r-studio-session">3. Open your POSIT R-studio session</a></li>
+  <li><a href="#now-run-the-script" id="toc-now-run-the-script" class="nav-link" data-scroll-target="#now-run-the-script">4. Now run the script</a></li>
+  <li><a href="#review-outputs" id="toc-review-outputs" class="nav-link" data-scroll-target="#review-outputs">5. Review Outputs</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -390,35 +407,115 @@ background: darkred;
 
 
 
-<p>So far, you have been assembling genomes just using Illumina short reads. However, as discussed in the lecture, sometimes there are areas of genome that can’t be resolved with short reads, meaning the assembly produces more contigs. This can be improved by adding in long reads to scaffold the contigs. The short reads provide high quality detail, while the long reads provide the big-picture context.</p>
-<p>Unicycler provides the option to add in long-read information very simply by using the <code>-l</code> flag to direct it to a file of long reads.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
+<section id="differential-gene-analysis" class="level1">
+<h1>Differential Gene Analysis</h1>
+<p>Contrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.</p>
+<p>Following these steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.</p>
+</section>
+<section id="key-statistical-concepts---flase-discovery-rate-fdr" class="level1">
+<h1>Key Statistical Concepts - Flase Discovery Rate (FDR)</h1>
+<p>The workshop will use tools that exploit statistical approaches to identify differential expressed genes (DEGs). You will not need to derive the mathematical formula underpinning these concepts or deploy the algorithums from first principles since the software you will use does this for you but it is worth knowing the background. There is an excellent academic from UNC-Chapel Hill, Prof Josh Starmer, who runs a youtube channel called <a href="https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw">StatQuest</a> this deal with a large range of biological stats and has some great annotations to explain them, I am going to suggest you watch two of his videos to orientate you about the key statistical concepts for this session:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/K8LQSvtjcEo?start=404" width="533" height="300" frameborder="0" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="deg-pipelines" class="level1">
+<h1>3.1-3.5 DEG pipelines</h1>
+<p>Processing data from counts to DEG lists requires a number of complex steps - rather than code these individually we recommned using a ‘wrapper’ program that executes the steps within an automated workflow. NCBI provides theis function for a selection of datasets archived in GEO - <a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.2_GEO_Open_Data_Archive.html#c-geo2r-configured-unprocessed-raw-counts-and-group-metadata">Geo2R Instrctions</a>. For count data that we have genearted ourselveswe are recommending using a wrapper called <a href="https://github.com/PF2-pasteur-fr/SARTools">SARTools</a>. This wrapper supports simple 2 state analsysis but generates plots for data exploration, normalisation, dispersion, MA/Volcano Plots and DEG list. Also it generates a DESeq2 (or edgeR) object (dds object) that can be used for more complex analysis.</p>
+</section>
+<section id="a-simple-guide-to-sartools" class="level1">
+<h1>A simple Guide to SARTools</h1>
+<section id="download-or-copy-the-sartools-template-script" class="level2">
+<h2 class="anchored" data-anchor-id="download-or-copy-the-sartools-template-script">1. Download or copy the SARTools template script</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Download</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://github.com/PF2-pasteur-fr/SARTools/blob/master/template_script_DESeq2.r</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># an example metadata file can be viewed in workshop example below</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># copy script, metadata and feature counts from classdata</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-R</span> ~/classdata/Session5/RNAseq-Analysis/ ~/mydata/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="download-workshop-data" class="level2">
+<h2 class="anchored" data-anchor-id="download-workshop-data">2. Download Workshop data</h2>
+<p>Ensure you analysis folder has a sub-folder which is callled FeatureCounts that contains individual files containing your data and these are referenced in your metadata file - you do not need a subdirectory location as we will add this to the script.</p>
+<p>Your data represents a set of nine human neuronal differential RNAseq samples have been sequenced, consisting of 6x control samples (3x two different individuals) and 3x a deletion mutant of the 1q21.1 cytogenetic region of the human genome, and 3x of a duplication of this region.</p>
+<p>Deletions and alterations to this region has a range of impacts on neuropsychiatric disorders and is under active study. See the <a href="https://www.omim.org/entry/612474">omim</a> and the Wikipedia page is remarkably informative! <a href="https://en.wikipedia.org/wiki/1q21.1_deletion_syndrome">1q21.1_deletion_syndrome</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Picture1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">1q21.1 cytogenetic region of the human genome</figcaption>
+</figure>
+</div>
+</section>
+<section id="open-your-posit-r-studio-session" class="level2">
+<h2 class="anchored" data-anchor-id="open-your-posit-r-studio-session">3. Open your POSIT R-studio session</h2>
+<p>We recommend using R-studio either on your local machine or using the POSIT based server option for reproducibility.</p>
+<p>Open SARTools script and edit the areas highlighted in red.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/SARTools.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">SARTools</figcaption>
+</figure>
+</div>
+<p>These parameters are:</p>
+<p><strong>workDir</strong> - location of your working directory (easy way of identifying this in Rstudio is to navigate to your working directory in the files tab and then use More&gt;Set As Working Directory to show your workdir in the console window).</p>
+<p><strong>projectName</strong> - Your choosen name for you output files</p>
+<p><strong>author</strong> - Your Name</p>
+<p><strong>targetFile</strong> - metadata file name</p>
+<p><strong>rawDir</strong> - Directory containing your count files</p>
+<p><strong>VarInt</strong> - The parameter you wish you analyse</p>
+<p><strong>conRef</strong> - The description within your choosen parameter that you wish to use as your control</p>
+<p>N.B. Line 39 there is a parameter for your level is statistical significance - this is by default 0.5 you can chnage this if you need.</p>
+</section>
+<section id="now-run-the-script" class="level2">
+<h2 class="anchored" data-anchor-id="now-run-the-script">4. Now run the script</h2>
+<p>At the top right of your R script window there is a ‘Run’ pull down list - select this and highlight ‘Run all’.</p>
+</section>
+<section id="review-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="review-outputs">5. Review Outputs</h2>
+<p><strong>HTML file</strong> - this contains your data analsyis with comprehensive explainatory text. It provides key plots, parameters and summary data.</p>
+<p><strong>table</strong> - this folder contains tab separated varible files of your results (these can be downloaded and explored in excel), both as a complete list but also separate files for up and down regulated gens passing the parameter you defined.</p>
+<p><strong>figures</strong> - this folder contains the images used in the generation of the html output.</p>
+<p>NB - if you change parameters and rerun the script it will overwrite the table and image directories so if you want to keep these make sure you rename name them before rerunning the script.</p>
+<p><strong>out.DEseq2/dds Object</strong> - This is a very useful object as many secondary analysis steps can use this object for further analysis.</p>
+<p>We strongly recommend you save your R session when finished so you do not need to recalulate the dds object.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise: Hybrid assembly
+Extension Workshop analsyis of RNAseq Data with SARtools
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div class="callout-body-container callout-body">
-<p>We have provided you with Nanopore long-read data for your prokaryote genomes in <code>~/classdata/datasets/prokayote/prokaryote_NP/</code>.</p>
-<ol type="1">
-<li>Run a hybrid assembly with Nanopore data, then use Quast to compare the results to short-read-only assembly.</li>
-</ol>
-<p>Hybrid assembly example command line:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">unicycler</span> <span class="at">-1</span> [processed fastq R1] <span class="at">-2</span> [processed fastq R2] <span class="at">-l</span> [nanopore fastq] <span class="at">-t</span> [thread number] <span class="at">-o</span> [output directory] <span class="dv">1</span><span class="op">&gt;</span> <span class="pp">[</span><span class="ss">file_name</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Notice that at the end of the command I’ve added <code>1&gt; [file_name]</code>. This tells bash that instead of just spitting messages onto the screen as the command runs, it should write them to a file. Unicycler produces some useful and informative output while running hybrid assembly, which it is helpful to keep.</p>
-<ol start="2" type="1">
-<li><p>Have a read through Unicycler’s <a href="https://github.com/rrwick/Unicycler#method-hybrid-assembly">information page on hybrid assembly</a>. How does it use the long reads to bring gaps in the short-read assembly?</p></li>
-<li><p>Use <code>less</code> to look at the log file you’ve produced. Can you use the Unicycler page above to interpret what it’s telling you?</p></li>
-</ol>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<section id="dataset-to-use---geogds2565" class="level2 callout-body-container callout-body">
+<h2 class="anchored" data-anchor-id="dataset-to-use---geogds2565"><a href="https://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2565">Dataset to use - Geo:GDS2565</a></h2>
+<p>Once you have looked at the RNAseq-Analysis workshop apply this Knowedge to the analyse your <em>C. elegans</em> RNAseq data. In the RNAseq-Processing folder your are surplied with an Rstudio script for Sartools <code>Sartools-template-deseq2.r</code> and a metadata file <code>C_elegansL3_Cd_metadata.txt</code></p>
+<p>the Metadata file describes the various parameters of the experiment:</p>
+<pre><code>Sample_ID       Files   SRA     Stage   Chemical        Dose    StageDose       Replicate
+L3_Cd_0_rep1    SRR12478185.markdup.featurecount        SRR12478185     L3      Cd      0       L3dose0 rep1
+L3_Cd_0_rep2    SRR12478186.markdup.featurecount        SRR12478186     L3      Cd      0       L3dose0 rep2
+L3_Cd_0_rep3    SRR12478187.markdup.featurecount        SRR12478187     L3      Cd      0       L3dose0 rep3
+L3_Cd_20_rep1   SRR12478191.markdup.featurecount        SRR12478191     L3      Cd      20      L3dose20        rep1
+L3_Cd_20_rep2   SRR12478192.markdup.featurecount        SRR12478192     L3      Cd      20      L3dose20        rep2
+L3_Cd_20_rep3   SRR12478193.markdup.featurecount        SRR12478193     L3      Cd      20      L3dose20        rep3</code></pre>
+</section>
 </div>
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

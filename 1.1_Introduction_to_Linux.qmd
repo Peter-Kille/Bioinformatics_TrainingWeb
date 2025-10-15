@@ -27,7 +27,7 @@ Start by logging into your virtual machine on the server. You are now ready to s
 
 • You don't need to type the \$ at the beginning of a command. That's a linux convention to indicate a command line
 
-• Code is indicated throughout the tutorials by appearing in a grey box. Within the code, any text in \\[square brackets\\] indicates a placeholder you will need to replace with your own username, file name etc.
+• Code is indicated throughout the tutorials by appearing in a `grey box`. Within the code, any text in \[square brackets\] indicates a placeholder you will need to replace with your own username, file name etc.
 
 • **Always tab-complete**! Pressing tab will auto-complete a file name or program. If you're writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just 'myF' and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and **if it won't tab-complete then it doesn't exist**!
 

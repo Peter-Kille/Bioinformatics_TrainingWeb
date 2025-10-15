@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
+<meta name="author" content="Dr.&nbsp;Sarah Christofides and Prof.&nbsp;Peter Kille">
 <meta name="dcterms.date" content="2025-10-15">
 
-<title>Extension: Hybrid Assemblies</title>
+<title>Metabarcoding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Extension: Hybrid Assemblies</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./6.1_metabarcoding.html">Session 6. Microbial community analysis</a></li><li class="breadcrumb-item"><a href="./6.1_metabarcoding.html">Metabarcoding</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,8 +138,8 @@ background: darkred;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Extension: Hybrid Assemblies</h1>
-            <p class="subtitle lead">When short-read just doesn’t cut it</p>
+      <h1 class="title">Metabarcoding</h1>
+            <p class="subtitle lead">Community Aanalysis</p>
                       </div>
   </div>
     
@@ -149,7 +149,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides </p>
+               <p>Dr.&nbsp;Sarah Christofides and Prof.&nbsp;Peter Kille </p>
             </div>
     </div>
       
@@ -370,7 +370,7 @@ background: darkred;
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6.1_metabarcoding.html" class="sidebar-item-text sidebar-link">
+  <a href="./6.1_metabarcoding.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Metabarcoding</span></a>
   </div>
 </li>
@@ -382,7 +382,25 @@ background: darkred;
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#accessing-the-data" id="toc-accessing-the-data" class="nav-link active" data-scroll-target="#accessing-the-data">Accessing the data</a>
+  <ul class="collapse">
+  <li><a href="#the-study-system" id="toc-the-study-system" class="nav-link" data-scroll-target="#the-study-system">The study system</a></li>
+  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
+  <li><a href="#sequences" id="toc-sequences" class="nav-link" data-scroll-target="#sequences">Sequences</a></li>
+  </ul></li>
+  <li><a href="#importing-data-in-qiime" id="toc-importing-data-in-qiime" class="nav-link" data-scroll-target="#importing-data-in-qiime">Importing data in QIIME</a></li>
+  <li><a href="#demultiplexing" id="toc-demultiplexing" class="nav-link" data-scroll-target="#demultiplexing">Demultiplexing</a></li>
+  <li><a href="#quality-filtering-and-counting" id="toc-quality-filtering-and-counting" class="nav-link" data-scroll-target="#quality-filtering-and-counting">Quality filtering and counting</a></li>
+  <li><a href="#taxonomy-assignment" id="toc-taxonomy-assignment" class="nav-link" data-scroll-target="#taxonomy-assignment">Taxonomy assignment</a></li>
+  <li><a href="#barplots" id="toc-barplots" class="nav-link" data-scroll-target="#barplots">Barplots</a></li>
+  <li><a href="#diversity-exploration" id="toc-diversity-exploration" class="nav-link" data-scroll-target="#diversity-exploration">Diversity exploration</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -390,35 +408,174 @@ background: darkred;
 
 
 
-<p>So far, you have been assembling genomes just using Illumina short reads. However, as discussed in the lecture, sometimes there are areas of genome that can’t be resolved with short reads, meaning the assembly produces more contigs. This can be improved by adding in long reads to scaffold the contigs. The short reads provide high quality detail, while the long reads provide the big-picture context.</p>
-<p>Unicycler provides the option to add in long-read information very simply by using the <code>-l</code> flag to direct it to a file of long reads.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=db71339b-c4ad-481a-9468-b0a4009686d2&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+<p>This workshop is based heavily on QIIME’s own tutorial, <a href="https://docs.qiime2.org/2022.8/tutorials/moving-pictures/">Moving Pictures of the Human Microbiome</a>. I have just modified this tutorial slightly to tailor it to our context and computer system.</p>
+<section id="accessing-the-data" class="level1">
+<h1>Accessing the data</h1>
+<p>Copy the <code>Session6</code> directory across from <code>classdata</code> into your <code>mydata</code> directory. List the contents.</p>
+<section id="the-study-system" class="level2">
+<h2 class="anchored" data-anchor-id="the-study-system">The study system</h2>
+<p>The data you will be using comes from a landmark study on the human microbiome (Caporaso <em>et al.</em>, 2011. <em>Genome Biol.</em> 12(5):R50. doi: 10.1186/gb-2011-12-5-r50.). It followed two individuals over time, sampling the microbiota present on four body sites: each hand, the gut and the tongue.</p>
+<p>You will see the letters EMP crop up repeatedly throughout the tutorial. This stands for Earth Microbiome Project (https://earthmicrobiome.org/), which this data comes from. The EMP was set up in 2010 with the modest (!) aim of sequencing the microbiome of <em>everything</em>. It produced a large number of valuable datasets, but even more usefully it produced a set of standard protocols which are still used in producing microbiome data. QIIME includes a number of options specifically for handling data produced using EMP methods (it helps that the people who wrote QIIME were also behind the EMP).</p>
+<p>Of particular note is the EMP primer set, 515F-806R. Also known as the Caporaso primers after the first author of the paper that described them, they have been tweaked over the years but remain the most commonly-used primer set for microbial community sequencing. Mention “515-806” to a microbial ecologist and they will nod sagely.</p>
+</section>
+<section id="metadata" class="level2">
+<h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
+<p>You will see a file called metadata.txt. Metadata is ‘data about the data’ and usually includes information on what each sample is, when and where it was collected, what index tag was assigned to it, and anything else you need to know to make sense of it. Do <em>less</em> on the metadata file to see the contents. QIIME requires its metadata to follow a particular format and this file has been formatted to conform to that.</p>
+</section>
+<section id="sequences" class="level2">
+<h2 class="anchored" data-anchor-id="sequences">Sequences</h2>
+<p>Inside Session6 is a sub-directory called emp-single-end-sequences. This contains two FASTQ files - sequences.fastq.gz has the sequence reads in it, and barcodes.fastq.gz has the barcodes (index tags) needed for demultiplexing. This is a giveaway that this data was produced quite some time ago! These days it would be extremely rare to get sequence data that hadn’t already been demultiplexed by the provider.</p>
+<p>Notice that the files end with the extension .gz. This indicates that they have been gzipped: compressed to take up less space. If you try to read a gzipped file with <em>less</em>, <em>head</em>, etc., you will just see gobbledegook, but many bioinformatics programmes are capable of reading in gzipped files directly. Most real-life FASTQ files spend most of their time gzipped, simply to make them manageable.</p>
+</section>
+</section>
+<section id="importing-data-in-qiime" class="level1">
+<h1>Importing data in QIIME</h1>
+<p>QIIME handles data by importing it into its own file format, called a QIIME artefact. This contains not only the data itself but a record of all the processes that it has gone through. Start by loading up QIIME.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load qiime2/2022.8 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The first step in the analysis is to read the data in.</p>
+<p>You will see that the import command below has backslashes at the end of each line. This isn’t specific to QIIME, but a universal way to break up a complex command into multiple lines so that it’s easier to read. In Linux, a backslash is called an escape character; it means “interpret the next character literally”. Normally pressing enter at the end of a command tells the computer to run that command. Typing a backslash before pressing enter tells the computer that you literally just want a line break.</p>
+<p>Let’s explore the parts of the command</p>
+<ul>
+<li><p><em>qiime tools import</em> is the QIIME programme to be used</p></li>
+<li><p><em>type EMPSingleEndSequences</em> tells QIIME the format the sequences will be in</p></li>
+<li><p><em>input-path emp-single-end-sequences</em> gives the name of the directory the sequence files are in</p></li>
+<li><p><em>output-path emp-single-end-sequences.qza</em> gives the name of the artefact file to be created. Note the file extension: .qza</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> tools import <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--type</span> EMPSingleEndSequences <span class="dt">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--input-path</span> emp-single-end-sequences <span class="dt">\</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--output-path</span> emp-single-end-sequences.qza</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Henceforth, I have removed some parts of the script! Every time you see <strong>YOURFILE</strong>, it’s up to you to replace it with the correct file name.</p>
+</section>
+<section id="demultiplexing" class="level1">
+<h1>Demultiplexing</h1>
+<p>As mentioned above, this step would normally be done automatically be the sequencing centre. However, it’s good to have a go at demultiplexing as there are still occasions when it needs to be done manually.</p>
+<p>This command takes the QIIME artefact we have just created and uses the barcode information to decide which sample each sequence belongs to. It creates another QIIME artefact containing the demultiplexed samples.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> demux emp-single <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-seqs</span> YOURFILE <span class="dt">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--m-barcodes-file</span> sample-metadata.tsv <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--m-barcodes-column</span> barcode-sequence <span class="dt">\</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-per-sample-sequences</span> demux.qza <span class="dt">\</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-error-correction-details</span> demux-details.qza</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can then ask QIIME to produce some summary statistics. The output here is a .qzv: this is a QIIME visualisation file. Download a qzv and then drag and drop it into view.qiime2.org/</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> demux summarize <span class="dt">\</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-data</span> demux.qza <span class="dt">\</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-visualization</span> demux.qzv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Have a look at the qzv file. What does it tell you about the data?</p>
+</section>
+<section id="quality-filtering-and-counting" class="level1">
+<h1>Quality filtering and counting</h1>
+<p>The next step in the process does two things at once. Firstly, it quality checks the data. It removes any PhiX reads leftover from the sequencing, checks for low quality reads, and removes chimeras (hybrid reads created when two PCR products get erroneously stuck together). Secondly, it counts how many times each unique sequence (ASV) occurs in each sample.</p>
+<p>QIIME offers a few different pipelines for this step, but we are going to use one called DADA2. This is the most computationally intensive step, so be prepared for it to take up to 10 minutes to complete.</p>
+<p>Have a look at the help page for this command at https://docs.qiime2.org/2022.8/plugins/available/dada2/denoise-single/</p>
+<ul>
+<li>What are the <em>p-trim-left</em> and <em>p-trunc-len</em> options doing? Would there be a better way to have dealt with this problem in the data? HINT: it would need to be done before reading into QIIME!</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> dada2 denoise-single <span class="dt">\</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-demultiplexed-seqs</span> YOURFILE <span class="dt">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--p-trim-left</span> 0 <span class="dt">\</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--p-trunc-len</span> 120 <span class="dt">\</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-representative-sequences</span> rep-seqs.qza <span class="dt">\</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-table</span> table.qza <span class="dt">\</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-denoising-stats</span> stats.qza</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This command produces three outputs. One is the table (how many reads per ASV per sample). Another is the representative sequences: for each ASV, it marries up the identifier with the actual sequence. Finally, there are some stats on the process.</p>
+<p>Having produced our outputs, we can run some summaries to see how it’s gone.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> feature-table summarize <span class="dt">\</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-table</span> YOURFILE <span class="dt">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-visualization</span> table.qzv <span class="dt">\</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--m-sample-metadata-file</span> YOURFILE</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> feature-table tabulate-seqs <span class="dt">\</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-data</span> YOURFILE <span class="dt">\</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-visualization</span> rep-seqs.qzv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Look at these qzv files. What information does each give you?</p>
+</section>
+<section id="taxonomy-assignment" class="level1">
+<h1>Taxonomy assignment</h1>
+<p>Having counted the number of times each sequence occurs in each sample, we really want to know what organism that sequence came from. QIIME uses a machine learning tool (a Naive Bayes classifier, if you’re into that kind of thing) to assign a taxonomic identity to each sequence. The classifier is trained by giving it a database of sequences of known identity. This approach is endlessly flexible, as you can train the classifier to any type of sequence you are interested in. However, we will be using a pre-trained classifier as our data relates to a commonly-used 16S rRNA region. This classifier has been trained on the Silva database of 16S rRNA genes, focussing in just on the 515-806 region targeted by our primers.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> feature-classifier classify-sklearn <span class="dt">\</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-classifier</span> silva-138-99-515-806-nb-classifier.qza<span class="dt">\</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-reads</span> rep-seqs.qza <span class="dt">\</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-classification</span> taxonomy.qza</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> metadata tabulate <span class="dt">\</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--m-input-file</span> taxonomy.qza <span class="dt">\</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-visualization</span> taxonomy.qzv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="barplots" class="level1">
+<h1>Barplots</h1>
+<p>Now we can get QIIME to make its famous barplots! You will see these in many, many microbiome papers.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> taxa barplot <span class="dt">\</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-table</span> YOURFILE <span class="dt">\</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-taxonomy</span> YOURFILE <span class="dt">\</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--m-metadata-file</span> YOURFILE <span class="dt">\</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-visualization</span> taxa-bar-plots.qzv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Download the qzv and have a play with the options!</p>
+</section>
+<section id="diversity-exploration" class="level1">
+<h1>Diversity exploration</h1>
+<p>QIIME will also compute a lot of other statistics on your data. I personally prefer to do this in R, but for the sake of completeness let’s also look at the QIIME output (I admit, some of it is quite pretty).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> diversity core-metrics <span class="dt">\</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-table</span> YOURFILE <span class="dt">\</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--p-sampling-depth</span> 1103 <span class="dt">\</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--m-metadata-file</span> YOURFILE <span class="dt">\</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--output-dir</span> core-metrics-results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> emperor plot <span class="dt">\</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-pcoa</span> core-metrics-results/bray_curtis_pcoa_results.qza <span class="dt">\</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--m-metadata-file</span> sample-metadata.tsv <span class="dt">\</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--p-custom-axes</span> days-since-experiment-start <span class="dt">\</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-visualization</span> core-metrics-results/bray-curtis-emperor-days-since-experiment-start.qzv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise: Hybrid assembly
+Worked Example - QIIME
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We have provided you with Nanopore long-read data for your prokaryote genomes in <code>~/classdata/datasets/prokayote/prokaryote_NP/</code>.</p>
-<ol type="1">
-<li>Run a hybrid assembly with Nanopore data, then use Quast to compare the results to short-read-only assembly.</li>
-</ol>
-<p>Hybrid assembly example command line:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">unicycler</span> <span class="at">-1</span> [processed fastq R1] <span class="at">-2</span> [processed fastq R2] <span class="at">-l</span> [nanopore fastq] <span class="at">-t</span> [thread number] <span class="at">-o</span> [output directory] <span class="dv">1</span><span class="op">&gt;</span> <span class="pp">[</span><span class="ss">file_name</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Notice that at the end of the command I’ve added <code>1&gt; [file_name]</code>. This tells bash that instead of just spitting messages onto the screen as the command runs, it should write them to a file. Unicycler produces some useful and informative output while running hybrid assembly, which it is helpful to keep.</p>
-<ol start="2" type="1">
-<li><p>Have a read through Unicycler’s <a href="https://github.com/rrwick/Unicycler#method-hybrid-assembly">information page on hybrid assembly</a>. How does it use the long reads to bring gaps in the short-read assembly?</p></li>
-<li><p>Use <code>less</code> to look at the log file you’ve produced. Can you use the Unicycler page above to interpret what it’s telling you?</p></li>
-</ol>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e02310ee-3ab6-4f5c-93c4-af6d00cd7cb8&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
 </div>
 </div>
+</div>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<p>Bokulich NA, Kaehler BD, Rideout JR, et al.&nbsp;Optimizing taxonomic classification of marker‐gene amplicon sequences with QIIME 2’s q2‐feature‐classifier plug. <em>Microbiome</em>. 2018a;6:90</p>
+<p>Bolyen E, Rideout JR, Dillon MR, et al.&nbsp;2019. Reproducible, interactive, scalable and extensible microbiome data science using QIIME 2. <em>Nature Biotechnology</em> 37: 852–857. https://doi.org/10.1038/s41587-019-0209-9</p>
+<p>Callahan BJ, McMurdie PJ, Rosen MJ, et al.&nbsp;DADA2: high‐resolution sample inference from Illumina amplicon data. <em>Nature Methods</em> 2016;13:581‐583.</p>
+<p>Caporaso JG, Lauber CL, Costello EK, Berg-Lyons D, Gonzalez A, Stombaugh J, Knights D, Gajer P, Ravel J, Fierer N, Gordon JI, Knight R. Moving pictures of the human microbiome. <em>Genome Biology</em> 2011;12(5):R50. doi: 10.1186/gb-2011-12-5-r50. PMID: 21624126; PMCID: PMC3271711.</p>
+<p>Caporaso, J. G., Lauber, C. L., Walters, W. A., Berg-Lyons, D., Lozupone, C. A., Turnbaugh, P. J., Noah Fierer, N., &amp; Knight, R. (2011). Global patterns of 16S rRNA diversity at a depth of millions of sequences per sample. <em>Proceedings of the Natural Academy of Sciences</em> USA 108, 4516–4522. http://doi.org/10.1073/pnas.1000080107</p>
+<p>Caporaso, J. G., Lauber, C. L., Walters, W. A., Berg-Lyons, D., Huntley, J., Fierer, N., Owens, S. M., Betley, J., Fraser, L., Bauer, M., Gormley, N., Gilbert, J. A., Smith, G., &amp; Knight, R. (2012). Ultra-high-throughput microbial community analysis on the Illumina HiSeq and MiSeq platforms. <em>ISME Journal</em> 6, 1621–1624. http://doi.org/10.1038/ismej.2012.8</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
