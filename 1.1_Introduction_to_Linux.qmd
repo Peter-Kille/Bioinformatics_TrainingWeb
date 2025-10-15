@@ -238,9 +238,9 @@ If you add a space followed by a --l (that is, a hyphen and a small letter L), a
 You can also use glob patterns to limit the files you wish to list.
 
 ```{bash}
-\* an asterisk means any string of characters
+* an asterisk means any string of characters
 ? a question mark means a single character
-\[ \] square brackets can be used to designate a group of characters
+[ ] square brackets can be used to designate a group of characters
 ```
 
 e.g. to list all of blue.txt, banana.txt, baby.txt:
