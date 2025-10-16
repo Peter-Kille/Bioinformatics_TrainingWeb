@@ -438,7 +438,7 @@ Option 1: extract out your longest contig
 <p><strong>The risk associated with this option is that the gene you are interested in may not be in the longest contig.</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load perl-bioperl/1.7.6-semipod</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load perl/5.38.0-6gmnvun</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">perl</span> ~/classdata/REFS/script/selectSeqsAboveMinLength.pl <span class="op">&lt;</span>your_assembly.fasta<span class="op">&gt;</span> <span class="op">&lt;</span>largest_contig.fasta<span class="op">&gt;</span> 8000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -459,7 +459,7 @@ Option 2: Artificially merge your contigs
 <div class="callout-body-container callout-body">
 <p>This code will remove the contig names (as long as they are named 2-9) for all except the first contig, and then remove any line breaks to ensure correct base numbering for the annotation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load seqtk/1.4-l7d6lqn</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load seqtk/1.4-emavr63</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#This sed removes any contigs where the name start '&gt;[any digit between 2-9]'</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'/^&gt;[2-9].*$/d'</span> mito_assemblies/<span class="va">${base}</span>.fasta</span>
@@ -530,7 +530,7 @@ Worked Examaple – Mitos loop
 <h2 class="anchored" data-anchor-id="extract-fasta-sequence-for-genes-in-bed-file">Extract Fasta sequence for genes in Bed file</h2>
 <p>You can extract the fasta sequence for the genes in the bed file using bedtools getfasta:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.31.1-7imv7b4</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.31.1-z2zkxtk</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> getfasta –fi contigs.fasta <span class="at">-bed</span> result.bed <span class="at">-name</span> <span class="op">&gt;</span> result.fasta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

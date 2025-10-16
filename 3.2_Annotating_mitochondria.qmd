@@ -44,7 +44,7 @@ This code will extract your longest contig - if the assembly is a single contig 
 
 ```{bash}
 
-module load perl-bioperl/1.7.6-semipod
+module load perl/5.38.0-6gmnvun
 
 perl ~/classdata/REFS/script/selectSeqsAboveMinLength.pl <your_assembly.fasta> <largest_contig.fasta> 8000
 
@@ -57,7 +57,7 @@ perl ~/classdata/REFS/script/selectSeqsAboveMinLength.pl <your_assembly.fasta> <
 This code will remove the contig names (as long as they are named 2-9) for all except the first contig, and then remove any line breaks to ensure correct base numbering for the annotation.
 
 ```{bash}
-module load seqtk/1.4-l7d6lqn
+module load seqtk/1.4-emavr63
 
 #This sed removes any contigs where the name start '>[any digit between 2-9]'
 sed -i '/^>[2-9].*$/d' mito_assemblies/${base}.fasta
@@ -123,7 +123,7 @@ module unload mitos/2.0.4
 You can extract the fasta sequence for the genes in the bed file using bedtools getfasta:
 
 ```{bash}
-module load bedtools2/2.31.1-7imv7b4
+module load bedtools2/2.31.1-z2zkxtk
 
 bedtools getfasta –fi contigs.fasta -bed result.bed -name > result.fasta
 ```

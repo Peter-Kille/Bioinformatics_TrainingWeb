@@ -57,7 +57,7 @@ Bandage (optional) -- view graphical fragment assembly (gfa) files
 tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. If you run a script in the terminal and then close the session/turn off the laptop, the script will be cancelled. To avoid this, we use tmux. This will allow you to run scripts and programs in the terminal, close the terminal/turn off your laptop, and the script will continue to run.
 
 ```{bash}
-module load tmux/3.4-pp5yxaf
+module load tmux/3.4-goii5an
 ```
 
 Basic usage cheatsheet: https://tmuxcheatsheet.com/
@@ -114,7 +114,7 @@ Following adaptor removal and trimming, we need to repeat the quality checking w
 We will assemble the processed reads into an assembly using the assembler **Unicycler**. Unicycler is an assembly pipeline for bacterial (and mitochondrial) genomes. It can assemble Illumina-only read sets where it functions as a SPAdes-optimiser.
 
 ```{bash}
-module load py-unicycler/0.5.0-d6k3wzh
+module load py-unicycler/0.5.0-b3qlto7
 ```
 
 Basic usage:
@@ -140,7 +140,7 @@ A big part of bioinformatics is maintaining directory and file organisation. Eac
 Once our assembly files have been renamed and copied to a single location, we can analyse them for quality statistics. Use **Quast** to report useful metrics such as assembly length, GC content, contig number, and N50 value. QUAST stands for QUality ASsessment Tool. It evaluates genome/metagenome assemblies by computing various metrics.
 
 ```{bash}
-module load py-quast/5.2.0-hgcvroq
+module load py-quast/5.2.0-az54c2i
 ```
 
 Basic usage:

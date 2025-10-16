@@ -46,7 +46,7 @@ Notice that the files end with the extension .gz. This indicates that they have 
 QIIME handles data by importing it into its own file format, called a QIIME artefact. This contains not only the data itself but a record of all the processes that it has gone through. Start by loading up QIIME.
 
 ```{bash}
-module load qiime2/2022.8 
+module load qiime2/2024.5-conda 
 ```
 
 The first step in the analysis is to read the data in.

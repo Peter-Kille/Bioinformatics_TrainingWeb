@@ -610,19 +610,19 @@ Extension Work
 <h1>Prokka - genome annotation</h1>
 <p><a href="https://github.com/tseemann/prokka">Prokka</a> is a piece of software that is designed to identify genes from sequence data. It works best on prokaryotes. Once it identifies genes, it creates a file including the sequence for the sample, along with a set of annotations to that sequence, which identify the locations of genes. The annotation is written to a GFF3 file: a GFF file is a type of specialised table that lists the ‘features’ (genes, rRNAs, tRNAs etc.) in an assembly and where to find them.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka/1.14.6-barrnap-bedtools-5z4fskk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka/1.14.6-mframqo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong><em>Check which version you have installed with <code>module avail</code></em></strong></p>
 <p>Prokka defaults to analyzing bacteria. Think about what your sample is and what codon table you should use (This is also important for Artemis)! As we are assembling viruses, we will need to tell Prokka what kingdom to use.</p>
 <p>Basic commands / usage: To run prokka on a virus assembly (with an example filename of ‘contigs.fa’ use the command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka/1.14.6-barrnap-bedtools-5z4fskk</span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka/1.14.6-mframqo</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> <span class="at">--Kingdom</span> Virus contigs.fa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you want to view the names of output files, you need to provide a name for the files and a directory where they should be saved:</p>
 <p>Choose the names of the output files with –outdir and –prefix</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka/1.14.6-barrnap-bedtools-5z4fskk</span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka/1.14.6-mframqo</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> <span class="at">--outdir</span> mydir <span class="at">--prefix</span> mygenome contigs.fa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -645,7 +645,7 @@ Prokka for mitochondrial annotation (Not recommended! See next workshop for how 
 5.  The Echinoderm and Flatworm Mitochondrial Code</code></pre>
 <p>A full command for mitochondrial annotation would look like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka/1.14.6-barrnap-bedtools-5z4fskk</span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load prokka/1.14.6-mframqo</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">prokka</span> <span class="at">--outdir</span> prokka <span class="at">--kingdom</span> Mitochondria <span class="at">--gcode</span> 2 assembly/contigs.fasta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -699,7 +699,7 @@ Extension: BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR
 <p>Barrnap takes FASTA file of assembled DNA sequences as input, and writes a GFF3 as output. Barrnap uses the new NHMMER tool that comes with HMMER 3.1 for HMM searching in RNA:DNA style. NHMMER binaries for 64-bit Linux and Mac OS X are included and will be auto-detected. Multithreading is supported and one can expect roughly linear speed-ups with more CPUs.</p>
 <p>Basic command usage:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load barrnap/0.9</span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load barrnap/0.9-ypa5cto</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">barrnap</span> <span class="pp">[</span><span class="ss">options</span><span class="pp">]</span> Your_contigs.fasta <span class="op">&gt;</span> outfile.gff</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Options:</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ex">--help</span>            This help</span>
@@ -725,7 +725,7 @@ Extension: BARRNAP - BASIC RAPID RIBOSOMAL RNA PREDICTOR
 <h2 class="anchored" data-anchor-id="use-bedtools-to-extract-out-your-phylogenetic-marker-sequence-e.g.-16s-or-coi-from-your-assembled-and-annotated-genome.">Use bedtools to extract out your phylogenetic marker sequence (e.g.&nbsp;16S or <em>CoI</em>) from your assembled and annotated genome.</h2>
 <p>Collectively, the bedtools utilities are a Swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF. While each individual tool is designed to do a relatively simple task (e.g., intersect two interval files), quite sophisticated analyses can be conducted by combining multiple bedtools operations on the UNIX command line.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.31.1-7imv7b4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load bedtools2/2.31.1-z2zkxtk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can use bedtools to extract gene/protein sequences from annotation files:</p>
 <ol type="1">
@@ -785,7 +785,7 @@ Exercise: Extracting marker genes
 </div>
 <p>Don’t forget to load BLAST and any other modules you need!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load blast-plus/2.14.1-eqbljdp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load blast-plus/2.14.1-qxsspbk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="blast-programs" class="level2">
@@ -920,11 +920,11 @@ Extension: mapping reads with minimap2
 <div class="callout-body-container callout-body">
 <p>[Minimap](https://github.com/lh3/minimap2) is a mapping software. It maps (aligns) sequencing reads to an assembled genome, so that it’s possible to see where in the genome each read originated from. We can use to see how the individual reads contributed to the assembled genome, and how deep the coverage is at each point along the genome.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load minimap2/2.28-w7jvpwe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load minimap2/2.28-mpg3455</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Samtools - BAM/SAM tool utilities (for handling the alignment files minimap produces). BAM and SAM are file formats for storing reads alongside lots of information about how each read maps to the genome. They are very similar, but BAM files are more compact and not human-readable (if you try to open one if looks like gobbledygook), whereas SAM files are larger but human-readable (at least to a certain type of nerd).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load samtools/1.19.2-m76oqh7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load samtools/1.19.2-ei3vxnb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Align read sequences to your assemblies and create a BAM file.</p>
 <div class="cell">

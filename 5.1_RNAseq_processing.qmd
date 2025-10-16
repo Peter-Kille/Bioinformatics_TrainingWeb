@@ -234,7 +234,7 @@ module unload py-multiqc
 ```{bash}
 
 # Load some modules
-module load star/2.7.11a-cbbjioq
+module load star/2.7.11b-conda
 
 workdir=$(pwd)
 
@@ -295,8 +295,8 @@ done
 #!/bin/bash
 
 #load some modules
-module load picard/3.1.1-peglbgr
-module load samtools/1.19.2-m76oqh7
+module load picard/3.1.1-6z7e4l7
+module load samtools/1.19.2-ei3vxnb
 
 ## Useful shortcuts
 workdir=$(pwd)
@@ -335,7 +335,7 @@ done
 #!/bin/bash
 
 # Load some modules
-module load subread/2.0.6-abbqxcc
+module load subread/2.0.6-hbzwdut
 
 ## Useful shortcuts
 workdir=$(pwd)
