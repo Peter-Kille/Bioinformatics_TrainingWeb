@@ -61,15 +61,83 @@ GTACTTAACCTAAACTGGACTAA
 Don't forget to use tab completion!
 :::
 
+## Variables
+
+Variables are a very important concept in any coding language. The idea is to assign a name to some object in your environment: a dataset, a number, some text, a filename, the output of a function... pretty much anything! The R fans among you will already be familiar with them in use cases like:
+
+```{r}
+# Read in a dataset and save it as dframe1
+dframe1<-read.csv(file.choose())
+
+#Run a linear regression and save the outputs as mod1
+mod1<-lm(dframe1$y ~ dframe1$x)
+```
+
+In the above examples, `dframe1` and `mod1` are **variables** because what they contain can **vary**: you could read in any dataset you like and call it dframe1. Likewise, you could run model after model and call the outputs mod1, overwriting the previous results each time.
+
+In R, to 'call' (i.e. access) the contents of a variable you simply use its name. For example:
+
+```{r}
+# Run the summary command on dframe1
+summary(dframe1)
+
+#Print the contents of mod1
+mod1
+```
+
+Linux also makes extensive use of variables, but the syntax is a little different. Instead of `<-`, a variable is set with `=` (there are also other ways, which you will see shortly). However, to call a variable in Linux *you use a dollar sign and curly brackets*.
+
+::: callout-important
+### Exercise: set and call variables in Linux
+
+1.  Create a variable `hi` to contain the words "Hello world".
+
+```{bash}
+hi="Hello world"
+```
+
+
+2.  Try printing the variable (the print command in Linux is `echo`) just using its name as you would in R. Does it work? What happens?
+
+```{bash}
+echo hi
+```
+
+3.  Now try again using the Linux syntax. Can you see what is different?
+
+```{bash}
+echo ${hi}
+```
+
+:::
+
+In Linux, if you want to set a variable to contain the output of a command, you need a little bit of extra syntax:
+
+```{bash}
+mydir=$(pwd)
+```
+
+The above example runs the command `pwd` and saves the output to the variable `mydir`. Note that the command has to be in round brackets and have a dollar sign in front of it. Try this out for yourself, and then try calling the variable like you did in the previous exercise.
+
+*Rules for variables in Linux*
+
+1. Variables can be set with the = sign.
+
+2. Text strings should be in "quotation marks".
+
+3. To ***save*** the outputs of a command to a variable, the command needs to be in ***round brackets*** with a dollar sign in front.
+
+4. To ***call*** a variable, use its name in ***curly brackets*** with a dollar sign in front.
+
 ## Pipes
 
 Very often in Linux you want to use the output of one command as the input to the next. This can easily be done using the pipe (\|) character. For example, suppose I want to count the number of sequences in a FASTA file. I can do this easily using a combination of the search command *grep* and the word count command *wc*.
 
 ```{bash}
-cat myFile.fasta | grep ">" | wc -l
+cat subsample_Ill1.fasta | grep ">" | wc -l
 ```
 
-Let's break down what this command is doing. First of all, I access the whole content of myFile.fasta using *cat*. However, rather than dumping it onto the screen I redirect that to become the input to *grep*. I tell *grep* to search for the symbol \> and sift out only the lines which contain that symbol. Because this is a FASTA, I know that can only be the header lines. I then feed this output into the *wc* command, with the option *-l* to count lines rather than words.
+Let's break down what this command is doing. First of all, I access the whole content of subsample_Ill1.fasta using *cat*. However, rather than dumping it onto the screen I redirect that to become the input to *grep*. I tell *grep* to search for the symbol \> and sift out only the lines which contain that symbol. Because this is a FASTA, I know that can only be the header lines. I then feed this output into the *wc* command, with the option *-l* to count lines rather than words.
 
 ::: callout-important
 ### Exercise: using the pipe
