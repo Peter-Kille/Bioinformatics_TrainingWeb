@@ -9,6 +9,12 @@ date: today
 affiliation: "Cardiff University"
 ---
 
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+
 # Workshop Overview
 
 You have generated a list of Differentially Expressed Genes (DEGs) passing a inital set of criteria you have defined. There are 2 criteria that are commonly used; 1) Statistical = filtered on PAdj (FDR adjusted p-value); and, 2) Level of response, fold change (FC) - filtered on log2FC (log 2 Fold Change).
