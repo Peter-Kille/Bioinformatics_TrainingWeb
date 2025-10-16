@@ -249,7 +249,7 @@ Script:
 ```{bash}
 #!/usr/bin/bash
 
-module load fastp/0.23.4-mr6qifo
+module load fastp/0.23.4-rsrnyej
 
 fastp -q 20 -u 10 --cut_right -i Illumina_R1.fastq -I Illumina_R2.fastq -o Illumina_trim_R1.fastq -O Illumina_trim_R2.fastq -
 ```
@@ -272,7 +272,7 @@ Use ls to look at the output. How could the script be improved to make it tidier
 Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.
 
 ```{bash}
- module load py-multiqc/1.15-mqimc53
+ module load py-multiqc/1.15-hcx2o2j
  
  #run multiqc on all files in the current working directory
  multiqc .

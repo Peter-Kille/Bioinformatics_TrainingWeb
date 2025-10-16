@@ -651,7 +651,7 @@ Exercise: fastp
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/bash</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastp/0.23.4-mr6qifo</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastp/0.23.4-rsrnyej</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-q</span> 20 <span class="at">-u</span> 10 <span class="at">--cut_right</span> <span class="at">-i</span> Illumina_R1.fastq <span class="at">-I</span> Illumina_R2.fastq <span class="at">-o</span> Illumina_trim_R1.fastq <span class="at">-O</span> Illumina_trim_R2.fastq <span class="at">-</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -680,7 +680,7 @@ Exercise: checking it worked!
 <h2 class="anchored" data-anchor-id="creating-a-quality-summary-with-multiqc">Creating a quality summary with multiqc</h2>
 <p>Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">module</span> load py-multiqc/1.15-mqimc53</span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">module</span> load py-multiqc/1.15-hcx2o2j</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a> <span class="co">#run multiqc on all files in the current working directory</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">multiqc</span> .</span>
