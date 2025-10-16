@@ -136,7 +136,7 @@ FigTree is designed as a graphical viewer of phylogenetic trees and as a program
 
 Download locally to your laptop: https://github.com/rambaut/figtree/releases / or access by logging into the server using `-X`
 
-```{base}
+```{bash}
 module load figtree/1.4.4-knoy37j
 
 figtree

@@ -174,7 +174,7 @@ Reminder: if using FileZilla, the details are:
 
 -   Host: sponsa.bios.cf.ac.uk (for masters students) or hawker.bios.cf.ac.uk (for Y3 students)
 -   Username: your username
--   Password: your three word password
+-   Password: your password
 -   Port: Your assigned port number
 
 5.  \[Extension\] Look up the help page using fastqc -h. What other options are available?

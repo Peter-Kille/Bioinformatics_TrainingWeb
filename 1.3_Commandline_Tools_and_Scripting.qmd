@@ -229,19 +229,22 @@ Invoke a text editor such as nano, then type
 ```{bash}
 #!/bin/bash
 
-sequence_dir=[location of folder containing paired end sequence files]
-#*_R1.fastq - lists all files ending in _R1.fastq
+#set present working directory as the location of script....all folder will be related to this directory
+workdir=$(pwd)
+#location of folder containing paired end sequence files - make sure your data is in a directory call rawdata in same location as your script.
+rawdir=${workdir}/rawdata
+# ls rawdata/*_R1.fastq.gz - this should list all files ending in _R1.fastq.gz
 
-for f in ${sequence_dir}/*_R1.fastq
+for f in ${rawdir}/*_R1.fastq.gz
 do
 
-#the file name are placed in variable $f - we can separate the name of the file away from the suffix (.fastq) using this simple cut expression - the variable 'R1' now contains the file name with no suffix 
-R1=$(basename $f | cut -f1 -d.)
+#the file name are placed in variable $f - we can separate the name of the file away from the suffix (.fastq.gz) using this simple cut expression - the variable 'R1' now contains the file name with no suffix 
+filename=$(basename $f | cut -f1 -d.)
 
-#Sometimes we want the 'base' name of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed 
-base=$(echo $R1 | sed 's/_R1//')
+#Sometimes we want the 'name' of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed 
+name=$(echo $R1 | sed 's/_R1//')
 
-echo ${base}
+echo ${name}
 
 done 
 ```

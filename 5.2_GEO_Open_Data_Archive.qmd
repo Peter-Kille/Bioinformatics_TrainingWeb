@@ -9,6 +9,11 @@ date: today
 affiliation: "Cardiff University"
 ---
 
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
 # Mining Gene Expression Omnibus (GEO)
 
 All research articles published in peer-reviewed journals must submit the data (raw or processed) to an accessible data archive - the most commonly used being NCBI GEO. Unfortunately the standards and types of data acceptable for submission to GEO have changed over the years from microarray datasets that were uploaded fully processed and ready to analyse - [Processed Datasets](#2.1D%20Processed%20dataset) to current practices where links are provided to the raw fastq file deposited within the Short Read Archive (SRA). Below I have provided instructions of how to create gene lists from each data type provided by GEO (I am sure I would have missed one but hopefully the list cover the majority of the options).
@@ -19,7 +24,7 @@ Provision of SRA and annotation files in teh forms of a 'Serise Matrix Files' re
 
 ## SRA NCBI download
 
-Samples preconfigured for SRA download ofen have ```SRA Run Selector``` as a link at the bottom of the entry. Approaches to downloading SRA data and annotation is documented in [NCBI Guide](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#download-sequence-data-from-the-) and there is a relatively straightforward read [achive website](https://www.ncbi.nlm.nih.gov/Traces/index.html?view=run_browser) to make this very easy through a browser interface.
+Samples preconfigured for SRA download ofen have `SRA Run Selector` as a link at the bottom of the entry. Approaches to downloading SRA data and annotation is documented in [NCBI Guide](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#download-sequence-data-from-the-) and there is a relatively straightforward read [achive website](https://www.ncbi.nlm.nih.gov/Traces/index.html?view=run_browser) to make this very easy through a browser interface.
 
 ## ENA as an alternative portal to SRA
 
