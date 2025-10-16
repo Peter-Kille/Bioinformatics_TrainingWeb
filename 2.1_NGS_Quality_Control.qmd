@@ -119,7 +119,7 @@ mydir=$(pwd)
 
 The above example runs the command `pwd` and saves the output to the variable `mydir`. Note that the command has to be in round brackets and have a dollar sign in front of it. Try this out for yourself, and then try calling the variable like you did in the previous exercise.
 
-*Rules for variables in Linux*
+#### Rules for variables in Linux
 
 1. Variables can be set with the = sign.
 
@@ -128,56 +128,6 @@ The above example runs the command `pwd` and saves the output to the variable `m
 3. To ***save*** the outputs of a command to a variable, the command needs to be in ***round brackets*** with a dollar sign in front.
 
 4. To ***call*** a variable, use its name in ***curly brackets*** with a dollar sign in front.
-
-## Pipes
-
-Very often in Linux you want to use the output of one command as the input to the next. This can easily be done using the pipe (\|) character. For example, suppose I want to count the number of sequences in a FASTA file. I can do this easily using a combination of the search command *grep* and the word count command *wc*.
-
-```{bash}
-cat subsample_Ill1.fasta | grep ">" | wc -l
-```
-
-Let's break down what this command is doing. First of all, I access the whole content of subsample_Ill1.fasta using *cat*. However, rather than dumping it onto the screen I redirect that to become the input to *grep*. I tell *grep* to search for the symbol \> and sift out only the lines which contain that symbol. Because this is a FASTA, I know that can only be the header lines. I then feed this output into the *wc* command, with the option *-l* to count lines rather than words.
-
-::: callout-important
-### Exercise: using the pipe
-
-1.  Try using the command above to count the number of sequences in subsample_Ill1.fasta.
-
-2.  What happens if you remove *\| wc -l* from the end? Do you understand why?
-:::
-
-Pipes are particularly useful as they allow you to run.... LOOPS!
-
-## Loops
-
-Loops are one of the best things about working on a Linux system. They allow you to write a command once and then run it on any number of files. There are several kinds of loops which all work on the same principles, so we will focus on the *while* loop. Let's look at a simple loop and break it down.
-
-```{bash}
-ls *.fasta | while read file; do wc -l ${file}; done
-```
-
-This starts by listing all the FASTA files in the directory Session2 (remember that \* stands in for anything). Try running
-
-```{bash}
-ls *.fasta 
-```
-
-just to check you're happy with that.
-
-The next step is to use a pipe. Instead of just listing the FASTA files on the screen, we are going to use that as input for our loop. The loop starts *while read file*. This means that one at a time, every line of that input will take a turn at being substituted for the word 'file' in the command that will follow. You don't have to call it 'file' - it could be banana or profiterole or socks; the only thing that matters is that you use the same word throughout the loop. Whatever word you choose, it becomes something known as a variable: literally, a value that can vary as it stands in for something else. *while read* sets the value of file, and then whenever we want to access its contents we can do so using \${file}.
-
-Having set the loop in progress, a semicolon indicates that next comes the command we want to run for each value of our variable. In this case, I am using *wc -l* to count the total number of lines in the file. Another semicolon followed by 'done' is needed to finish the loop and tell it to go away and run.
-
-::: callout-important
-### Exercise: using loops
-
-1.  Try running the loop above in the Session2 directory.
-
-2.  Try changing 'file' to something else. Does it work?
-
-3.  \[Extension\] Using what you've learned so far, can you make a loop that will only count the sequence header lines?
-:::
 
 ## FastQC
 
@@ -331,6 +281,57 @@ Multiqc will search through a parent and all daughter folders, extracting all th
 
 use the -h flag to see what option multiqc provides.
 
+## Pipes
+
+Very often in Linux you want to use the output of one command as the input to the next. This can easily be done using the pipe (\|) character. For example, suppose I want to count the number of sequences in a FASTA file. I can do this easily using a combination of the search command *grep* and the word count command *wc*.
+
+```{bash}
+cat subsample_Ill1.fasta | grep ">" | wc -l
+```
+
+Let's break down what this command is doing. First of all, I access the whole content of subsample_Ill1.fasta using *cat*. However, rather than dumping it onto the screen I redirect that to become the input to *grep*. I tell *grep* to search for the symbol \> and sift out only the lines which contain that symbol. Because this is a FASTA, I know that can only be the header lines. I then feed this output into the *wc* command, with the option *-l* to count lines rather than words.
+
+::: callout-important
+### Exercise: using the pipe
+
+1.  Try using the command above to count the number of sequences in subsample_Ill1.fasta.
+
+2.  What happens if you remove *\| wc -l* from the end? Do you understand why?
+:::
+
+Pipes are particularly useful as they allow you to run.... LOOPS!
+
+## Loops
+
+Loops are one of the best things about working on a Linux system. They allow you to write a command once and then run it on any number of files. There are several kinds of loops which all work on the same principles, so we will focus on the *while* loop. Let's look at a simple loop and break it down.
+
+```{bash}
+ls *.fasta | while read file; do wc -l ${file}; done
+```
+
+This starts by listing all the FASTA files in the directory Session2 (remember that \* stands in for anything). Try running
+
+```{bash}
+ls *.fasta 
+```
+
+just to check you're happy with that.
+
+The next step is to use a pipe. Instead of just listing the FASTA files on the screen, we are going to use that as input for our loop. The loop starts *while read file*. This means that one at a time, every line of that input will take a turn at being substituted for the word 'file' in the command that will follow. You don't have to call it 'file' - it could be banana or profiterole or socks; the only thing that matters is that you use the same word throughout the loop. Whatever word you choose, it becomes something known as a variable: literally, a value that can vary as it stands in for something else. *while read* sets the value of file, and then whenever we want to access its contents we can do so using \${file}.
+
+Having set the loop in progress, a semicolon indicates that next comes the command we want to run for each value of our variable. In this case, I am using *wc -l* to count the total number of lines in the file. Another semicolon followed by 'done' is needed to finish the loop and tell it to go away and run.
+
+::: callout-important
+### Exercise: using loops
+
+1.  Try running the loop above in the Session2 directory.
+
+2.  Try changing 'file' to something else. Does it work?
+
+3.  \[Extension\] Using what you've learned so far, can you make a loop that will only count the sequence header lines?
+:::
+
+
 ::: {.callout-note collapse="true"}
 ## Worked Example: Fastqc interactive loop
 
@@ -364,9 +365,9 @@ You are now going to meet the dataset we'll be exploring for the next few days. 
 cp -r ~/classdata/datasets ~/mydata/datasets
 ```
 
-Inside this folder you will find two data sets: prokaryote and mitochondrial. We will be using the prokaryote dataset to clean, assemble, annotate and analyse genomes over the next few days. The mitochondrial dataset will be for you to play with in the extension sessions.
+Inside this folder you will find three data sets: virus, prokaryote and mitochondrial. We will be using the virus dataset to clean, assemble, annotate and analyse genomes over the next few days. The prokaryote and mitochondrial datasets will be for you to play with in the extension sessions.
 
-Your challenge now is to write script(s) to run fastQC, fastp, fastQC (again!) and multiqc on the prokaryote files in the subdirectory `raw_reads`. You can either copy them over to `mydata/Session2` or work directly from `mydata/datasets/prokaryotes/raw_reads`. There are multiple prokaryote files, so you will need to use loops!
+Your challenge now is to write script(s) to run fastQC, fastp, fastQC (again!) and multiqc on the virus files in the subdirectory `raw_reads`. You can either copy them over to `mydata/Session2` or work directly from `mydata/datasets/prokaryotes/raw_reads`. There are multiple virus files, so you will need to use loops!
 
 If you are feeling confident, try creating one script that will carry out all the processes on all the files. *Remember to keep your file names and output directories tidy!*
 :::
