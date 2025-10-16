@@ -267,20 +267,6 @@ Use ls to look at the output. How could the script be improved to make it tidier
 2.  In the Session2 directory there is a sub-directory called looping, with five single-end Illumina samples in it. Can you write a script which will use loop over those files to do QC on them, then trim them and re-run the QC? Extra brownie points for keeping the output directories nice and tidy!
 :::
 
-## Creating a quality summary with multiqc
-
-Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.
-
-```{bash}
- module load py-multiqc/1.15-hcx2o2j
- 
- #run multiqc on all files in the current working directory
- multiqc .
- 
-```
-
-use the -h flag to see what option multiqc provides.
-
 ## Pipes
 
 Very often in Linux you want to use the output of one command as the input to the next. This can easily be done using the pipe (\|) character. For example, suppose I want to count the number of sequences in a FASTA file. I can do this easily using a combination of the search command *grep* and the word count command *wc*.
@@ -347,6 +333,21 @@ Having set the loop in progress, a semicolon indicates that next comes the comma
 
 </iframe>
 :::
+
+## Creating a quality summary with multiqc
+
+Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.
+
+```{bash}
+ module load py-multiqc/1.15-hcx2o2j
+ 
+ #run multiqc on all files in the current working directory
+ multiqc .
+ 
+```
+
+use the -h flag to see what option multiqc provides.
+
 
 ::: {.callout-note collapse="true"}
 ## Worked Example: Multiqc
