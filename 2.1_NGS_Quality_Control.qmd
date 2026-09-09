@@ -96,7 +96,6 @@ Linux also makes extensive use of variables, but the syntax is a little differen
 hi="Hello world"
 ```
 
-
 2.  Try printing the variable (the print command in Linux is `echo`) just using its name as you would in R. Does it work? What happens?
 
 ```{bash}
@@ -108,26 +107,25 @@ echo hi
 ```{bash}
 echo ${hi}
 ```
-
 :::
 
 In Linux, if you want to set a variable to contain the output of a command, you need a little bit of extra syntax:
 
 ```{bash}
-mydir=$(pwd)
+workdir=$(pwd)
 ```
 
 The above example runs the command `pwd` and saves the output to the variable `mydir`. Note that the command has to be in round brackets and have a dollar sign in front of it. Try this out for yourself, and then try calling the variable like you did in the previous exercise.
 
 #### Rules for variables in Linux
 
-1. Variables can be set with the = sign.
+1.  Variables can be set with the = sign.
 
-2. Text strings should be in "quotation marks".
+2.  Text strings should be in "quotation marks".
 
-3. To ***save*** the outputs of a command to a variable, the command needs to be in ***round brackets*** with a dollar sign in front.
+3.  To ***save*** the outputs of a command to a variable, the command needs to be in ***round brackets*** with a dollar sign in front.
 
-4. To ***call*** a variable, use its name in ***curly brackets*** with a dollar sign in front.
+4.  To ***call*** a variable, use its name in ***curly brackets*** with a dollar sign in front.
 
 ## FastQC
 
@@ -172,10 +170,10 @@ fastqc -o output_dir file.fastq
 
 Reminder: if using FileZilla, the details are:
 
--   Host: sponsa.bios.cf.ac.uk (for masters students) or hawker.bios.cf.ac.uk (for Y3 students)
--   Username: your username
--   Password: your password
--   Port: Your assigned port number
+- Host: sponsa.bios.cf.ac.uk (for masters students) or hawker.bios.cf.ac.uk (for Y3 students)
+- Username: your username
+- Password: your password
+- Port: Your assigned port number
 
 5.  \[Extension\] Look up the help page using fastqc -h. What other options are available?
 :::
@@ -192,9 +190,9 @@ Reminder: if using FileZilla, the details are:
 
 So far you have just been typing commands directly into the command line. This is great for exploring directories etc., but now you are starting to do some proper analysis you'll soon find yourself asking questions like
 
--   what if I want to run this again?
--   what if I want to check exactly what I did?
--   what if I want to show someone else what I did?
+- what if I want to run this again?
+- what if I want to check exactly what I did?
+- what if I want to show someone else what I did?
 
 These are excellent questions, and they can all be answered by writing SCRIPTS! If that sounds a bit daunting, a script is simply a text file that you write your commands into. By adding a special line of code called a shebang, the computer can run the commands in this text file as though you had typed them directly onto the command line.
 
@@ -213,10 +211,10 @@ Let's create a file with nano and write a simple script in it. By convention, sc
 nano test_nano.sh
 ```
 
--   type the shebang at the top #!/usr/bin/bash
--   Type ls on the next line
--   Exit using ctrl-X, save and return to command line
--   Now we need to make the file executable (so it can be run as a programme)
+- type the shebang at the top #!/usr/bin/bash
+- Type ls on the next line
+- Exit using ctrl-X, save and return to command line
+- Now we need to make the file executable (so it can be run as a programme)
 
 ```{bash}
 chmod a+x [script name]
@@ -317,7 +315,6 @@ Having set the loop in progress, a semicolon indicates that next comes the comma
 3.  \[Extension\] Using what you've learned so far, can you make a loop that will only count the sequence header lines?
 :::
 
-
 ::: {.callout-note collapse="true"}
 ## Worked Example: Fastqc interactive loop
 
@@ -347,7 +344,6 @@ Multiqc will search through a parent and all daughter folders, extracting all th
 ```
 
 use the -h flag to see what option multiqc provides.
-
 
 ::: {.callout-note collapse="true"}
 ## Worked Example: Multiqc

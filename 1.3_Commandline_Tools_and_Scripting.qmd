@@ -205,22 +205,22 @@ Place the script into your 'PATH' -- this means that the computer automatically 
 
 ## Script structure - what I think makes sense
 
-There are many excellent computer science books about best practice about writing scripts - my advice is keep it simple.  
+There are many excellent computer science books about best practice about writing scripts - my advice is keep it simple.
 
 Here's a few hints / recommendations:
 
-* add lots of comments (starting with #) so you can remember what each line does later !! Be careful bash does not like these to be half way through commands
+- add lots of comments (starting with #) so you can remember what each line does later !! Be careful bash does not like these to be half way through commands
 
-* I suggest a simple structure 
+- I suggest a simple structure
 
-    * Define variables
-    * Load programs
-    * Use loop (if appropriate)
-    * Execute command
-    * Unload programs or purge
-    
-* When writing complicated command break up the single line using line continuation symbol \.  
-Add this at end of line and it tell bash the command to continue on the next line theerfore Treat the next line as part of the same command.
+  - Define variables
+  - Load programs
+  - Use loop (if appropriate)
+  - Execute command
+  - Unload programs or purge
+
+- When writing complicated command break up the single line using line continuation symbol .\
+  Add this at end of line and it tell bash the command to continue on the next line theerfore Treat the next line as part of the same command.
 
 ```{bash}
 
