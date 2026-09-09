@@ -9,7 +9,7 @@
 <meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
 <meta name="dcterms.date" content="2026-09-09">
 
-<title>Extension: Hybrid Assemblies</title>
+<title>Genome Visualisation and Annotation</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -141,7 +141,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Extension: Hybrid Assemblies</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3.1_Genome_Visualisation.html">Session 3. Genomics</a></li><li class="breadcrumb-item"><a href="./3.1_Genome_Visualisation.html">Genome Visualisation and Annotation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -153,9 +153,9 @@ background: darkred;
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Extension: Hybrid Assemblies</h1>
-            <p class="subtitle lead">When short-read just doesn’t cut it</p>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3.1_Genome_Visualisation.html">Session 3. Genomics</a></li><li class="breadcrumb-item"><a href="./3.1_Genome_Visualisation.html">Genome Visualisation and Annotation</a></li></ol></nav>
+      <h1 class="title">Genome Visualisation and Annotation</h1>
+            <p class="subtitle lead">Layering information onto your sequences</p>
                       </div>
   </div>
     
@@ -293,13 +293,19 @@ background: darkred;
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3.1_Genome_visualisation_and_annotation.html" class="sidebar-item-text sidebar-link">
+  <a href="./3.1_Genome_Visualisation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Genome Visualisation and Annotation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3.2_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
+  <a href="./3.2_Genome_Annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genome Visualisation and Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3.3_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension: Annotating Mitochondrial Genomes</span></a>
   </div>
 </li>
@@ -397,8 +403,14 @@ background: darkred;
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#visualising-genomes-using-artemis" id="toc-visualising-genomes-using-artemis" class="nav-link active" data-scroll-target="#visualising-genomes-using-artemis">Visualising genomes using Artemis</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -407,35 +419,210 @@ background: darkred;
 
 
 
-<p>So far, you have been assembling genomes just using Illumina short reads. However, as discussed in the lecture, sometimes there are areas of genome that can’t be resolved with short reads, meaning the assembly produces more contigs. This can be improved by adding in long reads to scaffold the contigs. The short reads provide high quality detail, while the long reads provide the big-picture context.</p>
-<p>Unicycler provides the option to add in long-read information very simply by using the <code>-l</code> flag to direct it to a file of long reads.</p>
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=35fe879e-58e9-4141-a49a-af630098dee1&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
+</iframe>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>If you’re feeling confident
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>As you go through each step of the annotation process, use loops to apply it to <em>all</em> the virus genomes you’ve assembled.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>If you’re not feeling confident
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Pick one virus genome and work through annotating it. Use the time later in the extension session to use loops to apply the process to all the virus genomes.</p>
+</div>
+</div>
+</div>
+<section id="visualising-genomes-using-artemis" class="level1">
+<h1>Visualising genomes using Artemis</h1>
+<p><a href="https://www.sanger.ac.uk/tool/artemis/">Artemis</a> is a rather old but very elegant genome visualisation tool. To get you used to using it, we will try it out using an example genome that’s already been annotated.</p>
+<p><strong><em>Artemis can be installed locally <a href="http://sanger-pathogens.github.io/Artemis/">local install instructions</a>. Warning: this can take time, so please do not do it during teaching session.</em></strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Artemis Mac Install
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Additional Sanger Centre training material can be downloaded using the following link - <a href="https://tinyurl.com/4dzbj9nk">Sanger center training</a></p>
+<ol type="1">
+<li><p>download latest version of Artemis from https://github.com/sanger-pathogens/Artemis/releases/download/v18.2.0/artemis-macosx-release-18.2.0.dmg.gz</p></li>
+<li><p>download java from Latest Releases - must be jdk v11 or above, from <a href="https://www.techspot.com/downloads/7407-java-se-16.html">TechSpot</a> or <a href="https://adoptium.net/en-GB/temurin/releases/?version=16&amp;os=mac&amp;arch=x64&amp;package=jdk">Adoptium</a></p></li>
+<li><p>unpack Artemis - and move the files to a folder somewhere … i.e to an Artemis directory you’ve made somewhere.</p></li>
+<li><p>find out what version of java is currently on your system</p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">-version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>or you can see the java versions you have available using</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/libexec/java_home</span> <span class="at">-V</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="5" type="1">
+<li>then depending on your shell - edit the relevant rc file</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> ~/.zshrc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>and add a line …. change the -v1.8 to -vXX depending on the version of java you have as default.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">JAVA_HOME</span><span class="op">=</span><span class="va">$(</span><span class="ex">/usr/libexec/java_home</span> <span class="at">-</span> v1.8<span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="6" type="1">
+<li>now install the version of java you have just downloaded - this will install and make the default java change to this version. You should also see a new line appear when you run this command.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/libexec/java_home</span> <span class="at">-V</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="7" type="1">
+<li>now run Artemis - use terminal to change to the directory you put the apps in in step 3</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Artemis/</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Artemis.app/Contents/art</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><p>will run Artemis - or alternatively you should be able to click on the icons in finder to run.</p></li>
+<li><p>If there is a security issue - go … File – System Settings – Privacy &amp; Security .. and then look for a statement that says “Artemis” was blocked from use because it is not from an identified developer …. and click Open Anyway - you need to have admin/sudo privileges to do this.</p></li>
+<li><p>Artemis should run</p></li>
+</ul>
+<ol start="8" type="1">
+<li>the next time you log into your mac - the default java will be the default one and not the one required to use Artemis … so to the terminal and type (change -v flag depending on jvm version)</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">JAVA_HOME</span><span class="op">=</span><span class="va">$(</span><span class="ex">/usr/libexec/java_home</span> <span class="at">-v16</span><span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><p>and now you should be able to run Artemis again</p></li>
+<li><p>if you want to keep use this java as default - edit your .zshrc file</p></li>
+<li><p>if you don’t want to type in that command all the time, add this to your .zshrc file</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> javaart=<span class="st">'export JAVA_HOME=$(/usr/libexec/java_home -v16)'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><p>and then type <code>javaart</code> into a terminal to change to the version of java required for Artemis</p></li>
+<li><p>alternatively you should be able to edit the</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Artemis.app/Contents/art</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#script and add</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">JAVA_HOME</span><span class="op">=</span><span class="va">$(</span><span class="ex">/usr/libexec/java_home</span> <span class="at">-</span> v16<span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>at the top somewhere - haven’t tested this to force the right version of java to be used.</li>
+</ul>
+</div>
+</div>
+</div>
+<p>To use Artemis via your Linux desktop on the server, you need to enable it to use a visual interface. Open a new tab in MobaXterm and log in using the slightly modified command:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#For masters' students</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> [your username]@sponsa.bios.cf.ac.uk <span class="at">-X</span> <span class="at">-p</span> [your port number]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#For Y3 students</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> [your username]@hawker.bios.cf.ac.uk <span class="at">-X</span> <span class="at">-p</span> [your port number]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Use the three-word passphrase you were assigned.</p>
+<p>The <code>-X</code> enables the graphical interface.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Exercise: Hybrid assembly
+<span class="screen-reader-only">Important</span>Exercise: Loading a Genome into Artemis
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We have provided you with Nanopore long-read data for your prokaryote genomes in <code>~/classdata/datasets/prokayote/prokaryote_NP/</code>.</p>
-<ol type="1">
-<li>Run a hybrid assembly with Nanopore data, then use Quast to compare the results to short-read-only assembly.</li>
-</ol>
-<p>Hybrid assembly example command line:</p>
+<p>Load the Artemis module and initiate Artemis with command <code>art</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">unicycler</span> <span class="at">-1</span> [processed fastq R1] <span class="at">-2</span> [processed fastq R2] <span class="at">-l</span> [nanopore fastq] <span class="at">-t</span> [thread number] <span class="at">-o</span> [output directory] <span class="dv">1</span><span class="op">&gt;</span> <span class="pp">[</span><span class="ss">file_name</span><span class="pp">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load artemis/18.2.0-conda</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">art</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Notice that at the end of the command I’ve added <code>1&gt; [file_name]</code>. This tells bash that instead of just spitting messages onto the screen as the command runs, it should write them to a file. Unicycler produces some useful and informative output while running hybrid assembly, which it is helpful to keep.</p>
-<ol start="2" type="1">
-<li><p>Have a read through Unicycler’s <a href="https://github.com/rrwick/Unicycler#method-hybrid-assembly">information page on hybrid assembly</a>. How does it use the long reads to bring gaps in the short-read assembly?</p></li>
-<li><p>Use <code>less</code> to look at the log file you’ve produced. Can you use the Unicycler page above to interpret what it’s telling you?</p></li>
-</ol>
+<p>Artemis Opening Screen</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Artemis_Open_window.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>Open Genbank File</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>File <span class="op">&gt;</span>Open</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Navigate to your Session3 folder and select the genbank file (<code>NC_003428.gb</code>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Select_Genbank_file.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>Cancel any warnings you should see the following window;</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Artemis_genbank_file_wrong_codon_table.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>The blue highlighted area should highlight open reading frames (ORFs) and the vertical lines stop codons - notice that there are vertical line in the middle of ORFs this indicates that we are using the wrong codon table. Arrange your graphics windows so you can see the Opening window which will be hidden behind the gene display window - you should see something like this.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Art_open_window_gene_window.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>Now change the codon table by selecting</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> Options <span class="op">&gt;</span> Genetic <span class="ex">Code</span> Tables</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">selecet</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Vertebrate</span> Mitochondrial</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Your gene visualisation should now look like this</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Artemis_genbank_file_correct_codon_table.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As we create our annotations, you will be able to visualise the various outputs using Artemis.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Extension Work
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I have included a range of extension exercises / guides generated by the Sanger Centre (the people who wrote Artemis) these are included in your Session3 folder under <code>Artemis_Sanger_Center</code></p>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

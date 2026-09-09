@@ -39,15 +39,21 @@ Below is a walkthrough on the steps necessary to assemble a mitochondrial or bac
 
 We will use multiple bioinformatic packages to assemble a genome and provide assembly statistics
 
-fastQC -- Quality control of reads
+::: callout-note
+##Programs used for this session
 
-fastp -- adapter removal and trimming tool
+`tmux` -- allowing jobs to continu after you switch off
 
-Unicycler -- genome assembler
+`fastQC` -- Quality control of reads
 
-Quast -- genome assembly statistics
+`fastp` -- adapter removal and trimming tool
 
-Bandage (optional) -- view graphical fragment assembly (gfa) files
+`Unicycler` -- genome assembler
+
+`quast` -- genome assembly statistics
+
+`Bandage (optional)` -- view graphical fragment assembly (gfa) files
+:::
 
 **Remember that you can access the "help" option for almost all bioinformatics tools by executing the name of the tool with no flags/options, or adding -h or --help. After using a program, don't forget to unload the module.**
 
