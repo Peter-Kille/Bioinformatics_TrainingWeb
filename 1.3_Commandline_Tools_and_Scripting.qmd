@@ -340,7 +340,7 @@ do
 
 sample=$(basename ${file} | cut -f1 -d. | sed 's/_R1//')
 
-printf "${sample}\t${sample}_R1.fastq.gz\t${sample}_R1.fastq.gz\n" >> samplelist.txt
+printf "${sample}\t${sample}_R1.fastq.gz\t${sample}_R2.fastq.gz\n" >> samplelist.txt
 
 done
 ```
