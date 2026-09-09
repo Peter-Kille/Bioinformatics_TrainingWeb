@@ -333,13 +333,14 @@ rawdir=${workdir}/rawdata
 for file in ${rawdir}/*_R1.fastq.gz
 do
 
-#the file name are placed in variable $f - we can separate the name of the file away from the suffix (.fastq.gz) using this simple cut expression - the variable 'R1' now contains the file name with no suffix 
-filename=$(basename ${file} | cut -f1 -d.)
+#the file paths are placed in variable ${file} - we can separate the sample name of the full path by: #
+#1. using basename to remove folder path
+#2. cut to select the first column after the name has been separated by "." (this removes .fastq.gz suffix).
+#3. using sed to replace read direction "_R1" with nothing. This leave just the sample name.
 
-#Sometimes we want the 'name' of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed 
-sample=$(echo ${filename} | sed 's/_R1//')
+sample=$(basename ${file} | cut -f1 -d. | sed 's/_R1//')
 
-printf "${sample}\t${sample}_R1.fastq\t${sample}_R1.fastq\n" >> samplelist.txt
+printf "${sample}\t${sample}_R1.fastq.gz\t${sample}_R1.fastq.gz\n" >> samplelist.txt
 
 done
 ```
