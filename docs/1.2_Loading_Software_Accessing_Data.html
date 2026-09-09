@@ -404,8 +404,8 @@ background: darkred;
   <ul>
   <li><a href="#software" id="toc-software" class="nav-link active" data-scroll-target="#software">Software</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#visualising-text-files" id="toc-visualising-text-files" class="nav-link" data-scroll-target="#visualising-text-files">Visualising text files</a></li>
-  <li><a href="#using-text-editors" id="toc-using-text-editors" class="nav-link" data-scroll-target="#using-text-editors">Using text editors</a>
+  <li><a href="#visualisingpreviewing-files" id="toc-visualisingpreviewing-files" class="nav-link" data-scroll-target="#visualisingpreviewing-files">Visualising/previewing files</a></li>
+  <li><a href="#editting-text-files" id="toc-editting-text-files" class="nav-link" data-scroll-target="#editting-text-files">Editting text files</a>
   <ul class="collapse">
   <li><a href="#text-files-word-processors-and-bioinformatics" id="toc-text-files-word-processors-and-bioinformatics" class="nav-link" data-scroll-target="#text-files-word-processors-and-bioinformatics">Text files, Word Processors and Bioinformatics</a>
   <ul class="collapse">
@@ -429,6 +429,11 @@ background: darkred;
 <p>Now that you’re (hopefully) re-caffeinated and have stretched your legs and cleared your brain, let’s have a look at some more need-to-know information.</p>
 <section id="software" class="level1">
 <h1>Software</h1>
+<p>Commands covered:</p>
+<p><code>module avail</code> - list software available</p>
+<p><code>module load [software]</code> - loads specific piece of software</p>
+<p><code>module unload [software]</code> - removed specific software</p>
+<p><code>module purge</code> - removes all software</p>
 <p>The linux OS has some really powerful utilities but these are not truly bioinformatics software. We have to ‘install’ or ‘load’ software. We do not want to have all our software loaded all the time, as many informatic tools are very complex i.e.&nbsp;requiring different versions of python or java to run. Having software that requires conflicting versions loaded at the same time can cause a malfunction.</p>
 <p>Most managed HPC systems (not your own personal computer) manage this by using modules. These are preconfigured installers for your software packages. Cardiff systems use modules - if this is the case you can see the software that is available try the following command:</p>
 <div class="cell">
@@ -490,8 +495,16 @@ background: darkred;
 <p>You can <strong>see these folders but not write to them</strong>! Before each session, copy the corresponding folder to your mydata directory using <code>cp</code>.</p>
 <p>Note the inclusion of the ‘-r’ flag to allow you to copy the folder ‘recursively’: this will copy all the folders and files inside.</p>
 </section>
-<section id="visualising-text-files" class="level1">
-<h1>Visualising text files</h1>
+<section id="visualisingpreviewing-files" class="level1">
+<h1>Visualising/previewing files</h1>
+<p>Commands covered:</p>
+<p><code>less</code> - preview a file (q to exit)</p>
+<p><code>more</code> - Display the contents of a file in a terminal</p>
+<p><code>cat</code> - print to screen</p>
+<p><code>zcat</code> - print compressed fie to screen</p>
+<p><code>head -n 10</code> - show first 10 lines of file</p>
+<p><code>tail -n 10</code> - show last 10 lines of file</p>
+<p><code>cat, more, head and tail</code> only work on uncompressed files</p>
 <p>There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but not edit them. Among the most common of these commands are <code>cat</code>, <code>more</code>, <code>less</code>, <code>head</code> and <code>tail</code>.</p>
 <p><code>cat</code> streams the entire contents of a file to your terminal and is thus not that useful for reading long files as the text streams past too quickly to read. It is a very useful facility for reading files into other programs.</p>
 <p><code>head</code> and <code>tail</code> show the beginning and end 10 lines of a document, respectively. <code>head</code> in particular is useful for taking a quick peek inside a file. You can use the argument -n [number] to change the number of lines displayed. For example, to see the first 20 lines of a file:</p>
@@ -562,8 +575,11 @@ background: darkred;
 </div>
 </div>
 </section>
-<section id="using-text-editors" class="level1">
-<h1>Using text editors</h1>
+<section id="editting-text-files" class="level1">
+<h1>Editting text files</h1>
+<p>Commands covered:</p>
+<p><code>nano</code> - text editor with on screen prompts</p>
+<p><code>vi</code>or <code>vim</code> - text editor to impress the programmers (no on screen prompts)</p>
 <p>Plain text files are important, both as input to bioinformatics programs and as input or configuration files for system programs. We highly recommend that you learn to use a text editor to prepare and edit plain text files.</p>
 <section id="text-files-word-processors-and-bioinformatics" class="level2">
 <h2 class="anchored" data-anchor-id="text-files-word-processors-and-bioinformatics">Text files, Word Processors and Bioinformatics</h2>
