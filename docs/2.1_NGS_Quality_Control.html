@@ -670,7 +670,8 @@ background: darkred;
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastp</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-q</span> 20 <span class="at">-u</span> 10 <span class="at">--cut_right</span> <span class="at">-i</span> Illumina_R1.fastq <span class="at">-I</span> Illumina_R2.fastq <span class="at">-o</span> Illumina_trim_R1.fastq <span class="at">-O</span> Illumina_trim_R2.fastq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-q</span> 20 <span class="at">-u</span> 10 <span class="at">--cut_right</span> <span class="at">-i</span> Illumina_R1.fastq <span class="at">-I</span> Illumina_R2.fastq <span class="at">-o</span> Illumina_trim_R1.fastq <span class="at">-O</span> Illumina_trim_R2.fastq <span class="at">--detect_adapter_for_pe</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">--html</span> Illumina_fastp.html <span class="at">--json</span> Illumina_fastp.json <span class="at">--thread</span> 4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Script - multi-line line easy to read version:</p>
 <div class="cell">
@@ -683,7 +684,11 @@ background: darkred;
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">-i</span> Illumina_R1.fastq <span class="dt">\</span></span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">-I</span> Illumina_R2.fastq <span class="dt">\</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">-o</span> Illumina_trim_R1.fastq <span class="dt">\</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">-O</span> Illumina_trim_R2.fastq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">-O</span> Illumina_trim_R2.fastq <span class="dt">\</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">--detect_adapter_for_pe</span> <span class="dt">\</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">--html</span> Illumina_fastp.html <span class="dt">\</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">--json</span> Illumina_fastp.json <span class="dt">\</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">--thread</span> 4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Look up the <a href="https://github.com/OpenGene/fastp">help page for fastp</a>. What does each of the options given above mean?</p>
 <p>Use ls to look at the output. How could the script be improved to make it tidier?</p>

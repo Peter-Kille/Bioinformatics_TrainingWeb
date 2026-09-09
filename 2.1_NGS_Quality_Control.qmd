@@ -249,7 +249,8 @@ Script - One Line version:
 
 module load fastp
 
-fastp -q 20 -u 10 --cut_right -i Illumina_R1.fastq -I Illumina_R2.fastq -o Illumina_trim_R1.fastq -O Illumina_trim_R2.fastq
+fastp -q 20 -u 10 --cut_right -i Illumina_R1.fastq -I Illumina_R2.fastq -o Illumina_trim_R1.fastq -O Illumina_trim_R2.fastq --detect_adapter_for_pe
+  --html Illumina_fastp.html --json Illumina_fastp.json --thread 4
 ```
 
 Script - multi-line line easy to read version:
@@ -264,7 +265,11 @@ fastp -q 20 -u 10 \
       -i Illumina_R1.fastq \
       -I Illumina_R2.fastq \
       -o Illumina_trim_R1.fastq \
-      -O Illumina_trim_R2.fastq
+      -O Illumina_trim_R2.fastq \
+      --detect_adapter_for_pe \
+      --html Illumina_fastp.html \
+      --json Illumina_fastp.json \
+      --thread 4
 ```
 
 Look up the [help page for fastp](https://github.com/OpenGene/fastp). What does each of the options given above mean?
