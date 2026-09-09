@@ -337,7 +337,7 @@ do
 filename=$(basename ${file} | cut -f1 -d.)
 
 #Sometimes we want the 'name' of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed 
-sample=$(echo ${basename} | sed 's/_R1//')
+sample=$(echo ${filename} | sed 's/_R1//')
 
 printf "${sample}\t${sample}_R1.fastq\t${sample}_R1.fastq\n" >> samplelist.txt
 
