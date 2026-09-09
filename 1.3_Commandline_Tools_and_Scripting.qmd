@@ -334,9 +334,9 @@ for file in ${rawdir}/*_R1.fastq.gz
 do
 
 #the file paths are placed in variable ${file} - we can separate the sample name of the full path by: #
-#1. using basename to remove folder path
+#1. basename to remove folder path
 #2. cut to select the first column after the name has been separated by "." (this removes .fastq.gz suffix).
-#3. using sed to replace read direction "_R1" with nothing. This leave just the sample name.
+#3. sed to replace read direction "_R1" with nothing. This leave just the sample name.
 
 sample=$(basename ${file} | cut -f1 -d. | sed 's/_R1//')
 
