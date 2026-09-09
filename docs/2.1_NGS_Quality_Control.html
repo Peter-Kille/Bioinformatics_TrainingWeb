@@ -783,8 +783,38 @@ background: darkred;
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> <span class="pp">*</span>.fastq.gz rawdata/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Step 3: Create a program to make a sample list file</p>
-<p><a href="1.3_Command_Tools_and_Scripting.qmd#sec-loops-loop-to-create-a-samplelist-from-rawdata-folder">generate sample list</a></p>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.3_Commandline_Tools_and_Scripting.html#sec-loops-loop-to-create-a-samplelist-from-rawdata-folder">generate sample list</a></p>
 <p>Step 4: Edit Loop using sample list to include multiqc</p>
+<p><a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.3_Commandline_Tools_and_Scripting.html#sec-program-execution-loop-f-samplelist">execute program on sample list</a></p>
+<ul>
+<li>Add variables for raw data directory, create folder for rawqc results and make variable for rawqcdir</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="va">rawdata</span><span class="op">=</span><span class="va">${workdir}</span>/rawdata</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="va">${workdir}</span>/rawqc</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="va">rawqcdir</span><span class="op">=</span><span class="va">${workdir}</span>/rawqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Edit module load and module unload</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#before loop</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#afterloop</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Add the fastqc command to middle of loop</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">-t</span> 2 <span class="dt">\</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>       <span class="va">${rawdata}</span>/<span class="va">${sample}</span>_R1.fastq.gz <span class="dt">\</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>       <span class="va">${rawdata}</span>/<span class="va">${sample}</span>_R2.fastq.gz <span class="dt">\</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">-o</span> <span class="va">${rawqcdir}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Here’s a video of me building these scripts for start to finish:</p>
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e591c923-11fc-4a04-9272-b09400e8d1bc&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
 </iframe>
 </div>
@@ -812,11 +842,11 @@ background: darkred;
 <h2 class="anchored" data-anchor-id="creating-a-quality-summary-with-multiqc">Creating a quality summary with multiqc</h2>
 <p>Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">module</span> load MultiQC</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a> <span class="co">#run multiqc on all files in the current working directory</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">multiqc</span> .</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">module</span> load MultiQC</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a> <span class="co">#run multiqc on all files in the current working directory</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">multiqc</span> .</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>use the -h flag to see what option multiqc provides.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -848,7 +878,7 @@ background: darkred;
 <div class="callout-body-container callout-body">
 <p>You are now going to meet the dataset we’ll be exploring for the next few days. In ~/classdata there is a folder called datasets. Copy this folder across to your ~/mydata directory</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/classdata/datasets ~/mydata/datasets</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/classdata/datasets ~/mydata/datasets</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Inside this folder you will find three data sets: virus, prokaryote and mitochondrial. We will be using the virus dataset to clean, assemble, annotate and analyse genomes over the next few days. The prokaryote and mitochondrial datasets will be for you to play with in the extension sessions.</p>
 <p>Your challenge now is to write script(s) to run fastQC, fastp, fastQC (again!) and multiqc on the virus files in the subdirectory <code>raw_reads</code>. You can either copy them over to <code>mydata/Session2</code> or work directly from <code>mydata/datasets/prokaryotes/raw_reads</code>. There are multiple virus files, so you will need to use loops!</p>

@@ -348,9 +348,41 @@ mv *.fastq.gz rawdata/
 
 Step 3: Create a program to make a sample list file
 
-[generate sample list](1.3_Command_Tools_and_Scripting.qmd#sec-loops-loop-to-create-a-samplelist-from-rawdata-folder)
+[generate sample list](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.3_Commandline_Tools_and_Scripting.html#sec-loops-loop-to-create-a-samplelist-from-rawdata-folder)
 
 Step 4: Edit Loop using sample list to include multiqc
+
+[execute program on sample list](https://peter-kille.github.io/Bioinformatics_TrainingWeb/1.3_Commandline_Tools_and_Scripting.html#sec-program-execution-loop-f-samplelist)
+
+- Add variables for raw data directory, create folder for rawqc results and make variable for rawqcdir
+
+```{bash}
+rawdata=${workdir}/rawdata
+
+mkdir ${workdir}/rawqc
+rawqcdir=${workdir}/rawqc
+```
+
+- Edit module load and module unload
+
+```{bash}
+#before loop
+module load fastqc
+
+#afterloop
+module unload fastqc
+```
+
+- Add the fastqc command to middle of loop
+
+```{bash}
+fastqc -t 2 \
+       ${rawdata}/${sample}_R1.fastq.gz \
+       ${rawdata}/${sample}_R2.fastq.gz \
+       -o ${rawqcdir}
+```
+
+Here's a video of me building these scripts for start to finish:
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e591c923-11fc-4a04-9272-b09400e8d1bc&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 

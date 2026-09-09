@@ -358,7 +358,7 @@ run
 ./[program_name] 
 ```
 
-## Loop to execute a program on samplelist {#sec-loop-to-execute-a-program-on-samplelist}
+## Program execution loop from samplelist {#sec-program-execution-loop-f-samplelist}
 
 Print list of sample names to screen from samplelist file where the file has three tab deliminated columns encompassing: name, forwardread, and reverseread with first row having column headers.
 
