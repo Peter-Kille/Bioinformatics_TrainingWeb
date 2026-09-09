@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Prof.&nbsp;Peter Kille">
+<meta name="dcterms.date" content="2026-09-09">
+
+<title>Extension Gomphus Slurm HPC</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-261e60fdf64a0e003ec2340fd2db30d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: white;
+background: darkred;
+      }
+</style>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1.1_Introduction_to_Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="./1.4_Extension_Gomphus_Slurm_HPC.html">Extension Gomphus Slurm HPC</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1.1_Introduction_to_Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="./1.4_Extension_Gomphus_Slurm_HPC.html">Extension Gomphus Slurm HPC</a></li></ol></nav>
+      <h1 class="title">Extension Gomphus Slurm HPC</h1>
+            <p class="subtitle lead">Real power at you fingertips</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Prof.&nbsp;Peter Kille </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 9, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Welcome to Bioinformatics!</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Big Data Biology and Bioinformatics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Session 0. HPC and Personal Cloud</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0.1_Personal_Cloud.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Personal Cloud</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Session 1. Linux: The basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.1_Introduction_to_Linux.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Linux</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Loading Software and Accessing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.3_Commandline_Tools_and_Scripting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Commandline Tools and Scripting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.4_Extension_Gomphus_Slurm_HPC.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Extension Gomphus Slurm HPC</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Session 2. NGS data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2.1_NGS_Quality_Control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">NGS Quality Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2.2_genome_assembly.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genome Assembly</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2.3_hybrid_assemblies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extension: Hybrid Assemblies</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Session 3. Genomics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3.1_Genome_Visualisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genome Visualisation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3.2_Genome_Annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Genome Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3.3_Annotating_mitochondria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extension: Annotating Mitochondrial Genomes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Session 4. Building phylogenies</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4.1_phylogentics_phylogenomics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phylogenetics and Phylogeneomics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4.2_phylogentics_phylogenomics_extension.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extension: Phylogenetics and Phylogeneomics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Session 5. Transcriptomics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.0_Transcriptomics_Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcriptomics: An Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.1_RNAseq_processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RNAseq Processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.2_GEO_Open_Data_Archive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gene Expression Omnibus (GEO)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.3_DEG_Generation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Processing : Generation of DEG Lists</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.4_DEG_Functional_Interpretation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functional Interpretation of DEG Lists</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5.5_Refined_Data_Representations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Refined Data Representation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Session 6. Microbial community analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6.1_metabarcoding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metabarcoding</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#my-hpc-system---gomphus" id="toc-my-hpc-system---gomphus" class="nav-link active" data-scroll-target="#my-hpc-system---gomphus">My HPC System - Gomphus</a>
+  <ul class="collapse">
+  <li><a href="#house-keeping" id="toc-house-keeping" class="nav-link" data-scroll-target="#house-keeping">House Keeping</a>
+  <ul class="collapse">
+  <li><a href="#login-to-the-server" id="toc-login-to-the-server" class="nav-link" data-scroll-target="#login-to-the-server">login to the server</a></li>
+  <li><a href="#create-symlinks-to-classdata-and-my-data" id="toc-create-symlinks-to-classdata-and-my-data" class="nav-link" data-scroll-target="#create-symlinks-to-classdata-and-my-data">create ‘symlinks’ to classdata and my data</a></li>
+  </ul></li>
+  <li><a href="#explore-your-hpc-resources" id="toc-explore-your-hpc-resources" class="nav-link" data-scroll-target="#explore-your-hpc-resources">Explore your HPC resources</a>
+  <ul class="collapse">
+  <li><a href="#your-disc-quota" id="toc-your-disc-quota" class="nav-link" data-scroll-target="#your-disc-quota">Your disc quota</a></li>
+  <li><a href="#hpc-resources" id="toc-hpc-resources" class="nav-link" data-scroll-target="#hpc-resources">HPC resources</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#job-schedulers-and-slurm" id="toc-job-schedulers-and-slurm" class="nav-link" data-scroll-target="#job-schedulers-and-slurm">Job Schedulers and Slurm</a>
+  <ul class="collapse">
+  <li><a href="#the-slurm-job-scheduler" id="toc-the-slurm-job-scheduler" class="nav-link" data-scroll-target="#the-slurm-job-scheduler">The Slurm Job Scheduler</a></li>
+  <li><a href="#slurm-partitions-queues" id="toc-slurm-partitions-queues" class="nav-link" data-scroll-target="#slurm-partitions-queues">Slurm Partitions (Queues)</a></li>
+  <li><a href="#submitting-jobs-the-slurm-job-script" id="toc-submitting-jobs-the-slurm-job-script" class="nav-link" data-scroll-target="#submitting-jobs-the-slurm-job-script">Submitting Jobs (The Slurm Job-Script)</a>
+  <ul class="collapse">
+  <li><a href="#resource-limitations" id="toc-resource-limitations" class="nav-link" data-scroll-target="#resource-limitations">Resource Limitations</a></li>
+  </ul></li>
+  <li><a href="#my-first-slurm-job---excersise" id="toc-my-first-slurm-job---excersise" class="nav-link" data-scroll-target="#my-first-slurm-job---excersise">My first slurm Job - Excersise</a></li>
+  <li><a href="#loading-programs-in-slurm-scripts" id="toc-loading-programs-in-slurm-scripts" class="nav-link" data-scroll-target="#loading-programs-in-slurm-scripts">Loading programs in slurm scripts</a></li>
+  <li><a href="#viewing-information-about-a-job" id="toc-viewing-information-about-a-job" class="nav-link" data-scroll-target="#viewing-information-about-a-job">Viewing Information About a Job</a>
+  <ul class="collapse">
+  <li><a href="#information-on-running-jobs" id="toc-information-on-running-jobs" class="nav-link" data-scroll-target="#information-on-running-jobs">Information on Running Jobs</a></li>
+  <li><a href="#information-on-completed-jobs" id="toc-information-on-completed-jobs" class="nav-link" data-scroll-target="#information-on-completed-jobs">Information on Completed Jobs</a></li>
+  </ul></li>
+  <li><a href="#useful-slurm-related-commands" id="toc-useful-slurm-related-commands" class="nav-link" data-scroll-target="#useful-slurm-related-commands">Useful Slurm-Related Commands</a>
+  <ul class="collapse">
+  <li><a href="#other-useful-commands" id="toc-other-useful-commands" class="nav-link" data-scroll-target="#other-useful-commands">other useful commands</a></li>
+  </ul></li>
+  <li><a href="#constructing-a-slurm-job---good-practice" id="toc-constructing-a-slurm-job---good-practice" class="nav-link" data-scroll-target="#constructing-a-slurm-job---good-practice">Constructing a slurm Job - good practice</a></li>
+  <li><a href="#interactive-jobs" id="toc-interactive-jobs" class="nav-link" data-scroll-target="#interactive-jobs">Interactive Jobs</a></li>
+  </ul></li>
+  <li><a href="#using-hpc-resources-effectively" id="toc-using-hpc-resources-effectively" class="nav-link" data-scroll-target="#using-hpc-resources-effectively">Using HPC resources effectively</a>
+  <ul class="collapse">
+  <li><a href="#blast-as-an-example" id="toc-blast-as-an-example" class="nav-link" data-scroll-target="#blast-as-an-example">blast as an example</a></li>
+  <li><a href="#reviewing-and-optimising-job-resources" id="toc-reviewing-and-optimising-job-resources" class="nav-link" data-scroll-target="#reviewing-and-optimising-job-resources">Reviewing and optimising job resources</a></li>
+  </ul></li>
+  <li><a href="#threads-mpi-and-embarrassingly-parallel" id="toc-threads-mpi-and-embarrassingly-parallel" class="nav-link" data-scroll-target="#threads-mpi-and-embarrassingly-parallel">Threads, MPI and embarrassingly parallel</a>
+  <ul class="collapse">
+  <li><a href="#parallel-jobs" id="toc-parallel-jobs" class="nav-link" data-scroll-target="#parallel-jobs">Parallel Jobs</a></li>
+  <li><a href="#embarrassingly-parallel" id="toc-embarrassingly-parallel" class="nav-link" data-scroll-target="#embarrassingly-parallel">Embarrassingly parallel</a></li>
+  <li><a href="#mpi-jobs" id="toc-mpi-jobs" class="nav-link" data-scroll-target="#mpi-jobs">MPI Jobs</a></li>
+  <li><a href="#threaded-jobs" id="toc-threaded-jobs" class="nav-link" data-scroll-target="#threaded-jobs">Threaded Jobs</a></li>
+  <li><a href="#job-chains-and-job-dependency" id="toc-job-chains-and-job-dependency" class="nav-link" data-scroll-target="#job-chains-and-job-dependency">Job Chains and Job Dependency</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="my-hpc-system---gomphus" class="level1">
+<h1>My HPC System - Gomphus</h1>
+<p>All HPC are slightly different and it is important to understand the specific system you are using.</p>
+<section id="house-keeping" class="level2">
+<h2 class="anchored" data-anchor-id="house-keeping">House Keeping</h2>
+<section id="login-to-the-server" class="level3">
+<h3 class="anchored" data-anchor-id="login-to-the-server">login to the server</h3>
+<p>HPC system available to big data masters students:</p>
+<p>host</p>
+<pre><code>gomphus.bios.cf.ac.uk</code></pre>
+<p>User name <code>university username</code> Password <code>SSO Password</code> Port <code>22</code></p>
+<p>We suggest you use (MobaXterm)[<a href="https://mobaxterm.mobatek.net/" class="uri">https://mobaxterm.mobatek.net/</a>] (PC) and terminal SSH (Mac) to access the server and MobaXtrem and (cyberduck)[<a href="https://cyberduck.io/" class="uri">https://cyberduck.io/</a>] or (filezilla)[<a href="https://filezilla-project.org/" class="uri">https://filezilla-project.org/</a>] to allow secure file transfer (sftp) between server and local computer resources.</p>
+</section>
+<div id="hello" class="greeting message" style="color: red;">
+<section id="create-symlinks-to-classdata-and-my-data" class="level3">
+<h3 class="anchored" data-anchor-id="create-symlinks-to-classdata-and-my-data">create ‘symlinks’ to classdata and my data</h3>
+<p>Linux <code>ln</code> command allows you to create a symbolic link (also symlink or soft link) to a file or directory (called the “target”) by specifying a path thereto. The format is <code>ln -s [target location] [shortcut]</code>. I recommend you create the following symlinks at your root position.</p>
+<pre><code>ln -s /mnt/clusters/sponsa/data/classdata classdata
+
+ln -s /mnt/clusters/sponsa/data/${USER} mydata</code></pre>
+</section>
+</div>
+<p>You should now see two sym links at you root <code>classdata</code> and <code>mydata</code> that will allow you to address these locations using:</p>
+<pre><code>~/classdata/
+~/mydata/</code></pre>
+</section>
+<section id="explore-your-hpc-resources" class="level2">
+<h2 class="anchored" data-anchor-id="explore-your-hpc-resources">Explore your HPC resources</h2>
+<section id="your-disc-quota" class="level3">
+<h3 class="anchored" data-anchor-id="your-disc-quota">Your disc quota</h3>
+<div class="greeting message" style="color: red;">
+<p>Review what ‘storage’ resources are available to you.</p>
+<pre><code>quota -us [username]</code></pre>
+</div>
+<p>This should display the following information:</p>
+<p>Disk quotas for user smbpk (uid 31961):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Filesystem</th>
+<th>space</th>
+<th>quota</th>
+<th>limit</th>
+<th>grac</th>
+<th>files</th>
+<th>quota</th>
+<th>limit</th>
+<th>grace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>/dev/mapper/cl-root</td>
+<td>32K</td>
+<td>5120M</td>
+<td>7168M</td>
+<td></td>
+<td>13</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>192.168.2.41:/mnt/data/clusters/anax</td>
+<td>4K</td>
+<td>1978G</td>
+<td>2078G</td>
+<td></td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="greeting message" style="color: red;">
+<p>Check your personal disc usage in mydata (du is the disc utility -h = human readable, -s = summarise )</p>
+<pre><code>du -sh ~/mydata/</code></pre>
+</div>
+</section>
+<section id="hpc-resources" class="level3">
+<h3 class="anchored" data-anchor-id="hpc-resources">HPC resources</h3>
+<p>The head node on gomphus is a 16 cpu / 32 Gb RAM server…..but it provides access to a serise of servers.</p>
+<p>The head node has a specific script that displays the resources available to you. Run the command:</p>
+<pre><code>gomphus.node_availability.sh</code></pre>
+<p>This should display the following information:</p>
+<pre><code>Key ('CPUS' column):
+  A = # cores Allocated
+  I = # cores Idle
+  O = # cores not 'Idle' or 'Allocated'
+  T = Total # of cores</code></pre>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>NODELIST</th>
+<th>NODES</th>
+<th>PARTITION</th>
+<th>STATE</th>
+<th>CPUS</th>
+<th>S:C:T</th>
+<th>MEMORY</th>
+<th>TMP_DISK</th>
+<th>WEIGHT</th>
+<th>AVAIL_FE</th>
+<th>CPUS(A/I/O/T)</th>
+<th>REASON</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>gomphus2</td>
+<td>1</td>
+<td>defq*</td>
+<td>idle</td>
+<td>64</td>
+<td>1:64:1</td>
+<td>93375</td>
+<td>0</td>
+<td>1</td>
+<td>(null)</td>
+<td>0/64/0/64</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>gomphus3</td>
+<td>1</td>
+<td>defq*</td>
+<td>idle</td>
+<td>64</td>
+<td>1:64:1</td>
+<td>93375</td>
+<td>0</td>
+<td>1</td>
+<td>(null)</td>
+<td>0/64/0/64</td>
+<td>none</td>
+</tr>
+<tr class="odd">
+<td>gomphus1</td>
+<td>1</td>
+<td>defq*</td>
+<td>idle</td>
+<td>32</td>
+<td>1:32:1</td>
+<td>62250</td>
+<td>0</td>
+<td>1</td>
+<td>(null)</td>
+<td>0/32/0/32</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="job-schedulers-and-slurm" class="level1">
+<h1>Job Schedulers and Slurm</h1>
+<section id="the-slurm-job-scheduler" class="level2">
+<h2 class="anchored" data-anchor-id="the-slurm-job-scheduler">The Slurm Job Scheduler</h2>
+<p>The slurm job scheduler is software that controls and monitors access to high-performance computing hardware. It allocates resources (cpus/cores/RAM) on a per-job basis.</p>
+</section>
+<section id="slurm-partitions-queues" class="level2">
+<h2 class="anchored" data-anchor-id="slurm-partitions-queues">Slurm Partitions (Queues)</h2>
+<p>A number of slurm partitions (queues) may exist on any slurm cluster, and each queue will suit certain types of jobs. Each of the separate queues will handle jobs slightly differently, or will have varying resources available to it. Below is a list of queues available on our HPC systems, and the typical types of jobs they accommodate.</p>
+<p><strong>Gomphus Queues</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 13%">
+<col style="width: 49%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>partition(queue) name</th>
+<th>default?</th>
+<th>description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>defq</td>
+<td>✔</td>
+<td>batch jobs, low mem/cpu requirement</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="submitting-jobs-the-slurm-job-script" class="level2">
+<h2 class="anchored" data-anchor-id="submitting-jobs-the-slurm-job-script">Submitting Jobs (The Slurm Job-Script)</h2>
+<p>The typical method to start a job on a slurm cluster is to first create a job-script, then submit that job-script to the slurm queue using the sbatch command. The job-script is laid out in a certain way (examples below), which will first request resources on the compute nodes, and then define the individual steps of your job. Below is an example job script for gomphus slurm using the partition defq. We’ll name the job-script <code>submit.sh</code>:</p>
+<pre><code>#!/bin/bash
+#SBATCH --partition=defq       # the requested queue
+#SBATCH --nodes=1              # number of nodes to use
+#SBATCH --tasks-per-node=1     #
+#SBATCH --cpus-per-task=1      #   
+#SBATCH --mem-per-cpu=1000     # in megabytes, unless unit explicitly stated
+#SBATCH --error=%J.err         # redirect stderr to this file
+#SBATCH --output=%J.out        # redirect stdout to this file
+##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification
+##SBATCH --mail-type=end                                   # email on job end
+##SBATCH --mail-type=fail                                  # email on job failure
+
+echo "Some Usable Environment Variables:"
+echo "================================="
+echo "hostname=$(hostname)"
+echo \$SLURM_JOB_ID=${SLURM_JOB_ID}
+echo \$SLURM_NTASKS=${SLURM_NTASKS}
+echo \$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}
+echo \$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}
+echo \$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}
+echo \$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}
+
+# Write jobscript to output file (good for reproducibility)
+cat $0</code></pre>
+<p>The job can be submitted from the head node of the slurm cluster using the command:</p>
+<pre><code>sbatch submit.sh</code></pre>
+<p>This particular job does nothing interesting except print out some useful job-specific slurm environment variables, which you may utilise in your job-scripts.</p>
+<p>This job-script is actually just a simple bash script, and in bash the # character will comment out the remaining text on that line, and will not be parsed by the bash interpreter. In a slurm job-script however, the lines starting with #SBATCH is parsed by slurm before the script is handed over to the bash interpreter. The #SBATCH lines will inform the slurm scheduler of the amount of resources requested for the job.</p>
+<p>If you would like to comment out certain slurm commands in your job-script, simply add an extra # at the beginning of the #SBATCH lines (as we have done in the above example for all email-related commands).</p>
+<p>Some further useful (but not exhaustive) SBATCH options are detailed:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>SBATCH option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>–ntasks-per-node</td>
+<td>allocate n tasks per allocated node.</td>
+</tr>
+<tr class="even">
+<td>–nodes</td>
+<td>set the number of nodes that the job will require. Each node will have –ntasks-per-node processes started</td>
+</tr>
+<tr class="odd">
+<td>–ntasks</td>
+<td>spawn n tasks (default=1). This determines how many processes will be spawned (for MPI jobs).</td>
+</tr>
+<tr class="even">
+<td>–cpus-per-task</td>
+<td>allocate n CPUs per task. This option is needed for multi-threaded jobs. Typically n should be equal to the number of threads your program spawns.</td>
+</tr>
+<tr class="odd">
+<td>–partition</td>
+<td>select the partition (queue) where you want to execute your job. Depending on the HPC system you are using, there may, or may not, be much choice.</td>
+</tr>
+<tr class="even">
+<td>–mem-per-cpu</td>
+<td>specify the the memory needed per allocated CPU in MB.</td>
+</tr>
+<tr class="odd">
+<td>–job-name</td>
+<td>name your job. This name will be shown in the queue status and email alerts. It is also important for job chaining.</td>
+</tr>
+<tr class="even">
+<td>–output</td>
+<td>specify a filename that will be used to store the stdout of your job. The slurm variable %J is useful here which slurm will interpret as the job_id of the job.</td>
+</tr>
+<tr class="odd">
+<td>–error</td>
+<td>similar to the –output option, but redirect your job’s stderr.</td>
+</tr>
+</tbody>
+</table>
+<section id="resource-limitations" class="level3">
+<h3 class="anchored" data-anchor-id="resource-limitations">Resource Limitations</h3>
+<p>On the a slurm cluster, the slurm scheduler keeps track of both requested CPUs, and memory. If your job exceeds the currently available resources then your job will be queued until sufficient resources are available. If your job exceeds the total amount of resources available on the compute nodes then your job submission will fail and will not be queued, in which case an error will be returned.</p>
+</section>
+</section>
+<section id="my-first-slurm-job---excersise" class="level2 greeting message" style="color: red;">
+<h2 class="anchored" data-anchor-id="my-first-slurm-job---excersise">My first slurm Job - Excersise</h2>
+<p>To submit an appropriately configured job-script to the slurm queue, use the command:</p>
+<pre><code>sbatch submit.sh</code></pre>
+<p>Use <code>cat</code> or <code>less</code> to rReview the content of the <code>.out</code> and <code>.err</code> files - note the <code>.out</code> file should contain a summary of the varibles used by the script and the program you ran.</p>
+<p>The gomphus cluster has a number of example job-scripts (located under <code>~/classdata/REFS/slurm</code> on the gompus.bios.cf.ac.uk server). You may submit these jobs with the following commands on the gomphus cluster:</p>
+<pre><code># first cd to your allocated ~/mydata/ folder.
+mkdir -p test_jobs &amp;&amp; cd test_jobs
+cp ~/classdata/REFS/slurm/slurm_examples/example1/* .
+sbatch example1.sh</code></pre>
+<p>What is the function of this example script ??</p>
+</section>
+<section id="loading-programs-in-slurm-scripts" class="level2">
+<h2 class="anchored" data-anchor-id="loading-programs-in-slurm-scripts">Loading programs in slurm scripts</h2>
+<p>Review what programs are available too you using</p>
+<pre><code>module avail</code></pre>
+<p>Programs should be loaded using ‘module load’ after the slurm parameters have been defined and before you define variable or provide commands for you program.</p>
+<p>module list for gomphus (2022)</p>
+<pre><code>-------------- /mnt/clusters/sponsa/software/nospack/modulefiles --------------
+artemis/18.2.0              multiqc/1.13              rnammer/1.2
+bioconvert/0.4.3            panaroo/1.3.0             snippy/v4.6.0
+bioperl-live/release-1-7-2  perl/5.34.0               snp-sites/2.5.1
+blast/2.12.0                prokka_mambaforge/1.14.6  SPAdes/3.15.5
+fmlrc/v1.0.0                python/3.7.4              treeview/1.2.0
+gromacs/2022.3              python/3.10.5             unicycler/v0.5.0
+java/11.0.2                 qiime2/2022.8
+mitos/2.0.4                 quast/5.2.0
+
+-- /mnt/clusters/sponsa/software/spack/share/spack/modules/linux-rocky8-zen ---
+abyss/2.3.1        fastqc/0.11.9         picard/2.26.2       velvet/1.2.10
+alan/2.1.1         fasttree/2.1.10       pilon/1.22          vt/0.5772
+barrnap/0.8        fastx-toolkit/0.0.14  prokka/1.14.6       wtdbg2/2.3
+bcftools/1.14      figtree/1.4.3         racon/1.4.3
+bedtools2/2.30.0   freebayes/1.3.6       raxml-ng/1.0.2
+blast-plus/2.12.0  gdbm/1.19             samtools/1.15.1
+bowtie2/2.4.2      hmmer/3.3.2           seqtk/1.3
+caliper/2.8.0      igv/2.12.3            spades/3.15.3
+cdhit/4.8.1        mafft/7.481           star/2.7.6a
+dos2unix/7.4.2     mcl/14-137            subread/2.0.2
+dyninst/12.2.0     minimap2/2.14         tbl2asn/2022-04-26
+emboss/6.6.0       ncurses/6.3           tmux/3.2a
+fastp/0.20.0       perl-bioperl/1.7.6    trimmomatic/0.39
+
+----------------------- /usr/share/Modules/modulefiles ------------------------
+dot  module-git  module-info  modules  null  use.own</code></pre>
+</section>
+<section id="viewing-information-about-a-job" class="level2">
+<h2 class="anchored" data-anchor-id="viewing-information-about-a-job">Viewing Information About a Job</h2>
+<section id="information-on-running-jobs" class="level3">
+<h3 class="anchored" data-anchor-id="information-on-running-jobs">Information on Running Jobs</h3>
+<p>If your job-script used the srun command to kick off a (parallel) process, then slurm will be able to provide live information about your running job. All information about your running job can be listed with the sstat command:</p>
+<pre><code>sstat -l -j [jobid]</code></pre>
+<p>In particular it may be useful to compare the fields MaxRSS and ReqMem. These fields report the actual max memory of a single task, and the requested memory of a single task, respectively. You may then tune any future job-scripts to more accurately represent your jobs, which will lead to better queue efficiency - meaning your job will likely start sooner.</p>
+<p>If any application call within your job-script did not use the srun command, then no live information will be available. Instead, wait for your job to finish and use the sacct command, as described below.</p>
+</section>
+<section id="information-on-completed-jobs" class="level3">
+<h3 class="anchored" data-anchor-id="information-on-completed-jobs">Information on Completed Jobs</h3>
+<p>Similar to the <code>sstat</code> command used for running jobs, the sacct command will provide equivalent information about completed jobs.</p>
+</section>
+</section>
+<section id="useful-slurm-related-commands" class="level2">
+<h2 class="anchored" data-anchor-id="useful-slurm-related-commands">Useful Slurm-Related Commands</h2>
+<p>The sinfo command can supply a lot of useful information about the nodes and available resources. A useful set of parameters of which to call sinfo with is the following:</p>
+<pre><code>sinfo -o "%24N %.5D %9P %11T %.4c %.8z %.8m %.8d %.6w %8f %15C %20E"
+NODELIST                 NODES PARTITION STATE       CPUS    S:C:T   MEMORY TMP_DISK WEIGHT AVAIL_FE CPUS(A/I/O/T)   REASON              
+gomphus[1-4]                 4 defq*     idle          32   1:32:1    62250        0      1 (null)   0/128/0/128     none </code></pre>
+<p>Here, we see a list of nodes on the gomphus cluster (grouped by partition, and by state), and information about the nodes. In this particular instance we see that gomphus has 4 nodes [1-4] each with 32 CPUS. The CPUS(A/I/O/T) column shows that the defq partition has a total of 0 CPUs Allocated, 128 CPUs Idle, 0 in state Other, making a Total of 128 (all 4 nodes combined).</p>
+<p>The above command is a bit of a handful. You have already used the wrapper script created for you <code>gomphus.job_history.sh</code></p>
+<section id="other-useful-commands" class="level3">
+<h3 class="anchored" data-anchor-id="other-useful-commands">other useful commands</h3>
+<p>To cancel a running job:</p>
+<pre><code>$ scancel [jobid]</code></pre>
+<p>information about the compute nodes:</p>
+<pre><code>$ sinfo -lNe</code></pre>
+<p>List the current status of the slurm queue:</p>
+<pre><code>$ squeue</code></pre>
+<p>Find information on previously completed jobs:</p>
+<pre><code>$ sacct</code></pre>
+<p>List information on running jobs:</p>
+<pre><code>$ sstat</code></pre>
+</section>
+</section>
+<section id="constructing-a-slurm-job---good-practice" class="level2 greeting message" style="color: red;">
+<h2 class="anchored" data-anchor-id="constructing-a-slurm-job---good-practice">Constructing a slurm Job - good practice</h2>
+<p>Adapt RNAseq processing script 1-QC.sh (see session Session5 -RNAseq-Processing) to run under slurm (do not run script 2 – building genome) ** if you find this easy try adapting script 3,4 and 5.</p>
+<p>You may want to discuss the resources required for the job.</p>
+<p>Hints:</p>
+<p>define directories using full path derived with <code>PWD -P</code></p>
+<pre><code>~/mydata/ = /mnt/clusters/sponsa/data/$USER/</code></pre>
+<p>When creating composite variables use enclose them in quotation marks to ensure they expand.</p>
+<pre><code>"${indir}/fastq/${i}_1.fastq"</code></pre>
+</section>
+<section id="interactive-jobs" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-jobs">Interactive Jobs</h2>
+<p>Enter an interactive job and use this to review the files created by the RNAseq processing scripts.</p>
+<pre><code>##Use any avalible node
+srun -c 4 --mem=8G -p defq --pty bash
+
+##use a specific node - in this example called gomphus3
+
+srun -c 4 --mem=8G -p defq --nodelist=gomphus3 --pty bash</code></pre>
+<p>Remember to exit the interactive job when you are finished by typing <code>exit</code></p>
+<p><strong><em>Advanced:</em></strong> Some HPC architectures will allow you to directly write to the ‘local’ harddrive <code>/tmp</code> For jobs with lots of I/O and where the nodes are using new M2 SSD drives this can accelerate certain types of jobs.</p>
+</section>
+</section>
+<section id="using-hpc-resources-effectively" class="level1">
+<h1>Using HPC resources effectively</h1>
+<p>gomphus.job_history.sh</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>User</th>
+<th>JobID</th>
+<th>State</th>
+<th>Start</th>
+<th>End</th>
+<th>AllocCPUS</th>
+<th>TotalCPU</th>
+<th>CPUEf</th>
+<th>ReqMem</th>
+<th>axRSS</th>
+<th>MemEf</th>
+<th>AveDiskRead</th>
+<th>AveDiskWrite</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>smbpk</td>
+<td>7174</td>
+<td>COMPLETED</td>
+<td>2022-11-07T09:18:2</td>
+<td>2022-11-07T09:23:13</td>
+<td>4</td>
+<td>05:25.029</td>
+<td>27.9%</td>
+<td>32000M</td>
+<td>1776696K</td>
+<td>5.4%</td>
+<td>20940.17M</td>
+<td>6974.14M</td>
+</tr>
+</tbody>
+</table>
+<section id="blast-as-an-example" class="level2">
+<h2 class="anchored" data-anchor-id="blast-as-an-example">blast as an example</h2>
+<p>We take a closer look at running jobs on our cluster, we should provide examples of benchmarking code in order to find how to best utilise the resources available.</p>
+<p>We start off by benchmarking a simple blast job, initially running over a single core, then parallelizing the job using blast’s built-in threading. All jobs are run on a single node, and we test a number of nodes and compare results. For example source code, see the folder <code>~/classdata/REFS/slurm/slurm_examples/indepth_parallelizing_blastp</code> on the gomphus server.</p>
+<p>Remember to run all commands in your <code>~/mydata/[directory]</code>.</p>
+<p>First we obtain the sample data:</p>
+<pre><code># this is already downloaded to ~/classdata/REFS/slurm/slurm_examples/indepth_parallelizing_blastp/
+curl -L -o TAIR10_pep.fasta  https://www.arabidopsis.org/download_files/Proteins/TAIR10_protein_lists/TAIR10_pep_20101214
+
+## we can prepare the data within a interactive job
+srun -c 4 --mem=8G -p defq --pty bash
+
+## navigate to mydata directory
+cd ~/mydata/
+
+## make a dirctory for blast test
+mkdir -p blast_test &amp;&amp; cd blast_test 
+
+## copy TAIR file accross from class data to local file system
+cp /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/indepth_parallelizing_blastp/run2_split-files4/TAIR10_pep.fasta .
+
+## Makeblast db from downloaded file
+module load blast/2.12.0
+makeblastdb -in TAIR10_pep.fasta -parse_seqids -dbtype prot -title "Small protein database" -out TAIR10_pep
+
+##copy the query sub-set
+cp /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/indepth_parallelizing_blastp/TAIR10_pep_4000.fasta .
+
+exit</code></pre>
+<p>Now create the job Script - blastp.sh</p>
+<pre><code>#!/bin/bash
+#SBATCH --partition=defq       # the requested queue
+#SBATCH --nodes=1              # number of nodes to use
+#SBATCH --tasks-per-node=1     # 
+#SBATCH --cpus-per-task=1      #   
+#SBATCH --mem-per-cpu=92000     # in megabytes, unless unit explicitly stated
+#SBATCH --error=%J.err         # redirect stderr to this file
+#SBATCH --output=%J.out        # redirect stdout to this file
+##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification
+##SBATCH --mail-type=start                                 # email on job start  
+##SBATCH --mail-type=end                                   # email on job end
+##SBATCH --mail-type=fail                                  # email on job failure
+
+echo "Usable Environment Variables:"
+echo "============================="
+echo \$SLURM_JOB_ID=${SLURM_JOB_ID} 
+echo \$SLURM_NTASKS=${SLURM_NTASKS}
+echo \$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}
+echo \$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}
+echo \$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}
+echo \$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}
+cat $0
+
+module load blast/2.12.0
+
+indir="/mnt/clusters/sponsa/data/${USER}/blast_test"
+
+dbdir="/mnt/clusters/sponsa/data/${USER}/blast_test"
+
+outdir="/mnt/clusters/sponsa/data/${USER}/blast_test"
+
+time blastp -num_threads ${SLURM_CPUS_PER_TASK} \
+            -query "${indir}/TAIR10_pep_4000.fasta" \
+            -task blastp \
+            -num_descriptions 16 \
+            -num_alignments 1 \
+            -db ${dbdir}/TAIR10_pep \
+            -out "${outdir}/blastp_cpu${SLURM_CPUS_PER_TASK}_job${SLURM_JOBID}.txt"</code></pre>
+<div class="greeting message" style="color: red;">
+<p>Run this blast script a number of times, increasing the –cpus-per-task and decreasing the –mem-per-cpu variables accordingly (ie 2 cpus-per-task &amp; 46000 mem-per-cpu, 3 cpus-per-task &amp; 30600 mem-per-cpu …..16 cpus-per-task &amp; 5750 mem-per-cpu. Review the benchmarks considering the resources needed and the time taken to execute the jobs</p>
+<p>What are your conclusions</p>
+</div>
+</section>
+<section id="reviewing-and-optimising-job-resources" class="level2">
+<h2 class="anchored" data-anchor-id="reviewing-and-optimising-job-resources">Reviewing and optimising job resources</h2>
+<div class="greeting message" style="color: red;">
+<p>Use <code>gomphus.job_history.sh</code> to review the efficiency of your job</p>
+</div>
+</section>
+</section>
+<section id="threads-mpi-and-embarrassingly-parallel" class="level1">
+<h1>Threads, MPI and embarrassingly parallel</h1>
+<section id="parallel-jobs" class="level2">
+<h2 class="anchored" data-anchor-id="parallel-jobs">Parallel Jobs</h2>
+<p>There are a number of different scenarios in which you may want to parallelize your job:</p>
+<ul>
+<li>Embarrassingly parallel</li>
+<li>MPI - a multi-process application (possibly across multiple compute hosts)</li>
+<li>multi-threading - shared memory using OpenMP or perhaps pthreads.</li>
+<li>multiple instances of a single application.</li>
+<li>…plus more scenarios but are probably out of scope of this tutorial.</li>
+</ul>
+</section>
+<section id="embarrassingly-parallel" class="level2">
+<h2 class="anchored" data-anchor-id="embarrassingly-parallel">Embarrassingly parallel</h2>
+<p>Many processes in genomics do the same task on large arrays of data. One of the simplest way of speeding up the process is to split up the input files and perfrom the same task multiple times at the same time - this is called an _<strong>‘Embarrassingly parallel’</strong> task.</p>
+<p>Lets do this for the blast example that we started in the last task. We can investigate whether there are any further methods of improving performance, and attempt to find a improvemet in the initial blast job’s solution to reduce the time taken. As it turns out, it is possible in this situation to split the input fasta file into a number of sections, and have an independent job acting on each of those sections. Each independent job could then be parallelized, say over 8 threads, and all jobs can run concurrently.</p>
+<p>We create a job script (mammoth_8thread_split_1of4.sh) that will run blast command on the first file-section only.</p>
+<p>We perform the following sequence of commands, first splitting the input fasta file into 4 parts, then creating the 4 independent job-scripts, and submit the jobs.</p>
+<pre><code>## enter a interactive Job
+srun -c 4 --mem=8G -p defq --pty bash
+cd ~/mydata/blast_test/
+
+## a new folder
+mkdir split-files4
+cd split-files4/
+cp ~/TAIR10_pep_4000.fasta  .
+#
+## split the fasta file into 4 equal(ish) sections
+curl -L https://raw.githubusercontent.com/gmarnellos/Trinotate_example_supplement/master/split_fasta.pl | perl /dev/stdin  TAIR10_pep_4000.fasta  TAIR10_pep.vol 1000</code></pre>
+<p>create script that will spawn blast_jobs (use nano or vi) - spawn_blastp.sh</p>
+<pre><code>!#/bin/bash
+
+for i in {1..4};do
+
+export i
+
+sbatch blastp.sh
+
+done</code></pre>
+<p>make script executable <code>chmod +x spawn_blastp.sh</code></p>
+<p>Edit blast job so that each time it is called it uses a different section of the query file</p>
+<pre><code>#!/bin/bash
+#SBATCH --partition=defq       # the requested queue
+#SBATCH --nodes=1              # number of nodes to use
+#SBATCH --tasks-per-node=1     # 
+#SBATCH --cpus-per-task=8      #   
+#SBATCH --mem-per-cpu=11500    # in megabytes, unless unit explicitly stated
+#SBATCH --error=%J.err         # redirect stderr to this file
+#SBATCH --output=%J.out        # redirect stdout to this file
+##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification
+##SBATCH --mail-type=start                                 # email on job start  
+##SBATCH --mail-type=end                                   # email on job end
+##SBATCH --mail-type=fail                                  # email on job failure
+
+echo "Usable Environment Variables:"
+echo "============================="
+echo "hostname=$(hostname)"
+echo \$SLURM_JOB_ID=${SLURM_JOB_ID} 
+echo \$SLURM_NTASKS=${SLURM_NTASKS}
+echo \$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}
+echo \$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}
+echo \$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}
+echo \$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}
+
+cat $0
+
+module load blast/2.12.0
+
+indir="/mnt/clusters/sponsa/data/${USER}/blast_test/split-files4"
+
+dbdir="/mnt/clusters/sponsa/data/${USER}/blast_test"
+
+outdir="/mnt/clusters/sponsa/data/${USER}/blast_test/split-files4"
+
+time blastp -num_threads ${SLURM_CPUS_PER_TASK} \
+            -query "${indir}/TAIR10_pep.vol.${i}.fasta" \
+            -task blastp \
+            -num_descriptions 16 \
+            -num_alignments 1 \
+            -db ${dbdir}/TAIR10_pep \
+            -out "${outdir}/blastp_vol${i}_cpu${SLURM_CPUS_PER_TASK}_job${SLURM_JOBID}.txt"</code></pre>
+<p>Perform file-splitting procedure for both a 2-split and a 4-split of the original fasta file. The ‘time-to-solution’ results are added to the original benchmark chart. We assume that all jobs run concurrently, and we take the wall-time for the longest job</p>
+</section>
+<section id="mpi-jobs" class="level2">
+<h2 class="anchored" data-anchor-id="mpi-jobs">MPI Jobs</h2>
+<p>Our example MPI job is based on a quantum espresso calculation. This script utilises the srun command, which is part of the slurm family of tools to run a parallel job on a cluster</p>
+<pre><code>#!/bin/bash
+#SBATCH --partition=mammoth    # the requested queue
+#SBATCH --job-name=qe_mpi      # name the job           
+#SBATCH --nodes=1              # number of nodes to use
+#SBATCH --ntasks=32            # total number of tasks (processes)
+#SBATCH --mem-per-cpu=100      # in megabytes, unless unit explicitly stated
+#SBATCH --error=%J.err         # redirect stderr to this file
+#SBATCH --output=%J.out        # redirect stdout to this file
+##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification
+##SBATCH --mail-type=end                                   # email on job end
+##SBATCH --mail-type=fail                                  # email on job failure
+
+module load  qe/6.0
+
+echo "Usable Environment Variables:"
+echo "============================="
+echo "hostname=$(hostname)"
+echo \$SLURM_JOB_ID=${SLURM_JOB_ID}
+echo \$SLURM_NTASKS=${SLURM_NTASKS}
+echo \$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}
+echo \$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}
+echo \$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}
+echo \$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}
+echo "module list:"
+module list 2&gt;&amp;1
+
+# Some of these environment variables are utilised by the qe executable itself
+export ESPRESSO_DATAPATH=/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example2_mpi/
+export ESPRESSO_PSEUDO=${ESPRESSO_DATAPATH}
+export ESPRESSO_TMPDIR=${ESPRESSO_DATAPATH}/${SLURM_JOB_ID}
+
+# handy to place this in job output for future reference...
+cat ${ESPRESSO_DATAPATH}/atom.in
+
+# execute the parallel job (we also time it)
+time srun -n ${SLURM_NTASKS} pw.x &lt; ${ESPRESSO_DATAPATH}/atom.in &gt; atom.job${SLURM_JOB_ID}.out</code></pre>
+<p>The job requests 32 cores to be allocated, and runs the srun command with the argument -n ${SLURM_NTASKS} which tells srun to spawn the mpi-job with the total number of processes requested. Quantum Espresso utilises the environment variable ESPRESSO_TMPDIR which points to a temporary folder. We design this in our slurm script to point to a subfolder.</p>
+<p>An alternative storage location is the compute node’s local storage. This can improve runtime I/O performance. However, local storage on the compute nodes is limited (Gigabytes not Terabytes), and it’s availability is a little hidden from the user, so take care not to fill up the disk(!) and remove all files from the compute node’s local storage within the job script (your only access to the compute node’s /local folder is via the slurm script). An alternative job script which utilises a compute node’s /local storage is provided on the gomphus server /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example2_mpi/example2_mpi_localstorage.sh.</p>
+</section>
+<section id="threaded-jobs" class="level2">
+<h2 class="anchored" data-anchor-id="threaded-jobs">Threaded Jobs</h2>
+<p>A number of popular bioinformatics software are capable of parallelising execution using threads (usually OpenMP or pthreads). This parallelisation method does not normally use distributed memory, so the application will need to be run on a single node. Our threaded example slurm-script is based on BLAST+. The job script is listed:</p>
+<pre><code>#!/bin/bash
+#SBATCH --partition=defq
+#SBATCH --nodes=1
+#SBATCH --tasks-per-node=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=2000
+#SBATCH --error=%J.err
+#SBATCH --output=%J.out
+##SBATCH --mail-type=end
+##SBATCH --mail-user=[your.email@address]
+
+
+# Example slurm script
+#  This script is a little wasteful of resources,
+#  but demonstrates a simple pipeline.
+#  
+#  For a more efficient use of resources, please consider
+#  running the pipeline as a series of jobs (chain-jobs).
+
+
+echo "Usable Environment Variables:"
+echo "============================="
+echo "hostname=$(hostname)"
+echo \$SLURM_JOB_ID=${SLURM_JOB_ID}
+echo \$SLURM_NTASKS=${SLURM_NTASKS}
+echo \$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}
+echo \$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}
+echo \$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}
+echo \$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}
+echo "module list:"
+module list 2&gt;&amp;1
+
+DATAFOLDER=/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example3_pipeline
+
+
+### The data used in this pipeline has already been downloaded and stored in $DATAFOLDER.
+### Here are the commands used to download the data...
+# cd $DATAFOLDER
+# curl -LO https://data.broadinstitute.org/Trinity/Trinotate_v2.0_RESOURCES/uniprot_sprot.trinotate_v2.0.pep.gz
+# gunzip uniprot_sprot.trinotate_v2.0.pep.gz
+# curl -LO https://data.broadinstitute.org/Trinity/Trinotate_v2.0_RESOURCES/Pfam-A.hmm.gz
+# gunzip Pfam-A.hmm.gz
+# curl -L -o Trinotate.sqlite.gz https://data.broadinstitute.org/Trinity/Trinotate_v2.0_RESOURCES/Trinotate.sprot_uniref90.20150131.boilerplate.sqlite.gz
+# gunzip Trinotate.sqlite.gz
+# curl -LO ftp://ftp.ensembl.org/pub/release-82/fasta/mus_musculus/cdna/Mus_musculus.GRCm38.cdna.all.fa.gz
+# gunzip Mus_musculus.GRCm38.cdna.all.fa.gz
+# curl -LOgz https://github.com/gmarnellos/Trinotate_example_supplement/raw/master/mouse38_cdna.fa.gz
+# gunzip mouse38_cdna.fa.gz
+
+# Now we get on to the pipeline
+
+# make a link to all datafiles
+for f in ${DATAFOLDER}/* ; do ln -s $f ; done
+
+#Index the SwissProt database for use with blast
+
+module load blast
+makeblastdb -version
+makeblastdb -in uniprot_sprot.trinotate_v2.0.pep -dbtype prot
+module unload blast
+
+# Prepare the Pfam database for use with hmmscan
+module load hmmer
+hmmpress -h
+hmmpress Pfam-A.hmm
+module load hmmer
+
+# Use Transdecoder to produce the most likely longest-ORF peptide candidates
+module load TransDecoder/v3.0.1
+TransDecoder.LongOrfs -t mouse38_cdna.fa
+TransDecoder.Predict -t mouse38_cdna.fa
+module unload TransDecoder/v3.0.1
+
+module load blast
+blastx -query mouse38_cdna.fa -db uniprot_sprot.trinotate.pep -num_threads ${SLURM_CPUS_PER_TASK} -max_target_seqs 1 -outfmt 6 &gt; blastx.vol.outfmt6
+blastp -query mouse38_cdna.fa.transdecoder.pep -db uniprot_sprot.trinotate_v2.0.pep -num_threads ${SLURM_CPUS_PER_TASK} -max_target_seqs 1 -outfmt 6 &gt; blastp.vol.outfmt6
+module unload blast
+
+# Identify protein domains
+module load hmmer/3.1b2
+hmmscan --cpu ${SLURM_CPUS_PER_TASK} --domtblout TrinotatePFAM.out Pfam-A.hmm mouse38_cdna.fa.transdecoder.pep &gt; pfam.log
+module unload hmmer/3.1b2
+
+# Produce the Gene/Transcript relationship
+grep "^&gt;" Mus_musculus.GRCm38.cdna.all.fa   | perl -p -e 's/^&gt;(\S+).*\s+gene:(ENSMUSG\d+).*$/$2\t$1/' &gt; gene_transcript_map.txt
+
+# Now populate the sqlite database
+module load Trinotate/v3.0.1
+Trinotate Trinotate.sqlite init --gene_trans_map gene_transcript_map.txt --transcript_fasta mouse38_cdna.fa --transdecoder_pep mouse38_cdna.fa.transdecoder.pep
+Trinotate Trinotate.sqlite LOAD_swissprot_blastp blastp.vol.outfmt6
+Trinotate Trinotate.sqlite LOAD_swissprot_blastx blastx.vol.outfmt6
+Trinotate Trinotate.sqlite LOAD_pfam TrinotatePFAM.out
+# Create the annotation report
+Trinotate Trinotate.sqlite report -E 0.00001 &gt; trinotate_annotation_report.xls
+module unload Trinotate/v3.0.1</code></pre>
+<p>This is quite a busy job-script (and also inefficient on resources!). It runs through a number of steps, but some of those steps will utilise parallelisation via threading, and use the slurm environment variable SLURM_CPUS_PER_TASK to inform the application(s) of the correct number of threads.</p>
+<p>But why is this job inefficient on resources? This particular job involves a number of steps: some utilising parallelisation, and some not; some memory-hungry, others not. The problem with this is that the job has allocated to it a set amount of resources (compute and memory), which is allocated to it for the lifetime of the job. But only at certain times in this job are the resources requested fully utilised. At all other times this job is running, the resources are allocated, but not used, and therefore making those resources unavailable to other jobs. This has a knock-on effect of increasing queue-times, and leaves expensive resources idle.</p>
+<p>A much more efficient way of running the same pipeline is to chain the job - split the pipeline into component parts and submit separate jobs for each of those parts. Each section of the pipeline (having its own job-script) is then free to allocate resources specific to that section of the pipeline. In the slurm world this is called job chaining, and has been exemplified in the next section using the same pipeline.</p>
+</section>
+<section id="job-chains-and-job-dependency" class="level2">
+<h2 class="anchored" data-anchor-id="job-chains-and-job-dependency">Job Chains and Job Dependency</h2>
+<p>Chaining jobs is a method of sequentially running dependent jobs. Our chain-job example is a pipeline of 6 separate job scripts, based on the blast+ pipeline of the previous section. We do not show the full six job-scripts here for brevity, but are available on the gomphus cluster under /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain.</p>
+<p>Slurm has an option -d or –dependency that allows to specify that a job is only permitted to start if another job finished successfully.</p>
+<p>In the folder (gomphus cluster) /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain there are 6 separate job-scripts that need to be executed in a certain order. They are numbered in the correct pipeline order:</p>
+<pre><code>[user@gomphus ~]$ tree  /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain
+/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain
+├── example4_chain-step1.sh
+├── example4_chain-step2.sh
+├── example4_chain-step3.sh
+├── example4_chain-step4.sh
+├── example4_chain-step5.sh
+├── example4_chain-step6.sh
+├── example4_submit_all.sh
+├── mouse38_cdna.fa
+├── Mus_musculus.GRCm38.cdna.all.fa
+├── Pfam-A.hmm
+├── pipeline1.sh
+├── Trinotate.sqlite
+└── uniprot_sprot.trinotate_v2.0.pep
+
+0 directories, 13 files</code></pre>
+<p>Each job is (importantly) commonly named using #SBATCH –job-name within each job-script. Also within this folder is a simple script (example4_submit_all.sh) that will execute the sbatch command on each of the job-scripts in the correct order:</p>
+<pre><code>#!/bin/bash:
+
+for c in /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain/example4_chain-step?.sh ;
+do
+ sbatch -d singleton $c
+done</code></pre>
+<p>This sbatch command uses the -d singleton flag to notify slurm of the job-dependencies (all jobs must have the name job name defined by <code>#SBATCH --job-name [some constant name]</code>. At which point each submitted job will be forced to depend on successful completion of any previous job submitted by the same user, and with the same job-name. The full pipeline of 6 jobs will now run to completion, with no further user-intervention, making efficient use of the available resources.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

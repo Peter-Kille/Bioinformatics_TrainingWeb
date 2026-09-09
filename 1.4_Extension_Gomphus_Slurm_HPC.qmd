@@ -1,0 +1,747 @@
+---
+title-block-style: default
+title-block-banner: darkred
+title-block-banner-color: white
+title: "Extension Gomphus Slurm HPC"
+subtitle: "Real power at you fingertips"
+author: "Prof. Peter Kille"
+date: today
+affiliation: "Cardiff University"
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+# My HPC System - Gomphus
+
+All HPC are slightly different and it is important to understand the specific system you are using.
+
+## House Keeping
+
+### login to the server
+
+HPC system available to big data masters students:
+
+host
+
+```         
+gomphus.bios.cf.ac.uk
+```
+
+User name `university username` Password `SSO Password` Port `22`
+
+We suggest you use (MobaXterm)\[<https://mobaxterm.mobatek.net/>\] (PC) and terminal SSH (Mac) to access the server and MobaXtrem and (cyberduck)\[<https://cyberduck.io/>\] or (filezilla)\[<https://filezilla-project.org/>\] to allow secure file transfer (sftp) between server and local computer resources.
+
+::: {#hello .greeting .message style="color: red;"}
+### create 'symlinks' to classdata and my data
+
+Linux `ln` command allows you to create a symbolic link (also symlink or soft link) to a file or directory (called the "target") by specifying a path thereto. The format is `ln -s [target location] [shortcut]`. I recommend you create the following symlinks at your root position.
+
+```         
+ln -s /mnt/clusters/sponsa/data/classdata classdata
+
+ln -s /mnt/clusters/sponsa/data/${USER} mydata
+```
+:::
+
+You should now see two sym links at you root `classdata` and `mydata` that will allow you to address these locations using:
+
+```         
+~/classdata/
+~/mydata/
+```
+
+## Explore your HPC resources
+
+### Your disc quota
+
+::: {.greeting .message style="color: red;"}
+Review what 'storage' resources are available to you.
+
+```         
+quota -us [username]
+```
+:::
+
+This should display the following information:
+
+Disk quotas for user smbpk (uid 31961):
+
+| Filesystem | space | quota | limit | grac | files | quota | limit | grace |
+|----|----|----|----|----|----|----|----|----|
+| /dev/mapper/cl-root | 32K | 5120M | 7168M |  | 13 | 0 | 0 |  |
+| 192.168.2.41:/mnt/data/clusters/anax | 4K | 1978G | 2078G |  | 6 | 0 | 0 |  |
+
+::: {.greeting .message style="color: red;"}
+Check your personal disc usage in mydata (du is the disc utility -h = human readable, -s = summarise )
+
+```         
+du -sh ~/mydata/
+```
+:::
+
+### HPC resources
+
+The head node on gomphus is a 16 cpu / 32 Gb RAM server.....but it provides access to a serise of servers.
+
+The head node has a specific script that displays the resources available to you. Run the command:
+
+```         
+gomphus.node_availability.sh
+```
+
+This should display the following information:
+
+```         
+Key ('CPUS' column):
+  A = # cores Allocated
+  I = # cores Idle
+  O = # cores not 'Idle' or 'Allocated'
+  T = Total # of cores
+```
+
+| NODELIST | NODES | PARTITION | STATE | CPUS | S:C:T | MEMORY | TMP_DISK | WEIGHT | AVAIL_FE | CPUS(A/I/O/T) | REASON |
+|----|----|----|----|----|----|----|----|----|----|----|----|
+| gomphus2 | 1 | defq\* | idle | 64 | 1:64:1 | 93375 | 0 | 1 | (null) | 0/64/0/64 | none |
+| gomphus3 | 1 | defq\* | idle | 64 | 1:64:1 | 93375 | 0 | 1 | (null) | 0/64/0/64 | none |
+| gomphus1 | 1 | defq\* | idle | 32 | 1:32:1 | 62250 | 0 | 1 | (null) | 0/32/0/32 | none |
+
+# Job Schedulers and Slurm
+
+## The Slurm Job Scheduler
+
+The slurm job scheduler is software that controls and monitors access to high-performance computing hardware. It allocates resources (cpus/cores/RAM) on a per-job basis.
+
+## Slurm Partitions (Queues)
+
+A number of slurm partitions (queues) may exist on any slurm cluster, and each queue will suit certain types of jobs. Each of the separate queues will handle jobs slightly differently, or will have varying resources available to it. Below is a list of queues available on our HPC systems, and the typical types of jobs they accommodate.
+
+**Gomphus Queues**
+
+| partition(queue) name | default? | description                         |     |
+|-----------------------|----------|-------------------------------------|-----|
+| defq                  | ✔        | batch jobs, low mem/cpu requirement |     |
+
+## Submitting Jobs (The Slurm Job-Script)
+
+The typical method to start a job on a slurm cluster is to first create a job-script, then submit that job-script to the slurm queue using the sbatch command. The job-script is laid out in a certain way (examples below), which will first request resources on the compute nodes, and then define the individual steps of your job. Below is an example job script for gomphus slurm using the partition defq. We'll name the job-script `submit.sh`:
+
+```         
+#!/bin/bash
+#SBATCH --partition=defq       # the requested queue
+#SBATCH --nodes=1              # number of nodes to use
+#SBATCH --tasks-per-node=1     #
+#SBATCH --cpus-per-task=1      #   
+#SBATCH --mem-per-cpu=1000     # in megabytes, unless unit explicitly stated
+#SBATCH --error=%J.err         # redirect stderr to this file
+#SBATCH --output=%J.out        # redirect stdout to this file
+##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification
+##SBATCH --mail-type=end                                   # email on job end
+##SBATCH --mail-type=fail                                  # email on job failure
+
+echo "Some Usable Environment Variables:"
+echo "================================="
+echo "hostname=$(hostname)"
+echo \$SLURM_JOB_ID=${SLURM_JOB_ID}
+echo \$SLURM_NTASKS=${SLURM_NTASKS}
+echo \$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}
+echo \$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}
+echo \$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}
+echo \$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}
+
+# Write jobscript to output file (good for reproducibility)
+cat $0
+```
+
+The job can be submitted from the head node of the slurm cluster using the command:
+
+```         
+sbatch submit.sh
+```
+
+This particular job does nothing interesting except print out some useful job-specific slurm environment variables, which you may utilise in your job-scripts.
+
+This job-script is actually just a simple bash script, and in bash the \# character will comment out the remaining text on that line, and will not be parsed by the bash interpreter. In a slurm job-script however, the lines starting with #SBATCH is parsed by slurm before the script is handed over to the bash interpreter. The #SBATCH lines will inform the slurm scheduler of the amount of resources requested for the job.
+
+If you would like to comment out certain slurm commands in your job-script, simply add an extra \# at the beginning of the #SBATCH lines (as we have done in the above example for all email-related commands).
+
+Some further useful (but not exhaustive) SBATCH options are detailed:
+
+| SBATCH option | Description |
+|----|----|
+| --ntasks-per-node | allocate n tasks per allocated node. |
+| --nodes | set the number of nodes that the job will require. Each node will have --ntasks-per-node processes started |
+| --ntasks | spawn n tasks (default=1). This determines how many processes will be spawned (for MPI jobs). |
+| --cpus-per-task | allocate n CPUs per task. This option is needed for multi-threaded jobs. Typically n should be equal to the number of threads your program spawns. |
+| --partition | select the partition (queue) where you want to execute your job. Depending on the HPC system you are using, there may, or may not, be much choice. |
+| --mem-per-cpu | specify the the memory needed per allocated CPU in MB. |
+| --job-name | name your job. This name will be shown in the queue status and email alerts. It is also important for job chaining. |
+| --output | specify a filename that will be used to store the stdout of your job. The slurm variable %J is useful here which slurm will interpret as the job_id of the job. |
+| --error | similar to the --output option, but redirect your job's stderr. |
+
+### Resource Limitations
+
+On the a slurm cluster, the slurm scheduler keeps track of both requested CPUs, and memory. If your job exceeds the currently available resources then your job will be queued until sufficient resources are available. If your job exceeds the total amount of resources available on the compute nodes then your job submission will fail and will not be queued, in which case an error will be returned.
+
+::: {.greeting .message style="color: red;"}
+## My first slurm Job - Excersise
+
+To submit an appropriately configured job-script to the slurm queue, use the command:
+
+```         
+sbatch submit.sh
+```
+
+Use `cat` or `less` to rReview the content of the `.out` and `.err` files - note the `.out` file should contain a summary of the varibles used by the script and the program you ran.
+
+The gomphus cluster has a number of example job-scripts (located under `~/classdata/REFS/slurm` on the gompus.bios.cf.ac.uk server). You may submit these jobs with the following commands on the gomphus cluster:
+
+```         
+# first cd to your allocated ~/mydata/ folder.
+mkdir -p test_jobs && cd test_jobs
+cp ~/classdata/REFS/slurm/slurm_examples/example1/* .
+sbatch example1.sh
+```
+
+What is the function of this example script ??
+:::
+
+## Loading programs in slurm scripts
+
+Review what programs are available too you using
+
+```         
+module avail
+```
+
+Programs should be loaded using 'module load' after the slurm parameters have been defined and before you define variable or provide commands for you program.
+
+module list for gomphus (2022)
+
+```         
+-------------- /mnt/clusters/sponsa/software/nospack/modulefiles --------------
+artemis/18.2.0              multiqc/1.13              rnammer/1.2
+bioconvert/0.4.3            panaroo/1.3.0             snippy/v4.6.0
+bioperl-live/release-1-7-2  perl/5.34.0               snp-sites/2.5.1
+blast/2.12.0                prokka_mambaforge/1.14.6  SPAdes/3.15.5
+fmlrc/v1.0.0                python/3.7.4              treeview/1.2.0
+gromacs/2022.3              python/3.10.5             unicycler/v0.5.0
+java/11.0.2                 qiime2/2022.8
+mitos/2.0.4                 quast/5.2.0
+
+-- /mnt/clusters/sponsa/software/spack/share/spack/modules/linux-rocky8-zen ---
+abyss/2.3.1        fastqc/0.11.9         picard/2.26.2       velvet/1.2.10
+alan/2.1.1         fasttree/2.1.10       pilon/1.22          vt/0.5772
+barrnap/0.8        fastx-toolkit/0.0.14  prokka/1.14.6       wtdbg2/2.3
+bcftools/1.14      figtree/1.4.3         racon/1.4.3
+bedtools2/2.30.0   freebayes/1.3.6       raxml-ng/1.0.2
+blast-plus/2.12.0  gdbm/1.19             samtools/1.15.1
+bowtie2/2.4.2      hmmer/3.3.2           seqtk/1.3
+caliper/2.8.0      igv/2.12.3            spades/3.15.3
+cdhit/4.8.1        mafft/7.481           star/2.7.6a
+dos2unix/7.4.2     mcl/14-137            subread/2.0.2
+dyninst/12.2.0     minimap2/2.14         tbl2asn/2022-04-26
+emboss/6.6.0       ncurses/6.3           tmux/3.2a
+fastp/0.20.0       perl-bioperl/1.7.6    trimmomatic/0.39
+
+----------------------- /usr/share/Modules/modulefiles ------------------------
+dot  module-git  module-info  modules  null  use.own
+```
+
+## Viewing Information About a Job
+
+### Information on Running Jobs
+
+If your job-script used the srun command to kick off a (parallel) process, then slurm will be able to provide live information about your running job. All information about your running job can be listed with the sstat command:
+
+```         
+sstat -l -j [jobid]
+```
+
+In particular it may be useful to compare the fields MaxRSS and ReqMem. These fields report the actual max memory of a single task, and the requested memory of a single task, respectively. You may then tune any future job-scripts to more accurately represent your jobs, which will lead to better queue efficiency - meaning your job will likely start sooner.
+
+If any application call within your job-script did not use the srun command, then no live information will be available. Instead, wait for your job to finish and use the sacct command, as described below.
+
+### Information on Completed Jobs
+
+Similar to the `sstat` command used for running jobs, the sacct command will provide equivalent information about completed jobs.
+
+## Useful Slurm-Related Commands
+
+The sinfo command can supply a lot of useful information about the nodes and available resources. A useful set of parameters of which to call sinfo with is the following:
+
+```         
+sinfo -o "%24N %.5D %9P %11T %.4c %.8z %.8m %.8d %.6w %8f %15C %20E"
+NODELIST                 NODES PARTITION STATE       CPUS    S:C:T   MEMORY TMP_DISK WEIGHT AVAIL_FE CPUS(A/I/O/T)   REASON              
+gomphus[1-4]                 4 defq*     idle          32   1:32:1    62250        0      1 (null)   0/128/0/128     none 
+```
+
+Here, we see a list of nodes on the gomphus cluster (grouped by partition, and by state), and information about the nodes. In this particular instance we see that gomphus has 4 nodes \[1-4\] each with 32 CPUS. The CPUS(A/I/O/T) column shows that the defq partition has a total of 0 CPUs Allocated, 128 CPUs Idle, 0 in state Other, making a Total of 128 (all 4 nodes combined).
+
+The above command is a bit of a handful. You have already used the wrapper script created for you `gomphus.job_history.sh`
+
+### other useful commands
+
+To cancel a running job:
+
+```         
+$ scancel [jobid]
+```
+
+information about the compute nodes:
+
+```         
+$ sinfo -lNe
+```
+
+List the current status of the slurm queue:
+
+```         
+$ squeue
+```
+
+Find information on previously completed jobs:
+
+```         
+$ sacct
+```
+
+List information on running jobs:
+
+```         
+$ sstat
+```
+
+::: {.greeting .message style="color: red;"}
+## Constructing a slurm Job - good practice
+
+Adapt RNAseq processing script 1-QC.sh (see session Session5 -RNAseq-Processing) to run under slurm (do not run script 2 -- building genome) \*\* if you find this easy try adapting script 3,4 and 5.
+
+You may want to discuss the resources required for the job.
+
+Hints:
+
+define directories using full path derived with `PWD -P`
+
+```         
+~/mydata/ = /mnt/clusters/sponsa/data/$USER/
+```
+
+When creating composite variables use enclose them in quotation marks to ensure they expand.
+
+```         
+"${indir}/fastq/${i}_1.fastq"
+```
+:::
+
+## Interactive Jobs
+
+Enter an interactive job and use this to review the files created by the RNAseq processing scripts.
+
+```         
+##Use any avalible node
+srun -c 4 --mem=8G -p defq --pty bash
+
+##use a specific node - in this example called gomphus3
+
+srun -c 4 --mem=8G -p defq --nodelist=gomphus3 --pty bash
+```
+
+Remember to exit the interactive job when you are finished by typing `exit`
+
+***Advanced:*** Some HPC architectures will allow you to directly write to the 'local' harddrive `/tmp` For jobs with lots of I/O and where the nodes are using new M2 SSD drives this can accelerate certain types of jobs.
+
+# Using HPC resources effectively
+
+gomphus.job_history.sh
+
+| User | JobID | State | Start | End | AllocCPUS | TotalCPU | CPUEf | ReqMem | axRSS | MemEf | AveDiskRead | AveDiskWrite |
+|----|----|----|----|----|----|----|----|----|----|----|----|----|
+| smbpk | 7174 | COMPLETED | 2022-11-07T09:18:2 | 2022-11-07T09:23:13 | 4 | 05:25.029 | 27.9% | 32000M | 1776696K | 5.4% | 20940.17M | 6974.14M |
+
+## blast as an example
+
+We take a closer look at running jobs on our cluster, we should provide examples of benchmarking code in order to find how to best utilise the resources available.
+
+We start off by benchmarking a simple blast job, initially running over a single core, then parallelizing the job using blast's built-in threading. All jobs are run on a single node, and we test a number of nodes and compare results. For example source code, see the folder `~/classdata/REFS/slurm/slurm_examples/indepth_parallelizing_blastp` on the gomphus server.
+
+Remember to run all commands in your `~/mydata/[directory]`.
+
+First we obtain the sample data:
+
+```         
+# this is already downloaded to ~/classdata/REFS/slurm/slurm_examples/indepth_parallelizing_blastp/
+curl -L -o TAIR10_pep.fasta  https://www.arabidopsis.org/download_files/Proteins/TAIR10_protein_lists/TAIR10_pep_20101214
+
+## we can prepare the data within a interactive job
+srun -c 4 --mem=8G -p defq --pty bash
+
+## navigate to mydata directory
+cd ~/mydata/
+
+## make a dirctory for blast test
+mkdir -p blast_test && cd blast_test 
+
+## copy TAIR file accross from class data to local file system
+cp /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/indepth_parallelizing_blastp/run2_split-files4/TAIR10_pep.fasta .
+
+## Makeblast db from downloaded file
+module load blast/2.12.0
+makeblastdb -in TAIR10_pep.fasta -parse_seqids -dbtype prot -title "Small protein database" -out TAIR10_pep
+
+##copy the query sub-set
+cp /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/indepth_parallelizing_blastp/TAIR10_pep_4000.fasta .
+
+exit
+```
+
+Now create the job Script - blastp.sh
+
+```         
+#!/bin/bash
+#SBATCH --partition=defq       # the requested queue
+#SBATCH --nodes=1              # number of nodes to use
+#SBATCH --tasks-per-node=1     # 
+#SBATCH --cpus-per-task=1      #   
+#SBATCH --mem-per-cpu=92000     # in megabytes, unless unit explicitly stated
+#SBATCH --error=%J.err         # redirect stderr to this file
+#SBATCH --output=%J.out        # redirect stdout to this file
+##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification
+##SBATCH --mail-type=start                                 # email on job start  
+##SBATCH --mail-type=end                                   # email on job end
+##SBATCH --mail-type=fail                                  # email on job failure
+
+echo "Usable Environment Variables:"
+echo "============================="
+echo \$SLURM_JOB_ID=${SLURM_JOB_ID} 
+echo \$SLURM_NTASKS=${SLURM_NTASKS}
+echo \$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}
+echo \$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}
+echo \$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}
+echo \$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}
+cat $0
+
+module load blast/2.12.0
+
+indir="/mnt/clusters/sponsa/data/${USER}/blast_test"
+
+dbdir="/mnt/clusters/sponsa/data/${USER}/blast_test"
+
+outdir="/mnt/clusters/sponsa/data/${USER}/blast_test"
+
+time blastp -num_threads ${SLURM_CPUS_PER_TASK} \
+            -query "${indir}/TAIR10_pep_4000.fasta" \
+            -task blastp \
+            -num_descriptions 16 \
+            -num_alignments 1 \
+            -db ${dbdir}/TAIR10_pep \
+            -out "${outdir}/blastp_cpu${SLURM_CPUS_PER_TASK}_job${SLURM_JOBID}.txt"
+```
+
+::: {.greeting .message style="color: red;"}
+Run this blast script a number of times, increasing the --cpus-per-task and decreasing the --mem-per-cpu variables accordingly (ie 2 cpus-per-task & 46000 mem-per-cpu, 3 cpus-per-task & 30600 mem-per-cpu .....16 cpus-per-task & 5750 mem-per-cpu. Review the benchmarks considering the resources needed and the time taken to execute the jobs
+
+What are your conclusions
+:::
+
+## Reviewing and optimising job resources
+
+::: {.greeting .message style="color: red;"}
+Use `gomphus.job_history.sh` to review the efficiency of your job
+:::
+
+# Threads, MPI and embarrassingly parallel
+
+## Parallel Jobs
+
+There are a number of different scenarios in which you may want to parallelize your job:
+
+- Embarrassingly parallel
+- MPI - a multi-process application (possibly across multiple compute hosts)
+- multi-threading - shared memory using OpenMP or perhaps pthreads.
+- multiple instances of a single application.
+- ...plus more scenarios but are probably out of scope of this tutorial.
+
+## Embarrassingly parallel
+
+Many processes in genomics do the same task on large arrays of data. One of the simplest way of speeding up the process is to split up the input files and perfrom the same task multiple times at the same time - this is called an \_**'Embarrassingly parallel'** task.
+
+Lets do this for the blast example that we started in the last task. We can investigate whether there are any further methods of improving performance, and attempt to find a improvemet in the initial blast job's solution to reduce the time taken. As it turns out, it is possible in this situation to split the input fasta file into a number of sections, and have an independent job acting on each of those sections. Each independent job could then be parallelized, say over 8 threads, and all jobs can run concurrently.
+
+We create a job script (mammoth_8thread_split_1of4.sh) that will run blast command on the first file-section only.
+
+We perform the following sequence of commands, first splitting the input fasta file into 4 parts, then creating the 4 independent job-scripts, and submit the jobs.
+
+```         
+## enter a interactive Job
+srun -c 4 --mem=8G -p defq --pty bash
+cd ~/mydata/blast_test/
+
+## a new folder
+mkdir split-files4
+cd split-files4/
+cp ~/TAIR10_pep_4000.fasta  .
+#
+## split the fasta file into 4 equal(ish) sections
+curl -L https://raw.githubusercontent.com/gmarnellos/Trinotate_example_supplement/master/split_fasta.pl | perl /dev/stdin  TAIR10_pep_4000.fasta  TAIR10_pep.vol 1000
+```
+
+create script that will spawn blast_jobs (use nano or vi) - spawn_blastp.sh
+
+```         
+!#/bin/bash
+
+for i in {1..4};do
+
+export i
+
+sbatch blastp.sh
+
+done
+```
+
+make script executable `chmod +x spawn_blastp.sh`
+
+Edit blast job so that each time it is called it uses a different section of the query file
+
+```         
+#!/bin/bash
+#SBATCH --partition=defq       # the requested queue
+#SBATCH --nodes=1              # number of nodes to use
+#SBATCH --tasks-per-node=1     # 
+#SBATCH --cpus-per-task=8      #   
+#SBATCH --mem-per-cpu=11500    # in megabytes, unless unit explicitly stated
+#SBATCH --error=%J.err         # redirect stderr to this file
+#SBATCH --output=%J.out        # redirect stdout to this file
+##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification
+##SBATCH --mail-type=start                                 # email on job start  
+##SBATCH --mail-type=end                                   # email on job end
+##SBATCH --mail-type=fail                                  # email on job failure
+
+echo "Usable Environment Variables:"
+echo "============================="
+echo "hostname=$(hostname)"
+echo \$SLURM_JOB_ID=${SLURM_JOB_ID} 
+echo \$SLURM_NTASKS=${SLURM_NTASKS}
+echo \$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}
+echo \$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}
+echo \$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}
+echo \$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}
+
+cat $0
+
+module load blast/2.12.0
+
+indir="/mnt/clusters/sponsa/data/${USER}/blast_test/split-files4"
+
+dbdir="/mnt/clusters/sponsa/data/${USER}/blast_test"
+
+outdir="/mnt/clusters/sponsa/data/${USER}/blast_test/split-files4"
+
+time blastp -num_threads ${SLURM_CPUS_PER_TASK} \
+            -query "${indir}/TAIR10_pep.vol.${i}.fasta" \
+            -task blastp \
+            -num_descriptions 16 \
+            -num_alignments 1 \
+            -db ${dbdir}/TAIR10_pep \
+            -out "${outdir}/blastp_vol${i}_cpu${SLURM_CPUS_PER_TASK}_job${SLURM_JOBID}.txt"
+```
+
+Perform file-splitting procedure for both a 2-split and a 4-split of the original fasta file. The 'time-to-solution' results are added to the original benchmark chart. We assume that all jobs run concurrently, and we take the wall-time for the longest job
+
+## MPI Jobs
+
+Our example MPI job is based on a quantum espresso calculation. This script utilises the srun command, which is part of the slurm family of tools to run a parallel job on a cluster
+
+```         
+#!/bin/bash
+#SBATCH --partition=mammoth    # the requested queue
+#SBATCH --job-name=qe_mpi      # name the job           
+#SBATCH --nodes=1              # number of nodes to use
+#SBATCH --ntasks=32            # total number of tasks (processes)
+#SBATCH --mem-per-cpu=100      # in megabytes, unless unit explicitly stated
+#SBATCH --error=%J.err         # redirect stderr to this file
+#SBATCH --output=%J.out        # redirect stdout to this file
+##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification
+##SBATCH --mail-type=end                                   # email on job end
+##SBATCH --mail-type=fail                                  # email on job failure
+
+module load  qe/6.0
+
+echo "Usable Environment Variables:"
+echo "============================="
+echo "hostname=$(hostname)"
+echo \$SLURM_JOB_ID=${SLURM_JOB_ID}
+echo \$SLURM_NTASKS=${SLURM_NTASKS}
+echo \$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}
+echo \$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}
+echo \$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}
+echo \$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}
+echo "module list:"
+module list 2>&1
+
+# Some of these environment variables are utilised by the qe executable itself
+export ESPRESSO_DATAPATH=/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example2_mpi/
+export ESPRESSO_PSEUDO=${ESPRESSO_DATAPATH}
+export ESPRESSO_TMPDIR=${ESPRESSO_DATAPATH}/${SLURM_JOB_ID}
+
+# handy to place this in job output for future reference...
+cat ${ESPRESSO_DATAPATH}/atom.in
+
+# execute the parallel job (we also time it)
+time srun -n ${SLURM_NTASKS} pw.x < ${ESPRESSO_DATAPATH}/atom.in > atom.job${SLURM_JOB_ID}.out
+```
+
+The job requests 32 cores to be allocated, and runs the srun command with the argument -n \${SLURM_NTASKS} which tells srun to spawn the mpi-job with the total number of processes requested. Quantum Espresso utilises the environment variable ESPRESSO_TMPDIR which points to a temporary folder. We design this in our slurm script to point to a subfolder.
+
+An alternative storage location is the compute node's local storage. This can improve runtime I/O performance. However, local storage on the compute nodes is limited (Gigabytes not Terabytes), and it's availability is a little hidden from the user, so take care not to fill up the disk(!) and remove all files from the compute node's local storage within the job script (your only access to the compute node's /local folder is via the slurm script). An alternative job script which utilises a compute node's /local storage is provided on the gomphus server /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example2_mpi/example2_mpi_localstorage.sh.
+
+## Threaded Jobs
+
+A number of popular bioinformatics software are capable of parallelising execution using threads (usually OpenMP or pthreads). This parallelisation method does not normally use distributed memory, so the application will need to be run on a single node. Our threaded example slurm-script is based on BLAST+. The job script is listed:
+
+```         
+#!/bin/bash
+#SBATCH --partition=defq
+#SBATCH --nodes=1
+#SBATCH --tasks-per-node=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=2000
+#SBATCH --error=%J.err
+#SBATCH --output=%J.out
+##SBATCH --mail-type=end
+##SBATCH --mail-user=[your.email@address]
+
+
+# Example slurm script
+#  This script is a little wasteful of resources,
+#  but demonstrates a simple pipeline.
+#  
+#  For a more efficient use of resources, please consider
+#  running the pipeline as a series of jobs (chain-jobs).
+
+
+echo "Usable Environment Variables:"
+echo "============================="
+echo "hostname=$(hostname)"
+echo \$SLURM_JOB_ID=${SLURM_JOB_ID}
+echo \$SLURM_NTASKS=${SLURM_NTASKS}
+echo \$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}
+echo \$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}
+echo \$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}
+echo \$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}
+echo "module list:"
+module list 2>&1
+
+DATAFOLDER=/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example3_pipeline
+
+
+### The data used in this pipeline has already been downloaded and stored in $DATAFOLDER.
+### Here are the commands used to download the data...
+# cd $DATAFOLDER
+# curl -LO https://data.broadinstitute.org/Trinity/Trinotate_v2.0_RESOURCES/uniprot_sprot.trinotate_v2.0.pep.gz
+# gunzip uniprot_sprot.trinotate_v2.0.pep.gz
+# curl -LO https://data.broadinstitute.org/Trinity/Trinotate_v2.0_RESOURCES/Pfam-A.hmm.gz
+# gunzip Pfam-A.hmm.gz
+# curl -L -o Trinotate.sqlite.gz https://data.broadinstitute.org/Trinity/Trinotate_v2.0_RESOURCES/Trinotate.sprot_uniref90.20150131.boilerplate.sqlite.gz
+# gunzip Trinotate.sqlite.gz
+# curl -LO ftp://ftp.ensembl.org/pub/release-82/fasta/mus_musculus/cdna/Mus_musculus.GRCm38.cdna.all.fa.gz
+# gunzip Mus_musculus.GRCm38.cdna.all.fa.gz
+# curl -LOgz https://github.com/gmarnellos/Trinotate_example_supplement/raw/master/mouse38_cdna.fa.gz
+# gunzip mouse38_cdna.fa.gz
+
+# Now we get on to the pipeline
+
+# make a link to all datafiles
+for f in ${DATAFOLDER}/* ; do ln -s $f ; done
+
+#Index the SwissProt database for use with blast
+
+module load blast
+makeblastdb -version
+makeblastdb -in uniprot_sprot.trinotate_v2.0.pep -dbtype prot
+module unload blast
+
+# Prepare the Pfam database for use with hmmscan
+module load hmmer
+hmmpress -h
+hmmpress Pfam-A.hmm
+module load hmmer
+
+# Use Transdecoder to produce the most likely longest-ORF peptide candidates
+module load TransDecoder/v3.0.1
+TransDecoder.LongOrfs -t mouse38_cdna.fa
+TransDecoder.Predict -t mouse38_cdna.fa
+module unload TransDecoder/v3.0.1
+
+module load blast
+blastx -query mouse38_cdna.fa -db uniprot_sprot.trinotate.pep -num_threads ${SLURM_CPUS_PER_TASK} -max_target_seqs 1 -outfmt 6 > blastx.vol.outfmt6
+blastp -query mouse38_cdna.fa.transdecoder.pep -db uniprot_sprot.trinotate_v2.0.pep -num_threads ${SLURM_CPUS_PER_TASK} -max_target_seqs 1 -outfmt 6 > blastp.vol.outfmt6
+module unload blast
+
+# Identify protein domains
+module load hmmer/3.1b2
+hmmscan --cpu ${SLURM_CPUS_PER_TASK} --domtblout TrinotatePFAM.out Pfam-A.hmm mouse38_cdna.fa.transdecoder.pep > pfam.log
+module unload hmmer/3.1b2
+
+# Produce the Gene/Transcript relationship
+grep "^>" Mus_musculus.GRCm38.cdna.all.fa   | perl -p -e 's/^>(\S+).*\s+gene:(ENSMUSG\d+).*$/$2\t$1/' > gene_transcript_map.txt
+
+# Now populate the sqlite database
+module load Trinotate/v3.0.1
+Trinotate Trinotate.sqlite init --gene_trans_map gene_transcript_map.txt --transcript_fasta mouse38_cdna.fa --transdecoder_pep mouse38_cdna.fa.transdecoder.pep
+Trinotate Trinotate.sqlite LOAD_swissprot_blastp blastp.vol.outfmt6
+Trinotate Trinotate.sqlite LOAD_swissprot_blastx blastx.vol.outfmt6
+Trinotate Trinotate.sqlite LOAD_pfam TrinotatePFAM.out
+# Create the annotation report
+Trinotate Trinotate.sqlite report -E 0.00001 > trinotate_annotation_report.xls
+module unload Trinotate/v3.0.1
+```
+
+This is quite a busy job-script (and also inefficient on resources!). It runs through a number of steps, but some of those steps will utilise parallelisation via threading, and use the slurm environment variable SLURM_CPUS_PER_TASK to inform the application(s) of the correct number of threads.
+
+But why is this job inefficient on resources? This particular job involves a number of steps: some utilising parallelisation, and some not; some memory-hungry, others not. The problem with this is that the job has allocated to it a set amount of resources (compute and memory), which is allocated to it for the lifetime of the job. But only at certain times in this job are the resources requested fully utilised. At all other times this job is running, the resources are allocated, but not used, and therefore making those resources unavailable to other jobs. This has a knock-on effect of increasing queue-times, and leaves expensive resources idle.
+
+A much more efficient way of running the same pipeline is to chain the job - split the pipeline into component parts and submit separate jobs for each of those parts. Each section of the pipeline (having its own job-script) is then free to allocate resources specific to that section of the pipeline. In the slurm world this is called job chaining, and has been exemplified in the next section using the same pipeline.
+
+## Job Chains and Job Dependency
+
+Chaining jobs is a method of sequentially running dependent jobs. Our chain-job example is a pipeline of 6 separate job scripts, based on the blast+ pipeline of the previous section. We do not show the full six job-scripts here for brevity, but are available on the gomphus cluster under /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain.
+
+Slurm has an option -d or --dependency that allows to specify that a job is only permitted to start if another job finished successfully.
+
+In the folder (gomphus cluster) /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain there are 6 separate job-scripts that need to be executed in a certain order. They are numbered in the correct pipeline order:
+
+```         
+[user@gomphus ~]$ tree  /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain
+/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain
+├── example4_chain-step1.sh
+├── example4_chain-step2.sh
+├── example4_chain-step3.sh
+├── example4_chain-step4.sh
+├── example4_chain-step5.sh
+├── example4_chain-step6.sh
+├── example4_submit_all.sh
+├── mouse38_cdna.fa
+├── Mus_musculus.GRCm38.cdna.all.fa
+├── Pfam-A.hmm
+├── pipeline1.sh
+├── Trinotate.sqlite
+└── uniprot_sprot.trinotate_v2.0.pep
+
+0 directories, 13 files
+```
+
+Each job is (importantly) commonly named using #SBATCH --job-name within each job-script. Also within this folder is a simple script (example4_submit_all.sh) that will execute the sbatch command on each of the job-scripts in the correct order:
+
+```         
+#!/bin/bash:
+
+for c in /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain/example4_chain-step?.sh ;
+do
+ sbatch -d singleton $c
+done
+```
+
+This sbatch command uses the -d singleton flag to notify slurm of the job-dependencies (all jobs must have the name job name defined by `#SBATCH --job-name [some constant name]`. At which point each submitted job will be forced to depend on successful completion of any previous job submitted by the same user, and with the same job-name. The full pipeline of 6 jobs will now run to completion, with no further user-intervention, making efficient use of the available resources.

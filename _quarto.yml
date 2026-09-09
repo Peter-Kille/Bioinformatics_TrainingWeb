@@ -18,6 +18,7 @@ website:
           - 1.1_Introduction_to_Linux.qmd
           - 1.2_Loading_Software_Accessing_Data.qmd
           - 1.3_Commandline_Tools_and_Scripting.qmd
+          - 1.4_Extension_Gomphus_Slurm_HPC.qmd
       - section: "Session 2. NGS data"
         contents:
           - 2.1_NGS_Quality_Control.qmd

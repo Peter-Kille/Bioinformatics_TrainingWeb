@@ -2,8 +2,8 @@
 title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
-title: "Genome Visualisation and Annotation"
-subtitle: "Layering information onto your sequences"
+title: "Genome Annotation"
+subtitle: "Makign Sense out of Sequence"
 author: "Prof. Peter Kille and Dr. Sarah Christofides"
 date: today
 affiliation: "Cardiff University"
