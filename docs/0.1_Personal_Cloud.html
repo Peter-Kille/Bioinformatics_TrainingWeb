@@ -417,6 +417,7 @@ background: darkred;
   <li><a href="#sftp-using-filezilla" id="toc-sftp-using-filezilla" class="nav-link" data-scroll-target="#sftp-using-filezilla">SFTP using FileZilla</a></li>
   <li><a href="#sftp-using-cyberduck" id="toc-sftp-using-cyberduck" class="nav-link" data-scroll-target="#sftp-using-cyberduck">SFTP using Cyberduck</a></li>
   </ul></li>
+  <li><a href="#linux-full-graphics-interface" id="toc-linux-full-graphics-interface" class="nav-link" data-scroll-target="#linux-full-graphics-interface">Linux Full Graphics Interface</a></li>
   </ul>
 </nav>
     </div>
@@ -473,7 +474,7 @@ hawker.bios.cf.ac.uk</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>HPC cluster access: MSc Big Data students (part 2 of the course), postgraduate researchers or staff
+<span class="screen-reader-only">Note</span>HPC cluster access: Masters students, postgraduate researchers or staff
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -484,9 +485,9 @@ hawker.bios.cf.ac.uk</code></pre>
 <p>Host Names:</p>
 <pre><code>gomphus.bios.cf.ac.uk
 or
-iago.bios.cf.ac.uk</code></pre>
+skomer.bios.cf.ac.uk</code></pre>
 <p>With standard HPC the port number is always 22.</p>
-<p><strong><em>IMPORTANT</em></strong> Unlike the virtual machines, gomphus and iago both use slurm job scheduling software to manage access to resources in a fair and equitable manner. For running full-scale jobs you will need to learn <a href="http://hpc.bios.cf.ac.uk/docs/documentation/slurm">how to interact with slurm correctly</a>. However, for the purposes of playing around whilst learning, it is better to create a virutal session by running the command</p>
+<p><strong><em>IMPORTANT</em></strong> Unlike the virtual machines, gomphus and skomer both use slurm job scheduling software to manage access to resources in a fair and equitable manner. For running full-scale jobs you will need to learn <a href="http://hpc.bios.cf.ac.uk/docs/documentation/slurm">how to interact with slurm correctly</a>. However, for the purposes of playing around whilst learning, it is better to create a virutal session by running the command</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">--pty</span> bash <span class="at">-i</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -551,21 +552,8 @@ iago.bios.cf.ac.uk</code></pre>
 <figcaption>Posit New Session</figcaption>
 </figure>
 </div>
-<p>Select the session you wish to create - for this example we will create a RstudioPro Session</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Rstudio_pro.png" class="img-fluid figure-img"></p>
-<figcaption>Rstudio Pro</figcaption>
-</figure>
-</div>
-<p>Leave the default parameters as they are and start the session.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Rstudio_dashboard.png" class="img-fluid figure-img"></p>
-<figcaption>Rstudio_dashboard</figcaption>
-</figure>
-</div>
-<p>To enter the session click on the right arrow —&gt;</p>
+<p>Select the session you wish to create - for this example we will create a RstudioPro Session. Leave the default parameters as they are and start the session.</p>
+<p><img src="images/Rstudio_pro.png" class="img-fluid" alt="Rstudio Pro"> Tick the session you want to join and click on link to the “Rstudio Pro Session”</p>
 <p>You should now see the standard RStudio interface.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -641,7 +629,7 @@ iago.bios.cf.ac.uk</code></pre>
 </figure>
 </div>
 <ol start="3" type="1">
-<li>Configure your SSH connection by filling in boxes for -Host -User and -Port</li>
+<li>Configure your SSH connection by filling in boxes for -Host -User and <strong>-Port</strong></li>
 </ol>
 <p>N.B. - the three elements you need to complete are underlined in red in the image.</p>
 <p>N.B. - for standard HPC the port leave the port at the default value of 22</p>
@@ -652,13 +640,13 @@ iago.bios.cf.ac.uk</code></pre>
 </figure>
 </div>
 <ol start="4" type="1">
-<li>Enter your passphase</li>
+<li>Enter your password - this is you University single Sign on (SO) password</li>
 </ol>
 <p><strong><em>You will NOT see any typing - this is a security feature, just continue typing</em></strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/MobaXterm_password.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption>MobaXterm Password</figcaption>
+<figcaption>MobaXterm Password - this is your single sign on SO</figcaption>
 </figure>
 </div>
 <p>Once you have entered your password and it has been accepted you <strong><em>MAY</em></strong> be asked to save a master password - this you can set to whatever you wish, if you want to save yourself the trouble of typing your pass phrase every time you connect.</p>
@@ -765,9 +753,55 @@ ssh -X c99999@sponsa.bios.cf.ac.uk -P 32222</code></pre>
 <figcaption>Cyberduck drag and drop window</figcaption>
 </figure>
 </div>
-
-
 </section>
+</section>
+<section id="linux-full-graphics-interface" class="level1">
+<h1>Linux Full Graphics Interface</h1>
+<p>WE have the ability to interact with the HPC through a full OnDemand graphical interface - this is only recommended is essential for graphical only programs and it uses significant amount of computation resources to power the interface leaving less resource to perform more interesting informatic tasks !!</p>
+<p>To access this resource ensure you are logged into the vpn, open a browser of your choice and type in your server name</p>
+<p>Example for people using sponsa would be:</p>
+<p><code>sponsa.bios.cf.ac.uk</code></p>
+<p>You should now see this window</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/OnDemandLogin.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>OnDemand Login Screen</figcaption>
+</figure>
+</div>
+<p>Use you University username and password to log in to Open OnDemand .</p>
+<p>The following screen should appear - if you see an error screen it probably means you are already login - in this case just paste <code>https://sponsa.bios.cf.ac.uk/pun/sys/dashboard</code> into browser window and the launch screen should appear.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/OnDemandDesktop.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>OnDemand Desktop Screen</figcaption>
+</figure>
+</div>
+<p>Click on Desktop and you will see the launch screen - note we have set the default to 8 hours - that means the desktop will close after that time - dont worry all data is still saved to server.</p>
+<p>Now Click Launch</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/OnDemandLaunch.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>OnDemand Launch Screen</figcaption>
+</figure>
+</div>
+<p>You will now see the Launch configuration screen - accept the defaults and click on Launch Desktop</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/OnDemandConfig.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>OnDemand Config Screen</figcaption>
+</figure>
+</div>
+<p>You should not have a full graphical interface</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/OnDemandLinux.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>OnDemand Linux Graphical Interface</figcaption>
+</figure>
+</div>
+<p>NB: Your ONDemand Interface by default maps your files to the gomphus hpc not sponsa. To navigate to files you are using in your personal cloud you will need to change directory to your mydata folder - here’s the command you need.</p>
+<p><code>cd /mnt/clusters/sponsa/data/${USER}</code></p>
+
+
 </section>
 
 </main> <!-- /main -->

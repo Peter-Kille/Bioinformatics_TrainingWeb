@@ -62,7 +62,7 @@ ssh c9999999@anax.bios.cf.ac.uk -P 32222
 :::
 
 ::: {.callout-note collapse="true"}
-## HPC cluster access: MSc Big Data students (part 2 of the course), postgraduate researchers or staff
+## HPC cluster access: Masters students, postgraduate researchers or staff
 
 If you are provided with access to either teaching or research HPC systems you will only be provided with a host or server name - your username and password will be your Single Sign-On (SO) for the University - your student/staff number and your standard password.
 
@@ -73,12 +73,12 @@ Host Names:
 ```         
 gomphus.bios.cf.ac.uk
 or
-iago.bios.cf.ac.uk
+skomer.bios.cf.ac.uk
 ```
 
 With standard HPC the port number is always 22.
 
-***IMPORTANT*** Unlike the virtual machines, gomphus and iago both use slurm job scheduling software to manage access to resources in a fair and equitable manner. For running full-scale jobs you will need to learn [how to interact with slurm correctly](http://hpc.bios.cf.ac.uk/docs/documentation/slurm). However, for the purposes of playing around whilst learning, it is better to create a virutal session by running the command
+***IMPORTANT*** Unlike the virtual machines, gomphus and skomer both use slurm job scheduling software to manage access to resources in a fair and equitable manner. For running full-scale jobs you will need to learn [how to interact with slurm correctly](http://hpc.bios.cf.ac.uk/docs/documentation/slurm). However, for the purposes of playing around whilst learning, it is better to create a virutal session by running the command
 
 ```{bash}
 srun --pty bash -i
@@ -143,15 +143,9 @@ Click on the + to create a new session.
 
 ![Posit New Session](images/posit_newsession.png){width="\"60%"}
 
-Select the session you wish to create - for this example we will create a RstudioPro Session
+Select the session you wish to create - for this example we will create a RstudioPro Session. Leave the default parameters as they are and start the session.
 
-![Rstudio Pro](images/Rstudio_pro.png){width="\"60%"}
-
-Leave the default parameters as they are and start the session.
-
-![Rstudio_dashboard](images/Rstudio_dashboard.png){width="\"60%"}
-
-To enter the session click on the right arrow ---\>
+![Rstudio Pro](images/Rstudio_pro.png){width="\"60%"} Tick the session you want to join and click on link to the "Rstudio Pro Session"
 
 You should now see the standard RStudio interface.
 
@@ -195,7 +189,7 @@ Now you want to create a session, this can be done by following these easy steps
 
 ![MobaXterm SSH](images/MobaXterm_SSH.png){width="60%"}
 
-3.  Configure your SSH connection by filling in boxes for -Host -User and -Port
+3.  Configure your SSH connection by filling in boxes for -Host -User and **-Port**
 
 N.B. - the three elements you need to complete are underlined in red in the image.
 
@@ -203,11 +197,11 @@ N.B. - for standard HPC the port leave the port at the default value of 22
 
 ![MobaXterm Configure](images/MobaXterm_config.png){width="60%"}
 
-4.  Enter your passphase
+4.  Enter your password - this is you University single Sign on (SO) password
 
 ***You will NOT see any typing - this is a security feature, just continue typing***
 
-![MobaXterm Password](images/MobaXterm_password.png){width="60%"}
+![MobaXterm Password - this is your single sign on SO](images/MobaXterm_password.png){width="60%"}
 
 Once you have entered your password and it has been accepted you ***MAY*** be asked to save a master password - this you can set to whatever you wish, if you want to save yourself the trouble of typing your pass phrase every time you connect.
 
@@ -300,3 +294,41 @@ Use your port number provided for Kubernetes, or if using standard HPC use port 
 3.  You can now navigate around the server and drag and drop files to and from server.
 
 ![Cyberduck drag and drop window](images/Cyberduck_connect.png){width="50%"}
+
+# Linux Full Graphics Interface
+
+WE have the ability to interact with the HPC through a full OnDemand graphical interface - this is only recommended is essential for graphical only programs and it uses significant amount of computation resources to power the interface leaving less resource to perform more interesting informatic tasks !!
+
+To access this resource ensure you are logged into the vpn, open a browser of your choice and type in your server name
+
+Example for people using sponsa would be:
+
+`sponsa.bios.cf.ac.uk`
+
+You should now see this window
+
+![OnDemand Login Screen](images/OnDemandLogin.png){width="50%"}
+
+Use you University username and password to log in to Open OnDemand .
+
+The following screen should appear - if you see an error screen it probably means you are already login - in this case just paste `https://sponsa.bios.cf.ac.uk/pun/sys/dashboard` into browser window and the launch screen should appear.
+
+![OnDemand Desktop Screen](images/OnDemandDesktop.png){width="50%"}
+
+Click on Desktop and you will see the launch screen - note we have set the default to 8 hours - that means the desktop will close after that time - dont worry all data is still saved to server.
+
+Now Click Launch
+
+![OnDemand Launch Screen](images/OnDemandLaunch.png){width="50%"}
+
+You will now see the Launch configuration screen - accept the defaults and click on Launch Desktop
+
+![OnDemand Config Screen](images/OnDemandConfig.png){width="50%"}
+
+You should not have a full graphical interface
+
+![OnDemand Linux Graphical Interface](images/OnDemandLinux.png){width="50%"}
+
+NB: Your ONDemand Interface by default maps your files to the gomphus hpc not sponsa. To navigate to files you are using in your personal cloud you will need to change directory to your mydata folder - here's the command you need.
+
+`cd /mnt/clusters/sponsa/data/${USER}`
