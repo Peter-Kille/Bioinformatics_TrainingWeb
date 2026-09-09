@@ -640,28 +640,6 @@
     ]
   },
   {
-    "objectID": "1.1_Introduction_to_Linux.html#changing-and-making-directories",
-    "href": "1.1_Introduction_to_Linux.html#changing-and-making-directories",
-    "title": "Introduction to Linux",
-    "section": "Changing and making directories",
-    "text": "Changing and making directories\nThe command used to change directories is cd\nIf you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.\nTo change to a directory one below you are in, just use the cd command followed by the subdirectory name i.e., fi you have just logged in and want to move into the ‘mydata’ directory (inside your current directory), you could use:\n\ncd mydata\n\nThe shortcut for “the directory you are currently in” is a single full stop ( . ). If you type\n\ncd .  \n\nnothing will change. Later, when we want to run scripts or copy to the same folder that you are currently in we will use ” ./ ” to mean “you can find this in the current directory”. To change directory to the one above you are in, use the shorthand for “the directory above” which is two full stops:\n\ncd ..\n\nFor example, if you are in ‘mydata’, this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, because a forward slash indicates the very top of the file tree:\n\ncd /usr/local/bin\n\nIf you wish to return to your home directory at any time, just type cd by itself.\n\ncd\n\nTo make a new directory, use the command mkdir and then the directory you want to create\n\nmkdir mydata/brilliantIdeas\nmkdir ~/mydata/brilliantIdeas/InProgress\n\nIf you get lost and want to confirm where you are in the directory structure, use the pwd command (print working directory). This will return the full path of the directory you are currently in.\nNote also that by default you see the name of the current directory you are working in as part of your prompt.\nFor example, when you first opened the terminal in a live session you should see your username and server, then the prompt:\n\n[sbi9srj@hawker ~]$\n\nThis means I am logged in as the user sbi9srj on the server named hawker, and in a directory named the character called ‘tilde’ ~. If you remember, ~ is always a shortcut for your home directory.\nAll our folders and classdata can be found at:\n\n/home/[your username]/classdata/\n\nHowever, we won’t need to remember that as we can use the shortcuts of:\n\n~/classdata\n~/mydata\n\n\n\n\n\n\n\nImportantExercises: changing directories\n\n\n\n\nChange directory from your home directory to your working directory (mydata)\nFind the full path to the directory that you are currently in\nCreate a new directory inside mydata\nMove into your new directory.\nMove back into mydata.",
-    "crumbs": [
-      "Session 1. Linux: The basics",
-      "Introduction to Linux"
-    ]
-  },
-  {
-    "objectID": "1.1_Introduction_to_Linux.html#moving-and-copying-data",
-    "href": "1.1_Introduction_to_Linux.html#moving-and-copying-data",
-    "title": "Introduction to Linux",
-    "section": "Moving and copying data",
-    "text": "Moving and copying data\nA standard format is used to move and copy data:\ncommand source destination\nFor example, to move a file named RNAseq_1.fastq into a new folder that exists in this directory named exp1:\n\nmv RNAseq_1.fastq exp1\n\nTo move it to a location somewhere else on the server you can use the full path\n\nmv RNAseq_1.fastq ~/mydata/experiment1\n\nOr alternatively “move” a file from one name to another. This is a common way to rename your files:\n\nmv RNAseq_1.fastq LRubellus_1.fastq\n\nTo copy, use the cp command. You could copy a file from another directory to “here”, remembering that a full-stop means “the folder I’m currently in”:\n\ncp ~/classdata/RNAseq_1.fastq  .\n\nOften you’ll want to copy a whole folder (directory), and you will need the -r parameter for “recursive”.\n\ncp -r mydata/all_fastqs NewExperiment/testdata/\n\n\n\n\n\n\n\nImportantExercises: copying files and folders\n\n\n\n\nUse ls to look in the folder named\n\n\n~/classdata\n\nand\n\n~/classdata/Session1\n\n\nCopy the file CopyExercise.txt from classdata into mydata\nCopy the classdata folder named ‘Session1’ to your mydata folder [IMPORTANT! You need this for the following exercises!]\nDo ls on mydata. What do you see?",
-    "crumbs": [
-      "Session 1. Linux: The basics",
-      "Introduction to Linux"
-    ]
-  },
-  {
     "objectID": "1.1_Introduction_to_Linux.html#listing-files-in-a-directory",
     "href": "1.1_Introduction_to_Linux.html#listing-files-in-a-directory",
     "title": "Introduction to Linux",
@@ -678,6 +656,17 @@
     "title": "Introduction to Linux",
     "section": "File permisions",
     "text": "File permisions\nThe command ls lists files in a directory.\nBy default, the command will list the filenames of the files in your current folder. At the moment, this is probably your home folder.\nIf you add a space followed by a -l (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. An example is shown in the code block below.\n\ndrwxr-xr-x 6    manager users   4096    2008-08-21  09:26  twilliams\n-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  hybInfo.txt\n-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  targets_v1.txt\n-rw-r--r-- 1    manager users   7793    2007-03-19  14:14  targets_v2.txt\n^      ^        ^       ^    ^         ^                ^\nFile  File    User    Group Size   Date/Time         Filename\ntype  Permission\n\nThe file permissions are given in triplets rwx which represent write - read - execute permissions. The first triplet represents the permission associated with the owner (usually the person who created the file), the second triplet is permissions for owner’s group, and the triplet is permission for everyone else.\n\n\n\n\n\n\nImportantExercise: looking at file permissions\n\n\n\nOpen your terminal and use ls -l command to interrogate the classdata files.",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Introduction to Linux"
+    ]
+  },
+  {
+    "objectID": "1.1_Introduction_to_Linux.html#changing-your-location-and-navigation",
+    "href": "1.1_Introduction_to_Linux.html#changing-your-location-and-navigation",
+    "title": "Introduction to Linux",
+    "section": "Changing your location and navigation",
+    "text": "Changing your location and navigation\nThe command used to change directories (folder) is cd\n\nLocal navigation\nIf you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.\nTo change to a directory one below you are in, just use the cd command followed by the subdirectory name i.e., if you have just logged in and want to move into the ‘mydata’ directory (inside your current directory), you could use:\n\ncd mydata\n\nThe shortcut for “the directory you are currently in” is a single full stop ( . ). If you type\n\ncd .  \n\nnothing will change. Later, when we want to run scripts or copy to the same folder that you are currently in we will use ” ./ ” to mean “you can find this in the current directory”. To change directory to the one above you are in, use the shorthand for “the directory above” which is two full stops (..):\n\ncd ..\n\n\n\nFull Path Navigation\nFor example, if you are in ‘mydata’, this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, because a forward slash indicates the very top of the file tree:\n\ncd /home/[your username]/classdata/\n\n\n\nRelative Navigation from home folder - the power of tilde (~)\nRather than type the full path you can you a tilde ~ symbol to signify your home directory. You can use this as a jumping off point to navigate into your mydata folder\n\ncd ~/\ncd ~/mydata\n\nThis should get you back to where you started..\n\n\nReturning to where you started\nIf you wish to return to your home directory at any time, just type cd by itself.\n\ncd\n\n\n\nFinding where you are\nIf you get lost and want to confirm where you are in the directory structure, use the pwd command (print working directory). This will return the full path of the directory you are currently in.\nNote also that by default you see the name of the current directory you are working in as part of your prompt.\nFor example, when you first opened the terminal in a live session you should see your username and server, then the prompt:\n\n[sbi9srj@hawker ~]$\n\nThis means I am logged in as the user sbi9srj on the server named hawker, and in a directory named the character called ‘tilde’ ~. If you remember, ~ is always a shortcut for your home directory.\nAll our folders and classdata can be found at:\n\n/home/[your username]/classdata/\n\nHowever, we won’t need to remember that as we can use the shortcuts of:\n\n~/classdata\n~/mydata\n\n\n\n\n\n\n\nImportantExercises: changing directories\n\n\n\n\nChange directory from your home directory to your working directory (mydata)\nFind the full path to the directory that you are currently in\nMove into your new directory.\nMove back into mydata.",
     "crumbs": [
       "Session 1. Linux: The basics",
       "Introduction to Linux"
@@ -708,111 +697,133 @@
   {
     "objectID": "1.3_Commandline_Tools_and_Scripting.html",
     "href": "1.3_Commandline_Tools_and_Scripting.html",
-    "title": "Extension: Commandline Tools and Scripting",
+    "title": "Commandline Tools and Scripting",
     "section": "",
-    "text": "grep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.\n\ngrep \"ency\" ~/mydata/Session1/subsample.txt\n\nYou can also use flexible search terms, known as regular expressions, in your grep searches. You have already used glob pattern expressions in this practical, but regular expressions are somewhat different and more powerful. For example, when you listed all files with the pattern testxt you were using a glob pattern comprising explicit characters (e.g. tes) and special symbols (* meaning any character or characters). The equivalent in grep would be “tes.txt.” where the period signifies any single character and the * signifies any number of repeats.\nTherefore to get from a shell glob pattern to a regular expression replace each * with .* and each ? with . . You also need to enclose the expression in quotes to tell the shell not to try and interpret it as a glob.\nUnmodified glob patterns will be accepted by grep but will not work as intended. For example the pattern tes* in grep means te followed by any number of s characters in sequence (te, tes, tess, tesss, …). The question mark now signifies optionality – so tes? means te followed by zero or one s character (te, tes). Regular expressions are found in several places other than grep, most notably in the Perl scripting language. The full syntax is extensive and powerful but is beyond the scope of this course, so back to the command itself…\ngrep requires a regular expression as input, and returns all the lines containing that pattern to you as output.\ngrep is especially useful in combination with pipes as you can filter the results of other commands.\nFor example, perhaps you only want to see only the information in an txt file relating to the origin of the sequence, that is, the DE line. You do not need to search the file in an editor, you can just grep for lines beginning in DE, as in the next exercise.\n\n\n\n\n\n\nImportantExercise\n\n\n\nMove into mydata/Session1\nType the command:\n\ngrep \"DE\" protein.txt \n\nWhat is this command doing?\nCan you see why the above command results in the output you see? An explanation of this command can be found below this exercise box.\nTry the commands:\n\ngrep \"^DE\" protein.txt\ngrep -x \"DE.*\" protein.txt \n\nWhat are the ^ symbol and the -x parameter in these commands doing? Check the man page for grep to be sure.\nTry the command:\n\ncat protein.txt | grep \"^DE\". \n\nDoes that do what you expected?\nUse the above command with a pipe and a grep command to search for files created or modified today.\nThe first command in the above exercise searches all the text in the protein.txt file and returns the lines in which it finds the letter D followed by the letter E.\nThe second command in the exercise also returns lines in the file that have a letter D followed by a letter E, but only where DE is found at the beginning of a line. This is because the ^ symbol means “match at the beginning of a line”. The $ symbol can be used similarly to mean “at the end of a line”. These are known as anchors. Passing the -x flag to grep tells it to automatically anchor both ends of the search pattern.\nWhat this anchoring does in the example above is return to you just the organism information in the txt file. This is because none of the other lines returned in the previous command started with DE, they just contained DE somewhere in them. This is an example where knowing how information is stored in an given file, along with a few basic Linux commands, allows you to retrieve information quickly.\nAnother common example is counting how many sequences are in a set of multi-fasta files. We can do this with pipes between the commands cat, grep and the handy wc (word count) utility, which here we use to count lines found by grep.\n\ncat subsample_Ill1.fasta | grep \"^&gt;\" | wc -l \n\ngrep -c \"^&gt;\" subsample_Ill1.fasta \n\nEach sequence in a fasta file starts with a header line that begins with a &gt; . The above command streams the contents of all files matching the glob pattern *seqs.fasta through a search with grep looking for lines that start with the symbol &gt; . The quotes around the pattern ^&gt; are necessary, as otherwise it is interpreted as a request for redirection of output to a file, rather than as a character to look for. As before, the ^ symbol means “match only at the beginning of the line”.\nThe output of this grep search is sent to the wc command, with the -l indicating that you want to know the number of lines – ie. the number of headers and by implication the number of sequences.\nAn easier version of this shown as the second example uses the grep -c argument that return the number of matches found.\nNow try this:\n\ncat *.fasta | grep \"^&gt;\" | wc -l \n\nRemember that * means any pattern, and that cat will concatentate all the files given as input. Therefore, a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.\n\n\n\n\nYou can use all of grep functionality with a compressed file by adding a ‘z’ - just replace grep with zgrep and you can directly query that .gz files.",
+    "text": "Commands covered:\ngrep - search a file\nzgrep - search a conpressed file\ngrep -c and zgrep -c - count the number of times a match is found\ngrep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.\n\ngrep \"ency\" ~/mydata/Session1/subsample.txt\n\nYou can also use flexible search terms, known as regular expressions, in your grep searches. You have already used glob pattern expressions in this practical, but regular expressions are somewhat different and more powerful. For example, when you listed all files with the pattern testxt you were using a glob pattern comprising explicit characters (e.g. tes) and special symbols (* meaning any character or characters). The equivalent in grep would be “tes.txt.” where the period signifies any single character and the * signifies any number of repeats.\nTherefore to get from a shell glob pattern to a regular expression replace each * with .* and each ? with . . You also need to enclose the expression in quotes to tell the shell not to try and interpret it as a glob.\nUnmodified glob patterns will be accepted by grep but will not work as intended. For example the pattern tes* in grep means te followed by any number of s characters in sequence (te, tes, tess, tesss, …). The question mark now signifies optionality – so tes? means te followed by zero or one s character (te, tes). Regular expressions are found in several places other than grep, most notably in the Perl scripting language. The full syntax is extensive and powerful but is beyond the scope of this course, so back to the command itself…\ngrep requires a regular expression as input, and returns all the lines containing that pattern to you as output.\ngrep is especially useful in combination with pipes as you can filter the results of other commands.\nFor example, perhaps you only want to see only the information in an txt file relating to the origin of the sequence, that is, the DE line. You do not need to search the file in an editor, you can just grep for lines beginning in DE, as in the next exercise.\n\n\n\n\n\n\nImportantExercise\n\n\n\nMove into mydata/Session1\nType the command:\n\ngrep \"DE\" protein.txt \n\nWhat is this command doing?\nCan you see why the above command results in the output you see? An explanation of this command can be found below this exercise box.\nTry the commands:\n\ngrep \"^DE\" protein.txt\ngrep -x \"DE.*\" protein.txt \n\nWhat are the ^ symbol and the -x parameter in these commands doing? Check the man page for grep to be sure.\nTry the command:\n\ncat protein.txt | grep \"^DE\". \n\nDoes that do what you expected?\nUse the above command with a pipe and a grep command to search for files created or modified today.\nThe first command in the above exercise searches all the text in the protein.txt file and returns the lines in which it finds the letter D followed by the letter E.\nThe second command in the exercise also returns lines in the file that have a letter D followed by a letter E, but only where DE is found at the beginning of a line. This is because the ^ symbol means “match at the beginning of a line”. The $ symbol can be used similarly to mean “at the end of a line”. These are known as anchors. Passing the -x flag to grep tells it to automatically anchor both ends of the search pattern.\nWhat this anchoring does in the example above is return to you just the organism information in the txt file. This is because none of the other lines returned in the previous command started with DE, they just contained DE somewhere in them. This is an example where knowing how information is stored in an given file, along with a few basic Linux commands, allows you to retrieve information quickly.\nAnother common example is counting how many sequences are in a set of multi-fasta files. We can do this with pipes between the commands cat, grep and the handy wc (word count) utility, which here we use to count lines found by grep.\n\ncat subsample_Ill1.fasta | grep \"^&gt;\" | wc -l \n\ngrep -c \"^&gt;\" subsample_Ill1.fasta \n\nEach sequence in a fasta file starts with a header line that begins with a &gt; . The above command streams the contents of all files matching the glob pattern *seqs.fasta through a search with grep looking for lines that start with the symbol &gt; . The quotes around the pattern ^&gt; are necessary, as otherwise it is interpreted as a request for redirection of output to a file, rather than as a character to look for. As before, the ^ symbol means “match only at the beginning of the line”.\nThe output of this grep search is sent to the wc command, with the -l indicating that you want to know the number of lines – ie. the number of headers and by implication the number of sequences.\nAn easier version of this shown as the second example uses the grep -c argument that return the number of matches found.\nNow try this:\n\ncat *.fasta | grep \"^&gt;\" | wc -l \n\nRemember that * means any pattern, and that cat will concatentate all the files given as input. Therefore, a synopsis of the command above is: Read through all files with names ending seqs.fasta and look for all the header lines in the combined output, then count up those lines that matched and return the number to screen.\n\n\n\n\nYou can use all of grep functionality with a compressed file by adding a ‘z’ - just replace grep with zgrep and you can directly query that .gz files.",
     "crumbs": [
       "Session 1. Linux: The basics",
-      "Extension: Commandline Tools and Scripting"
+      "Commandline Tools and Scripting"
     ]
   },
   {
     "objectID": "1.3_Commandline_Tools_and_Scripting.html#use-zgrep-with-compressed-files",
     "href": "1.3_Commandline_Tools_and_Scripting.html#use-zgrep-with-compressed-files",
-    "title": "Extension: Commandline Tools and Scripting",
+    "title": "Commandline Tools and Scripting",
     "section": "",
     "text": "You can use all of grep functionality with a compressed file by adding a ‘z’ - just replace grep with zgrep and you can directly query that .gz files.",
     "crumbs": [
       "Session 1. Linux: The basics",
-      "Extension: Commandline Tools and Scripting"
+      "Commandline Tools and Scripting"
+    ]
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#varliables",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#varliables",
+    "title": "Commandline Tools and Scripting",
+    "section": "Varliables",
+    "text": "Varliables\nA variable is like a box with a name written on the outside. You can put a value or text inside the box, and recall it later, or replace the contents with something else.\nHere’s a simple example. Note the bash syntax - the equals sign and ” are important when defining the variable but when you recall it you need the $ and {}\n\nname=\"Pete\"\necho ${name}\n\nYou can add fixed text to variables to create names of sample read files\n\nname=\"SampleName\"\necho ${name}_R1.fastq.gz\n\nOr you can write to a file &gt; or add to a file &gt;&gt;\n\nname=\"SampleName\"\n\n#write to clean file\nprintf ${name}_R1.fastq.gz &gt;&gt; sample.txt\n\n#or add to file\nprintf ${name}_R1.fastq.gz &gt;&gt; sample.txt\n\n# Look what is in file\nhead sample.txt",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Commandline Tools and Scripting"
     ]
   },
   {
     "objectID": "1.3_Commandline_Tools_and_Scripting.html#step-1-create-your-script",
     "href": "1.3_Commandline_Tools_and_Scripting.html#step-1-create-your-script",
-    "title": "Extension: Commandline Tools and Scripting",
+    "title": "Commandline Tools and Scripting",
     "section": "Step 1: Create your Script",
     "text": "Step 1: Create your Script\nMake a text file containing the script in question. This can be achieved by downloading or transferring the scripts as a file in the correct format. Sometimes the scripts are posted as part of a website such as a web-post in a discussion forum. To use these scripts, create a file using vi or nano and copy into the test file the script in question ensuring you save it with an appropriate name.\nHere’s a script you can try\n\n#!/bin/bash \n\necho {10..1} \n\necho 'Blast off'",
     "crumbs": [
       "Session 1. Linux: The basics",
-      "Extension: Commandline Tools and Scripting"
+      "Commandline Tools and Scripting"
     ]
   },
   {
     "objectID": "1.3_Commandline_Tools_and_Scripting.html#step-2-make-your-script-executable",
     "href": "1.3_Commandline_Tools_and_Scripting.html#step-2-make-your-script-executable",
-    "title": "Extension: Commandline Tools and Scripting",
+    "title": "Commandline Tools and Scripting",
     "section": "Step 2: Make your script executable",
     "text": "Step 2: Make your script executable\nMake the file executable. Before you can run the script you must make it executable. This is done by changing its property using\n\nchmod a+x [script name] \n\nthis is shorthand for chmod (change modify) a(all)+(add)execute(e) [script name] – thus changing the permission to allow everyone to execute a script. For more guide to chmod see https://en.wikipedia.org/wiki/Chmod",
     "crumbs": [
       "Session 1. Linux: The basics",
-      "Extension: Commandline Tools and Scripting"
+      "Commandline Tools and Scripting"
     ]
   },
   {
     "objectID": "1.3_Commandline_Tools_and_Scripting.html#step-3-run-your-script",
     "href": "1.3_Commandline_Tools_and_Scripting.html#step-3-run-your-script",
-    "title": "Extension: Commandline Tools and Scripting",
+    "title": "Commandline Tools and Scripting",
     "section": "Step 3: Run your script",
     "text": "Step 3: Run your script\nRun the program. This should be easy but there are a few ways of doing this.\nPlace the program into the directory where you want to use it and type\n\n./[script name] parameters arguments \n\nOn first use try to run with no parameters or arguments or with -h and -help to see the manual for the script. Some poorly written scripts will need you to define the program you need to use them, i.e. for a bash script :\n\nbash [script name] parameters arguments \n\nRun from your current location using the script’s full path.\n\n/full path/[script name] parameters arguments \n\nPlace the script into your ‘PATH’ – this means that the computer automatically knows about the script and will run it from any location just given the program name. I suggest that if you want to do this ask the demonstrators and they can show you……this is advanced as if you put two scripts with the same name into the PATH you can cause issues.",
     "crumbs": [
       "Session 1. Linux: The basics",
-      "Extension: Commandline Tools and Scripting"
+      "Commandline Tools and Scripting"
     ]
   },
   {
     "objectID": "1.3_Commandline_Tools_and_Scripting.html#loops-using-numerical-variables",
     "href": "1.3_Commandline_Tools_and_Scripting.html#loops-using-numerical-variables",
-    "title": "Extension: Commandline Tools and Scripting",
+    "title": "Commandline Tools and Scripting",
     "section": "Loops using numerical variables",
-    "text": "Loops using numerical variables\nCreating a Loop\nInvoke a text editor such as nano, then type\n\n#!/bin/bash\n\nfor i in {1..[number]}; do \n\n# use hash to include some level of documentation so when you get to script in a few months time \n\n# you can remember what it was all about.  ${i} = number which increment by 1 each time the loop runs\n\n[your commands]${i} \n\ndone\n\nsave.\nnow make the program executable\n\nchmod +x [program_name]\n\nrun\n\n./[program_name]",
+    "text": "Loops using numerical variables\nCreating a Loop\nInvoke a text editor such as nano, then type\n\n#!/bin/bash\n\nfor i in {1..[number]}; do \n\n# use hash to include some level of documentation so when you get to script in a few months time \n\n# you can remember what it was all about.  ${i} = number which increment by 1 each time the loop runs\n\n[your commands]${i} \n\ndone\n\nsave.\nnow make the program executable\n\nchmod +x [program_name]\n\nnow run your script\n\n./[program_name]",
     "crumbs": [
       "Session 1. Linux: The basics",
-      "Extension: Commandline Tools and Scripting"
+      "Commandline Tools and Scripting"
     ]
   },
   {
     "objectID": "1.3_Commandline_Tools_and_Scripting.html#loops-using-strings-lists-as-variables",
     "href": "1.3_Commandline_Tools_and_Scripting.html#loops-using-strings-lists-as-variables",
-    "title": "Extension: Commandline Tools and Scripting",
-    "section": "Loops using Strings (lists) as variables",
-    "text": "Loops using Strings (lists) as variables\nInvoke a text editor such as nano, then type\n\n#!/bin/bash\n\nfor i in sampleA sampleB sampleC sampleD; do \n\n# use hash to include some level of documentation so when you get to script in a few months time\n\n# you can remember what it was all about.  ${i} = the list of strings given at the start of the for loop \n\n[your commands]${i} \n\ndone \n\nsave\nnow make the program executable\n\nchmod +x [program_name] \n\nrun\n\n./[program_name]",
+    "title": "Commandline Tools and Scripting",
+    "section": "Loops using strings (lists) as variables",
+    "text": "Loops using strings (lists) as variables\nInvoke a text editor such as nano, then type\n\n#!/bin/bash\n\nfor i in sampleA sampleB sampleC sampleD; do \n\n# use hash to include some level of documentation so when you get to script in a few months time\n\n# you can remember what it was all about.  ${i} = the list of strings given at the start of the for loop \n\n[your commands]${i} \n\ndone \n\nsave\nnow make the program executable\n\nchmod +x [program_name] \n\nrun\n\n./[program_name]",
     "crumbs": [
       "Session 1. Linux: The basics",
-      "Extension: Commandline Tools and Scripting"
+      "Commandline Tools and Scripting"
     ]
   },
   {
-    "objectID": "1.3_Commandline_Tools_and_Scripting.html#loops-using-directory-listings",
-    "href": "1.3_Commandline_Tools_and_Scripting.html#loops-using-directory-listings",
-    "title": "Extension: Commandline Tools and Scripting",
-    "section": "Loops using directory listings",
-    "text": "Loops using directory listings\nThis is a great method if you want to execute a series of command on a set of data files contained in a specific directory, for instance a series of sequence files.\nInvoke a text editor such as nano, then type\n\n#!/bin/bash\n\n#set present working directory as the location of script....all folder will be related to this directory\nworkdir=$(pwd)\n#location of folder containing paired end sequence files - make sure your data is in a directory call rawdata in same location as your script.\nrawdir=${workdir}/rawdata\n# ls rawdata/*_R1.fastq.gz - this should list all files ending in _R1.fastq.gz\n\nfor f in ${rawdir}/*_R1.fastq.gz\ndo\n\n#the file name are placed in variable $f - we can separate the name of the file away from the suffix (.fastq.gz) using this simple cut expression - the variable 'R1' now contains the file name with no suffix \nfilename=$(basename $f | cut -f1 -d.)\n\n#Sometimes we want the 'name' of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed \nname=$(echo $R1 | sed 's/_R1//')\n\necho ${name}\n\ndone \n\nsave\nnow make the program executable\n\nchmod +x [program_name] \n\nrun\n\n./[program_name]",
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#loops-loop-to-create-a-samplelist-from-rawdata-folder",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#loops-loop-to-create-a-samplelist-from-rawdata-folder",
+    "title": "Commandline Tools and Scripting",
+    "section": "Loops loop to create a SampleList from rawdata folder",
+    "text": "Loops loop to create a SampleList from rawdata folder\nThis is a great method if you want to execute a series of command on a set of data files contained in a specific directory, for instance a series of sequence files.\nInvoke a text editor such as nano, then type\n\n#!/bin/bash\n\n#set present working directory as the location of script....all folder will be related to this directory\nworkdir=$(pwd)\nprintf \"SampleID\\tforwardread\\treverseread\\n\" &gt; samplelist.txt \n\n#location of folder containing paired end sequence files - make sure your data is in a directory call rawdata in same location as your script.\nrawdir=${workdir}/rawdata\n# ls rawdata/*_R1.fastq.gz - this should list all files ending in _R1.fastq.gz\n\nfor f in ${rawdir}/*_R1.fastq.gz\ndo\n\n#the file name are placed in variable $f - we can separate the name of the file away from the suffix (.fastq.gz) using this simple cut expression - the variable 'R1' now contains the file name with no suffix \nfilename=$(basename $f | cut -f1 -d.)\n\n#Sometimes we want the 'name' of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed \nsample=$(echo $R1 | sed 's/_R1//')\n\nprintf ${name}\\t${name}_R1.fastq\\t${name}_R1.fastq\\n\" &gt;&gt; samplelist.txt\n\ndone \n\nsave\nnow make the program executable\n\nchmod +x [program_name] \n\nrun\n\n./[program_name]",
     "crumbs": [
       "Session 1. Linux: The basics",
-      "Extension: Commandline Tools and Scripting"
+      "Commandline Tools and Scripting"
+    ]
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#loop-to-execute-a-program-on-samplelist",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#loop-to-execute-a-program-on-samplelist",
+    "title": "Commandline Tools and Scripting",
+    "section": "Loop to execute a program on samplelist",
+    "text": "Loop to execute a program on samplelist\nPrint list of sample names to screen from samplelist file where the file has three tab deliminated columns encompassing: name, forwardread, and reverseread with first row having column headers.\n\n#!/bin/bash\n\n#set present working directory as the location of script....all folder will be related to this directory\nworkdir=$(pwd)\n#create varible for sample list saved in workdir\nsamplelist=\"samplelist.txt\"\n\nsamplenames=$(cat ${samplelist} | cut -f1,1 | tail -n +2)\n\nfor name in ${samplenames}\ndo \n\necho ${name}\n\ndone",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Commandline Tools and Scripting"
     ]
   },
   {
     "objectID": "1.3_Commandline_Tools_and_Scripting.html#gz-files",
     "href": "1.3_Commandline_Tools_and_Scripting.html#gz-files",
-    "title": "Extension: Commandline Tools and Scripting",
+    "title": "Commandline Tools and Scripting",
     "section": "gz files",
     "text": "gz files\n….wait a minute do you really need to decompress this file !! Many programs will happily use a .gz file directly, this a win for your file space so check out if you really need to decompress the file. Unfortunate some utilits like ‘sed’ require files to be unzipped, it that case:\n\n#to decompress\ngunzip [filename].gz\n#to recompress\ngzip [filename]",
     "crumbs": [
       "Session 1. Linux: The basics",
-      "Extension: Commandline Tools and Scripting"
+      "Commandline Tools and Scripting"
     ]
   },
   {
     "objectID": "1.3_Commandline_Tools_and_Scripting.html#how-to-extract-a-.tar.gz-file-on-linux",
     "href": "1.3_Commandline_Tools_and_Scripting.html#how-to-extract-a-.tar.gz-file-on-linux",
-    "title": "Extension: Commandline Tools and Scripting",
+    "title": "Commandline Tools and Scripting",
     "section": "How to extract a .tar.gz file on Linux",
     "text": "How to extract a .tar.gz file on Linux\nTo extract a .tar.gz file on Linux, you can use the “tar” command in the terminal. Here is the general syntax:\n\ntar -xvzf filename.tar.gz\n\nHere is a brief explanation of the options used:\n\n-x: This option tells tar to extract the contents of the archive.\n\n-v: This option is for verbose output, which means that tar will display a list of the files being extracted as it does so.\n\n-z: This option tells tar to decompress the archive using gzip.\n\n-f: This option is used to specify the archive file to extract.",
     "crumbs": [
       "Session 1. Linux: The basics",
-      "Extension: Commandline Tools and Scripting"
+      "Commandline Tools and Scripting"
     ]
   },
   {
@@ -1411,16 +1422,5 @@
     "title": "Commandline Tools and Scripting",
     "section": "How to extract a .tar.gz file on Linux?",
     "text": "How to extract a .tar.gz file on Linux?\nTo extract a .tar.gz file on Linux, you can use the “tar” command in the terminal. Here is the general syntax:\n```{bash}\ntar -xvzf filename.tar.gz\n```\nHere is a brief explanation of the options used:\n```{bash}\n-x: This option tells tar to extract the contents of the archive.\n\n-v: This option is for verbose output, which means that tar will display a list of the files being extracted as it does so.\n\n-z: This option tells tar to decompress the archive using gzip.\n\n-f: This option is used to specify the archive file to extract.\n```"
-  },
-  {
-    "objectID": "1.1_Introduction_to_Linux.html#changing-your-location-and-navigation",
-    "href": "1.1_Introduction_to_Linux.html#changing-your-location-and-navigation",
-    "title": "Introduction to Linux",
-    "section": "Changing your location and navigation",
-    "text": "Changing your location and navigation\nThe command used to change directories (folder) is cd\n\nLocal navigation\nIf you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.\nTo change to a directory one below you are in, just use the cd command followed by the subdirectory name i.e., if you have just logged in and want to move into the ‘mydata’ directory (inside your current directory), you could use:\n\ncd mydata\n\nThe shortcut for “the directory you are currently in” is a single full stop ( . ). If you type\n\ncd .  \n\nnothing will change. Later, when we want to run scripts or copy to the same folder that you are currently in we will use ” ./ ” to mean “you can find this in the current directory”. To change directory to the one above you are in, use the shorthand for “the directory above” which is two full stops (..):\n\ncd ..\n\n\n\nFull Path Navigation\nFor example, if you are in ‘mydata’, this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, because a forward slash indicates the very top of the file tree:\n\ncd /home/[your username]/classdata/\n\n\n\nRelative Navigation from home folder - the power of tilde (~)\nRather than type the full path you can you a tilde ~ symbol to signify your home directory. You can use this as a jumping off point to navigate into your mydata folder\n\ncd ~/\ncd ~/mydata\n\nThis should get you back to where you started..\n\n\nReturning to where you started\nIf you wish to return to your home directory at any time, just type cd by itself.\n\ncd\n\n\n\nFinding where you are\nIf you get lost and want to confirm where you are in the directory structure, use the pwd command (print working directory). This will return the full path of the directory you are currently in.\nNote also that by default you see the name of the current directory you are working in as part of your prompt.\nFor example, when you first opened the terminal in a live session you should see your username and server, then the prompt:\n\n[sbi9srj@hawker ~]$\n\nThis means I am logged in as the user sbi9srj on the server named hawker, and in a directory named the character called ‘tilde’ ~. If you remember, ~ is always a shortcut for your home directory.\nAll our folders and classdata can be found at:\n\n/home/[your username]/classdata/\n\nHowever, we won’t need to remember that as we can use the shortcuts of:\n\n~/classdata\n~/mydata\n\n\n\n\n\n\n\nImportantExercises: changing directories\n\n\n\n\nChange directory from your home directory to your working directory (mydata)\nFind the full path to the directory that you are currently in\nMove into your new directory.\nMove back into mydata.",
-    "crumbs": [
-      "Session 1. Linux: The basics",
-      "Introduction to Linux"
-    ]
   }
 ]
