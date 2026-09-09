@@ -331,7 +331,7 @@ Having set the loop in progress, a semicolon indicates that next comes the comma
 :::
 
 ::: {.callout-note collapse="true"}
-## Worked Example: Fastqc interactive loop
+## Worked Example: Fastqc loop
 
 Step 1: Navigate to Session 2 Looping folder
 
@@ -389,14 +389,6 @@ Here's a video of me building these scripts for start to finish:
 </iframe>
 :::
 
-::: {.callout-note collapse="true"}
-## Worked Example: Fastqc bash loop
-
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=894c4cd6-2f3e-40a3-934d-b09400e7fcb2&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
-
-</iframe>
-:::
-
 ## Creating a quality summary with multiqc
 
 Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.
@@ -436,7 +428,7 @@ If you are feeling confident, try creating one script that will carry out all th
 :::
 
 ::: {.callout-note collapse="true"}
-## Worked Example - Prokayote: rawdata fastqc loop
+## Worked Example - Viral: rawdata fastqc loop
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ba22f2db-e320-4bd4-9516-b094011020df&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
@@ -444,7 +436,7 @@ If you are feeling confident, try creating one script that will carry out all th
 :::
 
 ::: {.callout-note collapse="true"}
-## Worked Example - Prokayote: rawdata QC triming and post trim QC
+## Worked Example - Viral: rawdata QC triming and post trim QC
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=95ed97fe-fffa-46bf-956c-b094010bfa4e&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
@@ -454,7 +446,7 @@ If you are feeling confident, try creating one script that will carry out all th
 ::: callout-warning
 ## Extension Work
 
-Do the same for the mitochondrial data!
+Do the same for the prokayotic and Mitochondrial data!
 :::
 
 ::: {.callout-note collapse="true"}
