@@ -25,21 +25,24 @@ Start by logging into your virtual machine on the server. You are now ready to s
 
 ## Useful information!
 
-• You don't need to type the \$ at the beginning of a command. That's a linux convention to indicate a command line
+• You don't need to type the \$ at the beginning of a command. That's a linux convention to indicate a command line - at the start a linux cheatseet can be a good idea, there is alot on line but we will put one together for our course as we go through.
 
-• Code is indicated throughout the tutorials by appearing in a `grey box`. Within the code, any text in \[square brackets\] indicates a placeholder you will need to replace with your own username, file name etc.
+• Code is indicated throughout the tutorials by appearing in a `grey box`. Within the code, **any text in \[square brackets\] indicates a placeholder you will need to replace** with your own username, file name etc.
 
-• **Always tab-complete**! Pressing tab will auto-complete a file name or program. If you're writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just 'myF' and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and **if it won't tab-complete then it doesn't exist**!
+• **Always tab-complete**! Pressing tab will auto-complete a file name or program. If you're writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just 'myF' and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this **if it won't tab-complete then it doesn't exist**!
 
-• If you still have a 'file not found' error, do ls to see if you can see it.
+::: {.callout-note collapse="true"}
+## If tab-complete doesn't work
+
+• If you still have a 'file not found' error, do `ls` to see if you can see it.
 
 • If you can't see a file you expect to be there, do `pwd` and check you're in the right folder.
 
 • If a script says "permission denied" make sure:
 
--   It has executable permission (see [Permissions](@sec-permissions)).
+- It has executable permission (see [Permissions](@sec-permissions)).
 
--   You're not inside the classdata folder!
+- You're not inside the classdata folder!
 
 • You always want to be working in the Working Directory. To get there (assuming you're on a Cardiff virtual machine) use:
 
@@ -48,6 +51,7 @@ cd ~/mydata
 ```
 
 • Once more, tab-complete is your friend! It'll stop most typos from happening and save you the pain of writing a command for a file that's not there. It's hard to overstate the amount of time and pain it will save you.
+:::
 
 ## Anatomy of a Command
 
@@ -68,7 +72,7 @@ Most commands have options available that will alter the way they function. You 
 
 **Reminder**: Items on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames, as will some symbols. This is important!
 
-### Learning about Linux commands
+### Learning about Linux commands - accessing the manual !!
 
 Most Linux commands have a manual page that provides information about the command and options that can alter its behaviour. Many tasks can be made easier by using command options. Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard.
 
@@ -81,43 +85,145 @@ Look up the manual information for the ls command by typing the following in a t
 man ls
 ```
 
--   Skim through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the b key.
--   What does the -m option do? What about the -a option? What would running ls -lrt do?
--   Press the q key when you want to quit reading the man page.
--   Try running ls using some of the options mentioned above.
+- Skim through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the b key.
+- What does the -m option do? What about the -a option? What would running ls -lrt do?
+- Press the q key when you want to quit reading the man page.
+- Try running ls using some of the options mentioned above.
 :::
 
 Note: Programs (rather than core linux commands) often have help pages that can be accessed in the same manner as a linux command manual but using -h or -help (often both will work). Others will default to show you the help page if you run the program with no arguments or have a typo.
 
-## Changing and making directories
+# Moving around in Linux
 
-The command used to change directories is `cd`
+Commands covered:
+
+`ls` - list directory (folder) content
+
+`ls -l` - long list, show file permissions and sizes
+
+`cd` - change directory
+
+`pwd` - present working directory
+
+The first set of command you will use are those associated with moving around your file system. But before we start lets clarify one specific word we use frequently but one which has been replaced in recent year.
+
+**Directory** \<--\> **Folder**
+
+These are for our purposes the same things - what we call directories you probable think of as folders. I will try and ensure both are used.
+
+## Listing files in a directory
+
+The command `ls` lists files in a directory. By default, the command will list the filenames of the files in your current working directory.
+
+Once you login type `ls` and you should see 2 directories (folders)
+
+```{bash}
+classdata
+mydata
+```
+
+To list what is in theses folders type `ls [foldername]` and you should display what is in each folder.
+
+If you add a space followed by a `-l` (that is, a hyphen and a small letter L), after the `ls` command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is.
+
+You can also use global patterns to limit the files you wish to list.
+
+```{bash}
+* an asterisk means any string of characters
+? a question mark means a single character
+[ ] square brackets can be used to designate a group of characters
+```
+
+e.g. to list all fodlers in th working directory thats start with a capital S:
+
+```{bash}
+ls classdata/S*
+```
+
+::: callout-important
+### Exercises: listing files
+
+1.  List all the files in the folder classdata/Session1 that start with the letters sub
+
+2.  List all the files in the folder classdata/Session1 that end with the letters fasta
+
+3.  List all the files in your folder that start with sub, and end in fasta
+
+4.  \[Extension\] Do a 'long list' (`-l`) of these files and see the difference in sizes. Add the 'human readable' parameter/flag (`-h`) to help read the sizes.
+:::
+
+## File permisions {#sec-permissions}
+
+The command `ls` lists files in a directory.
+
+By default, the command will list the filenames of the files in your current folder. At the moment, this is probably your home folder.
+
+If you add a space followed by a `-l` (that is, a hyphen and a small letter L), after the `ls` command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. An example is shown in the code block below.
+
+```{bash}
+drwxr-xr-x 6    manager users   4096    2008-08-21  09:26  twilliams
+-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  hybInfo.txt
+-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  targets_v1.txt
+-rw-r--r-- 1    manager users   7793    2007-03-19  14:14  targets_v2.txt
+^      ^        ^       ^    ^         ^                ^
+File  File    User    Group Size   Date/Time         Filename
+type  Permission
+```
+
+The file permissions are given in triplets `rwx` which represent write - read - execute permissions. The first triplet represents the permission associated with the owner (usually the person who created the file), the second triplet is permissions for owner's group, and the triplet is permission for everyone else.
+
+::: callout-important
+### Exercise: looking at file permissions
+
+Open your terminal and use `ls -l` command to interrogate the classdata files.
+:::
+
+## Changing your location and navigation
+
+The command used to change directories (folder) is `cd`
+
+### Local navigation
 
 If you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.
 
-To change to a directory one below you are in, just use the `cd` command followed by the subdirectory name i.e., fi you have just logged in and want to move into the 'mydata' directory (inside your current directory), you could use:
+To change to a directory one below you are in, just use the `cd` command followed by the subdirectory name i.e., if you have just logged in and want to move into the 'mydata' directory (inside your current directory), you could use:
 
 ```{bash}
 cd mydata
 ```
 
-The shortcut for "the directory you are currently in" is a single full stop ( . ). If you type
+The shortcut for "the directory you are currently in" is a **single full stop ( . )**. If you type
 
 ```{bash}
 cd .  
 ```
 
-nothing will change. Later, when we want to run scripts or copy to the same folder that you are currently in we will use " ./ " to mean "you can find this in the current directory". To change directory to the one above you are in, use the shorthand for "the directory above" which is two full stops:
+nothing will change. Later, when we want to run scripts or copy to the same folder that you are currently in we will use " ./ " to mean "you can find this in the current directory". To change directory to the one above you are in, use the shorthand for "the directory above" **which is two full stops (..)**:
 
 ```{bash}
 cd ..
 ```
 
+### Full Path Navigation
+
 For example, if you are in 'mydata', this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, because *a forward slash indicates the very top of the file tree*:
 
 ```{bash}
-cd /usr/local/bin
+cd /home/[your username]/classdata/
 ```
+
+### Relative Navigation from home folder - the power of tilde (\~)
+
+Rather than type the full path you can you a tilde `~` symbol to signify your home directory. You can use this as a jumping off point to navigate into your mydata folder
+
+```{bash}
+cd ~/
+cd ~/mydata
+```
+
+This should get you back to where you started..
+
+### Returning to where you started
 
 If you wish to return to your home directory at any time, just type `cd` by itself.
 
@@ -125,12 +231,7 @@ If you wish to return to your home directory at any time, just type `cd` by itse
 cd
 ```
 
-To make a new directory, use the command `mkdir` and then the directory you want to create
-
-```{bash}
-mkdir mydata/brilliantIdeas
-mkdir ~/mydata/brilliantIdeas/InProgress
-```
+### Finding where you are
 
 If you get lost and want to confirm where you are in the directory structure, use the `pwd` command (print working directory). This will return the full path of the directory you are currently in.
 
@@ -164,47 +265,70 @@ However, we won't need to remember that as we can use the shortcuts of:
 
 2.  Find the full path to the directory that you are currently in
 
-3.  Create a new directory inside `mydata`
+3.  Move into your new directory.
 
-4.  Move into your new directory.
-
-5.  Move back into `mydata`.
+4.  Move back into `mydata`.
 :::
 
-## Moving and copying data
+# Making Directories, Moving and Copying data
+
+Commands covered:
+
+`mkdir` - make a directory
+
+`cp` - copy a file
+
+`cp -r` - copy a folder (`-r` stands for recursive)
+
+`mv` - move / rename file or folder
+
+`rm` - delete a file \***no recycle bin in linux**
+
+**All these commands can only be performed in you mydata directory so before you start**
+
+```{bash}
+cd ~/mydata
+```
+
+### Making folders
+
+To make a new directory, use the command `mkdir` and then the directory you want to create
+
+```{bash}
+mkdir mydata/brilliantIdeas
+mkdir ~/mydata/brilliantIdeas/InProgress
+```
+
+### Copying files and folders
 
 A standard format is used to move and copy data:
 
 `command source destination`
 
-For example, to move a file named RNAseq_1.fastq into a new folder that exists in this directory named exp1:
+For example, to copy a file named CopyExercise.txt from classdata/Session1 into your mydata folder:
 
 ```{bash}
-mv RNAseq_1.fastq exp1
-```
 
-To move it to a location somewhere else on the server you can use the full path
-
-```{bash}
-mv RNAseq_1.fastq ~/mydata/experiment1
+cp ~/classdata/anyfile.txt ~/mydata/
 ```
 
 Or alternatively "move" a file from one name to another. This is a common way to rename your files:
 
 ```{bash}
-mv RNAseq_1.fastq LRubellus_1.fastq
+cd ~/mydata
+mv anyfile.txt Renamed_file.txt
 ```
 
 To copy, use the `cp` command. You could copy a file from another directory to "here", remembering that a full-stop means "the folder I'm currently in":
 
 ```{bash}
-cp ~/classdata/RNAseq_1.fastq  .
+cp ~/classdata/anyfile.txt  .
 ```
 
-Often you'll want to copy a whole folder (directory), and you will need the -r parameter for "recursive".
+Often you'll want to copy a whole folder (directory), and you will need the `-r` parameter for "recursive".
 
 ```{bash}
-cp -r mydata/all_fastqs NewExperiment/testdata/
+cp -r ~/classdata/Session1 ~/mydata/
 ```
 
 ::: callout-important
@@ -227,64 +351,6 @@ and
 3.  Copy the `classdata` folder named 'Session1' to your `mydata` folder \[IMPORTANT! You need this for the following exercises!\]
 
 4.  Do `ls` on `mydata`. What do you see?
-:::
-
-## Listing files in a directory
-
-The command `ls` lists files in a directory. By default, the command will list the filenames of the files in your current working directory.
-
-If you add a space followed by a --l (that is, a hyphen and a small letter L), after the `ls` command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is.
-
-You can also use glob patterns to limit the files you wish to list.
-
-```{bash}
-* an asterisk means any string of characters
-? a question mark means a single character
-[ ] square brackets can be used to designate a group of characters
-```
-
-e.g. to list all of blue.txt, banana.txt, baby.txt:
-
-```{bash}
-ls b*.txt
-```
-
-::: callout-important
-### Exercises: listing files
-
-1.  List all the files in the directory Session1 that start with the letters sub
-
-2.  List all the files in the directory Session1 that end with the letters fasta
-
-3.  List all the files in your directory that start with sub, and end in fasta
-
-4.  \[Extension\] Do a 'long list' (-l) of these files and see the difference in sizes. Add the 'human readable' parameter/flag (-h) to help read the sizes.
-:::
-
-## File permisions {#sec-permissions}
-
-The command `ls` lists files in a directory.
-
-By default, the command will list the filenames of the files in your current working directory. At the moment, this is probably your home directory.
-
-If you add a space followed by a `-l` (that is, a hyphen and a small letter L), after the `ls` command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. An example is shown in the code block below.
-
-```{bash}
-drwxr-xr-x 6    manager users   4096    2008-08-21  09:26  twilliams
--rw-r--r-- 1    manager users   9784    2007-03-19  14:09  hybInfo.txt
--rw-r--r-- 1    manager users   9784    2007-03-19  14:09  targets_v1.txt
--rw-r--r-- 1    manager users   7793    2007-03-19  14:14  targets_v2.txt
-^      ^        ^       ^    ^         ^                ^
-File  File    User    Group Size   Date/Time         Filename
-type  Permission
-```
-
-The file permissions are given in triplets `rwx` which represent write - read - execute permissions. The first triplet represents the permission associated with the owner (usually the person who created the file), the second triplet is permissions for owner's group, and the triplet is permission for everyone else.
-
-::: callout-Exercise
-### Exercise: looking at file permissions
-
-Open your terminal and use `ls -l` command to interrogate the files in your directories.
 :::
 
 ## Tab completion

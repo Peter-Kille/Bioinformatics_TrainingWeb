@@ -407,15 +407,26 @@ background: darkred;
   <li><a href="#useful-information" id="toc-useful-information" class="nav-link" data-scroll-target="#useful-information">Useful information!</a></li>
   <li><a href="#anatomy-of-a-command" id="toc-anatomy-of-a-command" class="nav-link" data-scroll-target="#anatomy-of-a-command">Anatomy of a Command</a>
   <ul class="collapse">
-  <li><a href="#learning-about-linux-commands" id="toc-learning-about-linux-commands" class="nav-link" data-scroll-target="#learning-about-linux-commands">Learning about Linux commands</a></li>
+  <li><a href="#learning-about-linux-commands---accessing-the-manual" id="toc-learning-about-linux-commands---accessing-the-manual" class="nav-link" data-scroll-target="#learning-about-linux-commands---accessing-the-manual">Learning about Linux commands - accessing the manual !!</a></li>
   </ul></li>
-  <li><a href="#changing-and-making-directories" id="toc-changing-and-making-directories" class="nav-link" data-scroll-target="#changing-and-making-directories">Changing and making directories</a></li>
-  <li><a href="#moving-and-copying-data" id="toc-moving-and-copying-data" class="nav-link" data-scroll-target="#moving-and-copying-data">Moving and copying data</a></li>
-  <li><a href="#listing-files-in-a-directory" id="toc-listing-files-in-a-directory" class="nav-link" data-scroll-target="#listing-files-in-a-directory">Listing files in a directory</a></li>
-  <li><a href="#sec-permissions" id="toc-sec-permissions" class="nav-link" data-scroll-target="#sec-permissions">File permisions</a>
+  </ul></li>
+  <li><a href="#moving-around-in-linux" id="toc-moving-around-in-linux" class="nav-link" data-scroll-target="#moving-around-in-linux">Moving around in Linux</a>
   <ul class="collapse">
-  <li><a href="#exercise-looking-at-file-permissions" id="toc-exercise-looking-at-file-permissions" class="nav-link" data-scroll-target="#exercise-looking-at-file-permissions">Exercise: looking at file permissions</a></li>
+  <li><a href="#listing-files-in-a-directory" id="toc-listing-files-in-a-directory" class="nav-link" data-scroll-target="#listing-files-in-a-directory">Listing files in a directory</a></li>
+  <li><a href="#sec-permissions" id="toc-sec-permissions" class="nav-link" data-scroll-target="#sec-permissions">File permisions</a></li>
+  <li><a href="#changing-your-location-and-navigation" id="toc-changing-your-location-and-navigation" class="nav-link" data-scroll-target="#changing-your-location-and-navigation">Changing your location and navigation</a>
+  <ul class="collapse">
+  <li><a href="#local-navigation" id="toc-local-navigation" class="nav-link" data-scroll-target="#local-navigation">Local navigation</a></li>
+  <li><a href="#full-path-navigation" id="toc-full-path-navigation" class="nav-link" data-scroll-target="#full-path-navigation">Full Path Navigation</a></li>
+  <li><a href="#relative-navigation-from-home-folder---the-power-of-tilde" id="toc-relative-navigation-from-home-folder---the-power-of-tilde" class="nav-link" data-scroll-target="#relative-navigation-from-home-folder---the-power-of-tilde">Relative Navigation from home folder - the power of tilde (~)</a></li>
+  <li><a href="#returning-to-where-you-started" id="toc-returning-to-where-you-started" class="nav-link" data-scroll-target="#returning-to-where-you-started">Returning to where you started</a></li>
+  <li><a href="#finding-where-you-are" id="toc-finding-where-you-are" class="nav-link" data-scroll-target="#finding-where-you-are">Finding where you are</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#making-directories-moving-and-copying-data" id="toc-making-directories-moving-and-copying-data" class="nav-link" data-scroll-target="#making-directories-moving-and-copying-data">Making Directories, Moving and Copying data</a>
+  <ul class="collapse">
+  <li><a href="#making-folders" id="toc-making-folders" class="nav-link" data-scroll-target="#making-folders">Making folders</a></li>
+  <li><a href="#copying-files-and-folders" id="toc-copying-files-and-folders" class="nav-link" data-scroll-target="#copying-files-and-folders">Copying files and folders</a></li>
   <li><a href="#tab-completion" id="toc-tab-completion" class="nav-link" data-scroll-target="#tab-completion">Tab completion</a>
   <ul class="collapse">
   <li><a href="#exercises-practise-tab-completion" id="toc-exercises-practise-tab-completion" class="nav-link" data-scroll-target="#exercises-practise-tab-completion">Exercises: practise tab completion</a></li>
@@ -441,10 +452,22 @@ background: darkred;
 <p>Start by logging into your virtual machine on the server. You are now ready to start learning how to control it! Unlike the operating systems you may be used to, we are going to be typing commands rather than clicking buttons.</p>
 <section id="useful-information" class="level2">
 <h2 class="anchored" data-anchor-id="useful-information">Useful information!</h2>
-<p>• You don’t need to type the $ at the beginning of a command. That’s a linux convention to indicate a command line</p>
-<p>• Code is indicated throughout the tutorials by appearing in a <code>grey box</code>. Within the code, any text in [square brackets] indicates a placeholder you will need to replace with your own username, file name etc.</p>
-<p>• <strong>Always tab-complete</strong>! Pressing tab will auto-complete a file name or program. If you’re writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just ‘myF’ and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this, and <strong>if it won’t tab-complete then it doesn’t exist</strong>!</p>
-<p>• If you still have a ‘file not found’ error, do ls to see if you can see it.</p>
+<p>• You don’t need to type the $ at the beginning of a command. That’s a linux convention to indicate a command line - at the start a linux cheatseet can be a good idea, there is alot on line but we will put one together for our course as we go through.</p>
+<p>• Code is indicated throughout the tutorials by appearing in a <code>grey box</code>. Within the code, <strong>any text in [square brackets] indicates a placeholder you will need to replace</strong> with your own username, file name etc.</p>
+<p>• <strong>Always tab-complete</strong>! Pressing tab will auto-complete a file name or program. If you’re writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just ‘myF’ and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this <strong>if it won’t tab-complete then it doesn’t exist</strong>!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>If tab-complete doesn’t work
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>• If you still have a ‘file not found’ error, do <code>ls</code> to see if you can see it.</p>
 <p>• If you can’t see a file you expect to be there, do <code>pwd</code> and check you’re in the right folder.</p>
 <p>• If a script says “permission denied” make sure:</p>
 <ul>
@@ -456,6 +479,9 @@ background: darkred;
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/mydata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>• Once more, tab-complete is your friend! It’ll stop most typos from happening and save you the pain of writing a command for a file that’s not there. It’s hard to overstate the amount of time and pain it will save you.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="anatomy-of-a-command" class="level2">
 <h2 class="anchored" data-anchor-id="anatomy-of-a-command">Anatomy of a Command</h2>
@@ -470,8 +496,8 @@ background: darkred;
 <p>The first item you supply on the command line is interpreted by the system as a command – something the system should do. Any options for the command, such what file you want the command to work on, or the format for the information that should be returned to you, appear after that on the same line separated by spaces.</p>
 <p>Most commands have options available that will alter the way they function. You make use of these options by providing the command with parameters (sometimes called flags), some of which will take arguments.</p>
 <p><strong>Reminder</strong>: Items on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames, as will some symbols. This is important!</p>
-<section id="learning-about-linux-commands" class="level3">
-<h3 class="anchored" data-anchor-id="learning-about-linux-commands">Learning about Linux commands</h3>
+<section id="learning-about-linux-commands---accessing-the-manual" class="level3">
+<h3 class="anchored" data-anchor-id="learning-about-linux-commands---accessing-the-manual">Learning about Linux commands - accessing the manual !!</h3>
 <p>Most Linux commands have a manual page that provides information about the command and options that can alter its behaviour. Many tasks can be made easier by using command options. Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -498,50 +524,144 @@ background: darkred;
 <p>Note: Programs (rather than core linux commands) often have help pages that can be accessed in the same manner as a linux command manual but using -h or -help (often both will work). Others will default to show you the help page if you run the program with no arguments or have a typo.</p>
 </section>
 </section>
-<section id="changing-and-making-directories" class="level2">
-<h2 class="anchored" data-anchor-id="changing-and-making-directories">Changing and making directories</h2>
-<p>The command used to change directories is <code>cd</code></p>
+</section>
+<section id="moving-around-in-linux" class="level1">
+<h1>Moving around in Linux</h1>
+<p>Commands covered:</p>
+<p><code>ls</code> - list directory (folder) content</p>
+<p><code>ls -l</code> - long list, show file permissions and sizes</p>
+<p><code>cd</code> - change directory</p>
+<p><code>pwd</code> - present working directory</p>
+<p>The first set of command you will use are those associated with moving around your file system. But before we start lets clarify one specific word we use frequently but one which has been replaced in recent year.</p>
+<p><strong>Directory</strong> &lt;–&gt; <strong>Folder</strong></p>
+<p>These are for our purposes the same things - what we call directories you probable think of as folders. I will try and ensure both are used.</p>
+<section id="listing-files-in-a-directory" class="level2">
+<h2 class="anchored" data-anchor-id="listing-files-in-a-directory">Listing files in a directory</h2>
+<p>The command <code>ls</code> lists files in a directory. By default, the command will list the filenames of the files in your current working directory.</p>
+<p>Once you login type <code>ls</code> and you should see 2 directories (folders)</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">classdata</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mydata</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>To list what is in theses folders type <code>ls [foldername]</code> and you should display what is in each folder.</p>
+<p>If you add a space followed by a <code>-l</code> (that is, a hyphen and a small letter L), after the <code>ls</code> command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is.</p>
+<p>You can also use global patterns to limit the files you wish to list.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> an asterisk means any string of characters</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> a question mark means a single character</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">[</span> <span class="bu">]</span> <span class="ex">square</span> brackets can be used to designate a group of characters</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>e.g.&nbsp;to list all fodlers in th working directory thats start with a capital S:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> classdata/S<span class="pp">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercises: listing files
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>List all the files in the folder classdata/Session1 that start with the letters sub</p></li>
+<li><p>List all the files in the folder classdata/Session1 that end with the letters fasta</p></li>
+<li><p>List all the files in your folder that start with sub, and end in fasta</p></li>
+<li><p>[Extension] Do a ‘long list’ (<code>-l</code>) of these files and see the difference in sizes. Add the ‘human readable’ parameter/flag (<code>-h</code>) to help read the sizes.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="sec-permissions" class="level2">
+<h2 class="anchored" data-anchor-id="sec-permissions">File permisions</h2>
+<p>The command <code>ls</code> lists files in a directory.</p>
+<p>By default, the command will list the filenames of the files in your current folder. At the moment, this is probably your home folder.</p>
+<p>If you add a space followed by a <code>-l</code> (that is, a hyphen and a small letter L), after the <code>ls</code> command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. An example is shown in the code block below.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 6    manager users   4096    2008-08-21  09:26  twilliams</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   9784    2007-03-19  14:09  hybInfo.txt</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   9784    2007-03-19  14:09  targets_v1.txt</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   7793    2007-03-19  14:14  targets_v2.txt</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">^</span>      ^        ^       ^    ^         ^                ^</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">File</span>  File    User    Group Size   Date/Time         Filename</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>  Permission</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The file permissions are given in triplets <code>rwx</code> which represent write - read - execute permissions. The first triplet represents the permission associated with the owner (usually the person who created the file), the second triplet is permissions for owner’s group, and the triplet is permission for everyone else.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercise: looking at file permissions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open your terminal and use <code>ls -l</code> command to interrogate the classdata files.</p>
+</div>
+</div>
+</section>
+<section id="changing-your-location-and-navigation" class="level2">
+<h2 class="anchored" data-anchor-id="changing-your-location-and-navigation">Changing your location and navigation</h2>
+<p>The command used to change directories (folder) is <code>cd</code></p>
+<section id="local-navigation" class="level3">
+<h3 class="anchored" data-anchor-id="local-navigation">Local navigation</h3>
 <p>If you think of your directory structure, (i.e.&nbsp;this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.</p>
-<p>To change to a directory one below you are in, just use the <code>cd</code> command followed by the subdirectory name i.e., fi you have just logged in and want to move into the ‘mydata’ directory (inside your current directory), you could use:</p>
+<p>To change to a directory one below you are in, just use the <code>cd</code> command followed by the subdirectory name i.e., if you have just logged in and want to move into the ‘mydata’ directory (inside your current directory), you could use:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> mydata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> mydata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The shortcut for “the directory you are currently in” is a single full stop ( . ). If you type</p>
+<p>The shortcut for “the directory you are currently in” is a <strong>single full stop ( . )</strong>. If you type</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> .  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> .  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>nothing will change. Later, when we want to run scripts or copy to the same folder that you are currently in we will use ” ./ ” to mean “you can find this in the current directory”. To change directory to the one above you are in, use the shorthand for “the directory above” which is two full stops:</p>
+<p>nothing will change. Later, when we want to run scripts or copy to the same folder that you are currently in we will use ” ./ ” to mean “you can find this in the current directory”. To change directory to the one above you are in, use the shorthand for “the directory above” <strong>which is two full stops (..)</strong>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section id="full-path-navigation" class="level3">
+<h3 class="anchored" data-anchor-id="full-path-navigation">Full Path Navigation</h3>
 <p>For example, if you are in ‘mydata’, this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, because <em>a forward slash indicates the very top of the file tree</em>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /usr/local/bin</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/[your username]/classdata/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section id="relative-navigation-from-home-folder---the-power-of-tilde" class="level3">
+<h3 class="anchored" data-anchor-id="relative-navigation-from-home-folder---the-power-of-tilde">Relative Navigation from home folder - the power of tilde (~)</h3>
+<p>Rather than type the full path you can you a tilde <code>~</code> symbol to signify your home directory. You can use this as a jumping off point to navigate into your mydata folder</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/mydata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This should get you back to where you started..</p>
+</section>
+<section id="returning-to-where-you-started" class="level3">
+<h3 class="anchored" data-anchor-id="returning-to-where-you-started">Returning to where you started</h3>
 <p>If you wish to return to your home directory at any time, just type <code>cd</code> by itself.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>To make a new directory, use the command <code>mkdir</code> and then the directory you want to create</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> mydata/brilliantIdeas</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> ~/mydata/brilliantIdeas/InProgress</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+</section>
+<section id="finding-where-you-are" class="level3">
+<h3 class="anchored" data-anchor-id="finding-where-you-are">Finding where you are</h3>
 <p>If you get lost and want to confirm where you are in the directory structure, use the <code>pwd</code> command (print working directory). This will return the full path of the directory you are currently in.</p>
 <p>Note also that by default you see the name of the current directory you are working in as part of your prompt.</p>
 <p>For example, when you first opened the terminal in a live session you should see your username and server, then the prompt:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[sbi9srj@hawker</span> ~]$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[sbi9srj@hawker</span> ~]$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>This means I am logged in as the user sbi9srj on the server named hawker, and in a directory named the character called ‘tilde’ ~. If you remember, ~ is always a shortcut for your home directory.</p>
 <p>All our folders and classdata can be found at:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/[your</span> username]/classdata/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/[your</span> username]/classdata/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>However, we won’t need to remember that as we can use the shortcuts of:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">~/mydata</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">~/mydata</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -556,36 +676,55 @@ background: darkred;
 <ol type="1">
 <li><p>Change directory from your home directory to your working directory (<code>mydata</code>)</p></li>
 <li><p>Find the full path to the directory that you are currently in</p></li>
-<li><p>Create a new directory inside <code>mydata</code></p></li>
 <li><p>Move into your new directory.</p></li>
 <li><p>Move back into <code>mydata</code>.</p></li>
 </ol>
 </div>
 </div>
 </section>
-<section id="moving-and-copying-data" class="level2">
-<h2 class="anchored" data-anchor-id="moving-and-copying-data">Moving and copying data</h2>
+</section>
+</section>
+<section id="making-directories-moving-and-copying-data" class="level1">
+<h1>Making Directories, Moving and Copying data</h1>
+<p>Commands covered:</p>
+<p><code>mkdir</code> - make a directory</p>
+<p><code>cp</code> - copy a file</p>
+<p><code>cp -r</code> - copy a folder (<code>-r</code> stands for recursive)</p>
+<p><code>mv</code> - move / rename file or folder</p>
+<p><code>rm</code> - delete a file *<strong>no recycle bin in linux</strong></p>
+<p><strong>All these commands can only be performed in you mydata directory so before you start</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/mydata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="making-folders" class="level3">
+<h3 class="anchored" data-anchor-id="making-folders">Making folders</h3>
+<p>To make a new directory, use the command <code>mkdir</code> and then the directory you want to create</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> mydata/brilliantIdeas</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> ~/mydata/brilliantIdeas/InProgress</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="copying-files-and-folders" class="level3">
+<h3 class="anchored" data-anchor-id="copying-files-and-folders">Copying files and folders</h3>
 <p>A standard format is used to move and copy data:</p>
 <p><code>command source destination</code></p>
-<p>For example, to move a file named RNAseq_1.fastq into a new folder that exists in this directory named exp1:</p>
+<p>For example, to copy a file named CopyExercise.txt from classdata/Session1 into your mydata folder:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> RNAseq_1.fastq exp1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>To move it to a location somewhere else on the server you can use the full path</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> RNAseq_1.fastq ~/mydata/experiment1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/classdata/anyfile.txt ~/mydata/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Or alternatively “move” a file from one name to another. This is a common way to rename your files:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> RNAseq_1.fastq LRubellus_1.fastq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/mydata</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> anyfile.txt Renamed_file.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To copy, use the <code>cp</code> command. You could copy a file from another directory to “here”, remembering that a full-stop means “the folder I’m currently in”:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/classdata/RNAseq_1.fastq  .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ~/classdata/anyfile.txt  .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Often you’ll want to copy a whole folder (directory), and you will need the -r parameter for “recursive”.</p>
+<p>Often you’ll want to copy a whole folder (directory), and you will need the <code>-r</code> parameter for “recursive”.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> mydata/all_fastqs NewExperiment/testdata/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/classdata/Session1 ~/mydata/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -601,11 +740,11 @@ background: darkred;
 <li>Use ls to look in the folder named</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>and</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/Session1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/classdata/Session1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="2" type="1">
 <li><p>Copy the file CopyExercise.txt from <code>classdata</code> into <code>mydata</code></p></li>
@@ -615,59 +754,6 @@ background: darkred;
 </div>
 </div>
 </section>
-<section id="listing-files-in-a-directory" class="level2">
-<h2 class="anchored" data-anchor-id="listing-files-in-a-directory">Listing files in a directory</h2>
-<p>The command <code>ls</code> lists files in a directory. By default, the command will list the filenames of the files in your current working directory.</p>
-<p>If you add a space followed by a –l (that is, a hyphen and a small letter L), after the <code>ls</code> command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is.</p>
-<p>You can also use glob patterns to limit the files you wish to list.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> an asterisk means any string of characters</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> a question mark means a single character</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">[</span> <span class="bu">]</span> <span class="ex">square</span> brackets can be used to designate a group of characters</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>e.g.&nbsp;to list all of blue.txt, banana.txt, baby.txt:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> b<span class="pp">*</span>.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Exercises: listing files
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><p>List all the files in the directory Session1 that start with the letters sub</p></li>
-<li><p>List all the files in the directory Session1 that end with the letters fasta</p></li>
-<li><p>List all the files in your directory that start with sub, and end in fasta</p></li>
-<li><p>[Extension] Do a ‘long list’ (-l) of these files and see the difference in sizes. Add the ‘human readable’ parameter/flag (-h) to help read the sizes.</p></li>
-</ol>
-</div>
-</div>
-</section>
-<section id="sec-permissions" class="level2">
-<h2 class="anchored" data-anchor-id="sec-permissions">File permisions</h2>
-<p>The command <code>ls</code> lists files in a directory.</p>
-<p>By default, the command will list the filenames of the files in your current working directory. At the moment, this is probably your home directory.</p>
-<p>If you add a space followed by a <code>-l</code> (that is, a hyphen and a small letter L), after the <code>ls</code> command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. An example is shown in the code block below.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 6    manager users   4096    2008-08-21  09:26  twilliams</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   9784    2007-03-19  14:09  hybInfo.txt</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   9784    2007-03-19  14:09  targets_v1.txt</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1    manager users   7793    2007-03-19  14:14  targets_v2.txt</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="ex">^</span>      ^        ^       ^    ^         ^                ^</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="ex">File</span>  File    User    Group Size   Date/Time         Filename</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>  Permission</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>The file permissions are given in triplets <code>rwx</code> which represent write - read - execute permissions. The first triplet represents the permission associated with the owner (usually the person who created the file), the second triplet is permissions for owner’s group, and the triplet is permission for everyone else.</p>
-<section id="exercise-looking-at-file-permissions" class="level3 callout-Exercise">
-<h3 class="anchored" data-anchor-id="exercise-looking-at-file-permissions">Exercise: looking at file permissions</h3>
-<p>Open your terminal and use <code>ls -l</code> command to interrogate the files in your directories.</p>
-</section>
-</section>
 <section id="tab-completion" class="level2">
 <h2 class="anchored" data-anchor-id="tab-completion">Tab completion</h2>
 <p>Have you been remembering to tab complete?</p>
@@ -675,15 +761,15 @@ background: darkred;
 <p>One thing tab completion does is complete the filename or program name you want, saving huge amounts of typing time. It also ensures that there are no errors in what you typed, which is easy to do with long filenames or paths.</p>
 <p>For example, you could type:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#navigate to classdata folder</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> classdata</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># now start to type REFS</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> R </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#navigate to classdata folder</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> classdata</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># now start to type REFS</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> R </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>now hit the tab key.</p>
 <p>If there is only one directory with a name starting with the letter “R”, the rest of the name will be completed for you. Here this would give you:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> REFS</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> REFS</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>User accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.</p>
 <p>If you tap the tab key multiple times and nothing happens, there is one simple reason why: the file you are trying to refer to <strong>is not there</strong>. It may be that a) you are not in the correct directory; b) the file in question is not the directory you thought it was; c) you have not typed the file name correctly (remember it is case sensitive)! If you tab and it does not complete, stop and work out which of these is the case!</p>
