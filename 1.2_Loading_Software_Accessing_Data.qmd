@@ -187,8 +187,7 @@ man head
 man tail
 ```
 
-Look carefully at how `cat` can be used to concatenate files or append to files using `>` and `>>` 
-
+Look carefully at how `cat` can be used to concatenate files or append to files using `>` and `>>`
 :::
 
 ::: {.callout-note collapse="true"}

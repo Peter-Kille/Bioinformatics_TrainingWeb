@@ -1422,5 +1422,16 @@
     "title": "Commandline Tools and Scripting",
     "section": "How to extract a .tar.gz file on Linux?",
     "text": "How to extract a .tar.gz file on Linux?\nTo extract a .tar.gz file on Linux, you can use the “tar” command in the terminal. Here is the general syntax:\n```{bash}\ntar -xvzf filename.tar.gz\n```\nHere is a brief explanation of the options used:\n```{bash}\n-x: This option tells tar to extract the contents of the archive.\n\n-v: This option is for verbose output, which means that tar will display a list of the files being extracted as it does so.\n\n-z: This option tells tar to decompress the archive using gzip.\n\n-f: This option is used to specify the archive file to extract.\n```"
+  },
+  {
+    "objectID": "1.3_Commandline_Tools_and_Scripting.html#script-structure---what-i-think-makes-sense",
+    "href": "1.3_Commandline_Tools_and_Scripting.html#script-structure---what-i-think-makes-sense",
+    "title": "Commandline Tools and Scripting",
+    "section": "Script structure - what I think makes sense",
+    "text": "Script structure - what I think makes sense\nThere are many excellent computer science books about best practice about writing scripts - my advice is keep it simple.\nHere’s a few hints / recommendations:\n\nadd lots of comments (starting with #) so you can remember what each line does later !! Be careful bash does not like these to be half way through commands\nI suggest a simple structure\n\nDefine variables\nLoad programs\nUse loop (if appropriate)\nExecute command\nUnload programs or purge\n\nWhen writing complicated command break up the single line using line continuation symbol .\nAdd this at end of line and it tell bash the command to continue on the next line theerfore Treat the next line as part of the same command.\n\n\n\n#this is not a real command just an example\nsome_command --input file1.txt --output results.txt --threads 8 --verbose\n\n#indentations just make it look smart and things become easy to follow\nsome_command --input file1.txt \\\n             --output results.txt \\\n             --threads 8 \\\n             --verbose",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Commandline Tools and Scripting"
+    ]
   }
 ]

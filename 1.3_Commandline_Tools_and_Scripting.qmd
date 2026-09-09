@@ -126,7 +126,7 @@ Bioinformatic is full of altruistic people who share their skills by share their
 
 A variable is like a box with a name written on the outside. You can put a value or text inside the box, and recall it later, or replace the contents with something else.
 
-Here's a simple example.  Note the bash syntax - the equals sign and " are important when defining the variable but when you recall it you need the `$` and `{}`
+Here's a simple example. Note the bash syntax - the equals sign and " are important when defining the variable but when you recall it you need the `$` and `{}`
 
 ```{bash}
 name="Pete"
@@ -142,7 +142,6 @@ echo ${name}_R1.fastq.gz
 
 Or you can write to a file `>` or add to a file `>>`
 
-
 ```{bash}
 name="SampleName"
 
@@ -155,7 +154,6 @@ printf ${name}_R1.fastq.gz >> sample.txt
 # Look what is in file
 head sample.txt
 ```
-
 
 ## Step 1: Create your Script
 
@@ -204,6 +202,37 @@ Run from your current location using the script's full path.
 ```
 
 Place the script into your 'PATH' -- this means that the computer automatically knows about the script and will run it from any location just given the program name. I suggest that if you want to do this ask the demonstrators and they can show you......this is advanced as if you put two scripts with the same name into the PATH you can cause issues.
+
+## Script structure - what I think makes sense
+
+There are many excellent computer science books about best practice about writing scripts - my advice is keep it simple.  
+
+Here's a few hints / recommendations:
+
+* add lots of comments (starting with #) so you can remember what each line does later !! Be careful bash does not like these to be half way through commands
+
+* I suggest a simple structure 
+
+    * Define variables
+    * Load programs
+    * Use loop (if appropriate)
+    * Execute command
+    * Unload programs or purge
+    
+* When writing complicated command break up the single line using line continuation symbol \.  
+Add this at end of line and it tell bash the command to continue on the next line theerfore Treat the next line as part of the same command.
+
+```{bash}
+
+#this is not a real command just an example
+some_command --input file1.txt --output results.txt --threads 8 --verbose
+
+#indentations just make it look smart and things become easy to follow
+some_command --input file1.txt \
+             --output results.txt \
+             --threads 8 \
+             --verbose
+```
 
 # For...Done Loops -- When Processing Lots of Data
 
@@ -318,11 +347,9 @@ run
 ./[program_name] 
 ```
 
-
-
 ## Loop to execute a program on samplelist
 
-Print list of sample names to screen from samplelist file where the file has three tab deliminated columns encompassing: name, forwardread, and reverseread with first row having column headers. 
+Print list of sample names to screen from samplelist file where the file has three tab deliminated columns encompassing: name, forwardread, and reverseread with first row having column headers.
 
 ```{bash}
 #!/bin/bash
