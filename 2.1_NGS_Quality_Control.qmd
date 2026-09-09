@@ -137,10 +137,10 @@ To use FastQC on the server, we will first need to load the module. This is the 
 module avail
 ```
 
-You should see that the list includes fastqc/v0.12.1. To load this module, simply type
+You should see that the list includes fastqc \[**NB. I have note added the version - it will use the default but I will have no record of the version it has used**\] To load this module, simply type
 
 ```{bash}
-module load fastqc/v0.12.1
+module load fastqc
 ```
 
 Try this out now!
@@ -242,14 +242,29 @@ The main things fastp does is to trim off bad bases and remove leftover adaptor 
 
 Create a new file using nano, copy the script below, make it executable and run it! We are going to use the forward and reverse reads for our sample to run fastp in paired-end mode.
 
-Script:
+Script - One Line version:
 
 ```{bash}
 #!/usr/bin/bash
 
-module load fastp/0.23.4-rsrnyej
+module load fastp
 
-fastp -q 20 -u 10 --cut_right -i Illumina_R1.fastq -I Illumina_R2.fastq -o Illumina_trim_R1.fastq -O Illumina_trim_R2.fastq -
+fastp -q 20 -u 10 --cut_right -i Illumina_R1.fastq -I Illumina_R2.fastq -o Illumina_trim_R1.fastq -O Illumina_trim_R2.fastq
+```
+
+Script - multi-line line easy to read version:
+
+```{bash}
+#!/usr/bin/bash
+
+module load fastp
+
+fastp -q 20 -u 10 \
+      --cut_right \
+      -i Illumina_R1.fastq \
+      -I Illumina_R2.fastq \
+      -o Illumina_trim_R1.fastq \
+      -O Illumina_trim_R2.fastq
 ```
 
 Look up the [help page for fastp](https://github.com/OpenGene/fastp). What does each of the options given above mean?
@@ -318,6 +333,25 @@ Having set the loop in progress, a semicolon indicates that next comes the comma
 ::: {.callout-note collapse="true"}
 ## Worked Example: Fastqc interactive loop
 
+Step 1: Navigate to Session 2 Looping folder
+
+```{bash}
+cd ~/mydata/Session2/looping/
+```
+
+Step 2: Make a rawdata directory and move in all fastq.gz sequences
+
+```{bash}
+mkdir rawdata
+mv *.fastq.gz rawdata/
+```
+
+Step 3: Create a program to make a sample list file
+
+[generate sample list](1.3_Command_Tools_and_Scripting.qmd#sec-loops-loop-to-create-a-samplelist-from-rawdata-folder)
+
+Step 4: Edit Loop using sample list to include multiqc
+
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e591c923-11fc-4a04-9272-b09400e8d1bc&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
@@ -336,7 +370,7 @@ Having set the loop in progress, a semicolon indicates that next comes the comma
 Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.
 
 ```{bash}
- module load py-multiqc/1.15-hcx2o2j
+ module load MultiQC
  
  #run multiqc on all files in the current working directory
  multiqc .

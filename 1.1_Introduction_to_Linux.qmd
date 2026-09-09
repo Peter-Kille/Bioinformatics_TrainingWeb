@@ -95,7 +95,8 @@ Note: Programs (rather than core linux commands) often have help pages that can 
 
 # Moving around in Linux
 
-Commands covered:
+::: callout-note
+##Commands covered:
 
 `ls` - list directory (folder) content
 
@@ -104,6 +105,7 @@ Commands covered:
 `cd` - change directory
 
 `pwd` - present working directory
+:::
 
 The first set of command you will use are those associated with moving around your file system. But before we start lets clarify one specific word we use frequently but one which has been replaced in recent year.
 
@@ -272,7 +274,8 @@ However, we won't need to remember that as we can use the shortcuts of:
 
 # Making Directories, Moving and Copying data
 
-Commands covered:
+::: callout-note
+##Commands covered:
 
 `mkdir` - make a directory
 
@@ -283,6 +286,7 @@ Commands covered:
 `mv` - move / rename file or folder
 
 `rm` - delete a file \***no recycle bin in linux**
+:::
 
 **All these commands can only be performed in you mydata directory so before you start**
 

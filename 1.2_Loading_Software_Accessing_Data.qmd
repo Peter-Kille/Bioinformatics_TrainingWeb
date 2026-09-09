@@ -19,7 +19,8 @@ Now that you're (hopefully) re-caffeinated and have stretched your legs and clea
 
 # Software
 
-Commands covered:
+::: callout-note
+##Commands covered:
 
 `module avail` - list software available
 
@@ -28,6 +29,7 @@ Commands covered:
 `module unload [software]` - removed specific software
 
 `module purge` - removes all software
+:::
 
 The linux OS has some really powerful utilities but these are not truly bioinformatics software. We have to 'install' or 'load' software. We do not want to have all our software loaded all the time, as many informatic tools are very complex i.e. requiring different versions of python or java to run. Having software that requires conflicting versions loaded at the same time can cause a malfunction.
 
@@ -78,7 +80,8 @@ Note the inclusion of the '-r' flag to allow you to copy the folder 'recursively
 
 # Visualising/previewing files
 
-Commands covered:
+::: callout-note
+##Commands covered:
 
 `less` - preview a file (q to exit)
 
@@ -93,6 +96,7 @@ Commands covered:
 `tail -n 10` - show last 10 lines of file
 
 `cat, more, head and tail` only work on uncompressed files
+:::
 
 There are many commands available for reading text files on Linux/Unix. These are useful when you want to look at the contents of a file, but not edit them. Among the most common of these commands are `cat`, `more`, `less`, `head` and `tail`.
 
@@ -173,11 +177,13 @@ Look carefully at how `cat` can be used to concatenate files or append to files 
 
 # Editting text files
 
-Commands covered:
+::: callout-note
+##Commands covered:
 
 `nano` - text editor with on screen prompts
 
 `vi`or `vim` - text editor to impress the programmers (no on screen prompts)
+:::
 
 Plain text files are important, both as input to bioinformatics programs and as input or configuration files for system programs. We highly recommend that you learn to use a text editor to prepare and edit plain text files.
 

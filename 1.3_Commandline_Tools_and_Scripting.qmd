@@ -15,7 +15,8 @@ knitr::opts_chunk$set(eval = FALSE)
 
 # Query/Search files with grep
 
-Commands covered:
+::: callout-note
+##Commands covered:
 
 `grep` - search a file
 
@@ -24,6 +25,7 @@ Commands covered:
 `grep -c` and `zgrep -c` - count the number of times a match is found
 
 grep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.
+:::
 
 ```{bash}
 grep "ency" ~/mydata/Session1/subsample.txt
@@ -110,7 +112,8 @@ You can use all of grep functionality with a compressed file by adding a 'z' - j
 
 # Scripting in bash
 
-Commands/concepts covered:
+::: callout-note
+##Commands/concepts covered:
 
 `[your own script]` - any set of commands you want to run
 
@@ -119,6 +122,7 @@ Commands/concepts covered:
 `echo` - Display to screen
 
 `printf` - print to file `\t` - tab, `\n` line break
+:::
 
 Bioinformatic is full of altruistic people who share their skills by share their scripts. Most scripts you find on the internet are written in \perl (\bioperl) or \python (\biophython) but many script use simple bash commands - this just lets you accurately repeat tasks. There are a few simple steps to making use of this fantastic resource.
 
@@ -153,6 +157,13 @@ printf ${name}_R1.fastq.gz >> sample.txt
 
 # Look what is in file
 head sample.txt
+```
+
+You can also assign a variable to the output from code - the most easy example is to make a variable for the Present Working Directory (`pwd`) - note the smooth brackets around the code and the `$` infront of the smooth brackets.
+
+```{bash}
+workdir=$(pwd)
+echo ${workdir}
 ```
 
 ## Step 1: Create your Script
@@ -302,7 +313,7 @@ run
 ./[program_name] 
 ```
 
-## Loops loop to create a SampleList from rawdata folder
+## Loops loop to create a SampleList from rawdata folder {#sec-loops-loop-to-create-a-samplelist-from-rawdata-folder}
 
 This is a great method if you want to execute a series of command on a set of data files contained in a specific directory, for instance a series of sequence files.
 
@@ -319,18 +330,18 @@ printf "SampleID\tforwardread\treverseread\n" > samplelist.txt
 rawdir=${workdir}/rawdata
 # ls rawdata/*_R1.fastq.gz - this should list all files ending in _R1.fastq.gz
 
-for f in ${rawdir}/*_R1.fastq.gz
+for file in ${rawdir}/*_R1.fastq.gz
 do
 
 #the file name are placed in variable $f - we can separate the name of the file away from the suffix (.fastq.gz) using this simple cut expression - the variable 'R1' now contains the file name with no suffix 
-filename=$(basename $f | cut -f1 -d.)
+filename=$(basename ${file} | cut -f1 -d.)
 
 #Sometimes we want the 'name' of the file without the direction suffix (_R1) - this expression creates a variable 'base' where the _R1 has been replace is nothing - ie removed 
-sample=$(echo $R1 | sed 's/_R1//')
+sample=$(echo ${basename} | sed 's/_R1//')
 
-printf ${name}\t${name}_R1.fastq\t${name}_R1.fastq\n" >> samplelist.txt
+printf "${sample}\t${sample}_R1.fastq\t${sample}_R1.fastq\n" >> samplelist.txt
 
-done 
+done
 ```
 
 save
@@ -347,26 +358,41 @@ run
 ./[program_name] 
 ```
 
-## Loop to execute a program on samplelist
+## Loop to execute a program on samplelist {#sec-loop-to-execute-a-program-on-samplelist}
 
 Print list of sample names to screen from samplelist file where the file has three tab deliminated columns encompassing: name, forwardread, and reverseread with first row having column headers.
 
 ```{bash}
 #!/bin/bash
 
+####  Set Variables  ####
+
 #set present working directory as the location of script....all folder will be related to this directory
 workdir=$(pwd)
-#create varible for sample list saved in workdir
+
+#create variable for sample list saved in workdir
 samplelist="samplelist.txt"
 
+###  Load programs  ####
+#remember to remove the # before use
+#module load 
+
+####  Configure you loop ####
+
+#read in sample list
 samplenames=$(cat ${samplelist} | cut -f1,1 | tail -n +2)
 
-for name in ${samplenames}
-do 
+#loop to execute program on each sample
+for sample in ${samplenames}
+do
 
-echo ${name}
+echo ${sample}
 
 done
+
+####  Unload program  ####
+#remember to remove the # before use
+#module unload
 
 ```
 

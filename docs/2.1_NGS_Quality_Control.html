@@ -545,9 +545,9 @@ background: darkred;
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>You should see that the list includes fastqc/v0.12.1. To load this module, simply type</p>
+<p>You should see that the list includes fastqc [<strong>NB. I have note added the version - it will use the default but I will have no record of the version it has used</strong>] To load this module, simply type</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/v0.12.1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Try this out now!</p>
 <p>As mentioned before, FastQC is very easy to run. At its most basic (without any extra options), you simply type (substituting file.fastq for the name of the FASTQ file you want to check):</p>
@@ -664,13 +664,26 @@ background: darkred;
 </div>
 <div class="callout-body-container callout-body">
 <p>Create a new file using nano, copy the script below, make it executable and run it! We are going to use the forward and reverse reads for our sample to run fastp in paired-end mode.</p>
-<p>Script:</p>
+<p>Script - One Line version:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/bash</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastp/0.23.4-rsrnyej</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastp</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-q</span> 20 <span class="at">-u</span> 10 <span class="at">--cut_right</span> <span class="at">-i</span> Illumina_R1.fastq <span class="at">-I</span> Illumina_R2.fastq <span class="at">-o</span> Illumina_trim_R1.fastq <span class="at">-O</span> Illumina_trim_R2.fastq <span class="at">-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-q</span> 20 <span class="at">-u</span> 10 <span class="at">--cut_right</span> <span class="at">-i</span> Illumina_R1.fastq <span class="at">-I</span> Illumina_R2.fastq <span class="at">-o</span> Illumina_trim_R1.fastq <span class="at">-O</span> Illumina_trim_R2.fastq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Script - multi-line line easy to read version:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/bash</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastp</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="at">-q</span> 20 <span class="at">-u</span> 10 <span class="dt">\</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--cut_right</span> <span class="dt">\</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">-i</span> Illumina_R1.fastq <span class="dt">\</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">-I</span> Illumina_R2.fastq <span class="dt">\</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">-o</span> Illumina_trim_R1.fastq <span class="dt">\</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">-O</span> Illumina_trim_R2.fastq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Look up the <a href="https://github.com/OpenGene/fastp">help page for fastp</a>. What does each of the options given above mean?</p>
 <p>Use ls to look at the output. How could the script be improved to make it tidier?</p>
@@ -697,7 +710,7 @@ background: darkred;
 <h2 class="anchored" data-anchor-id="pipes">Pipes</h2>
 <p>Very often in Linux you want to use the output of one command as the input to the next. This can easily be done using the pipe (|) character. For example, suppose I want to count the number of sequences in a FASTA file. I can do this easily using a combination of the search command <em>grep</em> and the word count command <em>wc</em>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> subsample_Ill1.fasta <span class="kw">|</span> <span class="fu">grep</span> <span class="st">"&gt;"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> subsample_Ill1.fasta <span class="kw">|</span> <span class="fu">grep</span> <span class="st">"&gt;"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s break down what this command is doing. First of all, I access the whole content of subsample_Ill1.fasta using <em>cat</em>. However, rather than dumping it onto the screen I redirect that to become the input to <em>grep</em>. I tell <em>grep</em> to search for the symbol &gt; and sift out only the lines which contain that symbol. Because this is a FASTA, I know that can only be the header lines. I then feed this output into the <em>wc</em> command, with the option <em>-l</em> to count lines rather than words.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -722,11 +735,11 @@ background: darkred;
 <h2 class="anchored" data-anchor-id="loops">Loops</h2>
 <p>Loops are one of the best things about working on a Linux system. They allow you to write a command once and then run it on any number of files. There are several kinds of loops which all work on the same principles, so we will focus on the <em>while</em> loop. Let’s look at a simple loop and break it down.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.fasta <span class="kw">|</span> <span class="cf">while</span> <span class="bu">read</span> <span class="va">file</span><span class="kw">;</span> <span class="cf">do</span> <span class="fu">wc</span> <span class="at">-l</span> <span class="va">${file}</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.fasta <span class="kw">|</span> <span class="cf">while</span> <span class="bu">read</span> <span class="va">file</span><span class="kw">;</span> <span class="cf">do</span> <span class="fu">wc</span> <span class="at">-l</span> <span class="va">${file}</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>This starts by listing all the FASTA files in the directory Session2 (remember that * stands in for anything). Try running</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.fasta </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.fasta </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>just to check you’re happy with that.</p>
 <p>The next step is to use a pipe. Instead of just listing the FASTA files on the screen, we are going to use that as input for our loop. The loop starts <em>while read file</em>. This means that one at a time, every line of that input will take a turn at being substituted for the word ‘file’ in the command that will follow. You don’t have to call it ‘file’ - it could be banana or profiterole or socks; the only thing that matters is that you use the same word throughout the loop. Whatever word you choose, it becomes something known as a variable: literally, a value that can vary as it stands in for something else. <em>while read</em> sets the value of file, and then whenever we want to access its contents we can do so using ${file}.</p>
@@ -760,6 +773,18 @@ background: darkred;
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>Step 1: Navigate to Session 2 Looping folder</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/mydata/Session2/looping/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Step 2: Make a rawdata directory and move in all fastq.gz sequences</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> rawdata</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> <span class="pp">*</span>.fastq.gz rawdata/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Step 3: Create a program to make a sample list file</p>
+<p><a href="1.3_Command_Tools_and_Scripting.qmd#sec-loops-loop-to-create-a-samplelist-from-rawdata-folder">generate sample list</a></p>
+<p>Step 4: Edit Loop using sample list to include multiqc</p>
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e591c923-11fc-4a04-9272-b09400e8d1bc&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player">
 </iframe>
 </div>
@@ -787,11 +812,11 @@ background: darkred;
 <h2 class="anchored" data-anchor-id="creating-a-quality-summary-with-multiqc">Creating a quality summary with multiqc</h2>
 <p>Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">module</span> load py-multiqc/1.15-hcx2o2j</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a> <span class="co">#run multiqc on all files in the current working directory</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">multiqc</span> .</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">module</span> load MultiQC</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a> <span class="co">#run multiqc on all files in the current working directory</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">multiqc</span> .</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>use the -h flag to see what option multiqc provides.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -823,7 +848,7 @@ background: darkred;
 <div class="callout-body-container callout-body">
 <p>You are now going to meet the dataset we’ll be exploring for the next few days. In ~/classdata there is a folder called datasets. Copy this folder across to your ~/mydata directory</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/classdata/datasets ~/mydata/datasets</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/classdata/datasets ~/mydata/datasets</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Inside this folder you will find three data sets: virus, prokaryote and mitochondrial. We will be using the virus dataset to clean, assemble, annotate and analyse genomes over the next few days. The prokaryote and mitochondrial datasets will be for you to play with in the extension sessions.</p>
 <p>Your challenge now is to write script(s) to run fastQC, fastp, fastQC (again!) and multiqc on the virus files in the subdirectory <code>raw_reads</code>. You can either copy them over to <code>mydata/Session2</code> or work directly from <code>mydata/datasets/prokaryotes/raw_reads</code>. There are multiple virus files, so you will need to use loops!</p>
