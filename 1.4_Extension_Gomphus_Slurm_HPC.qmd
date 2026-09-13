@@ -26,7 +26,7 @@ HPC system available to big data masters students:
 host
 
 ```         
-gomphus.bios.cf.ac.uk
+gomphus-login.bios.cf.ac.uk
 ```
 
 User name `university username` Password `SSO Password` Port `22`

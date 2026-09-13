@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Peter Kille">
-<meta name="dcterms.date" content="2026-09-09">
+<meta name="dcterms.date" content="2026-09-13">
 
 <title>Commandline Tools and Scripting</title>
 <style>
@@ -172,7 +172,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 9, 2026</p>
+        <p class="date">September 13, 2026</p>
       </div>
     </div>
     
@@ -255,6 +255,12 @@ background: darkred;
   <div class="sidebar-item-container"> 
   <a href="./1.4_Extension_Gomphus_Slurm_HPC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension Gomphus Slurm HPC</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.5_Bioinformtics_CheatSheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bioinformtics Cheat Sheet</span></a>
   </div>
 </li>
       </ul>
@@ -464,9 +470,14 @@ Note
 <p><code>grep</code> - search a file</p>
 <p><code>zgrep</code> - search a conpressed file</p>
 <p><code>grep -c</code> and <code>zgrep -c</code> - count the number of times a match is found</p>
+<p><code>wc</code> - count words in file</p>
+<p><code>wc -l</code> - count lines in file</p>
+<p><code>sed \</code>s/[replace this]/[with this]/g`` - search and replace</p>
+<p><code>&gt;</code> - to to file</p>
+<p><code>&gt;&gt;</code> - Ammend (add) to file</p>
+</div>
+</div>
 <p>grep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.</p>
-</div>
-</div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"ency"</span> ~/mydata/Session1/subsample.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -542,8 +553,13 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>##Commands/concepts covered:</p>
-<p><code>[your own script]</code> - any set of commands you want to run</p>
-<p><code>[varibles]</code> - any text or number you want to record and use</p>
+<p><code>#!bin/bash</code> - bash shebang tells linux this is a bash script</p>
+<p><code>chmod +x</code> - make your scipt executable</p>
+<p><code>./[your own script]</code> - run your script</p>
+<p><code>variable="some stuff"</code> - define a variable</p>
+<p><code>${varible}</code> = recalls the variable</p>
+<p><code>${varible}_suffix</code> - add suffix to variable</p>
+<p>`variable=$([function]) - define variable as product of function</p>
 <p><code>echo</code> - Display to screen</p>
 <p><code>printf</code> - print to file <code>\t</code> - tab, <code>\n</code> line break</p>
 </div>

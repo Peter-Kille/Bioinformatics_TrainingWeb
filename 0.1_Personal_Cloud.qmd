@@ -45,6 +45,8 @@ Host Names:
 ```         
 sponsa.bios.cf.ac.uk
 or
+darter.bios.cf.ac.uk
+or
 hawker.bios.cf.ac.uk
 ```
 
@@ -297,13 +299,17 @@ Use your port number provided for Kubernetes, or if using standard HPC use port 
 
 # Linux Full Graphics Interface
 
-WE have the ability to interact with the HPC through a full OnDemand graphical interface - this is only recommended is essential for graphical only programs and it uses significant amount of computation resources to power the interface leaving less resource to perform more interesting informatic tasks !!
+We have the ability to interact with the HPC through a full OnDemand graphical interface - this is only recommended for graphical only programs and it uses significant amount of computation resources to power the interface leaving less resource to perform more interesting informatic tasks !!
 
 To access this resource ensure you are logged into the vpn, open a browser of your choice and type in your server name
 
 Example for people using sponsa would be:
 
 `sponsa.bios.cf.ac.uk`
+
+or
+
+`darter.bios.cf.ac.uk`
 
 You should now see this window
 

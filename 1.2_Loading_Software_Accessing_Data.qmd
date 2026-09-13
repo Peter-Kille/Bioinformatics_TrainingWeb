@@ -175,7 +175,7 @@ Look carefully at how `cat` can be used to concatenate files or append to files 
 </iframe>
 :::
 
-# Editting text files
+# Editing text files
 
 ::: callout-note
 ##Commands covered:

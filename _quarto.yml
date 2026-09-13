@@ -19,6 +19,7 @@ website:
           - 1.2_Loading_Software_Accessing_Data.qmd
           - 1.3_Commandline_Tools_and_Scripting.qmd
           - 1.4_Extension_Gomphus_Slurm_HPC.qmd
+          - 1.5_Bioinformtics_CheatSheet.qmd
       - section: "Session 2. NGS data"
         contents:
           - 2.1_NGS_Quality_Control.qmd

@@ -24,8 +24,18 @@ knitr::opts_chunk$set(eval = FALSE)
 
 `grep -c` and `zgrep -c` - count the number of times a match is found
 
-grep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.
+`wc` - count words in file
+
+`wc -l` - count lines in file
+
+`sed \`s/\[replace this\]/\[with this\]/g\`\` - search and replace
+
+`>` - to to file
+
+`>>` - Ammend (add) to file
 :::
+
+grep stands for global regular expression print; you use this command to search for text patterns in a file (or any stream of text). eg.
 
 ```{bash}
 grep "ency" ~/mydata/Session1/subsample.txt
@@ -115,9 +125,19 @@ You can use all of grep functionality with a compressed file by adding a 'z' - j
 ::: callout-note
 ##Commands/concepts covered:
 
-`[your own script]` - any set of commands you want to run
+`#!bin/bash` - bash shebang tells linux this is a bash script
 
-`[varibles]` - any text or number you want to record and use
+`chmod +x` - make your scipt executable
+
+`./[your own script]` - run your script
+
+`variable="some stuff"` - define a variable
+
+`${varible}` = recalls the variable
+
+`${varible}_suffix` - add suffix to variable
+
+\`variable=\$(\[function\]) - define variable as product of function
 
 `echo` - Display to screen
 

@@ -435,7 +435,7 @@ If you are feeling confident, try creating one script that will carry out all th
 ::: {.callout-note collapse="true"}
 ## Worked Example - Viral: rawdata QC triming and post trim QC
 
-<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=b5e5d487-6d07-4a89-a359-b4c0012fcf51&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
+<iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=b5e5d487-6d07-4a89-a359-b4c0012fcf51&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player">
 
 </iframe>
 :::

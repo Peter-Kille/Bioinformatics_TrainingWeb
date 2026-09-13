@@ -1,0 +1,192 @@
+---
+title-block-style: default
+title-block-banner: darkred
+title-block-banner-color: white
+title: "Bioinformtics Cheat Sheet"
+subtitle: "When you just need a hint"
+author: "Prof. Peter Kille"
+date: today
+affiliation: "Cardiff University"
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+# Compute resources
+
+::: callout-note
+## Personal Cloud
+
+server: **`[server].bios.cf.ac.uk`**
+
+Username/password: **\[University Single sign-on (SO)\]**
+
+sshPort: personal **\[provided at start of course\]**
+
+## HPC servers
+
+server masters: **`gomphus-login.bios.cf.ac.uk`**
+
+server research: **`skomer.bios.cf.ac.uk`**
+
+Username/password: **\[University Single sign-on (SO)\]**
+
+sshPort: **`22`**
+:::
+
+# Introduction to linux
+
+::: callout-note
+## Basics
+
+**'tab'** - Tab complete
+
+**`command parameters arguments`** - Anatomy of a Command
+
+**`drwxrwxrwx`** - file per permissions: type - \[read write execute\]x3, user, group, world
+
+**`chmod`** - Change file permissions
+
+**`chmod +x`** - add execute for programs
+
+## Moving Around
+
+**`ls`** - list directory (folder) content
+
+**`ls -l`** - long list, show file permissions and sizes
+
+**`cd`** - change directory
+
+**`pwd`** - present working directory
+
+**`.`** - current dir
+
+**`..`** - back one level
+
+**`~`** - home folder
+
+## Making Directories, Moving and Copying data
+
+**`mkdir`** - make a directory
+
+**`cp`** - copy a file
+
+**`cp -r`** - copy a folder (`-r` stands for recursive)
+
+**`mv`** - move / rename file or folder
+
+**`rm`** - delete a file **no recycle bin in linux**
+:::
+
+# Software and data
+
+::: callout-note
+## Loading software
+
+**`module avail`** - list software available
+
+**`module load [software]`** - loads specific piece of software
+
+**`module unload [software]`** - removed specific software
+
+**`module purge`** - removes all software
+
+## Visualising/previewing files
+
+**`less`** - preview a file (q to exit)
+
+**`more`** - Display the contents of a file in a terminal
+
+**`cat`** - print to screen
+
+**`zcat`** - print compressed fie to screen
+
+**`head -n 10`** - show first 10 lines of file
+
+**`tail -n 10`** - show last 10 lines of file
+
+\***`cat, more, head and tail`** only work on uncompressed files
+
+## Editing Files
+
+**`nano`** - text editor with on screen prompts
+
+**`vi`**or **`vim`** - text editor to impress the programmers (no on screen prompts)
+:::
+
+# Command Line Tools and Scripting
+
+::: callout-note
+## Search file
+
+**`grep`** - search a file
+
+**`zgrep`** - search a compressed file
+
+**`grep -c`** and **`zgrep -c`** - count the number of times a match is found
+
+**`wc`** - count words in file
+
+**`wc -l`** - count lines in file
+
+**`sed \`s/\[replace this\]/\[with this\]/g\`\`** - search and replace
+
+**`>`** - write to file
+
+**`>>`** - Amend (add) to file
+
+## Scripting in bash
+
+**`#!bin/bash`** - bash shebang tells linux this is a bash script
+
+**`chmod +x`** - make your scipt executable
+
+**`./[your own script]`** - run your script
+
+**`variable="some stuff"`** - define a variable
+
+**`${varible}`** = recalls the variable
+
+**`${varible}_suffix`** - add suffix to variable
+
+**`variable=$([function])`** - define variable as product of function
+
+**`echo`** - Display to screen
+
+**`printf`** - print to file **`\t`** - tab, **`\n`** line break
+
+## Loops
+
+**`for i in {1..[number]}; do; done`** - numerical loop from 1..\[number\]
+
+**`for i in sampleA sampleB sampleC sampleD; do; done`** - simple text loop
+
+**`for file in *; do ; done`** - file list loop
+
+**`while read -r line; do; done < [infile]`** - read in a file one line at a time
+:::
+
+# Slurm
+
+::: callout-note
+**`ln -s [Full/Path] [shortcut]`** - Create symlink/shortcuts
+
+**`sbatch \[slurm script\]`** - submit slurm script
+
+**`squeue`** - list all jobs running
+
+**`squeue -u ${USER}`** - list only user jobs
+
+**`scancel [number]`** - cancel job
+
+**`srun -c 4 --mem=8G -p [node] --pty bash`** - create interactive job
+
+**`gomphus.node_availability.sh`** or **`skomer.node_availability.sh`** - shows node usage and availability
+
+**`gomphus.job_history.sh`** or **`skomer.job_history.sh`** - show job history
+
+**`sbatch -d singleton [slurm script`** - create slurm dependency
+
+**`#SBATCH --job-name [some constant name]`** - ensure all jobs have same name for dependent scripts
+:::
