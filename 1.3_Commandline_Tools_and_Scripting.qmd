@@ -28,7 +28,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 `wc -l` - count lines in file
 
-`sed \`s/\[replace this\]/\[with this\]/g\`\` - search and replace
+`sed 's/\[replace this\]/\[with this\]/g'` - search and replace
 
 `>` - to to file
 

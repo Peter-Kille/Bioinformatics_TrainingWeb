@@ -130,7 +130,7 @@ sshPort: **`22`**
 
 **`wc -l`** - count lines in file
 
-**`sed \`s/\[replace this\]/\[with this\]/g\`\`** - search and replace
+**`sed 's/\[replace this\]/\[with this\]/g'`** - search and replace
 
 **`>`** - write to file
 

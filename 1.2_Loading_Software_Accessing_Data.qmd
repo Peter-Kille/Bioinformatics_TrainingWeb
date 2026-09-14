@@ -244,7 +244,7 @@ Type 'i' to enter input mode, and add some text.
 
 Press \[esc\] to enter control mode.
 
-Exit, saving your edits, by typing `:wq` - this stands for write and quit! If you wanted to exit without saving the edits, typing `:q!` will force vi to exit without saving.
+Exit, saving your edits, by typing `:wq!` - this stands for write and quit! If you wanted to exit without saving the edits, typing `:q!` will force vi to exit without saving.
 
 Now list the contents of the file you created
 
