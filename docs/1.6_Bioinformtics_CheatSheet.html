@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof Peter Kille">
+<meta name="author" content="Prof.&nbsp;Peter Kille">
 <meta name="dcterms.date" content="2026-09-14">
 
-<title>Data Processing : Generation of DEG Lists</title>
+<title>Bioinformtics Cheat Sheet</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,41 +27,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -141,7 +106,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.3_DEG_Generation.html">Data Processing : Generation of DEG Lists</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1.1_Introduction_to_Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="./1.6_Bioinformtics_CheatSheet.html">Bioinformtics Cheat Sheet</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -153,9 +118,9 @@ background: darkred;
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5.0_Transcriptomics_Introduction.html">Session 5. Transcriptomics</a></li><li class="breadcrumb-item"><a href="./5.3_DEG_Generation.html">Data Processing : Generation of DEG Lists</a></li></ol></nav>
-      <h1 class="title">Data Processing : Generation of DEG Lists</h1>
-            <p class="subtitle lead">From Counts to Gene Lists</p>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1.1_Introduction_to_Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="./1.6_Bioinformtics_CheatSheet.html">Bioinformtics Cheat Sheet</a></li></ol></nav>
+      <h1 class="title">Bioinformtics Cheat Sheet</h1>
+            <p class="subtitle lead">When you just need a hint</p>
                       </div>
   </div>
     
@@ -165,7 +130,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Prof Peter Kille </p>
+               <p>Prof.&nbsp;Peter Kille </p>
             </div>
     </div>
       
@@ -265,7 +230,7 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1.6_Bioinformtics_CheatSheet.html" class="sidebar-item-text sidebar-link">
+  <a href="./1.6_Bioinformtics_CheatSheet.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Bioinformtics Cheat Sheet</span></a>
   </div>
 </li>
@@ -381,7 +346,7 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5.3_DEG_Generation.html" class="sidebar-item-text sidebar-link active">
+  <a href="./5.3_DEG_Generation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Processing : Generation of DEG Lists</span></a>
   </div>
 </li>
@@ -426,17 +391,11 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#differential-gene-analysis" id="toc-differential-gene-analysis" class="nav-link active" data-scroll-target="#differential-gene-analysis">Differential Gene Analysis</a></li>
-  <li><a href="#key-statistical-concepts---flase-discovery-rate-fdr" id="toc-key-statistical-concepts---flase-discovery-rate-fdr" class="nav-link" data-scroll-target="#key-statistical-concepts---flase-discovery-rate-fdr">Key Statistical Concepts - Flase Discovery Rate (FDR)</a></li>
-  <li><a href="#deg-pipelines" id="toc-deg-pipelines" class="nav-link" data-scroll-target="#deg-pipelines">3.1-3.5 DEG pipelines</a></li>
-  <li><a href="#a-simple-guide-to-sartools" id="toc-a-simple-guide-to-sartools" class="nav-link" data-scroll-target="#a-simple-guide-to-sartools">A simple Guide to SARTools</a>
-  <ul class="collapse">
-  <li><a href="#download-or-copy-the-sartools-template-script" id="toc-download-or-copy-the-sartools-template-script" class="nav-link" data-scroll-target="#download-or-copy-the-sartools-template-script">1. Download or copy the SARTools template script</a></li>
-  <li><a href="#download-workshop-data" id="toc-download-workshop-data" class="nav-link" data-scroll-target="#download-workshop-data">2. Download Workshop data</a></li>
-  <li><a href="#open-your-posit-r-studio-session" id="toc-open-your-posit-r-studio-session" class="nav-link" data-scroll-target="#open-your-posit-r-studio-session">3. Open your POSIT R-studio session</a></li>
-  <li><a href="#now-run-the-script" id="toc-now-run-the-script" class="nav-link" data-scroll-target="#now-run-the-script">4. Now run the script</a></li>
-  <li><a href="#review-outputs" id="toc-review-outputs" class="nav-link" data-scroll-target="#review-outputs">5. Review Outputs</a></li>
-  </ul></li>
+  <li><a href="#compute-resources" id="toc-compute-resources" class="nav-link active" data-scroll-target="#compute-resources">Compute resources</a></li>
+  <li><a href="#introduction-to-linux" id="toc-introduction-to-linux" class="nav-link" data-scroll-target="#introduction-to-linux">Introduction to linux</a></li>
+  <li><a href="#software-and-data" id="toc-software-and-data" class="nav-link" data-scroll-target="#software-and-data">Software and data</a></li>
+  <li><a href="#command-line-tools-and-scripting" id="toc-command-line-tools-and-scripting" class="nav-link" data-scroll-target="#command-line-tools-and-scripting">Command Line Tools and Scripting</a></li>
+  <li><a href="#slurm" id="toc-slurm" class="nav-link" data-scroll-target="#slurm">Slurm</a></li>
   </ul>
 </nav>
     </div>
@@ -447,105 +406,171 @@ background: darkred;
 
 
 
-<section id="differential-gene-analysis" class="level1">
-<h1>Differential Gene Analysis</h1>
-<p>Contrasting the expression profile of the samples is typically done with one of two R packages: Deseq2 or EdgeR (the mac vs windows of the RNAseq fight), however a multitude of alternatives exist. These packages perform the normalization and statistical steps of contrasting samples as defined in a metadata file stating your experimental design (replicates, tissue type, treatment etc). The output here is a range of significant genes, ordinance and cluster analysis of sample similarity, and various quality control figures.</p>
-<p>Following these steps, there are an almost infinite number of tools and packages to look deeper into your data, find experimentally specific insights, and prior published data to contrast against.</p>
-</section>
-<section id="key-statistical-concepts---flase-discovery-rate-fdr" class="level1">
-<h1>Key Statistical Concepts - Flase Discovery Rate (FDR)</h1>
-<p>The workshop will use tools that exploit statistical approaches to identify differential expressed genes (DEGs). You will not need to derive the mathematical formula underpinning these concepts or deploy the algorithums from first principles since the software you will use does this for you but it is worth knowing the background. There is an excellent academic from UNC-Chapel Hill, Prof Josh Starmer, who runs a youtube channel called <a href="https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw">StatQuest</a> this deal with a large range of biological stats and has some great annotations to explain them, I am going to suggest you watch two of his videos to orientate you about the key statistical concepts for this session:</p>
-</section>
-<section id="deg-pipelines" class="level1">
-<h1>3.1-3.5 DEG pipelines</h1>
-<p>Processing data from counts to DEG lists requires a number of complex steps - rather than code these individually we recommned using a ‘wrapper’ program that executes the steps within an automated workflow. NCBI provides theis function for a selection of datasets archived in GEO - <a href="https://peter-kille.github.io/Bioinformatics_TrainingWeb/5.2_GEO_Open_Data_Archive.html#c-geo2r-configured-unprocessed-raw-counts-and-group-metadata">Geo2R Instrctions</a>. For count data that we have genearted ourselveswe are recommending using a wrapper called <a href="https://github.com/PF2-pasteur-fr/SARTools">SARTools</a>. This wrapper supports simple 2 state analsysis but generates plots for data exploration, normalisation, dispersion, MA/Volcano Plots and DEG list. Also it generates a DESeq2 (or edgeR) object (dds object) that can be used for more complex analysis.</p>
-</section>
-<section id="a-simple-guide-to-sartools" class="level1">
-<h1>A simple Guide to SARTools</h1>
-<section id="download-or-copy-the-sartools-template-script" class="level2">
-<h2 class="anchored" data-anchor-id="download-or-copy-the-sartools-template-script">1. Download or copy the SARTools template script</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Download</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://github.com/PF2-pasteur-fr/SARTools/blob/master/template_script_DESeq2.r</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># an example metadata file can be viewed in workshop example below</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># copy script, metadata and feature counts from classdata</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-R</span> ~/classdata/Session5/RNAseq-Analysis/ ~/mydata/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="download-workshop-data" class="level2">
-<h2 class="anchored" data-anchor-id="download-workshop-data">2. Download Workshop data</h2>
-<p>Ensure you analysis folder has a sub-folder which is callled FeatureCounts that contains individual files containing your data and these are referenced in your metadata file - you do not need a subdirectory location as we will add this to the script.</p>
-<p>Your data represents a set of nine human neuronal differential RNAseq samples have been sequenced, consisting of 6x control samples (3x two different individuals) and 3x a deletion mutant of the 1q21.1 cytogenetic region of the human genome, and 3x of a duplication of this region.</p>
-<p>Deletions and alterations to this region has a range of impacts on neuropsychiatric disorders and is under active study. See the <a href="https://www.omim.org/entry/612474">omim</a> and the Wikipedia page is remarkably informative! <a href="https://en.wikipedia.org/wiki/1q21.1_deletion_syndrome">1q21.1_deletion_syndrome</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Picture1.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>1q21.1 cytogenetic region of the human genome</figcaption>
-</figure>
-</div>
-</section>
-<section id="open-your-posit-r-studio-session" class="level2">
-<h2 class="anchored" data-anchor-id="open-your-posit-r-studio-session">3. Open your POSIT R-studio session</h2>
-<p>We recommend using R-studio either on your local machine or using the POSIT based server option for reproducibility.</p>
-<p>Open SARTools script and edit the areas highlighted in red.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/SARTools.png" class="img-fluid figure-img"></p>
-<figcaption>SARTools</figcaption>
-</figure>
-</div>
-<p>These parameters are:</p>
-<p><strong>workDir</strong> - location of your working directory (easy way of identifying this in Rstudio is to navigate to your working directory in the files tab and then use More&gt;Set As Working Directory to show your workdir in the console window).</p>
-<p><strong>projectName</strong> - Your choosen name for you output files</p>
-<p><strong>author</strong> - Your Name</p>
-<p><strong>targetFile</strong> - metadata file name</p>
-<p><strong>rawDir</strong> - Directory containing your count files</p>
-<p><strong>VarInt</strong> - The parameter you wish you analyse</p>
-<p><strong>conRef</strong> - The description within your choosen parameter that you wish to use as your control</p>
-<p>N.B. Line 39 there is a parameter for your level is statistical significance - this is by default 0.5 you can chnage this if you need.</p>
-</section>
-<section id="now-run-the-script" class="level2">
-<h2 class="anchored" data-anchor-id="now-run-the-script">4. Now run the script</h2>
-<p>At the top right of your R script window there is a ‘Run’ pull down list - select this and highlight ‘Run all’.</p>
-</section>
-<section id="review-outputs" class="level2">
-<h2 class="anchored" data-anchor-id="review-outputs">5. Review Outputs</h2>
-<p><strong>HTML file</strong> - this contains your data analsyis with comprehensive explainatory text. It provides key plots, parameters and summary data.</p>
-<p><strong>table</strong> - this folder contains tab separated varible files of your results (these can be downloaded and explored in excel), both as a complete list but also separate files for up and down regulated gens passing the parameter you defined.</p>
-<p><strong>figures</strong> - this folder contains the images used in the generation of the html output.</p>
-<p>NB - if you change parameters and rerun the script it will overwrite the table and image directories so if you want to keep these make sure you rename name them before rerunning the script.</p>
-<p><strong>out.DEseq2/dds Object</strong> - This is a very useful object as many secondary analysis steps can use this object for further analysis.</p>
-<p>We strongly recommend you save your R session when finished so you do not need to recalulate the dds object.</p>
+<section id="compute-resources" class="level1">
+<h1>Compute resources</h1>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Extension Workshop analsyis of RNAseq Data with SARtools
+<span class="screen-reader-only">Note</span>Personal Cloud
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<section id="dataset-to-use---geogds2565" class="level2 callout-body-container callout-body">
-<h2 class="anchored" data-anchor-id="dataset-to-use---geogds2565"><a href="https://www.ncbi.nlm.nih.gov/sites/GDSbrowser?acc=GDS2565">Dataset to use - Geo:GDS2565</a></h2>
-<p>Once you have looked at the RNAseq-Analysis workshop apply this Knowedge to the analyse your <em>C. elegans</em> RNAseq data. In the RNAseq-Processing folder your are surplied with an Rstudio script for Sartools <code>Sartools-template-deseq2.r</code> and a metadata file <code>C_elegansL3_Cd_metadata.txt</code></p>
-<p>the Metadata file describes the various parameters of the experiment:</p>
-<pre><code>Sample_ID       Files   SRA     Stage   Chemical        Dose    StageDose       Replicate
-L3_Cd_0_rep1    SRR12478185.markdup.featurecount        SRR12478185     L3      Cd      0       L3dose0 rep1
-L3_Cd_0_rep2    SRR12478186.markdup.featurecount        SRR12478186     L3      Cd      0       L3dose0 rep2
-L3_Cd_0_rep3    SRR12478187.markdup.featurecount        SRR12478187     L3      Cd      0       L3dose0 rep3
-L3_Cd_20_rep1   SRR12478191.markdup.featurecount        SRR12478191     L3      Cd      20      L3dose20        rep1
-L3_Cd_20_rep2   SRR12478192.markdup.featurecount        SRR12478192     L3      Cd      20      L3dose20        rep2
-L3_Cd_20_rep3   SRR12478193.markdup.featurecount        SRR12478193     L3      Cd      20      L3dose20        rep3</code></pre>
+<div class="callout-body-container callout-body">
+<p>server: <strong><code>[server].bios.cf.ac.uk</code></strong></p>
+<p>Username/password: <strong>[University Single sign-on (SO)]</strong></p>
+<p>sshPort: personal <strong>[provided at start of course]</strong></p>
+<section id="hpc-servers" class="level2">
+<h2 class="anchored" data-anchor-id="hpc-servers">HPC servers</h2>
+<p>server masters: <strong><code>gomphus-login.bios.cf.ac.uk</code></strong></p>
+<p>server research: <strong><code>skomer.bios.cf.ac.uk</code></strong></p>
+<p>Username/password: <strong>[University Single sign-on (SO)]</strong></p>
+<p>sshPort: <strong><code>22</code></strong></p>
 </section>
+</div>
+</div>
+</section>
+<section id="introduction-to-linux" class="level1">
+<h1>Introduction to linux</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Basics
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>‘tab’</strong> - Tab complete</p>
+<p><strong><code>command parameters arguments</code></strong> - Anatomy of a Command</p>
+<p><strong><code>drwxrwxrwx</code></strong> - file per permissions: type - [read write execute]x3, user, group, world</p>
+<p><strong><code>chmod</code></strong> - Change file permissions</p>
+<p><strong><code>chmod +x</code></strong> - add execute for programs</p>
+<section id="moving-around" class="level2">
+<h2 class="anchored" data-anchor-id="moving-around">Moving Around</h2>
+<p><strong><code>ls</code></strong> - list directory (folder) content</p>
+<p><strong><code>ls -l</code></strong> - long list, show file permissions and sizes</p>
+<p><strong><code>cd</code></strong> - change directory</p>
+<p><strong><code>pwd</code></strong> - present working directory</p>
+<p><strong><code>.</code></strong> - current dir</p>
+<p><strong><code>..</code></strong> - back one level</p>
+<p><strong><code>~</code></strong> - home folder</p>
+</section>
+<section id="making-directories-moving-and-copying-data" class="level2">
+<h2 class="anchored" data-anchor-id="making-directories-moving-and-copying-data">Making Directories, Moving and Copying data</h2>
+<p><strong><code>mkdir</code></strong> - make a directory</p>
+<p><strong><code>cp</code></strong> - copy a file</p>
+<p><strong><code>cp -r</code></strong> - copy a folder (<code>-r</code> stands for recursive)</p>
+<p><strong><code>mv</code></strong> - move / rename file or folder</p>
+<p><strong><code>rm</code></strong> - delete a file <strong>no recycle bin in linux</strong></p>
+</section>
+</div>
+</div>
+</section>
+<section id="software-and-data" class="level1">
+<h1>Software and data</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Loading software
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><code>module avail</code></strong> - list software available</p>
+<p><strong><code>module load [software]</code></strong> - loads specific piece of software</p>
+<p><strong><code>module unload [software]</code></strong> - removed specific software</p>
+<p><strong><code>module purge</code></strong> - removes all software</p>
+<section id="visualisingpreviewing-files" class="level2">
+<h2 class="anchored" data-anchor-id="visualisingpreviewing-files">Visualising/previewing files</h2>
+<p><strong><code>less</code></strong> - preview a file (q to exit)</p>
+<p><strong><code>more</code></strong> - Display the contents of a file in a terminal</p>
+<p><strong><code>cat</code></strong> - print to screen</p>
+<p><strong><code>zcat</code></strong> - print compressed fie to screen</p>
+<p><strong><code>head -n 10</code></strong> - show first 10 lines of file</p>
+<p><strong><code>tail -n 10</code></strong> - show last 10 lines of file</p>
+<p>*<strong><code>cat, more, head and tail</code></strong> only work on uncompressed files</p>
+</section>
+<section id="editing-files" class="level2">
+<h2 class="anchored" data-anchor-id="editing-files">Editing Files</h2>
+<p><strong><code>nano</code></strong> - text editor with on screen prompts</p>
+<p><strong><code>vi</code></strong>or <strong><code>vim</code></strong> - text editor to impress the programmers (no on screen prompts)</p>
+</section>
+</div>
+</div>
+</section>
+<section id="command-line-tools-and-scripting" class="level1">
+<h1>Command Line Tools and Scripting</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Search file
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><code>grep</code></strong> - search a file</p>
+<p><strong><code>zgrep</code></strong> - search a compressed file</p>
+<p><strong><code>grep -c</code></strong> and <strong><code>zgrep -c</code></strong> - count the number of times a match is found</p>
+<p><strong><code>wc</code></strong> - count words in file</p>
+<p><strong><code>wc -l</code></strong> - count lines in file</p>
+<p><strong><code>sed 's/\[replace this\]/\[with this\]/g'</code></strong> - search and replace</p>
+<p><strong><code>&gt;</code></strong> - write to file</p>
+<p><strong><code>&gt;&gt;</code></strong> - Amend (add) to file</p>
+<section id="scripting-in-bash" class="level2">
+<h2 class="anchored" data-anchor-id="scripting-in-bash">Scripting in bash</h2>
+<p><strong><code>#!bin/bash</code></strong> - bash shebang tells linux this is a bash script</p>
+<p><strong><code>chmod +x</code></strong> - make your scipt executable</p>
+<p><strong><code>./[your own script]</code></strong> - run your script</p>
+<p><strong><code>variable="some stuff"</code></strong> - define a variable</p>
+<p><strong><code>${varible}</code></strong> = recalls the variable</p>
+<p><strong><code>${varible}_suffix</code></strong> - add suffix to variable</p>
+<p><strong><code>variable=$([function])</code></strong> - define variable as product of function</p>
+<p><strong><code>echo</code></strong> - Display to screen</p>
+<p><strong><code>printf</code></strong> - print to file <strong><code>\t</code></strong> - tab, <strong><code>\n</code></strong> line break</p>
+</section>
+<section id="loops" class="level2">
+<h2 class="anchored" data-anchor-id="loops">Loops</h2>
+<p><strong><code>for i in {1..[number]}; do; done</code></strong> - numerical loop from 1..[number]</p>
+<p><strong><code>for i in sampleA sampleB sampleC sampleD; do; done</code></strong> - simple text loop</p>
+<p><strong><code>for file in *; do ; done</code></strong> - file list loop</p>
+<p><strong><code>while read -r line; do; done &lt; [infile]</code></strong> - read in a file one line at a time</p>
+</section>
+</div>
+</div>
+</section>
+<section id="slurm" class="level1">
+<h1>Slurm</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><code>ln -s [Full/Path] [shortcut]</code></strong> - Create symlink/shortcuts</p>
+<p><strong><code>sbatch \[slurm script\]</code></strong> - submit slurm script</p>
+<p><strong><code>squeue</code></strong> - list all jobs running</p>
+<p><strong><code>squeue -u ${USER}</code></strong> - list only user jobs</p>
+<p><strong><code>scancel [number]</code></strong> - cancel job</p>
+<p><strong><code>srun -c 4 --mem=8G -p [node] --pty bash</code></strong> - create interactive job</p>
+<p><strong><code>gomphus.node_availability.sh</code></strong> or <strong><code>skomer.node_availability.sh</code></strong> - shows node usage and availability</p>
+<p><strong><code>gomphus.job_history.sh</code></strong> or <strong><code>skomer.job_history.sh</code></strong> - show job history</p>
+<p><strong><code>sbatch -d singleton [slurm script</code></strong> - create slurm dependency</p>
+<p><strong><code>#SBATCH --job-name [some constant name]</code></strong> - ensure all jobs have same name for dependent scripts</p>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -436,8 +436,8 @@
     ]
   },
   {
-    "objectID": "1.5_Bioinformtics_CheatSheet.html",
-    "href": "1.5_Bioinformtics_CheatSheet.html",
+    "objectID": "1.6_Bioinformtics_CheatSheet.html",
+    "href": "1.6_Bioinformtics_CheatSheet.html",
     "title": "Bioinformtics Cheat Sheet",
     "section": "",
     "text": "NotePersonal Cloud\n\n\n\nserver: [server].bios.cf.ac.uk\nUsername/password: [University Single sign-on (SO)]\nsshPort: personal [provided at start of course]\n\n\nserver masters: gomphus-login.bios.cf.ac.uk\nserver research: skomer.bios.cf.ac.uk\nUsername/password: [University Single sign-on (SO)]\nsshPort: 22",
@@ -447,8 +447,8 @@
     ]
   },
   {
-    "objectID": "1.5_Bioinformtics_CheatSheet.html#hpc-servers",
-    "href": "1.5_Bioinformtics_CheatSheet.html#hpc-servers",
+    "objectID": "1.6_Bioinformtics_CheatSheet.html#hpc-servers",
+    "href": "1.6_Bioinformtics_CheatSheet.html#hpc-servers",
     "title": "Bioinformtics Cheat Sheet",
     "section": "",
     "text": "server masters: gomphus-login.bios.cf.ac.uk\nserver research: skomer.bios.cf.ac.uk\nUsername/password: [University Single sign-on (SO)]\nsshPort: 22",
@@ -458,8 +458,8 @@
     ]
   },
   {
-    "objectID": "1.5_Bioinformtics_CheatSheet.html#moving-around",
-    "href": "1.5_Bioinformtics_CheatSheet.html#moving-around",
+    "objectID": "1.6_Bioinformtics_CheatSheet.html#moving-around",
+    "href": "1.6_Bioinformtics_CheatSheet.html#moving-around",
     "title": "Bioinformtics Cheat Sheet",
     "section": "Moving Around",
     "text": "Moving Around\nls - list directory (folder) content\nls -l - long list, show file permissions and sizes\ncd - change directory\npwd - present working directory\n. - current dir\n.. - back one level\n~ - home folder",
@@ -469,8 +469,8 @@
     ]
   },
   {
-    "objectID": "1.5_Bioinformtics_CheatSheet.html#making-directories-moving-and-copying-data",
-    "href": "1.5_Bioinformtics_CheatSheet.html#making-directories-moving-and-copying-data",
+    "objectID": "1.6_Bioinformtics_CheatSheet.html#making-directories-moving-and-copying-data",
+    "href": "1.6_Bioinformtics_CheatSheet.html#making-directories-moving-and-copying-data",
     "title": "Bioinformtics Cheat Sheet",
     "section": "Making Directories, Moving and Copying data",
     "text": "Making Directories, Moving and Copying data\nmkdir - make a directory\ncp - copy a file\ncp -r - copy a folder (-r stands for recursive)\nmv - move / rename file or folder\nrm - delete a file no recycle bin in linux",
@@ -480,8 +480,8 @@
     ]
   },
   {
-    "objectID": "1.5_Bioinformtics_CheatSheet.html#visualisingpreviewing-files",
-    "href": "1.5_Bioinformtics_CheatSheet.html#visualisingpreviewing-files",
+    "objectID": "1.6_Bioinformtics_CheatSheet.html#visualisingpreviewing-files",
+    "href": "1.6_Bioinformtics_CheatSheet.html#visualisingpreviewing-files",
     "title": "Bioinformtics Cheat Sheet",
     "section": "Visualising/previewing files",
     "text": "Visualising/previewing files\nless - preview a file (q to exit)\nmore - Display the contents of a file in a terminal\ncat - print to screen\nzcat - print compressed fie to screen\nhead -n 10 - show first 10 lines of file\ntail -n 10 - show last 10 lines of file\n*cat, more, head and tail only work on uncompressed files",
@@ -491,8 +491,8 @@
     ]
   },
   {
-    "objectID": "1.5_Bioinformtics_CheatSheet.html#editing-files",
-    "href": "1.5_Bioinformtics_CheatSheet.html#editing-files",
+    "objectID": "1.6_Bioinformtics_CheatSheet.html#editing-files",
+    "href": "1.6_Bioinformtics_CheatSheet.html#editing-files",
     "title": "Bioinformtics Cheat Sheet",
     "section": "Editing Files",
     "text": "Editing Files\nnano - text editor with on screen prompts\nvior vim - text editor to impress the programmers (no on screen prompts)",
@@ -502,8 +502,8 @@
     ]
   },
   {
-    "objectID": "1.5_Bioinformtics_CheatSheet.html#scripting-in-bash",
-    "href": "1.5_Bioinformtics_CheatSheet.html#scripting-in-bash",
+    "objectID": "1.6_Bioinformtics_CheatSheet.html#scripting-in-bash",
+    "href": "1.6_Bioinformtics_CheatSheet.html#scripting-in-bash",
     "title": "Bioinformtics Cheat Sheet",
     "section": "Scripting in bash",
     "text": "Scripting in bash\n#!bin/bash - bash shebang tells linux this is a bash script\nchmod +x - make your scipt executable\n./[your own script] - run your script\nvariable=\"some stuff\" - define a variable\n${varible} = recalls the variable\n${varible}_suffix - add suffix to variable\nvariable=$([function]) - define variable as product of function\necho - Display to screen\nprintf - print to file \\t - tab, \\n line break",
@@ -513,14 +513,190 @@
     ]
   },
   {
-    "objectID": "1.5_Bioinformtics_CheatSheet.html#loops",
-    "href": "1.5_Bioinformtics_CheatSheet.html#loops",
+    "objectID": "1.6_Bioinformtics_CheatSheet.html#loops",
+    "href": "1.6_Bioinformtics_CheatSheet.html#loops",
     "title": "Bioinformtics Cheat Sheet",
     "section": "Loops",
     "text": "Loops\nfor i in {1..[number]}; do; done - numerical loop from 1..[number]\nfor i in sampleA sampleB sampleC sampleD; do; done - simple text loop\nfor file in *; do ; done - file list loop\nwhile read -r line; do; done &lt; [infile] - read in a file one line at a time",
     "crumbs": [
       "Session 1. Linux: The basics",
       "Bioinformtics Cheat Sheet"
+    ]
+  },
+  {
+    "objectID": "1.4_Loading_Bioinformatic_Software.html",
+    "href": "1.4_Loading_Bioinformatic_Software.html",
+    "title": "Loading Bioinformtic Software",
+    "section": "",
+    "text": "Now that you’re (hopefully) re-caffeinated and have stretched your legs and cleared your brain, let’s have a look at some more need-to-know information.\n\nSoftware\n\n\n\n\n\n\nNote\n\n\n\n##Commands covered:\nmodule avail - list software available\nmodule load [software] - loads specific piece of software\nmodule unload [software] - removed specific software\nmodule purge - removes all software\n\n\nThe linux OS has some really powerful utilities but these are not truly bioinformatics software. We have to ‘install’ or ‘load’ software. We do not want to have all our software loaded all the time, as many informatic tools are very complex i.e. requiring different versions of python or java to run. Having software that requires conflicting versions loaded at the same time can cause a malfunction.\nMost managed HPC systems (not your own personal computer) manage this by using modules. These are preconfigured installers for your software packages. Cardiff systems use modules - if this is the case you can see the software that is available try the following command:\n\nmodule avail\n\nthis will bring up a software list that looks something like the following:\n\n\n\nmodule avail page 1\n\n\n\n\n\nmodule avail page 2\n\n\nAny of these software packages can be loaded by simply using the module load command, e.g.\n\nmodule load fastqc/v0.12.1\n\nRemember to unload the module when you are finished so it does not conflict with the next piece of software, or if you want to unload all modules, use the module purge command.\n\nmodule unload fastqc/v0.12.1\nor\nmodule purge\n\nModule versions can change so check they are correct with module avail rather than just copy and pasting from the guide.",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Loading Bioinformtic Software"
+    ]
+  },
+  {
+    "objectID": "1.2_Accessing_Creating_Files.html",
+    "href": "1.2_Accessing_Creating_Files.html",
+    "title": "Accessing Data, visualisation and editing",
+    "section": "",
+    "text": "Now that you’re (hopefully) re-caffeinated and have stretched your legs and cleared your brain, let’s have a look at some more need-to-know information.",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Accessing Data, visualisation and editing"
+    ]
+  },
+  {
+    "objectID": "1.2_Accessing_Creating_Files.html#text-files-word-processors-and-bioinformatics",
+    "href": "1.2_Accessing_Creating_Files.html#text-files-word-processors-and-bioinformatics",
+    "title": "Accessing Data, visualisation and editing",
+    "section": "Text files, Word Processors and Bioinformatics",
+    "text": "Text files, Word Processors and Bioinformatics\nDocuments written using a word processor such as Microsoft Word or OpenOffice Write are not plain text documents and will not work in either a text editor or if used as a script. If your filename has an extension such as .doc or .odt, it is unlikely to be a plain text document. (Try opening a Word document in Notepad or another text editor on Windows if you want proof of this.)\nWord processors are very useful for preparing documents, but do not use them for working with bioinformatics-related files. We recommend that you prepare text files for bioinformatics analyses using Linux-based text editors and not Windows- or Mac-based text editors. This is because Windows- or Mac-based text editors may insert hidden characters that are not handled properly by Linux-based programs. There are endless posts on bioinformatics forums bemoaning the problems that arise from this!\nThere are a number of different text editors available on Linux. These range in ease of use, and each has its pros and cons. In this practical we will briefly look at two editors, nano and vi. Vi is an extremely powerful text editor and popular with many professionals, as it is installed on almost every Linux system. However, it is also notoriously frustrating to get to grips with. For this reason, you are probably better starting off with nano, which is very easy to use and displays instructions at the bottom of the screen.\n\nNano\nPros:\nVery easy – For example, command options are visible at the bottom of the window, it can be used when logged in without graphical support, and is fast to start up and use\nCons:\nBy default it puts return characters into lines too long for the screen (i.e. using nano for system administration can be dangerous!) This behavior can be changed by setting different defaults for the program or running it with the –w option. It is not completely intuitive for people who are used to graphical word processors.\n\n\nVi (or Vim)\nPros:\nAppears on nearly every Unix system. Can be very powerful if you take the time to know the key-short cuts.\nCons:\nYou have to know the shortcuts!! There’s no menus and no on screen prompts\n\n\n\n\n\n\nImportantExercise\n\n\n\nNote that unlike most graphical programmes, where you write a document and then name it at the end, command-line text editors require you to name a file when you create it.\n\nCreate a file with nano\n\nnano test_nano.txt \n\nType some text, exit ctrl X, save and return to command line now list the contents of the file you created\n\nless test_nano.txt \n\n\n\nCreate a file with vi\n\nvi test_vi.txt \n\nVi has two separate modes: ‘input’ mode, where you can type and edit text, and ‘control’ mode where you can do things such as save, search and exit the programme.\nType ‘i’ to enter input mode, and add some text.\nPress [esc] to enter control mode.\nExit, saving your edits, by typing :wq! - this stands for write and quit! If you wanted to exit without saving the edits, typing :q! will force vi to exit without saving.\nNow list the contents of the file you created\n\nless test_vi.txt",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Accessing Data, visualisation and editing"
+    ]
+  },
+  {
+    "objectID": "0.1_Personal_Cloud.html",
+    "href": "0.1_Personal_Cloud.html",
+    "title": "Personal Cloud",
+    "section": "",
+    "text": "High performance computing (HPC) systems are large, multi-processor, large RAM ‘computers’ that are installed in data centres. Usually users are provided with a login to a shared HPC system with strictly controlled access and defined quotas. To run your informatic tasks, you write a script that sends your job to a ‘queuing’ program which coordinates the processing requests of all the users on the system. In this way the system can support large numbers of users, but you need to wait for your place in the queue before your task can be performed. Although you can do the very lightest tasks - copy small files, rename etc. - without sending them to the queue, most tasks need to go through the queue. This can be very tedious when learning to code, as if your script creates an error you won’t know until it has waited its turn in the queue.\nTo avoid the queues we provide personal cloud systems to each person on the course, allowing them to interactively use the HPC system. To do this we create a container which has the equivalent of a ‘virtual machine’ (VM) in the cloud; we use a system called Kubernetes to create these container-based virtual machines. Each user has dedicated processors, RAM, storage and their own environment so they can interactively learn to use a Linux system. Because we are having to reserve a proportion of the server for each user we can only allocate a limited number of processors and RAM to each user - usually this is 8 processors and 16 Gb RAM, but check with your course organiser.\nSimilar ‘containers’ can be accessed using AWS cloud services or through academic services such as CLIMB. AWS cloud does provide some educational free cloud processing but when these free credits are over you would need to pay for processing and storage, and this can very quickly get expensive. CLIMB provides academic registration if you are supported by specific research council funding.\nThis information below is aimed at students and staff in Cardiff University’s School of Biosciences, and will guide you through accessing the computing resources provided.",
+    "crumbs": [
+      "Session 0. HPC and Personal Cloud",
+      "Personal Cloud"
+    ]
+  },
+  {
+    "objectID": "0.1_Personal_Cloud.html#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc",
+    "href": "0.1_Personal_Cloud.html#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc",
+    "title": "Personal Cloud",
+    "section": "SSH using MobaXterm - connecting to the server on a PC",
+    "text": "SSH using MobaXterm - connecting to the server on a PC\nMobaXterm is an excellent piece of software that supports SSH and enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the MobaXTerm from their website.\n\n\n\n\n\n\nNoteUsing MobaXterm on your personal PC\n\n\n\n\n\nI suggest downloading and installing the ‘Installer Addition’ as it will fully install on your system. In contrast, the portable version provides a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.\n\n\n\n\n\n\n\n\n\nNoteUsing MobaXterm on a University-networked PC\n\n\n\n\n\nYou will not have administrator privileges to install the ‘Installer Addition’ on a University-managed machine. Instead, download the portable version which provides a simple executable (.exe) that can used on a machine where you do not have administrator privileges to install software.\n\n\n\nOnce your download is complete, you will need to unzip the folder (extract files) before you can run the installer. Then follow the installation instructions and you should be faced with the following window:\n\n\n\nMobaXterm Interface\n\n\nN.B. The first time you open MobaXterm, Windows security may pop up saying that some features are blocked by the firewall. Click ‘Cancel’ and the message will go away without preventing MobaXterm from doing its thing.\nNow you want to create a session, this can be done by following these easy steps:\n\nSelect Session icon\n\n\n\n\nMobaXterm session\n\n\n\nSelect SSH icon\n\n\n\n\nMobaXterm SSH\n\n\n\nConfigure your SSH connection by filling in boxes for -Host -User and -Port\n\nN.B. - the three elements you need to complete are underlined in red in the image.\nN.B. - for standard HPC the port leave the port at the default value of 22\n\n\n\nMobaXterm Configure\n\n\n\nEnter your password - this is you University single Sign on (SO) password\n\nYou will NOT see any typing - this is a security feature, just continue typing\n\n\n\nMobaXterm Password - this is your single sign on SO\n\n\nOnce you have entered your password and it has been accepted you MAY be asked to save a master password - this you can set to whatever you wish, if you want to save yourself the trouble of typing your pass phrase every time you connect.\nOnce created, your ‘session’ will be saved in the left hand menu and in future you just have to click on it to connect.",
+    "crumbs": [
+      "Session 0. HPC and Personal Cloud",
+      "Personal Cloud"
+    ]
+  },
+  {
+    "objectID": "0.1_Personal_Cloud.html#ssh-using-a-terminal---connecting-to-the-server-on-a-mac",
+    "href": "0.1_Personal_Cloud.html#ssh-using-a-terminal---connecting-to-the-server-on-a-mac",
+    "title": "Personal Cloud",
+    "section": "SSH using a terminal - connecting to the server on a Mac",
+    "text": "SSH using a terminal - connecting to the server on a Mac\nHPC servers - both your personal cloud as well as HPC systems - are based on a Unix Operating System called Linux. Mac OS is also based on this system, so connecting on a Mac is very simple. First you have to find and open your Terminal - I think the easiest way is to search for it in finder but if you don’t find this easy there’s a wiki entitled - Open-a-Terminal-Window-in-Mac.\nOnce you have your terminal open simply type:\nssh [user]@[host] -P [Port]\n\n#a fictious example would be\n\nssh c99999@sponsa.bios.cf.ac.uk -P 32222\nFor standard HPC (i.e. not Kubernetes) there is no need to define the port with -P\nThen enter your password and you are in - you can tell it has worked because the text preceding your cursor changes and should look something like this (the numbers will probably be different for you):\n[user@ssh-user-894cfb776-88kzg ~]$\nUnfortunately the standard SSH interface does not support X-forwarding for graphical applications. There is a mac application called (Xquartz)[https://www.xquartz.org/] that you can install, and when it is running you can create a X-11 session by simply adding -X to your login so your login would be:\nssh -X [user]@[host] -P [Port]\n\n#a fictious example work be\n\nssh -X c99999@sponsa.bios.cf.ac.uk -P 32222\nDon’t worry if you don’t understand the bit about Xquartz - it’s not essential, just know that it’s here for future reference if needed. Xquartz is open source software and Mac DO NOT SUPPORT it, so it can be challenging to get working. Newer Macs often do not support it as the open source developers haven’t kept up with changes in the OS. Play if you want too, but be warned that it can be frustrating.",
+    "crumbs": [
+      "Session 0. HPC and Personal Cloud",
+      "Personal Cloud"
+    ]
+  },
+  {
+    "objectID": "0.1_Personal_Cloud.html#sftp-using-mobaxterm-on-a-pc",
+    "href": "0.1_Personal_Cloud.html#sftp-using-mobaxterm-on-a-pc",
+    "title": "Personal Cloud",
+    "section": "SFTP using MobaXterm on a PC",
+    "text": "SFTP using MobaXterm on a PC\nMobaXterm has a built in SFTP function. When you open your session, a folder structure appears down the left hand side of the screen. This can be useful for navigating and for opening files without the need to download them.\nUse the arrows above the SFTP windows to upload/download files - you can also drag and drop files using this. window.\n\n\n\nMobaXterm SFTP",
+    "crumbs": [
+      "Session 0. HPC and Personal Cloud",
+      "Personal Cloud"
+    ]
+  },
+  {
+    "objectID": "0.1_Personal_Cloud.html#sftp-using-filezilla",
+    "href": "0.1_Personal_Cloud.html#sftp-using-filezilla",
+    "title": "Personal Cloud",
+    "section": "SFTP using FileZilla",
+    "text": "SFTP using FileZilla\n(FileZilla)[https://filezilla-project.org/] is a open source program that works on all platforms and supports multiple upload and download options including SFTP.\nTo configure FileZilla follow the steps below and this will create a saved profile you can go back to:\n\nOpen and select profile icon\n\n\n\n\nFilezilla profile\n\n\n\nConfigure your SFTP profile\n\nRemember for standard HPC the SFTP port will default to 22; if you are working on a Kubernetes virtual machine you will need to change it.\n\n\n\nFilezilla profile\n\n\nSelect Connect and you are done - you can return to this session next time you want to transfer\n\nDrag and drop your files from local to server (remote host) system\n\n\n\n\nFilezilla drag and drop",
+    "crumbs": [
+      "Session 0. HPC and Personal Cloud",
+      "Personal Cloud"
+    ]
+  },
+  {
+    "objectID": "0.1_Personal_Cloud.html#sftp-using-cyberduck",
+    "href": "0.1_Personal_Cloud.html#sftp-using-cyberduck",
+    "title": "Personal Cloud",
+    "section": "SFTP using Cyberduck",
+    "text": "SFTP using Cyberduck\n[Cyberduck][https://cyberduck.io/download/] is another free file transfer application that supports all type of file transfer including SFTP, and some people prefer it to FileZilla as it has a very simple interface.\nAfter downloading and installing the application open the transfer window by using the following steps:\n\nOpen a Cyberduck connection\n\n\n\n\nCyberduck Open a Connection\n\n\n\nConfigure the connection - complete all the things underlined here.\n\nUse your port number provided for Kubernetes, or if using standard HPC use port 22.\n\n\n\nCyberduck configuration\n\n\n\nYou can now navigate around the server and drag and drop files to and from server.\n\n\n\n\nCyberduck drag and drop window",
+    "crumbs": [
+      "Session 0. HPC and Personal Cloud",
+      "Personal Cloud"
+    ]
+  },
+  {
+    "objectID": "1.1_Introduction_to_Linux.html#useful-information",
+    "href": "1.1_Introduction_to_Linux.html#useful-information",
+    "title": "Introduction to Linux",
+    "section": "Useful information!",
+    "text": "Useful information!\n• You don’t need to type the $ at the beginning of a command. That’s a linux convention to indicate a command line - at the start a linux cheatseet can be a good idea, there is alot on line but we will put one together for our course as we go through.\n• Code is indicated throughout the tutorials by appearing in a grey box. Within the code, any text in [square brackets] indicates a placeholder you will need to replace with your own username, file name etc.\n• Always tab-complete! Pressing tab will auto-complete a file name or program. If you’re writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just ‘myF’ and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this if it won’t tab-complete then it doesn’t exist!\n\n\n\n\n\n\nNoteIf tab-complete doesn’t work\n\n\n\n\n\n• If you still have a ‘file not found’ error, do ls to see if you can see it.\n• If you can’t see a file you expect to be there, do pwd and check you’re in the right folder.\n• If a script says “permission denied” make sure:\n\nIt has executable permission (see Permissions).\nYou’re not inside the classdata folder!\n\n• You always want to be working in the Working Directory. To get there (assuming you’re on a Cardiff virtual machine) use:\n\ncd ~/mydata\n\n• Once more, tab-complete is your friend! It’ll stop most typos from happening and save you the pain of writing a command for a file that’s not there. It’s hard to overstate the amount of time and pain it will save you.",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Introduction to Linux"
+    ]
+  },
+  {
+    "objectID": "1.1_Introduction_to_Linux.html#anatomy-of-a-command",
+    "href": "1.1_Introduction_to_Linux.html#anatomy-of-a-command",
+    "title": "Introduction to Linux",
+    "section": "Anatomy of a Command",
+    "text": "Anatomy of a Command\nLinux/Unix commands usually take the form shown below\n\ncommand       parameters      arguments\n   ^              ^               ^\nwhat I         how I want     on what do\nwant to do     to do it       I want to do it\n\nN.B. usually each element is separated by only one space\nThe first item you supply on the command line is interpreted by the system as a command – something the system should do. Any options for the command, such what file you want the command to work on, or the format for the information that should be returned to you, appear after that on the same line separated by spaces.\nMost commands have options available that will alter the way they function. You make use of these options by providing the command with parameters (sometimes called flags), some of which will take arguments.\nReminder: Items on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames, as will some symbols. This is important!\n\nLearning about Linux commands - accessing the manual !!\nMost Linux commands have a manual page that provides information about the command and options that can alter its behaviour. Many tasks can be made easier by using command options. Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard.\n\n\n\n\n\n\nImportantExercise: looking up a man page\n\n\n\nLook up the manual information for the ls command by typing the following in a terminal:\n\nman ls\n\n\nSkim through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the b key.\nWhat does the -m option do? What about the -a option? What would running ls -lrt do?\nPress the q key when you want to quit reading the man page.\nTry running ls using some of the options mentioned above.\n\n\n\nNote: Programs (rather than core linux commands) often have help pages that can be accessed in the same manner as a linux command manual but using -h or -help (often both will work). Others will default to show you the help page if you run the program with no arguments or have a typo.",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Introduction to Linux"
+    ]
+  },
+  {
+    "objectID": "1.1_Introduction_to_Linux.html#listing-files-in-a-directory",
+    "href": "1.1_Introduction_to_Linux.html#listing-files-in-a-directory",
+    "title": "Introduction to Linux",
+    "section": "Listing files in a directory",
+    "text": "Listing files in a directory\nThe command ls lists files in a directory. By default, the command will list the filenames of the files in your current working directory.\nOnce you login type ls and you should see 2 directories (folders)\n\nclassdata\nmydata\n\nTo list what is in theses folders type ls [foldername] and you should display what is in each folder.\nIf you add a space followed by a -l (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is.\nYou can also use global patterns to limit the files you wish to list.\n\n* an asterisk means any string of characters\n? a question mark means a single character\n[ ] square brackets can be used to designate a group of characters\n\ne.g. to list all fodlers in th working directory thats start with a capital S:\n\nls classdata/S*\n\n\n\n\n\n\n\nImportantExercises: listing files\n\n\n\n\nList all the files in the folder classdata/Session1 that start with the letters sub\nList all the files in the folder classdata/Session1 that end with the letters fasta\nList all the files in your folder that start with sub, and end in fasta\n[Extension] Do a ‘long list’ (-l) of these files and see the difference in sizes. Add the ‘human readable’ parameter/flag (-h) to help read the sizes.",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Introduction to Linux"
+    ]
+  },
+  {
+    "objectID": "1.1_Introduction_to_Linux.html#sec-permissions",
+    "href": "1.1_Introduction_to_Linux.html#sec-permissions",
+    "title": "Introduction to Linux",
+    "section": "File permisions",
+    "text": "File permisions\nThe command ls lists files in a directory.\nBy default, the command will list the filenames of the files in your current folder. At the moment, this is probably your home folder.\nIf you add a space followed by a -l (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. An example is shown in the code block below.\n\ndrwxr-xr-x 6    manager users   4096    2008-08-21  09:26  twilliams\n-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  hybInfo.txt\n-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  targets_v1.txt\n-rw-r--r-- 1    manager users   7793    2007-03-19  14:14  targets_v2.txt\n^      ^        ^       ^    ^         ^                ^\nFile  File    User    Group Size   Date/Time         Filename\ntype  Permission\n\nThe file permissions are given in triplets rwx which represent write - read - execute permissions. The first triplet represents the permission associated with the owner (usually the person who created the file), the second triplet is permissions for owner’s group, and the triplet is permission for everyone else.\n\n\n\n\n\n\nImportantExercise: looking at file permissions\n\n\n\nOpen your terminal and use ls -l command to interrogate the classdata files.",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Introduction to Linux"
+    ]
+  },
+  {
+    "objectID": "1.1_Introduction_to_Linux.html#changing-your-location-and-navigation",
+    "href": "1.1_Introduction_to_Linux.html#changing-your-location-and-navigation",
+    "title": "Introduction to Linux",
+    "section": "Changing your location and navigation",
+    "text": "Changing your location and navigation\nThe command used to change directories (folder) is cd\n\nLocal navigation\nIf you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.\nTo change to a directory one below you are in, just use the cd command followed by the subdirectory name i.e., if you have just logged in and want to move into the ‘mydata’ directory (inside your current directory), you could use:\n\ncd mydata\n\nThe shortcut for “the directory you are currently in” is a single full stop ( . ). If you type\n\ncd .  \n\nnothing will change. Later, when we want to run scripts or copy to the same folder that you are currently in we will use ” ./ ” to mean “you can find this in the current directory”. To change directory to the one above you are in, use the shorthand for “the directory above” which is two full stops (..):\n\ncd ..\n\n\n\nFull Path Navigation\nFor example, if you are in ‘mydata’, this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, because a forward slash indicates the very top of the file tree:\n\ncd /home/[your username]/classdata/\n\n\n\nRelative Navigation from home folder - the power of tilde (~)\nRather than type the full path you can you a tilde ~ symbol to signify your home directory. You can use this as a jumping off point to navigate into your mydata folder\n\ncd ~/\ncd ~/mydata\n\nThis should get you back to where you started..\n\n\nReturning to where you started\nIf you wish to return to your home directory at any time, just type cd by itself.\n\ncd\n\n\n\nFinding where you are\nIf you get lost and want to confirm where you are in the directory structure, use the pwd command (print working directory). This will return the full path of the directory you are currently in.\nNote also that by default you see the name of the current directory you are working in as part of your prompt.\nFor example, when you first opened the terminal in a live session you should see your username and server, then the prompt:\n\n[sbi9srj@hawker ~]$\n\nThis means I am logged in as the user sbi9srj on the server named hawker, and in a directory named the character called ‘tilde’ ~. If you remember, ~ is always a shortcut for your home directory.\nAll our folders and classdata can be found at:\n\n/home/[your username]/classdata/\n\nHowever, we won’t need to remember that as we can use the shortcuts of:\n\n~/classdata\n~/mydata\n\n\n\n\n\n\n\nImportantExercises: changing directories\n\n\n\n\nChange directory from your home directory to your working directory (mydata)\nFind the full path to the directory that you are currently in\nMove into your new directory.\nMove back into mydata.",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Introduction to Linux"
+    ]
+  },
+  {
+    "objectID": "1.1_Introduction_to_Linux.html#tab-completion",
+    "href": "1.1_Introduction_to_Linux.html#tab-completion",
+    "title": "Introduction to Linux",
+    "section": "Tab completion",
+    "text": "Tab completion\nHave you been remembering to tab complete?\nTab completion is an incredibly useful facility for working on the command line.\nOne thing tab completion does is complete the filename or program name you want, saving huge amounts of typing time. It also ensures that there are no errors in what you typed, which is easy to do with long filenames or paths.\nFor example, you could type:\n\n#navigate to classdata folder\ncd classdata\n# now start to type REFS\ncd R \n\nnow hit the tab key.\nIf there is only one directory with a name starting with the letter “R”, the rest of the name will be completed for you. Here this would give you:\n\ncd REFS\n\nUser accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.\nIf you tap the tab key multiple times and nothing happens, there is one simple reason why: the file you are trying to refer to is not there. It may be that a) you are not in the correct directory; b) the file in question is not the directory you thought it was; c) you have not typed the file name correctly (remember it is case sensitive)! If you tab and it does not complete, stop and work out which of these is the case!\n\nExercises: practise tab completion\nReturn to your home directory if you are not already there by typing cd ~/\nType cd cl and use tab completion for the rest of the command. Then press the return key.\nYou will now be in your ~/classdata directory.\nType ls Ses and hit tab twice to view the files available.\nNow press the tab key again. You can gradually add extra letters and use the tab key to limit the options available.\nAs you get faster with this, it will save you a lot of typing effort.\n\n\n\n\n\n\n\nImportantAuto completion for programs\n\n\n\nAuto completion works when you are calling programs that are available (where you have installed or loaded them with module load) and when you are constructing commands. However, auto completion does NOT work if you are in a text editor constructing a script.",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Introduction to Linux"
+    ]
+  },
+  {
+    "objectID": "1.1_Introduction_to_Linux.html#putting-it-together-creating-a-mental-map-of-your-file-system",
+    "href": "1.1_Introduction_to_Linux.html#putting-it-together-creating-a-mental-map-of-your-file-system",
+    "title": "Introduction to Linux",
+    "section": "Putting it together: creating a mental map of your file system",
+    "text": "Putting it together: creating a mental map of your file system\nOne of the commonest reasons why students get stuck in bioinformatics exercises is that they have forgotten where there are in the file system. They try to work with files that are in a different directory, panic that things seem to have disappeared, or wonder where exactly that output has ended up! The key to saving yourself much pain lies in developing awareness of how your file structure is laid out, and where you are in it at all times. If something doesn’t work, stop and ask yourself: where am I? Where are the files I want to work with?\nYou can also make life easier for yourself by thinking carefully about giving your directories and files self-explanatory names, and keeping them organised.\nAs a final exercise in this part of the session, use the commands you have learned so far (particularly pwd, ls and cd) to sketch a map of your mydata folder.",
+    "crumbs": [
+      "Session 1. Linux: The basics",
+      "Introduction to Linux"
     ]
   },
   {
@@ -667,173 +843,8 @@
     ]
   },
   {
-    "objectID": "1.1_Introduction_to_Linux.html#useful-information",
-    "href": "1.1_Introduction_to_Linux.html#useful-information",
-    "title": "Introduction to Linux",
-    "section": "Useful information!",
-    "text": "Useful information!\n• You don’t need to type the $ at the beginning of a command. That’s a linux convention to indicate a command line - at the start a linux cheatseet can be a good idea, there is alot on line but we will put one together for our course as we go through.\n• Code is indicated throughout the tutorials by appearing in a grey box. Within the code, any text in [square brackets] indicates a placeholder you will need to replace with your own username, file name etc.\n• Always tab-complete! Pressing tab will auto-complete a file name or program. If you’re writing a file named myFirstSequencingRun.fastq (note the lack of spaces!) and type just ‘myF’ and press tab, it will complete it for you, which helps on typos. If there are multiple options with the same beginning then pressing tab twice will show the options. Most Linux errors early on are because of typos or pointing to the wrong folder! Tab complete stops this if it won’t tab-complete then it doesn’t exist!\n\n\n\n\n\n\nNoteIf tab-complete doesn’t work\n\n\n\n\n\n• If you still have a ‘file not found’ error, do ls to see if you can see it.\n• If you can’t see a file you expect to be there, do pwd and check you’re in the right folder.\n• If a script says “permission denied” make sure:\n\nIt has executable permission (see Permissions).\nYou’re not inside the classdata folder!\n\n• You always want to be working in the Working Directory. To get there (assuming you’re on a Cardiff virtual machine) use:\n\ncd ~/mydata\n\n• Once more, tab-complete is your friend! It’ll stop most typos from happening and save you the pain of writing a command for a file that’s not there. It’s hard to overstate the amount of time and pain it will save you.",
-    "crumbs": [
-      "Session 1. Linux: The basics",
-      "Introduction to Linux"
-    ]
-  },
-  {
-    "objectID": "1.1_Introduction_to_Linux.html#anatomy-of-a-command",
-    "href": "1.1_Introduction_to_Linux.html#anatomy-of-a-command",
-    "title": "Introduction to Linux",
-    "section": "Anatomy of a Command",
-    "text": "Anatomy of a Command\nLinux/Unix commands usually take the form shown below\n\ncommand       parameters      arguments\n   ^              ^               ^\nwhat I         how I want     on what do\nwant to do     to do it       I want to do it\n\nN.B. usually each element is separated by only one space\nThe first item you supply on the command line is interpreted by the system as a command – something the system should do. Any options for the command, such what file you want the command to work on, or the format for the information that should be returned to you, appear after that on the same line separated by spaces.\nMost commands have options available that will alter the way they function. You make use of these options by providing the command with parameters (sometimes called flags), some of which will take arguments.\nReminder: Items on the command line separated by spaces are interpreted as individual pieces of information for the system. For this reason, a filename with a space in it will be interpreted as two filenames, as will some symbols. This is important!\n\nLearning about Linux commands - accessing the manual !!\nMost Linux commands have a manual page that provides information about the command and options that can alter its behaviour. Many tasks can be made easier by using command options. Linux manual pages are referred to as man pages. To open the man page for a particular command, you just need to type man followed by the name of the command you are interested in. To browse through a man page, use the cursor keys (↓ and ↑). To close the man page simply hit the q key on your keyboard.\n\n\n\n\n\n\nImportantExercise: looking up a man page\n\n\n\nLook up the manual information for the ls command by typing the following in a terminal:\n\nman ls\n\n\nSkim through the man page. You can scroll forward using the up and down arrow keys on your keyboard. You can go forward a page by using the space bar, and move backwards a page by using the b key.\nWhat does the -m option do? What about the -a option? What would running ls -lrt do?\nPress the q key when you want to quit reading the man page.\nTry running ls using some of the options mentioned above.\n\n\n\nNote: Programs (rather than core linux commands) often have help pages that can be accessed in the same manner as a linux command manual but using -h or -help (often both will work). Others will default to show you the help page if you run the program with no arguments or have a typo.",
-    "crumbs": [
-      "Session 1. Linux: The basics",
-      "Introduction to Linux"
-    ]
-  },
-  {
-    "objectID": "1.1_Introduction_to_Linux.html#listing-files-in-a-directory",
-    "href": "1.1_Introduction_to_Linux.html#listing-files-in-a-directory",
-    "title": "Introduction to Linux",
-    "section": "Listing files in a directory",
-    "text": "Listing files in a directory\nThe command ls lists files in a directory. By default, the command will list the filenames of the files in your current working directory.\nOnce you login type ls and you should see 2 directories (folders)\n\nclassdata\nmydata\n\nTo list what is in theses folders type ls [foldername] and you should display what is in each folder.\nIf you add a space followed by a -l (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is.\nYou can also use global patterns to limit the files you wish to list.\n\n* an asterisk means any string of characters\n? a question mark means a single character\n[ ] square brackets can be used to designate a group of characters\n\ne.g. to list all fodlers in th working directory thats start with a capital S:\n\nls classdata/S*\n\n\n\n\n\n\n\nImportantExercises: listing files\n\n\n\n\nList all the files in the folder classdata/Session1 that start with the letters sub\nList all the files in the folder classdata/Session1 that end with the letters fasta\nList all the files in your folder that start with sub, and end in fasta\n[Extension] Do a ‘long list’ (-l) of these files and see the difference in sizes. Add the ‘human readable’ parameter/flag (-h) to help read the sizes.",
-    "crumbs": [
-      "Session 1. Linux: The basics",
-      "Introduction to Linux"
-    ]
-  },
-  {
-    "objectID": "1.1_Introduction_to_Linux.html#sec-permissions",
-    "href": "1.1_Introduction_to_Linux.html#sec-permissions",
-    "title": "Introduction to Linux",
-    "section": "File permisions",
-    "text": "File permisions\nThe command ls lists files in a directory.\nBy default, the command will list the filenames of the files in your current folder. At the moment, this is probably your home folder.\nIf you add a space followed by a -l (that is, a hyphen and a small letter L), after the ls command, it alters the behavior of the command: it will now list the files in your current directory, but with details about them including who owns them, what the size is, and what kind of file it is. An example is shown in the code block below.\n\ndrwxr-xr-x 6    manager users   4096    2008-08-21  09:26  twilliams\n-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  hybInfo.txt\n-rw-r--r-- 1    manager users   9784    2007-03-19  14:09  targets_v1.txt\n-rw-r--r-- 1    manager users   7793    2007-03-19  14:14  targets_v2.txt\n^      ^        ^       ^    ^         ^                ^\nFile  File    User    Group Size   Date/Time         Filename\ntype  Permission\n\nThe file permissions are given in triplets rwx which represent write - read - execute permissions. The first triplet represents the permission associated with the owner (usually the person who created the file), the second triplet is permissions for owner’s group, and the triplet is permission for everyone else.\n\n\n\n\n\n\nImportantExercise: looking at file permissions\n\n\n\nOpen your terminal and use ls -l command to interrogate the classdata files.",
-    "crumbs": [
-      "Session 1. Linux: The basics",
-      "Introduction to Linux"
-    ]
-  },
-  {
-    "objectID": "1.1_Introduction_to_Linux.html#changing-your-location-and-navigation",
-    "href": "1.1_Introduction_to_Linux.html#changing-your-location-and-navigation",
-    "title": "Introduction to Linux",
-    "section": "Changing your location and navigation",
-    "text": "Changing your location and navigation\nThe command used to change directories (folder) is cd\n\nLocal navigation\nIf you think of your directory structure, (i.e. this set of nested file folders you are in), as a tree structure, then the simplest directory change you can do is move into a directory directly above or below the one you are in.\nTo change to a directory one below you are in, just use the cd command followed by the subdirectory name i.e., if you have just logged in and want to move into the ‘mydata’ directory (inside your current directory), you could use:\n\ncd mydata\n\nThe shortcut for “the directory you are currently in” is a single full stop ( . ). If you type\n\ncd .  \n\nnothing will change. Later, when we want to run scripts or copy to the same folder that you are currently in we will use ” ./ ” to mean “you can find this in the current directory”. To change directory to the one above you are in, use the shorthand for “the directory above” which is two full stops (..):\n\ncd ..\n\n\n\nFull Path Navigation\nFor example, if you are in ‘mydata’, this will move you up one level. If you need to change directory to one far away on the system, you could explicitly state the full path. This always starts with a forward slash, because a forward slash indicates the very top of the file tree:\n\ncd /home/[your username]/classdata/\n\n\n\nRelative Navigation from home folder - the power of tilde (~)\nRather than type the full path you can you a tilde ~ symbol to signify your home directory. You can use this as a jumping off point to navigate into your mydata folder\n\ncd ~/\ncd ~/mydata\n\nThis should get you back to where you started..\n\n\nReturning to where you started\nIf you wish to return to your home directory at any time, just type cd by itself.\n\ncd\n\n\n\nFinding where you are\nIf you get lost and want to confirm where you are in the directory structure, use the pwd command (print working directory). This will return the full path of the directory you are currently in.\nNote also that by default you see the name of the current directory you are working in as part of your prompt.\nFor example, when you first opened the terminal in a live session you should see your username and server, then the prompt:\n\n[sbi9srj@hawker ~]$\n\nThis means I am logged in as the user sbi9srj on the server named hawker, and in a directory named the character called ‘tilde’ ~. If you remember, ~ is always a shortcut for your home directory.\nAll our folders and classdata can be found at:\n\n/home/[your username]/classdata/\n\nHowever, we won’t need to remember that as we can use the shortcuts of:\n\n~/classdata\n~/mydata\n\n\n\n\n\n\n\nImportantExercises: changing directories\n\n\n\n\nChange directory from your home directory to your working directory (mydata)\nFind the full path to the directory that you are currently in\nMove into your new directory.\nMove back into mydata.",
-    "crumbs": [
-      "Session 1. Linux: The basics",
-      "Introduction to Linux"
-    ]
-  },
-  {
-    "objectID": "1.1_Introduction_to_Linux.html#tab-completion",
-    "href": "1.1_Introduction_to_Linux.html#tab-completion",
-    "title": "Introduction to Linux",
-    "section": "Tab completion",
-    "text": "Tab completion\nHave you been remembering to tab complete?\nTab completion is an incredibly useful facility for working on the command line.\nOne thing tab completion does is complete the filename or program name you want, saving huge amounts of typing time. It also ensures that there are no errors in what you typed, which is easy to do with long filenames or paths.\nFor example, you could type:\n\n#navigate to classdata folder\ncd classdata\n# now start to type REFS\ncd R \n\nnow hit the tab key.\nIf there is only one directory with a name starting with the letter “R”, the rest of the name will be completed for you. Here this would give you:\n\ncd REFS\n\nUser accounts are setup such that if there is more than one file with that combination of letters, all the files will be shown to you. You can choose the one you want by typing more of the filename, or by double tapping the tab key.\nIf you tap the tab key multiple times and nothing happens, there is one simple reason why: the file you are trying to refer to is not there. It may be that a) you are not in the correct directory; b) the file in question is not the directory you thought it was; c) you have not typed the file name correctly (remember it is case sensitive)! If you tab and it does not complete, stop and work out which of these is the case!\n\nExercises: practise tab completion\nReturn to your home directory if you are not already there by typing cd ~/\nType cd cl and use tab completion for the rest of the command. Then press the return key.\nYou will now be in your ~/classdata directory.\nType ls Ses and hit tab twice to view the files available.\nNow press the tab key again. You can gradually add extra letters and use the tab key to limit the options available.\nAs you get faster with this, it will save you a lot of typing effort.\n\n\n\n\n\n\n\nImportantAuto completion for programs\n\n\n\nAuto completion works when you are calling programs that are available (where you have installed or loaded them with module load) and when you are constructing commands. However, auto completion does NOT work if you are in a text editor constructing a script.",
-    "crumbs": [
-      "Session 1. Linux: The basics",
-      "Introduction to Linux"
-    ]
-  },
-  {
-    "objectID": "1.1_Introduction_to_Linux.html#putting-it-together-creating-a-mental-map-of-your-file-system",
-    "href": "1.1_Introduction_to_Linux.html#putting-it-together-creating-a-mental-map-of-your-file-system",
-    "title": "Introduction to Linux",
-    "section": "Putting it together: creating a mental map of your file system",
-    "text": "Putting it together: creating a mental map of your file system\nOne of the commonest reasons why students get stuck in bioinformatics exercises is that they have forgotten where there are in the file system. They try to work with files that are in a different directory, panic that things seem to have disappeared, or wonder where exactly that output has ended up! The key to saving yourself much pain lies in developing awareness of how your file structure is laid out, and where you are in it at all times. If something doesn’t work, stop and ask yourself: where am I? Where are the files I want to work with?\nYou can also make life easier for yourself by thinking carefully about giving your directories and files self-explanatory names, and keeping them organised.\nAs a final exercise in this part of the session, use the commands you have learned so far (particularly pwd, ls and cd) to sketch a map of your mydata folder.",
-    "crumbs": [
-      "Session 1. Linux: The basics",
-      "Introduction to Linux"
-    ]
-  },
-  {
-    "objectID": "0.1_Personal_Cloud.html",
-    "href": "0.1_Personal_Cloud.html",
-    "title": "Personal Cloud",
-    "section": "",
-    "text": "High performance computing (HPC) systems are large, multi-processor, large RAM ‘computers’ that are installed in data centres. Usually users are provided with a login to a shared HPC system with strictly controlled access and defined quotas. To run your informatic tasks, you write a script that sends your job to a ‘queuing’ program which coordinates the processing requests of all the users on the system. In this way the system can support large numbers of users, but you need to wait for your place in the queue before your task can be performed. Although you can do the very lightest tasks - copy small files, rename etc. - without sending them to the queue, most tasks need to go through the queue. This can be very tedious when learning to code, as if your script creates an error you won’t know until it has waited its turn in the queue.\nTo avoid the queues we provide personal cloud systems to each person on the course, allowing them to interactively use the HPC system. To do this we create a container which has the equivalent of a ‘virtual machine’ (VM) in the cloud; we use a system called Kubernetes to create these container-based virtual machines. Each user has dedicated processors, RAM, storage and their own environment so they can interactively learn to use a Linux system. Because we are having to reserve a proportion of the server for each user we can only allocate a limited number of processors and RAM to each user - usually this is 8 processors and 16 Gb RAM, but check with your course organiser.\nSimilar ‘containers’ can be accessed using AWS cloud services or through academic services such as CLIMB. AWS cloud does provide some educational free cloud processing but when these free credits are over you would need to pay for processing and storage, and this can very quickly get expensive. CLIMB provides academic registration if you are supported by specific research council funding.\nThis information below is aimed at students and staff in Cardiff University’s School of Biosciences, and will guide you through accessing the computing resources provided.",
-    "crumbs": [
-      "Session 0. HPC and Personal Cloud",
-      "Personal Cloud"
-    ]
-  },
-  {
-    "objectID": "0.1_Personal_Cloud.html#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc",
-    "href": "0.1_Personal_Cloud.html#ssh-using-mobaxterm---connecting-to-the-server-on-a-pc",
-    "title": "Personal Cloud",
-    "section": "SSH using MobaXterm - connecting to the server on a PC",
-    "text": "SSH using MobaXterm - connecting to the server on a PC\nMobaXterm is an excellent piece of software that supports SSH and enables you to create a SSH connection between your PC and the server. It has a built-in SFTP (Secure File Transfer Protocol) for file transfer, X-forwarding (graphical emulation) for using graphical applications remotely, and allows you to open multiple windows to your server. You can download the MobaXTerm from their website.\n\n\n\n\n\n\nNoteUsing MobaXterm on your personal PC\n\n\n\n\n\nI suggest downloading and installing the ‘Installer Addition’ as it will fully install on your system. In contrast, the portable version provides a simple executable (.exe) that can be placed on a data pen or used in machines where you do not have administrator privileges to install software.\n\n\n\n\n\n\n\n\n\nNoteUsing MobaXterm on a University-networked PC\n\n\n\n\n\nYou will not have administrator privileges to install the ‘Installer Addition’ on a University-managed machine. Instead, download the portable version which provides a simple executable (.exe) that can used on a machine where you do not have administrator privileges to install software.\n\n\n\nOnce your download is complete, you will need to unzip the folder (extract files) before you can run the installer. Then follow the installation instructions and you should be faced with the following window:\n\n\n\nMobaXterm Interface\n\n\nN.B. The first time you open MobaXterm, Windows security may pop up saying that some features are blocked by the firewall. Click ‘Cancel’ and the message will go away without preventing MobaXterm from doing its thing.\nNow you want to create a session, this can be done by following these easy steps:\n\nSelect Session icon\n\n\n\n\nMobaXterm session\n\n\n\nSelect SSH icon\n\n\n\n\nMobaXterm SSH\n\n\n\nConfigure your SSH connection by filling in boxes for -Host -User and -Port\n\nN.B. - the three elements you need to complete are underlined in red in the image.\nN.B. - for standard HPC the port leave the port at the default value of 22\n\n\n\nMobaXterm Configure\n\n\n\nEnter your password - this is you University single Sign on (SO) password\n\nYou will NOT see any typing - this is a security feature, just continue typing\n\n\n\nMobaXterm Password - this is your single sign on SO\n\n\nOnce you have entered your password and it has been accepted you MAY be asked to save a master password - this you can set to whatever you wish, if you want to save yourself the trouble of typing your pass phrase every time you connect.\nOnce created, your ‘session’ will be saved in the left hand menu and in future you just have to click on it to connect.",
-    "crumbs": [
-      "Session 0. HPC and Personal Cloud",
-      "Personal Cloud"
-    ]
-  },
-  {
-    "objectID": "0.1_Personal_Cloud.html#ssh-using-a-terminal---connecting-to-the-server-on-a-mac",
-    "href": "0.1_Personal_Cloud.html#ssh-using-a-terminal---connecting-to-the-server-on-a-mac",
-    "title": "Personal Cloud",
-    "section": "SSH using a terminal - connecting to the server on a Mac",
-    "text": "SSH using a terminal - connecting to the server on a Mac\nHPC servers - both your personal cloud as well as HPC systems - are based on a Unix Operating System called Linux. Mac OS is also based on this system, so connecting on a Mac is very simple. First you have to find and open your Terminal - I think the easiest way is to search for it in finder but if you don’t find this easy there’s a wiki entitled - Open-a-Terminal-Window-in-Mac.\nOnce you have your terminal open simply type:\nssh [user]@[host] -P [Port]\n\n#a fictious example would be\n\nssh c99999@sponsa.bios.cf.ac.uk -P 32222\nFor standard HPC (i.e. not Kubernetes) there is no need to define the port with -P\nThen enter your password and you are in - you can tell it has worked because the text preceding your cursor changes and should look something like this (the numbers will probably be different for you):\n[user@ssh-user-894cfb776-88kzg ~]$\nUnfortunately the standard SSH interface does not support X-forwarding for graphical applications. There is a mac application called (Xquartz)[https://www.xquartz.org/] that you can install, and when it is running you can create a X-11 session by simply adding -X to your login so your login would be:\nssh -X [user]@[host] -P [Port]\n\n#a fictious example work be\n\nssh -X c99999@sponsa.bios.cf.ac.uk -P 32222\nDon’t worry if you don’t understand the bit about Xquartz - it’s not essential, just know that it’s here for future reference if needed. Xquartz is open source software and Mac DO NOT SUPPORT it, so it can be challenging to get working. Newer Macs often do not support it as the open source developers haven’t kept up with changes in the OS. Play if you want too, but be warned that it can be frustrating.",
-    "crumbs": [
-      "Session 0. HPC and Personal Cloud",
-      "Personal Cloud"
-    ]
-  },
-  {
-    "objectID": "0.1_Personal_Cloud.html#sftp-using-mobaxterm-on-a-pc",
-    "href": "0.1_Personal_Cloud.html#sftp-using-mobaxterm-on-a-pc",
-    "title": "Personal Cloud",
-    "section": "SFTP using MobaXterm on a PC",
-    "text": "SFTP using MobaXterm on a PC\nMobaXterm has a built in SFTP function. When you open your session, a folder structure appears down the left hand side of the screen. This can be useful for navigating and for opening files without the need to download them.\nUse the arrows above the SFTP windows to upload/download files - you can also drag and drop files using this. window.\n\n\n\nMobaXterm SFTP",
-    "crumbs": [
-      "Session 0. HPC and Personal Cloud",
-      "Personal Cloud"
-    ]
-  },
-  {
-    "objectID": "0.1_Personal_Cloud.html#sftp-using-filezilla",
-    "href": "0.1_Personal_Cloud.html#sftp-using-filezilla",
-    "title": "Personal Cloud",
-    "section": "SFTP using FileZilla",
-    "text": "SFTP using FileZilla\n(FileZilla)[https://filezilla-project.org/] is a open source program that works on all platforms and supports multiple upload and download options including SFTP.\nTo configure FileZilla follow the steps below and this will create a saved profile you can go back to:\n\nOpen and select profile icon\n\n\n\n\nFilezilla profile\n\n\n\nConfigure your SFTP profile\n\nRemember for standard HPC the SFTP port will default to 22; if you are working on a Kubernetes virtual machine you will need to change it.\n\n\n\nFilezilla profile\n\n\nSelect Connect and you are done - you can return to this session next time you want to transfer\n\nDrag and drop your files from local to server (remote host) system\n\n\n\n\nFilezilla drag and drop",
-    "crumbs": [
-      "Session 0. HPC and Personal Cloud",
-      "Personal Cloud"
-    ]
-  },
-  {
-    "objectID": "0.1_Personal_Cloud.html#sftp-using-cyberduck",
-    "href": "0.1_Personal_Cloud.html#sftp-using-cyberduck",
-    "title": "Personal Cloud",
-    "section": "SFTP using Cyberduck",
-    "text": "SFTP using Cyberduck\n[Cyberduck][https://cyberduck.io/download/] is another free file transfer application that supports all type of file transfer including SFTP, and some people prefer it to FileZilla as it has a very simple interface.\nAfter downloading and installing the application open the transfer window by using the following steps:\n\nOpen a Cyberduck connection\n\n\n\n\nCyberduck Open a Connection\n\n\n\nConfigure the connection - complete all the things underlined here.\n\nUse your port number provided for Kubernetes, or if using standard HPC use port 22.\n\n\n\nCyberduck configuration\n\n\n\nYou can now navigate around the server and drag and drop files to and from server.\n\n\n\n\nCyberduck drag and drop window",
-    "crumbs": [
-      "Session 0. HPC and Personal Cloud",
-      "Personal Cloud"
-    ]
-  },
-  {
-    "objectID": "1.2_Loading_Software_Accessing_Data.html",
-    "href": "1.2_Loading_Software_Accessing_Data.html",
-    "title": "Loading Software and Accessing Data",
-    "section": "",
-    "text": "Now that you’re (hopefully) re-caffeinated and have stretched your legs and cleared your brain, let’s have a look at some more need-to-know information.",
-    "crumbs": [
-      "Session 1. Linux: The basics",
-      "Loading Software and Accessing Data"
-    ]
-  },
-  {
-    "objectID": "1.2_Loading_Software_Accessing_Data.html#text-files-word-processors-and-bioinformatics",
-    "href": "1.2_Loading_Software_Accessing_Data.html#text-files-word-processors-and-bioinformatics",
-    "title": "Loading Software and Accessing Data",
-    "section": "Text files, Word Processors and Bioinformatics",
-    "text": "Text files, Word Processors and Bioinformatics\nDocuments written using a word processor such as Microsoft Word or OpenOffice Write are not plain text documents and will not work in either a text editor or if used as a script. If your filename has an extension such as .doc or .odt, it is unlikely to be a plain text document. (Try opening a Word document in Notepad or another text editor on Windows if you want proof of this.)\nWord processors are very useful for preparing documents, but do not use them for working with bioinformatics-related files. We recommend that you prepare text files for bioinformatics analyses using Linux-based text editors and not Windows- or Mac-based text editors. This is because Windows- or Mac-based text editors may insert hidden characters that are not handled properly by Linux-based programs. There are endless posts on bioinformatics forums bemoaning the problems that arise from this!\nThere are a number of different text editors available on Linux. These range in ease of use, and each has its pros and cons. In this practical we will briefly look at two editors, nano and vi. Vi is an extremely powerful text editor and popular with many professionals, as it is installed on almost every Linux system. However, it is also notoriously frustrating to get to grips with. For this reason, you are probably better starting off with nano, which is very easy to use and displays instructions at the bottom of the screen.\n\nNano\nPros:\nVery easy – For example, command options are visible at the bottom of the window, it can be used when logged in without graphical support, and is fast to start up and use\nCons:\nBy default it puts return characters into lines too long for the screen (i.e. using nano for system administration can be dangerous!) This behavior can be changed by setting different defaults for the program or running it with the –w option. It is not completely intuitive for people who are used to graphical word processors.\n\n\nVi (or Vim)\nPros:\nAppears on nearly every Unix system. Can be very powerful if you take the time to know the key-short cuts.\nCons:\nYou have to know the shortcuts!! There’s no menus and no on screen prompts\n\n\n\n\n\n\nImportantExercise\n\n\n\nNote that unlike most graphical programmes, where you write a document and then name it at the end, command-line text editors require you to name a file when you create it.\n\nCreate a file with nano\n\nnano test_nano.txt \n\nType some text, exit ctrl X, save and return to command line now list the contents of the file you created\n\nless test_nano.txt \n\n\n\nCreate a file with vi\n\nvi test_vi.txt \n\nVi has two separate modes: ‘input’ mode, where you can type and edit text, and ‘control’ mode where you can do things such as save, search and exit the programme.\nType ‘i’ to enter input mode, and add some text.\nPress [esc] to enter control mode.\nExit, saving your edits, by typing :wq! - this stands for write and quit! If you wanted to exit without saving the edits, typing :q! will force vi to exit without saving.\nNow list the contents of the file you created\n\nless test_vi.txt",
-    "crumbs": [
-      "Session 1. Linux: The basics",
-      "Loading Software and Accessing Data"
-    ]
-  },
-  {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html",
     "title": "Extension Gomphus Slurm HPC",
     "section": "",
     "text": "All HPC are slightly different and it is important to understand the specific system you are using.\n\n\n\n\nHPC system available to big data masters students:\nhost\ngomphus-login.bios.cf.ac.uk\nUser name university username Password SSO Password Port 22\nWe suggest you use (MobaXterm)[https://mobaxterm.mobatek.net/] (PC) and terminal SSH (Mac) to access the server and MobaXtrem and (cyberduck)[https://cyberduck.io/] or (filezilla)[https://filezilla-project.org/] to allow secure file transfer (sftp) between server and local computer resources.\n\n\n\n\nLinux ln command allows you to create a symbolic link (also symlink or soft link) to a file or directory (called the “target”) by specifying a path thereto. The format is ln -s [target location] [shortcut]. I recommend you create the following symlinks at your root position.\nln -s /mnt/clusters/sponsa/data/classdata classdata\n\nln -s /mnt/clusters/sponsa/data/${USER} mydata\n\n\nYou should now see two sym links at you root classdata and mydata that will allow you to address these locations using:\n~/classdata/\n~/mydata/\n\n\n\n\n\n\nReview what ‘storage’ resources are available to you.\nquota -us [username]\n\nThis should display the following information:\nDisk quotas for user smbpk (uid 31961):\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFilesystem\nspace\nquota\nlimit\ngrac\nfiles\nquota\nlimit\ngrace\n\n\n\n\n/dev/mapper/cl-root\n32K\n5120M\n7168M\n\n13\n0\n0\n\n\n\n192.168.2.41:/mnt/data/clusters/anax\n4K\n1978G\n2078G\n\n6\n0\n0\n\n\n\n\n\nCheck your personal disc usage in mydata (du is the disc utility -h = human readable, -s = summarise )\ndu -sh ~/mydata/\n\n\n\n\nThe head node on gomphus is a 16 cpu / 32 Gb RAM server…..but it provides access to a serise of servers.\nThe head node has a specific script that displays the resources available to you. Run the command:\ngomphus.node_availability.sh\nThis should display the following information:\nKey ('CPUS' column):\n  A = # cores Allocated\n  I = # cores Idle\n  O = # cores not 'Idle' or 'Allocated'\n  T = Total # of cores\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNODELIST\nNODES\nPARTITION\nSTATE\nCPUS\nS:C:T\nMEMORY\nTMP_DISK\nWEIGHT\nAVAIL_FE\nCPUS(A/I/O/T)\nREASON\n\n\n\n\ngomphus2\n1\ndefq*\nidle\n64\n1:64:1\n93375\n0\n1\n(null)\n0/64/0/64\nnone\n\n\ngomphus3\n1\ndefq*\nidle\n64\n1:64:1\n93375\n0\n1\n(null)\n0/64/0/64\nnone\n\n\ngomphus1\n1\ndefq*\nidle\n32\n1:32:1\n62250\n0\n1\n(null)\n0/32/0/32\nnone",
@@ -843,8 +854,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#house-keeping",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#house-keeping",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#house-keeping",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#house-keeping",
     "title": "Extension Gomphus Slurm HPC",
     "section": "",
     "text": "HPC system available to big data masters students:\nhost\ngomphus-login.bios.cf.ac.uk\nUser name university username Password SSO Password Port 22\nWe suggest you use (MobaXterm)[https://mobaxterm.mobatek.net/] (PC) and terminal SSH (Mac) to access the server and MobaXtrem and (cyberduck)[https://cyberduck.io/] or (filezilla)[https://filezilla-project.org/] to allow secure file transfer (sftp) between server and local computer resources.\n\n\n\n\nLinux ln command allows you to create a symbolic link (also symlink or soft link) to a file or directory (called the “target”) by specifying a path thereto. The format is ln -s [target location] [shortcut]. I recommend you create the following symlinks at your root position.\nln -s /mnt/clusters/sponsa/data/classdata classdata\n\nln -s /mnt/clusters/sponsa/data/${USER} mydata\n\n\nYou should now see two sym links at you root classdata and mydata that will allow you to address these locations using:\n~/classdata/\n~/mydata/",
@@ -854,8 +865,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#explore-your-hpc-resources",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#explore-your-hpc-resources",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#explore-your-hpc-resources",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#explore-your-hpc-resources",
     "title": "Extension Gomphus Slurm HPC",
     "section": "",
     "text": "Review what ‘storage’ resources are available to you.\nquota -us [username]\n\nThis should display the following information:\nDisk quotas for user smbpk (uid 31961):\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFilesystem\nspace\nquota\nlimit\ngrac\nfiles\nquota\nlimit\ngrace\n\n\n\n\n/dev/mapper/cl-root\n32K\n5120M\n7168M\n\n13\n0\n0\n\n\n\n192.168.2.41:/mnt/data/clusters/anax\n4K\n1978G\n2078G\n\n6\n0\n0\n\n\n\n\n\nCheck your personal disc usage in mydata (du is the disc utility -h = human readable, -s = summarise )\ndu -sh ~/mydata/\n\n\n\n\nThe head node on gomphus is a 16 cpu / 32 Gb RAM server…..but it provides access to a serise of servers.\nThe head node has a specific script that displays the resources available to you. Run the command:\ngomphus.node_availability.sh\nThis should display the following information:\nKey ('CPUS' column):\n  A = # cores Allocated\n  I = # cores Idle\n  O = # cores not 'Idle' or 'Allocated'\n  T = Total # of cores\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNODELIST\nNODES\nPARTITION\nSTATE\nCPUS\nS:C:T\nMEMORY\nTMP_DISK\nWEIGHT\nAVAIL_FE\nCPUS(A/I/O/T)\nREASON\n\n\n\n\ngomphus2\n1\ndefq*\nidle\n64\n1:64:1\n93375\n0\n1\n(null)\n0/64/0/64\nnone\n\n\ngomphus3\n1\ndefq*\nidle\n64\n1:64:1\n93375\n0\n1\n(null)\n0/64/0/64\nnone\n\n\ngomphus1\n1\ndefq*\nidle\n32\n1:32:1\n62250\n0\n1\n(null)\n0/32/0/32\nnone",
@@ -865,8 +876,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#the-slurm-job-scheduler",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#the-slurm-job-scheduler",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#the-slurm-job-scheduler",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#the-slurm-job-scheduler",
     "title": "Extension Gomphus Slurm HPC",
     "section": "The Slurm Job Scheduler",
     "text": "The Slurm Job Scheduler\nThe slurm job scheduler is software that controls and monitors access to high-performance computing hardware. It allocates resources (cpus/cores/RAM) on a per-job basis.",
@@ -876,8 +887,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#slurm-partitions-queues",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#slurm-partitions-queues",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#slurm-partitions-queues",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#slurm-partitions-queues",
     "title": "Extension Gomphus Slurm HPC",
     "section": "Slurm Partitions (Queues)",
     "text": "Slurm Partitions (Queues)\nA number of slurm partitions (queues) may exist on any slurm cluster, and each queue will suit certain types of jobs. Each of the separate queues will handle jobs slightly differently, or will have varying resources available to it. Below is a list of queues available on our HPC systems, and the typical types of jobs they accommodate.\nGomphus Queues\n\n\n\n\n\n\n\n\n\npartition(queue) name\ndefault?\ndescription\n\n\n\n\n\ndefq\n✔\nbatch jobs, low mem/cpu requirement",
@@ -887,8 +898,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#submitting-jobs-the-slurm-job-script",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#submitting-jobs-the-slurm-job-script",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#submitting-jobs-the-slurm-job-script",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#submitting-jobs-the-slurm-job-script",
     "title": "Extension Gomphus Slurm HPC",
     "section": "Submitting Jobs (The Slurm Job-Script)",
     "text": "Submitting Jobs (The Slurm Job-Script)\nThe typical method to start a job on a slurm cluster is to first create a job-script, then submit that job-script to the slurm queue using the sbatch command. The job-script is laid out in a certain way (examples below), which will first request resources on the compute nodes, and then define the individual steps of your job. Below is an example job script for gomphus slurm using the partition defq. We’ll name the job-script submit.sh:\n#!/bin/bash\n#SBATCH --partition=defq       # the requested queue\n#SBATCH --nodes=1              # number of nodes to use\n#SBATCH --tasks-per-node=1     #\n#SBATCH --cpus-per-task=1      #   \n#SBATCH --mem-per-cpu=1000     # in megabytes, unless unit explicitly stated\n#SBATCH --error=%J.err         # redirect stderr to this file\n#SBATCH --output=%J.out        # redirect stdout to this file\n##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification\n##SBATCH --mail-type=end                                   # email on job end\n##SBATCH --mail-type=fail                                  # email on job failure\n\necho \"Some Usable Environment Variables:\"\necho \"=================================\"\necho \"hostname=$(hostname)\"\necho \\$SLURM_JOB_ID=${SLURM_JOB_ID}\necho \\$SLURM_NTASKS=${SLURM_NTASKS}\necho \\$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}\necho \\$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}\necho \\$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}\necho \\$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}\n\n# Write jobscript to output file (good for reproducibility)\ncat $0\nThe job can be submitted from the head node of the slurm cluster using the command:\nsbatch submit.sh\nThis particular job does nothing interesting except print out some useful job-specific slurm environment variables, which you may utilise in your job-scripts.\nThis job-script is actually just a simple bash script, and in bash the # character will comment out the remaining text on that line, and will not be parsed by the bash interpreter. In a slurm job-script however, the lines starting with #SBATCH is parsed by slurm before the script is handed over to the bash interpreter. The #SBATCH lines will inform the slurm scheduler of the amount of resources requested for the job.\nIf you would like to comment out certain slurm commands in your job-script, simply add an extra # at the beginning of the #SBATCH lines (as we have done in the above example for all email-related commands).\nSome further useful (but not exhaustive) SBATCH options are detailed:\n\n\n\n\n\n\n\nSBATCH option\nDescription\n\n\n\n\n–ntasks-per-node\nallocate n tasks per allocated node.\n\n\n–nodes\nset the number of nodes that the job will require. Each node will have –ntasks-per-node processes started\n\n\n–ntasks\nspawn n tasks (default=1). This determines how many processes will be spawned (for MPI jobs).\n\n\n–cpus-per-task\nallocate n CPUs per task. This option is needed for multi-threaded jobs. Typically n should be equal to the number of threads your program spawns.\n\n\n–partition\nselect the partition (queue) where you want to execute your job. Depending on the HPC system you are using, there may, or may not, be much choice.\n\n\n–mem-per-cpu\nspecify the the memory needed per allocated CPU in MB.\n\n\n–job-name\nname your job. This name will be shown in the queue status and email alerts. It is also important for job chaining.\n\n\n–output\nspecify a filename that will be used to store the stdout of your job. The slurm variable %J is useful here which slurm will interpret as the job_id of the job.\n\n\n–error\nsimilar to the –output option, but redirect your job’s stderr.\n\n\n\n\nResource Limitations\nOn the a slurm cluster, the slurm scheduler keeps track of both requested CPUs, and memory. If your job exceeds the currently available resources then your job will be queued until sufficient resources are available. If your job exceeds the total amount of resources available on the compute nodes then your job submission will fail and will not be queued, in which case an error will be returned.",
@@ -898,8 +909,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#my-first-slurm-job---excersise",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#my-first-slurm-job---excersise",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#my-first-slurm-job---excersise",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#my-first-slurm-job---excersise",
     "title": "Extension Gomphus Slurm HPC",
     "section": "My first slurm Job - Excersise",
     "text": "My first slurm Job - Excersise\nTo submit an appropriately configured job-script to the slurm queue, use the command:\nsbatch submit.sh\nUse cat or less to rReview the content of the .out and .err files - note the .out file should contain a summary of the varibles used by the script and the program you ran.\nThe gomphus cluster has a number of example job-scripts (located under ~/classdata/REFS/slurm on the gompus.bios.cf.ac.uk server). You may submit these jobs with the following commands on the gomphus cluster:\n# first cd to your allocated ~/mydata/ folder.\nmkdir -p test_jobs && cd test_jobs\ncp ~/classdata/REFS/slurm/slurm_examples/example1/* .\nsbatch example1.sh\nWhat is the function of this example script ??",
@@ -909,8 +920,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#loading-programs-in-slurm-scripts",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#loading-programs-in-slurm-scripts",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#loading-programs-in-slurm-scripts",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#loading-programs-in-slurm-scripts",
     "title": "Extension Gomphus Slurm HPC",
     "section": "Loading programs in slurm scripts",
     "text": "Loading programs in slurm scripts\nReview what programs are available too you using\nmodule avail\nPrograms should be loaded using ‘module load’ after the slurm parameters have been defined and before you define variable or provide commands for you program.\nmodule list for gomphus (2022)\n-------------- /mnt/clusters/sponsa/software/nospack/modulefiles --------------\nartemis/18.2.0              multiqc/1.13              rnammer/1.2\nbioconvert/0.4.3            panaroo/1.3.0             snippy/v4.6.0\nbioperl-live/release-1-7-2  perl/5.34.0               snp-sites/2.5.1\nblast/2.12.0                prokka_mambaforge/1.14.6  SPAdes/3.15.5\nfmlrc/v1.0.0                python/3.7.4              treeview/1.2.0\ngromacs/2022.3              python/3.10.5             unicycler/v0.5.0\njava/11.0.2                 qiime2/2022.8\nmitos/2.0.4                 quast/5.2.0\n\n-- /mnt/clusters/sponsa/software/spack/share/spack/modules/linux-rocky8-zen ---\nabyss/2.3.1        fastqc/0.11.9         picard/2.26.2       velvet/1.2.10\nalan/2.1.1         fasttree/2.1.10       pilon/1.22          vt/0.5772\nbarrnap/0.8        fastx-toolkit/0.0.14  prokka/1.14.6       wtdbg2/2.3\nbcftools/1.14      figtree/1.4.3         racon/1.4.3\nbedtools2/2.30.0   freebayes/1.3.6       raxml-ng/1.0.2\nblast-plus/2.12.0  gdbm/1.19             samtools/1.15.1\nbowtie2/2.4.2      hmmer/3.3.2           seqtk/1.3\ncaliper/2.8.0      igv/2.12.3            spades/3.15.3\ncdhit/4.8.1        mafft/7.481           star/2.7.6a\ndos2unix/7.4.2     mcl/14-137            subread/2.0.2\ndyninst/12.2.0     minimap2/2.14         tbl2asn/2022-04-26\nemboss/6.6.0       ncurses/6.3           tmux/3.2a\nfastp/0.20.0       perl-bioperl/1.7.6    trimmomatic/0.39\n\n----------------------- /usr/share/Modules/modulefiles ------------------------\ndot  module-git  module-info  modules  null  use.own",
@@ -920,8 +931,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#viewing-information-about-a-job",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#viewing-information-about-a-job",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#viewing-information-about-a-job",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#viewing-information-about-a-job",
     "title": "Extension Gomphus Slurm HPC",
     "section": "Viewing Information About a Job",
     "text": "Viewing Information About a Job\n\nInformation on Running Jobs\nIf your job-script used the srun command to kick off a (parallel) process, then slurm will be able to provide live information about your running job. All information about your running job can be listed with the sstat command:\nsstat -l -j [jobid]\nIn particular it may be useful to compare the fields MaxRSS and ReqMem. These fields report the actual max memory of a single task, and the requested memory of a single task, respectively. You may then tune any future job-scripts to more accurately represent your jobs, which will lead to better queue efficiency - meaning your job will likely start sooner.\nIf any application call within your job-script did not use the srun command, then no live information will be available. Instead, wait for your job to finish and use the sacct command, as described below.\n\n\nInformation on Completed Jobs\nSimilar to the sstat command used for running jobs, the sacct command will provide equivalent information about completed jobs.",
@@ -931,8 +942,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#useful-slurm-related-commands",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#useful-slurm-related-commands",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#useful-slurm-related-commands",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#useful-slurm-related-commands",
     "title": "Extension Gomphus Slurm HPC",
     "section": "Useful Slurm-Related Commands",
     "text": "Useful Slurm-Related Commands\nThe sinfo command can supply a lot of useful information about the nodes and available resources. A useful set of parameters of which to call sinfo with is the following:\nsinfo -o \"%24N %.5D %9P %11T %.4c %.8z %.8m %.8d %.6w %8f %15C %20E\"\nNODELIST                 NODES PARTITION STATE       CPUS    S:C:T   MEMORY TMP_DISK WEIGHT AVAIL_FE CPUS(A/I/O/T)   REASON              \ngomphus[1-4]                 4 defq*     idle          32   1:32:1    62250        0      1 (null)   0/128/0/128     none \nHere, we see a list of nodes on the gomphus cluster (grouped by partition, and by state), and information about the nodes. In this particular instance we see that gomphus has 4 nodes [1-4] each with 32 CPUS. The CPUS(A/I/O/T) column shows that the defq partition has a total of 0 CPUs Allocated, 128 CPUs Idle, 0 in state Other, making a Total of 128 (all 4 nodes combined).\nThe above command is a bit of a handful. You have already used the wrapper script created for you gomphus.job_history.sh\n\nother useful commands\nTo cancel a running job:\n$ scancel [jobid]\ninformation about the compute nodes:\n$ sinfo -lNe\nList the current status of the slurm queue:\n$ squeue\nFind information on previously completed jobs:\n$ sacct\nList information on running jobs:\n$ sstat",
@@ -942,8 +953,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#constructing-a-slurm-job---good-practice",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#constructing-a-slurm-job---good-practice",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#constructing-a-slurm-job---good-practice",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#constructing-a-slurm-job---good-practice",
     "title": "Extension Gomphus Slurm HPC",
     "section": "Constructing a slurm Job - good practice",
     "text": "Constructing a slurm Job - good practice\nAdapt RNAseq processing script 1-QC.sh (see session Session5 -RNAseq-Processing) to run under slurm (do not run script 2 – building genome) ** if you find this easy try adapting script 3,4 and 5.\nYou may want to discuss the resources required for the job.\nHints:\ndefine directories using full path derived with PWD -P\n~/mydata/ = /mnt/clusters/sponsa/data/$USER/\nWhen creating composite variables use enclose them in quotation marks to ensure they expand.\n\"${indir}/fastq/${i}_1.fastq\"",
@@ -953,8 +964,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#interactive-jobs",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#interactive-jobs",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#interactive-jobs",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#interactive-jobs",
     "title": "Extension Gomphus Slurm HPC",
     "section": "Interactive Jobs",
     "text": "Interactive Jobs\nEnter an interactive job and use this to review the files created by the RNAseq processing scripts.\n##Use any avalible node\nsrun -c 4 --mem=8G -p defq --pty bash\n\n##use a specific node - in this example called gomphus3\n\nsrun -c 4 --mem=8G -p defq --nodelist=gomphus3 --pty bash\nRemember to exit the interactive job when you are finished by typing exit\nAdvanced: Some HPC architectures will allow you to directly write to the ‘local’ harddrive /tmp For jobs with lots of I/O and where the nodes are using new M2 SSD drives this can accelerate certain types of jobs.",
@@ -964,8 +975,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#blast-as-an-example",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#blast-as-an-example",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#blast-as-an-example",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#blast-as-an-example",
     "title": "Extension Gomphus Slurm HPC",
     "section": "blast as an example",
     "text": "blast as an example\nWe take a closer look at running jobs on our cluster, we should provide examples of benchmarking code in order to find how to best utilise the resources available.\nWe start off by benchmarking a simple blast job, initially running over a single core, then parallelizing the job using blast’s built-in threading. All jobs are run on a single node, and we test a number of nodes and compare results. For example source code, see the folder ~/classdata/REFS/slurm/slurm_examples/indepth_parallelizing_blastp on the gomphus server.\nRemember to run all commands in your ~/mydata/[directory].\nFirst we obtain the sample data:\n# this is already downloaded to ~/classdata/REFS/slurm/slurm_examples/indepth_parallelizing_blastp/\ncurl -L -o TAIR10_pep.fasta  https://www.arabidopsis.org/download_files/Proteins/TAIR10_protein_lists/TAIR10_pep_20101214\n\n## we can prepare the data within a interactive job\nsrun -c 4 --mem=8G -p defq --pty bash\n\n## navigate to mydata directory\ncd ~/mydata/\n\n## make a dirctory for blast test\nmkdir -p blast_test && cd blast_test \n\n## copy TAIR file accross from class data to local file system\ncp /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/indepth_parallelizing_blastp/run2_split-files4/TAIR10_pep.fasta .\n\n## Makeblast db from downloaded file\nmodule load blast/2.12.0\nmakeblastdb -in TAIR10_pep.fasta -parse_seqids -dbtype prot -title \"Small protein database\" -out TAIR10_pep\n\n##copy the query sub-set\ncp /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/indepth_parallelizing_blastp/TAIR10_pep_4000.fasta .\n\nexit\nNow create the job Script - blastp.sh\n#!/bin/bash\n#SBATCH --partition=defq       # the requested queue\n#SBATCH --nodes=1              # number of nodes to use\n#SBATCH --tasks-per-node=1     # \n#SBATCH --cpus-per-task=1      #   \n#SBATCH --mem-per-cpu=92000     # in megabytes, unless unit explicitly stated\n#SBATCH --error=%J.err         # redirect stderr to this file\n#SBATCH --output=%J.out        # redirect stdout to this file\n##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification\n##SBATCH --mail-type=start                                 # email on job start  \n##SBATCH --mail-type=end                                   # email on job end\n##SBATCH --mail-type=fail                                  # email on job failure\n\necho \"Usable Environment Variables:\"\necho \"=============================\"\necho \\$SLURM_JOB_ID=${SLURM_JOB_ID} \necho \\$SLURM_NTASKS=${SLURM_NTASKS}\necho \\$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}\necho \\$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}\necho \\$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}\necho \\$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}\ncat $0\n\nmodule load blast/2.12.0\n\nindir=\"/mnt/clusters/sponsa/data/${USER}/blast_test\"\n\ndbdir=\"/mnt/clusters/sponsa/data/${USER}/blast_test\"\n\noutdir=\"/mnt/clusters/sponsa/data/${USER}/blast_test\"\n\ntime blastp -num_threads ${SLURM_CPUS_PER_TASK} \\\n            -query \"${indir}/TAIR10_pep_4000.fasta\" \\\n            -task blastp \\\n            -num_descriptions 16 \\\n            -num_alignments 1 \\\n            -db ${dbdir}/TAIR10_pep \\\n            -out \"${outdir}/blastp_cpu${SLURM_CPUS_PER_TASK}_job${SLURM_JOBID}.txt\"\n\nRun this blast script a number of times, increasing the –cpus-per-task and decreasing the –mem-per-cpu variables accordingly (ie 2 cpus-per-task & 46000 mem-per-cpu, 3 cpus-per-task & 30600 mem-per-cpu …..16 cpus-per-task & 5750 mem-per-cpu. Review the benchmarks considering the resources needed and the time taken to execute the jobs\nWhat are your conclusions",
@@ -975,8 +986,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#reviewing-and-optimising-job-resources",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#reviewing-and-optimising-job-resources",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#reviewing-and-optimising-job-resources",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#reviewing-and-optimising-job-resources",
     "title": "Extension Gomphus Slurm HPC",
     "section": "Reviewing and optimising job resources",
     "text": "Reviewing and optimising job resources\n\nUse gomphus.job_history.sh to review the efficiency of your job",
@@ -986,8 +997,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#parallel-jobs",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#parallel-jobs",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#parallel-jobs",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#parallel-jobs",
     "title": "Extension Gomphus Slurm HPC",
     "section": "Parallel Jobs",
     "text": "Parallel Jobs\nThere are a number of different scenarios in which you may want to parallelize your job:\n\nEmbarrassingly parallel\nMPI - a multi-process application (possibly across multiple compute hosts)\nmulti-threading - shared memory using OpenMP or perhaps pthreads.\nmultiple instances of a single application.\n…plus more scenarios but are probably out of scope of this tutorial.",
@@ -997,8 +1008,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#embarrassingly-parallel",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#embarrassingly-parallel",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#embarrassingly-parallel",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#embarrassingly-parallel",
     "title": "Extension Gomphus Slurm HPC",
     "section": "Embarrassingly parallel",
     "text": "Embarrassingly parallel\nMany processes in genomics do the same task on large arrays of data. One of the simplest way of speeding up the process is to split up the input files and perfrom the same task multiple times at the same time - this is called an _‘Embarrassingly parallel’ task.\nLets do this for the blast example that we started in the last task. We can investigate whether there are any further methods of improving performance, and attempt to find a improvemet in the initial blast job’s solution to reduce the time taken. As it turns out, it is possible in this situation to split the input fasta file into a number of sections, and have an independent job acting on each of those sections. Each independent job could then be parallelized, say over 8 threads, and all jobs can run concurrently.\nWe create a job script (mammoth_8thread_split_1of4.sh) that will run blast command on the first file-section only.\nWe perform the following sequence of commands, first splitting the input fasta file into 4 parts, then creating the 4 independent job-scripts, and submit the jobs.\n## enter a interactive Job\nsrun -c 4 --mem=8G -p defq --pty bash\ncd ~/mydata/blast_test/\n\n## a new folder\nmkdir split-files4\ncd split-files4/\ncp ~/TAIR10_pep_4000.fasta  .\n#\n## split the fasta file into 4 equal(ish) sections\ncurl -L https://raw.githubusercontent.com/gmarnellos/Trinotate_example_supplement/master/split_fasta.pl | perl /dev/stdin  TAIR10_pep_4000.fasta  TAIR10_pep.vol 1000\ncreate script that will spawn blast_jobs (use nano or vi) - spawn_blastp.sh\n!#/bin/bash\n\nfor i in {1..4};do\n\nexport i\n\nsbatch blastp.sh\n\ndone\nmake script executable chmod +x spawn_blastp.sh\nEdit blast job so that each time it is called it uses a different section of the query file\n#!/bin/bash\n#SBATCH --partition=defq       # the requested queue\n#SBATCH --nodes=1              # number of nodes to use\n#SBATCH --tasks-per-node=1     # \n#SBATCH --cpus-per-task=8      #   \n#SBATCH --mem-per-cpu=11500    # in megabytes, unless unit explicitly stated\n#SBATCH --error=%J.err         # redirect stderr to this file\n#SBATCH --output=%J.out        # redirect stdout to this file\n##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification\n##SBATCH --mail-type=start                                 # email on job start  \n##SBATCH --mail-type=end                                   # email on job end\n##SBATCH --mail-type=fail                                  # email on job failure\n\necho \"Usable Environment Variables:\"\necho \"=============================\"\necho \"hostname=$(hostname)\"\necho \\$SLURM_JOB_ID=${SLURM_JOB_ID} \necho \\$SLURM_NTASKS=${SLURM_NTASKS}\necho \\$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}\necho \\$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}\necho \\$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}\necho \\$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}\n\ncat $0\n\nmodule load blast/2.12.0\n\nindir=\"/mnt/clusters/sponsa/data/${USER}/blast_test/split-files4\"\n\ndbdir=\"/mnt/clusters/sponsa/data/${USER}/blast_test\"\n\noutdir=\"/mnt/clusters/sponsa/data/${USER}/blast_test/split-files4\"\n\ntime blastp -num_threads ${SLURM_CPUS_PER_TASK} \\\n            -query \"${indir}/TAIR10_pep.vol.${i}.fasta\" \\\n            -task blastp \\\n            -num_descriptions 16 \\\n            -num_alignments 1 \\\n            -db ${dbdir}/TAIR10_pep \\\n            -out \"${outdir}/blastp_vol${i}_cpu${SLURM_CPUS_PER_TASK}_job${SLURM_JOBID}.txt\"\nPerform file-splitting procedure for both a 2-split and a 4-split of the original fasta file. The ‘time-to-solution’ results are added to the original benchmark chart. We assume that all jobs run concurrently, and we take the wall-time for the longest job",
@@ -1008,8 +1019,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#mpi-jobs",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#mpi-jobs",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#mpi-jobs",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#mpi-jobs",
     "title": "Extension Gomphus Slurm HPC",
     "section": "MPI Jobs",
     "text": "MPI Jobs\nOur example MPI job is based on a quantum espresso calculation. This script utilises the srun command, which is part of the slurm family of tools to run a parallel job on a cluster\n#!/bin/bash\n#SBATCH --partition=mammoth    # the requested queue\n#SBATCH --job-name=qe_mpi      # name the job           \n#SBATCH --nodes=1              # number of nodes to use\n#SBATCH --ntasks=32            # total number of tasks (processes)\n#SBATCH --mem-per-cpu=100      # in megabytes, unless unit explicitly stated\n#SBATCH --error=%J.err         # redirect stderr to this file\n#SBATCH --output=%J.out        # redirect stdout to this file\n##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification\n##SBATCH --mail-type=end                                   # email on job end\n##SBATCH --mail-type=fail                                  # email on job failure\n\nmodule load  qe/6.0\n\necho \"Usable Environment Variables:\"\necho \"=============================\"\necho \"hostname=$(hostname)\"\necho \\$SLURM_JOB_ID=${SLURM_JOB_ID}\necho \\$SLURM_NTASKS=${SLURM_NTASKS}\necho \\$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}\necho \\$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}\necho \\$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}\necho \\$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}\necho \"module list:\"\nmodule list 2&gt;&1\n\n# Some of these environment variables are utilised by the qe executable itself\nexport ESPRESSO_DATAPATH=/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example2_mpi/\nexport ESPRESSO_PSEUDO=${ESPRESSO_DATAPATH}\nexport ESPRESSO_TMPDIR=${ESPRESSO_DATAPATH}/${SLURM_JOB_ID}\n\n# handy to place this in job output for future reference...\ncat ${ESPRESSO_DATAPATH}/atom.in\n\n# execute the parallel job (we also time it)\ntime srun -n ${SLURM_NTASKS} pw.x &lt; ${ESPRESSO_DATAPATH}/atom.in &gt; atom.job${SLURM_JOB_ID}.out\nThe job requests 32 cores to be allocated, and runs the srun command with the argument -n ${SLURM_NTASKS} which tells srun to spawn the mpi-job with the total number of processes requested. Quantum Espresso utilises the environment variable ESPRESSO_TMPDIR which points to a temporary folder. We design this in our slurm script to point to a subfolder.\nAn alternative storage location is the compute node’s local storage. This can improve runtime I/O performance. However, local storage on the compute nodes is limited (Gigabytes not Terabytes), and it’s availability is a little hidden from the user, so take care not to fill up the disk(!) and remove all files from the compute node’s local storage within the job script (your only access to the compute node’s /local folder is via the slurm script). An alternative job script which utilises a compute node’s /local storage is provided on the gomphus server /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example2_mpi/example2_mpi_localstorage.sh.",
@@ -1019,8 +1030,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#threaded-jobs",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#threaded-jobs",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#threaded-jobs",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#threaded-jobs",
     "title": "Extension Gomphus Slurm HPC",
     "section": "Threaded Jobs",
     "text": "Threaded Jobs\nA number of popular bioinformatics software are capable of parallelising execution using threads (usually OpenMP or pthreads). This parallelisation method does not normally use distributed memory, so the application will need to be run on a single node. Our threaded example slurm-script is based on BLAST+. The job script is listed:\n#!/bin/bash\n#SBATCH --partition=defq\n#SBATCH --nodes=1\n#SBATCH --tasks-per-node=1\n#SBATCH --cpus-per-task=8\n#SBATCH --mem-per-cpu=2000\n#SBATCH --error=%J.err\n#SBATCH --output=%J.out\n##SBATCH --mail-type=end\n##SBATCH --mail-user=[your.email@address]\n\n\n# Example slurm script\n#  This script is a little wasteful of resources,\n#  but demonstrates a simple pipeline.\n#  \n#  For a more efficient use of resources, please consider\n#  running the pipeline as a series of jobs (chain-jobs).\n\n\necho \"Usable Environment Variables:\"\necho \"=============================\"\necho \"hostname=$(hostname)\"\necho \\$SLURM_JOB_ID=${SLURM_JOB_ID}\necho \\$SLURM_NTASKS=${SLURM_NTASKS}\necho \\$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}\necho \\$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}\necho \\$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}\necho \\$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}\necho \"module list:\"\nmodule list 2&gt;&1\n\nDATAFOLDER=/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example3_pipeline\n\n\n### The data used in this pipeline has already been downloaded and stored in $DATAFOLDER.\n### Here are the commands used to download the data...\n# cd $DATAFOLDER\n# curl -LO https://data.broadinstitute.org/Trinity/Trinotate_v2.0_RESOURCES/uniprot_sprot.trinotate_v2.0.pep.gz\n# gunzip uniprot_sprot.trinotate_v2.0.pep.gz\n# curl -LO https://data.broadinstitute.org/Trinity/Trinotate_v2.0_RESOURCES/Pfam-A.hmm.gz\n# gunzip Pfam-A.hmm.gz\n# curl -L -o Trinotate.sqlite.gz https://data.broadinstitute.org/Trinity/Trinotate_v2.0_RESOURCES/Trinotate.sprot_uniref90.20150131.boilerplate.sqlite.gz\n# gunzip Trinotate.sqlite.gz\n# curl -LO ftp://ftp.ensembl.org/pub/release-82/fasta/mus_musculus/cdna/Mus_musculus.GRCm38.cdna.all.fa.gz\n# gunzip Mus_musculus.GRCm38.cdna.all.fa.gz\n# curl -LOgz https://github.com/gmarnellos/Trinotate_example_supplement/raw/master/mouse38_cdna.fa.gz\n# gunzip mouse38_cdna.fa.gz\n\n# Now we get on to the pipeline\n\n# make a link to all datafiles\nfor f in ${DATAFOLDER}/* ; do ln -s $f ; done\n\n#Index the SwissProt database for use with blast\n\nmodule load blast\nmakeblastdb -version\nmakeblastdb -in uniprot_sprot.trinotate_v2.0.pep -dbtype prot\nmodule unload blast\n\n# Prepare the Pfam database for use with hmmscan\nmodule load hmmer\nhmmpress -h\nhmmpress Pfam-A.hmm\nmodule load hmmer\n\n# Use Transdecoder to produce the most likely longest-ORF peptide candidates\nmodule load TransDecoder/v3.0.1\nTransDecoder.LongOrfs -t mouse38_cdna.fa\nTransDecoder.Predict -t mouse38_cdna.fa\nmodule unload TransDecoder/v3.0.1\n\nmodule load blast\nblastx -query mouse38_cdna.fa -db uniprot_sprot.trinotate.pep -num_threads ${SLURM_CPUS_PER_TASK} -max_target_seqs 1 -outfmt 6 &gt; blastx.vol.outfmt6\nblastp -query mouse38_cdna.fa.transdecoder.pep -db uniprot_sprot.trinotate_v2.0.pep -num_threads ${SLURM_CPUS_PER_TASK} -max_target_seqs 1 -outfmt 6 &gt; blastp.vol.outfmt6\nmodule unload blast\n\n# Identify protein domains\nmodule load hmmer/3.1b2\nhmmscan --cpu ${SLURM_CPUS_PER_TASK} --domtblout TrinotatePFAM.out Pfam-A.hmm mouse38_cdna.fa.transdecoder.pep &gt; pfam.log\nmodule unload hmmer/3.1b2\n\n# Produce the Gene/Transcript relationship\ngrep \"^&gt;\" Mus_musculus.GRCm38.cdna.all.fa   | perl -p -e 's/^&gt;(\\S+).*\\s+gene:(ENSMUSG\\d+).*$/$2\\t$1/' &gt; gene_transcript_map.txt\n\n# Now populate the sqlite database\nmodule load Trinotate/v3.0.1\nTrinotate Trinotate.sqlite init --gene_trans_map gene_transcript_map.txt --transcript_fasta mouse38_cdna.fa --transdecoder_pep mouse38_cdna.fa.transdecoder.pep\nTrinotate Trinotate.sqlite LOAD_swissprot_blastp blastp.vol.outfmt6\nTrinotate Trinotate.sqlite LOAD_swissprot_blastx blastx.vol.outfmt6\nTrinotate Trinotate.sqlite LOAD_pfam TrinotatePFAM.out\n# Create the annotation report\nTrinotate Trinotate.sqlite report -E 0.00001 &gt; trinotate_annotation_report.xls\nmodule unload Trinotate/v3.0.1\nThis is quite a busy job-script (and also inefficient on resources!). It runs through a number of steps, but some of those steps will utilise parallelisation via threading, and use the slurm environment variable SLURM_CPUS_PER_TASK to inform the application(s) of the correct number of threads.\nBut why is this job inefficient on resources? This particular job involves a number of steps: some utilising parallelisation, and some not; some memory-hungry, others not. The problem with this is that the job has allocated to it a set amount of resources (compute and memory), which is allocated to it for the lifetime of the job. But only at certain times in this job are the resources requested fully utilised. At all other times this job is running, the resources are allocated, but not used, and therefore making those resources unavailable to other jobs. This has a knock-on effect of increasing queue-times, and leaves expensive resources idle.\nA much more efficient way of running the same pipeline is to chain the job - split the pipeline into component parts and submit separate jobs for each of those parts. Each section of the pipeline (having its own job-script) is then free to allocate resources specific to that section of the pipeline. In the slurm world this is called job chaining, and has been exemplified in the next section using the same pipeline.",
@@ -1030,8 +1041,8 @@
     ]
   },
   {
-    "objectID": "1.4_Extension_Gomphus_Slurm_HPC.html#job-chains-and-job-dependency",
-    "href": "1.4_Extension_Gomphus_Slurm_HPC.html#job-chains-and-job-dependency",
+    "objectID": "1.5_Extension_Gomphus_Slurm_HPC.html#job-chains-and-job-dependency",
+    "href": "1.5_Extension_Gomphus_Slurm_HPC.html#job-chains-and-job-dependency",
     "title": "Extension Gomphus Slurm HPC",
     "section": "Job Chains and Job Dependency",
     "text": "Job Chains and Job Dependency\nChaining jobs is a method of sequentially running dependent jobs. Our chain-job example is a pipeline of 6 separate job scripts, based on the blast+ pipeline of the previous section. We do not show the full six job-scripts here for brevity, but are available on the gomphus cluster under /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain.\nSlurm has an option -d or –dependency that allows to specify that a job is only permitted to start if another job finished successfully.\nIn the folder (gomphus cluster) /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain there are 6 separate job-scripts that need to be executed in a certain order. They are numbered in the correct pipeline order:\n[user@gomphus ~]$ tree  /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain\n/mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain\n├── example4_chain-step1.sh\n├── example4_chain-step2.sh\n├── example4_chain-step3.sh\n├── example4_chain-step4.sh\n├── example4_chain-step5.sh\n├── example4_chain-step6.sh\n├── example4_submit_all.sh\n├── mouse38_cdna.fa\n├── Mus_musculus.GRCm38.cdna.all.fa\n├── Pfam-A.hmm\n├── pipeline1.sh\n├── Trinotate.sqlite\n└── uniprot_sprot.trinotate_v2.0.pep\n\n0 directories, 13 files\nEach job is (importantly) commonly named using #SBATCH –job-name within each job-script. Also within this folder is a simple script (example4_submit_all.sh) that will execute the sbatch command on each of the job-scripts in the correct order:\n#!/bin/bash:\n\nfor c in /mnt/clusters/sponsa/data/classdata/Bioinformatics/REFS/slurm/slurm_examples/example4_chain/example4_chain-step?.sh ;\ndo\n sbatch -d singleton $c\ndone\nThis sbatch command uses the -d singleton flag to notify slurm of the job-dependencies (all jobs must have the name job name defined by #SBATCH --job-name [some constant name]. At which point each submitted job will be forced to depend on successful completion of any previous job submitted by the same user, and with the same job-name. The full pipeline of 6 jobs will now run to completion, with no further user-intervention, making efficient use of the available resources.",

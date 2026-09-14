@@ -9,7 +9,7 @@
 <meta name="author" content="Prof.&nbsp;Peter Kille">
 <meta name="dcterms.date" content="2026-09-14">
 
-<title>Bioinformtics Cheat Sheet</title>
+<title>Loading Bioinformtic Software</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -97,7 +132,7 @@ background: darkred;
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body style="background-color:gray99;" class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -106,7 +141,7 @@ background: darkred;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1.1_Introduction_to_Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="./1.5_Bioinformtics_CheatSheet.html">Bioinformtics Cheat Sheet</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1.1_Introduction_to_Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="./1.4_Loading_Bioinformatic_Software.html">Loading Bioinformtic Software</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -118,9 +153,9 @@ background: darkred;
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1.1_Introduction_to_Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="./1.5_Bioinformtics_CheatSheet.html">Bioinformtics Cheat Sheet</a></li></ol></nav>
-      <h1 class="title">Bioinformtics Cheat Sheet</h1>
-            <p class="subtitle lead">When you just need a hint</p>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1.1_Introduction_to_Linux.html">Session 1. Linux: The basics</a></li><li class="breadcrumb-item"><a href="./1.4_Loading_Bioinformatic_Software.html">Loading Bioinformtic Software</a></li></ol></nav>
+      <h1 class="title">Loading Bioinformtic Software</h1>
+            <p class="subtitle lead">A world of software</p>
                       </div>
   </div>
     
@@ -206,8 +241,8 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1.2_Loading_Software_Accessing_Data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Loading Software and Accessing Data</span></a>
+  <a href="./1.2_Accessing_Creating_Files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accessing Data, visualisation and editing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -218,13 +253,19 @@ background: darkred;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1.4_Extension_Gomphus_Slurm_HPC.html" class="sidebar-item-text sidebar-link">
+  <a href="./1.4_Loading_Bioinformatic_Software.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Loading Bioinformtic Software</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1.5_Extension_Gomphus_Slurm_HPC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extension Gomphus Slurm HPC</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1.5_Bioinformtics_CheatSheet.html" class="sidebar-item-text sidebar-link active">
+  <a href="./1.6_Bioinformtics_CheatSheet.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bioinformtics Cheat Sheet</span></a>
   </div>
 </li>
@@ -385,11 +426,8 @@ background: darkred;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#compute-resources" id="toc-compute-resources" class="nav-link active" data-scroll-target="#compute-resources">Compute resources</a></li>
-  <li><a href="#introduction-to-linux" id="toc-introduction-to-linux" class="nav-link" data-scroll-target="#introduction-to-linux">Introduction to linux</a></li>
-  <li><a href="#software-and-data" id="toc-software-and-data" class="nav-link" data-scroll-target="#software-and-data">Software and data</a></li>
-  <li><a href="#command-line-tools-and-scripting" id="toc-command-line-tools-and-scripting" class="nav-link" data-scroll-target="#command-line-tools-and-scripting">Command Line Tools and Scripting</a></li>
-  <li><a href="#slurm" id="toc-slurm" class="nav-link" data-scroll-target="#slurm">Slurm</a></li>
+  <li><a href="#software" id="toc-software" class="nav-link active" data-scroll-target="#software">Software</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul>
 </nav>
     </div>
@@ -400,147 +438,10 @@ background: darkred;
 
 
 
-<section id="compute-resources" class="level1">
-<h1>Compute resources</h1>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Personal Cloud
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>server: <strong><code>[server].bios.cf.ac.uk</code></strong></p>
-<p>Username/password: <strong>[University Single sign-on (SO)]</strong></p>
-<p>sshPort: personal <strong>[provided at start of course]</strong></p>
-<section id="hpc-servers" class="level2">
-<h2 class="anchored" data-anchor-id="hpc-servers">HPC servers</h2>
-<p>server masters: <strong><code>gomphus-login.bios.cf.ac.uk</code></strong></p>
-<p>server research: <strong><code>skomer.bios.cf.ac.uk</code></strong></p>
-<p>Username/password: <strong>[University Single sign-on (SO)]</strong></p>
-<p>sshPort: <strong><code>22</code></strong></p>
-</section>
-</div>
-</div>
-</section>
-<section id="introduction-to-linux" class="level1">
-<h1>Introduction to linux</h1>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Basics
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>‘tab’</strong> - Tab complete</p>
-<p><strong><code>command parameters arguments</code></strong> - Anatomy of a Command</p>
-<p><strong><code>drwxrwxrwx</code></strong> - file per permissions: type - [read write execute]x3, user, group, world</p>
-<p><strong><code>chmod</code></strong> - Change file permissions</p>
-<p><strong><code>chmod +x</code></strong> - add execute for programs</p>
-<section id="moving-around" class="level2">
-<h2 class="anchored" data-anchor-id="moving-around">Moving Around</h2>
-<p><strong><code>ls</code></strong> - list directory (folder) content</p>
-<p><strong><code>ls -l</code></strong> - long list, show file permissions and sizes</p>
-<p><strong><code>cd</code></strong> - change directory</p>
-<p><strong><code>pwd</code></strong> - present working directory</p>
-<p><strong><code>.</code></strong> - current dir</p>
-<p><strong><code>..</code></strong> - back one level</p>
-<p><strong><code>~</code></strong> - home folder</p>
-</section>
-<section id="making-directories-moving-and-copying-data" class="level2">
-<h2 class="anchored" data-anchor-id="making-directories-moving-and-copying-data">Making Directories, Moving and Copying data</h2>
-<p><strong><code>mkdir</code></strong> - make a directory</p>
-<p><strong><code>cp</code></strong> - copy a file</p>
-<p><strong><code>cp -r</code></strong> - copy a folder (<code>-r</code> stands for recursive)</p>
-<p><strong><code>mv</code></strong> - move / rename file or folder</p>
-<p><strong><code>rm</code></strong> - delete a file <strong>no recycle bin in linux</strong></p>
-</section>
-</div>
-</div>
-</section>
-<section id="software-and-data" class="level1">
-<h1>Software and data</h1>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Loading software
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong><code>module avail</code></strong> - list software available</p>
-<p><strong><code>module load [software]</code></strong> - loads specific piece of software</p>
-<p><strong><code>module unload [software]</code></strong> - removed specific software</p>
-<p><strong><code>module purge</code></strong> - removes all software</p>
-<section id="visualisingpreviewing-files" class="level2">
-<h2 class="anchored" data-anchor-id="visualisingpreviewing-files">Visualising/previewing files</h2>
-<p><strong><code>less</code></strong> - preview a file (q to exit)</p>
-<p><strong><code>more</code></strong> - Display the contents of a file in a terminal</p>
-<p><strong><code>cat</code></strong> - print to screen</p>
-<p><strong><code>zcat</code></strong> - print compressed fie to screen</p>
-<p><strong><code>head -n 10</code></strong> - show first 10 lines of file</p>
-<p><strong><code>tail -n 10</code></strong> - show last 10 lines of file</p>
-<p>*<strong><code>cat, more, head and tail</code></strong> only work on uncompressed files</p>
-</section>
-<section id="editing-files" class="level2">
-<h2 class="anchored" data-anchor-id="editing-files">Editing Files</h2>
-<p><strong><code>nano</code></strong> - text editor with on screen prompts</p>
-<p><strong><code>vi</code></strong>or <strong><code>vim</code></strong> - text editor to impress the programmers (no on screen prompts)</p>
-</section>
-</div>
-</div>
-</section>
-<section id="command-line-tools-and-scripting" class="level1">
-<h1>Command Line Tools and Scripting</h1>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Search file
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong><code>grep</code></strong> - search a file</p>
-<p><strong><code>zgrep</code></strong> - search a compressed file</p>
-<p><strong><code>grep -c</code></strong> and <strong><code>zgrep -c</code></strong> - count the number of times a match is found</p>
-<p><strong><code>wc</code></strong> - count words in file</p>
-<p><strong><code>wc -l</code></strong> - count lines in file</p>
-<p><strong><code>sed 's/\[replace this\]/\[with this\]/g'</code></strong> - search and replace</p>
-<p><strong><code>&gt;</code></strong> - write to file</p>
-<p><strong><code>&gt;&gt;</code></strong> - Amend (add) to file</p>
-<section id="scripting-in-bash" class="level2">
-<h2 class="anchored" data-anchor-id="scripting-in-bash">Scripting in bash</h2>
-<p><strong><code>#!bin/bash</code></strong> - bash shebang tells linux this is a bash script</p>
-<p><strong><code>chmod +x</code></strong> - make your scipt executable</p>
-<p><strong><code>./[your own script]</code></strong> - run your script</p>
-<p><strong><code>variable="some stuff"</code></strong> - define a variable</p>
-<p><strong><code>${varible}</code></strong> = recalls the variable</p>
-<p><strong><code>${varible}_suffix</code></strong> - add suffix to variable</p>
-<p><strong><code>variable=$([function])</code></strong> - define variable as product of function</p>
-<p><strong><code>echo</code></strong> - Display to screen</p>
-<p><strong><code>printf</code></strong> - print to file <strong><code>\t</code></strong> - tab, <strong><code>\n</code></strong> line break</p>
-</section>
-<section id="loops" class="level2">
-<h2 class="anchored" data-anchor-id="loops">Loops</h2>
-<p><strong><code>for i in {1..[number]}; do; done</code></strong> - numerical loop from 1..[number]</p>
-<p><strong><code>for i in sampleA sampleB sampleC sampleD; do; done</code></strong> - simple text loop</p>
-<p><strong><code>for file in *; do ; done</code></strong> - file list loop</p>
-<p><strong><code>while read -r line; do; done &lt; [infile]</code></strong> - read in a file one line at a time</p>
-</section>
-</div>
-</div>
-</section>
-<section id="slurm" class="level1">
-<h1>Slurm</h1>
+
+<p>Now that you’re (hopefully) re-caffeinated and have stretched your legs and cleared your brain, let’s have a look at some more need-to-know information.</p>
+<section id="software" class="level1">
+<h1>Software</h1>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -551,18 +452,45 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong><code>ln -s [Full/Path] [shortcut]</code></strong> - Create symlink/shortcuts</p>
-<p><strong><code>sbatch \[slurm script\]</code></strong> - submit slurm script</p>
-<p><strong><code>squeue</code></strong> - list all jobs running</p>
-<p><strong><code>squeue -u ${USER}</code></strong> - list only user jobs</p>
-<p><strong><code>scancel [number]</code></strong> - cancel job</p>
-<p><strong><code>srun -c 4 --mem=8G -p [node] --pty bash</code></strong> - create interactive job</p>
-<p><strong><code>gomphus.node_availability.sh</code></strong> or <strong><code>skomer.node_availability.sh</code></strong> - shows node usage and availability</p>
-<p><strong><code>gomphus.job_history.sh</code></strong> or <strong><code>skomer.job_history.sh</code></strong> - show job history</p>
-<p><strong><code>sbatch -d singleton [slurm script</code></strong> - create slurm dependency</p>
-<p><strong><code>#SBATCH --job-name [some constant name]</code></strong> - ensure all jobs have same name for dependent scripts</p>
+<p>##Commands covered:</p>
+<p><code>module avail</code> - list software available</p>
+<p><code>module load [software]</code> - loads specific piece of software</p>
+<p><code>module unload [software]</code> - removed specific software</p>
+<p><code>module purge</code> - removes all software</p>
 </div>
 </div>
+<p>The linux OS has some really powerful utilities but these are not truly bioinformatics software. We have to ‘install’ or ‘load’ software. We do not want to have all our software loaded all the time, as many informatic tools are very complex i.e.&nbsp;requiring different versions of python or java to run. Having software that requires conflicting versions loaded at the same time can cause a malfunction.</p>
+<p>Most managed HPC systems (not your own personal computer) manage this by using modules. These are preconfigured installers for your software packages. Cardiff systems use modules - if this is the case you can see the software that is available try the following command:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>this will bring up a software list that looks something like the following:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/moduleavail_1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>module avail page 1</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/moduleavail_2.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>module avail page 2</figcaption>
+</figure>
+</div>
+<p>Any of these software packages can be loaded by simply using the module load command, e.g.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/v0.12.1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Remember to unload the module when you are finished so it does not conflict with the next piece of software, or if you want to unload all modules, use the module purge command.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload fastqc/v0.12.1</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">or</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> purge</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Module versions can change so check they are correct with <code>module avail</code> rather than just copy and pasting from the guide.</strong></p>
+</section>
+<section id="section" class="level1">
+<h1></h1>
 
 
 </section>

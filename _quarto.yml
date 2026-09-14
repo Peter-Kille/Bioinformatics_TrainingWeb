@@ -16,10 +16,11 @@ website:
       - section: "Session 1. Linux: The basics"
         contents:
           - 1.1_Introduction_to_Linux.qmd
-          - 1.2_Loading_Software_Accessing_Data.qmd
+          - 1.2_Accessing_Creating_Files.qmd
           - 1.3_Commandline_Tools_and_Scripting.qmd
-          - 1.4_Extension_Gomphus_Slurm_HPC.qmd
-          - 1.5_Bioinformtics_CheatSheet.qmd
+          - 1.4_Loading_Bioinformatic_Software.qmd
+          - 1.5_Extension_Gomphus_Slurm_HPC.qmd
+          - 1.6_Bioinformtics_CheatSheet.qmd
       - section: "Session 2. NGS data"
         contents:
           - 2.1_NGS_Quality_Control.qmd
