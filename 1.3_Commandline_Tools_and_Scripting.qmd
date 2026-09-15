@@ -20,7 +20,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 `grep` - search a file
 
-`zgrep` - search a conpressed file
+`zgrep` - search a compressed file
 
 `grep -c` and `zgrep -c` - count the number of times a match is found
 
@@ -30,7 +30,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 `sed 's/\[replace this\]/\[with this\]/g'` - search and replace
 
-`>` - to to file
+`>` - to write to a file
 
 `>>` - Ammend (add) to file
 :::
@@ -125,7 +125,7 @@ You can use all of grep functionality with a compressed file by adding a 'z' - j
 ::: callout-note
 ##Commands/concepts covered:
 
-`#!bin/bash` - bash shebang tells linux this is a bash script
+`#!/bin/bash` - bash shebang tells linux this is a bash script
 
 `chmod +x` - make your scipt executable
 

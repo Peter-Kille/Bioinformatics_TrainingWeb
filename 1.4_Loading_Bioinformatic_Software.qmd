@@ -2,7 +2,7 @@
 title-block-style: default
 title-block-banner: darkred
 title-block-banner-color: white
-title: "Loading Bioinformtic Software"
+title: "Loading Bioinformatic Software"
 subtitle: "A world of software"
 author: "Prof. Peter Kille"
 date: today
@@ -44,6 +44,12 @@ this will bring up a software list that looks something like the following:
 ![module avail page 1](images/moduleavail_1.png){width="100%"}
 
 ![module avail page 2](images/moduleavail_2.png){width="100%"}
+
+Some time the software list can be overwelming so you can look for modeul containign letter or stating with letter by adding them to the `module avail` command - ithis search also is case insensitive - case doesn't matter. e.g. if you run this command to look for all things that contain [uni]
+
+```{bash}
+module avail uni
+```
 
 Any of these software packages can be loaded by simply using the module load command, e.g.
 

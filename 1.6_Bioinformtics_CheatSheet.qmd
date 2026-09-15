@@ -79,19 +79,9 @@ sshPort: **`22`**
 **`rm`** - delete a file **no recycle bin in linux**
 :::
 
-# Software and data
+# Accessing, visualising adn editing files
 
 ::: callout-note
-## Loading software
-
-**`module avail`** - list software available
-
-**`module load [software]`** - loads specific piece of software
-
-**`module unload [software]`** - removed specific software
-
-**`module purge`** - removes all software
-
 ## Visualising/previewing files
 
 **`less`** - preview a file (q to exit)
@@ -166,6 +156,21 @@ sshPort: **`22`**
 
 **`while read -r line; do; done < [infile]`** - read in a file one line at a time
 :::
+
+# Loading Bioinformatic software
+::: callout-note
+
+## Loading and unloading software
+
+**`module avail`** - list software available
+
+**`module load [software]`** - loads specific piece of software
+
+**`module unload [software]`** - removed specific software
+
+**`module purge`** - removes all softwar
+:::
+
 
 # Slurm
 
