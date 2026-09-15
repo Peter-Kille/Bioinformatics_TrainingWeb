@@ -28,6 +28,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -546,87 +581,35 @@ ln -s /mnt/clusters/sponsa/data/${USER} mydata</code></pre>
 <p>The head node has a specific script that displays the resources available to you. Run the command:</p>
 <pre><code>gomphus.node_availability.sh</code></pre>
 <p>This should display the following information:</p>
-<pre><code>Key ('CPUS' column):
-  A = # cores Allocated
-  I = # cores Idle
-  O = # cores not 'Idle' or 'Allocated'
-  T = Total # of cores</code></pre>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>NODELIST</th>
-<th>NODES</th>
-<th>PARTITION</th>
-<th>STATE</th>
-<th>CPUS</th>
-<th>S:C:T</th>
-<th>MEMORY</th>
-<th>TMP_DISK</th>
-<th>WEIGHT</th>
-<th>AVAIL_FE</th>
-<th>CPUS(A/I/O/T)</th>
-<th>REASON</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>gomphus2</td>
-<td>1</td>
-<td>defq*</td>
-<td>idle</td>
-<td>64</td>
-<td>1:64:1</td>
-<td>93375</td>
-<td>0</td>
-<td>1</td>
-<td>(null)</td>
-<td>0/64/0/64</td>
-<td>none</td>
-</tr>
-<tr class="even">
-<td>gomphus3</td>
-<td>1</td>
-<td>defq*</td>
-<td>idle</td>
-<td>64</td>
-<td>1:64:1</td>
-<td>93375</td>
-<td>0</td>
-<td>1</td>
-<td>(null)</td>
-<td>0/64/0/64</td>
-<td>none</td>
-</tr>
-<tr class="odd">
-<td>gomphus1</td>
-<td>1</td>
-<td>defq*</td>
-<td>idle</td>
-<td>32</td>
-<td>1:32:1</td>
-<td>62250</td>
-<td>0</td>
-<td>1</td>
-<td>(null)</td>
-<td>0/32/0/32</td>
-<td>none</td>
-</tr>
-</tbody>
-</table>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Key</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="st">'CPUS'</span> column<span class="kw">)</span><span class="bu">:</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">A</span> = <span class="co"># cores Allocated</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">I</span> = <span class="co"># cores Idle</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">O</span> = <span class="co"># cores not 'Idle' or 'Allocated'</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">T</span> = Total <span class="co"># of cores</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="st">'MEMORY'</span><span class="kw">)</span><span class="bu">:</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">MEMORY</span>     = Total Memory on Node</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">ALLOCMEM:</span>  = Memory already requested by job<span class="er">(</span><span class="ex">s</span><span class="kw">)</span> <span class="kw">(</span><span class="ex">MB</span><span class="kw">)</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">FREEMEMORY</span> = Memory not reserved or requested on node <span class="er">(</span><span class="ex">MB</span><span class="kw">)</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="ex">NODELIST</span>   PARTITION    STATE        CPUS   S:C:T      MEMORY     ALLOCMEM   FREEMEMORY   CPUS<span class="er">(</span><span class="ex">A/I/O/T</span><span class="kw">)</span>   <span class="ex">FEATURES</span>             REASON</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="ex">b3-18</span>      epyc<span class="pp">*</span>        mixed        192    1:96:2     514800     139072     375728       24/168/0/192    ZEN5                 none</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="ex">b3-19</span>      epyc<span class="pp">*</span>        idle         192    1:96:2     514800     0          514800       0/192/0/192     ZEN5                 none</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="ex">b3-6</span>       gpu          idle         64     2:16:2     63000      0          63000        0/64/0/64       GPU,A100,ZEN2        none</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="ex">List</span> of QOS Partitions and allowed resources</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="ex">**</span> You do not need to specify QOS when running, these are set automatically based on the PARTITION</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="ex">PARTITION</span>            QOS                  MAX-TIME             MAX-SUBMIT      RESOURCE LIMIT</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="ex">------------------</span> <span class="kw">|</span> <span class="ex">------------------</span> <span class="kw">|</span> <span class="ex">------------------</span> <span class="kw">|</span> <span class="ex">-------------</span> <span class="kw">|</span> <span class="ex">------------------------</span> <span class="kw">|</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="ex">epyc</span>                 epyc_qos             3-00:00:00               2000        cpu=384,mem=1T,node=2</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="ex">gpu</span>                  gpu_qos              3-00:00:00               100         cpu=126,mem=128G,node=2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 </section>
 </section>
@@ -657,7 +640,7 @@ ln -s /mnt/clusters/sponsa/data/${USER} mydata</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td>defq</td>
+<td>epyc</td>
 <td>✔</td>
 <td>batch jobs, low mem/cpu requirement</td>
 <td></td>
@@ -668,30 +651,32 @@ ln -s /mnt/clusters/sponsa/data/${USER} mydata</code></pre>
 <section id="submitting-jobs-the-slurm-job-script" class="level2">
 <h2 class="anchored" data-anchor-id="submitting-jobs-the-slurm-job-script">Submitting Jobs (The Slurm Job-Script)</h2>
 <p>The typical method to start a job on a slurm cluster is to first create a job-script, then submit that job-script to the slurm queue using the sbatch command. The job-script is laid out in a certain way (examples below), which will first request resources on the compute nodes, and then define the individual steps of your job. Below is an example job script for gomphus slurm using the partition defq. We’ll name the job-script <code>submit.sh</code>:</p>
-<pre><code>#!/bin/bash
-#SBATCH --partition=defq       # the requested queue
-#SBATCH --nodes=1              # number of nodes to use
-#SBATCH --tasks-per-node=1     #
-#SBATCH --cpus-per-task=1      #   
-#SBATCH --mem-per-cpu=1000     # in megabytes, unless unit explicitly stated
-#SBATCH --error=%J.err         # redirect stderr to this file
-#SBATCH --output=%J.out        # redirect stdout to this file
-##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification
-##SBATCH --mail-type=end                                   # email on job end
-##SBATCH --mail-type=fail                                  # email on job failure
-
-echo "Some Usable Environment Variables:"
-echo "================================="
-echo "hostname=$(hostname)"
-echo \$SLURM_JOB_ID=${SLURM_JOB_ID}
-echo \$SLURM_NTASKS=${SLURM_NTASKS}
-echo \$SLURM_NTASKS_PER_NODE=${SLURM_NTASKS_PER_NODE}
-echo \$SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}
-echo \$SLURM_JOB_CPUS_PER_NODE=${SLURM_JOB_CPUS_PER_NODE}
-echo \$SLURM_MEM_PER_CPU=${SLURM_MEM_PER_CPU}
-
-# Write jobscript to output file (good for reproducibility)
-cat $0</code></pre>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --partition=epyc       # the requested queue</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --nodes=1              # number of nodes to use</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --tasks-per-node=1     #</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task=1      #   </span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem-per-cpu=1000     # in megabytes, unless unit explicitly stated</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --error=%J.err         # redirect stderr to this file</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --output=%J.out        # redirect stdout to this file</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">##SBATCH --mail-user=[insert email address]@Cardiff.ac.uk  # email address used for event notification</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">##SBATCH --mail-type=end                                   # email on job end</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">##SBATCH --mail-type=fail                                  # email on job failure</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Some Usable Environment Variables:"</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"================================="</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"hostname=</span><span class="va">$(</span><span class="fu">hostname</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="dt">\$</span>SLURM_JOB_ID=<span class="va">${SLURM_JOB_ID}</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="dt">\$</span>SLURM_NTASKS=<span class="va">${SLURM_NTASKS}</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="dt">\$</span>SLURM_NTASKS_PER_NODE=<span class="va">${SLURM_NTASKS_PER_NODE}</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="dt">\$</span>SLURM_CPUS_PER_TASK=<span class="va">${SLURM_CPUS_PER_TASK}</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="dt">\$</span>SLURM_JOB_CPUS_PER_NODE=<span class="va">${SLURM_JOB_CPUS_PER_NODE}</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="dt">\$</span>SLURM_MEM_PER_CPU=<span class="va">${SLURM_MEM_PER_CPU}</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Write jobscript to output file (good for reproducibility)</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">$0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>The job can be submitted from the head node of the slurm cluster using the command:</p>
 <pre><code>sbatch submit.sh</code></pre>
 <p>This particular job does nothing interesting except print out some useful job-specific slurm environment variables, which you may utilise in your job-scripts.</p>

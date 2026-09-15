@@ -69,7 +69,7 @@ This should display the following information:
 Disk quotas for user smbpk (uid 31961):
 
 | Filesystem | space | quota | limit | grac | files | quota | limit | grace |
-|----|----|----|----|----|----|----|----|----|
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|
 | /dev/mapper/cl-root | 32K | 5120M | 7168M |  | 13 | 0 | 0 |  |
 | 192.168.2.41:/mnt/data/clusters/anax | 4K | 1978G | 2078G |  | 6 | 0 | 0 |  |
 
@@ -93,19 +93,35 @@ gomphus.node_availability.sh
 
 This should display the following information:
 
-```         
-Key ('CPUS' column):
+```{bash}         
+Key
+
+('CPUS' column):
   A = # cores Allocated
   I = # cores Idle
   O = # cores not 'Idle' or 'Allocated'
   T = Total # of cores
-```
 
-| NODELIST | NODES | PARTITION | STATE | CPUS | S:C:T | MEMORY | TMP_DISK | WEIGHT | AVAIL_FE | CPUS(A/I/O/T) | REASON |
-|----|----|----|----|----|----|----|----|----|----|----|----|
-| gomphus2 | 1 | defq\* | idle | 64 | 1:64:1 | 93375 | 0 | 1 | (null) | 0/64/0/64 | none |
-| gomphus3 | 1 | defq\* | idle | 64 | 1:64:1 | 93375 | 0 | 1 | (null) | 0/64/0/64 | none |
-| gomphus1 | 1 | defq\* | idle | 32 | 1:32:1 | 62250 | 0 | 1 | (null) | 0/32/0/32 | none |
+('MEMORY'):
+  MEMORY     = Total Memory on Node
+  ALLOCMEM:  = Memory already requested by job(s) (MB)
+  FREEMEMORY = Memory not reserved or requested on node (MB)
+
+
+NODELIST   PARTITION    STATE        CPUS   S:C:T      MEMORY     ALLOCMEM   FREEMEMORY   CPUS(A/I/O/T)   FEATURES             REASON
+b3-18      epyc*        mixed        192    1:96:2     514800     139072     375728       24/168/0/192    ZEN5                 none
+b3-19      epyc*        idle         192    1:96:2     514800     0          514800       0/192/0/192     ZEN5                 none
+b3-6       gpu          idle         64     2:16:2     63000      0          63000        0/64/0/64       GPU,A100,ZEN2        none
+
+List of QOS Partitions and allowed resources
+
+** You do not need to specify QOS when running, these are set automatically based on the PARTITION
+
+PARTITION            QOS                  MAX-TIME             MAX-SUBMIT      RESOURCE LIMIT
+------------------ | ------------------ | ------------------ | ------------- | ------------------------ |
+epyc                 epyc_qos             3-00:00:00               2000        cpu=384,mem=1T,node=2
+gpu                  gpu_qos              3-00:00:00               100         cpu=126,mem=128G,node=2
+```
 
 # Job Schedulers and Slurm
 
@@ -121,15 +137,15 @@ A number of slurm partitions (queues) may exist on any slurm cluster, and each q
 
 | partition(queue) name | default? | description                         |     |
 |-----------------------|----------|-------------------------------------|-----|
-| defq                  | ✔        | batch jobs, low mem/cpu requirement |     |
+| epyc                  | ✔        | batch jobs, low mem/cpu requirement |     |
 
 ## Submitting Jobs (The Slurm Job-Script)
 
 The typical method to start a job on a slurm cluster is to first create a job-script, then submit that job-script to the slurm queue using the sbatch command. The job-script is laid out in a certain way (examples below), which will first request resources on the compute nodes, and then define the individual steps of your job. Below is an example job script for gomphus slurm using the partition defq. We'll name the job-script `submit.sh`:
 
-```         
+```{bash}         
 #!/bin/bash
-#SBATCH --partition=defq       # the requested queue
+#SBATCH --partition=epyc       # the requested queue
 #SBATCH --nodes=1              # number of nodes to use
 #SBATCH --tasks-per-node=1     #
 #SBATCH --cpus-per-task=1      #   
@@ -169,7 +185,7 @@ If you would like to comment out certain slurm commands in your job-script, simp
 Some further useful (but not exhaustive) SBATCH options are detailed:
 
 | SBATCH option | Description |
-|----|----|
+|------------------------------------|------------------------------------|
 | --ntasks-per-node | allocate n tasks per allocated node. |
 | --nodes | set the number of nodes that the job will require. Each node will have --ntasks-per-node processes started |
 | --ntasks | spawn n tasks (default=1). This determines how many processes will be spawned (for MPI jobs). |
@@ -357,7 +373,7 @@ Remember to exit the interactive job when you are finished by typing `exit`
 gomphus.job_history.sh
 
 | User | JobID | State | Start | End | AllocCPUS | TotalCPU | CPUEf | ReqMem | axRSS | MemEf | AveDiskRead | AveDiskWrite |
-|----|----|----|----|----|----|----|----|----|----|----|----|----|
+|------|------|------|------|------|------|------|------|------|------|------|------|------|
 | smbpk | 7174 | COMPLETED | 2022-11-07T09:18:2 | 2022-11-07T09:23:13 | 4 | 05:25.029 | 27.9% | 32000M | 1776696K | 5.4% | 20940.17M | 6974.14M |
 
 ## blast as an example
