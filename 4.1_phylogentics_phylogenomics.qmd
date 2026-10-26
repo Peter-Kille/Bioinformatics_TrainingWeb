@@ -117,13 +117,13 @@ RAxML-NG outputs files to your current location. Create a directory and run RAxM
 Basic usage for nucleotide alignment with GTR model:
 
 ```{bash}
-raxml-ng-mpi --all --msa [input alignment] --model GTR --bs-trees [bootstrap replicate number e.g. 100] --prefix [prefix for output files] --threads [number of threads/cpus]
+raxml-ng --all --msa [input alignment] --model GTR --bs-trees [bootstrap replicate number e.g. 100] --prefix [prefix for output files] --threads [number of threads/cpus]
 ```
 
 RAxML-NG v2 also has a `--fast` mode: a simplified tree search with early stopping that is dramatically quicker (around 50x) than the standard search. It performs a single ML tree search without bootstrapping, so it is useful for a quick look at your data or for large alignments, but you will not get bootstrap support values from it:
 
 ```{bash}
-raxml-ng-mpi --fast --msa [input alignment] --model GTR --prefix [prefix for output files] --threads [number of threads/cpus]
+raxml-ng --fast --msa [input alignment] --model GTR --prefix [prefix for output files] --threads [number of threads/cpus]
 ```
 
 RAxML-NG produces multiple output files. The file we are interested in has the extension **.support**. Use `mv` to change the extension **.nwk** on this file to indicate it is a phylogeny.
