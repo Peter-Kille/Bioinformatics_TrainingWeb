@@ -137,7 +137,7 @@ The `-X` enables the graphical interface.
 Load the Artemis module and initiate Artemis with command `art`
 
 ```{bash}
-module load artemis/18.2.0-conda
+module load Artemis/18.2.0-Java-11
 art
 ```
 

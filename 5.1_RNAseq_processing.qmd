@@ -110,8 +110,14 @@ We will be using scripts to run these steps. In the `classdata/Session5/RNAseq-P
 
 We'll be using a full sized RNAseq sample otherwise it causes the programs to think it's bad data. In the classdata/Session3/RNAseq-Processing/rawdata folder there four pairs of RNAseq files from an *C. elegans* RNAseq study. In the folder classdata/REFS there is a reference genome, and a gtf file. **The step 2 "star index genome" has already been run for you (you don't need to do this!)**
 
+All of the scripts work from a **samplelist** (a tab-delimited text file listing each sample and its forward and reverse read files) and use a standard loop layout. Before using them, make sure you are comfortable with these two components from the Commandline Tools and Scripting session:
+
+-   [Loop to create a samplelist from the rawdata folder](1.3_Commandline_Tools_and_Scripting.qmd#sec-loops-loop-to-create-a-samplelist-from-rawdata-folder)
+-   [Program execution loop from a samplelist](1.3_Commandline_Tools_and_Scripting.qmd#sec-program-execution-loop-f-samplelist)
+
 [Scripts](#scripts)
 
+-   0-make_samplelist.sh
 -   1-QC.sh
 -   2-star_index_genome.sh (already done, don't repeat!)
 -   3-star.sh
@@ -148,95 +154,136 @@ These outputs are now ready to put into R and perform Differential Gene Expressi
 ::: {.callout-note collapse="true"}
 ## Scripts {#scripts}
 
+All of the scripts below follow the same layout: **set variables**, **load programs**, **read the sample list**, **loop over the samples**, **unload programs**. They are built on the two templates in the Commandline Tools and Scripting session - see [Create a samplelist from the rawdata folder](1.3_Commandline_Tools_and_Scripting.qmd#sec-loops-loop-to-create-a-samplelist-from-rawdata-folder) and [Program execution loop from a samplelist](1.3_Commandline_Tools_and_Scripting.qmd#sec-program-execution-loop-f-samplelist).
+
+## 0-make_samplelist.sh
+
+Run this once, from the folder that contains your `rawdata` directory. Note that the example in session 1.3 looks for `_R1.fastq.gz` files; the workshop data are named `_1.fastq.gz` / `_2.fastq.gz`, so the pattern has been adjusted - change it if your files are named differently.
+
+```{bash}
+#!/bin/bash
+
+####  Set Variables  ####
+
+#set present working directory as the location of script....all folders will be related to this directory
+workdir=$(pwd)
+rawdir=${workdir}/rawdata
+
+#create samplelist with column headers
+printf "SampleID\tforwardread\treverseread\n" > samplelist.txt
+
+####  Configure your loop  ####
+
+for file in ${rawdir}/*_1.fastq.gz
+do
+
+#remove folder path and .fastq.gz suffix, then remove the read direction "_1" to leave the sample name
+sample=$(basename ${file} | cut -f1 -d. | sed 's/_1$//')
+
+printf "${sample}\t${sample}_1.fastq.gz\t${sample}_2.fastq.gz\n" >> samplelist.txt
+
+done
+```
+
 ## 1-QC.sh
 
 ```{bash}
 #!/bin/bash
 
-#varibles
+####  Set Variables  ####
+
+#set present working directory as the location of script....all folders will be related to this directory
 workdir=$(pwd)
 
+#create variable for sample list saved in workdir
+samplelist="samplelist.txt"
+
 rawdir=${workdir}/rawdata
-#create directory for qc output
-mkdir ${workdir}/rawqc
+#create directories for qc and trimmed output
+mkdir -p ${workdir}/rawqc ${workdir}/trimdata ${workdir}/trimqc
 rawqcdir=${workdir}/rawqc
-mkdir ${workdir}/trimdata
 trimdir=${workdir}/trimdata
-mkdir ${workdir}/trimqc
 trimqcdir=${workdir}/trimqc
 
-#load program
-module load fastqc
+####  Configure your loop  ####
 
-for f in ${rawdir}/*_1.fastq.gz
+#read in sample list
+samplenames=$(cat ${samplelist} | cut -f1,1 | tail -n +2)
+
+###  Load programs  ####
+module load FastQC/0.12.1-Java-11
+
+#loop to run fastqc on the raw reads of each sample
+for sample in ${samplenames}
 do
 
-R1=$(basename $f | cut -f1 -d.)
-base=$(echo $R1 | sed 's/_1//')
-
-fastqc -t 2 ${rawdir}/${base}_1.fastq.gz ${rawdir}/${base}_2.fastq.gz -o ${rawqcdir}
-
-done
-#unload program
-module unload fastqc
-
-
-#load program - fastp
-module load fastp
-
-#create loop
-for f in ${rawdir}/*_1.fastq.gz
-do
-
-R1=$(basename $f | cut -f1 -d.)
-base=$(echo $R1 | sed 's/_1//')
-
-fastp -q 20 -u 10 --cut_right \
-      -i ${rawdir}/${base}_1.fastq.gz \
-      -I ${rawdir}/${base}_2.fastq.gz \
-      -o ${trimdir}/${base}_trim_R1.fastq.gz \
-      -O ${trimdir}/${base}_trim_R2.fastq.gz \
-      -j ${trimdir}/${base}_trim.json \
-      -h ${trimdir}/${base}_trim.html
+fastqc -t 2 ${rawdir}/${sample}_1.fastq.gz ${rawdir}/${sample}_2.fastq.gz -o ${rawqcdir}
 
 done
 
-#unload program
-module unload fastp
+####  Unload program  ####
+module unload FastQC/0.12.1-Java-11
 
 
-#load program - fastp
-module load fastqc
+###  Load programs  ####
+module load fastp/1.3.6-GCC-15.2.0
 
-#create loop
-for f in ${rawdir}/*_1.fastq.gz
+#loop to trim each sample
+for sample in ${samplenames}
 do
 
-R1=$(basename $f | cut -f1 -d.)
-base=$(echo $R1 | sed 's/_1//')
-
-fastqc -t 2 ${trimdir}/${base}_trim_R1.fastq.gz ${trimdir}/${base}_trim_R2.fastq.gz -o ${trimqcdir}
+fastp --cut_front --cut_tail --cut_window_size 4 --cut_mean_quality 30 \
+      --qualified_quality_phred 30 --unqualified_percent_limit 30 \
+      --n_base_limit 5 --length_required 60 --detect_adapter_for_pe \
+      -i ${rawdir}/${sample}_1.fastq.gz \
+      -I ${rawdir}/${sample}_2.fastq.gz \
+      -o ${trimdir}/${sample}_trim_1.fastq.gz \
+      -O ${trimdir}/${sample}_trim_2.fastq.gz \
+      -j ${trimdir}/${sample}_trim.json \
+      -h ${trimdir}/${sample}_trim.html
 
 done
 
-#unload  program
-module unload fastqc
+####  Unload program  ####
+module unload fastp/1.3.6-GCC-15.2.0
 
-module load py-multiqc
+
+###  Load programs  ####
+module load FastQC/0.12.1-Java-11
+
+#loop to run fastqc on the trimmed reads of each sample
+for sample in ${samplenames}
+do
+
+fastqc -t 2 ${trimdir}/${sample}_trim_1.fastq.gz ${trimdir}/${sample}_trim_2.fastq.gz -o ${trimqcdir}
+
+done
+
+####  Unload program  ####
+module unload FastQC/0.12.1-Java-11
+
+
+###  Load programs  ####
+module load MultiQC/1.28-gfbf-2024a
 
 multiqc ${workdir}
 
-module unload py-multiqc
+####  Unload program  ####
+module unload MultiQC/1.28-gfbf-2024a
 ```
 
 ## 2-star_index_genome.sh
 
+This step is run once per genome, not per sample, so it does not use the samplelist.
+
 ```{bash}
+#!/bin/bash
 
-# Load some modules
-module load star/2.7.11b-conda
-
+####  Set Variables  ####
 workdir=$(pwd)
+
+###  Load programs  ####
+module load STAR/2.7.11b-GCC-14.3.0
 
 ## Change --sjdbOverhang to length of your sequence data /2 minus 1
 
@@ -249,6 +296,9 @@ STAR    --runThreadN 8 \
         --genomeFastaFiles ~/classdata/REFS/Celegens_genome_star/Caenorhabditis_elegans.WBcel235.dna_sm.toplevel.fa \
         --sjdbGTFfile ~/classdata/REFS/Celegens_genome_star/Caenorhabditis_elegans.WBcel235.112.gtf \
         --sjdbOverhang 49
+
+####  Unload program  ####
+module unload STAR/2.7.11b-GCC-14.3.0
 ```
 
 ## 3-star.sh
@@ -256,37 +306,48 @@ STAR    --runThreadN 8 \
 ```{bash}
 #!/bin/bash
 
-## Load some Modules
-module load star/2.7.11b-conda
+####  Set Variables  ####
 
-## Useful shortcuts
-#varibles
+#set present working directory as the location of script....all folders will be related to this directory
 workdir=$(pwd)
 
-rawdir=${workdir}/rawdata
+#create variable for sample list saved in workdir
+samplelist="samplelist.txt"
+
 trimdir=${workdir}/trimdata
-mkdir ${workdir}/star
+mkdir -p ${workdir}/star
 stardir=${workdir}/star
 genomedir=~/classdata/REFS/Celegens_genome_star
 
-for f in ${workdir}/rawdata/*_1.fastq.gz
+###  Load programs  ####
+module load STAR/2.7.11b-GCC-14.3.0
+
+####  Configure your loop  ####
+
+#read in sample list
+samplenames=$(cat ${samplelist} | cut -f1,1 | tail -n +2)
+
+#loop to map each sample
+for sample in ${samplenames}
 do
-R1=$(basename $f | cut -f1 -d.)
-base=$(echo $R1 | sed 's/_1//')
 
 # map forward and reverse reads to genome
 STAR   --outMultimapperOrder Random \
        --outSAMmultNmax 1 \
+       --outSAMattrRGline ID:${sample} SM:${sample} LB:lib_${sample} PL:ILLUMINA PU:${sample} \
        --runThreadN 8 \
        --runMode alignReads \
        --outSAMtype BAM Unsorted \
        --quantMode GeneCounts \
        --readFilesCommand zcat \
-       --outFileNamePrefix ${stardir}/${base}-unsort. \
+       --outFileNamePrefix ${stardir}/${sample}-unsort. \
        --genomeDir ${genomedir} \
-       --readFilesIn ${trimdir}/${base}_trim_R1.fastq.gz ${trimdir}/${base}_trim_R2.fastq.gz
+       --readFilesIn ${trimdir}/${sample}_trim_1.fastq.gz ${trimdir}/${sample}_trim_2.fastq.gz
 
 done
+
+####  Unload program  ####
+module unload STAR/2.7.11b-GCC-14.3.0
 ```
 
 ## 4-markduplicates.sh
@@ -294,39 +355,45 @@ done
 ```{bash}
 #!/bin/bash
 
-#load some modules
-module load picard/3.1.1-6z7e4l7
-module load samtools/1.19.2-ei3vxnb
+####  Set Variables  ####
 
-## Useful shortcuts
+#set present working directory as the location of script....all folders will be related to this directory
 workdir=$(pwd)
 
-rawdir=${workdir}/rawdata
-trimdir=${workdir}/trimdata
+#create variable for sample list saved in workdir
+samplelist="samplelist.txt"
+
 stardir=${workdir}/star
-genomedir=~/classdata/REFS/Celegens_genome_star
-mkdir ${workdir}/markdup
+mkdir -p ${workdir}/markdup
 markdir=${workdir}/markdup
 
+###  Load programs  ####
+module load picard/3.4.0-Java-25
+module load SAMtools/1.21-GCC-13.3.0
 
-for f in ${workdir}/rawdata/*_1.fastq.gz
+####  Configure your loop  ####
+
+#read in sample list
+samplenames=$(cat ${samplelist} | cut -f1,1 | tail -n +2)
+
+#loop to sort and mark/remove duplicates for each sample
+for sample in ${samplenames}
 do
-R1=$(basename $f | cut -f1 -d.)
-base=$(echo $R1 | sed 's/_1//')
 
-samtools sort -@ 8 -o $stardir/${base}.sorted.bam $stardir/${base}-unsort.Aligned.out.bam
-samtools index $stardir/${base}.sorted.bam
+samtools sort -@ 8 -o ${stardir}/${sample}.sorted.bam ${stardir}/${sample}-unsort.Aligned.out.bam
+samtools index ${stardir}/${sample}.sorted.bam
 
 ##  MARK DUPLICATES  ##
-picard MarkDuplicates I=$stardir/${base}.sorted.bam O=$markdir/${base}.markdup.bam M=$markdir/${base}.metrics.markdup.txt REMOVE_DUPLICATES=false VALIDATION_STRINGENCY=SILENT
-
-
+java -jar $EBROOTPICARD/picard.jar MarkDuplicates --INPUT ${stardir}/${sample}.sorted.bam --OUTPUT ${markdir}/${sample}.markdup.bam --METRICS_FILE ${markdir}/${sample}.metrics.markdup.txt --REMOVE_DUPLICATES false --VALIDATION_STRINGENCY SILENT
 
 ## REMOVE DUPLICATES ##
-picard MarkDuplicates I=${stardir}/${base}.sorted.bam O=${markdir}/${base}.rmdup.bam M=${markdir}/${base}.metrics.rmdup.txt REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT
+java -jar $EBROOTPICARD/picard.jar MarkDuplicates --INPUT ${stardir}/${sample}.sorted.bam --OUTPUT ${markdir}/${sample}.rmdup.bam --METRICS_FILE ${markdir}/${sample}.metrics.rmdup.txt --REMOVE_DUPLICATES true --VALIDATION_STRINGENCY SILENT
 
 done
 
+####  Unload program  ####
+module unload picard/3.4.0-Java-25
+module unload SAMtools/1.21-GCC-13.3.0
 ```
 
 ## 5-featurecounts.sh
@@ -334,37 +401,46 @@ done
 ```{bash}
 #!/bin/bash
 
-# Load some modules
-module load subread/2.0.6-hbzwdut
+####  Set Variables  ####
 
-## Useful shortcuts
+#set present working directory as the location of script....all folders will be related to this directory
 workdir=$(pwd)
 
-rawdir=${workdir}/rawdata
-trimdir=${workdir}/trimdata
-stardir=${workdir}/star
-genomedir=~/classdata/REFS/Celegens_genome_star
+#create variable for sample list saved in workdir
+samplelist="samplelist.txt"
+
 markdir=${workdir}/markdup
-mkdir ${workdir}/featureCounts
+genomedir=~/classdata/REFS/Celegens_genome_star
+mkdir -p ${workdir}/featureCounts
 fcdir=${workdir}/featureCounts
 
-for f in ${workdir}/rawdata/*_1.fastq.gz
+###  Load programs  ####
+module load Subread/2.1.1-GCC-13.3.0
+
+####  Configure your loop  ####
+
+#read in sample list
+samplenames=$(cat ${samplelist} | cut -f1,1 | tail -n +2)
+
+#loop to count features for each sample
+for sample in ${samplenames}
 do
-R1=$(basename $f | cut -f1 -d.)
-base=$(echo $R1 | sed 's/_1//')
 
 featureCounts \
         -T 4 -p -F GTF -t exon -g gene_id \
         -a ${genomedir}/Caenorhabditis_elegans.WBcel235.112.gtf \
-        -o ${fcdir}/${base}.markdup.featurecount \
-        ${markdir}/${base}.markdup.bam
+        -o ${fcdir}/${sample}.markdup.featurecount \
+        ${markdir}/${sample}.markdup.bam
 
 featureCounts \
         -T 4 -p -F GTF -t exon -g gene_id \
         -a ${genomedir}/Caenorhabditis_elegans.WBcel235.112.gtf \
-        -o ${fcdir}/${base}.rmdup.featurecount \
-        ${markdir}/${base}.rmdup.bam
+        -o ${fcdir}/${sample}.rmdup.featurecount \
+        ${markdir}/${sample}.rmdup.bam
 
 done
+
+####  Unload program  ####
+module unload Subread/2.1.1-GCC-13.3.0
 ```
 :::

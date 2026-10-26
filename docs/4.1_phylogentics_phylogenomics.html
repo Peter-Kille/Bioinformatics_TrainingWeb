@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Peter Kille and Dr.&nbsp;Sarah Christofides">
-<meta name="dcterms.date" content="2026-09-15">
+<meta name="dcterms.date" content="2026-10-26">
 
 <title>Phylogenetics and Phylogeneomics</title>
 <style>
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-261e60fdf64a0e003ec2340fd2db30d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -172,7 +172,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 15, 2026</p>
+        <p class="date">October 26, 2026</p>
       </div>
     </div>
     
@@ -523,7 +523,7 @@ background: darkred;
 <li>MAFFT is a multiple sequence alignment program for Unix-like operating systems.</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load mafft/7.505-beg3hnq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load MAFFT/7.526-GCC-14.3.0-with-extensions</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Basic usage:</p>
 <div class="cell">
@@ -549,12 +549,16 @@ background: darkred;
 <li>RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load raxml-ng/1.1.0-3gc6hnr</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load RAxML-NG/2.0.2-GCC-14.3.0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>RAxML-NG outputs files to your current location. Create a directory and run RAxML from the directory to keep files organised</p>
 <p>Basic usage for nucleotide alignment with GTR model:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">raxml-ng-mpi</span> <span class="at">--all</span> <span class="at">--msa</span> [input alignment] <span class="at">--model</span> GTR <span class="at">--bs-tree</span> [bootstrap replicate number e.g. 100] <span class="at">--prefix</span> [prefix for output files] <span class="at">--threads</span> [number of threads/cpus]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">raxml-ng-mpi</span> <span class="at">--all</span> <span class="at">--msa</span> [input alignment] <span class="at">--model</span> GTR <span class="at">--bs-trees</span> [bootstrap replicate number e.g. 100] <span class="at">--prefix</span> [prefix for output files] <span class="at">--threads</span> [number of threads/cpus]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>RAxML-NG v2 also has a <code>--fast</code> mode: a simplified tree search with early stopping that is dramatically quicker (around 50x) than the standard search. It performs a single ML tree search without bootstrapping, so it is useful for a quick look at your data or for large alignments, but you will not get bootstrap support values from it:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">raxml-ng-mpi</span> <span class="at">--fast</span> <span class="at">--msa</span> [input alignment] <span class="at">--model</span> GTR <span class="at">--prefix</span> [prefix for output files] <span class="at">--threads</span> [number of threads/cpus]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>RAxML-NG produces multiple output files. The file we are interested in has the extension <strong>.support</strong>. Use <code>mv</code> to change the extension <strong>.nwk</strong> on this file to indicate it is a phylogeny.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -577,9 +581,9 @@ background: darkred;
 <p>FigTree is designed as a graphical viewer of phylogenetic trees and as a program for producing publication-ready figures.</p>
 <p>Download locally to your laptop: https://github.com/rambaut/figtree/releases / or access by logging into the server using <code>-X</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load figtree/1.4.4-knoy37j</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">figtree</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load FigTree/1.5.0-beta1</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">figtree</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>An interactive window will now open for you to use if you are using X11 enabled mobaxterm. If you are using a mac or linux shell you will need to install <a href="http://tree.bio.ed.ac.uk/software/figtree/">figtree</a> (Download locally to your laptop: https://github.com/rambaut/figtree/releases) locally and download the newick file (nwk suffix).</p>
 <p>When you open your newick if you will be asked about node labeling. You should identify that your node labeling is you bootstrap values:</p>
@@ -609,44 +613,44 @@ background: darkred;
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="va">workdir</span><span class="op">=</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">BLASTDB</span><span class="op">=</span><span class="va">$BLASTDB</span>:~/classdata/REFS/blastdb/</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#this script assumes that you original fastq.gz sequences are rawdata directory and your extracted cox1 files are in directory labeled cox1.</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="va">rawdir</span><span class="op">=</span><span class="va">${workdir}</span>/rawdata</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="va">${workdir}</span>/blast</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="va">dircox1</span><span class="op">=</span><span class="va">${workdir}</span>/cox1</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="va">dirblast</span><span class="op">=</span><span class="va">${workdir}</span>/blast</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#load program</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load blast-plus/2.14.1-eqbljdp</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> <span class="va">${dirblast}</span>/annotation_labels.tsv</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Label     Title   Scientific Name Taxid"</span> <span class="op">&gt;</span> <span class="va">${dirblast}</span>/annotation_labels.tsv</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> <span class="va">${rawdir}</span>/<span class="pp">*</span>_R1.fastq.gz</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="va">R1</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="va">$f</span> <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-f1</span> <span class="at">-d.</span><span class="va">)</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="va">base</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="va">$R1</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s/_R1//'</span><span class="va">)</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="ex">blastn</span> <span class="at">-db</span> mito <span class="dt">\</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">-query</span> <span class="va">${dircox1}</span>/<span class="va">${base}</span>_cox1.fasta <span class="dt">\</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">-out</span> <span class="va">${dirblast}</span>/<span class="va">${base}</span>_cox1_blastn.tsv <span class="dt">\</span></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">-outfmt</span> <span class="st">"6 qseqid stitle sscinames staxids"</span> <span class="dt">\</span></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">-num_threads</span> 8 <span class="dt">\</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">-max_target_seqs</span> 1</span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'s/|/\t/g'</span> <span class="va">${dirblast}</span>/<span class="va">${base}</span>_cox1_blastn.tsv</span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">${dirblast}</span>/<span class="pp">*</span>.tsv <span class="op">&gt;</span> <span class="va">${dirblast}</span>/all_blast_annotation.tsv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="va">workdir</span><span class="op">=</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">BLASTDB</span><span class="op">=</span><span class="va">$BLASTDB</span>:~/classdata/REFS/blastdb/</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#this script assumes that you original fastq.gz sequences are rawdata directory and your extracted cox1 files are in directory labeled cox1.</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="va">rawdir</span><span class="op">=</span><span class="va">${workdir}</span>/rawdata</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="va">${workdir}</span>/blast</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="va">dircox1</span><span class="op">=</span><span class="va">${workdir}</span>/cox1</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="va">dirblast</span><span class="op">=</span><span class="va">${workdir}</span>/blast</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">#load program</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load BLAST+/2.17.0-gompi-2025b</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> <span class="va">${dirblast}</span>/annotation_labels.tsv</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Label     Title   Scientific Name Taxid"</span> <span class="op">&gt;</span> <span class="va">${dirblast}</span>/annotation_labels.tsv</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> <span class="va">${rawdir}</span>/<span class="pp">*</span>_R1.fastq.gz</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="va">R1</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="va">$f</span> <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-f1</span> <span class="at">-d.</span><span class="va">)</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="va">base</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="va">$R1</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s/_R1//'</span><span class="va">)</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="ex">blastn</span> <span class="at">-db</span> mito <span class="dt">\</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">-query</span> <span class="va">${dircox1}</span>/<span class="va">${base}</span>_cox1.fasta <span class="dt">\</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">-out</span> <span class="va">${dirblast}</span>/<span class="va">${base}</span>_cox1_blastn.tsv <span class="dt">\</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">-outfmt</span> <span class="st">"6 qseqid stitle sscinames staxids"</span> <span class="dt">\</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">-num_threads</span> 8 <span class="dt">\</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">-max_target_seqs</span> 1</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'s/|/\t/g'</span> <span class="va">${dirblast}</span>/<span class="va">${base}</span>_cox1_blastn.tsv</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="va">${dirblast}</span>/<span class="pp">*</span>.tsv <span class="op">&gt;</span> <span class="va">${dirblast}</span>/all_blast_annotation.tsv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -699,12 +703,12 @@ background: darkred;
 <p>As you will see, many of the steps are the same as for a single-gene phylogeny. The only piece of new software required is panaroo.</p>
 <p>Paneroo is a bacterial pangenome analysis pipeline. It predicts core, accessory, and pangenomes, and produces core gene alignments.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load py-panaroo/1.2.10-fukmiob</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load panaroo/1.6.0-foss-2024a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Panaroo takes annotation files in <strong>.gff</strong> format to predict pangenomes.</p>
 <p>Basic usage:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">panaroo</span> <span class="at">-i</span> <span class="pp">*</span>gff <span class="at">-o</span> [output directory] <span class="at">-t</span> [number of cpus] <span class="at">--clean-mode</span> sensitive <span class="at">-a</span> core <span class="at">--aligner</span> mafft <span class="at">--remove-invalid-genes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">panaroo</span> <span class="at">-i</span> <span class="pp">*</span>gff <span class="at">-o</span> [output directory] <span class="at">-t</span> [number of cpus] <span class="at">--clean-mode</span> sensitive <span class="at">-a</span> core <span class="at">--aligner</span> mafft <span class="at">--remove-invalid-genes</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Output files of interest include the <strong>summary_statistics.txt</strong> and <strong>core_gene.aln</strong></p>
 <p>Check the website for details of all the files produced: https://gtonkinhill.github.io/panaroo/#/gettingstarted/output</p>
@@ -761,14 +765,14 @@ background: darkred;
 </ol>
 <p>snippy is a tool to identify variations between a reference genome in fasta format and genome sequence data in read format (fastq)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load snippy/v4.6.0</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load samtools/1.19.2-m76oqh7</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load python/3.10.5-fsxphqu</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load snippy/4.6.0-conda</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load SAMtools/1.21-GCC-13.3.0</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load python/3.10.5-fsxphqu</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Basic usage:</p>
 <p>To identify SNPs for one genome</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">snippy</span> <span class="at">-outdir</span> [snippy output directory/sampleID] <span class="at">-ref</span> [reference sequence fasta] <span class="at">-R1</span> [sample1 fastq left trimmed read] <span class="at">-R2</span> [sample2 fastq right trimmed read] <span class="at">--prefix</span> [prefix for output] <span class="at">--force</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">snippy</span> <span class="at">-outdir</span> [snippy output directory/sampleID] <span class="at">-ref</span> [reference sequence fasta] <span class="at">-R1</span> [sample1 fastq left trimmed read] <span class="at">-R2</span> [sample2 fastq right trimmed read] <span class="at">--prefix</span> [prefix for output] <span class="at">--force</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>You will need a loop to call SNPs for multiple genomes.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -786,16 +790,16 @@ background: darkred;
 <li><p>To produce an alignment from SNPs, navigate to the snippy output directory and run <strong>snippy-core</strong>. The wildcard will extract the necessary SNP data from all the genomes analysed by snippy (directory for each genome in output directory).</p></li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">snippy-core</span> <span class="at">-ref</span> [same reference sequence] <span class="at">-prefix</span> [prefix for snp output] [snippy output directory]/<span class="pp">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">snippy-core</span> <span class="at">-ref</span> [same reference sequence] <span class="at">-prefix</span> [prefix for snp output] [snippy output directory]/<span class="pp">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="3" type="1">
 <li>Generate an alignment of the SNP sites:</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load snp-sites/2.5.1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load snp-sites/2.5.1-GCCcore-13.3.0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">snp-sites</span> <span class="at">-cb</span> <span class="at">-o</span> [alignment file name] [prefix for snp output].full.aln</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">snp-sites</span> <span class="at">-cb</span> <span class="at">-o</span> [alignment file name] [prefix for snp output].full.aln</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" type="1">
 <li><p>Construct a phylogeny with <strong>RAxML-NG</strong>, using 1000 bootstraps.</p></li>

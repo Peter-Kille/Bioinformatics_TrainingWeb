@@ -57,7 +57,7 @@ perl ~/classdata/REFS/script/selectSeqsAboveMinLength.pl <your_assembly.fasta> <
 This code will remove the contig names (as long as they are named 2-9) for all except the first contig, and then remove any line breaks to ensure correct base numbering for the annotation.
 
 ```{bash}
-module load seqtk/1.4-emavr63
+module load seqtk/1.5-GCC-14.3.0
 
 #This sed removes any contigs where the name start '>[any digit between 2-9]'
 sed -i '/^>[2-9].*$/d' mito_assemblies/${base}.fasta
@@ -87,7 +87,7 @@ A loop would be something like this (remember to edit loop for your files)
 
 workdir=~/mydata/Session3/
 
-module load mitos/2.0.4
+module load mitos/2.0.4-conda
 
 for i in {1..3}; do
 
@@ -106,7 +106,7 @@ runmitos.py -i "${workdir}/group${i}_unknown_assembly.fasta" \
 
 done
 
-module unload mitos/2.0.4
+module unload mitos/2.0.4-conda
 
 ```
 
@@ -123,7 +123,7 @@ module unload mitos/2.0.4
 You can extract the fasta sequence for the genes in the bed file using bedtools getfasta:
 
 ```{bash}
-module load bedtools2/2.31.1-z2zkxtk
+module load BEDTools/2.31.1-GCC-14.3.0
 
 bedtools getfasta –fi contigs.fasta -bed result.bed -name > result.fasta
 ```

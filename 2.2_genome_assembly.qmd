@@ -120,7 +120,7 @@ Following adaptor removal and trimming, we need to repeat the quality checking w
 We will assemble the processed reads into an assembly using the assembler **Unicycler**. Unicycler is an assembly pipeline for bacterial (and mitochondrial) genomes. It can assemble Illumina-only read sets where it functions as a SPAdes-optimiser.
 
 ```{bash}
-module load py-unicycler/0.5.0-b3qlto7
+module load Unicycler/0.5.1-gompi-2024a
 ```
 
 Basic usage:
@@ -146,7 +146,7 @@ A big part of bioinformatics is maintaining directory and file organisation. Eac
 Once our assembly files have been renamed and copied to a single location, we can analyse them for quality statistics. Use **Quast** to report useful metrics such as assembly length, GC content, contig number, and N50 value. QUAST stands for QUality ASsessment Tool. It evaluates genome/metagenome assemblies by computing various metrics.
 
 ```{bash}
-module load py-quast/5.2.0-az54c2i
+module load QUAST/5.3.0-gfbf-2024a
 ```
 
 Basic usage:

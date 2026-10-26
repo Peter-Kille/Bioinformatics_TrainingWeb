@@ -140,7 +140,7 @@ module avail
 You should see that the list includes fastqc \[**NB. I have note added the version - it will use the default but I will have no record of the version it has used**\] To load this module, simply type
 
 ```{bash}
-module load fastqc
+module load FastQC/0.12.1-Java-11
 ```
 
 Try this out now!
@@ -247,7 +247,7 @@ Script - One Line version:
 ```{bash}
 #!/usr/bin/bash
 
-module load fastp
+module load fastp/1.3.6-GCC-15.2.0
 
 fastp -q 20 -u 10 --cut_right -i Illumina_R1.fastq -I Illumina_R2.fastq -o Illumina_trim_R1.fastq -O Illumina_trim_R2.fastq --detect_adapter_for_pe
   --html Illumina_fastp.html --json Illumina_fastp.json --thread 4
@@ -258,7 +258,7 @@ Script - multi-line line easy to read version:
 ```{bash}
 #!/usr/bin/bash
 
-module load fastp
+module load fastp/1.3.6-GCC-15.2.0
 
 fastp -q 20 -u 10 \
       --cut_right \
@@ -372,10 +372,10 @@ rawqcdir=${workdir}/rawqc
 
 ```{bash}
 #before loop
-module load fastqc
+module load FastQC/0.12.1-Java-11
 
 #afterloop
-module unload fastqc
+module unload FastQC/0.12.1-Java-11
 ```
 
 - Add the fastqc command to middle of loop
@@ -399,7 +399,7 @@ Here's a video of me building these scripts for start to finish:
 Multiqc will search through a parent and all daughter folders, extracting all the qc data and creating a graphical summary. Try it for your session folder.
 
 ```{bash}
- module load MultiQC
+ module load MultiQC/1.28-gfbf-2024a
  
  #run multiqc on all files in the current working directory
  multiqc .
