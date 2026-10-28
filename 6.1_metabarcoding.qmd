@@ -17,7 +17,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 </iframe>
 
-This workshop is based heavily on QIIME's own tutorial, [Moving Pictures of the Human Microbiome](https://docs.qiime2.org/2022.8/tutorials/moving-pictures/). I have just modified this tutorial slightly to tailor it to our context and computer system.
+This workshop is based heavily on QIIME's own tutorial, [Moving Pictures of the Human Microbiome](https://amplicon-docs.qiime2.org/en/stable/tutorials/moving-pictures/). I have just modified this tutorial slightly to tailor it to our context and computer system.
 
 # Accessing the data
 
@@ -55,13 +55,13 @@ You will see that the import command below has backslashes at the end of each li
 
 Let's explore the parts of the command
 
--   *qiime tools import* is the QIIME programme to be used
+- *qiime tools import* is the QIIME programme to be used
 
--   *type EMPSingleEndSequences* tells QIIME the format the sequences will be in
+- *type EMPSingleEndSequences* tells QIIME the format the sequences will be in
 
--   *input-path emp-single-end-sequences* gives the name of the directory the sequence files are in
+- *input-path emp-single-end-sequences* gives the name of the directory the sequence files are in
 
--   *output-path emp-single-end-sequences.qza* gives the name of the artefact file to be created. Note the file extension: .qza
+- *output-path emp-single-end-sequences.qza* gives the name of the artefact file to be created. Note the file extension: .qza
 
 ```{bash}
 qiime tools import \
@@ -103,9 +103,9 @@ The next step in the process does two things at once. Firstly, it quality checks
 
 QIIME offers a few different pipelines for this step, but we are going to use one called DADA2. This is the most computationally intensive step, so be prepared for it to take up to 10 minutes to complete.
 
-Have a look at the help page for this command at https://docs.qiime2.org/2022.8/plugins/available/dada2/denoise-single/
+Have a look at the help page for this command at [https://amplicon-docs.qiime2.org/en/stable/references/plugins/dada2/#q2-action-dada2-denoise-single](https://amplicon-docs.qiime2.org/en/stable/)
 
--   What are the *p-trim-left* and *p-trunc-len* options doing? Would there be a better way to have dealt with this problem in the data? HINT: it would need to be done before reading into QIIME!
+- What are the *p-trim-left* and *p-trunc-len* options doing? Would there be a better way to have dealt with this problem in the data? HINT: it would need to be done before reading into QIIME!
 
 ```{bash}
 qiime dada2 denoise-single \
@@ -140,7 +140,7 @@ Having counted the number of times each sequence occurs in each sample, we reall
 
 ```{bash}
 qiime feature-classifier classify-sklearn \
-  --i-classifier silva-138-99-515-806-nb-classifier.qza\
+  --i-classifier SILVA_144_SSURef_NR99_uniform_classifier_V4-515f-806r.qza \
   --i-reads rep-seqs.qza \
   --o-classification taxonomy.qza
 

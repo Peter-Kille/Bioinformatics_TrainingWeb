@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Sarah Christofides and Prof.&nbsp;Peter Kille">
-<meta name="dcterms.date" content="2026-10-26">
+<meta name="dcterms.date" content="2026-10-28">
 
 <title>Metabarcoding</title>
 <style>
@@ -172,7 +172,7 @@ background: darkred;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 26, 2026</p>
+        <p class="date">October 28, 2026</p>
       </div>
     </div>
     
@@ -451,7 +451,7 @@ background: darkred;
 
 <iframe data-external="1" src="https://cardiff.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=db71339b-c4ad-481a-9468-b0a4009686d2&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay">
 </iframe>
-<p>This workshop is based heavily on QIIME’s own tutorial, <a href="https://docs.qiime2.org/2022.8/tutorials/moving-pictures/">Moving Pictures of the Human Microbiome</a>. I have just modified this tutorial slightly to tailor it to our context and computer system.</p>
+<p>This workshop is based heavily on QIIME’s own tutorial, <a href="https://amplicon-docs.qiime2.org/en/stable/tutorials/moving-pictures/">Moving Pictures of the Human Microbiome</a>. I have just modified this tutorial slightly to tailor it to our context and computer system.</p>
 <section id="accessing-the-data" class="level1">
 <h1>Accessing the data</h1>
 <p>Copy the <code>Session6</code> directory across from <code>classdata</code> into your <code>mydata</code> directory. List the contents.</p>
@@ -518,7 +518,7 @@ background: darkred;
 <h1>Quality filtering and counting</h1>
 <p>The next step in the process does two things at once. Firstly, it quality checks the data. It removes any PhiX reads leftover from the sequencing, checks for low quality reads, and removes chimeras (hybrid reads created when two PCR products get erroneously stuck together). Secondly, it counts how many times each unique sequence (ASV) occurs in each sample.</p>
 <p>QIIME offers a few different pipelines for this step, but we are going to use one called DADA2. This is the most computationally intensive step, so be prepared for it to take up to 10 minutes to complete.</p>
-<p>Have a look at the help page for this command at https://docs.qiime2.org/2022.8/plugins/available/dada2/denoise-single/</p>
+<p>Have a look at the help page for this command at <a href="https://amplicon-docs.qiime2.org/en/stable/">https://amplicon-docs.qiime2.org/en/stable/references/plugins/dada2/#q2-action-dada2-denoise-single</a></p>
 <ul>
 <li>What are the <em>p-trim-left</em> and <em>p-trunc-len</em> options doing? Would there be a better way to have dealt with this problem in the data? HINT: it would need to be done before reading into QIIME!</li>
 </ul>
@@ -550,7 +550,7 @@ background: darkred;
 <p>Having counted the number of times each sequence occurs in each sample, we really want to know what organism that sequence came from. QIIME uses a machine learning tool (a Naive Bayes classifier, if you’re into that kind of thing) to assign a taxonomic identity to each sequence. The classifier is trained by giving it a database of sequences of known identity. This approach is endlessly flexible, as you can train the classifier to any type of sequence you are interested in. However, we will be using a pre-trained classifier as our data relates to a commonly-used 16S rRNA region. This classifier has been trained on the Silva database of 16S rRNA genes, focussing in just on the 515-806 region targeted by our primers.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> feature-classifier classify-sklearn <span class="dt">\</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-classifier</span> silva-138-99-515-806-nb-classifier.qza<span class="dt">\</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-classifier</span> SILVA_144_SSURef_NR99_uniform_classifier_V4-515f-806r.qza <span class="dt">\</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--i-reads</span> rep-seqs.qza <span class="dt">\</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--o-classification</span> taxonomy.qza</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
